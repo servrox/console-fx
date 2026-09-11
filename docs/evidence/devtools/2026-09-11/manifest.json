@@ -1,0 +1,3236 @@
+{
+  "preparedAt": "2026-09-11T15:51:30.632491+00:00",
+  "compiler": {
+    "createdAt": "2026-09-11T15:10:45.762Z",
+    "compilerSha256": "c87f8b4b980ea5801a6cd5022131ff3c7d90bf537b5f2b0f26aaa5e68ddc45a1",
+    "cases": [
+      "phase0-badge",
+      "phase0-multistyle",
+      "phase0-svg",
+      "phase0-motion",
+      "gallery-badge",
+      "gallery-neon",
+      "gallery-rgbSplit",
+      "gallery-extruded",
+      "gallery-holographic",
+      "gallery-gold",
+      "gallery-chrome",
+      "gallery-crt",
+      "gallery-rainbow",
+      "motion-glowPulse",
+      "motion-gradientDrift",
+      "motion-wave",
+      "motion-indicator",
+      "combo-badge-none",
+      "combo-badge-glowPulse",
+      "combo-badge-gradientDrift",
+      "combo-badge-wave",
+      "combo-badge-indicator",
+      "combo-neon-none",
+      "combo-neon-glowPulse",
+      "combo-neon-gradientDrift",
+      "combo-neon-wave",
+      "combo-neon-indicator",
+      "combo-rgbSplit-none",
+      "combo-rgbSplit-glowPulse",
+      "combo-rgbSplit-gradientDrift",
+      "combo-rgbSplit-wave",
+      "combo-rgbSplit-indicator",
+      "combo-extruded-none",
+      "combo-extruded-glowPulse",
+      "combo-extruded-gradientDrift",
+      "combo-extruded-wave",
+      "combo-extruded-indicator",
+      "combo-holographic-none",
+      "combo-holographic-glowPulse",
+      "combo-holographic-gradientDrift",
+      "combo-holographic-wave",
+      "combo-holographic-indicator",
+      "combo-gold-none",
+      "combo-gold-glowPulse",
+      "combo-gold-gradientDrift",
+      "combo-gold-wave",
+      "combo-gold-indicator",
+      "combo-chrome-none",
+      "combo-chrome-glowPulse",
+      "combo-chrome-gradientDrift",
+      "combo-chrome-wave",
+      "combo-chrome-indicator",
+      "combo-crt-none",
+      "combo-crt-glowPulse",
+      "combo-crt-gradientDrift",
+      "combo-crt-wave",
+      "combo-crt-indicator",
+      "combo-rainbow-none",
+      "combo-rainbow-glowPulse",
+      "combo-rainbow-gradientDrift",
+      "combo-rainbow-wave",
+      "combo-rainbow-indicator",
+      "combo-plain-none",
+      "combo-plain-glowPulse",
+      "combo-plain-gradientDrift",
+      "combo-plain-wave",
+      "combo-plain-indicator"
+    ]
+  },
+  "archiveSha256": "881f9022514127dc88c1c94eb515c14c7eeda367fc132cf344ba2c5c4ae1d107",
+  "rawReports": [
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/observations.json",
+      "sha256": "c6c2a29a77abfdf55f2286de9ba7f2af336438e4aa8723fc84f1c1e79b7ba5c6"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/observations.json",
+      "sha256": "e08d6778f22439cd53f957f847fe30a9e34df8ac6037eeff532532caa2e70e8f"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/observations.json",
+      "sha256": "d772de8f508082ea15dc4ecbdab009f794afd424620f747a9c7c8b89a11a2314"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/observations.json",
+      "sha256": "082ca0fcaccc78eb37628c4b1c2e8e99b74e41fae9b3f13f2104fa2dc5bfc56a"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/observations.json",
+      "sha256": "3d29c9feff4d19d42264639bcc38818bdf69d3d6d13c3721bc3b2ecbefd07a7b"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/observations.json",
+      "sha256": "4afa63aca2ac48397961f8dcdf92941116ede7d0cdc7711b7ef6c03066b8a583"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/observations.json",
+      "sha256": "2524e4107d3617d77b1e70baab2e95239ee611d05cfb1c5616b9f3b0c8403cd7"
+    },
+    {
+      "browser": "chrome",
+      "path": "reports/chrome-lifecycle-2026-09-11T15-40-20.963Z/observations.json",
+      "sha256": "bf51c407a14296f6bb52476a074bd599cf9021a9bc0bfbc24c0834d30f7c4f5f"
+    },
+    {
+      "browser": "edge",
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/observations.json",
+      "sha256": "2492dc554fd719d4b2238c13577e949c070e8060857400fbe947488581332a4f"
+    },
+    {
+      "browser": "edge",
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/observations.json",
+      "sha256": "1698187a8d980ccf4f683eaa0b8b3c529b4f411832016fde303ad8ea6b8ca120"
+    },
+    {
+      "browser": "edge",
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/observations.json",
+      "sha256": "da48833211279bb01fbf054a92e4a9938a471ef81e805278fbd2e9be6b72a4e3"
+    },
+    {
+      "browser": "edge",
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/observations.json",
+      "sha256": "0c17aa9a6270fb00809217c080ba71d3e40047d489ea2084f63812c6b6e7b117"
+    },
+    {
+      "browser": "edge",
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/observations.json",
+      "sha256": "0bd820292eddf8b6900c678a668b9251b99d015bf84344b8538ff2cb4f483e09"
+    },
+    {
+      "browser": "edge",
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/observations.json",
+      "sha256": "0daf456e0b4436bdc105bebb1e5a7a25c9da2a104979187c6380d68207eb754b"
+    }
+  ],
+  "files": [
+    {
+      "path": "inputs/fixtures-combinations-2026-09-11T145036.json",
+      "bytes": 663823,
+      "sha256": "a08c4e78500de395b2e99506f9347459d1754b707418cd8b96657bd9e4e15fbe"
+    },
+    {
+      "path": "inputs/fixtures-combinations-2026-09-11T150012.json",
+      "bytes": 664346,
+      "sha256": "3b97b6b014be3d2a3ecc3819fc1728d369a2addb66e7a16f6dcd3d750b6267c1"
+    },
+    {
+      "path": "inputs/fixtures-initial-19c70134.json",
+      "bytes": 131736,
+      "sha256": "548e385cbae11bf77eb22015bb90ae696e87e860f8761430a135a8b4fceae3d4"
+    },
+    {
+      "path": "inputs/fixtures.json",
+      "bytes": 664502,
+      "sha256": "9be74134a07eebde3d01e10feb5fb9b1a014c7ecad4d963252379d73c52ae1b2"
+    },
+    {
+      "path": "inputs/terminal-review-index.json",
+      "bytes": 34887,
+      "sha256": "4918ca045bfa8cb74bb7136b24613f3a96ece4d9cb95a94747dd29ea0f45cb1e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/observations.json",
+      "bytes": 8320,
+      "sha256": "c6c2a29a77abfdf55f2286de9ba7f2af336438e4aa8723fc84f1c1e79b7ba5c6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-badge-console.png",
+      "bytes": 28835,
+      "sha256": "9a45e7e75ede18f29deab488539d0cc818996c02aadd9fb7bfe427fb111e049a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-motion-after.png",
+      "bytes": 17908,
+      "sha256": "91ee6695f012c4ee16b9f21258fa8b0b6162034c563a0ac552e10563c023f5b8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-motion-console.png",
+      "bytes": 41806,
+      "sha256": "31c608dcf09bb59f471175c9cded47933edf9c489d6f64a01575ed1973a2280f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-motion-early.png",
+      "bytes": 17908,
+      "sha256": "789aa852ab166dad47a0536f850b2bc0de0c2498b1f544670ce4853fbe9d2c50"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-motion-end.png",
+      "bytes": 17908,
+      "sha256": "91ee6695f012c4ee16b9f21258fa8b0b6162034c563a0ac552e10563c023f5b8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-motion-moving.png",
+      "bytes": 17908,
+      "sha256": "43b31fdcd87e987c865e180bc4f7ed7bf6abb2c24f0439c1d7015712859abad6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-multistyle-console.png",
+      "bytes": 27756,
+      "sha256": "d3d9f7c976ac89259f0478ba03403ebcb09cd84727f976b0cdde79dce3fb8e6e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-svg-console.png",
+      "bytes": 45754,
+      "sha256": "ebf98c359a04514203e80a00c61245ca950c7b6934ee576f5fe2ab6e5564956f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T13-52-11.888Z/phase0-svg-static.png",
+      "bytes": 21607,
+      "sha256": "f1b04154020a3d79e3b245a12ff8f0351d89be6164f24c0a201ed5a256f72b07"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-glowPulse-after.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-glowPulse-console.png",
+      "bytes": 30025,
+      "sha256": "642182017b746d06708bc756f0ccd05fb9e99363e8079635b2a24812e7c5c7d7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-glowPulse-early.png",
+      "bytes": 8218,
+      "sha256": "3dacdceb106a09f1d9a8d7ba9794cbf7fc21233290e01a16e801bed74ce120e1"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-glowPulse-end.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-glowPulse-moving.png",
+      "bytes": 7694,
+      "sha256": "2634af68e2301dbd29f5ed7adaf0d2dd0cdf6e666aa5f259bcdf217b897eb36c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-gradientDrift-after.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-gradientDrift-console.png",
+      "bytes": 30025,
+      "sha256": "642182017b746d06708bc756f0ccd05fb9e99363e8079635b2a24812e7c5c7d7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-gradientDrift-early.png",
+      "bytes": 7316,
+      "sha256": "3c9f1c551890baa0483f7b10385613d581d4e2a22154f8c8672efa39749eb10e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-gradientDrift-end.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-gradientDrift-moving.png",
+      "bytes": 7306,
+      "sha256": "4ed126913074a9d1af18a0ce3a7d127eda57a947a74472c6178e138694c7a839"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-indicator-after.png",
+      "bytes": 7336,
+      "sha256": "f405926ad625d7eac592b2f29257d731a7fd1b87fe9a0118bc09a584f5ef8c5c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-indicator-console.png",
+      "bytes": 30108,
+      "sha256": "d7931e2bb92fb3b7e1de461364c6fb696c550ef553af2105f524f673092859fa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-indicator-early.png",
+      "bytes": 7347,
+      "sha256": "a0ee9e371829a3395f7af1708eedce5bcfacaaaf5b7d53b33a4671e2866a1c5a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-indicator-end.png",
+      "bytes": 7336,
+      "sha256": "f405926ad625d7eac592b2f29257d731a7fd1b87fe9a0118bc09a584f5ef8c5c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-indicator-moving.png",
+      "bytes": 7334,
+      "sha256": "f8c3d24eea64214111b8c3943dd38f895b363c2d919e25bb801c77e54e594d58"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-wave-after.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-wave-console.png",
+      "bytes": 30025,
+      "sha256": "642182017b746d06708bc756f0ccd05fb9e99363e8079635b2a24812e7c5c7d7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-wave-early.png",
+      "bytes": 7276,
+      "sha256": "b47efa4d87eec2e121746e88757b6ef22cb6053cdc335b4c5b6e68464900f2cc"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-wave-end.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/motion-wave-moving.png",
+      "bytes": 7264,
+      "sha256": "ac8c11e5d468a9b3a8affb6c140fd04a3ff824c7b5ba88dbe946834601551464"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-00-14.560Z/observations.json",
+      "bytes": 15603,
+      "sha256": "d772de8f508082ea15dc4ecbdab009f794afd424620f747a9c7c8b89a11a2314"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-glowPulse-after.png",
+      "bytes": 5379,
+      "sha256": "1c60fe4e482d8005e82d20de19fc5a95b2e5ecbba019deb3a1a847daef127266"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-glowPulse-console.png",
+      "bytes": 31131,
+      "sha256": "cc1a431d60cd2aca0b2bbe2505124caf661ef3196fc76f9995004f8c274ef51d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-glowPulse-early.png",
+      "bytes": 5739,
+      "sha256": "3560995cdeb3bba9717fa46206cd87aebc66ee5660dafe7bc4ed105826737891"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-glowPulse-end.png",
+      "bytes": 5379,
+      "sha256": "1c60fe4e482d8005e82d20de19fc5a95b2e5ecbba019deb3a1a847daef127266"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-glowPulse-moving.png",
+      "bytes": 5353,
+      "sha256": "941efaaa0de8362977067c677a452307103d914d6ff0edd6d8cee7836ad78618"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-gradientDrift-after.png",
+      "bytes": 7091,
+      "sha256": "6f897f7fbe5aa8283236b4ddafe3874db1944a19d74e85c8a8b5c57a705b6bc9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-gradientDrift-console.png",
+      "bytes": 33126,
+      "sha256": "0c7388bd45289bf7762b2a0d64c03e4f4ec5376b4776a14b2e1ef4f4f4c36737"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-gradientDrift-early.png",
+      "bytes": 7079,
+      "sha256": "b4fd87bc3f23150432cca7cded11d7f732a19256a604de96fca15f4d0c7bb877"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-gradientDrift-end.png",
+      "bytes": 7091,
+      "sha256": "6f897f7fbe5aa8283236b4ddafe3874db1944a19d74e85c8a8b5c57a705b6bc9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-gradientDrift-moving.png",
+      "bytes": 7027,
+      "sha256": "b61f5e71b9e33530e3213bc16fbe23fc05864a9aa16b0bff2d842e5836789f16"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-indicator-after.png",
+      "bytes": 5406,
+      "sha256": "151359b80067e0b5661e80bced64041d1fd1f4957b8a308839f71932de007bb6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-indicator-console.png",
+      "bytes": 31158,
+      "sha256": "163ae04d4c4a2b217e0892d2b45a130c6bb2f26a1609f5dcd10e7774f50af42d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-indicator-early.png",
+      "bytes": 5410,
+      "sha256": "03ac71a0c3ad1e87ee04c731cb6014c658d422dfa0c03e49eba279d6a866b287"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-indicator-end.png",
+      "bytes": 5406,
+      "sha256": "151359b80067e0b5661e80bced64041d1fd1f4957b8a308839f71932de007bb6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-indicator-moving.png",
+      "bytes": 5391,
+      "sha256": "bcebb6b2c438e6df532cbb42c7a9502c3e2e702dd7089fb199ad52375044ae31"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-none-console.png",
+      "bytes": 31131,
+      "sha256": "cc1a431d60cd2aca0b2bbe2505124caf661ef3196fc76f9995004f8c274ef51d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-none-static.png",
+      "bytes": 5379,
+      "sha256": "1c60fe4e482d8005e82d20de19fc5a95b2e5ecbba019deb3a1a847daef127266"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-wave-after.png",
+      "bytes": 5379,
+      "sha256": "1c60fe4e482d8005e82d20de19fc5a95b2e5ecbba019deb3a1a847daef127266"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-wave-console.png",
+      "bytes": 31131,
+      "sha256": "cc1a431d60cd2aca0b2bbe2505124caf661ef3196fc76f9995004f8c274ef51d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-wave-early.png",
+      "bytes": 5389,
+      "sha256": "7f4ad5cb1cd016b4b937c226a359daf0f7a3b092bbdc93bf7e9ea6416cf0b50c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-wave-end.png",
+      "bytes": 5379,
+      "sha256": "1c60fe4e482d8005e82d20de19fc5a95b2e5ecbba019deb3a1a847daef127266"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-badge-wave-moving.png",
+      "bytes": 5386,
+      "sha256": "d34c02e58c48e61ed82f8917735e9e722820b235854eb2b14c47977779c97273"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-glowPulse-after.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-glowPulse-console.png",
+      "bytes": 34252,
+      "sha256": "254ce109abcd738f2e286ecbdf9d00ef5ebb9023b80b99398386a671112eae51"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-glowPulse-early.png",
+      "bytes": 9180,
+      "sha256": "c2aabd8ff33d350accfd5435457a2ae8245240395c4193624cb68c5205db1969"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-glowPulse-end.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-glowPulse-moving.png",
+      "bytes": 8023,
+      "sha256": "b6da1ea7eed5ef65a55d33ce9259647182eda3852fce1b69fbdacce729f82f47"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-gradientDrift-after.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-gradientDrift-console.png",
+      "bytes": 34252,
+      "sha256": "254ce109abcd738f2e286ecbdf9d00ef5ebb9023b80b99398386a671112eae51"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-gradientDrift-early.png",
+      "bytes": 8460,
+      "sha256": "739027078593672a24c95127481d01138f79e681ed93ec23b007b390091403b2"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-gradientDrift-end.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-gradientDrift-moving.png",
+      "bytes": 8547,
+      "sha256": "b0839f546033cfd2190b3aad002e5e633fa7e6d11e769b91af67674efa0ffa9f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-indicator-after.png",
+      "bytes": 8411,
+      "sha256": "8427a4fce06cdd05079db3b8bfe75288a7d81267e23927cd135c82f500f503f9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-indicator-console.png",
+      "bytes": 34327,
+      "sha256": "f9b9e476a5603bba9756aa44c313e3b884fdeb07bf8fac200df6aec2c01259e5"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-indicator-early.png",
+      "bytes": 8410,
+      "sha256": "ca06f823e0e5c9d8a56e1068f8288d819dc3b0d569c597c3f60d5bb5566b5eba"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-indicator-end.png",
+      "bytes": 8411,
+      "sha256": "8427a4fce06cdd05079db3b8bfe75288a7d81267e23927cd135c82f500f503f9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-indicator-moving.png",
+      "bytes": 8410,
+      "sha256": "b4ba1e46c25aeaf1d59aa49b2c5336a60a9c2d12b6fbf34c75b9d421810daade"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-none-console.png",
+      "bytes": 34252,
+      "sha256": "254ce109abcd738f2e286ecbdf9d00ef5ebb9023b80b99398386a671112eae51"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-none-static.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-wave-after.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-wave-console.png",
+      "bytes": 34252,
+      "sha256": "254ce109abcd738f2e286ecbdf9d00ef5ebb9023b80b99398386a671112eae51"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-wave-early.png",
+      "bytes": 8342,
+      "sha256": "71030160cd28741a6caac41d92066bbc168205f710d551f8d9f36206adc0f618"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-wave-end.png",
+      "bytes": 8362,
+      "sha256": "41a6981fc07a1b1e212c552ebd60763550e50c14cd2421c372e71937dc98ff94"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-chrome-wave-moving.png",
+      "bytes": 8410,
+      "sha256": "7f9ab72c63c00e3c79744842a3b4fc69fbe1cd5278ec241f875bb6ea89ce2da4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-glowPulse-after.png",
+      "bytes": 5594,
+      "sha256": "b3860f90feef0bff13549fca058ec29837f0e04790bdea4be2afd81ddd78c2ca"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-glowPulse-console.png",
+      "bytes": 31392,
+      "sha256": "6a07ffa51b6a9df4bcab55ad18592a4aebc9cde2bb392c76c9a52307a90dbc1e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-glowPulse-early.png",
+      "bytes": 6018,
+      "sha256": "485845120c2bdc708b499c9ad89742adda80a9af1e4f7df8d6380f4f80577ac2"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-glowPulse-end.png",
+      "bytes": 5594,
+      "sha256": "b3860f90feef0bff13549fca058ec29837f0e04790bdea4be2afd81ddd78c2ca"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-glowPulse-moving.png",
+      "bytes": 5628,
+      "sha256": "2ae71e15cb4ed661702b4f73aa15644d16dff461370f9d41647393f4755af9b8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-gradientDrift-after.png",
+      "bytes": 7803,
+      "sha256": "b3bea34975c656400886e1636222cfad535b4a65d9b441689939e212056ae3c3"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-gradientDrift-console.png",
+      "bytes": 33642,
+      "sha256": "e4a420725ba6136704846e710059423659a184ec5a9fbadf6854bb07129d20e5"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-gradientDrift-early.png",
+      "bytes": 7729,
+      "sha256": "87133e3b77b7574eb4548ae64fe87abaf42611c34494808dfe78313596598cbf"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-gradientDrift-end.png",
+      "bytes": 7803,
+      "sha256": "b3bea34975c656400886e1636222cfad535b4a65d9b441689939e212056ae3c3"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-gradientDrift-moving.png",
+      "bytes": 7694,
+      "sha256": "1cc6bb43bbd05929a9676f35e6c33821df0cfbb346ea18748247249fe9a6c9f9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-indicator-after.png",
+      "bytes": 5640,
+      "sha256": "ba5d50e9908f7242ea4fbb443acf9b75c7530b7759428dad5d45cf98117d8f44"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-indicator-console.png",
+      "bytes": 31469,
+      "sha256": "79aa389eeba2416b521014aa7e9c4d7864539ee34f90231e350cb207390582cb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-indicator-early.png",
+      "bytes": 5640,
+      "sha256": "de3cf8df1c27823a8710c4c60be808787ba727480c5a7d6df23872b94947a5a4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-indicator-end.png",
+      "bytes": 5640,
+      "sha256": "ba5d50e9908f7242ea4fbb443acf9b75c7530b7759428dad5d45cf98117d8f44"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-indicator-moving.png",
+      "bytes": 5651,
+      "sha256": "e46564359c8cbc1b79ab55d5b04b6937aa80879079346993fd703dc19d57e5f7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-none-console.png",
+      "bytes": 31392,
+      "sha256": "6a07ffa51b6a9df4bcab55ad18592a4aebc9cde2bb392c76c9a52307a90dbc1e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-none-static.png",
+      "bytes": 5594,
+      "sha256": "b3860f90feef0bff13549fca058ec29837f0e04790bdea4be2afd81ddd78c2ca"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-wave-after.png",
+      "bytes": 5594,
+      "sha256": "b3860f90feef0bff13549fca058ec29837f0e04790bdea4be2afd81ddd78c2ca"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-wave-console.png",
+      "bytes": 31392,
+      "sha256": "6a07ffa51b6a9df4bcab55ad18592a4aebc9cde2bb392c76c9a52307a90dbc1e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-wave-early.png",
+      "bytes": 6141,
+      "sha256": "455f0cd572fec011aae2e3254c542faf667409cb1d12044f322dda099f58ebb7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-wave-end.png",
+      "bytes": 5594,
+      "sha256": "b3860f90feef0bff13549fca058ec29837f0e04790bdea4be2afd81ddd78c2ca"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-crt-wave-moving.png",
+      "bytes": 6026,
+      "sha256": "680901d35fce45657962cfa8b126d2fff77a5aceea999b134870090c55f35dba"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-glowPulse-after.png",
+      "bytes": 7352,
+      "sha256": "2fd8e755ef4ef07345be551ae27619d1fd3f8a1a1e37c3f2855a808a487f8e97"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-glowPulse-console.png",
+      "bytes": 32995,
+      "sha256": "97c53f40ab0c24dedf8f7732f1b0bd793bbdcf5ec0493e1c43ab9e0a2021a1a8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-glowPulse-early.png",
+      "bytes": 8444,
+      "sha256": "fd1687e30516f10db8f318ca69ccddec4048f8213139f3a42733ed143fe89456"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-glowPulse-end.png",
+      "bytes": 7352,
+      "sha256": "2fd8e755ef4ef07345be551ae27619d1fd3f8a1a1e37c3f2855a808a487f8e97"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-glowPulse-moving.png",
+      "bytes": 7519,
+      "sha256": "8b348722eed8d7dd3dc441b245db5f29ccbf71cc57cf2302a242e1b95c248c86"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-gradientDrift-after.png",
+      "bytes": 9225,
+      "sha256": "0cfa3208853c10d7da335654f7473fa44d9db5d1034ea1b937c384edb27b9c38"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-gradientDrift-console.png",
+      "bytes": 34959,
+      "sha256": "2450bd7f3e794398855f673669b7f22f2faa134f95cd9a9ae94304ee0fc017b9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-gradientDrift-early.png",
+      "bytes": 9234,
+      "sha256": "c784ac4b9e15e37097dc4aa64ce816ca202bde6eea0f63027abdf0cb38715fa7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-gradientDrift-end.png",
+      "bytes": 9225,
+      "sha256": "0cfa3208853c10d7da335654f7473fa44d9db5d1034ea1b937c384edb27b9c38"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-gradientDrift-moving.png",
+      "bytes": 9154,
+      "sha256": "29fa9a277840bb42ee593524c3e8d42f13fd6a4411bce753dc0367ad553643df"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-indicator-after.png",
+      "bytes": 7401,
+      "sha256": "40e0b3a3274c2aeb1fa05129dbbecc86fd05f6015e4f7aef653f3e36a80c8bf8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-indicator-console.png",
+      "bytes": 33059,
+      "sha256": "2ad909afe9e79aadc9e407a1276aec79ded6193c94ebbd41c4df2643f9fcda91"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-indicator-early.png",
+      "bytes": 7410,
+      "sha256": "f6e5a825b377918e70d5c486a26143fb663262aaaac2bccc20c8675e636b696a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-indicator-end.png",
+      "bytes": 7401,
+      "sha256": "40e0b3a3274c2aeb1fa05129dbbecc86fd05f6015e4f7aef653f3e36a80c8bf8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-indicator-moving.png",
+      "bytes": 7401,
+      "sha256": "3257483e6eeb27e2fa6b32cb592eab93a2ede1759bf9f44054bcc4574092c944"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-none-console.png",
+      "bytes": 32995,
+      "sha256": "97c53f40ab0c24dedf8f7732f1b0bd793bbdcf5ec0493e1c43ab9e0a2021a1a8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-none-static.png",
+      "bytes": 7352,
+      "sha256": "2fd8e755ef4ef07345be551ae27619d1fd3f8a1a1e37c3f2855a808a487f8e97"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-wave-after.png",
+      "bytes": 7352,
+      "sha256": "2fd8e755ef4ef07345be551ae27619d1fd3f8a1a1e37c3f2855a808a487f8e97"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-wave-console.png",
+      "bytes": 32995,
+      "sha256": "97c53f40ab0c24dedf8f7732f1b0bd793bbdcf5ec0493e1c43ab9e0a2021a1a8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-wave-early.png",
+      "bytes": 7352,
+      "sha256": "666185a63ab7cd4194b7e895dcbd99da826f09c5030b5c31e3f9c6310edb248d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-wave-end.png",
+      "bytes": 7352,
+      "sha256": "2fd8e755ef4ef07345be551ae27619d1fd3f8a1a1e37c3f2855a808a487f8e97"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-extruded-wave-moving.png",
+      "bytes": 7352,
+      "sha256": "2fd8e755ef4ef07345be551ae27619d1fd3f8a1a1e37c3f2855a808a487f8e97"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-glowPulse-after.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-glowPulse-console.png",
+      "bytes": 34454,
+      "sha256": "c40c718a7403fc6b03d5c80a3b4e9d9d75daebc5e9f9140308e639b1a4627879"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-glowPulse-early.png",
+      "bytes": 9174,
+      "sha256": "9220bcbe190cddb9797c5d994ba8c73a97254191ee902803207d0edb5b960be6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-glowPulse-end.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-glowPulse-moving.png",
+      "bytes": 8125,
+      "sha256": "12512746cf58bec40f3e468e2c2469816c03f38e547c9e39d75e9d39ed912f3a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-gradientDrift-after.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-gradientDrift-console.png",
+      "bytes": 34454,
+      "sha256": "c40c718a7403fc6b03d5c80a3b4e9d9d75daebc5e9f9140308e639b1a4627879"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-gradientDrift-early.png",
+      "bytes": 8551,
+      "sha256": "f10508c979405f3197697f5e43cf8af11a57e494f5f017d12fe388394c7a0a93"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-gradientDrift-end.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-gradientDrift-moving.png",
+      "bytes": 8623,
+      "sha256": "85477ecc0678457ac88367004e63d66880bb0c9d73fcc5d242f8cdef0b46dacb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-indicator-after.png",
+      "bytes": 8566,
+      "sha256": "9c1516da17c278ae6f7fb137a1d416cf44640dd71ed4c1de383a82a77f97fa31"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-indicator-console.png",
+      "bytes": 34529,
+      "sha256": "5885074ba3721e47139c595399992c9fcc666239b1db6b598450b065ea9d47da"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-indicator-early.png",
+      "bytes": 8570,
+      "sha256": "ab84bd9fa7e35a6fb6d3a39bc4a69eb421e58b74b1115036e84e85cc13691d62"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-indicator-end.png",
+      "bytes": 8566,
+      "sha256": "9c1516da17c278ae6f7fb137a1d416cf44640dd71ed4c1de383a82a77f97fa31"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-indicator-moving.png",
+      "bytes": 8569,
+      "sha256": "1b858d6c3e033a7818dcc43e038f9d21cb239a5903e7e84342d7990b28ed56ad"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-none-console.png",
+      "bytes": 34454,
+      "sha256": "c40c718a7403fc6b03d5c80a3b4e9d9d75daebc5e9f9140308e639b1a4627879"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-none-static.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-wave-after.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-wave-console.png",
+      "bytes": 34454,
+      "sha256": "c40c718a7403fc6b03d5c80a3b4e9d9d75daebc5e9f9140308e639b1a4627879"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-wave-early.png",
+      "bytes": 8515,
+      "sha256": "1aca7737d4a931fd28dce216664ca2d1232e346ae791596dcf926c028a2d1c15"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-wave-end.png",
+      "bytes": 8516,
+      "sha256": "9c0efd60b2325b37fe0944c4a3bd753ed58a22c16fee1229c8b30109155419bd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-gold-wave-moving.png",
+      "bytes": 8514,
+      "sha256": "4a0c71af1acff529e9abecd3d754b2258798e165124e2f006495012430539720"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-glowPulse-after.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-glowPulse-console.png",
+      "bytes": 34458,
+      "sha256": "e541a8cfa18f78e6e4958b5507c2f2ba6a9bb374dd30146ea1ee74c12d3c0952"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-glowPulse-early.png",
+      "bytes": 9204,
+      "sha256": "53ca50367b9a389045977be30c2e17e55ce77f9daa6b4ee005a241200dce9187"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-glowPulse-end.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-glowPulse-moving.png",
+      "bytes": 8254,
+      "sha256": "bddd1166c67d25acf2dd216af6db9c00027df17d84ec3e3a71d31ad99453bf5f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-gradientDrift-after.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-gradientDrift-console.png",
+      "bytes": 34458,
+      "sha256": "e541a8cfa18f78e6e4958b5507c2f2ba6a9bb374dd30146ea1ee74c12d3c0952"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-gradientDrift-early.png",
+      "bytes": 8511,
+      "sha256": "bae2b5d27c6812e2b3146173530efe32e583e665a19360afabba89112e7563fc"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-gradientDrift-end.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-gradientDrift-moving.png",
+      "bytes": 8496,
+      "sha256": "51ce612e649da5414b3fced2db064b34b942c18b58555e16c19d5240e062b654"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-indicator-after.png",
+      "bytes": 8581,
+      "sha256": "4d9ce629d07e6a70693b03878736e6596e887a459c845865ec729653286b4be0"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-indicator-console.png",
+      "bytes": 34535,
+      "sha256": "1ce258d675746449b5bedf592fb221ff9244c364348233288e6d8f98f79b3e4b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-indicator-early.png",
+      "bytes": 8589,
+      "sha256": "2445033ad6ffec8540f1f329f5cede090b13d319477eb8158bb044678279bedc"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-indicator-end.png",
+      "bytes": 8581,
+      "sha256": "4d9ce629d07e6a70693b03878736e6596e887a459c845865ec729653286b4be0"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-indicator-moving.png",
+      "bytes": 8584,
+      "sha256": "5c4e2f283e3cd9fbad7302b731d954149a4dae989137a823f4a102e3a3cb652a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-none-console.png",
+      "bytes": 34458,
+      "sha256": "e541a8cfa18f78e6e4958b5507c2f2ba6a9bb374dd30146ea1ee74c12d3c0952"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-none-static.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-wave-after.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-wave-console.png",
+      "bytes": 34458,
+      "sha256": "e541a8cfa18f78e6e4958b5507c2f2ba6a9bb374dd30146ea1ee74c12d3c0952"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-wave-early.png",
+      "bytes": 8545,
+      "sha256": "6543b16a1be6591797edaa15ff68363979b5ba9cc5a5ca7e963aa4b547e09289"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-wave-end.png",
+      "bytes": 8533,
+      "sha256": "0e4444ae37bd936d7c6c510cef90448b706db78988c85896383694d768ca19fb"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-holographic-wave-moving.png",
+      "bytes": 8500,
+      "sha256": "d543fb667821e01be92bea0379c61de0fcf0446d928d6ba5b16ea241ba353830"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-glowPulse-after.png",
+      "bytes": 13401,
+      "sha256": "72bc1edd65242edab72cf006b3799a6c28d436541aec62a300e04fdc334f773e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-glowPulse-console.png",
+      "bytes": 39901,
+      "sha256": "a90cd4dd7e3ab2637c28a0e945bfb25301fe6403ded9834f203c9fc43014893b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-glowPulse-early.png",
+      "bytes": 12750,
+      "sha256": "bff224e75540c188afe0f4f908859ba9f9685e91267b445331a1a72977bb4d9c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-glowPulse-end.png",
+      "bytes": 13401,
+      "sha256": "72bc1edd65242edab72cf006b3799a6c28d436541aec62a300e04fdc334f773e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-glowPulse-moving.png",
+      "bytes": 10922,
+      "sha256": "808915c7f8e92b47f6ef4d76587fa984f716c1de7d715facb6eb7d7034d44f71"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-gradientDrift-after.png",
+      "bytes": 15918,
+      "sha256": "836861a74e3ce7ec91aac1def26e8296843c6b1d3f93f2903d161c77392d0aaa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-gradientDrift-console.png",
+      "bytes": 42636,
+      "sha256": "90228db080a5ad464112edd0e4d5c7994dc63901de0c96a61c6fed1e2847699d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-gradientDrift-early.png",
+      "bytes": 15898,
+      "sha256": "6d72faa89abd66b90c6ef43f71171939bddc684a3f9ced385a629b385fbbbaab"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-gradientDrift-end.png",
+      "bytes": 15918,
+      "sha256": "836861a74e3ce7ec91aac1def26e8296843c6b1d3f93f2903d161c77392d0aaa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-gradientDrift-moving.png",
+      "bytes": 15761,
+      "sha256": "aead6bd71e808e7c8a604351255e4c83270cb936856db9b890a898f3f15fbe1f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-indicator-after.png",
+      "bytes": 13449,
+      "sha256": "19261a9201fdf806928885d9d231b9c947fdc901e97788e5adb5a373d915d223"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-indicator-console.png",
+      "bytes": 39960,
+      "sha256": "3821a7017e3168de83689c7103c41a814df14ef6b917672c67e4619775a5ee14"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-indicator-early.png",
+      "bytes": 13459,
+      "sha256": "1355c525577db24565b35b1cbf2615cc0a0eea47ec5ad437759d40eafa8d4b8a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-indicator-end.png",
+      "bytes": 13449,
+      "sha256": "19261a9201fdf806928885d9d231b9c947fdc901e97788e5adb5a373d915d223"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-indicator-moving.png",
+      "bytes": 13451,
+      "sha256": "3f771bdb7ef0b6cfb4cf083004bac8cea17bb7998de20cee235c64112972e64e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-none-console.png",
+      "bytes": 39901,
+      "sha256": "a90cd4dd7e3ab2637c28a0e945bfb25301fe6403ded9834f203c9fc43014893b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-none-static.png",
+      "bytes": 13401,
+      "sha256": "72bc1edd65242edab72cf006b3799a6c28d436541aec62a300e04fdc334f773e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-wave-after.png",
+      "bytes": 13401,
+      "sha256": "72bc1edd65242edab72cf006b3799a6c28d436541aec62a300e04fdc334f773e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-wave-console.png",
+      "bytes": 39901,
+      "sha256": "a90cd4dd7e3ab2637c28a0e945bfb25301fe6403ded9834f203c9fc43014893b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-wave-early.png",
+      "bytes": 13401,
+      "sha256": "2a1c413c307bd0170517ce0ea9927f251825b4bd52de7920b24d9d934e60d969"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-wave-end.png",
+      "bytes": 13401,
+      "sha256": "72bc1edd65242edab72cf006b3799a6c28d436541aec62a300e04fdc334f773e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-neon-wave-moving.png",
+      "bytes": 13401,
+      "sha256": "72bc1edd65242edab72cf006b3799a6c28d436541aec62a300e04fdc334f773e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-glowPulse-after.png",
+      "bytes": 4873,
+      "sha256": "9cf71ef23c214b202fa064ddd5e9e94c78ed128cecec868965ae81f4d6fb52aa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-glowPulse-console.png",
+      "bytes": 30666,
+      "sha256": "590c9a3cefc30e153478a4ef3314745388693fd2f1239dbed10bc4fd8fd568ae"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-glowPulse-early.png",
+      "bytes": 5635,
+      "sha256": "35b785cc8142d7e726e4e20e20287bddc38c28c256e9d63b6202db3b9209001f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-glowPulse-end.png",
+      "bytes": 4873,
+      "sha256": "9cf71ef23c214b202fa064ddd5e9e94c78ed128cecec868965ae81f4d6fb52aa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-glowPulse-moving.png",
+      "bytes": 5295,
+      "sha256": "bd7ce0dcc48fbf2cc979abfbd515888a434e52dff789465745f2869ab5e64c98"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-gradientDrift-after.png",
+      "bytes": 7264,
+      "sha256": "cade106d25b7a3ff41129bce06530f75fda0de8bf51cff104449c78f256a5190"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-gradientDrift-console.png",
+      "bytes": 33140,
+      "sha256": "2fdb025e8d3f63560c24997f98454990dc0cf94bece16aaad4941a2a6d6b5ffe"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-gradientDrift-early.png",
+      "bytes": 7213,
+      "sha256": "b265f8484db8889057232f67f76b5c1429647a96e84aab87fc65f4448cb1707e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-gradientDrift-end.png",
+      "bytes": 7264,
+      "sha256": "cade106d25b7a3ff41129bce06530f75fda0de8bf51cff104449c78f256a5190"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-gradientDrift-moving.png",
+      "bytes": 7197,
+      "sha256": "714fa1d443df8081a008908ba5a0e5c0f23f63ecd1666183145b7f94f02ae96f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-indicator-after.png",
+      "bytes": 4925,
+      "sha256": "1980993aa042ccc10fb90cdbcc502d10670a3f38847f19091d82099159ac9208"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-indicator-console.png",
+      "bytes": 30749,
+      "sha256": "9dafaa80124b5cba1d2dec3df44042811a710a492af10dc3b53606e4c3d2c898"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-indicator-early.png",
+      "bytes": 4937,
+      "sha256": "8d7e1e16e7ae373490310ccbaa6de457c30df5ede541c8afa2919788f267d60c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-indicator-end.png",
+      "bytes": 4925,
+      "sha256": "1980993aa042ccc10fb90cdbcc502d10670a3f38847f19091d82099159ac9208"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-indicator-moving.png",
+      "bytes": 4924,
+      "sha256": "185ab36628f634a639ab6e92725b6b47236514923686c8305ee7bf9774c59409"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-none-console.png",
+      "bytes": 30666,
+      "sha256": "590c9a3cefc30e153478a4ef3314745388693fd2f1239dbed10bc4fd8fd568ae"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-none-static.png",
+      "bytes": 4873,
+      "sha256": "9cf71ef23c214b202fa064ddd5e9e94c78ed128cecec868965ae81f4d6fb52aa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-wave-after.png",
+      "bytes": 4873,
+      "sha256": "9cf71ef23c214b202fa064ddd5e9e94c78ed128cecec868965ae81f4d6fb52aa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-wave-console.png",
+      "bytes": 30666,
+      "sha256": "590c9a3cefc30e153478a4ef3314745388693fd2f1239dbed10bc4fd8fd568ae"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-wave-early.png",
+      "bytes": 4873,
+      "sha256": "d2b88b3125046bbefd69fe3250c80fb121106946e7bb90525b90ce26b039e251"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-wave-end.png",
+      "bytes": 4873,
+      "sha256": "9cf71ef23c214b202fa064ddd5e9e94c78ed128cecec868965ae81f4d6fb52aa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-plain-wave-moving.png",
+      "bytes": 4873,
+      "sha256": "9cf71ef23c214b202fa064ddd5e9e94c78ed128cecec868965ae81f4d6fb52aa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-glowPulse-after.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-glowPulse-console.png",
+      "bytes": 33161,
+      "sha256": "0fc7aa73e288acc322df9ee1f5bd0e8dc27ba39db8604b5c24557245b4715dee"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-glowPulse-early.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-glowPulse-end.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-glowPulse-moving.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-gradientDrift-after.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-gradientDrift-console.png",
+      "bytes": 33161,
+      "sha256": "0fc7aa73e288acc322df9ee1f5bd0e8dc27ba39db8604b5c24557245b4715dee"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-gradientDrift-early.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-gradientDrift-end.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-gradientDrift-moving.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-indicator-after.png",
+      "bytes": 7336,
+      "sha256": "f405926ad625d7eac592b2f29257d731a7fd1b87fe9a0118bc09a584f5ef8c5c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-indicator-console.png",
+      "bytes": 33238,
+      "sha256": "dc4e6ace2d20b0500328c355488add6901f0cba496d9fa32b08f81ebc6eaecbe"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-indicator-early.png",
+      "bytes": 7336,
+      "sha256": "f405926ad625d7eac592b2f29257d731a7fd1b87fe9a0118bc09a584f5ef8c5c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-indicator-end.png",
+      "bytes": 7336,
+      "sha256": "f405926ad625d7eac592b2f29257d731a7fd1b87fe9a0118bc09a584f5ef8c5c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-indicator-moving.png",
+      "bytes": 7336,
+      "sha256": "f405926ad625d7eac592b2f29257d731a7fd1b87fe9a0118bc09a584f5ef8c5c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-none-console.png",
+      "bytes": 33161,
+      "sha256": "0fc7aa73e288acc322df9ee1f5bd0e8dc27ba39db8604b5c24557245b4715dee"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-none-static.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-wave-after.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-wave-console.png",
+      "bytes": 33161,
+      "sha256": "0fc7aa73e288acc322df9ee1f5bd0e8dc27ba39db8604b5c24557245b4715dee"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-wave-early.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-wave-end.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rainbow-wave-moving.png",
+      "bytes": 7286,
+      "sha256": "18612c8dcce43ec3ce416c072b0060803df03aa9ed6632445a8bbc2c8be873f8"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-glowPulse-after.png",
+      "bytes": 7753,
+      "sha256": "80a3c6f779fae911e787a3b76dbc4ad3c1d57c842cddbb482c40e208ac47d24a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-glowPulse-console.png",
+      "bytes": 33610,
+      "sha256": "9bab22665587ae931e7431022cb88982c079c2c0112cf03476fd4e12142b41f2"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-glowPulse-early.png",
+      "bytes": 7922,
+      "sha256": "b9fa38ef52f35cf1a5d54b720a8b3cd7ea357848c71393fe672a6ccaab21f81b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-glowPulse-end.png",
+      "bytes": 7753,
+      "sha256": "80a3c6f779fae911e787a3b76dbc4ad3c1d57c842cddbb482c40e208ac47d24a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-glowPulse-moving.png",
+      "bytes": 7256,
+      "sha256": "2a1def7048db7b69ad088f7b8febf87b0c3d7f064476eff182fa3535ff747f6e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-gradientDrift-after.png",
+      "bytes": 9585,
+      "sha256": "e73e8f264b29062acb3d7900d8d577606c8de5399f1f84181c6152c7e9b1065e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-gradientDrift-console.png",
+      "bytes": 35523,
+      "sha256": "ae91064719e2be61fb0907dce438e34380b5f11cff60d9a74f0ecbdfeb39dcc9"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-gradientDrift-early.png",
+      "bytes": 9494,
+      "sha256": "7f5da6e2ad72efcdcac6165ed7330bf34c990d38d019d32c4984c5166d205eaf"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-gradientDrift-end.png",
+      "bytes": 9585,
+      "sha256": "e73e8f264b29062acb3d7900d8d577606c8de5399f1f84181c6152c7e9b1065e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-gradientDrift-moving.png",
+      "bytes": 9537,
+      "sha256": "6feb0baa7e1997c2a001a662a7fed8960a5660a9bd1fad7a1bd2eb8c43327991"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-indicator-after.png",
+      "bytes": 7799,
+      "sha256": "413d95981c45abcc3e7068d7a41f0071907194aaa12e29731900586490032cb1"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-indicator-console.png",
+      "bytes": 33687,
+      "sha256": "b050e4ed4b41a85f3f6542b60f02b218b654cde0e6605123af43c60c1cc1184b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-indicator-early.png",
+      "bytes": 7801,
+      "sha256": "8363b382e407cb8db66db3a946a1172cf97a5949eb2e9cdd58f5bc422637a7e6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-indicator-end.png",
+      "bytes": 7799,
+      "sha256": "413d95981c45abcc3e7068d7a41f0071907194aaa12e29731900586490032cb1"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-indicator-moving.png",
+      "bytes": 7800,
+      "sha256": "ed4e881153e69d262da5afb0836b3a7b5f7b5b7807ef3a821aeb74f4fcbaa61b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-none-console.png",
+      "bytes": 33610,
+      "sha256": "9bab22665587ae931e7431022cb88982c079c2c0112cf03476fd4e12142b41f2"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-none-static.png",
+      "bytes": 7753,
+      "sha256": "80a3c6f779fae911e787a3b76dbc4ad3c1d57c842cddbb482c40e208ac47d24a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-wave-after.png",
+      "bytes": 7753,
+      "sha256": "80a3c6f779fae911e787a3b76dbc4ad3c1d57c842cddbb482c40e208ac47d24a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-wave-console.png",
+      "bytes": 33610,
+      "sha256": "9bab22665587ae931e7431022cb88982c079c2c0112cf03476fd4e12142b41f2"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-wave-early.png",
+      "bytes": 7753,
+      "sha256": "88929e7c5bb8b6e738c28a01c8cc8ad7e2720fcd050e7ab72f5a7e5e24fb3443"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-wave-end.png",
+      "bytes": 7753,
+      "sha256": "80a3c6f779fae911e787a3b76dbc4ad3c1d57c842cddbb482c40e208ac47d24a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/combo-rgbSplit-wave-moving.png",
+      "bytes": 7753,
+      "sha256": "80a3c6f779fae911e787a3b76dbc4ad3c1d57c842cddbb482c40e208ac47d24a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/frame-review.json",
+      "bytes": 15403,
+      "sha256": "a8288e06226de55634e6db822757338c292882677724b2ae2ca6c023b7957997"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T14-51-42.197Z/observations.json",
+      "bytes": 165480,
+      "sha256": "082ca0fcaccc78eb37628c4b1c2e8e99b74e41fae9b3f13f2104fa2dc5bfc56a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-glowPulse-after.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-glowPulse-console.png",
+      "bytes": 35858,
+      "sha256": "1269ca39eca8f31f59b277403aec54bbc7d8d5791705b35e5e23865c7cc3986d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-glowPulse-early.png",
+      "bytes": 10949,
+      "sha256": "7307174c1a1da6ee7468dc50be4654c017c8e95359a3519778bd2c859eaa6d14"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-glowPulse-end.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-glowPulse-moving.png",
+      "bytes": 9698,
+      "sha256": "eaa66f952a3028dac28dd34c8d963bbb4bf6d18066e52799ec49346c7fed8972"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-gradientDrift-after.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-gradientDrift-console.png",
+      "bytes": 35858,
+      "sha256": "1269ca39eca8f31f59b277403aec54bbc7d8d5791705b35e5e23865c7cc3986d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-gradientDrift-early.png",
+      "bytes": 9964,
+      "sha256": "79a5101ad3bbf0d2a1bb35749e05b0efe294b98ff2343b69aff7d96a62a2fb87"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-gradientDrift-end.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-gradientDrift-moving.png",
+      "bytes": 9934,
+      "sha256": "0a27adf87cec28c0b0b01a7b7cc42ba3d8e45fb3afb462e0ed082be215dc8be5"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-indicator-after.png",
+      "bytes": 9882,
+      "sha256": "e7f1ecdbda02d3b0fe3cdcb1fc14858d5711487debf2eae9860926c5eae21a27"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-indicator-console.png",
+      "bytes": 35906,
+      "sha256": "95dc28e0b469ffbbb47267f28d94f95903387175e09e631bd067a946ff54ee9c"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-indicator-early.png",
+      "bytes": 9883,
+      "sha256": "3283e3b3daa49a2c47f7eb8fa2af3d681feeb37a50b688ca2762601edb99a023"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-indicator-end.png",
+      "bytes": 9882,
+      "sha256": "e7f1ecdbda02d3b0fe3cdcb1fc14858d5711487debf2eae9860926c5eae21a27"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-indicator-moving.png",
+      "bytes": 9884,
+      "sha256": "940350aa548ae204a05121688a5119d71e1369f58d44553536d810ce3f50e88e"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-none-console.png",
+      "bytes": 35858,
+      "sha256": "1269ca39eca8f31f59b277403aec54bbc7d8d5791705b35e5e23865c7cc3986d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-none-static.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-wave-after.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-wave-console.png",
+      "bytes": 35858,
+      "sha256": "1269ca39eca8f31f59b277403aec54bbc7d8d5791705b35e5e23865c7cc3986d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-wave-early.png",
+      "bytes": 9937,
+      "sha256": "f27b14cc7d75a1d45d09eac80df6857b396798ba89b0761cc423c7c74f7295b4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-wave-end.png",
+      "bytes": 9834,
+      "sha256": "c3529e0cce5c005a4f01ca36590ea8013e0b2bfd10f6c2dfa6c815d0f10fb6c4"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/combo-rainbow-wave-moving.png",
+      "bytes": 9864,
+      "sha256": "0c1eb460db4691c46c69395612e7a65682f9e6670a6ab0999229878cea5045e5"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/frame-review.json",
+      "bytes": 1885,
+      "sha256": "7328824e159dc6564249915d1155b14c1e5b3582fa1d3cb2842f648735658836"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-00-18.103Z/observations.json",
+      "bytes": 19753,
+      "sha256": "3d29c9feff4d19d42264639bcc38818bdf69d3d6d13c3721bc3b2ecbefd07a7b"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-badge-console.png",
+      "bytes": 28592,
+      "sha256": "98457c66ba72f4ecb2c79fb5adecd3c53201330f767a3ec500cf11c1a255bce6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-chrome-console.png",
+      "bytes": 31902,
+      "sha256": "fe8fc7345745c7024b6d5208c4c85e437c19c412d1a0265051cbcde08c0535ae"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-chrome-static.png",
+      "bytes": 6239,
+      "sha256": "8b8b1320152263473c8243673eb81b850f64ad9fdf465d6cb1b0f78eb2f06caa"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-crt-console.png",
+      "bytes": 27888,
+      "sha256": "42af021409609445e325779c67ad05065c2adeb72fed91a02e5d698fe548d6b7"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-crt-static.png",
+      "bytes": 2693,
+      "sha256": "a7481e60db6012248a764f8d454cb4165ff744361d01e2843730cbd7df679296"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-extruded-console.png",
+      "bytes": 31700,
+      "sha256": "415ac15ca95686f38320d8f86e90cb8f12e74a667c9ff2dd64b1644005de3a5d"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-gold-console.png",
+      "bytes": 30487,
+      "sha256": "72184cf2bf22cb727c88ab2d83e62d61955139ff1731c5a23fbb7e199feb2895"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-gold-static.png",
+      "bytes": 4923,
+      "sha256": "15d4468622f6e22a8e12f08e7484b20b8749f0df8ce868dba294ba5bb74f4996"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-holographic-console.png",
+      "bytes": 35649,
+      "sha256": "00e5d0bfb7260609466682c6a8e526f31303799f7563a4d13c334c602fd86e59"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-holographic-static.png",
+      "bytes": 9559,
+      "sha256": "87eccd752ae4ba03bf2e264aabcebe2ae4b24630e9b645d9173ac9c7d54428c6"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-neon-console.png",
+      "bytes": 33078,
+      "sha256": "79dbe0649374025089f0ae8110958477fbfc366ee31dc1ebe97f9be0d17396e1"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-rainbow-console.png",
+      "bytes": 32051,
+      "sha256": "37d0623687202cf0554be07b90c3090a7a8c4be44c076deced306b7c71ea8b6a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-rainbow-static.png",
+      "bytes": 6245,
+      "sha256": "80fa24c2696acf634e483b82459d8cc412c2f2e84b60ada44d6f3816c2651f61"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/gallery-rgbSplit-console.png",
+      "bytes": 30296,
+      "sha256": "d1db4e1d7ba6796cc20835f47636b4ed8ed4392f76448a210112f00d2caa59fc"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-02-43.874Z/observations.json",
+      "bytes": 17633,
+      "sha256": "e08d6778f22439cd53f957f847fe30a9e34df8ac6037eeff532532caa2e70e8f"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/combo-badge-indicator-after.png",
+      "bytes": 5490,
+      "sha256": "ed1b59b767487333d93f130e72f959b0d78387c54b90892c3105724c06a8d101"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/combo-badge-indicator-console.png",
+      "bytes": 31271,
+      "sha256": "5654fd7c90aa39ca05ac3921ed6450a89d437a6326e5c50803f789338742661a"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/combo-badge-indicator-early.png",
+      "bytes": 5492,
+      "sha256": "de2421c665f9f9d80eafc1d5e0ea0e9324062addc76dc37244f0270af4e33075"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/combo-badge-indicator-end.png",
+      "bytes": 5490,
+      "sha256": "ed1b59b767487333d93f130e72f959b0d78387c54b90892c3105724c06a8d101"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/combo-badge-indicator-moving.png",
+      "bytes": 5498,
+      "sha256": "53529fd292a6abae62032bdf2a9d9169a9cae73f36d8ccd2b22a627a611789fd"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/frame-review.json",
+      "bytes": 748,
+      "sha256": "23b13ad7866eab5c4ecd4ba0cefdf1a6590c521eabf83f1ab73c3074f3f759fc"
+    },
+    {
+      "path": "reports/chrome-2026-09-11T15-10-53.120Z/observations.json",
+      "bytes": 6329,
+      "sha256": "4afa63aca2ac48397961f8dcdf92941116ede7d0cdc7711b7ef6c03066b8a583"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/copy-css-literal-console.png",
+      "bytes": 43321,
+      "sha256": "edfd0e3fc4f89aa7040ec89972b4b637c73a1f5ce1ed487adfceffb7efb4bb90"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/copy-svg-caption-console.png",
+      "bytes": 54876,
+      "sha256": "39a38f60a7c4a0745f71a4ed11689da53dfc36e48fc73dfbb54402104e29831c"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/generated-literal-corpus-console.png",
+      "bytes": 49420,
+      "sha256": "da4aaf15354a2c7822d499072a5183536cac31e862c543a9fb3e882cb4c84c54"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/logged-before-open-after.png",
+      "bytes": 20669,
+      "sha256": "6a120f604f66087b09ff699d896cc360cc412bb1d717476db7dd98e4d32b9739"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/logged-before-open-end.png",
+      "bytes": 20669,
+      "sha256": "6a120f604f66087b09ff699d896cc360cc412bb1d717476db7dd98e4d32b9739"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/logged-before-open-moving.png",
+      "bytes": 20669,
+      "sha256": "6a120f604f66087b09ff699d896cc360cc412bb1d717476db7dd98e4d32b9739"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/logged-before-open-opened.png",
+      "bytes": 20669,
+      "sha256": "a33b5a4f458fff10ffe0d3ee7c6cdfb7d974b216000021c3a0a9c20d81a37add"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/narrow-console-console.png",
+      "bytes": 34408,
+      "sha256": "036ff7cbd3eed13c4fdc162831cd7cf6f49208b0dbc9127a8eef74654de43d42"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/observations.json",
+      "bytes": 16000,
+      "sha256": "2524e4107d3617d77b1e70baab2e95239ee611d05cfb1c5616b9f3b0c8403cd7"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/offscreen-and-return-early.png",
+      "bytes": 20927,
+      "sha256": "9d8a58f1086384201e9076c9d1568ea9100001b34f9557196618851172872516"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/reopened-buffered-entry-later.png",
+      "bytes": 20669,
+      "sha256": "eac32aaa1e1687fd683f348114c7d347ae907779a02212fde9963f5e1c67e987"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/reopened-buffered-entry-opened.png",
+      "bytes": 20669,
+      "sha256": "a33b5a4f458fff10ffe0d3ee7c6cdfb7d974b216000021c3a0a9c20d81a37add"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/repeated-identical-image-after.png",
+      "bytes": 20669,
+      "sha256": "6a120f604f66087b09ff699d896cc360cc412bb1d717476db7dd98e4d32b9739"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/repeated-identical-image-early.png",
+      "bytes": 20669,
+      "sha256": "eac32aaa1e1687fd683f348114c7d347ae907779a02212fde9963f5e1c67e987"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/repeated-identical-image-end.png",
+      "bytes": 20669,
+      "sha256": "6a120f604f66087b09ff699d896cc360cc412bb1d717476db7dd98e4d32b9739"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-38-23.569Z/repeated-identical-image-moving.png",
+      "bytes": 20669,
+      "sha256": "8dbf27873325a0101e146ddccb37cb4b11d5b19ac1dff4de74e0430dd9a6aa26"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-40-20.963Z/observations.json",
+      "bytes": 5437,
+      "sha256": "bf51c407a14296f6bb52476a074bd599cf9021a9bc0bfbc24c0834d30f7c4f5f"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-40-20.963Z/offscreen-and-return-early.png",
+      "bytes": 19348,
+      "sha256": "495ea0fc478720264437e5519209dae2dfaaf572f17f95c2c13dc223005e2ddf"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-40-20.963Z/offscreen-and-return-later.png",
+      "bytes": 19348,
+      "sha256": "495ea0fc478720264437e5519209dae2dfaaf572f17f95c2c13dc223005e2ddf"
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-40-20.963Z/offscreen-and-return-returned.png",
+      "bytes": 19348,
+      "sha256": "495ea0fc478720264437e5519209dae2dfaaf572f17f95c2c13dc223005e2ddf"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/observations.json",
+      "bytes": 8562,
+      "sha256": "2492dc554fd719d4b2238c13577e949c070e8060857400fbe947488581332a4f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-badge-console.png",
+      "bytes": 25347,
+      "sha256": "231769a7af8d3b5f79d918e81c94bd7d82b40ad1da677bbe52465044e4d9e1f4"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-motion-after.png",
+      "bytes": 17935,
+      "sha256": "6cc6315860415b1ef393d5cdba42877594f061d29dc787ae3d705c987f709d33"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-motion-console.png",
+      "bytes": 38526,
+      "sha256": "fe69078a5cca82db55ce96c83e909b326635bbafe8ab74e3311fef4676a65be5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-motion-early.png",
+      "bytes": 17935,
+      "sha256": "33bda62bdbd95d3194d3857b608c7ec5847fe4ee38dc4b406430868cccb1d652"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-motion-end.png",
+      "bytes": 17935,
+      "sha256": "6cc6315860415b1ef393d5cdba42877594f061d29dc787ae3d705c987f709d33"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-motion-moving.png",
+      "bytes": 17935,
+      "sha256": "d724343a9148bfe77c1cb6c74d98b63ee6685386989112041aeb1032113ba006"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-multistyle-console.png",
+      "bytes": 24253,
+      "sha256": "24b46e78b30dd917e6c618f3c0d7becd40903eb780233ffa33d18d017354865d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-svg-console.png",
+      "bytes": 42482,
+      "sha256": "52451e1d88e2654b867a36cbadc571c024c656cffe4ee09cc2bc689061aefc7c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T13-53-45.630Z/phase0-svg-static.png",
+      "bytes": 21632,
+      "sha256": "1b5cb25d7df39669d4ee75863058a93298a0bf70269496a94e753140a3391e55"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-glowPulse-after.png",
+      "bytes": 7338,
+      "sha256": "9714e6758a1e49db70f5228957998110049c58f3d502c5149c02041f628a4fdd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-glowPulse-console.png",
+      "bytes": 26310,
+      "sha256": "800a7031bbe653cc2007151b692deb96a526cced80b9e2924684fe94c93fbbcc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-glowPulse-early.png",
+      "bytes": 8264,
+      "sha256": "7a0ca85b6d3f2cc01be52326edb172dbb7b19687e8f9b0cdc8a65988c30fb20c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-glowPulse-end.png",
+      "bytes": 7338,
+      "sha256": "9714e6758a1e49db70f5228957998110049c58f3d502c5149c02041f628a4fdd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-glowPulse-moving.png",
+      "bytes": 7739,
+      "sha256": "97452cb27c2f84bb5c39e9d229746d07f0b6fb87083a16dafa60e8b51fca0f1a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-gradientDrift-after.png",
+      "bytes": 7338,
+      "sha256": "9714e6758a1e49db70f5228957998110049c58f3d502c5149c02041f628a4fdd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-gradientDrift-console.png",
+      "bytes": 26310,
+      "sha256": "800a7031bbe653cc2007151b692deb96a526cced80b9e2924684fe94c93fbbcc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-gradientDrift-early.png",
+      "bytes": 7376,
+      "sha256": "6fd096c9d88ffdf8135d5e1ad6a9f51d0a4a6aef6e1698bfd1747123ecebc9b7"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-gradientDrift-end.png",
+      "bytes": 7338,
+      "sha256": "9714e6758a1e49db70f5228957998110049c58f3d502c5149c02041f628a4fdd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-gradientDrift-moving.png",
+      "bytes": 7343,
+      "sha256": "667ad71fd9f9652ed028b2a0b9455b1dc82280a1c7e0e11ba9cc57bb495764ce"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-indicator-after.png",
+      "bytes": 7398,
+      "sha256": "54273784cae7b03a4c78c2fb3ba82b4e8015e72074246d090c0f45dabb517f1f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-indicator-console.png",
+      "bytes": 26386,
+      "sha256": "cc96e23f994b33019ec50d40ed465076aadda69f957845bce2330a277371a6ae"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-indicator-early.png",
+      "bytes": 7392,
+      "sha256": "8e71ba44766b69bf38d84ab9a1d7c226f2e7150c6686d4df0dca4dd6bf5bab5a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-indicator-end.png",
+      "bytes": 7398,
+      "sha256": "54273784cae7b03a4c78c2fb3ba82b4e8015e72074246d090c0f45dabb517f1f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-indicator-moving.png",
+      "bytes": 7393,
+      "sha256": "178d1d296e4c0fd1b2103321dc74179d8599c4338d24bb28e1c4629d357fbfff"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-wave-after.png",
+      "bytes": 7338,
+      "sha256": "9714e6758a1e49db70f5228957998110049c58f3d502c5149c02041f628a4fdd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-wave-console.png",
+      "bytes": 26310,
+      "sha256": "800a7031bbe653cc2007151b692deb96a526cced80b9e2924684fe94c93fbbcc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-wave-early.png",
+      "bytes": 7270,
+      "sha256": "d6caa2c141eaa8749ff9d936b50e654fc2a918dd07a6a7abed25daa31fad1e25"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-wave-end.png",
+      "bytes": 7338,
+      "sha256": "9714e6758a1e49db70f5228957998110049c58f3d502c5149c02041f628a4fdd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/motion-wave-moving.png",
+      "bytes": 7310,
+      "sha256": "fb98077bfbda4ce0bb98662fe861f04ee1d94bb79a99bdd467437f932052a735"
+    },
+    {
+      "path": "reports/edge-2026-09-11T14-01-47.865Z/observations.json",
+      "bytes": 15823,
+      "sha256": "da48833211279bb01fbf054a92e4a9938a471ef81e805278fbd2e9be6b72a4e3"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-glowPulse-after.png",
+      "bytes": 5414,
+      "sha256": "86db7c3e2e5f830c621de9cf59ebbcb2b110769cef3fc646683b4dccf7044913"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-glowPulse-console.png",
+      "bytes": 24484,
+      "sha256": "5f4675216d8131e6360aeda971abe01c6840f20f9425ca9c57c7aecd48ff43f5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-glowPulse-early.png",
+      "bytes": 5863,
+      "sha256": "5d86a5944ac858362dc91b3f43ff6ea31b98ff1994afcb4f93e555dd595223e1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-glowPulse-end.png",
+      "bytes": 5414,
+      "sha256": "86db7c3e2e5f830c621de9cf59ebbcb2b110769cef3fc646683b4dccf7044913"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-glowPulse-moving.png",
+      "bytes": 5483,
+      "sha256": "bef62a341e55f34bade135a23c537d266bc69e82463de50827cbc1c07d86cc29"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-gradientDrift-after.png",
+      "bytes": 7113,
+      "sha256": "fefc0d736b058b2cb6c8456513f9d6acad3548e6e617e552edefd9878ee30cb9"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-gradientDrift-console.png",
+      "bytes": 26508,
+      "sha256": "adb41030098553db8e1ce8dd09ec7cd20bcd9aab20b2cd7d6b9988b9a4d2eaad"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-gradientDrift-early.png",
+      "bytes": 7102,
+      "sha256": "30fbe88a3980de18e35a58726a0f6dd2e0eea4c1afdb842cda65dad049554ca3"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-gradientDrift-end.png",
+      "bytes": 7113,
+      "sha256": "fefc0d736b058b2cb6c8456513f9d6acad3548e6e617e552edefd9878ee30cb9"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-gradientDrift-moving.png",
+      "bytes": 7090,
+      "sha256": "0df46579158a4e8454fb092e27387108c5302beef7528b57ff49b6c294381c23"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-indicator-after.png",
+      "bytes": 5437,
+      "sha256": "835ad26f226a074220078457d8c2f22861916b086b631ae4f002591f43b83d3a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-indicator-console.png",
+      "bytes": 24510,
+      "sha256": "4c9ec88e51dc349a2082e921acbc5fb82a59416d7a5987719c2f83565552fbc0"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-indicator-early.png",
+      "bytes": 5443,
+      "sha256": "8222822aa9e6d9ec47949e5ec11deb907b0456c5df1356210e4e696c28498d7d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-indicator-end.png",
+      "bytes": 5437,
+      "sha256": "835ad26f226a074220078457d8c2f22861916b086b631ae4f002591f43b83d3a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-indicator-moving.png",
+      "bytes": 5431,
+      "sha256": "0ea83ecfd9467cfa46b3edce490d61e9972b2e2df52a236a237b807f2a1a50f7"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-none-console.png",
+      "bytes": 24484,
+      "sha256": "5f4675216d8131e6360aeda971abe01c6840f20f9425ca9c57c7aecd48ff43f5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-none-static.png",
+      "bytes": 5414,
+      "sha256": "86db7c3e2e5f830c621de9cf59ebbcb2b110769cef3fc646683b4dccf7044913"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-wave-after.png",
+      "bytes": 5414,
+      "sha256": "86db7c3e2e5f830c621de9cf59ebbcb2b110769cef3fc646683b4dccf7044913"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-wave-console.png",
+      "bytes": 24484,
+      "sha256": "5f4675216d8131e6360aeda971abe01c6840f20f9425ca9c57c7aecd48ff43f5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-wave-early.png",
+      "bytes": 5431,
+      "sha256": "11ff3f0acd53b8289f24f5072a613b2e83e36bab34d1e6594793bc4108f3c83c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-wave-end.png",
+      "bytes": 5414,
+      "sha256": "86db7c3e2e5f830c621de9cf59ebbcb2b110769cef3fc646683b4dccf7044913"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-badge-wave-moving.png",
+      "bytes": 5414,
+      "sha256": "64da07521dfa355576fb94a1ad4c1e6ba940b91e408047d121b2144122afbdf3"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-glowPulse-after.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-glowPulse-console.png",
+      "bytes": 27753,
+      "sha256": "a18f74a1f16c78fbe861c6fdf2cc253bf5d7344c27334421b14b06cb37d4c878"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-glowPulse-early.png",
+      "bytes": 9344,
+      "sha256": "ade722e9803c2ed157e246abfa05c6d88f258019f5e08c0abdf8b3d6a1291dae"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-glowPulse-end.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-glowPulse-moving.png",
+      "bytes": 8623,
+      "sha256": "02c4e1da2cb9a72444381fd29986da8e0123bebc1b48594053b23d365e024199"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-gradientDrift-after.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-gradientDrift-console.png",
+      "bytes": 27753,
+      "sha256": "a18f74a1f16c78fbe861c6fdf2cc253bf5d7344c27334421b14b06cb37d4c878"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-gradientDrift-early.png",
+      "bytes": 8403,
+      "sha256": "4b575f29924b9857906df47687289c538a68e7667dfb21e9d77533805cc60622"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-gradientDrift-end.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-gradientDrift-moving.png",
+      "bytes": 8473,
+      "sha256": "cfdec6335fade1d076ad9bc7f92574e8f340ac2f2f9367a872a839ba5a90efba"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-indicator-after.png",
+      "bytes": 8454,
+      "sha256": "30e13ffcebaffb511971dd733ad255a83b46fb17c6bd41274a1eaefb2f2a369a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-indicator-console.png",
+      "bytes": 27829,
+      "sha256": "1512fe735c6fe17455e6a84d665e17b7835cccb9ecab9750969f70cae5423197"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-indicator-early.png",
+      "bytes": 8453,
+      "sha256": "2d607b3680273f76bebb3a0fe7847eba1c038579c3ff00f4b6d5160ef7313e80"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-indicator-end.png",
+      "bytes": 8454,
+      "sha256": "30e13ffcebaffb511971dd733ad255a83b46fb17c6bd41274a1eaefb2f2a369a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-indicator-moving.png",
+      "bytes": 8446,
+      "sha256": "fca2d4873688277df3d81033044fdbf5c0f80292b213379d402c7a7b889bf54e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-none-console.png",
+      "bytes": 27753,
+      "sha256": "a18f74a1f16c78fbe861c6fdf2cc253bf5d7344c27334421b14b06cb37d4c878"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-none-static.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-wave-after.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-wave-console.png",
+      "bytes": 27753,
+      "sha256": "a18f74a1f16c78fbe861c6fdf2cc253bf5d7344c27334421b14b06cb37d4c878"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-wave-early.png",
+      "bytes": 8388,
+      "sha256": "2c852178c2cd2020c67d48831c22720fd603bdd7489ef1b49dbc931cc788c3ca"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-wave-end.png",
+      "bytes": 8394,
+      "sha256": "98cc14323b5e59513e4d11f1a32427e950f6e4e107015f153c69982188c3b4ef"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-chrome-wave-moving.png",
+      "bytes": 8389,
+      "sha256": "7d73d9f31d9b35f0c99dde99088c88151fae67787b8f326ab2a8ae7b8d2dff94"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-glowPulse-after.png",
+      "bytes": 5691,
+      "sha256": "7cd4f3b0396deaf2b4edc738f3cfdfa5a05c828883f60fac220e1eb6bfba09e6"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-glowPulse-console.png",
+      "bytes": 24848,
+      "sha256": "21df05c81210599603a8863494be5f90d92947151d8543045144ee36441c7da1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-glowPulse-early.png",
+      "bytes": 6119,
+      "sha256": "310861500aaa6e148b5adb87a753368a5fc890720d88cb9d605c4bd59e909641"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-glowPulse-end.png",
+      "bytes": 5691,
+      "sha256": "7cd4f3b0396deaf2b4edc738f3cfdfa5a05c828883f60fac220e1eb6bfba09e6"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-glowPulse-moving.png",
+      "bytes": 5694,
+      "sha256": "b6d3b25d9514950f786a7bff5a75a3ff6ffe757f3d37758a9c09cfa9c4efe269"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-gradientDrift-after.png",
+      "bytes": 7883,
+      "sha256": "4c811b58936f10ec2e43b80c72bedb3cf9a37b1ee412af93c02fe060951aa4a2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-gradientDrift-console.png",
+      "bytes": 27196,
+      "sha256": "a47c6efb7882ea39f00b2e8f89f167489190e19432b530ba1e6999be3d62cbf3"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-gradientDrift-early.png",
+      "bytes": 7850,
+      "sha256": "c97d73cdca273cf856ecdaf64b64870e656f75662d25928a8a8a6d02865ccba1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-gradientDrift-end.png",
+      "bytes": 7890,
+      "sha256": "086c24c8a43b7f28417c2562aa829032705246c5514fe136a64a65ad6ce1697c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-gradientDrift-moving.png",
+      "bytes": 7793,
+      "sha256": "9d9eba1fa763ab83f4ef8d6e01a87b757d695bf67f28693e0ea42e866a40452d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-indicator-after.png",
+      "bytes": 5742,
+      "sha256": "12a19b41410cfeac9fae8877800c26fd4976d0098a6652c38df03f0e23db31c9"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-indicator-console.png",
+      "bytes": 24906,
+      "sha256": "d6b98f2393ba9dafca8e5ffe401954b09f704ee68c8f0d69e9acc49de167f420"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-indicator-early.png",
+      "bytes": 5752,
+      "sha256": "9b99b3ebfa0df04034f90133538a15c46e75b53c33fd2a825809afcbb8054def"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-indicator-end.png",
+      "bytes": 5742,
+      "sha256": "12a19b41410cfeac9fae8877800c26fd4976d0098a6652c38df03f0e23db31c9"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-indicator-moving.png",
+      "bytes": 5747,
+      "sha256": "836b453180caa544728a546c96ab212596812ecfb49e1d2d883bd1e9e6e23f82"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-none-console.png",
+      "bytes": 24848,
+      "sha256": "21df05c81210599603a8863494be5f90d92947151d8543045144ee36441c7da1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-none-static.png",
+      "bytes": 5691,
+      "sha256": "7cd4f3b0396deaf2b4edc738f3cfdfa5a05c828883f60fac220e1eb6bfba09e6"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-wave-after.png",
+      "bytes": 5691,
+      "sha256": "7cd4f3b0396deaf2b4edc738f3cfdfa5a05c828883f60fac220e1eb6bfba09e6"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-wave-console.png",
+      "bytes": 24848,
+      "sha256": "21df05c81210599603a8863494be5f90d92947151d8543045144ee36441c7da1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-wave-early.png",
+      "bytes": 6155,
+      "sha256": "a145b1ca053c8d355bf67f33b5c644c5d878e0a8e56206b8d5ab11217832b168"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-wave-end.png",
+      "bytes": 5691,
+      "sha256": "7cd4f3b0396deaf2b4edc738f3cfdfa5a05c828883f60fac220e1eb6bfba09e6"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-crt-wave-moving.png",
+      "bytes": 6280,
+      "sha256": "64a498301dba6c4c9bf471ea8baa0f2a31cd005279fa75b2df73b50e0e9f977f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-glowPulse-after.png",
+      "bytes": 7316,
+      "sha256": "5ae611d54e61559e1f84c5a17f5c156e8fa4140cb0eede8e149045e4d0ec01b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-glowPulse-console.png",
+      "bytes": 26293,
+      "sha256": "b5ac0e2ef5a5d61338438ef447b18f121aa425e7fa40f4ae905579981adf31a8"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-glowPulse-early.png",
+      "bytes": 8622,
+      "sha256": "561897cd10b50762473b5ddc0de37be30e232e75dd50d1eb1b7affa624fc1910"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-glowPulse-end.png",
+      "bytes": 7316,
+      "sha256": "5ae611d54e61559e1f84c5a17f5c156e8fa4140cb0eede8e149045e4d0ec01b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-glowPulse-moving.png",
+      "bytes": 7973,
+      "sha256": "db14a6ea867b5264e19e87bd1213e6cd78bd217a397fc0402262647bf08c321f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-gradientDrift-after.png",
+      "bytes": 9164,
+      "sha256": "5024b252835210afae21d3cf33a16d8b27d0154d1495c0fec175782ca9b7857c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-gradientDrift-console.png",
+      "bytes": 28451,
+      "sha256": "5d1e2c796a21aa36683667b96b1c5af8ed2b37228267c5a6515eb48cf05831fd"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-gradientDrift-early.png",
+      "bytes": 9168,
+      "sha256": "fe8bd46401a1f10c928653629568b0681654c02fddb5841383be84e06511e831"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-gradientDrift-end.png",
+      "bytes": 9164,
+      "sha256": "5024b252835210afae21d3cf33a16d8b27d0154d1495c0fec175782ca9b7857c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-gradientDrift-moving.png",
+      "bytes": 9167,
+      "sha256": "41d22de0b233ee9e7e3ec66cf9b5edd9162a1c621905ce8bdccefa4152acf6aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-indicator-after.png",
+      "bytes": 7374,
+      "sha256": "57563808beee5a617f650d157dcd78f7f667fe564f60396fea14be4274737286"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-indicator-console.png",
+      "bytes": 26364,
+      "sha256": "8dc49cc4be8d827576d9a4c42457ca5cbd90af0cb5da54521406189ffa2a5e54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-indicator-early.png",
+      "bytes": 7372,
+      "sha256": "9545b787cc56271a8b9fdf507ef432e2709070bc10b9d470c2353c8b257b656d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-indicator-end.png",
+      "bytes": 7374,
+      "sha256": "57563808beee5a617f650d157dcd78f7f667fe564f60396fea14be4274737286"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-indicator-moving.png",
+      "bytes": 7369,
+      "sha256": "5b63f16876d78d78216a60665fde1eb7a0fbdd4c0d353a155ea38e2c6da9cd5f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-none-console.png",
+      "bytes": 26293,
+      "sha256": "b5ac0e2ef5a5d61338438ef447b18f121aa425e7fa40f4ae905579981adf31a8"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-none-static.png",
+      "bytes": 7316,
+      "sha256": "5ae611d54e61559e1f84c5a17f5c156e8fa4140cb0eede8e149045e4d0ec01b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-wave-after.png",
+      "bytes": 7316,
+      "sha256": "5ae611d54e61559e1f84c5a17f5c156e8fa4140cb0eede8e149045e4d0ec01b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-wave-console.png",
+      "bytes": 26293,
+      "sha256": "b5ac0e2ef5a5d61338438ef447b18f121aa425e7fa40f4ae905579981adf31a8"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-wave-early.png",
+      "bytes": 7316,
+      "sha256": "98f0f933f48ceb7ae4dfc5ef4f66de1f04ec8261042d10542bcf7792ae3a0f94"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-wave-end.png",
+      "bytes": 7316,
+      "sha256": "5ae611d54e61559e1f84c5a17f5c156e8fa4140cb0eede8e149045e4d0ec01b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-extruded-wave-moving.png",
+      "bytes": 7316,
+      "sha256": "cccb166215f7f52ed8c60fff61ad602b4007580739abb060d1985c2abae90bb8"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-glowPulse-after.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-glowPulse-console.png",
+      "bytes": 27978,
+      "sha256": "b7cf803e3e87663e828501f4bf6e22ed0d8d0110ee324582f9c60ea9a3f557e4"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-glowPulse-early.png",
+      "bytes": 9456,
+      "sha256": "b26179cef49b0abbee6318f1ec5471aff8a2aa97d8ba7b2d7a5f2d07c91a7a74"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-glowPulse-end.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-glowPulse-moving.png",
+      "bytes": 8665,
+      "sha256": "d0cace0f2feb4b05358850f44599c0e2cfac56728f16ab04c5910b0ac9ddc35b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-gradientDrift-after.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-gradientDrift-console.png",
+      "bytes": 27978,
+      "sha256": "b7cf803e3e87663e828501f4bf6e22ed0d8d0110ee324582f9c60ea9a3f557e4"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-gradientDrift-early.png",
+      "bytes": 8556,
+      "sha256": "2d79f22a376e10c4ac18db3ce83a23b847172bead43dec6dcef7edb8cef3d883"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-gradientDrift-end.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-gradientDrift-moving.png",
+      "bytes": 8629,
+      "sha256": "68382a721d512cb13a23d1bf06fdb185b35427386ec14c4700243370eb6d9114"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-indicator-after.png",
+      "bytes": 8610,
+      "sha256": "eb3e53abd48101437b26ff5bd6187fd11fdd7d7936f8bcb2e36897dceff5b3d7"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-indicator-console.png",
+      "bytes": 28055,
+      "sha256": "a8c09da761d7fe9d43d9aa1b146085bb3129541de6e908f6af19aff3af826d48"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-indicator-early.png",
+      "bytes": 8609,
+      "sha256": "b4f257ac923991698c5604306042c3fff302f08cebd69ef6ba94a70949202780"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-indicator-end.png",
+      "bytes": 8610,
+      "sha256": "eb3e53abd48101437b26ff5bd6187fd11fdd7d7936f8bcb2e36897dceff5b3d7"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-indicator-moving.png",
+      "bytes": 8604,
+      "sha256": "432dcd090af20c0299ff075865f70730eb4f5e7801d790e2e3a04eb8e877bcc4"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-none-console.png",
+      "bytes": 27978,
+      "sha256": "b7cf803e3e87663e828501f4bf6e22ed0d8d0110ee324582f9c60ea9a3f557e4"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-none-static.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-wave-after.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-wave-console.png",
+      "bytes": 27978,
+      "sha256": "b7cf803e3e87663e828501f4bf6e22ed0d8d0110ee324582f9c60ea9a3f557e4"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-wave-early.png",
+      "bytes": 8543,
+      "sha256": "d17fdc916518bc446b708eb8633304978c84e2763760e2a98581d6250a7a1e7b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-wave-end.png",
+      "bytes": 8552,
+      "sha256": "bd1cd2414164f2bda64f5a0abfd43137b9558d1fac10e261a94663a26750882d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-gold-wave-moving.png",
+      "bytes": 8510,
+      "sha256": "2e75a10c4b9c9dff535cb044401e6959919f06cea3e472448f1d0cd88166562b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-glowPulse-after.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-glowPulse-console.png",
+      "bytes": 28015,
+      "sha256": "dd755e9cb6cb0b2a1564900c8df7fc0e23825dba5712faace71fb9420c0dbff5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-glowPulse-early.png",
+      "bytes": 9409,
+      "sha256": "ec215ff39845e61987db94fc5cd88d2f88f67955b7b7125ed04397b1f649894f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-glowPulse-end.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-glowPulse-moving.png",
+      "bytes": 8748,
+      "sha256": "5e362c39c07f8577fa7f2c7bc1c8ed5d7d93f3c3701547faa7dc951a5ec98e3d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-gradientDrift-after.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-gradientDrift-console.png",
+      "bytes": 28015,
+      "sha256": "dd755e9cb6cb0b2a1564900c8df7fc0e23825dba5712faace71fb9420c0dbff5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-gradientDrift-early.png",
+      "bytes": 8522,
+      "sha256": "7949b139dd9ab8d92609fb37ee5da38a19b6fea1c1bdf1424ed185e05f9013e3"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-gradientDrift-end.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-gradientDrift-moving.png",
+      "bytes": 8460,
+      "sha256": "84f0a5c419cddb3397b4961f82b3c2fff61bc0f5a901564431a1f23185446567"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-indicator-after.png",
+      "bytes": 8621,
+      "sha256": "e4da29f0eaa0f57e6b95c30f5a3e6c186d9b22c6d302f74a6c03bd9134660b3d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-indicator-console.png",
+      "bytes": 28091,
+      "sha256": "1e03f614c086fc505f738a5759d2aa76b3e326585eb19fe04b0cd6f185ab13a8"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-indicator-early.png",
+      "bytes": 8617,
+      "sha256": "8c740c3cb381bcf8e9ffd35844b86be1e660e93312a3e57a3dbe93dd7bc6de4e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-indicator-end.png",
+      "bytes": 8643,
+      "sha256": "09e570a5583c877b3c03b8084a476fa88630e44d8a54e248517afdb936bb5cfe"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-indicator-moving.png",
+      "bytes": 8620,
+      "sha256": "e751ad8bb967d3d27c9265151e3ed689d1ae9f316799c6cc3d09748861ee0c24"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-none-console.png",
+      "bytes": 28015,
+      "sha256": "dd755e9cb6cb0b2a1564900c8df7fc0e23825dba5712faace71fb9420c0dbff5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-none-static.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-wave-after.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-wave-console.png",
+      "bytes": 28015,
+      "sha256": "dd755e9cb6cb0b2a1564900c8df7fc0e23825dba5712faace71fb9420c0dbff5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-wave-early.png",
+      "bytes": 8481,
+      "sha256": "bd989fc53664d822f1781ca252a186adcfd9f6a8443deb0cb7e2b4a99070e29a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-wave-end.png",
+      "bytes": 8563,
+      "sha256": "0d00c1dfb2c2ddabbbf1213e6e64d9b23679f73bd8a0bc24a40740a90f861be2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-holographic-wave-moving.png",
+      "bytes": 8533,
+      "sha256": "c40de5f94c0852fdc3802910a11476be277f097ca474490f8bde026d93aacb8c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-glowPulse-after.png",
+      "bytes": 13429,
+      "sha256": "fd40c9f002dbd6b2470ff5f39fc9786bfceeda2bb57812d3c8ff4355f0cc3138"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-glowPulse-console.png",
+      "bytes": 33850,
+      "sha256": "af2d8f9aa1fde248cda123b4eefd6d8543ea332e6d36c72b726ca8cedf1c508e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-glowPulse-early.png",
+      "bytes": 13391,
+      "sha256": "e811d732326e1c0fd993ecb0b07b60a1f1931188a3a4d6ed53d42cbf515375aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-glowPulse-end.png",
+      "bytes": 13429,
+      "sha256": "fd40c9f002dbd6b2470ff5f39fc9786bfceeda2bb57812d3c8ff4355f0cc3138"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-glowPulse-moving.png",
+      "bytes": 12005,
+      "sha256": "bb2dca0ac981f464d46bb35755e2e7d7b7658e0e9602f422e71ac2a080ec0d1e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-gradientDrift-after.png",
+      "bytes": 15940,
+      "sha256": "04d9f0a301f1c31cb4f2aaf5f909f4a67d75041b2f883a1e22f30eef5c732c6a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-gradientDrift-console.png",
+      "bytes": 36534,
+      "sha256": "4b282b2b4fa09b9de70113062075affefafc13a5bd939cfe193a40e749e98d48"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-gradientDrift-early.png",
+      "bytes": 15930,
+      "sha256": "23100cbdc40f5bc4f9d2bd48579d0c59ebc3ef084f1c905d2f728aa94459fc35"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-gradientDrift-end.png",
+      "bytes": 15940,
+      "sha256": "04d9f0a301f1c31cb4f2aaf5f909f4a67d75041b2f883a1e22f30eef5c732c6a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-gradientDrift-moving.png",
+      "bytes": 15773,
+      "sha256": "cb89f52c3268714434289a83b1873dc3ec5911c5f28355e17f1326e146278942"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-indicator-after.png",
+      "bytes": 13484,
+      "sha256": "cfa64bd87e475fb6a8e1429965945b211ffe029f642eaa924183229ebd4660aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-indicator-console.png",
+      "bytes": 33898,
+      "sha256": "89253cff0cddc76301f0164d4a2881a2a5844af162bbf8ee4b245fa132634634"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-indicator-early.png",
+      "bytes": 13477,
+      "sha256": "ac7d43b33f7a6250a905bec9d0c692a97484f79de587180ff35423ccdf39ce70"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-indicator-end.png",
+      "bytes": 13484,
+      "sha256": "cfa64bd87e475fb6a8e1429965945b211ffe029f642eaa924183229ebd4660aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-indicator-moving.png",
+      "bytes": 13486,
+      "sha256": "a2d2f0cff7e08faa2385e7aa4e3a0683222b050b91ef5f17c34f1088520f1c9e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-none-console.png",
+      "bytes": 33850,
+      "sha256": "af2d8f9aa1fde248cda123b4eefd6d8543ea332e6d36c72b726ca8cedf1c508e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-none-static.png",
+      "bytes": 13429,
+      "sha256": "fd40c9f002dbd6b2470ff5f39fc9786bfceeda2bb57812d3c8ff4355f0cc3138"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-wave-after.png",
+      "bytes": 13429,
+      "sha256": "fd40c9f002dbd6b2470ff5f39fc9786bfceeda2bb57812d3c8ff4355f0cc3138"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-wave-console.png",
+      "bytes": 33850,
+      "sha256": "af2d8f9aa1fde248cda123b4eefd6d8543ea332e6d36c72b726ca8cedf1c508e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-wave-early.png",
+      "bytes": 13429,
+      "sha256": "ab406019aa1df8521b7054f8577e32346f7b96f857c847d1e2d17b141f979660"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-wave-end.png",
+      "bytes": 13429,
+      "sha256": "fd40c9f002dbd6b2470ff5f39fc9786bfceeda2bb57812d3c8ff4355f0cc3138"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-neon-wave-moving.png",
+      "bytes": 13429,
+      "sha256": "933190ffba2bd4cab8eece424b6550df9e3fcf392da6aa9b5ff504f5b775dc99"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-glowPulse-after.png",
+      "bytes": 4909,
+      "sha256": "f14cbb1310a684c008b2fab973d501c6e53bad290bdabb888749247cadc1e763"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-glowPulse-console.png",
+      "bytes": 23990,
+      "sha256": "0ade47563699f1a5b6594648076e992ebbbcf25f63f52d635f574b20a3c45b3f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-glowPulse-early.png",
+      "bytes": 5673,
+      "sha256": "3c80ce8817daabc5ed313be2ad1a62b15066b6ee85d40ce2ba87aff5a7fb1e9f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-glowPulse-end.png",
+      "bytes": 4909,
+      "sha256": "f14cbb1310a684c008b2fab973d501c6e53bad290bdabb888749247cadc1e763"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-glowPulse-moving.png",
+      "bytes": 5530,
+      "sha256": "b3002972fa146306cc1353ed7e56569d8ba51dab7a3179f2c0311cd4ae6ed8c0"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-gradientDrift-after.png",
+      "bytes": 7307,
+      "sha256": "cf2ed047e4ce81cf801cac758899b2e557ddfd7bb31df4ff7c911de3a281bbb2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-gradientDrift-console.png",
+      "bytes": 26554,
+      "sha256": "50f0a6893e4daa805caa4005a9803b07c1be68531f15586029dddc38f443e2df"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-gradientDrift-early.png",
+      "bytes": 7281,
+      "sha256": "16ba6ec6919c0840cd4aaa8b4e821bdd25f1a5c588e3caf2218880556a6865fc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-gradientDrift-end.png",
+      "bytes": 7307,
+      "sha256": "cf2ed047e4ce81cf801cac758899b2e557ddfd7bb31df4ff7c911de3a281bbb2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-gradientDrift-moving.png",
+      "bytes": 7213,
+      "sha256": "5fca9ed9532d9ddcb835d2a0f0d0c2c7b56693bcebf3a0e49f665df52493b410"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-indicator-after.png",
+      "bytes": 4976,
+      "sha256": "5e3fb2c6c2d47021b81b2b276548fdbb55b875c3f66ac306eb215e7c41c5e3df"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-indicator-console.png",
+      "bytes": 24068,
+      "sha256": "a10bab433e9f24fed6671d6d31e67e9f49f4321ddfb95f787a04e818a804737e"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-indicator-early.png",
+      "bytes": 4972,
+      "sha256": "120fe93bb6899a7b91bbead93d72bf84f5f8baf9d5dc2d59eb0731193d14f44a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-indicator-end.png",
+      "bytes": 4976,
+      "sha256": "5e3fb2c6c2d47021b81b2b276548fdbb55b875c3f66ac306eb215e7c41c5e3df"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-indicator-moving.png",
+      "bytes": 4973,
+      "sha256": "897d6dec73494c453506f108d68c4596b810c10d95974542b64a59f3e42966a5"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-none-console.png",
+      "bytes": 23990,
+      "sha256": "0ade47563699f1a5b6594648076e992ebbbcf25f63f52d635f574b20a3c45b3f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-none-static.png",
+      "bytes": 4909,
+      "sha256": "f14cbb1310a684c008b2fab973d501c6e53bad290bdabb888749247cadc1e763"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-wave-after.png",
+      "bytes": 4909,
+      "sha256": "f14cbb1310a684c008b2fab973d501c6e53bad290bdabb888749247cadc1e763"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-wave-console.png",
+      "bytes": 23990,
+      "sha256": "0ade47563699f1a5b6594648076e992ebbbcf25f63f52d635f574b20a3c45b3f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-wave-early.png",
+      "bytes": 4909,
+      "sha256": "315887f8271ba435a6ff14b13aa43252c229c320f61153b0ef5f793d5db2e33c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-wave-end.png",
+      "bytes": 4909,
+      "sha256": "f14cbb1310a684c008b2fab973d501c6e53bad290bdabb888749247cadc1e763"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-plain-wave-moving.png",
+      "bytes": 4909,
+      "sha256": "5b0130be4de738f2f1ba76a3275bbbe0485fbad8965bd46253d10a41614897e6"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-glowPulse-after.png",
+      "bytes": 9880,
+      "sha256": "d2b323a16c3b7021889a026716b4cfd158761ba62e53653a6b7dc6a134e62b54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-glowPulse-console.png",
+      "bytes": 29541,
+      "sha256": "18cd1edcc848938112fb8e94fd673119292646278455434b521f5f45aeca1fdc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-glowPulse-early.png",
+      "bytes": 11269,
+      "sha256": "f34002f893fef19d6d330763ab4bc4e00fa912e0813054647f93c0e88aed553b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-glowPulse-end.png",
+      "bytes": 9862,
+      "sha256": "bd325def297b27411b490f4961ef9f7f12fb0acb2c0a4652dcc2d2d2d35d452c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-glowPulse-moving.png",
+      "bytes": 10343,
+      "sha256": "2146d19f9ad176e7b4fe513a1fda9eac088d66fc2d73c0c351e5408e0dbc11e0"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-gradientDrift-after.png",
+      "bytes": 9880,
+      "sha256": "d2b323a16c3b7021889a026716b4cfd158761ba62e53653a6b7dc6a134e62b54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-gradientDrift-console.png",
+      "bytes": 29541,
+      "sha256": "18cd1edcc848938112fb8e94fd673119292646278455434b521f5f45aeca1fdc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-gradientDrift-early.png",
+      "bytes": 9901,
+      "sha256": "868dedb164390a245ce512a117925d2421ab8a444afe122923d1cdc21db6235c"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-gradientDrift-end.png",
+      "bytes": 9880,
+      "sha256": "d2b323a16c3b7021889a026716b4cfd158761ba62e53653a6b7dc6a134e62b54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-gradientDrift-moving.png",
+      "bytes": 9981,
+      "sha256": "1e459c7aa9d55b7b25dcc5b2a8f95ffd77006c0cb79da85591d59fab5d52f455"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-indicator-after.png",
+      "bytes": 9930,
+      "sha256": "9f6e15e542f2449495fde89b8be427c809ee2bac423d126107e821fc75b74db7"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-indicator-console.png",
+      "bytes": 29597,
+      "sha256": "df2836ef14ef57b31011d10ee7b87b5f022c9915063b3e84be971f730a781b6b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-indicator-early.png",
+      "bytes": 9931,
+      "sha256": "19413e1d86156f8e31d5d1a6d3f3ab13f9d4f16aafa67dc8da6a11d5156bbd0b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-indicator-end.png",
+      "bytes": 9930,
+      "sha256": "9f6e15e542f2449495fde89b8be427c809ee2bac423d126107e821fc75b74db7"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-indicator-moving.png",
+      "bytes": 9935,
+      "sha256": "3cb2d703a51057174349ab64f731c281a88e91349db5468934b634601eff4a30"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-none-console.png",
+      "bytes": 29541,
+      "sha256": "18cd1edcc848938112fb8e94fd673119292646278455434b521f5f45aeca1fdc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-none-static.png",
+      "bytes": 9880,
+      "sha256": "d2b323a16c3b7021889a026716b4cfd158761ba62e53653a6b7dc6a134e62b54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-wave-after.png",
+      "bytes": 9880,
+      "sha256": "d2b323a16c3b7021889a026716b4cfd158761ba62e53653a6b7dc6a134e62b54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-wave-console.png",
+      "bytes": 29541,
+      "sha256": "18cd1edcc848938112fb8e94fd673119292646278455434b521f5f45aeca1fdc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-wave-early.png",
+      "bytes": 9855,
+      "sha256": "0806f9d1ea69ccba366ef29da337813582a4847cddea811e8bd45d4c95942228"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-wave-end.png",
+      "bytes": 9880,
+      "sha256": "d2b323a16c3b7021889a026716b4cfd158761ba62e53653a6b7dc6a134e62b54"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rainbow-wave-moving.png",
+      "bytes": 9935,
+      "sha256": "e75c7281bcdf8aa00c3885264162a390bd97f9707fbb8ddcf7441ed3bfebc741"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-glowPulse-after.png",
+      "bytes": 7781,
+      "sha256": "69f336550758df57aea6ec8285ea2b843cc01a31af5698e7906963d888d1a6aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-glowPulse-console.png",
+      "bytes": 27095,
+      "sha256": "306e1aae6d95c005702e81a37627c8e07f40f1ca78f570ba8e2bee7ad8fcdb0b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-glowPulse-early.png",
+      "bytes": 8144,
+      "sha256": "3b45b68774c9507d9f86aa6e9be773651d89752e1aad5fd77b19acc08f8f87c0"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-glowPulse-end.png",
+      "bytes": 7781,
+      "sha256": "69f336550758df57aea6ec8285ea2b843cc01a31af5698e7906963d888d1a6aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-glowPulse-moving.png",
+      "bytes": 7662,
+      "sha256": "a64dcbc5a4bd2674dd8093cda952734fe06c8d42cf69d48b0da4f0029e1a9b0b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-gradientDrift-after.png",
+      "bytes": 9567,
+      "sha256": "4ac304c879a81599685c43a247423442891cd9b93a5895974a8f48950dc2dfeb"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-gradientDrift-console.png",
+      "bytes": 29185,
+      "sha256": "a5f59d98356d66fa6cf3324a7286f867e038415f00c176e3200607f530c178d2"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-gradientDrift-early.png",
+      "bytes": 9620,
+      "sha256": "8f101d58765e645d7df405bc57e8d74dd2fe79eda0ee5d565dcbdecb51ff359a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-gradientDrift-end.png",
+      "bytes": 9567,
+      "sha256": "4ac304c879a81599685c43a247423442891cd9b93a5895974a8f48950dc2dfeb"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-gradientDrift-moving.png",
+      "bytes": 9532,
+      "sha256": "9cfd22ec951f6208c2d704cdc3818f423f5cf31913b9f2143eeee480a19cc846"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-indicator-after.png",
+      "bytes": 7842,
+      "sha256": "2ddbfcad309e945b729c8b2500f6910bef3732107b6116dde4299b2c2090441f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-indicator-console.png",
+      "bytes": 27170,
+      "sha256": "cb9e579612155eb540eb64e514fcd684e026a9bf4f901b3b86e620c7163a394d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-indicator-early.png",
+      "bytes": 7843,
+      "sha256": "9b15512943f21d2cc7b4dcf4107690d73169c82a303abf1cd0fd1a34e8242bfa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-indicator-end.png",
+      "bytes": 7842,
+      "sha256": "2ddbfcad309e945b729c8b2500f6910bef3732107b6116dde4299b2c2090441f"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-indicator-moving.png",
+      "bytes": 7834,
+      "sha256": "0984d80ea6845fb67f3760e390400a99400457fae057ab548180c3e44cb88d18"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-none-console.png",
+      "bytes": 27095,
+      "sha256": "306e1aae6d95c005702e81a37627c8e07f40f1ca78f570ba8e2bee7ad8fcdb0b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-none-static.png",
+      "bytes": 7781,
+      "sha256": "69f336550758df57aea6ec8285ea2b843cc01a31af5698e7906963d888d1a6aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-wave-after.png",
+      "bytes": 7781,
+      "sha256": "69f336550758df57aea6ec8285ea2b843cc01a31af5698e7906963d888d1a6aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-wave-console.png",
+      "bytes": 27095,
+      "sha256": "306e1aae6d95c005702e81a37627c8e07f40f1ca78f570ba8e2bee7ad8fcdb0b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-wave-early.png",
+      "bytes": 7781,
+      "sha256": "8aae1959fdf393df72e1ae61e4767792763a08e3c9ae6fe97c3b8e47b7e6c958"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-wave-end.png",
+      "bytes": 7781,
+      "sha256": "69f336550758df57aea6ec8285ea2b843cc01a31af5698e7906963d888d1a6aa"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/combo-rgbSplit-wave-moving.png",
+      "bytes": 7781,
+      "sha256": "815e470abaa6966148c679618b387b8611ef5a7f3e85919012cc11cb94e0fc2d"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/frame-review.json",
+      "bytes": 15557,
+      "sha256": "2c03b899931a3b6d0dd8df08362369bd5ed0e15b167025bcec48ca9b50db28da"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-03-06.201Z/observations.json",
+      "bytes": 165358,
+      "sha256": "0c17aa9a6270fb00809217c080ba71d3e40047d489ea2084f63812c6b6e7b117"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/combo-badge-indicator-after.png",
+      "bytes": 5527,
+      "sha256": "240825acbc8eeccb6bbbf2fee7214f1e9b24d101d26dca8f3f24665baf4d98b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/combo-badge-indicator-console.png",
+      "bytes": 24632,
+      "sha256": "d8b7b98232119b647e719132ae64126beafb59f572809b3f6893cede8d6b1358"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/combo-badge-indicator-early.png",
+      "bytes": 5536,
+      "sha256": "ae01136d9d6de0ee92ff5af82892a2389a75221b36078d0ee73c1604dfa42cbc"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/combo-badge-indicator-end.png",
+      "bytes": 5527,
+      "sha256": "240825acbc8eeccb6bbbf2fee7214f1e9b24d101d26dca8f3f24665baf4d98b1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/combo-badge-indicator-moving.png",
+      "bytes": 5524,
+      "sha256": "933ce789c2410d2cf8872a68c54a14570bcee39e171aa20105c20e4c082e8369"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/frame-review.json",
+      "bytes": 746,
+      "sha256": "1dd1fb2c5fe7356841e31eef64775c2fbeecf7a46a95c703385d9ea96f864cc1"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-01.815Z/observations.json",
+      "bytes": 6578,
+      "sha256": "0bd820292eddf8b6900c678a668b9251b99d015bf84344b8538ff2cb4f483e09"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-badge-console.png",
+      "bytes": 21881,
+      "sha256": "5436abceff87e26d53e8c8de8ff81b517a682bcdfb3aa0972319926b022e3ec0"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-chrome-console.png",
+      "bytes": 25240,
+      "sha256": "ddb5d59ee7464ec42bfd5c05a41f5647c6e4f1488cbbc80e52fd706e1a4dce71"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-chrome-static.png",
+      "bytes": 6263,
+      "sha256": "274ec00d1d62fb06d8f898112c4e293c922a6a0c99d0b91e37ddb4d2c61c68bb"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-crt-console.png",
+      "bytes": 21324,
+      "sha256": "da79c6b5b7e6422b2b9db8ef5117e21778ef482c8bdf716bcae6f7d70c1859b3"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-crt-static.png",
+      "bytes": 2848,
+      "sha256": "fc7f83774c906e8df6c752f70df4a2c17fa2232fb091314ce5edc33bcfe70735"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-extruded-console.png",
+      "bytes": 24965,
+      "sha256": "0db98ea5defaeef175f37e27a2f65f3a5e6d72bbaabff459c3bf04cfe603d4db"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-gold-console.png",
+      "bytes": 23831,
+      "sha256": "becbcf792f7bc7a4f2acc95113cb3d5cfa8a2101f53cc5ed8f494e0209641cbb"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-gold-static.png",
+      "bytes": 4954,
+      "sha256": "c9ffd7c4b2a957be40fd806907bc9f1ec234b3c770bc3e5820bc71eb62278705"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-holographic-console.png",
+      "bytes": 29292,
+      "sha256": "437ecddf03d9c96cc13d3ef939c43aa45e6b0a18d0cd0c0949391ebf0c6b9e0b"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-holographic-static.png",
+      "bytes": 9623,
+      "sha256": "23762458990d1c5241412f0bcef46ed56d2f259363cc508197421471a757adb9"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-neon-console.png",
+      "bytes": 26326,
+      "sha256": "853727476c28e5ec0d6979790c959bcfb2524e6b85070710e53ef2c645691809"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-rainbow-console.png",
+      "bytes": 25413,
+      "sha256": "b023f1f98c88d0aa311e58f34e44cd5712e3f83183b754f51beee1c96de5011a"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-rainbow-static.png",
+      "bytes": 6294,
+      "sha256": "69bd2b4d35530dcb367e6cb12073964baef8f92a4c37a88342fcc8f698fdeeeb"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/gallery-rgbSplit-console.png",
+      "bytes": 23578,
+      "sha256": "0c8da4060fd7e9f2b8cf024a09033bd4969929a593e59dddc588277362fc1f46"
+    },
+    {
+      "path": "reports/edge-2026-09-11T15-11-09.737Z/observations.json",
+      "bytes": 17922,
+      "sha256": "1698187a8d980ccf4f683eaa0b8b3c529b4f411832016fde303ad8ea6b8ca120"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/copy-css-literal-console.png",
+      "bytes": 40615,
+      "sha256": "5a47ede84bc6c371b30c8d2291755878869a631b9b0b08373cf25591849ca368"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/copy-svg-caption-console.png",
+      "bytes": 52825,
+      "sha256": "5bd5de5caa453fd95e69fdff7b0e8523db241d06647e8927a46b44fbdcef1872"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/generated-literal-corpus-console.png",
+      "bytes": 47955,
+      "sha256": "9d74e2ab085aeb55f6810fab757915c7e34bcb95e827cd1a27959dfb643b6817"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/logged-before-open-after.png",
+      "bytes": 19099,
+      "sha256": "8cd641e0c3e25a885583817e40306caac546b16a48060b0fd469ed90572ace1c"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/logged-before-open-end.png",
+      "bytes": 19099,
+      "sha256": "8cd641e0c3e25a885583817e40306caac546b16a48060b0fd469ed90572ace1c"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/logged-before-open-moving.png",
+      "bytes": 19098,
+      "sha256": "01bd081116333b8d997dbc6207359519308a4c2cf553a7a24e599040d32b7181"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/logged-before-open-opened.png",
+      "bytes": 19101,
+      "sha256": "573d98034dd993db752a9f6f5f0825dee14b47254344f1cbfffd9c32ad00ace2"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/narrow-console-console.png",
+      "bytes": 29359,
+      "sha256": "172fa76264a7088d84b1ec466434439dd285dc598390922e6d709821383bb88e"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/observations.json",
+      "bytes": 18618,
+      "sha256": "0daf456e0b4436bdc105bebb1e5a7a25c9da2a104979187c6380d68207eb754b"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/offscreen-and-return-early.png",
+      "bytes": 18959,
+      "sha256": "ab0bde38013fa653c3d33faba2f06c0bd2c435c6a3bf8c91b49cb3d5a76e0393"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/offscreen-and-return-later.png",
+      "bytes": 18959,
+      "sha256": "ab0bde38013fa653c3d33faba2f06c0bd2c435c6a3bf8c91b49cb3d5a76e0393"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/offscreen-and-return-returned.png",
+      "bytes": 18959,
+      "sha256": "ab0bde38013fa653c3d33faba2f06c0bd2c435c6a3bf8c91b49cb3d5a76e0393"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/reopened-buffered-entry-later.png",
+      "bytes": 19099,
+      "sha256": "9abb29cd2d438129a5f6ea75884d2d88be29de30dc1f59a283a9751df9cef9a0"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/reopened-buffered-entry-opened.png",
+      "bytes": 19101,
+      "sha256": "573d98034dd993db752a9f6f5f0825dee14b47254344f1cbfffd9c32ad00ace2"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/repeated-identical-image-after.png",
+      "bytes": 19099,
+      "sha256": "8cd641e0c3e25a885583817e40306caac546b16a48060b0fd469ed90572ace1c"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/repeated-identical-image-early.png",
+      "bytes": 19099,
+      "sha256": "9abb29cd2d438129a5f6ea75884d2d88be29de30dc1f59a283a9751df9cef9a0"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/repeated-identical-image-end.png",
+      "bytes": 19099,
+      "sha256": "8cd641e0c3e25a885583817e40306caac546b16a48060b0fd469ed90572ace1c"
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-41-15.240Z/repeated-identical-image-moving.png",
+      "bytes": 19100,
+      "sha256": "ff9bee816a65931e9df65d20dfbcf00aba847db0b36f75e2b516f7d7febce609"
+    }
+  ]
+}

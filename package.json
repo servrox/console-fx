@@ -1,0 +1,52 @@
+{
+  "name": "console-fx-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@12.3.4",
+  "engines": {
+    "node": ">=24.15.0 <25"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @servrox/console-fx-studio run dev",
+    "build:packages": "pnpm -r --filter './packages/**' run build",
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck && tsc -p tsconfig.tests.json",
+    "lint": "eslint packages apps tests scripts",
+    "format:check": "prettier --check package.json pnpm-workspace.yaml 'tsconfig*.json' '*config.{mjs,ts}' 'packages/**/*.{ts,tsx,json,md}' 'apps/**/*.{ts,tsx,json,css}' 'scripts/**/*.mjs' 'tests/**/*.{ts,js,html}' 'examples/{next-app,react,vanilla}/**/*.{ts,tsx,mjs,json}' '.changeset/*.{json,md}' '.github/workflows/*.yml'",
+    "test": "vitest run",
+    "test:codegen": "vitest run packages/console-fx/test/codegen.test.ts",
+    "test:studio": "playwright test",
+    "test:consumers": "node scripts/check-consumers.mjs",
+    "check:packages": "node scripts/check-packages.mjs",
+    "check:bundle-size": "node scripts/check-bundle-size.mjs",
+    "fixtures:devtools": "node scripts/devtools-fixtures.mjs",
+    "changeset": "changeset",
+    "prepare:vercel": "node scripts/prepare-vercel.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@changesets/cli": "3.0.2",
+    "@eslint/js": "9.39.5",
+    "@playwright/test": "1.63.0",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/react": "16.3.3",
+    "@types/jsdom": "30.0.0",
+    "@types/node": "24.13.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "acorn": "8.18.0",
+    "esbuild": "0.28.2",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.4",
+    "jsdom": "30.0.1",
+    "next": "16.3.4",
+    "prettier": "3.9.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0",
+    "vitest": "5.0.0"
+  }
+}

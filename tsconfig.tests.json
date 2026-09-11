@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": [
+    "*.config.ts",
+    "packages/**/test/**/*.ts",
+    "packages/**/test/**/*.tsx",
+    "apps/**/*.test.ts",
+    "tests/**/*.ts"
+  ],
+  "exclude": ["**/node_modules/**", "**/dist/**", "**/.next/**", "**/out/**"]
+}

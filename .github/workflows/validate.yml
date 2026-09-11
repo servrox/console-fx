@@ -1,0 +1,71 @@
+name: Validate candidate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.20.0
+          package-manager-cache: false
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          version: 12.3.4
+          run_install: false
+      - name: Install locked dependencies without lifecycle scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Build the candidate
+        run: pnpm run build
+      - name: Validate source and behavioral contracts
+        run: |
+          pnpm run format:check
+          pnpm run lint
+          pnpm run typecheck
+          pnpm run test
+      - name: Inspect tarballs and bundled consumers
+        run: |
+          pnpm run check:packages
+          pnpm run check:bundle-size
+      - name: Install the CI browser
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Test the production studio with its prepared CSP
+        run: |
+          pnpm run prepare:vercel
+          pnpm run test:studio
+      - name: Install and test the packed JS, TS, React and Next consumers
+        run: pnpm run test:consumers
+      - name: Preserve candidate and test evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: console-fx-candidate-${{ github.sha }}
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            .artifacts/packages/
+            .artifacts/deployment/
+            .artifacts/studio-*.png
+            .vercel/output/
+            test-results/
+            playwright-report/
+
+# Native Windows 11 DevTools and manual accessibility observations remain
+# separate promotion gates. This workflow neither publishes nor deploys.

@@ -1,0 +1,9 @@
+**/node_modules/**
+**/dist/**
+**/.next/**
+**/out/**
+.artifacts/
+.vercel/
+test-results/
+playwright-report/
+examples/animated-console.js

@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-11",
+  "artifactManifestSha256": "0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1",
+  "browser": "Chrome for Testing 153.0.8010.36 on Windows 11 25H2 build 26220.9223",
+  "result": "All three routes fit 320 CSS pixels; agent visual inspection of editor labels, preview/export controls and reset dialog found readable controls without overlapping or hidden actions in these captures.",
+  "notEstablished": [
+    "Native 200%/400% zoom",
+    "Actual screen-reader journey",
+    "Full WCAG conformance"
+  ],
+  "files": [
+    {
+      "path": "320-studio-top.png",
+      "sha256": "c00dc125de19f24bde00859b817661dd326c3850afc34c552bf0a64a3b77ecd5"
+    },
+    {
+      "path": "320-studio-preview.png",
+      "sha256": "827f9584a13a75ef7731357dd184db8ba7c34e5ade4bc03b71ffe367a1edb29a"
+    },
+    {
+      "path": "320-studio-export.png",
+      "sha256": "cf8b8051a2ddaa0d96abbcb96c162b2b8fa6a71cc8e73e4cd4b68192489f66d0"
+    },
+    {
+      "path": "320-reset-dialog.png",
+      "sha256": "f23266a11b5433e090d0956425ecf09a1a1dd5a1719677bc8c276a9045050d47"
+    },
+    {
+      "path": "reflow-320.json",
+      "sha256": "fe3c5775a4132d7a7fd59fec08f0c77d3646c536c52b00e712075fa07d77693b"
+    }
+  ]
+}
