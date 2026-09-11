@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="1740" viewBox="0 0 390 1740" role="img" aria-labelledby="title desc">
+<title id="title">ConsoleFX landing page with integrated playground — mobile</title>
+<desc id="desc">ConsoleFX design mockup. Interface controls and example output are illustrative, not a released application.</desc>
+<style>.c6{fill:#1c1830;stroke:none}.c7{fill:#b59aff;font-size:10px;font-weight:600;text-anchor:middle}.c20{fill:#98a4bc;font-size:12px;font-weight:400}.c25{fill:#98a4bc;font-size:11px;font-weight:400}</style>
+<defs>
+<linearGradient id="rainbow" x1="0" y1="0" x2="1" y2=".4">
+<stop stop-color="#64e1ff"/>
+<stop offset=".5" stop-color="#b59aff"/>
+<stop offset="1" stop-color="#f3a2e8"/>
+</linearGradient>
+<radialGradient id="halo">
+<stop stop-color="#5c328b" stop-opacity=".27"/>
+<stop offset="1" stop-color="#080b12" stop-opacity="0"/>
+</radialGradient>
+<filter id="glow" x="-50%" y="-100%" width="200%" height="300%">
+<feGaussianBlur stdDeviation="4" result="blur"/>
+<feMerge>
+<feMergeNode in="blur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+<circle cx="1" cy="1" r=".7" fill="#29334a"/>
+</pattern>
+</defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="390" height="1740" rx="0" fill="#080b12" stroke="none"/>
+<text x="20" y="43" font-size="23" fill="#f5f5fc" font-weight="700">console-<tspan fill="#b59aff" font-style="italic">fx</tspan>
+</text>
+<rect x="274" y="24" width="96" height="26" rx="13" class="c6"/>
+<text x="322.0" y="41" class="c7">CONCEPT</text>
+<path d="M20 70H370" stroke="#283044"/>
+<rect x="20" y="99" width="184" height="26" rx="13" class="c6"/>
+<text x="112.0" y="116" class="c7">@servrox/console-fx</text>
+<text x="20" y="181" fill="#f5f5fc" font-size="43" font-weight="700">Make your</text>
+<text x="20" y="233" fill="#f5f5fc" font-size="43" font-weight="700">console worth</text>
+<text x="20" y="285" fill="url(#rainbow)" font-size="43" font-weight="700">opening.</text>
+<text x="21" y="328" fill="#98a4bc" font-size="15" font-weight="400">Design expressive console messages.</text>
+<text x="21" y="353" fill="#98a4bc" font-size="15" font-weight="400">Export a single console.log.</text>
+<rect x="20" y="383" width="350" height="42" rx="8" fill="#b59aff" stroke="#b59aff"/>
+<text x="195.0" y="409" fill="#080b12" font-size="13" font-weight="600" text-anchor="middle">Try the playground  →</text>
+<rect x="20" y="437" width="350" height="42" rx="8" fill="#121724" stroke="#283044"/>
+<text x="195.0" y="463" fill="#f5f5fc" font-size="13" font-weight="600" text-anchor="middle">View on GitHub  ↗</text>
+<text x="20" y="538" fill="#f5f5fc" font-size="21" font-weight="700">Choose. Customize. Copy.</text>
+<text x="20" y="565" fill="#98a4bc" font-size="13" font-weight="400">Make the ordinary unforgettable.</text>
+<rect x="20" y="592" width="350" height="905" rx="12" fill="#0f141e" stroke="#283044"/>
+<text x="36" y="626" fill="#98a4bc" font-size="11" font-weight="700">PLAYGROUND</text>
+<rect x="252" y="608" width="101" height="26" rx="13" class="c6"/>
+<text x="302.5" y="625" class="c7">LOCAL DRAFT</text>
+<path d="M20 646H370" stroke="#283044"/>
+<text x="37" y="675" class="c20">Start with a preset</text>
+<rect x="35" y="690" width="97" height="26" rx="13" class="c6"/>
+<text x="83.5" y="707" class="c7">Neon glow</text>
+<rect x="140" y="690" width="83" height="26" rx="13" fill="#141d29" stroke="none"/>
+<text x="181.5" y="707" fill="#98a4bc" font-size="10" font-weight="600" text-anchor="middle">Aurora</text>
+<rect x="231" y="690" width="89" height="26" rx="13" fill="#141d29" stroke="none"/>
+<text x="275.5" y="707" fill="#98a4bc" font-size="10" font-weight="600" text-anchor="middle">RGB split</text>
+<rect x="35" y="738" width="320" height="211" rx="10" fill="#090d15" stroke="#283044"/>
+<rect x="35" y="738" width="320" height="34" rx="10" fill="#171d29" stroke="none"/>
+<rect x="35" y="758" width="320" height="14" rx="0" fill="#171d29" stroke="none"/>
+<text x="51" y="760" class="c25">Elements</text>
+<text x="127" y="760" fill="#f5f5fc" font-size="11" font-weight="400">Console</text>
+<text x="203" y="760" class="c25">Sources</text>
+<path d="M121 771h61" stroke="#b59aff" stroke-width="2"/>
+<text x="341" y="760" fill="#98a4bc" font-size="10" font-weight="400" text-anchor="end">Preview</text>
+<path d="M35 921H355" stroke="#283044"/>
+<text x="49" y="939" fill="#b59aff" font-size="16" font-weight="400">›</text>
+<text x="195" y="844" fill="#decfff" font-size="37" font-weight="800" text-anchor="middle" filter="url(#glow)">console-fx</text>
+<text x="195" y="878" fill="#98a4bc" font-size="12" font-weight="400" text-anchor="middle">Make it yours.</text>
+<text x="35" y="975" class="c25">Approximate CSS preview</text>
+<text x="253" y="975" fill="#b59aff" font-size="10" font-weight="400">Test in console</text>
+<path d="M20 995H370" stroke="#283044"/>
+<text x="38" y="1024" fill="#b59aff" font-size="12" font-weight="600">Content</text>
+<text x="147" y="1024" class="c20">Style</text>
+<text x="250" y="1024" class="c20">Motion</text>
+<text x="36" y="1058" fill="#98a4bc" font-size="11" font-weight="600">Text</text>
+<rect x="36" y="1068" width="318" height="36" rx="6" fill="#0a0e17" stroke="#283044"/>
+<text x="48" y="1091" fill="#f5f5fc" font-size="12" font-weight="400">console-fx</text>
+<text x="36" y="1133" fill="#98a4bc" font-size="11" font-weight="600">Color</text>
+<rect x="36" y="1143" width="318" height="36" rx="6" fill="#0a0e17" stroke="#283044"/>
+<text x="48" y="1166" fill="#f5f5fc" font-size="12" font-weight="400">#B59AFF</text>
+<rect x="317" y="1144" width="25" height="23" rx="4" fill="#b59aff" stroke="none"/>
+<text x="36" y="1209" class="c25">Glow intensity</text>
+<text x="354" y="1209" fill="#f5f5fc" font-size="11" font-weight="400" text-anchor="end">70%</text>
+<rect x="36" y="1225" width="318" height="3" rx="1" fill="#2a3145" stroke="none"/>
+<rect x="36" y="1225" width="222.6" height="3" rx="1" fill="#b59aff" stroke="none"/>
+<circle cx="258.6" cy="1226.5" r="5" fill="#b59aff"/>
+<path d="M20 1254H370" stroke="#283044"/>
+<text x="37" y="1284" fill="#b59aff" font-size="12" font-weight="600">JavaScript</text>
+<text x="266" y="1284" class="c25">One log call</text>
+<text x="37" y="1314" fill="#b59aff" font-size="11" font-weight="400" font-family="monospace">console.log(</text>
+<text x="37" y="1337" fill="#64e1ff" font-size="11" font-weight="400" font-family="monospace">  "%c%s%c",</text>
+<text x="37" y="1360" fill="#98a4bc" font-size="11" font-weight="400" font-family="monospace">  "color:#decfff;…",</text>
+<text x="37" y="1383" fill="#64e1ff" font-size="11" font-weight="400" font-family="monospace">  "console-fx", ""</text>
+<text x="37" y="1406" fill="#b59aff" font-size="11" font-weight="400" font-family="monospace">);</text>
+<text x="37" y="1435" fill="#98a4bc" font-size="10" font-weight="400">Code preview shortened for this mockup.</text>
+<rect x="35" y="1447" width="320" height="42" rx="8" fill="#b59aff" stroke="#b59aff"/>
+<text x="195.0" y="1473" fill="#080b12" font-size="13" font-weight="600" text-anchor="middle">Copy console.log  ↗</text>
+<text x="20" y="1545" fill="#f5f5fc" font-size="23" font-weight="700">Small API. Big personality.</text>
+<text x="20" y="1575" fill="#98a4bc" font-size="14" font-weight="400">TypeScript core. React adapter.</text>
+<text x="20" y="1598" fill="#98a4bc" font-size="14" font-weight="400">Next.js recipes. Planned, not published.</text>
+<path d="M20 1642H370" stroke="#283044"/>
+<text x="20" y="1692" font-size="18" fill="#f5f5fc" font-weight="700">console-<tspan fill="#b59aff" font-style="italic">fx</tspan>
+</text>
+<text x="370" y="1691" fill="#98a4bc" font-size="12" font-weight="400" text-anchor="end">by servrox</text>
+</g>
+</svg>

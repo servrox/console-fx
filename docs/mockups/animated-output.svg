@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+<title id="title">ConsoleFX — animated output prototype</title>
+<desc id="desc">A softly waving console-fx wordmark with a moving dashed border. Animation ends within 4.8 seconds. Reduced-motion preferences disable it. This is an SVG design preview, not a DevTools compatibility test.</desc>
+<defs>
+  <linearGradient id="ink" x1="260" y1="0" x2="940" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#64e1ff"/><stop offset=".5" stop-color="#b59aff"/><stop offset="1" stop-color="#f3a2e8"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#593b86" stop-opacity=".28"/><stop offset="1" stop-color="#080b12" stop-opacity="0"/></radialGradient>
+  <filter id="glow" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<style>
+  .wave { animation: float 2.4s ease-in-out 2 both; }
+  .border { animation: travel 4.8s linear 1 both; }
+  @keyframes float { 0%,100% { transform:translateY(0); } 25% { transform:translateY(-7px); } 75% { transform:translateY(7px); } }
+  @keyframes travel { from { stroke-dashoffset:0; } to { stroke-dashoffset:-108; } }
+  @media (prefers-reduced-motion: reduce) { .wave,.border { animation:none !important; } }
+</style>
+<rect x="1" y="1" width="1198" height="338" rx="18" fill="#080b12" stroke="#283044"/>
+<ellipse cx="600" cy="173" rx="490" ry="162" fill="url(#halo)"/>
+<g font-family="Arial, Helvetica, sans-serif">
+  <text x="30" y="36" font-size="12" fill="#98a4bc" letter-spacing="1.3">CONSOLE-FX / OUTPUT PROTOTYPE</text>
+  <text x="1170" y="36" text-anchor="end" font-size="11" fill="#b59aff">SVG · FINITE MOTION</text>
+  <rect class="border" x="32" y="62" width="1136" height="210" rx="12" fill="none" stroke="url(#ink)" stroke-width="1.5" stroke-dasharray="18 9"/>
+  <g font-size="84" font-weight="800" text-anchor="middle" fill="url(#ink)" filter="url(#glow)">
+    <text class="wave" x="340" y="181">c</text><text class="wave" x="398" y="181" style="animation-delay:-.12s">o</text><text class="wave" x="456" y="181" style="animation-delay:-.24s">n</text><text class="wave" x="514" y="181" style="animation-delay:-.36s">s</text><text class="wave" x="572" y="181" style="animation-delay:-.48s">o</text><text class="wave" x="630" y="181" style="animation-delay:-.60s">l</text><text class="wave" x="688" y="181" style="animation-delay:-.72s">e</text><text class="wave" x="746" y="181" style="animation-delay:-.84s">-</text><text class="wave" x="804" y="181" style="animation-delay:-.96s">f</text><text class="wave" x="862" y="181" style="animation-delay:-1.08s">x</text>
+  </g>
+  <text x="600" y="230" text-anchor="middle" font-size="14" fill="#98a4bc">Ordinary logs. Extraordinary output.</text>
+  <text x="32" y="310" font-size="12" fill="#98a4bc">One console.log. No clearing. No JavaScript animation timers.</text>
+  <text x="1168" y="310" text-anchor="end" font-size="11" fill="#98a4bc">Respect reduced motion · stops within 4.8 s</text>
+</g>
+</svg>

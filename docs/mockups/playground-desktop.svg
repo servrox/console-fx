@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024" role="img" aria-labelledby="title desc">
+<title id="title">ConsoleFX expanded playground — animated SVG design</title>
+<desc id="desc">ConsoleFX design mockup. Interface controls and example output are illustrative, not a released application.</desc>
+<style>.c7{fill:#1c1830;stroke:none}.c8{fill:#b59aff;font-size:10px;font-weight:600;text-anchor:middle}.c9{fill:#98a4bc;font-size:12px;font-weight:400}.c17{fill:#98a4bc;font-size:11px;font-weight:600}.c18{fill:#0a0e17;stroke:#283044}.c19{fill:#f5f5fc;font-size:12px;font-weight:400}.c20{fill:#0f1521;stroke:#283044}.c22{fill:#f5f5fc;font-size:12px;font-weight:600}.c23{fill:#98a4bc;font-size:10px;font-weight:400}.c29{fill:#98a4bc;font-size:10px;font-weight:700}.c36{fill:#98a4bc;font-size:11px;font-weight:400}.c56{fill:#b59aff;stroke:none}</style>
+<defs>
+<linearGradient id="rainbow" x1="0" y1="0" x2="1" y2=".4">
+<stop stop-color="#64e1ff"/>
+<stop offset=".5" stop-color="#b59aff"/>
+<stop offset="1" stop-color="#f3a2e8"/>
+</linearGradient>
+<radialGradient id="halo">
+<stop stop-color="#5c328b" stop-opacity=".27"/>
+<stop offset="1" stop-color="#080b12" stop-opacity="0"/>
+</radialGradient>
+<filter id="glow" x="-50%" y="-100%" width="200%" height="300%">
+<feGaussianBlur stdDeviation="4" result="blur"/>
+<feMerge>
+<feMergeNode in="blur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+<circle cx="1" cy="1" r=".7" fill="#29334a"/>
+</pattern>
+</defs>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1440" height="1024" rx="0" fill="#080b12" stroke="none"/>
+<text x="28" y="42" font-size="23" fill="#f5f5fc" font-weight="700">console-<tspan fill="#b59aff" font-style="italic">fx</tspan>
+</text>
+<text x="245" y="41" fill="#98a4bc" font-size="14" font-weight="400">/  Playground</text>
+<rect x="377" y="23" width="98" height="26" rx="13" class="c7"/>
+<text x="426.0" y="40" class="c8">DESIGN PREVIEW</text>
+<text x="1121" y="41" class="c9">Documentation</text>
+<rect x="1268" y="15" width="144" height="42" rx="8" fill="#121724" stroke="#283044"/>
+<text x="1340.0" y="41" fill="#f5f5fc" font-size="13" font-weight="600" text-anchor="middle">GitHub  ↗</text>
+<path d="M0 72H1440" stroke="#283044"/>
+<text x="27" y="109" fill="#f5f5fc" font-size="17" font-weight="600">Untitled scene</text>
+<rect x="181" y="91" width="87" height="26" rx="13" class="c7"/>
+<text x="224.5" y="108" class="c8">LOCAL DRAFT</text>
+<text x="858" y="110" class="c9">Import JSON</text>
+<text x="970" y="110" class="c9">Export JSON</text>
+<rect x="1080" y="83" width="111" height="42" rx="8" fill="#121724" stroke="#283044"/>
+<text x="1135.5" y="109" fill="#f5f5fc" font-size="13" font-weight="600" text-anchor="middle">Test in console</text>
+<rect x="1204" y="83" width="208" height="42" rx="8" fill="#b59aff" stroke="#b59aff"/>
+<text x="1308.0" y="109" fill="#080b12" font-size="13" font-weight="600" text-anchor="middle">Copy console.log  ↗</text>
+<path d="M0 137H1440" stroke="#283044"/>
+<path d="M236 137L236 977" stroke="#283044"/>
+<path d="M1120 137L1120 977" stroke="#283044"/>
+<text x="24" y="173" fill="#98a4bc" font-size="11" font-weight="700">PRESET LIBRARY</text>
+<text x="24" y="207" class="c17">Search</text>
+<rect x="24" y="217" width="188" height="36" rx="6" class="c18"/>
+<text x="36" y="240" class="c19">⌕  Find a look…</text>
+<rect x="20" y="270" width="196" height="100" rx="9" class="c20"/>
+<text x="118" y="310" fill="#b59aff" font-size="22" font-weight="700" text-anchor="middle">console-fx</text>
+<text x="33" y="339" class="c22">Neon glow</text>
+<text x="33" y="357" class="c23">CSS text</text>
+<rect x="20" y="386" width="196" height="100" rx="9" fill="#182033" stroke="#64e1ff"/>
+<text x="118" y="426" fill="#64e1ff" font-size="22" font-weight="700" text-anchor="middle">console-fx</text>
+<text x="33" y="455" class="c22">Aurora wave</text>
+<text x="33" y="473" class="c23">SVG · experimental</text>
+<rect x="20" y="502" width="196" height="100" rx="9" class="c20"/>
+<text x="118" y="542" fill="#f19ac5" font-size="22" font-weight="700" text-anchor="middle">console-fx</text>
+<text x="33" y="571" class="c22">RGB split</text>
+<text x="33" y="589" class="c23">CSS text</text>
+<rect x="20" y="618" width="196" height="100" rx="9" class="c20"/>
+<text x="118" y="658" fill="#c9d9e8" font-size="22" font-weight="700" text-anchor="middle">console-fx</text>
+<text x="33" y="687" class="c22">Chrome</text>
+<text x="33" y="705" class="c23">SVG</text>
+<rect x="20" y="734" width="196" height="100" rx="9" class="c20"/>
+<text x="118" y="774" fill="#7dedad" font-size="22" font-weight="700" text-anchor="middle">console-fx</text>
+<text x="33" y="803" class="c22">CRT terminal</text>
+<text x="33" y="821" class="c23">CSS text</text>
+<text x="24" y="923" class="c29">YOUR SCENES</text>
+<text x="24" y="952" fill="#b59aff" font-size="12" font-weight="400">+ Save a local preset</text>
+<text x="261" y="173" class="c29">PREVIEW</text>
+<rect x="846" y="154" width="94" height="26" rx="13" class="c7"/>
+<text x="893.0" y="171" class="c8">600 × 180</text>
+<rect x="951" y="154" width="143" height="26" rx="13" class="c7"/>
+<text x="1022.5" y="171" class="c8">DARK CANVAS</text>
+<rect x="256" y="195" width="844" height="400" rx="10" fill="#090d16" stroke="#283044"/>
+<rect x="257" y="196" width="842" height="398" rx="10" fill="url(#dots)" stroke="none"/>
+<ellipse cx="678" cy="386" rx="330" ry="170" fill="url(#halo)"/>
+<rect x="293" y="245" width="770" height="289" rx="10" fill="#090d15" stroke="#283044"/>
+<rect x="293" y="245" width="770" height="34" rx="10" fill="#171d29" stroke="none"/>
+<rect x="293" y="265" width="770" height="14" rx="0" fill="#171d29" stroke="none"/>
+<text x="309" y="267" class="c36">Elements</text>
+<text x="385" y="267" fill="#f5f5fc" font-size="11" font-weight="400">Console</text>
+<text x="461" y="267" class="c36">Sources</text>
+<text x="533" y="267" class="c36">Network</text>
+<path d="M379 278h61" stroke="#b59aff" stroke-width="2"/>
+<text x="1049" y="267" fill="#98a4bc" font-size="10" font-weight="400" text-anchor="end">SVG image preview</text>
+<path d="M293 506H1063" stroke="#283044"/>
+<text x="307" y="524" fill="#b59aff" font-size="16" font-weight="400">›</text>
+<rect x="316" y="300" width="724" height="168" rx="12" fill="#0c1120" stroke="url(#rainbow)" stroke-width="1.5" stroke-dasharray="16 9"/>
+<text x="678" y="388" fill="url(#rainbow)" font-size="63" font-weight="800" text-anchor="middle" filter="url(#glow)">console-fx</text>
+<text x="678" y="422" fill="#98a4bc" font-size="13" font-weight="400" text-anchor="middle">A little motion. A lot of personality.</text>
+<text x="308" y="494" class="c36">console-fx — Aurora wave</text>
+<rect x="269" y="551" width="143" height="26" rx="13" class="c7"/>
+<text x="340.5" y="568" class="c8">MOTION SNAPSHOT</text>
+<text x="811" y="570" class="c9">▶ Play     ↻ Replay     Show static</text>
+<rect x="256" y="614" width="844" height="53" rx="8" fill="#211a20" stroke="#50412c"/>
+<text x="275" y="637" fill="#eccc87" font-size="12" font-weight="600">SVG animation is experimental.</text>
+<text x="275" y="655" class="c36">An image preview is not proof of animation inside DevTools.</text>
+<rect x="256" y="688" width="844" height="267" rx="9" fill="#0c111b" stroke="#283044"/>
+<text x="278" y="718" fill="#b59aff" font-size="12" font-weight="600">JavaScript</text>
+<text x="393" y="718" class="c9">TypeScript</text>
+<text x="511" y="718" class="c9">React</text>
+<text x="582" y="718" class="c9">Next.js</text>
+<text x="1011" y="718" class="c23">Illustration</text>
+<path d="M256 735H1100" stroke="#283044"/>
+<text x="278" y="769" fill="#b59aff" font-size="12" font-weight="400" font-family="monospace">console.log(</text>
+<text x="278" y="793" fill="#64e1ff" font-size="12" font-weight="400" font-family="monospace">  "%c %c%s",</text>
+<text x="278" y="817" fill="#98a4bc" font-size="12" font-weight="400" font-family="monospace">  "padding:90px 300px;background:url(data:image/svg+xml,...)",</text>
+<text x="278" y="841" fill="#98a4bc" font-size="12" font-weight="400" font-family="monospace">  "",</text>
+<text x="278" y="865" fill="#64e1ff" font-size="12" font-weight="400" font-family="monospace">  "console-fx — Aurora wave"</text>
+<text x="278" y="889" fill="#b59aff" font-size="12" font-weight="400" font-family="monospace">);</text>
+<text x="278" y="935" class="c36">Export concept shown shortened here; real exports must be self-contained.</text>
+<text x="1144" y="174" fill="#98a4bc" font-size="11" font-weight="700">PROPERTIES</text>
+<text x="1144" y="207" class="c17">Text</text>
+<rect x="1144" y="217" width="272" height="36" rx="6" class="c18"/>
+<text x="1156" y="240" class="c19">console-fx</text>
+<text x="1144" y="284" class="c17">Renderer</text>
+<rect x="1144" y="294" width="272" height="36" rx="6" class="c18"/>
+<text x="1156" y="317" class="c19">SVG image                                ⌄</text>
+<rect x="1144" y="343" width="119" height="26" rx="13" fill="#2a2117" stroke="none"/>
+<text x="1203.5" y="360" fill="#eccc87" font-size="10" font-weight="600" text-anchor="middle">EXPERIMENTAL</text>
+<text x="1144" y="400" class="c17">Effect</text>
+<rect x="1144" y="410" width="272" height="36" rx="6" class="c18"/>
+<text x="1156" y="433" class="c19">Aurora wave                             ⌄</text>
+<text x="1144" y="478" class="c36">Gradient</text>
+<rect x="1144" y="491" width="272" height="26" rx="6" fill="url(#rainbow)" stroke="none"/>
+<text x="1144" y="555" class="c36">Wave amplitude</text>
+<text x="1416" y="555" fill="#f5f5fc" font-size="11" font-weight="400" text-anchor="end">6 px</text>
+<rect x="1144" y="571" width="272" height="3" rx="1" fill="#2a3145" stroke="none"/>
+<rect x="1144" y="571" width="108.80000000000001" height="3" rx="1" class="c56"/>
+<circle cx="1252.8" cy="572.5" r="5" fill="#b59aff"/>
+<text x="1144" y="618" class="c36">Duration</text>
+<text x="1416" y="618" fill="#f5f5fc" font-size="11" font-weight="400" text-anchor="end">4.8 s</text>
+<rect x="1144" y="634" width="272" height="3" rx="1" fill="#2a3145" stroke="none"/>
+<rect x="1144" y="634" width="130.56" height="3" rx="1" class="c56"/>
+<circle cx="1274.56" cy="635.5" r="5" fill="#b59aff"/>
+<text x="1144" y="689" class="c19">Respect reduced motion</text>
+<rect x="1378" y="673" width="36" height="20" rx="10" class="c56"/>
+<circle cx="1404" cy="683" r="7" fill="#fff"/>
+<text x="1144" y="718" class="c36">Static output when motion is reduced.</text>
+<text x="1144" y="758" class="c17">Finish behavior</text>
+<rect x="1144" y="768" width="272" height="36" rx="6" class="c18"/>
+<text x="1156" y="791" class="c19">Freeze                                    ⌄</text>
+<path d="M1144 838H1416" stroke="#283044"/>
+<text x="1144" y="872" class="c29">ONE EMISSION</text>
+<text x="1144" y="901" class="c19">No clearing. No logging loop.</text>
+<text x="1144" y="926" class="c36">Decorative motion, not live progress.</text>
+<path d="M0 978H1440" stroke="#283044"/>
+<circle cx="28" cy="1003" r="3" fill="#a6e5c3"/>
+<text x="41" y="1008" class="c36">Browser-local editing</text>
+<text x="252" y="1008" class="c36">Core / React / Next.js recipes</text>
+<text x="1413" y="1008" fill="#98a4bc" font-size="11" font-weight="400" text-anchor="end">Prototype interface · no application behavior implied</text>
+</g>
+</svg>
