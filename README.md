@@ -8,6 +8,16 @@ A planned TypeScript framework and visual playground for designing expressive br
 
 [Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Mockup collection](docs/mockups/README.md)
 
+## Latest combined mockup
+
+The current visual reference combines the landing page, console-output example gallery, and integrated playground in one screen.
+
+![Latest ConsoleFX concept: a dark, softly raised interface with restrained cyan accents, console-output examples, and a playground with presets, styling controls, preview, and Copy console.log.](docs/mockups/landing-playground-combined.avif)
+
+**Design direction:** professional minimalism, harmonious dark neumorphic surfaces, and small cyan/neon accents rather than purple UI, large glowing panels, or decorative gradients. Expressive console-output examples sit inside a quieter interface. See the [design notes](docs/mockups/README.md) for implementation guidance.
+
+This is an optimized raster of the latest generated mockup, not a redraw or a product screenshot. The version, GitHub star count, install command, example metrics, and abbreviated generated code pictured inside it are illustrative placeholders—not publication, performance, or compatibility claims. The specification remains authoritative for APIs and scope.
+
 ## Animated output example
 
 ![Animated ConsoleFX prototype: softly waving gradient lettering and a moving dashed border.](docs/mockups/animated-output.svg)
@@ -22,13 +32,15 @@ Copy the complete [animated-console.js example](examples/animated-console.js) in
 
 Chrome documents `%c` styling and `data:` image URLs in its [console formatting guide](https://developer.chrome.com/docs/devtools/console/format-style). Animated SVG inside a particular DevTools version remains experimental. The example is exploratory source, not the future npm API.
 
-## Output concepts
+## Earlier output concepts
 
 ![Twelve ConsoleFX output concepts: neon, ASCII-inspired, gradient, boxed, success, warning, error, animated SVG, multiline, tabular, badges, and custom branding.](docs/mockups/output-gallery.svg)
 
 An editable SVG reinterpretation of the initial concept gallery. Placeholder version numbers, performance metrics, and unplanned package claims from the original illustration have been removed. Tabular and status messages are decorative examples, not a proposed `console.table` or observability feature.
 
-## Landing page and playground
+## Earlier landing page and playground explorations
+
+The following editable SVGs are retained for reference. Their earlier color treatments do not override the current restrained, cyan-accented design direction shown above.
 
 ### Desktop landing page
 
@@ -61,6 +73,8 @@ Compilation should print nothing. An explicit emission should make exactly one c
 
 ## Design validation
 
-The SVG assets were rendered as images in headless Chromium 144.0.7559.96. Sampled frames confirmed visible animation, a still result after its duration, and a still result with reduced motion. The prototype console script was checked for a single emission and static fallback. This is **not** end-to-end DevTools UI validation, cross-browser certification, or a package release test.
+The earlier SVG assets were rendered as images in headless Chromium 144.0.7559.96. Sampled frames confirmed visible animation, a still result after its duration, and a still result with reduced motion. The prototype console script was checked for a single emission and static fallback. This is **not** end-to-end DevTools UI validation, cross-browser certification, or a package release test.
 
-All committed illustrations are self-contained SVG source. There are no remote fonts, embedded scripts, external image dependencies, or application/CI changes in this visual-prototype update.
+The latest combined mockup is a compressed 1200 × 900 AVIF preview of the supplied 1448 × 1086 PNG. Its decoded image was visually inspected and its uploaded blob hash matched the prepared file. It is a static design reference; the earlier SVG and JavaScript validation does not establish behavior for controls drawn in this image.
+
+The earlier illustrations remain self-contained SVG source, alongside the new raster mockup. No remote fonts, embedded scripts, external image dependencies, application code, or CI changes were introduced by this mockup update.
