@@ -6,6 +6,8 @@ import {
   mkdtempSync,
   readFileSync,
   rmSync,
+  renameSync,
+  symlinkSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
@@ -16,6 +18,7 @@ import {
   verifyRegistryMetadata,
   verifyValidationRun,
 } from "../scripts/verify-release.mjs";
+import { readCandidate } from "../scripts/package-candidate.mjs";
 
 const commit = "a".repeat(40);
 const run = {
@@ -174,6 +177,18 @@ test("reviewed tarballs are resolved from the download directory", (t) => {
   f.save();
   const result = verifyReleaseArtifacts(f.options);
   assert.deepEqual(
+    readCandidate(f.options).packages.map(
+      ({ name, version, tarball, sha256 }) => ({
+        name,
+        version,
+        tarball,
+        sha256,
+        tag: "latest",
+      }),
+    ),
+    result,
+  );
+  assert.deepEqual(
     result.map((p) => p.name),
     ["@servrox/console-fx", "@servrox/console-fx-react"],
   );
@@ -194,7 +209,7 @@ test("a forged receipt hash cannot substitute a different approved candidate", (
   const f = fixture(t);
   f.candidate.packages[0].sha256 = "0".repeat(64);
   f.save();
-  assert.throws(() => verifyReleaseArtifacts(f.options), /Receipt differs/);
+  assert.throws(() => verifyReleaseArtifacts(f.options), /Tarball differs/);
 });
 
 test("source, version and filename drift stop publication", (t) => {
@@ -224,5 +239,60 @@ test("publication requires explicit valid hashes and a supported tag", (t) => {
   assert.throws(
     () => verifyReleaseArtifacts({ ...f.options, tag: "--registry=elsewhere" }),
     /tag/,
+  );
+});
+
+test("candidate readers reject duplicate, missing or foreign packages before consumption", (t) => {
+  const f = fixture(t);
+  const original = [...f.candidate.packages];
+  for (const packages of [
+    [],
+    [original[0]],
+    [original[0], original[0]],
+    [original[0], { ...original[1], name: "@someone/console-fx-react" }],
+  ]) {
+    f.candidate.packages = packages;
+    f.save();
+    assert.throws(() => readCandidate(f.options), /Expected/);
+  }
+});
+
+test("candidate readers reject symlinked tarballs even when bytes match", (t) => {
+  const f = fixture(t);
+  const tarball = f.candidate.packages[0].tarball;
+  renameSync(tarball, tarball + ".original");
+  symlinkSync(tarball + ".original", tarball);
+  assert.throws(() => readCandidate(f.options), /regular file/);
+});
+
+test("packed identity is verified independently of a receipt hash", (t) => {
+  const f = fixture(t);
+  const item = f.candidate.packages[0];
+  const directory = join(f.options.sourceRoot, "packages", item.directory);
+  const manifest = JSON.parse(
+    readFileSync(join(directory, "package/package.json"), "utf8"),
+  );
+  writeFileSync(
+    join(directory, "package/package.json"),
+    JSON.stringify({ ...manifest, name: "@someone/substitute" }),
+  );
+  execFileSync("tar", ["-czf", item.tarball, "package"], { cwd: directory });
+  item.sha256 = createHash("sha256")
+    .update(readFileSync(item.tarball))
+    .digest("hex");
+  f.save();
+  assert.throws(() => readCandidate(f.options), /@someone\/substitute/);
+});
+
+test("valid candidate bytes still require their separately reviewed release hash", (t) => {
+  const f = fixture(t);
+  assert.doesNotThrow(() => readCandidate(f.options));
+  assert.throws(
+    () =>
+      verifyReleaseArtifacts({
+        ...f.options,
+        expectedHashes: ["0".repeat(64), f.options.expectedHashes[1]],
+      }),
+    /Receipt differs from the reviewed hash/,
   );
 });

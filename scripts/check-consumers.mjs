@@ -15,6 +15,7 @@ import {
   artifacts,
   hash,
   readJson,
+  readCandidate,
   root,
   run,
   saveReceipt,
@@ -25,14 +26,7 @@ assert(
   process.argv.slice(2).every((arg) => arg === "--registry"),
   "Use check-consumers.mjs [--registry]",
 );
-const candidate = readJson(resolve(artifacts, "candidate.json"));
-assert.equal(
-  candidate.lockSha256,
-  hash(resolve(root, "pnpm-lock.yaml")),
-  "Repack after lockfile changes",
-);
-for (const item of candidate.packages)
-  assert.equal(item.sha256, hash(item.tarball));
+const candidate = readCandidate();
 const published = [];
 if (registryMode) {
   for (const item of candidate.packages) {
