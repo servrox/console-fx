@@ -26,11 +26,19 @@ function normalize(input: unknown, motion: readonly string[]) {
 }
 export function normalizeCompileOptions(
   input: unknown,
-): Required<CompileOptions> {
-  return normalize(input, ["allow", "reduce"]) as Required<CompileOptions>;
+): NormalizedCompileOptions {
+  return normalize(input, ["allow", "reduce"]) as NormalizedCompileOptions;
 }
 export function normalizeExportOptions(
   input: unknown,
-): Required<ExportOptions> {
-  return normalize(input, ["system", "reduce"]) as Required<ExportOptions>;
+): NormalizedExportOptions {
+  return normalize(input, ["system", "reduce"]) as NormalizedExportOptions;
 }
+export type NormalizedCompileOptions = CompileOptions &
+  Required<
+    Pick<CompileOptions, "target" | "renderer" | "motion" | "unsupported">
+  >;
+export type NormalizedExportOptions = ExportOptions &
+  Required<
+    Pick<ExportOptions, "target" | "renderer" | "motion" | "unsupported">
+  >;

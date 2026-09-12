@@ -35,7 +35,10 @@ export function estimatedTextWidth(text: string, style: TextStyle): number {
   );
 }
 
-export function presentationDiagnostics(scene: SceneV1): Diagnostic[] {
+export function presentationDiagnostics(
+  scene: SceneV1,
+  fitting = false,
+): Diagnostic[] {
   if (!scene.presentation) return [];
   const descriptor = presentationDescriptor(scene.presentation.profile)!;
   const diagnostics: Diagnostic[] = [];
@@ -114,7 +117,7 @@ export function presentationDiagnostics(scene: SceneV1): Diagnostic[] {
       if (
         [...run.text].length > slot.maxCodePoints ||
         /[\t\n\u2028\u2029]/u.test(run.text) ||
-        estimatedTextWidth(run.text, run.style) > slot.safeWidth
+        (!fitting && estimatedTextWidth(run.text, run.style) > slot.safeWidth)
       )
         error(
           "presentation-overflow",

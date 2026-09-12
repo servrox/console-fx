@@ -1,6 +1,7 @@
 import type { TextRun } from "../../model/types.js";
 import { GLYPHS } from "./glyphs.js";
 import { PROFILES, type CinematicEffect } from "./profiles.js";
+import type { FontMetric } from "../../layout/metrics.js";
 
 export function cinematicEffect(run: TextRun): CinematicEffect | undefined {
   return run.effects.find(
@@ -8,7 +9,11 @@ export function cinematicEffect(run: TextRun): CinematicEffect | undefined {
   );
 }
 
-export function cinematicLayout(run: TextRun, effect: CinematicEffect) {
+export function cinematicLayout(
+  run: TextRun,
+  effect: CinematicEffect,
+  metrics?: FontMetric,
+) {
   const profile = PROFILES[effect.profile];
   const display = profile.angular
     ? run.text.replace(/[a-z]/g, (c) => c.toUpperCase())
@@ -35,11 +40,13 @@ export function cinematicLayout(run: TextRun, effect: CinematicEffect) {
     return advance;
   });
   const faceWidth =
-    Math.max(
-      0,
-      inkRight,
-      cursor - (letters.length ? run.style.letterSpacing : 0),
-    ) * profile.xScale;
+    metrics && !profile.angular
+      ? metrics.advance * profile.xScale
+      : Math.max(
+          0,
+          inkRight,
+          cursor - (letters.length ? run.style.letterSpacing : 0),
+        ) * profile.xScale;
   const faceHeight = run.style.fontSize * profile.yScale;
   const blur = effect.glow * 6;
   const guard = 3 + blur * 3;
@@ -52,13 +59,25 @@ export function cinematicLayout(run: TextRun, effect: CinematicEffect) {
   const below = effect.ornaments
     ? faceHeight * (profile.ornament === "sweep" ? 0.24 : 0.16)
     : 0;
-  const overhang = profile.angular
-    ? 0
-    : run.style.fontSize * (profile.italic ? 0.25 : 0.08);
+  const overhang =
+    metrics && !profile.angular
+      ? Math.max(0, metrics.inkLeft, metrics.inkRight - metrics.advance) *
+        profile.xScale
+      : profile.angular
+        ? 0
+        : run.style.fontSize * (profile.italic ? 0.25 : 0.08);
   const insetX = guard + side + overhang;
-  const ascent = faceHeight + above + guard;
+  const ascent =
+    Math.max(faceHeight + above, (metrics?.ascent ?? 0) * profile.yScale) +
+    guard;
   const descent =
-    run.style.fontSize * (profile.angular ? 0 : 0.25) + below + depth + guard;
+    Math.max(
+      run.style.fontSize * (profile.angular ? 0 : 0.25),
+      (metrics?.descent ?? 0) * profile.yScale,
+    ) +
+    below +
+    depth +
+    guard;
   return {
     letters,
     advances,
@@ -72,6 +91,7 @@ export function cinematicLayout(run: TextRun, effect: CinematicEffect) {
     ascent: empty ? 0 : ascent,
     descent: empty ? 0 : descent,
     empty,
+    ...(metrics?.direction ? { direction: metrics.direction } : {}),
   };
 }
 export type CinematicLayout = ReturnType<typeof cinematicLayout>;

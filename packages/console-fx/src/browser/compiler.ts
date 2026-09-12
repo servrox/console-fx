@@ -1,4 +1,7 @@
-import { normalizeCompileOptions } from "../validation/options.js";
+import {
+  normalizeCompileOptions,
+  type NormalizedCompileOptions,
+} from "../validation/options.js";
 import { effectDescriptor } from "../effects/catalog.js";
 import { deepFreeze, utf8ByteLength } from "../model/limits.js";
 import type {
@@ -50,46 +53,27 @@ function result(output: Omit<CompiledConsole, "byteLength">): CompiledConsole {
   });
 }
 
-export function compileScene(
-  input: SceneInputV1,
-  inputOptions: CompileOptions = {},
-  renderSvg?: (scene: SceneV1, motion: boolean) => SvgResult,
-): CompiledConsole {
-  const parsed = parseScene(input);
-  if (!parsed.ok) throw new ConsoleCompileError(parsed.diagnostics);
-  const scene = parsed.value;
-  let configuration: Required<CompileOptions>;
-  try {
-    configuration = normalizeCompileOptions(inputOptions);
-  } catch (error) {
-    if (error instanceof SceneValidationError)
-      throw new ConsoleCompileError(error.diagnostics);
-    throw error;
-  }
-  const text = readableText(scene);
-  const diagnostics: Diagnostic[] = [];
-  const plain = () =>
-    result({
-      args: [text],
-      renderer: "text",
-      text,
-      animated: false,
-      preview: { kind: "text", text },
-      diagnostics,
-    });
-  if (configuration.renderer === "text") {
-    diagnostics.push({
-      code: "plain-text",
-      severity: "info",
-      path: [],
-      message: "Plain text omits decoration and motion.",
-    });
-    return plain();
-  }
+export function diagnoseRichScene(
+  scene: SceneV1,
+  configuration: NormalizedCompileOptions,
+) {
   const unsupported: Diagnostic[] = [];
+  if (
+    (configuration.layout || configuration.sizing) &&
+    configuration.renderer !== "svg"
+  )
+    unsupported.push(
+      problem(
+        "unsupported-layout",
+        "Pixel fitting and output sizing require SVG or explicit plain text.",
+        ["layout"],
+      ),
+    );
   const richDiagnostics: Diagnostic[] = [];
   if (scene.presentation) {
-    unsupported.push(...presentationDiagnostics(scene));
+    unsupported.push(
+      ...presentationDiagnostics(scene, Boolean(configuration.layout)),
+    );
     if (configuration.renderer !== "svg")
       unsupported.push(
         problem(
@@ -201,6 +185,54 @@ export function compileScene(
           );
       }
     }
+  return { unsupported, richDiagnostics };
+}
+
+export function compileScene(
+  input: SceneInputV1,
+  inputOptions: CompileOptions = {},
+  renderSvg?: (
+    scene: SceneV1,
+    motion: boolean,
+    options: CompileOptions,
+  ) => SvgResult,
+  normalizeOptions = normalizeCompileOptions,
+): CompiledConsole {
+  const parsed = parseScene(input);
+  if (!parsed.ok) throw new ConsoleCompileError(parsed.diagnostics);
+  const scene = parsed.value;
+  let configuration: NormalizedCompileOptions;
+  try {
+    configuration = normalizeOptions(inputOptions);
+  } catch (error) {
+    if (error instanceof SceneValidationError)
+      throw new ConsoleCompileError(error.diagnostics);
+    throw error;
+  }
+  const text = readableText(scene);
+  const diagnostics: Diagnostic[] = [];
+  const plain = () =>
+    result({
+      args: [text],
+      renderer: "text",
+      text,
+      animated: false,
+      preview: { kind: "text", text },
+      diagnostics,
+    });
+  if (configuration.renderer === "text") {
+    diagnostics.push({
+      code: "plain-text",
+      severity: "info",
+      path: [],
+      message: "Plain text omits decoration and motion.",
+    });
+    return plain();
+  }
+  const { unsupported, richDiagnostics } = diagnoseRichScene(
+    scene,
+    configuration,
+  );
   if (unsupported.length) {
     if (configuration.unsupported === "error")
       throw new ConsoleCompileError(unsupported);
@@ -242,8 +274,26 @@ export function compileScene(
           "renderer",
         ]),
       ]);
-    output = renderSvg(scene, configuration.motion === "allow");
+    output = renderSvg(scene, configuration.motion === "allow", configuration);
   } catch (error) {
+    if (error instanceof SceneValidationError) {
+      if (configuration.unsupported === "error")
+        throw new ConsoleCompileError(error.diagnostics);
+      diagnostics.push(
+        ...error.diagnostics.map((d): Diagnostic => ({
+          ...d,
+          severity: "warning",
+        })),
+        {
+          ...problem(
+            "renderer-fallback",
+            "Requested layout fell back to complete static text.",
+          ),
+          severity: "warning",
+        },
+      );
+      return plain();
+    }
     if (error instanceof RangeError)
       throw new ConsoleCompileError([
         problem("resource-limit", "The scene exceeds the SVG element limit."),
@@ -258,10 +308,11 @@ export function compileScene(
       path: ["motion"],
       message: "SVG motion requires qualification in your DevTools build.",
     });
-  const { width, height } = scene.surface;
+  const width = output.width ?? scene.surface.width;
+  const height = output.height ?? scene.surface.height;
   const args: ConsoleArgs = [
     "%c %c%s%c",
-    `font-size:0;line-height:0;padding:${height / 2}px ${width / 2}px;background:url("${output.imageUri}") center/contain no-repeat`,
+    `font-size:0;line-height:0;padding:${output.carrierPadding ?? `${height / 2}px ${width / 2}px`};background:url("${output.imageUri}") center/contain no-repeat`,
     "",
     literalPercent(text),
     "",
@@ -279,5 +330,7 @@ export function compileScene(
       alt: text,
     },
     diagnostics,
+    ...(output.layout ? { layout: output.layout } : {}),
+    ...(output.sizing ? { outputSizing: output.sizing } : {}),
   });
 }

@@ -8,6 +8,9 @@ import {
 } from "./cinematic/layout.js";
 import { renderCinematic } from "./cinematic/render.js";
 import { renderPresentation } from "./presentations/render.js";
+import type { SvgLayoutPlan } from "../layout/planner.js";
+import type { LayoutReport, OutputSizingReport } from "../model/layout.js";
+import { textDirection } from "../layout/metrics.js";
 
 import { escapeXml, svgNumber as number } from "./svg-values.js";
 export { escapeXml } from "./svg-values.js";
@@ -52,11 +55,21 @@ export interface SvgResult {
   readonly imageUri: string;
   readonly animated: boolean;
   readonly diagnostics: readonly Diagnostic[];
+  readonly layout?: LayoutReport;
+  readonly width?: number;
+  readonly height?: number;
+  readonly carrierPadding?: string;
+  readonly sizing?: OutputSizingReport;
 }
 
-export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
+export function renderSvg(
+  scene: SceneV1,
+  allowMotion: boolean,
+  plan?: SvgLayoutPlan,
+): SvgResult {
+  scene = plan?.scene ?? scene;
   if (scene.presentation) {
-    const svg = renderPresentation(scene);
+    const svg = renderPresentation(scene, Boolean(plan));
     if ((svg.match(/<[a-z]/g)?.length ?? 0) > LIMITS.svgElements)
       throw new RangeError();
     const { width, height, padding } = scene.surface;
@@ -87,7 +100,9 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
   const diagnostics: Diagnostic[] = [];
   const { width, height, padding, background, borderRadius } = scene.surface;
   let animated = false;
-  const lines = visualLines(scene);
+  const lines = plan
+    ? plan.lines.map((line) => ({ ...line, runs: line.runs.map((r) => r.run) }))
+    : visualLines(scene);
   const cinematicCount = scene.lines.reduce(
     (count, line) =>
       count +
@@ -98,10 +113,13 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
     3,
   );
   if (cinematicCount > LIMITS.svgElements) throw new RangeError();
-  const measurements = lines.map((line) => {
-    const layouts = line.runs.map((run) => {
+  const measurements = lines.map((line, lineNumber) => {
+    const layouts = line.runs.map((run, runNumber) => {
       const effect = cinematicEffect(run);
-      return effect ? cinematicLayout(run, effect) : undefined;
+      return (
+        plan?.lines[lineNumber]?.runs[runNumber]?.cinematic ??
+        (effect ? cinematicLayout(run, effect) : undefined)
+      );
     });
     const cinematic = layouts.some(Boolean);
     const maxSize = Math.max(8, ...line.runs.map((run) => run.style.fontSize));
@@ -153,6 +171,7 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
     const maxSize = Math.max(8, ...line.runs.map((run) => run.style.fontSize));
     const estimatedWidths = line.runs.map(
       (run, index) =>
+        plan?.lines[visualIndex]?.runs[index]?.fragment.advance ??
         measurement.layouts[index]?.width ??
         [...run.text].length *
           (run.style.fontSize * (run.style.fontFamily === "mono" ? 0.61 : 0.6) +
@@ -169,6 +188,7 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
           ? width - padding - estimatedWidth
           : padding;
     y += measurement.ascent;
+    if (plan) y = plan.lines[visualIndex]!.baseline;
     if (
       estimatedWidth > width - padding * 2 ||
       y + measurement.descent > height - padding
@@ -181,6 +201,7 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
       });
     }
     for (const [runIndex, run] of line.runs.entries()) {
+      if (plan) x = plan.lines[visualIndex]!.runs[runIndex]!.fragment.x;
       const id = `fx-${identity++}`;
       const cinematic = cinematicEffect(run);
       if (cinematic) {
@@ -204,7 +225,7 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
       let underlay = "";
       let overlay = "";
       const content = escapeXml(run.text);
-      const attributes = `x="${number(x)}" y="${number(y)}" font-family="${FONT_STACKS[run.style.fontFamily]}" font-size="${run.style.fontSize}" font-weight="${run.style.fontWeight}" letter-spacing="${run.style.letterSpacing}" xml:space="preserve"`;
+      const attributes = `x="${number(x)}" y="${number(y)}" font-family="${FONT_STACKS[run.style.fontFamily]}" font-size="${run.style.fontSize}" font-weight="${run.style.fontWeight}" letter-spacing="${run.style.letterSpacing}" xml:space="preserve"${plan ? ` direction="${textDirection(run.text)}" text-anchor="${textDirection(run.text) === "rtl" ? "end" : "start"}"` : ""}`;
       const text = (ink: string, extra = "") =>
         `<text ${attributes} fill="${ink}" ${extra}>${content}</text>`;
       for (const effect of run.effects) {
@@ -216,7 +237,16 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
           case "neon":
             fill = effect.color;
             definitions.push(
-              `<filter id="${id}-glow" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="${number(1 + effect.intensity * 3)}"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`,
+              `<filter id="${id}-glow" ${
+                plan
+                  ? (() => {
+                      const ink =
+                        plan.lines[visualIndex]!.runs[runIndex]!.fragment.ink;
+                      const extent = 3 * (1 + effect.intensity * 3);
+                      return `filterUnits="userSpaceOnUse" x="${number(ink.x - extent)}" y="${number(ink.y - extent)}" width="${number(ink.width + 2 * extent)}" height="${number(ink.height + 2 * extent)}"`;
+                    })()
+                  : 'x="-30%" y="-100%" width="160%" height="300%"'
+              }><feGaussianBlur stdDeviation="${number(1 + effect.intensity * 3)}"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>`,
             );
             filters.push(`filter="url(#${id}-glow)"`);
             break;

@@ -35,7 +35,7 @@ export function renderCinematic(
       advance += layout.advances[index]! + run.style.letterSpacing;
     });
   } else {
-    letters = `<text x="${n(w / profile.xScale / 2)}" text-anchor="middle" y="${run.style.fontSize}" font-family="${fontStack}" font-size="${run.style.fontSize}" font-weight="${run.style.fontWeight}" font-style="${profile.italic ? "italic" : "normal"}" letter-spacing="${run.style.letterSpacing}" xml:space="preserve" transform="scale(${profile.xScale} ${profile.yScale})">${xml(run.text)}</text>`;
+    letters = `<text x="${n(w / profile.xScale / 2)}" text-anchor="middle" y="${run.style.fontSize}" font-family="${fontStack}" font-size="${run.style.fontSize}" font-weight="${run.style.fontWeight}" font-style="${profile.italic ? "italic" : "normal"}" letter-spacing="${run.style.letterSpacing}" xml:space="preserve"${layout.direction ? ` direction="${layout.direction}"` : ""} transform="scale(${profile.xScale} ${profile.yScale})">${xml(run.text)}</text>`;
   }
   const use = (fill: string, extra = "") =>
     `<use href="#${id}-face" fill="${fill}" ${extra}/>`;

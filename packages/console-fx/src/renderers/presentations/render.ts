@@ -1,13 +1,10 @@
 import { presentationDescriptor } from "../../presentations/catalog.js";
 import type { SceneV1 } from "../../model/types.js";
 import { escapeXml as xml, svgNumber as n } from "../svg-values.js";
+import { CARD_FONT_STACKS as fonts } from "../../presentations/fonts.js";
+import { textDirection } from "../../layout/metrics.js";
 
-const fonts = {
-  sans: "DejaVu Sans, Arial, sans-serif",
-  mono: "DejaVu Sans Mono, monospace",
-  serif: "DejaVu Serif, Georgia, serif",
-};
-export function renderPresentation(scene: SceneV1): string {
+export function renderPresentation(scene: SceneV1, fitted = false): string {
   const presentation = scene.presentation!;
   const descriptor = presentationDescriptor(presentation.profile)!;
   const { width, height, padding, background, borderRadius } = scene.surface;
@@ -227,8 +224,15 @@ export function renderPresentation(scene: SceneV1): string {
   const texts = descriptor.slots
     .map((slot) => {
       const run = scene.lines[slot.line]!.runs[slot.run]!;
+      const direction = fitted ? textDirection(run.text) : undefined;
+      const anchor =
+        direction === "rtl"
+          ? slot.anchor === "start"
+            ? "end"
+            : "start"
+          : slot.anchor;
       const text = (x: number, y: number, color: string, decoration = false) =>
-        `<text ${decoration ? 'aria-hidden="true"' : `data-slot="${slot.id}"`} x="${x}" y="${y}" fill="${color}" font-size="${run.style.fontSize}" font-family="${fonts[run.style.fontFamily]}" font-weight="${run.style.fontWeight}" letter-spacing="${run.style.letterSpacing}" text-anchor="${slot.anchor}" xml:space="preserve">${xml(run.text)}</text>`;
+        `<text ${decoration ? 'aria-hidden="true"' : `data-slot="${slot.id}"`} x="${x}" y="${y}" fill="${color}" font-size="${run.style.fontSize}" font-family="${fonts[run.style.fontFamily]}" font-weight="${run.style.fontWeight}" letter-spacing="${run.style.letterSpacing}" text-anchor="${anchor}" xml:space="preserve"${direction ? ` direction="${direction}"` : ""}>${xml(run.text)}</text>`;
       return (
         (descriptor.id === "letterpress" && slot.id === "title"
           ? text(35.8, 127.3, "#faf9ef", true)

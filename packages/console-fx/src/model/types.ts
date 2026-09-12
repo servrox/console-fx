@@ -1,3 +1,11 @@
+import type {
+  LayoutRequest,
+  OutputSizing,
+  MeasurementSnapshot,
+  LayoutReport,
+  OutputSizingReport,
+} from "./layout.js";
+export type * from "./layout.js";
 export type Renderer = "css" | "svg" | "text";
 export type Target =
   "chromium" | "firefox" | "safari" | "node" | "bun" | "unknown";
@@ -249,6 +257,10 @@ export interface CompileOptions {
   readonly renderer?: Renderer;
   readonly motion?: "allow" | "reduce";
   readonly unsupported?: "error" | "fallback";
+  readonly layout?: LayoutRequest;
+  readonly sizing?: OutputSizing;
+  readonly measurements?: MeasurementSnapshot;
+  readonly measurementEnvironment?: string;
 }
 export interface CompiledConsole {
   readonly args: ConsoleArgs;
@@ -258,6 +270,8 @@ export interface CompiledConsole {
   readonly byteLength: number;
   readonly preview: CompiledPreview;
   readonly diagnostics: readonly Diagnostic[];
+  readonly layout?: LayoutReport;
+  readonly outputSizing?: OutputSizingReport;
 }
 export interface ExportOptions extends Omit<CompileOptions, "motion"> {
   readonly motion?: "system" | "reduce";
