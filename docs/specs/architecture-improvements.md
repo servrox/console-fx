@@ -11,7 +11,7 @@ artifacts; this record preserves each finding, ownership and verification.
 | 1 | Clipboard attempt/recovery ownership is duplicated; the demo lacks a synchronous exclusion guard. | Shared `features/export/use-clipboard-copy.ts` owns exclusion, captured recovery, retry and unmount cancellation for studio and quick demo. | Three hook-interface tests pass: overlap/retry, unavailable clipboard and late completion. Browser journeys remain in the final gate. |
 | 2 | Six export formats and compilation diagnostic handling are embedded in editor markup. | `features/export/prepare-export.ts` owns compilation, format metadata, source serialization, diagnostic identity and measurement exclusion from saved recipes. | Six tests pass through its interface, including executable sources, hostile text, static preview, distinct diagnostic paths and JSON recovery. |
 | 3 | Deferred import invalidation and document lifecycle rules are spread across editor effects and event handlers. | `features/editor/use-document-session.ts` owns hydration, reducer dispatch, import generations, draft lifecycle and shared/example/reset decisions. The view supplies visual transition callbacks. | Ten session tests and 28 persistence tests pass; independent source review found no extraction regression. Production browser journeys remain in the final gate. |
-| 4 | Standalone motion selection fails on throwing media preferences while direct emission correctly falls back to static output. | Pending. | Reproduced through both existing public interfaces: standalone emits zero calls; direct helper emits one. |
+| 4 | Standalone motion selection fails on throwing media preferences while direct emission correctly falls back to static output. | `browser/motion.ts` owns the shared query, runtime policy and explicit source guard. Generated snippets catch unavailable preferences and emit the precompiled static branch once. | 32 codegen/grammar checks pass, including nine runtime/source parity cases and four negative grammar fixtures. |
 | 5 | Consumer, bundle and release checks interpret the same package receipt differently; only release checks relocate downloaded CI tarballs. | Pending. | Existing main-CI download has valid local tarballs and nonexistent original runner paths. |
 | 6 | Artifact preparation trusts marker existence and deletes the previous candidate before its replacement is complete. | Pending. | Source review confirms deletion precedes copying/configuration/receipt writes. |
 
@@ -37,3 +37,11 @@ All user decisions cross the session interface, so no view handler knows an
 import generation or storage hold/release sequence. ADR-0003, ADR-0004, ADR-0007
 and ADR-0015 govern these preserved contracts. Session tests exercise controlled
 file promises and browser storage rather than reaching into internal refs.
+
+Pass 4 preserves the public `resolveMotion`, compiler and exporter interfaces.
+Runtime preference reads and standalone source are two adapters to the same
+guarded policy; neither introduces browser reads during compilation. The source
+representation is explicit and never obtained by evaluating/stringifying a
+runtime function. ADR-0002, ADR-0004, ADR-0005 and ADR-0006 govern it. Static
+snippets and compiled argument arrays are unchanged; system-motion snippet bytes
+change, so prior package/deployment candidates require replacement.

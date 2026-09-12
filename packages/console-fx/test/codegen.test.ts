@@ -1,10 +1,12 @@
 import { parse } from "acorn";
 import { runInNewContext } from "node:vm";
-import { describe, expect, it } from "vitest";
-import { compileConsole } from "../src/browser/index.js";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { compileConsole, emitConsole } from "../src/browser/index.js";
 import { exportConsoleLog } from "../src/codegen/index.js";
 import { defineScene, utf8ByteLength } from "../src/index.js";
 import { neon, rainbow } from "../src/presets/index.js";
+
+afterEach(() => vi.unstubAllGlobals());
 
 function execute(code: string, matches?: boolean): unknown[][] {
   const calls: unknown[][] = [];
@@ -121,4 +123,81 @@ describe("standalone code generation", () => {
     const output = exportConsoleLog(neon({ text: "%c %% %s" }));
     expect(execute(output.code)).toEqual([["%c %% %s"]]);
   });
+  it.each([
+    ["missing", { value: undefined }, false],
+    [
+      "positive",
+      { value: (): { matches: boolean } => ({ matches: true }) },
+      true,
+    ],
+    ["reduced", { value: () => ({ matches: false }) }, false],
+    ["indeterminate", { value: () => ({ matches: 1 }) }, false],
+    ["null query", { value: (): null => null }, false],
+    ["undefined query", { value: (): undefined => undefined }, false],
+    [
+      "throwing method",
+      {
+        value: () => {
+          throw new Error("unavailable");
+        },
+      },
+      false,
+    ],
+    [
+      "throwing matches getter",
+      {
+        value: () => ({
+          get matches() {
+            throw new Error("unavailable");
+          },
+        }),
+      },
+      false,
+    ],
+    [
+      "throwing method getter",
+      {
+        get() {
+          throw new Error("unavailable");
+        },
+      },
+      false,
+    ],
+  ] as const)(
+    "keeps direct and standalone motion selection identical for %s preferences",
+    (_name, descriptor, animated) => {
+      const scene = rainbow({ motion: "gradientDrift" });
+      const options = {
+        target: "chromium",
+        renderer: "svg",
+        motion: "system",
+      } as const;
+      vi.stubGlobal("matchMedia", undefined);
+      Object.defineProperty(globalThis, "matchMedia", {
+        configurable: true,
+        ...descriptor,
+      });
+      const direct: unknown[][] = [];
+      emitConsole(scene, options, (...args) => direct.push(args));
+      const standalone: unknown[][] = [];
+      const context = Object.defineProperty(
+        { console: { log: (...args: unknown[]) => standalone.push(args) } },
+        "matchMedia",
+        descriptor,
+      );
+      const exported = exportConsoleLog(scene, options);
+      runInNewContext(exported.code, context, {
+        timeout: 1000,
+        contextCodeGeneration: { strings: false, wasm: false },
+      });
+      expect(standalone).toEqual(direct);
+      expect(standalone).toEqual([
+        compileConsole(scene, {
+          ...options,
+          motion: animated ? "allow" : "reduce",
+        }).args,
+      ]);
+      expect(exported.byteLength).toBe(utf8ByteLength(exported.code));
+    },
+  );
 });

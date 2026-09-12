@@ -1,6 +1,7 @@
 import { normalizeRenderExportOptions as normalizeExportOptions } from "../validation/render-options.js";
 import { SceneValidationError } from "../validation/index.js";
 import { compileConsole, ConsoleCompileError } from "../browser/index.js";
+import { motionGuardSource } from "../browser/motion.js";
 import { deepFreeze, LIMITS, utf8ByteLength } from "../model/limits.js";
 import type {
   ConsoleArgs,
@@ -40,7 +41,7 @@ export function exportConsoleLog(
       motion: "allow",
     });
     if (animatedOutput.animated) {
-      code = `console.log(...(typeof globalThis.matchMedia === "function" && globalThis.matchMedia("(prefers-reduced-motion: no-preference)")?.matches === true ? [${argumentsSource(animatedOutput.args)}] : [${argumentsSource(staticOutput.args)}]));`;
+      code = `console.log(...(${motionGuardSource()} ? [${argumentsSource(animatedOutput.args)}] : [${argumentsSource(staticOutput.args)}]));`;
       for (const entry of animatedOutput.diagnostics)
         if (
           !diagnostics.some(
