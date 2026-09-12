@@ -10,7 +10,7 @@ artifacts; this record preserves each finding, ownership and verification.
 | --- | --- | --- | --- |
 | 1 | Clipboard attempt/recovery ownership is duplicated; the demo lacks a synchronous exclusion guard. | Shared `features/export/use-clipboard-copy.ts` owns exclusion, captured recovery, retry and unmount cancellation for studio and quick demo. | Three hook-interface tests pass: overlap/retry, unavailable clipboard and late completion. Browser journeys remain in the final gate. |
 | 2 | Six export formats and compilation diagnostic handling are embedded in editor markup. | `features/export/prepare-export.ts` owns compilation, format metadata, source serialization, diagnostic identity and measurement exclusion from saved recipes. | Six tests pass through its interface, including executable sources, hostile text, static preview, distinct diagnostic paths and JSON recovery. |
-| 3 | Deferred import invalidation and document lifecycle rules are spread across editor effects and event handlers. | Pending. | Pending. |
+| 3 | Deferred import invalidation and document lifecycle rules are spread across editor effects and event handlers. | `features/editor/use-document-session.ts` owns hydration, reducer dispatch, import generations, draft lifecycle and shared/example/reset decisions. The view supplies visual transition callbacks. | Ten session tests and 28 persistence tests pass; independent source review found no extraction regression. Production browser journeys remain in the final gate. |
 | 4 | Standalone motion selection fails on throwing media preferences while direct emission correctly falls back to static output. | Pending. | Reproduced through both existing public interfaces: standalone emits zero calls; direct helper emits one. |
 | 5 | Consumer, bundle and release checks interpret the same package receipt differently; only release checks relocate downloaded CI tarballs. | Pending. | Existing main-CI download has valid local tarballs and nonexistent original runner paths. |
 | 6 | Artifact preparation trusts marker existence and deletes the previous candidate before its replacement is complete. | Pending. | Source review confirms deletion precedes copying/configuration/receipt writes. |
@@ -30,3 +30,10 @@ core entrypoints. The editor selects a format from its result. ADR-0002 governs
 silence and single emission, ADR-0004 module placement, ADR-0005 source escaping,
 and ADR-0015 saved-versus-temporary measurement data. The private interface is
 tested directly; no new package or public export was added.
+
+Pass 3 keeps browser session ownership in the studio. The existing reducer still
+owns bounded history, and DraftStore still owns local keys and write retention.
+All user decisions cross the session interface, so no view handler knows an
+import generation or storage hold/release sequence. ADR-0003, ADR-0004, ADR-0007
+and ADR-0015 govern these preserved contracts. Session tests exercise controlled
+file promises and browser storage rather than reaching into internal refs.
