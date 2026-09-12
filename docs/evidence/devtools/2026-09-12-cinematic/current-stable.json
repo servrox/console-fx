@@ -1,0 +1,231 @@
+{
+  "checkedAt": "2026-09-12T10:30:51.508029+00:00",
+  "sources": {
+    "chrome": "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json",
+    "edge": "https://edgeupdates.microsoft.com/api/products?view=enterprise"
+  },
+  "chrome": {
+    "channel": "Stable",
+    "version": "153.0.8010.36",
+    "revision": "1681091"
+  },
+  "chromeFeedTimestamp": "2026-09-11T21:20:36.270Z",
+  "edge": [
+    {
+      "ProductVersion": "153.0.4234.32",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-09-11T00:28:00"
+    },
+    {
+      "ProductVersion": "152.0.4191.77",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-09-11T00:43:00"
+    },
+    {
+      "ProductVersion": "152.0.4191.66",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-09-04T22:35:00"
+    },
+    {
+      "ProductVersion": "152.0.4191.62",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-09-02T18:28:00"
+    },
+    {
+      "ProductVersion": "152.0.4191.53",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-28T03:03:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.107",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-24T07:56:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.101",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-20T21:36:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.93",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-17T21:34:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.86",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-14T17:09:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.78",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-10T15:04:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.72",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-06T20:30:00"
+    },
+    {
+      "ProductVersion": "151.0.4129.59",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-31T21:02:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.144",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-21T06:21:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.132",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-14T00:31:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.125",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-08-11T19:56:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.110",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-31T21:26:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.105",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-27T18:24:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.99",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-24T20:08:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.96",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-23T21:20:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.83",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-17T20:01:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.65",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-09T21:14:00"
+    },
+    {
+      "ProductVersion": "150.0.4078.48",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-07-02T21:25:00"
+    },
+    {
+      "ProductVersion": "149.0.4022.98",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-26T18:15:00"
+    },
+    {
+      "ProductVersion": "149.0.4022.96",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-25T20:08:00"
+    },
+    {
+      "ProductVersion": "149.0.4022.80",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-18T18:39:00"
+    },
+    {
+      "ProductVersion": "149.0.4022.69",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-12T17:57:00"
+    },
+    {
+      "ProductVersion": "149.0.4022.62",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-09T17:02:00"
+    },
+    {
+      "ProductVersion": "149.0.4022.52",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-04T19:37:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.137",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-25T21:08:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.128",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-18T19:34:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.118",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-12T18:06:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.116",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-09T17:48:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.109",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-06-04T20:05:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.96",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-05-28T21:32:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.83",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-05-21T22:14:00"
+    },
+    {
+      "ProductVersion": "148.0.3967.70",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-05-15T18:23:00"
+    }
+  ]
+}

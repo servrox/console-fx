@@ -1,0 +1,245 @@
+{
+  "method": "Compare decoded pixels with visually inspected same-browser default capture; <=1 channel level is recorded rasterization noise.",
+  "rows": [
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-generated-copy",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-generated-copy",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-generated-copy",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-generated-copy",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-repeated-snippet-1",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-generated-copy",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-generated-copy",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-generated-copy",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-before-open",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-repeated-snippet-2",
+      "maxChannelDelta": 2,
+      "changedPixelsBeyondRasterNoise": 3
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-generated-copy",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-before-open",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-reopened",
+      "maxChannelDelta": 0,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-repeated-snippet-1",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-repeated-snippet-2",
+      "maxChannelDelta": 1,
+      "changedPixelsBeyondRasterNoise": 0
+    }
+  ]
+}

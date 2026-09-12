@@ -1,18 +1,18 @@
 "use client";
 import { useState } from "react";
-import { neon } from "@servrox/console-fx/presets";
+import { liquidChrome } from "@servrox/console-fx/presets";
 import {
   ConsoleBanner,
   ConsolePreview,
   useConsoleScene,
 } from "@servrox/console-fx-react";
 
-const options = { target: "chromium", renderer: "css" } as const;
+const options = { target: "chromium", renderer: "svg" } as const;
 export function BannerControls() {
   const [enabled, setEnabled] = useState(false);
   const [instance, setInstance] = useState(0);
   const [text, setText] = useState("Packed Next banner");
-  const scene = neon({ text });
+  const scene = liquidChrome({ text });
   const { log } = useConsoleScene(scene, options);
   return (
     <section aria-label="Console example">

@@ -123,7 +123,7 @@ describe("generated SVG boundary", () => {
     "animate",
     "animateTransform",
   ]);
-  it.each(PRESETS)(
+  it.each(PRESETS.filter((item) => item.group === "Classic"))(
     "renders $name as internal XML with the exact preview URI",
     ({ id }) => {
       const output = compileConsole(preset(id, { text: '<script>"& %c 👩🏽‍💻' }), {

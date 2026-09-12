@@ -1,0 +1,91 @@
+{
+  "observedAt": "2026-09-12T10:41:05.106Z",
+  "qualifiedOldCoreSha256": "5740c25432bf5e88abf6c0b65560383a6daeeb27694a59c85432b680c20350e1",
+  "unchangedOldDescriptors": true,
+  "rows": [
+    {
+      "factory": "lightningMetal",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "invalid-effect",
+            "severity": "error",
+            "message": "Choose a built-in effect.",
+            "path": [
+              "lines",
+              0,
+              "runs",
+              0,
+              "effects",
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "factory": "iceCathedral",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "invalid-effect",
+            "severity": "error",
+            "message": "Choose a built-in effect.",
+            "path": [
+              "lines",
+              0,
+              "runs",
+              0,
+              "effects",
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "factory": "liquidChrome",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "invalid-effect",
+            "severity": "error",
+            "message": "Choose a built-in effect.",
+            "path": [
+              "lines",
+              0,
+              "runs",
+              0,
+              "effects",
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "factory": "moltenGold",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "invalid-effect",
+            "severity": "error",
+            "message": "Choose a built-in effect.",
+            "path": [
+              "lines",
+              0,
+              "runs",
+              0,
+              "effects",
+              0
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

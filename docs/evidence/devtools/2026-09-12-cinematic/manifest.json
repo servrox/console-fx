@@ -1,0 +1,331 @@
+{
+  "createdAt": "2026-09-12T10:54:22.142015+00:00",
+  "archive": "native-observations.tar.gz",
+  "sha256": "10202f86ad42dd01b9d1ef99dbfe4c481e8cea2618f027ab0aa92ec1c05331ea",
+  "files": [
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-iceCathedral-480-console.png",
+      "sha256": "29f5f1aef6fc5770cac87cee8f55498260524179d4433006d1a8274e18c7c585"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-iceCathedral-480-static.png",
+      "sha256": "dace30f7c4215e96ef6633769444111d5cc51d4ef515946f9ff63a21c6fce52a"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-iceCathedral-console.png",
+      "sha256": "aaf89ca844d5964a67d8f1b5812c1a9cc4dbd886c883654c5c47d1b248f1b786"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-iceCathedral-static.png",
+      "sha256": "5aeb6f78a1ca730be0d09efee621744821d49b00f100adf0360c8de613d7044e"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-lightningMetal-480-console.png",
+      "sha256": "f8e954146f33d39ac4ba24f49c6ca68f1d5425531ea8b0b1421a9d452b99ab85"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-lightningMetal-480-static.png",
+      "sha256": "33cc14db55d92e42762e80a339fa680327a8fe75907d4d05a3f8c8cbf73cb3e7"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-lightningMetal-console.png",
+      "sha256": "a01d1e0aee7ccff2d0a9e4521921ab6aea75267795f23d47e9624aec00d97fee"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-lightningMetal-static.png",
+      "sha256": "f8f3b9c8e17d8ac0d2648a062621a0ee6ad89194a4205e528a641dee5eb17f69"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-liquidChrome-480-console.png",
+      "sha256": "5b123957d3d6c63b4aaf7f27e9af096affde52c49433a0df1036034a88a2acb4"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-liquidChrome-480-static.png",
+      "sha256": "4bbf8f629e2128c5f42f63e7e241886238d5014bcb632c4d1dbdfa008a52341e"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-liquidChrome-console.png",
+      "sha256": "984e5f6823906410873d73c4196326a58b435b0d2522db61b5b94ba077a0451e"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-liquidChrome-static.png",
+      "sha256": "6c28b9b8a746a0ef1bbbf0203fc9de8725a2efe5949bbd4fe1a415b17f7186f9"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-moltenGold-480-console.png",
+      "sha256": "5db826e263acd87d8f64b899e2c0232f1138180a6082199265ddbed31e1c4e64"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-moltenGold-480-static.png",
+      "sha256": "19a94458721b2d801f15db53f84d14567eeccabe4a020e65d7e38f690ab22a8c"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-moltenGold-console.png",
+      "sha256": "3933a4fbeb76eea5f142da3960a11ec0ae9bf93c9f6578366e443dfde7de6c89"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/cinematic-moltenGold-static.png",
+      "sha256": "26114c2a06fa8435b6e6a75066d88805dc59b9e4e03a26c28b60fd99f2bab5f9"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/final-image-identity.json",
+      "sha256": "27769dc583f0cbc0ec7a8cd9abf768daee367fb48946a52bc588804d9aa576c9"
+    },
+    {
+      "path": "chrome-2026-09-12T10-26-16.990Z/observations.json",
+      "sha256": "bb2b9dc2fc65b0213a83f08dc2e2528ddc5a2a1b70aa206d5684ff6dc8d9e376"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/iceCathedral-before-open-static.png",
+      "sha256": "5aeb6f78a1ca730be0d09efee621744821d49b00f100adf0360c8de613d7044e"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/iceCathedral-generated-copy-static.png",
+      "sha256": "abec1cf148966e3678a9fb11c3b5be68f76a15820dae54bb8ecfea29d5c28a6d"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/iceCathedral-reopened-static.png",
+      "sha256": "5aeb6f78a1ca730be0d09efee621744821d49b00f100adf0360c8de613d7044e"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/iceCathedral-repeated-snippet-1-static.png",
+      "sha256": "abec1cf148966e3678a9fb11c3b5be68f76a15820dae54bb8ecfea29d5c28a6d"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/iceCathedral-repeated-snippet-2-static.png",
+      "sha256": "9ac720ca6eae12de973405c28dc00ee4ff2c2edf9c9dd319b6db84687eb4d015"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/lightningMetal-before-open-static.png",
+      "sha256": "f8f3b9c8e17d8ac0d2648a062621a0ee6ad89194a4205e528a641dee5eb17f69"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/lightningMetal-generated-copy-static.png",
+      "sha256": "ae34da0c14f30709d72b38880f2d0077a4f7cb63a617f70e99adca9ec2befd33"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/lightningMetal-reopened-static.png",
+      "sha256": "f8f3b9c8e17d8ac0d2648a062621a0ee6ad89194a4205e528a641dee5eb17f69"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/lightningMetal-repeated-snippet-1-static.png",
+      "sha256": "ae34da0c14f30709d72b38880f2d0077a4f7cb63a617f70e99adca9ec2befd33"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/lightningMetal-repeated-snippet-2-static.png",
+      "sha256": "377f162c3d12a521a04fe77fa1b7a04ad886fef858eef46c543605ee5500f3ef"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/liquidChrome-before-open-static.png",
+      "sha256": "6c28b9b8a746a0ef1bbbf0203fc9de8725a2efe5949bbd4fe1a415b17f7186f9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/liquidChrome-generated-copy-static.png",
+      "sha256": "28ee20c95ff007e97b91a62f82dc49136cebbfb9698e8fd2fe6b1c1b4e9dead9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/liquidChrome-reopened-static.png",
+      "sha256": "6c28b9b8a746a0ef1bbbf0203fc9de8725a2efe5949bbd4fe1a415b17f7186f9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/liquidChrome-repeated-snippet-1-static.png",
+      "sha256": "28ee20c95ff007e97b91a62f82dc49136cebbfb9698e8fd2fe6b1c1b4e9dead9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/liquidChrome-repeated-snippet-2-static.png",
+      "sha256": "d756fc1b1e2e8d89f17dbdab5b9ddd98ef0934c0b19ba403684f3e31927fc461"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/moltenGold-before-open-static.png",
+      "sha256": "26114c2a06fa8435b6e6a75066d88805dc59b9e4e03a26c28b60fd99f2bab5f9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/moltenGold-generated-copy-static.png",
+      "sha256": "26114c2a06fa8435b6e6a75066d88805dc59b9e4e03a26c28b60fd99f2bab5f9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/moltenGold-reopened-static.png",
+      "sha256": "26114c2a06fa8435b6e6a75066d88805dc59b9e4e03a26c28b60fd99f2bab5f9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/moltenGold-repeated-snippet-1-static.png",
+      "sha256": "26114c2a06fa8435b6e6a75066d88805dc59b9e4e03a26c28b60fd99f2bab5f9"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/moltenGold-repeated-snippet-2-static.png",
+      "sha256": "3720e48970feaa2c78b64283200f2378d389944743ba4e6724fd80f330d8372b"
+    },
+    {
+      "path": "chrome-lifecycle-2026-09-12T10-33-55.383Z/observations.json",
+      "sha256": "e2f14d98fc16e6fe2e5411289470a4a1c48accd9cdf33fbe4ee9ac069e8ad5fe"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-iceCathedral-480-console.png",
+      "sha256": "6a114a1af5903deae8f4d61ca3f8148376a33baffbd2894ad0a35a920e58c11f"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-iceCathedral-480-static.png",
+      "sha256": "fe439a88369f7b3bc1527a5836de6e679842502db792935b760d8d7cf65f20a4"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-iceCathedral-console.png",
+      "sha256": "7db4b59ac4fda31af990202cb3a6c375383e91c3e82f02c4cd4033597e9abf7f"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-iceCathedral-static.png",
+      "sha256": "0c813c043a7aaae4d601b2c3bfae840965ca9f97e5b4b4ad00145460f1d3c3e2"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-lightningMetal-480-console.png",
+      "sha256": "27357df38dacb3919fbc0a84b3aab96521df02a8f88c880fab2ffa3c2dea02ce"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-lightningMetal-480-static.png",
+      "sha256": "2919add92b0c2364d5b6dbc9b8d2dc27b8cd31155bb8465e55bf5656e9f003d2"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-lightningMetal-console.png",
+      "sha256": "a950cc87a790c5fb308a0dbed3d61c337b34d871823eb76f0d3e61a5dad2106f"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-lightningMetal-static.png",
+      "sha256": "3ce20413f2948f2dda4b0f7b7617cb0424e4081c2c5dfce17c9cf905ae5090c2"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-liquidChrome-480-console.png",
+      "sha256": "b9b0b926c6c80bdd363fa7cac677dbc6a5427851800d0e8db69cfb55c9122eef"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-liquidChrome-480-static.png",
+      "sha256": "4fc4b51ef821b467423613a8e8fc88ddada3d0b663ea5cf33d1d074aaabff118"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-liquidChrome-console.png",
+      "sha256": "7dbfc3d843bdb9495052f5197a4ef451f12e028403b3a892caf9402dc9fdbc5b"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-liquidChrome-static.png",
+      "sha256": "e5a62edd216b08cf718bfd9a72ec34b02fe59146ea66b5428d1e9c7e68fc8b05"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-moltenGold-480-console.png",
+      "sha256": "cb7ebf3d20e6a0bdd54b9d48eafd8029da878f6b8899251b51c1ee29e6435363"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-moltenGold-480-static.png",
+      "sha256": "61fb2dfef4c818c6fb06a76b7e08d963510293f378219235ac657486a5311ccd"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-moltenGold-console.png",
+      "sha256": "fe0007f8f7da1e22685d3056552c875db856a305db1255e90acf36fb3238ab47"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/cinematic-moltenGold-static.png",
+      "sha256": "c13b7a4aa414a45401ec1f24d74b4fe0d45530503917dae6dd516c7468a33ef2"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/final-image-identity.json",
+      "sha256": "0df49c9eff561769706685de17cc0f4948ad02625553c0593ec6632177e9c92c"
+    },
+    {
+      "path": "edge-2026-09-12T10-27-43.666Z/observations.json",
+      "sha256": "18d187415a0512ab993c710c028520e57d972b1135337ba3babdd1d5f4df8ba0"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/iceCathedral-before-open-static.png",
+      "sha256": "0c813c043a7aaae4d601b2c3bfae840965ca9f97e5b4b4ad00145460f1d3c3e2"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/iceCathedral-generated-copy-static.png",
+      "sha256": "26c8760da27d56d8e39f0466465c9d9178038a6f88c211585ee9e90ac7cd2538"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/iceCathedral-reopened-static.png",
+      "sha256": "0c813c043a7aaae4d601b2c3bfae840965ca9f97e5b4b4ad00145460f1d3c3e2"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/iceCathedral-repeated-snippet-1-static.png",
+      "sha256": "26c8760da27d56d8e39f0466465c9d9178038a6f88c211585ee9e90ac7cd2538"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/iceCathedral-repeated-snippet-2-static.png",
+      "sha256": "078550c99f23a6e72c9cea4290d57396e0f9111e36b692ec54c5906d8ab43660"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/lightningMetal-before-open-static.png",
+      "sha256": "3ce20413f2948f2dda4b0f7b7617cb0424e4081c2c5dfce17c9cf905ae5090c2"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/lightningMetal-generated-copy-static.png",
+      "sha256": "dafc473cb10662f10bbd73b633761f9d15def51066b51be13d9122fa7b53e99f"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/lightningMetal-reopened-static.png",
+      "sha256": "3ce20413f2948f2dda4b0f7b7617cb0424e4081c2c5dfce17c9cf905ae5090c2"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/lightningMetal-repeated-snippet-1-static.png",
+      "sha256": "dafc473cb10662f10bbd73b633761f9d15def51066b51be13d9122fa7b53e99f"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/lightningMetal-repeated-snippet-2-static.png",
+      "sha256": "8a59c82d5de740cc66c4429ce687e3820ada72446e209dcc331b155aa1a02431"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/liquidChrome-before-open-static.png",
+      "sha256": "e5a62edd216b08cf718bfd9a72ec34b02fe59146ea66b5428d1e9c7e68fc8b05"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/liquidChrome-generated-copy-static.png",
+      "sha256": "cd2e2e74409a6d4575b165aab22478226d9206337352001c8c4be124a88b5233"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/liquidChrome-reopened-static.png",
+      "sha256": "e5a62edd216b08cf718bfd9a72ec34b02fe59146ea66b5428d1e9c7e68fc8b05"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/liquidChrome-repeated-snippet-1-static.png",
+      "sha256": "cd2e2e74409a6d4575b165aab22478226d9206337352001c8c4be124a88b5233"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/liquidChrome-repeated-snippet-2-static.png",
+      "sha256": "317858a35be4f09d4a39edc8c44853cf1f4e68cc798918dcfbd176f17521bdeb"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/moltenGold-before-open-static.png",
+      "sha256": "1a56468527b6c9d1af1c90e9c385012ba83c40c0d9bf64cabf4a38e938b6f769"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/moltenGold-generated-copy-static.png",
+      "sha256": "c13b7a4aa414a45401ec1f24d74b4fe0d45530503917dae6dd516c7468a33ef2"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/moltenGold-reopened-static.png",
+      "sha256": "c13b7a4aa414a45401ec1f24d74b4fe0d45530503917dae6dd516c7468a33ef2"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/moltenGold-repeated-snippet-1-static.png",
+      "sha256": "1a56468527b6c9d1af1c90e9c385012ba83c40c0d9bf64cabf4a38e938b6f769"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/moltenGold-repeated-snippet-2-static.png",
+      "sha256": "3eea22fb1ea6bc1b69afbb75d7020749ec9a2fac6b09811b251e2bba93a1ff11"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/observations.json",
+      "sha256": "5be4b0a70a1bb455ca9fd1afc03a4c7453c9fd3fc29aa34e33080e2e4feb2dac"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/offscreen-and-return-early.png",
+      "sha256": "2112fb82c9c54a24544671975faf0701f1b8a92a4ab70f080341001394260a33"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/offscreen-and-return-later.png",
+      "sha256": "2112fb82c9c54a24544671975faf0701f1b8a92a4ab70f080341001394260a33"
+    },
+    {
+      "path": "edge-lifecycle-2026-09-12T10-29-49.598Z/offscreen-and-return-returned.png",
+      "sha256": "2112fb82c9c54a24544671975faf0701f1b8a92a4ab70f080341001394260a33"
+    }
+  ]
+}

@@ -1,25 +1,17 @@
 import { LIMITS } from "../model/limits.js";
 import type { Diagnostic, Effect, SceneV1, TextRun } from "../model/types.js";
 import { FONT_STACKS } from "./css.js";
+import {
+  cinematicEffect,
+  cinematicLayout,
+  cinematicElementBound,
+} from "./cinematic/layout.js";
+import { renderCinematic } from "./cinematic/render.js";
 
-export function escapeXml(value: string): string {
-  return value.replace(
-    /[&<>"']/g,
-    (character) =>
-      ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&apos;",
-      })[character]!,
-  );
-}
+import { escapeXml, svgNumber as number } from "./svg-values.js";
+export { escapeXml } from "./svg-values.js";
 function dataUri(svg: string): string {
   return `data:image/svg+xml,${encodeURIComponent(svg).replace(/[!'()*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`)}`;
-}
-function number(value: number): string {
-  return String(Math.round(value * 1000) / 1000);
 }
 function gradient(
   id: string,
@@ -67,7 +59,55 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
   const diagnostics: Diagnostic[] = [];
   const { width, height, padding, background, borderRadius } = scene.surface;
   let animated = false;
-  let y = padding;
+  const lines = visualLines(scene);
+  const cinematicCount = scene.lines.reduce(
+    (count, line) =>
+      count +
+      line.runs.reduce((sum, run) => {
+        const effect = cinematicEffect(run);
+        return sum + (effect ? cinematicElementBound(run, effect) : 0);
+      }, 0),
+    3,
+  );
+  if (cinematicCount > LIMITS.svgElements) throw new RangeError();
+  const measurements = lines.map((line) => {
+    const layouts = line.runs.map((run) => {
+      const effect = cinematicEffect(run);
+      return effect ? cinematicLayout(run, effect) : undefined;
+    });
+    const cinematic = layouts.some(Boolean);
+    const maxSize = Math.max(8, ...line.runs.map((run) => run.style.fontSize));
+    const ascent = cinematic
+      ? Math.max(
+          ...line.runs.map(
+            (run, i) => layouts[i]?.ascent ?? run.style.fontSize,
+          ),
+        )
+      : maxSize;
+    const descent = cinematic
+      ? Math.max(
+          ...line.runs.map(
+            (run, i) => layouts[i]?.descent ?? run.style.fontSize * 0.25,
+          ),
+        )
+      : maxSize * 0.25;
+    return {
+      layouts,
+      cinematic,
+      ascent,
+      descent,
+      maxSize,
+      gap: cinematic ? maxSize * 0.2 : maxSize * 0.15,
+    };
+  });
+  const contentHeight =
+    measurements.reduce((sum, m) => sum + m.ascent + m.descent + m.gap, 0) -
+    (measurements.at(-1)?.gap ?? 0);
+  let y =
+    padding +
+    (measurements.some((m) => m.cinematic)
+      ? Math.max(0, (height - padding * 2 - contentHeight) / 2)
+      : 0);
   let identity = 0;
   const duration = scene.motion.durationMs;
 
@@ -79,14 +119,16 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
       `repeatDur="${duration}ms" fill="freeze"`,
     );
 
-  for (const line of visualLines(scene)) {
+  for (const [visualIndex, line] of lines.entries()) {
+    const measurement = measurements[visualIndex]!;
     const lineIndex = line.sourceLine;
     const maxSize = Math.max(8, ...line.runs.map((run) => run.style.fontSize));
     const estimatedWidths = line.runs.map(
-      (run) =>
+      (run, index) =>
+        measurement.layouts[index]?.width ??
         [...run.text].length *
-        (run.style.fontSize * (run.style.fontFamily === "mono" ? 0.61 : 0.6) +
-          run.style.letterSpacing),
+          (run.style.fontSize * (run.style.fontFamily === "mono" ? 0.61 : 0.6) +
+            run.style.letterSpacing),
     );
     const estimatedWidth = estimatedWidths.reduce(
       (sum, value) => sum + value,
@@ -98,21 +140,36 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
         : line.align === "right"
           ? width - padding - estimatedWidth
           : padding;
-    y += maxSize;
+    y += measurement.ascent;
     if (
       estimatedWidth > width - padding * 2 ||
-      y + maxSize * 0.25 > height - padding
+      y + measurement.descent > height - padding
     ) {
       diagnostics.push({
         code: "possible-clipping",
         severity: "warning",
         path: ["lines", lineIndex],
-        message:
-          "This message may exceed the image bounds. Reduce its text size or enlarge the surface.",
+        message: "Possible clipping: reduce text size or enlarge the surface.",
       });
     }
     for (const [runIndex, run] of line.runs.entries()) {
       const id = `fx-${identity++}`;
+      const cinematic = cinematicEffect(run);
+      if (cinematic) {
+        const output = renderCinematic(
+          run,
+          cinematic,
+          measurement.layouts[runIndex]!,
+          id,
+          x,
+          y,
+          FONT_STACKS.serif,
+        );
+        definitions.push(output.definitions);
+        elements.push(output.markup);
+        x += estimatedWidths[runIndex] ?? 0;
+        continue;
+      }
       const motion = allowMotion ? motionEffect(run) : undefined;
       let fill = run.style.color;
       const filters: string[] = [];
@@ -232,7 +289,7 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
               severity: "info",
               path: ["lines", lineIndex, "runs", run.sourceRun],
               message:
-                "The wave moves the whole text run to preserve graphemes and text shaping.",
+                "Wave moves whole runs to preserve graphemes and shaping.",
             });
             break;
           case "indicator": {
@@ -249,12 +306,14 @@ export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
       elements.push(markup);
       x += estimatedWidths[runIndex] ?? 0;
     }
-    y += maxSize * 0.4;
+    y += measurement.cinematic
+      ? measurement.descent + measurement.gap
+      : maxSize * 0.4;
   }
   const svg = boundedAnimation(
     `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><defs>${definitions.join("")}</defs><rect width="${width}" height="${height}" rx="${borderRadius}" fill="${background}"/>${elements.join("")}</svg>`,
   );
   if ((svg.match(/<[a-z]/g)?.length ?? 0) > LIMITS.svgElements)
-    throw new RangeError("SVG element limit exceeded.");
+    throw new RangeError();
   return { imageUri: dataUri(svg), animated, diagnostics };
 }

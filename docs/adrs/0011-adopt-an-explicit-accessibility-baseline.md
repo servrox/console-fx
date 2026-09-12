@@ -1,11 +1,11 @@
 # ADR-0011: Adopt an explicit accessibility baseline
 
-Status: Accepted
+Status: Superseded
 Date: 2026-09-11
 Owner: ConsoleFX maintainer
 Applies when: Implementing or changing studio/documentation journeys, React preview controls, or readable console alternatives.
 Supersedes: None
-Superseded by: None
+Superseded by: [ADR-0013](0013-keep-screen-reader-review-as-nonblocking-follow-up.md)
 Approval: Maintainer approved ADR-0001 through ADR-0011 as written in the setup conversation on 2026-09-11.
 
 ## Context

@@ -2,7 +2,7 @@
 
 This is the canonical index for repository decisions. Each decision is one `NNNN-kebab-title.md` file, following [specification section 13](../specs/console-fx-spec.md#13-architectural-decisions-proposed-for-implementation). The directory and single-file convention come from that specification; this setup adds the index, provenance mapping, and receipt alongside the decisions.
 
-ADR-0001 through ADR-0011 are **Accepted**. The maintainer explicitly approved ADR-0001 through ADR-0011 as written in the setup conversation on 2026-09-11. Their accepted status makes them binding architecture intent; it does not grant source implementation authority. The revised specification carries the approved product contract; accepted local ADRs govern the covered architecture. The setup receipt preserves the original governance-stage observations. ADR-0012 is **Proposed** for the cinematic metal preset extension; saving that feature specification does not accept its new shared contract or authorize implementation.
+ADR-0001 through ADR-0010, ADR-0012, and ADR-0013 are **Accepted**. ADR-0011 is **Superseded** by ADR-0013. The maintainer explicitly approved ADR-0001 through ADR-0011 as written in the setup conversation on 2026-09-11. Their accepted status makes them binding architecture intent; it does not grant source implementation authority. The revised specification carries the approved product contract; accepted local ADRs govern the covered architecture. The setup receipt preserves the original governance-stage observations. On 2026-09-12 the maintainer requested implementation of commit `3c42e12`, removed screen-reader review as a launch blocker, and explicitly answered “Approve ADR-0012 and ADR-0013” for the prepared records. The earlier specification save alone did not authorize implementation.
 
 ## Decision index
 
@@ -18,8 +18,9 @@ ADR-0001 through ADR-0011 are **Accepted**. The maintainer explicitly approved A
 | ADR-0008 | [Own the pnpm and TypeScript toolchain](0008-own-pnpm-and-typescript-toolchain.md) | Accepted | Dependency installation, compilation, ESM packaging, tool changes | None |
 | ADR-0009 | [Validate changed contracts with proportional evidence](0009-validate-changed-contracts-with-proportional-evidence.md) | Accepted | Risk, tests, validation cadence, evidence reuse, completion claims | None |
 | ADR-0010 | [Deliver reversible phases with publication gates](0010-deliver-reversible-phases-with-publication-gates.md) | Accepted | Delivery phases, release readiness, promotion, recovery | None |
-| ADR-0011 | [Adopt an explicit accessibility baseline](0011-adopt-an-explicit-accessibility-baseline.md) | Accepted | Studio and documentation journeys, React preview, accessible output | None |
-| ADR-0012 | [Use bounded cinematic lettering profiles](0012-use-bounded-cinematic-lettering-profiles.md) | Proposed | Cinematic presets, composite effect/profile contract, original glyphs, and compatibility | None |
+| ADR-0011 | [Adopt an explicit accessibility baseline](0011-adopt-an-explicit-accessibility-baseline.md) | Superseded | Historical accessibility baseline; follow ADR-0013 | ADR-0013 |
+| ADR-0012 | [Use bounded cinematic lettering profiles](0012-use-bounded-cinematic-lettering-profiles.md) | Accepted | Cinematic presets, composite effect/profile contract, original glyphs, and compatibility | None |
+| ADR-0013 | [Keep screen-reader review as nonblocking follow-up](0013-keep-screen-reader-review-as-nonblocking-follow-up.md) | Accepted | Accessibility and release readiness; supersedes ADR-0011 | None |
 
 ## Status and acceptance
 

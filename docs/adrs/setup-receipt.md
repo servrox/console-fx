@@ -94,3 +94,10 @@ Final aggregate gate: passed for the accepted governance candidate. This complet
 Setup is complete. All 26 provider deferrals retain their original owners and triggers. Implementation, dependency/bootstrap decisions, feasibility qualification, licensing, npm access, and release/deployment work remain separate future tasks. No further approval is needed for this completed governance slice.
 
 Future architecture review can use: “Use architecture-compass audit to assess this repository without changing files.” A subsequent implementation task must separately authorize its bounded phase and satisfy the relevant accepted decisions and feasibility gates.
+
+
+## Accepted follow-up — 2026-09-12
+
+The maintainer explicitly answered “Approve ADR-0012 and ADR-0013” after reviewing the prepared records. [ADR-0012](0012-use-bounded-cinematic-lettering-profiles.md) is Accepted and introduces bounded static cinematic profiles without superseding an earlier record. [ADR-0013](0013-keep-screen-reader-review-as-nonblocking-follow-up.md) is Accepted and supersedes ADR-0011, retaining its accessibility target and other required checks while making unperformed screen-reader observation nonblocking follow-up. ADR-0011 retains its historical body with a reciprocal successor link.
+
+The canonical [index](README.md) and [provider mapping](provider-mapping.md) record this approval together. No provider adoption or new application authority follows from accepting an ADR. Implementation authority separately comes from the request to implement commit `3c42e12`; appearance approval separately covers all four native Chrome design captures. Earlier setup observations above remain dated history. Later implementation and final governance validation are recorded in the [cinematic feature evidence](../specs/cinematic-metal-presets-evidence.md).

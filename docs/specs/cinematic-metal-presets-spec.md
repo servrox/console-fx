@@ -1,6 +1,6 @@
 ---
 title: "ConsoleFX — cinematic metal typography presets"
-status: "proposed; saved for implementation review"
+status: "implemented; local qualification recorded; publication separate"
 created: "2026-09-12"
 updated: "2026-09-12"
 artifact_path: "docs/specs/cinematic-metal-presets-spec.md"
@@ -11,6 +11,7 @@ packages: ["@servrox/console-fx", "@servrox/console-fx-react"]
 owner: "ConsoleFX maintainer"
 source_request: "Add an implementation and integration specification for the cinematic metal typography presets demonstrated in the conversation."
 implementation_authorized_by_this_save: false
+implementation_approved: "2026-09-12: maintainer requested implementation of commit 3c42e12"
 ---
 
 # Cinematic metal typography presets
@@ -62,18 +63,18 @@ This is an incremental feature, not greenfield scaffolding. Source was inspected
 
 A stack of `metallic`, `extruded`, and `neon` would currently fail rich compilation with `unsupported-combination`. Do not bypass that check globally. Represent the whole title treatment as **one static built-in `cinematicMetal` effect**, internally sharing rendering helpers where appropriate. Its material, bevel-like outline, extrusion, glow, and ornaments are controlled parts of that effect, not independent competing static effects.
 
-## 3. Proposed data and public API
+## 3. Approved data and public API
 
-These additions are proposed, not existing exports. They depend on [ADR-0012](../adrs/0012-use-bounded-cinematic-lettering-profiles.md) being accepted before implementation of the new shared contract.
+The maintainer approved these additions for implementation on 2026-09-12 under [Accepted ADR-0012](../adrs/0012-use-bounded-cinematic-lettering-profiles.md). Execution status and proof belong in the [feature evidence](cinematic-metal-presets-evidence.md).
 
 ### 3.1 Preset API
 
 Add named exports and dispatcher IDs under `@servrox/console-fx/presets`. Retain existing `PresetOptions` behavior for existing factories. Give the cinematic factories a typed options object for `text`, `color`, `depth`, `glow`, and `ornaments`; a supplied `color` overrides only the accent/edge tint, not the entire reflection palette. Defaults are profile-specific and must be materialized into the returned scene.
 
-The proposed first-version cinematic factories are static. They may accept `motion: "none"` for dispatcher compatibility; reject other motion options with a structured validation error instead of ignoring them. Do not narrow the existing `PresetOptions.motion` union for old presets.
+The first-version cinematic factories are static. They may accept `motion: "none"` for dispatcher compatibility; reject other motion options with a structured validation error instead of ignoring them. Do not narrow the existing `PresetOptions.motion` union for old presets.
 
 ```ts
-// Proposed usage after implementation; not a runnable current-package example.
+// Implemented workspace API; package publication is a separate release step.
 import { lightningMetal } from "@servrox/console-fx/presets";
 import { compileConsole } from "@servrox/console-fx/browser";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
@@ -108,7 +109,7 @@ Factories must work with the existing React adapter and Next.js recipes without 
 ### 3.2 One bounded effect
 
 ```ts
-// Proposed member of EffectInput; the normalized Effect has defaults resolved.
+// Member of EffectInput; the normalized Effect has defaults resolved.
 type CinematicMetalEffectInput = {
   readonly kind: "cinematicMetal";
   readonly profile?:
@@ -133,7 +134,7 @@ Use `family: "fill"`, `scopes: ["run"]`, `renderers: ["svg"]`, and `motion: "sta
 | `glow` | Finite number 0–1; UI step 0.05; 0 removes the blur pass; cap blur at 6 SVG user units |
 | `ornaments` | Boolean; controls profile-owned decorative paths; never accepts user-authored path data |
 
-Profile-specific defaults proposed for review: Lightning depth 7/glow 0.25; Ice depth 3/glow 0.15; Chrome depth 5/glow 0.10; Gold depth 8/glow 0.20. Ornaments default on. Store these values explicitly in factory output; the effect descriptor has one documented fallback for direct authoring. Material stops, silhouette definitions, and ornament proportions are immutable implementation data for each `-v1` profile. A future material redesign gets a new profile ID instead of silently reinterpreting saved `-v1` scenes.
+Approved profile-specific defaults: Lightning depth 7/glow 0.25; Ice depth 3/glow 0.15; Chrome depth 5/glow 0.10; Gold depth 8/glow 0.20. Ornaments default on. Store these values explicitly in factory output; the effect descriptor has one documented fallback for direct authoring. Material stops, silhouette definitions, and ornament proportions are immutable implementation data for each `-v1` profile. A future material redesign gets a new profile ID instead of silently reinterpreting saved `-v1` scenes.
 
 ### 3.3 Compatibility and ownership
 
@@ -203,7 +204,7 @@ Keep **Copy console.log** and **Test in console** separate. Copy exports complet
 
 JSON export contains resolved settings and exact source text. TypeScript, React, and Next.js snippets consume the same scene and compiler contracts. No new React component, Next.js runtime package, or effect-specific logging hook is needed. Maintain SSR-safe module imports and the existing client boundary; verify existing adapter behavior rather than introducing render-time emission.
 
-Accessibility follows ADR-0011: readable labels, keyboard-operable preset cards and controls, explicit selected/error states, caption/alt text, and no decorative animation. Keep the stronger typography confined to the image; do not use low-contrast embossed text for editor instructions.
+Accessibility follows ADR-0013 (successor to ADR-0011): readable labels, keyboard-operable preset cards and controls, explicit selected/error states, caption/alt text, and no decorative animation. Keep the stronger typography confined to the image; do not use low-contrast embossed text for editor instructions.
 
 ## 6. Planned file changes during implementation
 
@@ -251,7 +252,7 @@ Protect unrelated code, the approved base specification, existing preset appeara
 
 ### P0 — contract and baseline
 
-Review and accept ADR-0012; preserve old scene/preset fixtures and output baselines; turn the four prototype looks into original static reference renders. Confirm source ownership for any hand-authored glyphs. Record unresolved appearance questions as review items, not as support claims.
+Confirm Accepted ADR-0012; preserve old scene/preset fixtures and output baselines; turn the four prototype looks into original static reference renders. Confirm source ownership for any hand-authored glyphs. Record unresolved appearance questions as review items, not as support claims.
 
 ### P1 — library and generated output
 
@@ -307,15 +308,15 @@ The specification follows the published stark AI Developer [Codex Spec Interview
 
 **External sources checked:** [user's creative reference](https://motionographer.com/news/perception-crafts-unique-typography-and-cinematic-main-on-end-title-sequence-for-marvel-studios-thor-love-and-thunder/); [Chrome console formatting](https://developer.chrome.com/docs/devtools/console/format-style), including `%c` and data-URL restrictions; [SVG image conformance](https://www.w3.org/TR/SVG2/conform.html), including restricted image processing. These establish design context and platform foundations, not new-preset test results.
 
-**ADR gate:** required for the new public effect/profile and compatibility contract. [ADR-0012](../adrs/0012-use-bounded-cinematic-lettering-profiles.md) is **Proposed**, extends the existing internal-model policy, and supersedes no accepted record. Implementation of that new contract is blocked until the maintainer accepts it. No existing ADR is silently rewritten or marked accepted.
+**ADR gate:** satisfied by the maintainer's explicit 2026-09-12 response “Approve ADR-0012 and ADR-0013” for the prepared records. [ADR-0012](../adrs/0012-use-bounded-cinematic-lettering-profiles.md) is **Accepted**, extends the existing internal-model policy, and supersedes no record. [ADR-0013](../adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md) separately records the approved nonblocking screen-reader follow-up policy.
 
-Material governing decisions: [ADR-0002](../adrs/0002-compile-purely-and-emit-exactly-once.md) (one emission), [ADR-0003](../adrs/0003-share-one-versioned-scene-model.md) (model/compatibility), [ADR-0004](../adrs/0004-separate-core-react-adapter-and-studio.md) (package boundaries), [ADR-0005](../adrs/0005-generate-output-from-validated-data.md) (security/bounds), [ADR-0006](../adrs/0006-qualify-renderer-profiles-in-real-devtools.md) (qualification), and the repository's ADR-0007–0011 policies for persistence, tooling, evidence, delivery, and accessibility. See the [canonical index](../adrs/README.md).
+Material governing decisions: [ADR-0002](../adrs/0002-compile-purely-and-emit-exactly-once.md) (one emission), [ADR-0003](../adrs/0003-share-one-versioned-scene-model.md) (model/compatibility), [ADR-0004](../adrs/0004-separate-core-react-adapter-and-studio.md) (package boundaries), [ADR-0005](../adrs/0005-generate-output-from-validated-data.md) (security/bounds), [ADR-0006](../adrs/0006-qualify-renderer-profiles-in-real-devtools.md) (qualification), and the repository's ADR-0007–0010 and ADR-0013 policies for persistence, tooling, evidence, delivery, and accessibility. See the [canonical index](../adrs/README.md).
 
 ## 10. Verification, assumptions, and implementation handover
 
-The user requested persistence of a spec for these demonstrated presets. This save records that requested scope; it does not claim the user reviewed every new API field, numeric default, or architectural proposal. Exact material artwork, thresholds, and grouping copy remain proposed within the bounded design. ADR acceptance and later implementation authorization are separate checkpoints.
+The original documentation save recorded proposed implementation work without authorizing it. On 2026-09-12 the maintainer subsequently requested implementation of commit `3c42e12d705b044809c05579f762bcb8c137890a`, explicitly accepted the prepared ADR-0012 and ADR-0013 records, and approved all four designs shown in actual Chrome DevTools captures: Lightning Metal, Ice Cathedral, Liquid Chrome and Molten Gold.
 
-Only this spec, the supporting Proposed ADR, and its minimal canonical-index entry belong to the documentation change. No source/assets, package versions, lockfiles, deployment settings, or historical evidence are changed. This pass establishes source-backed planning and document consistency only; no new-preset implementation, browser qualification, package test, or publication was performed.
+The [feature evidence](cinematic-metal-presets-evidence.md) records the resulting source, automated, installed-package, visual and actual Windows DevTools checks separately. The historical baseline above explains where the plan originated; current source and that receipt establish implementation status. Screen-reader observation remains unperformed, nonblocking follow-up under ADR-0013. Publication and deployment remain separate actions.
 
 ### Copy-ready execution prompt
 

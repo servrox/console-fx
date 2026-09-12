@@ -1,0 +1,439 @@
+{
+  "packageSha256": "5740c25432bf5e88abf6c0b65560383a6daeeb27694a59c85432b680c20350e1",
+  "cases": [
+    {
+      "id": "badge",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "badge",
+                    "color": "#22d3ee"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "css"
+      },
+      "argsSha256": "2310d495c0230bcdd119811bfb5322ec0bdb536272e92e3aadb4e605bd68fdb6",
+      "svgSha256": "16bf5eeba0c9e50b77197952c57c60b116708f6e9a4c7187e3893b705faa4b7b",
+      "codeSha256": "a348456ace8453f7e28d699731ca53907bbb712b08d491b678f1d402f5a5c47f"
+    },
+    {
+      "id": "neon",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "neon",
+                    "color": "#22d3ee",
+                    "intensity": 0.7
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "css"
+      },
+      "argsSha256": "821a51cb96436f0e7d929c85013b9031edf9399a9884e66b084337fae251db75",
+      "svgSha256": "8e433fa5e82ede6d65112e3749f8f9b5e6e63dc654fc15ce38606e152946a5dd",
+      "codeSha256": "4fff0e8f567804f39f1f7117e9f5b17bfad811dc0ffc52fd882bb5bd9bd446a4"
+    },
+    {
+      "id": "rgbSplit",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "rgbSplit",
+                    "offset": 3
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "css"
+      },
+      "argsSha256": "815bbd857b0dab423a349566be1b17e43825d994989109c48350d3a0a89a992e",
+      "svgSha256": "813f5e07c91b0bf82bf2f24df5c66300a48c239338879b12d4a514b9dd806f22",
+      "codeSha256": "606e73969756740a532bad55ba7ec14703768a5b29c8314d6c8301b3740d6f52"
+    },
+    {
+      "id": "extruded",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "extruded",
+                    "depth": 6,
+                    "color": "#168da5"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "css"
+      },
+      "argsSha256": "9a542c52fec929d485be61be0e4b8bada954d1571a758b389afdc9d9abe8fb12",
+      "svgSha256": "6c9b275fcedf2afdd12514d507d4ff072583e6dbcd5673322e8be6e646b2bd28",
+      "codeSha256": "c795ad8a22baac9ab99ac4002ff4dad12f4d69531d3b55376c2d3d2677c869c3"
+    },
+    {
+      "id": "holographic",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "holographic",
+                    "intensity": 0.7
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "svg"
+      },
+      "argsSha256": "0a55c2fb015d8b92204b7efc4a8588f1e9e9437e2a424dde29ec1196634ce15e",
+      "svgSha256": "0a55c2fb015d8b92204b7efc4a8588f1e9e9437e2a424dde29ec1196634ce15e",
+      "codeSha256": "f6799286324b40c7f7ab31af602edc589ca41e25c8b0617a33135d5c61aba3b6"
+    },
+    {
+      "id": "gold",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "metallic",
+                    "variant": "gold"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "svg"
+      },
+      "argsSha256": "2ff06045fa24c03f1bc371d8882c679fa84ce040e3595396031314c08d1479f1",
+      "svgSha256": "2ff06045fa24c03f1bc371d8882c679fa84ce040e3595396031314c08d1479f1",
+      "codeSha256": "6d0cb5585b983c77b4adaf69c5c6199d9890c01d5058a2909467bca2a9eeea1a"
+    },
+    {
+      "id": "chrome",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "metallic",
+                    "variant": "chrome"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "svg"
+      },
+      "argsSha256": "eeb7686facf0da9089d0447964b24af88b96254c1e76bdc451d3b543141d01c5",
+      "svgSha256": "eeb7686facf0da9089d0447964b24af88b96254c1e76bdc451d3b543141d01c5",
+      "codeSha256": "fd30c77136863f71bf2d8ea21291a8db2cd7f7a7a13e57a97139ea7126271ba5"
+    },
+    {
+      "id": "crt",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "crt",
+                    "intensity": 0.6
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "svg"
+      },
+      "argsSha256": "f5f990990e444875e86cff893307f666a37798f73a6f8a72b8060567c0409507",
+      "svgSha256": "f5f990990e444875e86cff893307f666a37798f73a6f8a72b8060567c0409507",
+      "codeSha256": "49c9ba2afba6c89aa13c00d26cd8f1911e66f4e9f49d25abe72f81541c8c4eb8"
+    },
+    {
+      "id": "rainbow",
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Hello, developer.",
+        "surface": {
+          "width": 600,
+          "height": 180,
+          "background": "#0c1117",
+          "padding": 34,
+          "borderRadius": 16
+        },
+        "lines": [
+          {
+            "align": "center",
+            "runs": [
+              {
+                "text": "Hello, developer.",
+                "style": {
+                  "color": "#e8f3f5",
+                  "fontSize": 42,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": [
+                  {
+                    "kind": "rainbow",
+                    "saturation": 0.85
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 4800,
+          "finish": "freeze"
+        }
+      },
+      "options": {
+        "target": "chromium",
+        "renderer": "svg"
+      },
+      "argsSha256": "60efdd2ccdc4e3e0982c71902f219d39e71e8f9b35334b9a866e2c730562b18f",
+      "svgSha256": "60efdd2ccdc4e3e0982c71902f219d39e71e8f9b35334b9a866e2c730562b18f",
+      "codeSha256": "7d97a1931b7bdfd60e920ab0bb68ede3b3eabc4e75c8dbe49361d2e3765f793a"
+    }
+  ]
+}

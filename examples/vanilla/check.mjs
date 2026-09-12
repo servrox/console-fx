@@ -5,7 +5,13 @@ import {
   getEffectDescriptors,
 } from "@servrox/console-fx";
 import { compileConsole, emitConsole } from "@servrox/console-fx/browser";
-import { neon } from "@servrox/console-fx/presets";
+import {
+  neon,
+  lightningMetal,
+  iceCathedral,
+  liquidChrome,
+  moltenGold,
+} from "@servrox/console-fx/presets";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
 
 const scene = defineScene(neon({ text: "100% %c package consumer 👩🏽‍💻" }));
@@ -18,6 +24,22 @@ assert.deepEqual(calls, [[...compiled.args]]);
 assert.equal(compiled.preview.lines[0].runs[0].text, scene.label);
 assert.match(exportConsoleLog(scene, options).code, /^console\.log\(/);
 assert(Object.isFrozen(getEffectDescriptors()[0].parameters));
+for (const factory of [
+  lightningMetal,
+  iceCathedral,
+  liquidChrome,
+  moltenGold,
+]) {
+  const title = factory();
+  const rich = compileConsole(title, { target: "chromium", renderer: "svg" });
+  assert.equal(rich.animated, false);
+  assert.equal(rich.preview.kind, "svg");
+  assert.match(
+    exportConsoleLog(title, { target: "chromium", renderer: "svg" }).code,
+    /^console\.log\(/,
+  );
+  assert.deepEqual(parseScene(JSON.parse(JSON.stringify(title))).value, title);
+}
 await assert.rejects(import("@servrox/console-fx/dist/index.js"), {
   // Both runtimes reject private exports, using different error codes.
   code: process.versions.bun
