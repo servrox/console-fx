@@ -8,7 +8,10 @@ import {
   iceCathedral,
   liquidChrome,
   moltenGold,
+  createPresetExample,
 } from "@servrox/console-fx/presets";
+import { getPresentationDescriptors } from "@servrox/console-fx";
+import { compileConsole } from "@servrox/console-fx/browser";
 import { ConsoleBanner, ConsolePreview } from "@servrox/console-fx-react";
 
 const calls = [];
@@ -42,6 +45,29 @@ for (const factory of [
       options: { target: "chromium", renderer: "svg" },
       enabled: true,
     }),
+  );
+}
+assert.equal(calls.length, 0);
+
+for (const { id } of getPresentationDescriptors()) {
+  const scene = createPresetExample(id);
+  const options = { target: "chromium", renderer: "svg" };
+  const output = compileConsole(scene, options);
+  const html = renderToStaticMarkup(
+    createElement(ConsolePreview, { scene, options }),
+  );
+  const preview = new JSDOM(html).window;
+  assert.equal(
+    preview.document.querySelector("img").getAttribute("src"),
+    output.preview.imageUri,
+  );
+  assert.equal(
+    preview.document.querySelector("img").getAttribute("alt"),
+    output.text,
+  );
+  preview.close();
+  renderToStaticMarkup(
+    createElement(ConsoleBanner, { scene, options, enabled: true }),
   );
 }
 assert.equal(calls.length, 0);

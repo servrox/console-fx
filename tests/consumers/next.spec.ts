@@ -1,4 +1,42 @@
 import { test, expect } from "../studio/fixtures";
+import { getPresentationDescriptors } from "../../packages/console-fx/dist/index.js";
+import { createPresetExample } from "../../packages/console-fx/dist/presets/index.js";
+import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
+
+test("all packed card previews preserve the exact compiler URI and explicit hook output", async ({
+  page,
+}) => {
+  const calls: unknown[][] = [];
+  page.on("console", async (event) => {
+    if (event.type() === "log")
+      calls.push(await Promise.all(event.args().map((arg) => arg.jsonValue())));
+  });
+  await page.goto("/");
+  await expect.poll(() => calls.length).toBe(1); // Explicit instrumentation example.
+  for (const [index, descriptor] of getPresentationDescriptors().entries()) {
+    const scene = createPresetExample(descriptor.id);
+    const output = compileConsole(scene, {
+      target: "chromium",
+      renderer: "svg",
+    });
+    if (output.preview.kind !== "svg") throw Error("SVG expected");
+    const region = page.getByRole("region", {
+      name: descriptor.name,
+      exact: true,
+    });
+    await expect(region.locator("img")).toHaveAttribute(
+      "src",
+      output.preview.imageUri,
+    );
+    await expect(region.locator("img")).toHaveAttribute("alt", output.text);
+    expect(calls).toHaveLength(index + 1);
+    await region
+      .getByRole("button", { name: `Print ${descriptor.id}`, exact: true })
+      .click();
+    await expect.poll(() => calls.length).toBe(index + 2);
+    expect(calls.at(-1)).toEqual(output.args);
+  }
+});
 
 test("packed Next startup, first-enabled root-layout banner, edits and true remount", async ({
   page,

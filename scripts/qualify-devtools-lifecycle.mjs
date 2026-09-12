@@ -13,12 +13,12 @@ import { defineScene } from "../packages/console-fx/dist/index.js";
 import {
   neon,
   PRESETS,
-  preset,
+  createPresetExample,
 } from "../packages/console-fx/dist/presets/index.js";
 
 const [port, name, phase = "all"] = process.argv.slice(2);
 assert(/^\d+$/.test(port ?? "") && /^(chrome|edge)$/.test(name ?? ""));
-assert(["all", "offscreen", "policy", "cinematic"].includes(phase));
+assert(["all", "offscreen", "policy", "cinematic", "cards"].includes(phase));
 const directory = resolve(
   `.artifacts/devtools/${name}-lifecycle-${new Date().toISOString().replaceAll(":", "-")}`,
 );
@@ -212,7 +212,10 @@ async function copyNative(row, output) {
     ).trim(),
     "base64",
   ).toString("utf8");
-  row.copiedLiteral = copied.includes(output.text);
+  // Windows native clipboard uses CRLF for the caption's line breaks. Preserve
+  // the raw receipt; normalize only that platform newline convention for comparison.
+  row.clipboardNewlines = copied.includes("\r\n") ? "CRLF" : "LF";
+  row.copiedLiteral = copied.replaceAll("\r\n", "\n").includes(output.text);
   row.clipboardSha256 = createHash("sha256").update(copied).digest("hex");
   row.clipboardBytes = Buffer.byteLength(copied);
   row.copyMethod = "Native DevTools context menu Copy console with one message";
@@ -224,11 +227,13 @@ async function copyNative(row, output) {
   );
 }
 
-if (phase === "cinematic") {
-  for (const entry of PRESETS.filter(
-    (item) => item.group === "Cinematic Metal",
+if (phase === "cinematic" || phase === "cards") {
+  for (const entry of PRESETS.filter((item) =>
+    phase === "cinematic"
+      ? item.group === "Cinematic Metal"
+      : item.group === "Useful" || item.group === "Artful",
   )) {
-    const scene = preset(entry.id);
+    const scene = createPresetExample(entry.id);
     const output = compileConsole(scene, { ...options, motion: "reduce" });
     const code = exportConsoleLog(scene, {
       target: "chromium",

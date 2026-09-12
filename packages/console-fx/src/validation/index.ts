@@ -1,11 +1,13 @@
 import { effectDescriptor, EFFECT_ORDER } from "../effects/catalog.js";
 import { deepFreeze, LIMITS } from "../model/limits.js";
+import { presentationDescriptor } from "../presentations/catalog.js";
 import type {
   Diagnostic,
   Effect,
   SceneInputV1,
   SceneV1,
   ValidationResult,
+  PresetPresentation,
 } from "../model/types.js";
 
 type Path = readonly (string | number)[];
@@ -18,10 +20,10 @@ export class SceneValidationError extends Error {
   }
 }
 
-function fail(code: string, message: string, path: Path): never {
+export function fail(code: string, message: string, path: Path): never {
   throw new SceneValidationError([{ code, severity: "error", message, path }]);
 }
-function record(
+export function record(
   input: unknown,
   keys: readonly string[],
   path: Path,
@@ -53,7 +55,11 @@ function record(
   }
   return result;
 }
-function array(input: unknown, max: number, path: Path): readonly unknown[] {
+export function array(
+  input: unknown,
+  max: number,
+  path: Path,
+): readonly unknown[] {
   if (!Array.isArray(input)) fail("invalid-array", "Expected an array.", path);
   if (Object.getPrototypeOf(input) !== Array.prototype)
     fail("invalid-array", "Expected a plain array.", path);
@@ -121,7 +127,7 @@ function color(value: unknown, fallback: string, path: Path): string {
     ? `#${[...normalized.slice(1)].map((part) => part + part).join("")}`
     : normalized;
 }
-function text(value: unknown, path: Path): string {
+export function text(value: unknown, path: Path): string {
   if (typeof value !== "string") fail("invalid-text", "Expected text.", path);
   if (value.length > LIMITS.textCodePoints * 2)
     fail("resource-limit", "Text limit exceeded.", path);
@@ -147,7 +153,7 @@ function text(value: unknown, path: Path): string {
 function normalize(input: unknown): SceneV1 {
   const root = record(
     input,
-    ["schemaVersion", "label", "surface", "lines", "motion"],
+    ["schemaVersion", "label", "surface", "lines", "motion", "presentation"],
     [],
   );
   if (root.schemaVersion !== 1)
@@ -155,6 +161,49 @@ function normalize(input: unknown): SceneV1 {
       "schemaVersion",
     ]);
   const label = text(root.label, ["label"]);
+  let presentation: PresetPresentation | undefined;
+  if (root.presentation !== undefined) {
+    const data = record(
+      root.presentation,
+      ["kind", "profile", "accent", "detail", "tone"],
+      ["presentation"],
+    );
+    const descriptor =
+      typeof data.profile === "string"
+        ? presentationDescriptor(data.profile)
+        : undefined;
+    if (data.kind !== "presetCard" || !descriptor)
+      fail("unsupported-presentation", "Choose a documented card profile.", [
+        "presentation",
+        "profile",
+      ]);
+    if (descriptor.id !== "requestTrace" && Object.hasOwn(data, "tone"))
+      fail("unknown-property", "Tone belongs only to Request Trace.", [
+        "presentation",
+        "tone",
+      ]);
+    presentation = {
+      kind: "presetCard",
+      profile: descriptor.profile,
+      accent: color(data.accent, descriptor.accent, ["presentation", "accent"]),
+      detail: choice(
+        data.detail,
+        "standard",
+        ["minimal", "standard"],
+        ["presentation", "detail"],
+      ),
+      ...(descriptor.id === "requestTrace"
+        ? {
+            tone: choice(
+              data.tone,
+              "neutral",
+              ["success", "warning", "error", "neutral"],
+              ["presentation", "tone"],
+            ),
+          }
+        : {}),
+    } as PresetPresentation;
+  }
   let textCount = [...label].length;
   let runCount = 0;
   const surface = record(
@@ -384,6 +433,7 @@ function normalize(input: unknown): SceneV1 {
       ]),
       finish: choice(motion.finish, "freeze", ["freeze"], ["motion", "finish"]),
     },
+    ...(presentation ? { presentation } : {}),
   });
 }
 

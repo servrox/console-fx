@@ -27,7 +27,11 @@ import {
   resolveMotion,
 } from "@servrox/console-fx/browser";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
-import { neon, PRESETS, preset } from "@servrox/console-fx/presets";
+import {
+  neon,
+  PRESETS,
+  createPresetExample,
+} from "@servrox/console-fx/presets";
 import type { PresetId } from "@servrox/console-fx/presets";
 import { ConsolePreview, useConsoleScene } from "@servrox/console-fx-react";
 import {
@@ -40,12 +44,14 @@ import type { DraftStatus } from "../persistence/draft";
 import { documentReducer, initialDocument, sameScene } from "./document";
 import { ConfirmDialog } from "./confirm-dialog";
 import { rendererForLoadedScene } from "./renderer";
+import { CardFields } from "./card-fields";
+import { cardDescriptor, editCardParameter } from "./presentation";
 
 const descriptors = getEffectDescriptors();
 const initialScene = neon({ text: "Hello, developer." });
 const heroScene = neon({ text: "console-fx" });
 const presetScenes = Object.fromEntries(
-  PRESETS.map((item) => [item.id, preset(item.id)]),
+  PRESETS.map((item) => [item.id, createPresetExample(item.id)]),
 ) as Record<PresetId, SceneV1>;
 const presetGroups = [...new Set(PRESETS.map((item) => item.group))];
 const PresetSample = memo(function PresetSample({
@@ -66,6 +72,29 @@ type Notice = {
   readonly message: string;
 };
 type ExportFormat = "javascript" | "typescript" | "react" | "next" | "json";
+const formats = {
+  javascript: {
+    copy: "Copy console.log",
+    description: "Self-contained JavaScript. No imports. One console.log.",
+  },
+  typescript: {
+    copy: "Copy TypeScript example",
+    description: "A complete example using the core package.",
+  },
+  react: {
+    copy: "Copy React example",
+    description: "An explicit button action using the core and React adapter.",
+  },
+  next: {
+    copy: "Copy Next.js example",
+    description: "A client component using the core and React adapter.",
+  },
+  json: {
+    copy: "Copy scene JSON",
+    description:
+      "Editable scene data. This format is not executable JavaScript.",
+  },
+} as const;
 const sourceString = (value: unknown) =>
   JSON.stringify(value, null, 2).replaceAll("<", "\\u003c");
 
@@ -358,6 +387,14 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     Math.min(selection.run, (line?.runs.length ?? 0) - 1),
   );
   const run = line?.runs[runIndex];
+  const presentation = cardDescriptor(scene);
+  const slot = presentation?.slots.find(
+    (s) => s.line === lineIndex && s.run === runIndex,
+  );
+  const styleEditable = (key: keyof NonNullable<typeof run>["style"]) =>
+    !presentation ||
+    (!!slot &&
+      (slot.editableStyleKeys ?? presentation.editableStyleKeys).includes(key));
   const cinematic = run?.effects.find(
     (effect) => effect.kind === "cinematicMetal",
   );
@@ -405,7 +442,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     });
   }
   function selectPreset(id: PresetId) {
-    commit(preset(id));
+    commit(createPresetExample(id));
     setSelection({ line: 0, run: 0 });
     setRenderer(PRESETS.find((item) => item.id === id)!.renderer);
     setSystemMotion(false);
@@ -597,7 +634,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                           {item.name}
                           <span aria-hidden="true">↗</span>
                         </span>
-                        {group === "Cinematic Metal" && (
+                        {group !== "Classic" && (
                           <span className="preset-description">
                             {item.description}
                           </span>
@@ -715,101 +752,112 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   }
                 />
               </label>
-              <div className="line-list" aria-label="Lines and text runs">
-                {scene.lines.map((item, li) => (
-                  <div key={li}>
-                    <button
-                      type="button"
-                      className="line-label"
-                      aria-pressed={li === lineIndex}
-                      onClick={() => setSelection({ line: li, run: 0 })}
-                    >
-                      Line {li + 1}
-                    </button>
-                    {item.runs.map((item, ri) => (
-                      <button
-                        type="button"
-                        className="run-choice"
-                        aria-pressed={li === lineIndex && ri === runIndex}
-                        key={ri}
-                        onClick={() => setSelection({ line: li, run: ri })}
-                      >
-                        <span className="run-mark" aria-hidden="true">
-                          T
-                        </span>
-                        <span>{item.text || "Empty text"}</span>
-                        <span className="sr-only">, run {ri + 1}</span>
-                      </button>
+              {presentation ? (
+                <CardFields
+                  scene={scene}
+                  descriptor={presentation}
+                  onChange={commit}
+                  onSelect={setSelection}
+                />
+              ) : (
+                <>
+                  <div className="line-list" aria-label="Lines and text runs">
+                    {scene.lines.map((item, li) => (
+                      <div key={li}>
+                        <button
+                          type="button"
+                          className="line-label"
+                          aria-pressed={li === lineIndex}
+                          onClick={() => setSelection({ line: li, run: 0 })}
+                        >
+                          Line {li + 1}
+                        </button>
+                        {item.runs.map((item, ri) => (
+                          <button
+                            type="button"
+                            className="run-choice"
+                            aria-pressed={li === lineIndex && ri === runIndex}
+                            key={ri}
+                            onClick={() => setSelection({ line: li, run: ri })}
+                          >
+                            <span className="run-mark" aria-hidden="true">
+                              T
+                            </span>
+                            <span>{item.text || "Empty text"}</span>
+                            <span className="sr-only">, run {ri + 1}</span>
+                          </button>
+                        ))}
+                      </div>
                     ))}
                   </div>
-                ))}
-              </div>
-              <div className="button-row compact">
-                <button
-                  type="button"
-                  disabled={
-                    scene.lines.length >= LIMITS.lines ||
-                    runCount >= LIMITS.runs
-                  }
-                  onClick={addLine}
-                >
-                  + Line
-                </button>
-                <button
-                  type="button"
-                  disabled={runCount >= LIMITS.runs}
-                  onClick={addRun}
-                >
-                  + Text run
-                </button>
-              </div>
-              {run && (
-                <>
-                  <label>
-                    Message text
-                    <textarea
-                      rows={4}
-                      value={run.text}
-                      onChange={(event) =>
-                        patchRun({ text: event.target.value })
-                      }
-                    />
-                  </label>
                   <div className="button-row compact">
                     <button
                       type="button"
-                      onClick={() =>
-                        commit({
-                          ...scene,
-                          lines: scene.lines.map((item, index) =>
-                            index === lineIndex
-                              ? {
-                                  ...item,
-                                  runs: item.runs.filter(
-                                    (_, index) => index !== runIndex,
-                                  ),
-                                }
-                              : item,
-                          ),
-                        })
+                      disabled={
+                        scene.lines.length >= LIMITS.lines ||
+                        runCount >= LIMITS.runs
                       }
+                      onClick={addLine}
                     >
-                      Remove run
+                      + Line
                     </button>
                     <button
                       type="button"
-                      onClick={() =>
-                        commit({
-                          ...scene,
-                          lines: scene.lines.filter(
-                            (_, index) => index !== lineIndex,
-                          ),
-                        })
-                      }
+                      disabled={runCount >= LIMITS.runs}
+                      onClick={addRun}
                     >
-                      Remove line
+                      + Text run
                     </button>
                   </div>
+                  {run && (
+                    <>
+                      <label>
+                        Message text
+                        <textarea
+                          rows={4}
+                          value={run.text}
+                          onChange={(event) =>
+                            patchRun({ text: event.target.value })
+                          }
+                        />
+                      </label>
+                      <div className="button-row compact">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            commit({
+                              ...scene,
+                              lines: scene.lines.map((item, index) =>
+                                index === lineIndex
+                                  ? {
+                                      ...item,
+                                      runs: item.runs.filter(
+                                        (_, index) => index !== runIndex,
+                                      ),
+                                    }
+                                  : item,
+                              ),
+                            })
+                          }
+                        >
+                          Remove run
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            commit({
+                              ...scene,
+                              lines: scene.lines.filter(
+                                (_, index) => index !== lineIndex,
+                              ),
+                            })
+                          }
+                        >
+                          Remove line
+                        </button>
+                      </div>
+                    </>
+                  )}
                 </>
               )}
               <p className="fine-print">
@@ -942,6 +990,36 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               <h3>
                 03 <span>Customize</span>
               </h3>
+              {presentation && (
+                <fieldset className="effect-control">
+                  <legend>{presentation.name}</legend>
+                  {Object.entries(presentation.parameters).map(
+                    ([name, parameter]) => (
+                      <ParameterField
+                        key={name}
+                        name={name}
+                        parameter={parameter}
+                        value={
+                          (
+                            scene.presentation as unknown as Record<
+                              string,
+                              unknown
+                            >
+                          )[name]
+                        }
+                        onChange={(value) =>
+                          commit(editCardParameter(scene, name, value))
+                        }
+                      />
+                    ),
+                  )}
+                  <p className="fine-print">
+                    Accent affects{" "}
+                    {presentation.accentGeometry.join(", ").toLowerCase()}.
+                    Status uses its own palette.
+                  </p>
+                </fieldset>
+              )}
               {run ? (
                 <>
                   <div className="field-pair">
@@ -949,7 +1027,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                       Font
                       <select
                         value={run.style.fontFamily}
-                        disabled={!!cinematic}
+                        disabled={!!cinematic || !styleEditable("fontFamily")}
                         onChange={(event) =>
                           patchRun({
                             style: {
@@ -969,7 +1047,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                       <input
                         type="color"
                         value={run.style.color.slice(0, 7)}
-                        disabled={!!cinematic}
+                        disabled={!!cinematic || !styleEditable("color")}
                         onChange={(event) =>
                           patchRun({
                             style: { ...run.style, color: event.target.value },
@@ -980,6 +1058,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   </div>
                   <RangeField
                     label="Font size"
+                    disabled={!styleEditable("fontSize")}
                     unit=" px"
                     value={run.style.fontSize}
                     min={8}
@@ -990,7 +1069,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   />
                   <RangeField
                     label="Weight"
-                    disabled={angular}
+                    disabled={angular || !styleEditable("fontWeight")}
                     value={run.style.fontWeight}
                     min={100}
                     max={900}
@@ -1001,6 +1080,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   />
                   <RangeField
                     label="Letter spacing"
+                    disabled={!styleEditable("letterSpacing")}
                     unit=" px"
                     value={run.style.letterSpacing}
                     min={-2}
@@ -1025,6 +1105,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                     Alignment
                     <select
                       value={line!.align}
+                      disabled={!!presentation}
                       onChange={(event) =>
                         commit({
                           ...scene,
@@ -1098,7 +1179,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                     Add an effect
                     <select
                       value=""
-                      disabled={run.effects.length >= LIMITS.effectsPerRun}
+                      disabled={
+                        !!presentation ||
+                        run.effects.length >= LIMITS.effectsPerRun
+                      }
                       onChange={(event) =>
                         patchRun({
                           effects: [
@@ -1137,9 +1221,11 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                     </select>
                   </label>
                   <p className="fine-print">
-                    {cinematic
-                      ? "This profile supports one static cinematic effect. Remove it to use another style or motion."
-                      : "One style effect and one decorative motion per text run. Remove an effect to choose another."}
+                    {presentation
+                      ? "Detach this card to use flow layout, effects or motion."
+                      : cinematic
+                        ? "This profile supports one static cinematic effect. Remove it to use another style or motion."
+                        : "One style effect and one decorative motion per text run. Remove an effect to choose another."}
                   </p>
                 </>
               ) : (
@@ -1236,7 +1322,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
             <div className="export-heading">
               <div>
                 <h3 id="export-title">Your message, ready to go.</h3>
-                <p>Self-contained JavaScript. No imports. One console.log.</p>
+                <p>{formats[format].description}</p>
               </div>
               <label className="inline-label">
                 Format
@@ -1314,25 +1400,19 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                 <button
                   type="button"
                   className="primary"
-                  disabled={!compilation.ok}
+                  disabled={!source || (format !== "json" && !compilation.ok)}
                   onClick={() => {
-                    if (compilation.ok)
-                      void copy(compilation.exported.code, "console.log");
+                    if (source && (compilation.ok || format === "json"))
+                      void copy(
+                        source,
+                        formats[format].copy.replace(/^Copy /, ""),
+                      );
                   }}
                 >
-                  Copy console.log <span aria-hidden="true">↗</span>
+                  {formats[format].copy} <span aria-hidden="true">↗</span>
                 </button>
               </div>
             </div>
-            {format !== "javascript" && (
-              <button
-                type="button"
-                disabled={!source || !compilation.ok}
-                onClick={() => void copy(source, "Selected format")}
-              >
-                Copy selected format
-              </button>
-            )}
           </section>
 
           <div className="document-actions">
