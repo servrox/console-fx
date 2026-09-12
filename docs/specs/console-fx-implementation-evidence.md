@@ -1,5 +1,8 @@
 # ConsoleFX implementation and launch evidence
 
+Current accessibility policy (2026-09-12): Accepted [ADR-0013](../adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md) supersedes ADR-0011. Representative screen-reader/browser review is unperformed, nonblocking follow-up; required automated, keyboard/focus, zoom/reflow and reduced-motion checks remain. Dated receipts below retain their original evidence scope. The new [cinematic candidate](cinematic-metal-presets-evidence.md) requires its own affected-contract checks.
+
+
 Objective: finish implementation and launch the first MVP under the approved
 [specification](console-fx-spec.md). The active goal authorizes implementation
 across the delivery phases; publication and deployment still require resolved
@@ -271,7 +274,7 @@ trust configuration, OIDC execution and registry-install gates.
 | --- | --- | --- |
 | Environment, instructions, ADRs, manifests and source inspection | source/static | Verified bootstrap baseline; ADR-0001 through ADR-0011 govern the implementation |
 | Core/compiler/exporter and resource-limit tests | local | Implemented; 101-test suite and full type checks passed |
-| Studio/React/Next and accessibility | local | Production browser journeys, automated scans and sampled native 200%/400% zoom passed; representative screen-reader/browser review remains |
+| Studio/React/Next and accessibility | local | Production browser journeys, automated scans and sampled native 200%/400% zoom passed; representative screen-reader/browser review remains nonblocking follow-up |
 | Actual Windows 11 Chrome/Edge qualification | local | Required families/motions, full selected matrix, sampled visual review, copying/lifecycle and static policies observed; final source/static scope audit reconciled all selected rows |
 | Package contents and isolated consumers | local | Current exact tarballs and fresh isolated consumers pass |
 | CI | CI | PR run 34627406177 and main run 34684403898 passed for identical approved trees; downloaded package hashes match; later addendum CI remains pending |
@@ -304,7 +307,7 @@ bytes. Do not represent the current raw index hash as identical to the initial h
 
 The [release ledger](../releasing.md) maps all 24 acceptance criteria, candidate
 hashes, authority and recovery. The [accessibility checklist](../accessibility.md)
-records the remaining screen-reader gate. The original 320 CSS-pixel reflow and
+records the screen-reader checklist, now nonblocking follow-up under ADR-0013. The original 320 CSS-pixel reflow and
 later [native 200%/400% zoom observations](../evidence/accessibility/2026-09-11/native-zoom.json)
 are separately recorded; failed early zoom attempts are excluded from passing
 evidence. This is a working implementation receipt, not a completed launch receipt.

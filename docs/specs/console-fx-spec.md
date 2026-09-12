@@ -16,6 +16,13 @@ requested_scope: "save only the approved specification and implementation handov
 # ConsoleFX
 ## Approved implementation specification
 
+**Current evidence update — 2026-09-12:** the original save checkpoint below is
+historical. Later implementation is recorded in the [base evidence](console-fx-implementation-evidence.md)
+and [cinematic feature evidence](cinematic-metal-presets-evidence.md). Accepted
+ADR-0012 adds the bounded cinematic contract; Accepted ADR-0013 supersedes
+ADR-0011 and makes unperformed screen-reader review nonblocking follow-up.
+The original 24 criteria remain the base product contract.
+
 **Outcome:** a publishable TypeScript library for composing a styled console message, an integrated Next.js landing page and studio that exports a self-contained `console.log(...)`, a required thin React adapter, and tested Next.js recipes. The product name is ConsoleFX. The maintainer approved the revised product contract, MIT license choice, and save-only update to the existing spec and handover. Implementation and release remain pending.
 
 **Approved shape:** two npm packages, one Next.js application, and no separate Next.js runtime package initially, under Accepted ADR-0004.
@@ -81,7 +88,7 @@ No application or actual DevTools qualification was performed for this documenta
 
 Target repository: `servrox/console-fx`; the public repository and `main` default branch were recorded during initial planning. The September 11, 2026 local save preflight found a README, spec/handover, mockups, an exploratory console script, `AGENTS.md`, and eleven Accepted ADRs with an index, provider mapping, and setup receipt. There are no package manifests, lockfile, package scripts, CI workflows, or license file yet. The package and app paths below are planned. MIT is now approved; adding the license file and checking asset/dependency rights belong to later implementation/release work.
 
-Use the NixOS-managed Linux toolchain in the `nixos` WSL distribution, with repositories/worktrees on the native Linux filesystem. Recheck current state and protect concurrent work before every authorized slice. Accepted ADR-0001 through ADR-0011 govern the covered architecture; section 13 maps their responsibilities. The historical empty-repository observation is not the current baseline.
+Use the NixOS-managed Linux toolchain in the `nixos` WSL distribution, with repositories/worktrees on the native Linux filesystem. Recheck current state and protect concurrent work before every authorized slice. Accepted ADR-0001 through ADR-0010 and ADR-0013 govern the covered architecture (ADR-0013 supersedes ADR-0011); section 13 maps their responsibilities. The historical empty-repository observation is not the current baseline.
 
 ### 3.1 One model, multiple renderers
 
@@ -536,7 +543,7 @@ For every renderer and import path, reject disallowed text controls with a diagn
 
 Prevent rapid flashes in shipped motion presets. Respect reduced-motion preference in the app, helpers, and motion-aware exporter. Use proper labels, keyboard controls, visible focus, and readable diagnostics in the editor. Console decoration is not the sole delivery channel for important application information.
 
-Accepted ADR-0011 requires WCAG 2.2 AA for studio/documentation interfaces and React preview controls. Validate critical editing, preview, import/export, copy, test, and recovery journeys with automated checks and manual keyboard, focus, zoom/reflow, reduced-motion, and representative screen-reader/browser checks. Include error states. Automated scans alone are not conformance proof; any unresolved critical-journey failure blocks promotion unless a bounded maintainer-approved exception is recorded as the ADR requires. This baseline makes no claim about the vendor-owned DevTools interface.
+Accepted ADR-0013 retains WCAG 2.2 AA as the target for studio/documentation interfaces and React preview controls. Validate critical editing, preview, import/export, copy, test, and recovery journeys with automated checks and manual keyboard, focus, zoom/reflow, and reduced-motion checks. Include error states. Representative screen-reader/browser review is recommended nonblocking follow-up, owned by the maintainer and revisited at the next accessibility review or assistive-technology feedback; missing observations do not block launch or publication. Automated scans alone are not conformance proof; any unresolved critical-journey failure blocks promotion unless a bounded maintainer-approved exception is recorded as the ADR requires. This baseline makes no claim about the vendor-owned DevTools interface.
 
 Initial size goals: a simple CSS preset consumer at most 10 KiB gzip and an SVG-capable consumer at most 25 KiB gzip, excluding React/Next. These are proposed bundled-consumer budgets, not existing results. Measure per consumer entry; unused codegen, presets, and React modules must not appear in a basic core consumer.
 
@@ -608,7 +615,7 @@ Inspect actual scripts at bootstrap and make build/pack prerequisites explicit s
 | AC-15 | npm tarballs work in isolated JS, TS, React, and Next consumers | Package-consumer CI |
 | AC-16 | Advertised combinations render without unacceptable clipping; lifecycle, copy, narrow console, and static/motion behavior match recorded claims | Actual DevTools matrix with date, exact Windows/browser builds, candidate, settings, result, and artifacts |
 | AC-17 | Resource limits reject excessive payloads before costly generation | Boundary and fuzz tests |
-| AC-18 | Critical studio/docs/React-preview journeys meet ADR-0011's WCAG 2.2 AA baseline, including mobile/reflow, static preview, clipboard/storage failure and recovery | Automated accessibility plus manual keyboard/focus/reflow/motion and screen-reader/browser evidence |
+| AC-18 | Critical studio/docs/React-preview journeys meet ADR-0013's WCAG 2.2 AA target, including mobile/reflow, static preview, clipboard/storage failure and recovery | Automated accessibility plus manual keyboard/focus/reflow/motion; screen-reader/browser review is nonblocking follow-up |
 | AC-19 | All eight required effect families, both gold/chrome variants, and all four required motions pass actual Windows 11 current-stable Chrome and Edge DevTools before the full launch | Complete section 4.4 fixture-to-browser launch matrix; no missing/failed required row |
 | AC-20 | Public effect descriptors are deeply read-only, match core validation/defaults/support metadata, and drive controls without private imports or public registration | Descriptor mutation/consistency tests and public-entry consumer inspection |
 | AC-21 | Typed validation failures have diagnostics and no partial scene; structured compiler preview matches resolved output and byte counts use UTF-8 | API type/contract tests, exact SVG URI and CSS segment comparisons, multibyte payload/source-size cases |
@@ -653,7 +660,7 @@ Later implementation must update the root README, visual-direction status notes,
 | [ADR-0008](../adrs/0008-own-pnpm-and-typescript-toolchain.md) | pnpm/tsc ownership, bootstrap pin checks, ESM and packed-consumer verification |
 | [ADR-0009](../adrs/0009-validate-changed-contracts-with-proportional-evidence.md) | 24 acceptance criteria, proportional checks, separate evidence stages |
 | [ADR-0010](../adrs/0010-deliver-reversible-phases-with-publication-gates.md) | Reversible phases, complete launch gate, rights/npm/hosting/publication gates |
-| [ADR-0011](../adrs/0011-adopt-an-explicit-accessibility-baseline.md) | WCAG 2.2 AA, manual and automated critical-journey checks, static alternatives |
+| [ADR-0013](../adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md) | Supersedes ADR-0011: WCAG 2.2 AA target, required automated/keyboard/focus/reflow/motion checks, static alternatives; screen-reader review is nonblocking follow-up |
 
 These are implementation details within existing decisions: descriptors expose read-only built-in metadata without opening extensibility; percent encoding enforces ADR-0005's literal-text requirement while keeping text arguments separate; the complete gallery/Windows launch requirement narrows product readiness without preventing independently qualified static slices under ADR-0006/0010. No decision is superseded or rewritten. No new ADR draft, status change, or index update is required. The [provider mapping](../adrs/provider-mapping.md) remains provenance/deferred-decision evidence, not binding policy.
 

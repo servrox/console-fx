@@ -34,6 +34,22 @@ emitConsole(neon({ text: "100% your message" }), {
 
 The [core guide](packages/console-fx/README.md), [React guide](packages/console-fx-react/README.md), and [tested consumer examples](examples/README.md) cover public APIs and Next.js integration. Package names above are workspace imports until publication completes. ConsoleFX is [MIT licensed](LICENSE); the studio includes generated third-party notices.
 
+## Cinematic Metal presets
+
+The new **Cinematic Metal** collection adds Lightning Metal, Ice Cathedral, Liquid
+Chrome and Molten Gold to the landing gallery and focused studio. These original
+static SVG treatments have editable short titles, accent color, depth, glow and
+ornaments. Angular titles support A–Z, digits, spaces and hyphens; local serif
+profiles retain platform-dependent shaping. All titles are single-line and at most
+24 code points. No film/studio affiliation or endorsement is implied.
+
+Use `lightningMetal({ text: "BUILD 2026" })` from the existing presets export with
+`{ target: "chromium", renderer: "svg" }`. The [core guide](packages/console-fx/README.md)
+covers all four factories, diagnostics and explicit text fallback. The
+[cinematic evidence](docs/specs/cinematic-metal-presets-evidence.md) records their
+separate qualification status. Screen-reader review is nonblocking follow-up under
+[ADR-0013](docs/adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md).
+
 ## Validate a candidate
 
 ```sh
@@ -49,7 +65,7 @@ pnpm test:studio
 pnpm test:consumers
 ```
 
-Browser checks need Playwright Chromium or the documented dedicated Windows CDP browser (`CONSOLE_FX_CDP_PORT`). See [compatibility](docs/compatibility.md) for actual Windows DevTools qualification. CI configuration is present; local checks alone do not establish a successful remote run or release.
+Browser checks need Playwright Chromium or the documented dedicated Windows CDP browser (`CONSOLE_FX_CDP_PORT`). Set `CONSOLE_FX_STUDIO_PORT` to test a separate local build. See [compatibility](docs/compatibility.md) for actual Windows DevTools qualification. CI configuration is present; local checks alone do not establish a successful remote run or release.
 
 ## Latest combined mockup
 

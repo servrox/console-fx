@@ -1,5 +1,13 @@
 "use client";
-import { useEffect, useId, useMemo, useReducer, useRef, useState } from "react";
+import {
+  memo,
+  useEffect,
+  useId,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import type { ChangeEvent } from "react";
 import {
   getEffectDescriptors,
@@ -31,10 +39,28 @@ import { DraftStore } from "../persistence/draft";
 import type { DraftStatus } from "../persistence/draft";
 import { documentReducer, initialDocument, sameScene } from "./document";
 import { ConfirmDialog } from "./confirm-dialog";
+import { rendererForLoadedScene } from "./renderer";
 
 const descriptors = getEffectDescriptors();
 const initialScene = neon({ text: "Hello, developer." });
 const heroScene = neon({ text: "console-fx" });
+const presetScenes = Object.fromEntries(
+  PRESETS.map((item) => [item.id, preset(item.id)]),
+) as Record<PresetId, SceneV1>;
+const presetGroups = [...new Set(PRESETS.map((item) => item.group))];
+const PresetSample = memo(function PresetSample({
+  id,
+}: {
+  readonly id: PresetId;
+}) {
+  const item = PRESETS.find((item) => item.id === id)!;
+  return (
+    <ConsolePreview
+      scene={presetScenes[id]}
+      options={{ target: "chromium", renderer: item.renderer }}
+    />
+  );
+});
 type Notice = {
   readonly kind: "success" | "error" | "info";
   readonly message: string;
@@ -60,6 +86,7 @@ function RangeField({
   max,
   step = 1,
   unit = "",
+  disabled = false,
   onChange,
 }: {
   readonly label: string;
@@ -68,6 +95,7 @@ function RangeField({
   readonly max: number;
   readonly step?: number;
   readonly unit?: string;
+  readonly disabled?: boolean;
   readonly onChange: (value: number) => void;
 }) {
   const id = useId();
@@ -82,6 +110,7 @@ function RangeField({
       </div>
       <input
         id={id}
+        disabled={disabled}
         type="range"
         min={min}
         max={max}
@@ -178,6 +207,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
   );
   const initialized = useRef(false);
   const importSequence = useRef(0);
+  const releaseShared = useRef<(() => void) | null>(null);
   const scene = document.scene;
 
   useEffect(() => {
@@ -201,7 +231,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
         };
       else if (draft.kind === "valid" && !sameScene(baseline, result.value)) {
         shared = result.value;
-        store.hold();
+        releaseShared.current = store.hold();
       } else if (draft.kind !== "valid") {
         baseline = result.value;
         startupNotice = {
@@ -211,12 +241,32 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
       }
     }
     dispatch({ type: "initialize", scene: baseline });
+    setRenderer(rendererForLoadedScene(baseline, "css"));
     // Storage and fragments are intentionally read after hydration. The initial
     // server/client render is identical, and no default draft is ever persisted.
     setPendingShared(shared);
     setNotice(startupNotice);
     setReady(true);
   }, [store]);
+  useEffect(() => {
+    if (!ready) return;
+    const receiveShare = () => {
+      if (!window.location.hash.startsWith("#scene=")) return;
+      const result = decodeShare(window.location.hash);
+      if (!result.ok) {
+        setNotice({ kind: "error", message: result.diagnostics[0]!.message });
+      } else if (!sameScene(scene, result.value)) {
+        if (!releaseShared.current) {
+          store.flush();
+          releaseShared.current = store.hold();
+        }
+        setPendingShared(result.value);
+        setPlaying(false);
+      }
+    };
+    window.addEventListener("hashchange", receiveShare);
+    return () => window.removeEventListener("hashchange", receiveShare);
+  }, [ready, scene, store]);
   useEffect(() => {
     if (ready) store.queue(scene, document.revision);
   }, [scene, document.revision, ready, store]);
@@ -308,6 +358,13 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     Math.min(selection.run, (line?.runs.length ?? 0) - 1),
   );
   const run = line?.runs[runIndex];
+  const cinematic = run?.effects.find(
+    (effect) => effect.kind === "cinematicMetal",
+  );
+  const angular =
+    cinematic?.profile === "lightning-metal-v1" ||
+    cinematic?.profile === "molten-gold-v1";
+  const recommendedRenderer = rendererForLoadedScene(scene, renderer);
   const runCount = scene.lines.reduce(
     (count, line) => count + line.runs.length,
     0,
@@ -388,6 +445,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
         return;
       }
       dispatch({ type: "replace", scene: result.value });
+      setRenderer(rendererForLoadedScene(result.value, renderer));
       setSelection({ line: 0, run: 0 });
       setPlaying(false);
       setNotice({
@@ -516,29 +574,40 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               </div>
               <p>Every example is an editable scene.</p>
             </div>
-            <div className="preset-grid">
-              {PRESETS.map((item) => (
-                <button
-                  type="button"
-                  className="preset-card"
-                  key={item.id}
-                  disabled={!ready || !!pendingShared}
-                  onClick={() => selectPreset(item.id)}
-                  aria-label={`Load ${item.name} preset`}
+            {presetGroups.map((group) => (
+              <div className="preset-group" key={group}>
+                <h3>{group}</h3>
+                <div
+                  className={`preset-grid ${group === "Cinematic Metal" ? "cinematic-grid" : ""}`}
                 >
-                  <div className="preset-sample">
-                    <ConsolePreview
-                      scene={preset(item.id)}
-                      options={{ target: "chromium", renderer: item.renderer }}
-                    />
-                  </div>
-                  <span className="preset-card-label">
-                    {item.name}
-                    <span aria-hidden="true">↗</span>
-                  </span>
-                </button>
-              ))}
-            </div>
+                  {PRESETS.filter((item) => item.group === group).map(
+                    (item) => (
+                      <button
+                        type="button"
+                        className={`preset-card ${group === "Cinematic Metal" ? "cinematic-card" : ""}`}
+                        key={item.id}
+                        disabled={!ready || !!pendingShared}
+                        onClick={() => selectPreset(item.id)}
+                        aria-label={`Load ${item.name} preset`}
+                      >
+                        <div className="preset-sample">
+                          <PresetSample id={item.id} />
+                        </div>
+                        <span className="preset-card-label">
+                          {item.name}
+                          <span aria-hidden="true">↗</span>
+                        </span>
+                        {group === "Cinematic Metal" && (
+                          <span className="preset-description">
+                            {item.description}
+                          </span>
+                        )}
+                      </button>
+                    ),
+                  )}
+                </div>
+              </div>
+            ))}
             <p className="fine-print">
               Compiler-generated previews. Select a preset to edit the same
               scene below.
@@ -567,6 +636,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               type="button"
               disabled={!ready || !!pendingShared || !document.past.length}
               onClick={() => {
+                const restored = document.past.at(-1);
+                if (restored)
+                  setRenderer(rendererForLoadedScene(restored, renderer));
                 dispatch({ type: "undo" });
                 setPlaying(false);
               }}
@@ -577,6 +649,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               type="button"
               disabled={!ready || !!pendingShared || !document.future.length}
               onClick={() => {
+                const restored = document.future[0];
+                if (restored)
+                  setRenderer(rendererForLoadedScene(restored, renderer));
                 dispatch({ type: "redo" });
                 setPlaying(false);
               }}
@@ -618,10 +693,16 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   <option value="" disabled>
                     Choose a preset
                   </option>
-                  {PRESETS.map((item) => (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
+                  {presetGroups.map((group) => (
+                    <optgroup label={group} key={group}>
+                      {PRESETS.filter((item) => item.group === group).map(
+                        (item) => (
+                          <option key={item.id} value={item.id}>
+                            {item.name}
+                          </option>
+                        ),
+                      )}
+                    </optgroup>
                   ))}
                 </select>
               </label>
@@ -777,8 +858,8 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                     />
                   ) : (
                     <p className="preview-error">
-                      This renderer cannot display the selected effects. Choose
-                      SVG or plain text.
+                      {compilation.diagnostics[0]?.message ??
+                        "Choose a supported renderer."}
                     </p>
                   )}
                 </div>
@@ -823,6 +904,17 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   <option value="text">Plain text · any console</option>
                 </select>
               </label>
+              {recommendedRenderer !== renderer && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRenderer(recommendedRenderer);
+                    setPlaying(false);
+                  }}
+                >
+                  Use SVG renderer
+                </button>
+              )}
               <div
                 className="diagnostics"
                 role="group"
@@ -857,6 +949,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                       Font
                       <select
                         value={run.style.fontFamily}
+                        disabled={!!cinematic}
                         onChange={(event) =>
                           patchRun({
                             style: {
@@ -876,6 +969,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                       <input
                         type="color"
                         value={run.style.color.slice(0, 7)}
+                        disabled={!!cinematic}
                         onChange={(event) =>
                           patchRun({
                             style: { ...run.style, color: event.target.value },
@@ -896,6 +990,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   />
                   <RangeField
                     label="Weight"
+                    disabled={angular}
                     value={run.style.fontWeight}
                     min={100}
                     max={900}
@@ -904,6 +999,28 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                       patchRun({ style: { ...run.style, fontWeight: value } })
                     }
                   />
+                  <RangeField
+                    label="Letter spacing"
+                    unit=" px"
+                    value={run.style.letterSpacing}
+                    min={-2}
+                    max={10}
+                    step={0.5}
+                    onChange={(value) =>
+                      patchRun({
+                        style: { ...run.style, letterSpacing: value },
+                      })
+                    }
+                  />
+                  {cinematic && (
+                    <p className="fine-print">
+                      {angular
+                        ? "Original angular paths define the letter shapes; font family and weight do not apply. ASCII lowercase appears as capitals; the caption keeps your text."
+                        : "This profile uses local serif lettering; the font family is fixed and rendering can vary by platform."}{" "}
+                      The reflection palette is fixed. Use Accent color for the
+                      edges. Cinematic Metal is static-only.
+                    </p>
+                  )}
                   <label>
                     Alignment
                     <select
@@ -936,7 +1053,12 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                             ([name, parameter]) => (
                               <ParameterField
                                 key={name}
-                                name={name}
+                                name={
+                                  effect.kind === "cinematicMetal" &&
+                                  name === "color"
+                                    ? "Accent color"
+                                    : name
+                                }
                                 parameter={parameter}
                                 value={
                                   (
@@ -1002,7 +1124,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                             value={descriptor.kind}
                             key={descriptor.kind}
                             disabled={
-                              renderer !== "svg" &&
+                              (renderer !== "svg" || !!cinematic) &&
                               descriptor.motion === "decorative"
                             }
                           >
@@ -1015,8 +1137,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                     </select>
                   </label>
                   <p className="fine-print">
-                    One style effect and one decorative motion per text run.
-                    Remove an effect to choose another.
+                    {cinematic
+                      ? "This profile supports one static cinematic effect. Remove it to use another style or motion."
+                      : "One style effect and one decorative motion per text run. Remove an effect to choose another."}
                   </p>
                 </>
               ) : (
@@ -1300,16 +1423,19 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
       {pendingShared && (
         <ConfirmDialog
           title="Load the shared scene?"
-          description="You have a valid local draft. Loading this shared scene replaces the current document as one undoable change. Keep your current scene to continue where you left off."
+          description="Loading this shared scene replaces your current document as one undoable change. Keep your current scene to continue where you left off."
           confirmLabel="Load shared scene"
           onCancel={() => {
-            store.release();
+            releaseShared.current?.();
+            releaseShared.current = null;
             setPendingShared(null);
             setNotice({ kind: "info", message: "Kept your current scene." });
           }}
           onConfirm={() => {
-            store.release();
+            releaseShared.current?.();
+            releaseShared.current = null;
             dispatch({ type: "replace", scene: pendingShared });
+            setRenderer(rendererForLoadedScene(pendingShared, renderer));
             setPendingShared(null);
             setPlaying(false);
             setNotice({
@@ -1329,6 +1455,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           onConfirm={() => {
             store.protectThrough(document.revision + 1);
             dispatch({ type: "reset" });
+            setRenderer("css");
             setSelection({ line: 0, run: 0 });
             setConfirmReset(false);
             setPlaying(false);

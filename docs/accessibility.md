@@ -1,8 +1,22 @@
 # Accessibility verification
 
-The target is WCAG 2.2 AA under [ADR-0011](adrs/0011-adopt-an-explicit-accessibility-baseline.md).
+The target is WCAG 2.2 AA under [ADR-0013](adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md).
 The implementation is a release candidate; this document does not claim completed
-conformance. Representative screen-reader/browser evidence remains pending.
+conformance. Representative screen-reader/browser review is an unperformed, nonblocking follow-up.
+The maintainer explicitly removed that observation from launch gates on 2026-09-12.
+
+## Cinematic feature observations — 2026-09-12
+
+The updated studio passes all 20 desktop/mobile journeys in dedicated Windows
+Chrome, including new cinematic selection/import/share/history and glyph-error
+recovery states, axe scans and static/reduced-motion checks. The [native zoom
+receipt](evidence/accessibility/2026-09-12-cinematic/native-zoom.json) records the
+final artifact at actual 200% and 400% zoom, no horizontal overflow on all three
+routes, keyboard editing and Reset cancellation/focus return. Eight unaltered
+viewport captures were visually inspected, including the new gallery sample.
+The [feature ledger](specs/cinematic-metal-presets-evidence.md) identifies the
+candidate and separates these observations from native DevTools and packages.
+Screen-reader behavior remains not observed and nonblocking.
 
 ## Completed local observations
 
@@ -39,7 +53,7 @@ Replay changing frames and returning to the same finished frame. Images retain
 the compiler's readable text alternative; the vendor's DevTools interface is
 outside the web conformance claim.
 
-## Remaining manual checklist
+## Nonblocking screen-reader follow-up
 
 Use the production build at `http://localhost:4175/studio/` or the approved
 protected preview when available, in a separate test profile. Record date, exact
@@ -65,10 +79,12 @@ artifact/URL, Windows build, browser version and screen-reader name/version.
    Test narrow-screen reading and both static and reduced-motion preferences.
 
 Record each result as pass, failure or not observed, with the affected journey
-and criterion. A failure on a changed critical journey blocks promotion unless
-the maintainer explicitly accepts the bounded exception required by ADR-0011.
-Automated checks and an accessibility-tree snapshot alone do not complete this
-manual gate.
+and criterion. Missing screen-reader observations do not block launch or publication.
+The ConsoleFX maintainer owns this follow-up, to revisit at the next accessibility
+review or after assistive-technology feedback; do not repeat the deferred request.
+An observed failure on a changed critical journey still requires a fix or the
+bounded maintainer exception in ADR-0013. Keyboard/focus, zoom/reflow, reduced-motion
+and automated checks remain required; screen-reader deferral is not conformance proof.
 
 See the [implementation receipt](specs/console-fx-implementation-evidence.md) for
 package, native DevTools, CI and hosted-release status.

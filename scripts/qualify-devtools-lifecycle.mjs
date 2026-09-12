@@ -10,11 +10,15 @@ import { performance } from "node:perf_hooks";
 import { compileConsole } from "../packages/console-fx/dist/browser/index.js";
 import { exportConsoleLog } from "../packages/console-fx/dist/codegen/index.js";
 import { defineScene } from "../packages/console-fx/dist/index.js";
-import { neon } from "../packages/console-fx/dist/presets/index.js";
+import {
+  neon,
+  PRESETS,
+  preset,
+} from "../packages/console-fx/dist/presets/index.js";
 
 const [port, name, phase = "all"] = process.argv.slice(2);
 assert(/^\d+$/.test(port ?? "") && /^(chrome|edge)$/.test(name ?? ""));
-assert(["all", "offscreen", "policy"].includes(phase));
+assert(["all", "offscreen", "policy", "cinematic"].includes(phase));
 const directory = resolve(
   `.artifacts/devtools/${name}-lifecycle-${new Date().toISOString().replaceAll(":", "-")}`,
 );
@@ -24,7 +28,10 @@ const runId = Date.now().toString(36);
 const browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`);
 const cdp = await browser.newBrowserCDPSession();
 const pages = () => browser.contexts().flatMap((context) => context.pages());
-const fixture = pages().find((page) => page.url() === "http://127.0.0.1:4176/");
+const fixturePort = Number(process.env.CONSOLE_FX_FIXTURE_PORT ?? 4176);
+const fixture = pages().find(
+  (page) => page.url() === `http://127.0.0.1:${fixturePort}/`,
+);
 assert(fixture, "Open the dedicated fixture page first");
 fixture.setDefaultTimeout(10_000);
 const fixtureSession = await fixture.context().newCDPSession(fixture);
@@ -193,6 +200,113 @@ function motionScene(label) {
   return neon({ text: label, motion: "wave" });
 }
 
+async function copyNative(row, output) {
+  const powershell =
+    "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe";
+  const script = `Add-Type -AssemblyName UIAutomationClient; $root=[System.Windows.Automation.AutomationElement]::RootElement; $condition=New-Object System.Windows.Automation.AndCondition((New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::ProcessIdProperty,${processId})),(New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::NameProperty,"Copy console"))); $item=$root.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$condition); if($null -eq $item){throw "Native Copy console command missing"}; $item.GetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern).Invoke(); Start-Sleep -Milliseconds 150; [Console]::Write([Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes((Get-Clipboard -Raw))))`;
+  const copied = Buffer.from(
+    execFileSync(
+      powershell,
+      ["-NoProfile", "-NonInteractive", "-STA", "-Command", script],
+      { encoding: "utf8", timeout: 10_000 },
+    ).trim(),
+    "base64",
+  ).toString("utf8");
+  row.copiedLiteral = copied.includes(output.text);
+  row.clipboardSha256 = createHash("sha256").update(copied).digest("hex");
+  row.clipboardBytes = Buffer.byteLength(copied);
+  row.copyMethod = "Native DevTools context menu Copy console with one message";
+  // Do not retain unrelated clipboard content if a native copy command failed.
+  if (row.copiedLiteral) row.copiedText = copied;
+  assert(
+    row.copiedLiteral,
+    "Native copied text did not contain the complete literal message",
+  );
+}
+
+if (phase === "cinematic") {
+  for (const entry of PRESETS.filter(
+    (item) => item.group === "Cinematic Metal",
+  )) {
+    const scene = preset(entry.id);
+    const output = compileConsole(scene, { ...options, motion: "reduce" });
+    const code = exportConsoleLog(scene, {
+      target: "chromium",
+      renderer: "svg",
+    }).code;
+    const prompt = () =>
+      native.getByRole("textbox", { name: "Console prompt", exact: true });
+    await clear();
+    let before = events.length;
+    await prompt().fill(code);
+    await prompt().press("Enter");
+    await pause(200);
+    const generated = await record(`${entry.id}-generated-copy`, output, {
+      before,
+    });
+    generated.code = code;
+    await capture(generated, "static");
+    await richMessage().click({ button: "right" });
+    await copyNative(generated, output);
+    save(generated);
+
+    await clear();
+    await close();
+    const emission = await emit(output);
+    await open();
+    const late = await record(`${entry.id}-before-open`, output, emission);
+    await capture(late, "static");
+    save(late);
+    await close();
+    await open();
+    const reopened = await record(`${entry.id}-reopened`, output, emission);
+    await capture(reopened, "static");
+    save(reopened);
+
+    await clear();
+    for (const repeat of [1, 2]) {
+      before = events.length;
+      await prompt().fill(code);
+      await prompt().press("Enter");
+      await pause(150);
+      const row = await record(
+        `${entry.id}-repeated-snippet-${repeat}`,
+        output,
+        { before },
+      );
+      await capture(row, "static");
+      save(row);
+    }
+    await clear();
+    await resize(440, 700);
+    const narrow = await record(
+      `${entry.id}-narrow-console`,
+      output,
+      await emit(output),
+    );
+    narrow.visibleText = await richMessage().textContent();
+    narrow.layout = await native.evaluate(() => ({
+      viewport: [window.innerWidth, window.innerHeight],
+      consoleWidth: document
+        .querySelector(".console-view")
+        .getBoundingClientRect().width,
+      zoom: "Native Ctrl+0",
+      theme: document.documentElement.className,
+    }));
+    assert(
+      narrow.layout.consoleWidth <= 500,
+      "Resize must narrow DevTools itself",
+    );
+    assert(narrow.visibleText.includes(output.text));
+    narrow.context = `${directory}/${narrow.id}-console.png`;
+    await native.screenshot({ path: narrow.context });
+    await richMessage().click({ button: "right", position: { x: 10, y: 10 } });
+    await copyNative(narrow, output);
+    save(narrow);
+    await resize(1400, 950);
+  }
+}
+
 // The actual generated expression is entered in the native Console prompt.
 if (phase === "all") {
   await clear();
@@ -236,8 +350,6 @@ if (phase === "all") {
   save(literal);
 
   // Copy the single emitted message using DevTools' native Copy console command.
-  const powershell =
-    "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe";
   for (const [id, output] of [
     ["copy-css-literal", css],
     [
@@ -252,26 +364,7 @@ if (phase === "all") {
     const emission = await emit(output);
     const row = await record(id, output, emission);
     await richMessage().click({ button: "right" });
-    const script = `Add-Type -AssemblyName UIAutomationClient; $root=[System.Windows.Automation.AutomationElement]::RootElement; $condition=New-Object System.Windows.Automation.AndCondition((New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::ProcessIdProperty,${processId})),(New-Object System.Windows.Automation.PropertyCondition([System.Windows.Automation.AutomationElement]::NameProperty,"Copy console"))); $item=$root.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$condition); if($null -eq $item){throw "Native Copy console command missing"}; $item.GetCurrentPattern([System.Windows.Automation.InvokePattern]::Pattern).Invoke(); Start-Sleep -Milliseconds 150; [Console]::Write([Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes((Get-Clipboard -Raw))))`;
-    const copied = Buffer.from(
-      execFileSync(
-        powershell,
-        ["-NoProfile", "-NonInteractive", "-STA", "-Command", script],
-        { encoding: "utf8", timeout: 10_000 },
-      ).trim(),
-      "base64",
-    ).toString("utf8");
-    row.copiedLiteral = copied.includes(output.text);
-    row.clipboardSha256 = createHash("sha256").update(copied).digest("hex");
-    row.clipboardBytes = Buffer.byteLength(copied);
-    row.copyMethod =
-      "Native DevTools context menu Copy console with one message";
-    // Do not retain unrelated clipboard content if a native copy command failed.
-    if (row.copiedLiteral) row.copiedText = copied;
-    assert(
-      row.copiedLiteral,
-      "Native copied text did not contain the complete literal message",
-    );
+    await copyNative(row, output);
     row.context = `${directory}/${id}-console.png`;
     await native.screenshot({ path: row.context });
     save(row);
@@ -383,7 +476,7 @@ if (phase === "policy") {
 }
 
 // Move an animated entry out of view without asking ConsoleFX to print again.
-if (phase !== "policy") {
+if (phase === "all" || phase === "offscreen") {
   await clear();
   const offscreenOutput = compileConsole(
     motionScene(`Hidden ${name} ${runId.slice(-4)}`),

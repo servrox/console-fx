@@ -2,7 +2,21 @@ export type Renderer = "css" | "svg" | "text";
 export type Target =
   "chromium" | "firefox" | "safari" | "node" | "bun" | "unknown";
 export type FontFamily = "sans" | "mono" | "serif";
+export type CinematicProfile =
+  | "lightning-metal-v1"
+  | "ice-cathedral-v1"
+  | "liquid-chrome-v1"
+  | "molten-gold-v1";
+export interface CinematicMetalEffectInput {
+  readonly kind: "cinematicMetal";
+  readonly profile?: CinematicProfile;
+  readonly color?: string;
+  readonly depth?: number;
+  readonly glow?: number;
+  readonly ornaments?: boolean;
+}
 export type EffectInput =
+  | CinematicMetalEffectInput
   | { readonly kind: "badge"; readonly color?: string }
   | {
       readonly kind: "neon";

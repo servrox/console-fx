@@ -163,6 +163,24 @@ describe("draft ownership and write ordering", () => {
     vi.runAllTimers();
     expect(storage.setItem).toHaveBeenCalledTimes(1);
   });
+  it("settling a shared-scene dialog preserves an earlier storage recovery hold", () => {
+    vi.useFakeTimers();
+    const { values, storage, store } = storageFixture();
+    values.set(DRAFT_KEY, "recoverable broken JSON");
+    store.read();
+    const releaseDialog = store.hold();
+    releaseDialog();
+    store.queue(neon({ text: "Valid current work" }), 1);
+    vi.runAllTimers();
+    expect(storage.setItem).not.toHaveBeenCalled();
+    expect(values.get(DRAFT_KEY)).toBe("recoverable broken JSON");
+    store.clear(1);
+    const releaseNextDialog = store.hold();
+    releaseNextDialog();
+    store.queue(neon({ text: "Later valid work" }), 2);
+    vi.runAllTimers();
+    expect(values.get(DRAFT_KEY)).toContain("Later valid work");
+  });
   it("clear is repeatable, touches one key, preserves memory, and blocks stale callbacks/effects until a later edit", () => {
     vi.useFakeTimers();
     const { values, store, storage } = storageFixture();

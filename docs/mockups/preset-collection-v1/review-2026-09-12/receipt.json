@@ -1,0 +1,771 @@
+{
+  "observedAt": "2026-09-12T11:23:41.809Z",
+  "browser": "153.0.8010.36",
+  "os": "Windows11 25H2 26220.9223 verified in this thread",
+  "method": "Actual Windows Chrome SVG page rendering and DOM platform-font/bounds observation; not DevTools qualification",
+  "fixtureSha256": "0c02d5c3b9ee13798cc516bb92cecfad2528ca5030765474d5f1b88a5f4e76f7",
+  "rows": [
+    {
+      "id": "buildReceipt",
+      "referenceSha256": "5990a79475b203cf15fd4fa282edd405f0aaf5db18698fa391c2bd208387ad9b",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "BUILD / RECEIPT",
+          "x": 36,
+          "y": 26,
+          "width": 120.71875,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "project",
+          "text": "atlas-web",
+          "x": 36,
+          "y": 52,
+          "width": 145.828125,
+          "height": 36,
+          "inside": true
+        },
+        {
+          "slot": "outcome",
+          "text": "PASSED",
+          "x": 568,
+          "y": 50,
+          "width": 39.98828125,
+          "height": 14,
+          "inside": true
+        },
+        {
+          "slot": "revisionLabel",
+          "text": "REVISION",
+          "x": 36,
+          "y": 122,
+          "width": 48.390625,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "durationLabel",
+          "text": "DURATION",
+          "x": 237,
+          "y": 122,
+          "width": 48.390625,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "checksLabel",
+          "text": "CHECKS",
+          "x": 438,
+          "y": 122,
+          "width": 36.296875,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "revision",
+          "text": "a1b2c3d",
+          "x": 36,
+          "y": 142,
+          "width": 80.828125,
+          "height": 24,
+          "inside": true
+        },
+        {
+          "slot": "duration",
+          "text": "2.34 s",
+          "x": 237,
+          "y": 142,
+          "width": 69.28125,
+          "height": 24,
+          "inside": true
+        },
+        {
+          "slot": "checks",
+          "text": "48 / 48",
+          "x": 438,
+          "y": 142,
+          "width": 80.828125,
+          "height": 24,
+          "inside": true
+        },
+        {
+          "slot": "environment",
+          "text": "ENVIRONMENT  preview",
+          "x": 36,
+          "y": 204,
+          "width": 115.861328125,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "COMPLETED SNAPSHOT",
+          "x": 555.03125,
+          "y": 205,
+          "width": 99.466796875,
+          "height": 12,
+          "inside": true
+        }
+      ],
+      "screenshot": "buildReceipt.png",
+      "allTextInside": true,
+      "screenshotSha256": "a1d5deb95f05cdacba49a75626fcd6f78c80b1d07ff61a4ed4d120997b40075c"
+    },
+    {
+      "id": "requestTrace",
+      "referenceSha256": "9cec0fea1314b6037781a8e5c70e8ad117d883b435db7890c3cdd8129c4589e0",
+      "fonts": [
+        "Consolas"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "REQUEST / SNAPSHOT",
+          "x": 32,
+          "y": 22,
+          "width": 134.96875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "method",
+          "text": "GET",
+          "x": 32,
+          "y": 49,
+          "width": 41.490234375,
+          "height": 29,
+          "inside": true
+        },
+        {
+          "slot": "path",
+          "text": "/api/orders",
+          "x": 98,
+          "y": 49,
+          "width": 151.203125,
+          "height": 29,
+          "inside": true
+        },
+        {
+          "slot": "status",
+          "text": "200 OK",
+          "x": 611.703125,
+          "y": 22,
+          "width": 37.2392578125,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "total",
+          "text": "148 ms",
+          "x": 566.921875,
+          "y": 54,
+          "width": 89.078125,
+          "height": 32,
+          "inside": true
+        },
+        {
+          "slot": "s0",
+          "text": "AUTH",
+          "x": 57,
+          "y": 152,
+          "width": 23.494140625,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "s1",
+          "text": "QUERY",
+          "x": 280,
+          "y": 152,
+          "width": 28.9921875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "s2",
+          "text": "SERIALIZE",
+          "x": 528,
+          "y": 152,
+          "width": 49.484375,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "d0",
+          "text": "12 ms",
+          "x": 58,
+          "y": 169,
+          "width": 54.984375,
+          "height": 23,
+          "inside": true
+        },
+        {
+          "slot": "d1",
+          "text": "106 ms",
+          "x": 281,
+          "y": 169,
+          "width": 65.984375,
+          "height": 23,
+          "inside": true
+        },
+        {
+          "slot": "d2",
+          "text": "30 ms",
+          "x": 528,
+          "y": 169,
+          "width": 54.984375,
+          "height": 23,
+          "inside": true
+        },
+        {
+          "slot": "requestId",
+          "text": "ID  req_demo_0042",
+          "x": 32,
+          "y": 212,
+          "width": 88.470703125,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "ONE REQUEST / NO LIVE CONNECTION",
+          "x": 526.65625,
+          "y": 213,
+          "width": 159.3955078125,
+          "height": 10,
+          "inside": true
+        }
+      ],
+      "screenshot": "requestTrace.png",
+      "allTextInside": true,
+      "screenshotSha256": "f6064e042d7cc6394c67ab177c4f2957fe6ae861637184d3bdb4c373789278fe"
+    },
+    {
+      "id": "serviceReady",
+      "referenceSha256": "c7541e456464151e0a14fb1b23e4f476bc7ef86c341a4b69ef48bb45305b1405",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "SERVICE / PASSPORT",
+          "x": 126,
+          "y": 28,
+          "width": 134.96875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "service",
+          "text": "Atlas API",
+          "x": 125,
+          "y": 50,
+          "width": 144.65625,
+          "height": 37,
+          "inside": true
+        },
+        {
+          "slot": "state",
+          "text": "READY",
+          "x": 604.75,
+          "y": 37,
+          "width": 31.19140625,
+          "height": 13,
+          "inside": true
+        },
+        {
+          "slot": "endpoint",
+          "text": "http://localhost:3000",
+          "x": 126,
+          "y": 99,
+          "width": 184.9375,
+          "height": 19,
+          "inside": true
+        },
+        {
+          "slot": "envLabel",
+          "text": "ENVIRONMENT",
+          "x": 32,
+          "y": 159,
+          "width": 60.98046875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "runtimeLabel",
+          "text": "RUNTIME",
+          "x": 292,
+          "y": 159,
+          "width": 38.5,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "regionLabel",
+          "text": "REGION",
+          "x": 532,
+          "y": 159,
+          "width": 33.490234375,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "environment",
+          "text": "development",
+          "x": 32,
+          "y": 176,
+          "width": 102.828125,
+          "height": 20,
+          "inside": true
+        },
+        {
+          "slot": "runtime",
+          "text": "Node 24",
+          "x": 292,
+          "y": 176,
+          "width": 66.080078125,
+          "height": 20,
+          "inside": true
+        },
+        {
+          "slot": "region",
+          "text": "local",
+          "x": 532,
+          "y": 176,
+          "width": 46.734375,
+          "height": 20,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "STARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP",
+          "x": 32,
+          "y": 215,
+          "width": 273.625,
+          "height": 10,
+          "inside": true
+        }
+      ],
+      "screenshot": "serviceReady.png",
+      "allTextInside": true,
+      "screenshotSha256": "9921901c26f4db0abbd8e1d94004087853e2d624ba01f84432c55c6d34bc73fc"
+    },
+    {
+      "id": "commandCard",
+      "referenceSha256": "26f584d3c308db2fdb309393099a34081365adc94827055ca5acafe04b7a5c7e",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "NEXT / ACTION",
+          "x": 32,
+          "y": 24,
+          "width": 97.484375,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "step",
+          "text": "01",
+          "x": 44,
+          "y": 56,
+          "width": 41.796875,
+          "height": 45,
+          "inside": true
+        },
+        {
+          "slot": "title",
+          "text": "Run the test suite",
+          "x": 128,
+          "y": 50,
+          "width": 243.3125,
+          "height": 32,
+          "inside": true
+        },
+        {
+          "slot": "instruction",
+          "text": "Run from the project root.",
+          "x": 128,
+          "y": 90,
+          "width": 158.75,
+          "height": 16,
+          "inside": true
+        },
+        {
+          "slot": "command",
+          "text": "pnpm test",
+          "x": 73,
+          "y": 142,
+          "width": 133.609375,
+          "height": 32,
+          "inside": true
+        },
+        {
+          "slot": "safety",
+          "text": "Command shown, never executed.",
+          "x": 32,
+          "y": 208,
+          "width": 181.4375,
+          "height": 13,
+          "inside": true
+        }
+      ],
+      "screenshot": "commandCard.png",
+      "allTextInside": true,
+      "screenshotSha256": "bc64e28b5d9febb654db2f23cd273feb150983b479f140a06ec02eec95fcc652"
+    },
+    {
+      "id": "releaseBulletin",
+      "referenceSha256": "9f758f3900151d6e0a0552a0c68f967905c5835a1025ce9a0e538f22e033230f",
+      "fonts": [
+        "Consolas",
+        "Georgia",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "ATLAS / RELEASE NOTES",
+          "x": 31,
+          "y": 24,
+          "width": 158.46875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "version",
+          "text": "v2.4.0",
+          "x": 626.40625,
+          "y": 24,
+          "width": 40.98828125,
+          "height": 14,
+          "inside": true
+        },
+        {
+          "slot": "headline",
+          "text": "A quieter kind of fast.",
+          "x": 30,
+          "y": 70,
+          "width": 401.890625,
+          "height": 41,
+          "inside": true
+        },
+        {
+          "slot": "change0",
+          "text": "Smaller payloads.",
+          "x": 49,
+          "y": 142,
+          "width": 135.125,
+          "height": 19,
+          "inside": true
+        },
+        {
+          "slot": "change1",
+          "text": "Clearer diagnostics.",
+          "x": 349,
+          "y": 142,
+          "width": 150.25,
+          "height": 19,
+          "inside": true
+        },
+        {
+          "slot": "channel",
+          "text": "Preview channel",
+          "x": 32,
+          "y": 203,
+          "width": 99.3671875,
+          "height": 14,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "TWO CHANGES. ONE CLEAR MESSAGE.",
+          "x": 517.546875,
+          "y": 205,
+          "width": 170.453125,
+          "height": 12,
+          "inside": true
+        }
+      ],
+      "screenshot": "releaseBulletin.png",
+      "allTextInside": true,
+      "screenshotSha256": "b3804ccd63935b02bb0893bfa01fb7244b6fdf31bc05a2a5c67929ecd1a5aa43"
+    },
+    {
+      "id": "blueprint",
+      "referenceSha256": "ecbf9d9d95d97d015d120d38a9a4c9abdb4f04c946503ff61b659b23e929e6cf",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "ENGINEERING / EDITION 01",
+          "x": 31,
+          "y": 21,
+          "width": 167.953125,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "title",
+          "text": "BUILT TO LAST",
+          "x": 247,
+          "y": 74,
+          "width": 274.4482421875,
+          "height": 41,
+          "inside": true
+        },
+        {
+          "slot": "subtitle",
+          "text": "An interface worth understanding.",
+          "x": 248,
+          "y": 126,
+          "width": 210.359375,
+          "height": 16,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "PRECISION OVER NOISE",
+          "x": 249,
+          "y": 198,
+          "width": 149.96875,
+          "height": 12,
+          "inside": true
+        }
+      ],
+      "screenshot": "blueprint.png",
+      "allTextInside": true,
+      "screenshotSha256": "22da8c07a0d3a8f7a00b32b2bbdd680d7b034714659b6d5ec1df737ea88dcabc"
+    },
+    {
+      "id": "contourMap",
+      "referenceSha256": "bbb3f6253416bf2c315b7a67b2c53a54106386ad9350667c63fd1b0b30783164",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "FIELD NOTES / 007",
+          "x": 32,
+          "y": 23,
+          "width": 127.46875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "title",
+          "text": "FIND YOUR SIGNAL",
+          "x": 32,
+          "y": 86,
+          "width": 305.203125,
+          "height": 36,
+          "inside": true
+        },
+        {
+          "slot": "subtitle",
+          "text": "Less noise. More direction.",
+          "x": 33,
+          "y": 134,
+          "width": 191.203125,
+          "height": 17,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "CONTOUR STUDY",
+          "x": 32,
+          "y": 206,
+          "width": 97.484375,
+          "height": 12,
+          "inside": true
+        }
+      ],
+      "screenshot": "contourMap.png",
+      "allTextInside": true,
+      "screenshotSha256": "dd2e56d6dff577d09216d767a779e7087535bbcc10626663120a2904bb98a2b7"
+    },
+    {
+      "id": "letterpress",
+      "referenceSha256": "d9823a54a5a42260e708be9dbc23705251f9d7045cef3cac096ad7630d0cdf62",
+      "fonts": [
+        "Consolas",
+        "Georgia",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "STUDIO / CONSOLE EDITION",
+          "x": 36,
+          "y": 25,
+          "width": 179.953125,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "title-shadow",
+          "text": "Make it matter.",
+          "x": 35.79999923706055,
+          "y": 74.30000305175781,
+          "width": 458.65625,
+          "height": 66,
+          "inside": true
+        },
+        {
+          "slot": "title",
+          "text": "Make it matter.",
+          "x": 35,
+          "y": 73,
+          "width": 458.65625,
+          "height": 66,
+          "inside": true
+        },
+        {
+          "slot": "subtitle",
+          "text": "Thoughtful tools. Everyday work.",
+          "x": 37,
+          "y": 149,
+          "width": 232.109375,
+          "height": 17,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "LESS, BUT CONSIDERED.",
+          "x": 37,
+          "y": 207,
+          "width": 157.46875,
+          "height": 12,
+          "inside": true
+        }
+      ],
+      "screenshot": "letterpress.png",
+      "allTextInside": true,
+      "screenshotSha256": "3e918da3ba93a0e7733f3dae624ff8587c54842e66d28609fbcf225e6d7d7afe"
+    },
+    {
+      "id": "signalHalftone",
+      "referenceSha256": "b0a04305514702ccd92761e0c6aeb70d044d75fd32112dc01adadf66a682af46",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "TWO INKS / ONE IDEA",
+          "x": 273,
+          "y": 25,
+          "width": 132.96875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "title",
+          "text": "MAKE SOME",
+          "x": 271,
+          "y": 69,
+          "width": 252.859375,
+          "height": 46,
+          "inside": true
+        },
+        {
+          "slot": "title2",
+          "text": "SIGNAL",
+          "x": 271,
+          "y": 114,
+          "width": 154.90625,
+          "height": 46,
+          "inside": true
+        },
+        {
+          "slot": "subtitle",
+          "text": "Small tools. Clear intent.",
+          "x": 274,
+          "y": 170,
+          "width": 151.734375,
+          "height": 16,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "PRINT STUDY 04",
+          "x": 274,
+          "y": 210,
+          "width": 97.28125,
+          "height": 10,
+          "inside": true
+        }
+      ],
+      "screenshot": "signalHalftone.png",
+      "allTextInside": true,
+      "screenshotSha256": "ee5f7b0b8a044b32671f858ecc324a8f6c5b6611f267557d01303cdd7e9b9849"
+    },
+    {
+      "id": "orbital",
+      "referenceSha256": "9dfb5a8ad315acf985c862d5b013376bb0ca5ad197443070c746ca345baccc59",
+      "fonts": [
+        "Consolas",
+        "Arial"
+      ],
+      "geometry": [
+        {
+          "slot": "eyebrow",
+          "text": "MISSION / CONSOLE 01",
+          "x": 263,
+          "y": 25,
+          "width": 144.96875,
+          "height": 12,
+          "inside": true
+        },
+        {
+          "slot": "title",
+          "text": "STAY CURIOUS",
+          "x": 262,
+          "y": 78,
+          "width": 265.40625,
+          "height": 41,
+          "inside": true
+        },
+        {
+          "slot": "subtitle",
+          "text": "Build something worth discovering.",
+          "x": 264,
+          "y": 133,
+          "width": 216.34375,
+          "height": 16,
+          "inside": true
+        },
+        {
+          "slot": "footer",
+          "text": "IDEAS IN ORBIT",
+          "x": 264,
+          "y": 206,
+          "width": 104.984375,
+          "height": 12,
+          "inside": true
+        }
+      ],
+      "screenshot": "orbital.png",
+      "allTextInside": true,
+      "screenshotSha256": "66a7c5681b27257231b3388a597fff9a7194b4243711a7eef75d7325e2bf1752"
+    }
+  ],
+  "sceneFixtureSha256": "766940dd960fb79acbba995f206b8a43379ef6590f19a95ffb6ae2bd4955d1cc"
+}

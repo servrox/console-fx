@@ -47,6 +47,59 @@ positive no-preference result. The pure compiler accepts already-resolved
 `motion: "allow" | "reduce"`. Repeated identical SVG images may retain their
 finished frame. Full release qualification remains pending for this candidate.
 
+## Cinematic Metal
+
+```js
+import {
+  lightningMetal,
+  iceCathedral,
+  liquidChrome,
+  moltenGold,
+  preset,
+} from "@servrox/console-fx/presets";
+
+const title = lightningMetal({
+  text: "BUILD 2026",
+  color: "#69dcff",
+  depth: 7,
+  glow: 0.25,
+  ornaments: true,
+});
+const compiled = compileConsole(title, { target: "chromium", renderer: "svg" });
+const sameTitle = preset("lightningMetal", { text: "BUILD 2026" });
+```
+
+The four static factories belong to `PRESETS` group **Cinematic Metal**. They use
+one `cinematicMetal` effect with a closed, versioned `profile`, an accent color,
+depth 0–10 (floored for layer count), glow 0–1 and optional ornaments. They reject
+motion effects, including under reduced-motion compilation. Other presets retain
+their defaults. Every result is ordinary normalized V1 data, ready for JSON,
+`ConsolePreview`, `ConsoleBanner` and the existing React hook/Next recipes.
+
+Titles support one line of at most 24 code points. Lightning Metal and Molten Gold
+use original ConsoleFX angular paths for A–Z, 0–9, spaces and hyphens. ASCII
+lowercase displays as capitals with `cinematic-uppercase-display`; the saved title
+and readable caption keep their original case. Ice Cathedral and Liquid Chrome use
+a local serif stack: `platform-font-variation` identifies platform-dependent glyph
+coverage, shaping and width. No font files, film lettering or external assets are
+embedded. These original treatments have no film/studio endorsement or affiliation.
+
+Unsupported angular glyphs report `unsupported-cinematic-glyph`; multiline/long
+titles report `unsupported-cinematic-title`. The scene remains valid for JSON and
+plain text. Unknown profiles/keys fail validation. CSS fails explicitly; the library
+never silently chooses SVG. `unsupported: "fallback"` preserves the whole scene as
+static readable text. `possible-clipping` asks you to reduce font size or enlarge
+the surface; text is never silently truncated. Defaults use 840 × 270; use a smaller
+font size (for example 46) when explicitly changing the scene to 480 pixels wide.
+
+The profile owns letter shapes and its material palette. Angular font/weight and
+serif font-family settings are retained in saved data but do not reshape the
+profile. The studio explains and disables those controls; size/spacing and bounded
+material controls remain editable. Older ConsoleFX versions reject cinematic
+scenes as unknown effects: retain JSON/drafts for a compatible version after rollback.
+The new collection has a separate qualification ledger; old browser evidence does
+not establish support for these profiles.
+
 Literal percent specifiers are encoded internally for Chromium's rescan behavior.
 Keep the original text in the scene; never pre-encode it yourself. ESC, unsafe
 controls, unpaired surrogates and excessive input fail validation before rendering.

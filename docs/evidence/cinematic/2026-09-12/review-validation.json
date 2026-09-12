@@ -1,0 +1,414 @@
+{
+  "checkedAt": "2026-09-12T11:47:04.000465+00:00",
+  "changedMarkdownFiles": 20,
+  "localLinksChecked": 200,
+  "adrCount": 13,
+  "acceptanceCounts": {
+    "console-fx-spec.md": 24,
+    "cinematic-metal-presets-spec.md": 14
+  },
+  "historicalAdrsPreserved": true,
+  "originalFilesPreserved": 205,
+  "originalHead": "50e63c11f48912bfe2e66686c43fbba8eb12f2c3",
+  "originalIndexSha256": "b2a1cf56765bb70f5245a75a14e832c172dc4ae4c11776649764382dfc83d219",
+  "sourceFingerprint": "17385a871150f9948fb4ad8aa8bc2eb8932b609141cefe57a91fb46610721dc8",
+  "sourceFiles": [
+    {
+      "path": ".gitignore",
+      "sha256": "f05365fdedfae5d6a644c339ace59528fddb9220dc2286512824a3ed9d0d54a6"
+    },
+    {
+      "path": ".prettierignore",
+      "sha256": "6e7539cbb9a59720046fd7b58e230adb4c9718e6d7fd9fa254af656253c95256"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a653b46f95d2a618e4733d6634f3e731861b38785d89d246a7b594ea4e1bba5"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "41e293bafbfc4764bbf68dd414fc1224e34ac4bccc21c6a9ce3b7f71ef3339b2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "6c0be54ff79ba4025717174cd376f256d20244d744091fd43f43f33f421139f5"
+    },
+    {
+      "path": "apps/studio/next-env.d.ts",
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "apps/studio/next.config.ts",
+      "sha256": "00727b7ce755d4e7c243fdb829016d4dbefdf7b42018f48ded349b9f99a05c7d"
+    },
+    {
+      "path": "apps/studio/package.json",
+      "sha256": "0295bb05b6ac181ab16a3837a2716efbc15b16e351c4a583e73c1175b95e5f34"
+    },
+    {
+      "path": "apps/studio/public/licenses.txt",
+      "sha256": "9989eacae27319ee7793aed2f1ffe8d341f094a7ac9c319196f6d1b655ef8c52"
+    },
+    {
+      "path": "apps/studio/src/app/docs/page.tsx",
+      "sha256": "1904d7c55401c4c1bcf0d9671b27320522ec0b0e4696e5ff2bbc27f1aec59859"
+    },
+    {
+      "path": "apps/studio/src/app/globals.css",
+      "sha256": "220c4c5157ebc08c0f41be28f787da698b4642001675996a61ddff192699fd9f"
+    },
+    {
+      "path": "apps/studio/src/app/layout.tsx",
+      "sha256": "86a934a3f39fd23f0826afd576822bb5d8e2ef9e2683af170c01cfa4e3a52f88"
+    },
+    {
+      "path": "apps/studio/src/app/page.tsx",
+      "sha256": "f4c8e5626f3226eeb7752a58e3a1e1f764c74aacffdbc9762ab8364545c1f286"
+    },
+    {
+      "path": "apps/studio/src/app/studio/page.tsx",
+      "sha256": "2c20306ca510afac49e445adf7cd3c404355166ef2d0b94ccdc45fb1bf0237a3"
+    },
+    {
+      "path": "apps/studio/src/features/editor/confirm-dialog.tsx",
+      "sha256": "db0a7e92d8c9c8332a12ba96f5bc1ef4c9505e3f1d86bc9a52dce8788d38b4c9"
+    },
+    {
+      "path": "apps/studio/src/features/editor/document.ts",
+      "sha256": "9fd5e81bd2f4816c8614daaa47e465ad77a7272e07281ea80af9b6c045218bc9"
+    },
+    {
+      "path": "apps/studio/src/features/editor/renderer.ts",
+      "sha256": "87009d5eee321e768414fc06df4837f1819e3e01ff02d83a30c5aede06914a88"
+    },
+    {
+      "path": "apps/studio/src/features/editor/studio.tsx",
+      "sha256": "6f15e95a48b51d17b54960d305de81a7ca94cde393b3367dee1e79daf46c3f8a"
+    },
+    {
+      "path": "apps/studio/src/features/persistence/documents.ts",
+      "sha256": "8ae7cf5b3fe942d481c188e17f0f9f8991976c7a5d29c3ba27629e2d5a1b3041"
+    },
+    {
+      "path": "apps/studio/src/features/persistence/draft.ts",
+      "sha256": "0d3f66aa6939e1a248a7377eac79a50f4bdbbb65c9163e46afb97942c775056d"
+    },
+    {
+      "path": "apps/studio/src/features/persistence/persistence.test.ts",
+      "sha256": "138c91f8eefc00d1f9ff56480c492c61997c0af461334d7474c99af2c0dea970"
+    },
+    {
+      "path": "apps/studio/src/styles/studio.css",
+      "sha256": "185aedae430b0812b761e0c7c91615f942a10039db0c63afdfdd866f8baecabe"
+    },
+    {
+      "path": "apps/studio/tsconfig.json",
+      "sha256": "266e8cf6b5936a409cd3e6285999ce0a44ab6a02314a7a570949e35442234e28"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sha256": "1a51e45b83a059fd2845b1fcad33ee44ae5b077f65ae836b584007c960a4c45e"
+    },
+    {
+      "path": "examples/README.md",
+      "sha256": "9f2e7508060a6c601bd10a95e2cdc2cea635c6deecaa7857619eec07db84eeb4"
+    },
+    {
+      "path": "examples/animated-console.js",
+      "sha256": "baaebae279438a2c44afc4c6857f74ecba5dc94deeebf4273e48d6a40408fe4e"
+    },
+    {
+      "path": "examples/next-app/next.config.mjs",
+      "sha256": "8bc51c8e3e3a68d01606458f34d7d53c747043abb9e286a502f4a3de496e2d9d"
+    },
+    {
+      "path": "examples/next-app/package.json",
+      "sha256": "6d992d4bcb2efdceb793cd0ebca108a8cc5e564dbbf4e460b7beb65c437aa8d5"
+    },
+    {
+      "path": "examples/next-app/src/app/layout.tsx",
+      "sha256": "697da41ac2a655a9b1ced5c94615feeb65c53cab4021baf356074b28fb4e641f"
+    },
+    {
+      "path": "examples/next-app/src/app/message.tsx",
+      "sha256": "08c58f81f50575d378284c99dba3f1c0e905f19676e1f01cb7abef3300390bdd"
+    },
+    {
+      "path": "examples/next-app/src/app/page.tsx",
+      "sha256": "760cfa6f8751557da058c00b2a43f2b6ddb21592cdec59b9c9abb2e6c47636d3"
+    },
+    {
+      "path": "examples/next-app/src/instrumentation-client.ts",
+      "sha256": "cf8c268d3bcc2aa669dc0f4853871a76ba3b400403e1b6475a396781df5a6ed3"
+    },
+    {
+      "path": "examples/next-app/tsconfig.json",
+      "sha256": "56a684ae79fae91e513927d342d2cf5d2900c1d44816a1646e005fcd35c42a2d"
+    },
+    {
+      "path": "examples/react/check.mjs",
+      "sha256": "8a790acee243a98c2eaea89f90f15696743b9413532a508284fad80ad4c64a83"
+    },
+    {
+      "path": "examples/react/message.tsx",
+      "sha256": "5aff164b5c43ff49b5675b2334a3242d84b79762ebef8a8ac4e3cd8dca4cf1de"
+    },
+    {
+      "path": "examples/vanilla/check.mjs",
+      "sha256": "5aecd99f5836fb86ff23aa6ca575e9450567090237e616691c16723bbc88dceb"
+    },
+    {
+      "path": "examples/vanilla/types.ts",
+      "sha256": "0464ae73e5672118332fab5dae324ac9bf9748c941af59edf0dbb0156a6febd7"
+    },
+    {
+      "path": "package.json",
+      "sha256": "0a52786130158e691af307308529446d567026bd97d2f77e5617737d661b3fed"
+    },
+    {
+      "path": "packages/console-fx-react/CHANGELOG.md",
+      "sha256": "e56eb703ef26920608ea86d3f1f56cf4e8f01bd53ea6d3df2f021f52bc6ecbca"
+    },
+    {
+      "path": "packages/console-fx-react/LICENSE",
+      "sha256": "41e293bafbfc4764bbf68dd414fc1224e34ac4bccc21c6a9ce3b7f71ef3339b2"
+    },
+    {
+      "path": "packages/console-fx-react/README.md",
+      "sha256": "ebe2343344fd28f036fcf0de298c23e23aab8a459b2b5dcff76e583ec4d3d5d0"
+    },
+    {
+      "path": "packages/console-fx-react/package.json",
+      "sha256": "a5b67ca5b3dfd37fdfd4bfe2d6a131da72534e326353cd03d1ef7035dc14aab2"
+    },
+    {
+      "path": "packages/console-fx-react/src/index.tsx",
+      "sha256": "ae0541c219e75856c7c1ff8aded9b0328b61da46ee71e70a35eea4785898c373"
+    },
+    {
+      "path": "packages/console-fx-react/test/adapter.test.tsx",
+      "sha256": "180b63cd2070ff2bc44b67f33acdb46198cfcd0068b9302dcbed8abdbc22fce5"
+    },
+    {
+      "path": "packages/console-fx-react/tsconfig.json",
+      "sha256": "ca928aea375dd8f13608ad4f1a6adf60c5161028bdefd3255657c658b59cff23"
+    },
+    {
+      "path": "packages/console-fx/CHANGELOG.md",
+      "sha256": "1ec0a2703a76075046374dfa8f5cd3ab061c5ac054edeedc69b5fb00e7342dc6"
+    },
+    {
+      "path": "packages/console-fx/LICENSE",
+      "sha256": "41e293bafbfc4764bbf68dd414fc1224e34ac4bccc21c6a9ce3b7f71ef3339b2"
+    },
+    {
+      "path": "packages/console-fx/README.md",
+      "sha256": "ca60df0ca57553dab9dff0a181e952a36de6d93cfaf39e3344e22d528b8dccb3"
+    },
+    {
+      "path": "packages/console-fx/package.json",
+      "sha256": "44c9d71d6e50e694a3513a3e64fa8c1c98627505bd0e865186c4971c3fc84671"
+    },
+    {
+      "path": "packages/console-fx/src/browser/index.ts",
+      "sha256": "460081281574cd5883bf71042ed5e734895ebc155fb2bc4f5e3467e0bc7ad37f"
+    },
+    {
+      "path": "packages/console-fx/src/codegen/index.ts",
+      "sha256": "433d5fd3c44d0186bfbe45a039303714de0f1327ffc983d8f705ffe66e31af4c"
+    },
+    {
+      "path": "packages/console-fx/src/effects/catalog.ts",
+      "sha256": "45b94136cf7f1b9f170281036d48d331284a82e82e66c853581feca9dcc129f8"
+    },
+    {
+      "path": "packages/console-fx/src/index.ts",
+      "sha256": "4ae5b2ae2f56c70708c2a8fd7da798bbe15b755ac842bfd5be2649e95b8876e3"
+    },
+    {
+      "path": "packages/console-fx/src/model/limits.ts",
+      "sha256": "206de3918d803a079b0a84ecbde49fda81d4b0d9ec8bc840fe2b93822c6f695b"
+    },
+    {
+      "path": "packages/console-fx/src/model/types.ts",
+      "sha256": "cb4df9b8f53848f9d422af7e8ce5cbb32287ab5833ed8ea09a9be531fffd875a"
+    },
+    {
+      "path": "packages/console-fx/src/presets/index.ts",
+      "sha256": "18f9af174fe5032cbd72c17eb0a3b5e9b6281f52acd4cfcf8fec36c149516c7e"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/cinematic/glyphs.ts",
+      "sha256": "cbc98996fb10a1f42e8c077ff67cf8d0bac21d2dfeca2b34bc60f3cbd6b33514"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/cinematic/layout.ts",
+      "sha256": "227f9d8d4865d75348c0d8c1bd367936719775efc18256c6662bf1d113eb272c"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/cinematic/profiles.ts",
+      "sha256": "e95dbb446ba8294dddce4ebde9069502c29384591cb81b6598220a945170f803"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/cinematic/render.ts",
+      "sha256": "073515b3aad48ff737274d69e8deaceaec1c0bba71e18f7cf6a85c713eb4667e"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/css.ts",
+      "sha256": "8c73b3aa756e649118ffde3b0969d73bd6db9e961af9c6bbf95da083d96013fc"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/svg-values.ts",
+      "sha256": "d3fc93ddf5c0c631eac153c2fa61876f9a4c2ade326b3003f05b7a3d281a0508"
+    },
+    {
+      "path": "packages/console-fx/src/renderers/svg.ts",
+      "sha256": "778c328d24e192b9509755fb42a42bbfbc2ec06e7fa2774c63a90eb46a1e8965"
+    },
+    {
+      "path": "packages/console-fx/src/validation/index.ts",
+      "sha256": "1a8dd4fb02c68d8ccd350605cbd0e26f09ddb3bf2fbef52d3f9057cff2697912"
+    },
+    {
+      "path": "packages/console-fx/test/cinematic-presets.test.ts",
+      "sha256": "f105ba39c72811ab9b21132908fb42c96944fab7bcc29b6d5025ee4788d60a09"
+    },
+    {
+      "path": "packages/console-fx/test/cinematic-svg.test.ts",
+      "sha256": "ee457fec42794b07cd1e21fb3128f1832c03787be4c7fb37b70c7415c63699ee"
+    },
+    {
+      "path": "packages/console-fx/test/codegen-ast.test.ts",
+      "sha256": "d97e247000a16f08346cf07177ed9c29fbc92c7b8e180877d324f72b5ce5ecb5"
+    },
+    {
+      "path": "packages/console-fx/test/codegen.test.ts",
+      "sha256": "54acc29c6c7e8d4610f9edb659986b05287092f80f516f87d0c8df7451e5f66e"
+    },
+    {
+      "path": "packages/console-fx/test/compiler.test.ts",
+      "sha256": "23c8b6c505e4e10bb1decf659cbb350a439db6be24b6b7d71d9d8d64cf817ee0"
+    },
+    {
+      "path": "packages/console-fx/test/composition.test.ts",
+      "sha256": "a2944cfa68409471d2b75494b8be31a82cfaa3aa071c891f96e3b0b0a5eb95bf"
+    },
+    {
+      "path": "packages/console-fx/test/fixtures/pre-cinematic.json",
+      "sha256": "3dff3455613fc5b066c04d36470b16a328f28c0678c3299e9dd2b7b582803f10"
+    },
+    {
+      "path": "packages/console-fx/test/imports.test.ts",
+      "sha256": "b6f79874f88442b3b91f86693122612c0abd85ce0186eb5a7d49480b2e1d9600"
+    },
+    {
+      "path": "packages/console-fx/test/newlines.test.ts",
+      "sha256": "fff51d67395e7ca40e4b56f1af01326dc176054bbd31f627467e3623514a0aac"
+    },
+    {
+      "path": "packages/console-fx/test/validation.test.ts",
+      "sha256": "32a87118723bb165c35d4b1b2553a73587d9eb1c487d5375a7919673c3ec8a14"
+    },
+    {
+      "path": "packages/console-fx/tsconfig.json",
+      "sha256": "4cd61e220b2e33b09109b8b16e106015aaad32aab498639c6da3b6b923c06483"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "e202affaf06821dff09bd03e9ebef86e7fa5a8d1cc5142906e9a93ccd8871379"
+    },
+    {
+      "path": "playwright.consumers.config.ts",
+      "sha256": "d071364724e888854b78f9210f15233e3ad637c1950e6c4510b7188b77c526ae"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "eec1b3a64ecde9ee93e0c02c62d3d13904b30223295b29d5c9ea21d7e162e16c"
+    },
+    {
+      "path": "scripts/check-bundle-size.mjs",
+      "sha256": "4c2a92958f0ab7d6330c72dae94093d277bd7e3feb13e6a1efe2845c71ff865c"
+    },
+    {
+      "path": "scripts/check-consumers.mjs",
+      "sha256": "9095ea3b10bcabc09956cec5cb045e683334b2896bd606581f9e7f2ffb2c1a00"
+    },
+    {
+      "path": "scripts/check-packages.mjs",
+      "sha256": "cf9725366874400e4b46d2ca8935f3fbfcc846a59eef7c17f909ad96aae375a0"
+    },
+    {
+      "path": "scripts/devtools-fixtures.mjs",
+      "sha256": "d6f8db19b0f825d7f2b79db5fe03cc5c43fb8dd84512f6154d9ad903589bf270"
+    },
+    {
+      "path": "scripts/package-candidate.mjs",
+      "sha256": "09e6486c87061b2051312435cac0c8004c33d7f9b2fdc79c12b61f10a377d10d"
+    },
+    {
+      "path": "scripts/prepare-vercel.mjs",
+      "sha256": "32410c5355c9e409e57ae0ccd806b058e418c53126ff9f0afecd6ec5cd0151fd"
+    },
+    {
+      "path": "scripts/qualify-devtools-lifecycle.mjs",
+      "sha256": "71fb047ef2546854d5f9dbbdfc3651e3f617e45f8af8aa9731a62d46ff72c4d5"
+    },
+    {
+      "path": "scripts/qualify-devtools.mjs",
+      "sha256": "c36fc2633c01ecfb96513c40bd9fb8f0ac892bf9f37e4285c36d42c5dd691ff7"
+    },
+    {
+      "path": "scripts/review-devtools-frames.mjs",
+      "sha256": "eab0b81a05412e5151905cebe721526a4f8f26c64b41093eec3e919917887b35"
+    },
+    {
+      "path": "scripts/serve-devtools.mjs",
+      "sha256": "497315069f97ee400d8d969dcfe83e98eee01eb7d6b0caacf8b5f8582aac0b6a"
+    },
+    {
+      "path": "scripts/third-party-notices.mjs",
+      "sha256": "43cf55f884f178642127049cef4fc56b8c3cb22ccfb64842fca6e87f68a351da"
+    },
+    {
+      "path": "scripts/verify-release.mjs",
+      "sha256": "9c8f6adf0c3a066f75633c5a5c2ee9d71dd7271f5e5f3aec541e7b163abe35cc"
+    },
+    {
+      "path": "tests/consumers/next.spec.ts",
+      "sha256": "75280ba41791ef4637e773e04d0332f987e8ad50a7bb0c37c1b0116681f75d30"
+    },
+    {
+      "path": "tests/release-artifacts.test.js",
+      "sha256": "a3d42f41cf1f47ebd4688a84670fbd89322ca5c22990c2eddd7d30b137b9e7fd"
+    },
+    {
+      "path": "tests/studio/cinematic.spec.ts",
+      "sha256": "f6dca7baa70497ab28d256900d06375b63024c5c33344349c77604608b5ef087"
+    },
+    {
+      "path": "tests/studio/editor.spec.ts",
+      "sha256": "8c0ca3f8c8a7aed72143b67026f47563d58f3bdad3a14cd136edc7a6dad70a89"
+    },
+    {
+      "path": "tests/studio/fixtures.ts",
+      "sha256": "e63a293963ef7092e35761beda6ce5439052fde866186f30d47295ed16ef33ba"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "sha256": "6c7f3740b53ddc0b76ded3ae9be89e99c76e7454d0f660c802910e193312b47e"
+    },
+    {
+      "path": "tsconfig.tests.json",
+      "sha256": "654279eaa3d3a34a5e0d79b83e8e8821c655720c88f16918fca68027514efb43"
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "078e50a99c3033ddf22dc718273c14b8720a6f033ed6d305329b45443fe090ce"
+    }
+  ],
+  "errors": []
+}
