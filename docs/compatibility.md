@@ -35,6 +35,22 @@ older matrix below.
 Titles are single-line and at most 24 code points. Other glyph/title requests
 require a compatible profile or explicit plain-text fallback.
 
+## Useful and Artful cards
+
+Build Receipt, Request Trace, Service Ready, Command Card, Release Bulletin,
+Blueprint, Contour Map, Letterpress, Signal Halftone and Orbital are static,
+closed SVG presentations. Their [standard-card qualification](evidence/cards/2026-09-12/README.md)
+records all ten approved examples in actual Windows Chrome 153.0.8010.36 and
+Edge 153.0.4234.32, light/dark themes and native zoom, plus generated copy,
+before-open, reopen, repeated entries and narrow consoles.
+
+The 720 × 240 image remains fixed: narrow or zoomed consoles can require scrolling.
+The complete native caption remains available. Local fonts vary; rich overflow
+reports an error or uses explicitly requested complete text fallback. This does
+not qualify compact layouts, automatic fitting or experimental container sizing.
+See the [card implementation receipt](specs/useful-artful-presets-evidence.md)
+for separate package, CI and release status.
+
 ## Runtime consumption
 
 The isolated packed JavaScript fixture passes under Node 24.20.0 and the existing

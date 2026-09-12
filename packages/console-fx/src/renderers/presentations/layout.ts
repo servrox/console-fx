@@ -4,24 +4,29 @@ import {
   SEPARATOR_STYLE,
 } from "../../presentations/catalog.js";
 
+/** Conservative advances for the bold members of the closed local-font stacks. */
+function estimatedAdvance(c: string, family: TextStyle["fontFamily"]): number {
+  // Spacing and combining marks may have advance or overhang; neither is free.
+  if (c.codePointAt(0)! > 127) return 2;
+  if (family === "mono") return 0.66;
+  if (/\s/u.test(c)) return 0.36;
+  if (/[il]/u.test(c)) return 0.4;
+  if (c === "I") return 0.6;
+  if (c === "W") return 1.3;
+  if (/[Mmw@%]/u.test(c)) return 1.15;
+  if (/[A-Z]/u.test(c)) return family === "serif" ? 1 : 0.9;
+  if (/[a-z0-9]/u.test(c)) return family === "serif" ? 0.78 : 0.8;
+  return /[.,'!]/u.test(c) ? 0.5 : 0.95;
+}
+
 /** Conservative local-font estimate; never a claim of portable exact metrics. */
 export function estimatedTextWidth(text: string, style: TextStyle): number {
   let units = 0,
     letters = 0;
   for (const c of text) {
-    if (/\p{Mark}|\u200d/u.test(c)) continue;
+    if (c === "\u200d") continue;
     letters++;
-    units += /[\u2e80-\uffff]|\p{Extended_Pictographic}/u.test(c)
-      ? 1.2
-      : style.fontFamily === "mono"
-        ? 0.66
-        : /\s/u.test(c)
-          ? 0.36
-          : /[ilI.,'!|]/u.test(c)
-            ? 0.36
-            : /[MWmw@%]/u.test(c)
-              ? 1.05
-              : 0.74;
+    units += estimatedAdvance(c, style.fontFamily);
   }
   return (
     units * style.fontSize +
@@ -108,7 +113,7 @@ export function presentationDiagnostics(scene: SceneV1): Diagnostic[] {
         );
       if (
         [...run.text].length > slot.maxCodePoints ||
-        /[\n\u2028\u2029]/u.test(run.text) ||
+        /[\t\n\u2028\u2029]/u.test(run.text) ||
         estimatedTextWidth(run.text, run.style) > slot.safeWidth
       )
         error(

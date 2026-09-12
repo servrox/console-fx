@@ -1,0 +1,68 @@
+{
+  "recordedAt": "2026-09-12T13:53:44.744628+00:00",
+  "sourceCheckpoint": "5495ec888ee4baa005aa4fd5c573e659834f1b6f",
+  "reviewFixFiles": [
+    "packages/console-fx/src/renderers/presentations/layout.ts",
+    "packages/console-fx/test/card-presets.test.ts"
+  ],
+  "unit": {
+    "files": 12,
+    "passed": 193,
+    "sourceLog": ".artifacts/cards/unit-check.log"
+  },
+  "typecheck": "passed",
+  "lint": "passed",
+  "format": "passed",
+  "studio": {
+    "passed": 26,
+    "initialRun": {
+      "passed": 24,
+      "failed": 2,
+      "cause": "CSP test preparation prerequisite missing: .vercel/output/config.json"
+    },
+    "recovery": "pnpm prepare:vercel; focused desktop/mobile CSP rerun: 2 passed"
+  },
+  "consumers": [
+    "JavaScript",
+    "TypeScript",
+    "React SSR and lifecycle",
+    "Next build",
+    "two native Chrome Next browser cases including all ten cards",
+    "Bun 1.4.2 existing installed JavaScript fixture"
+  ],
+  "native": {
+    "recordedCases": 200,
+    "distinctCases": 180,
+    "replacementZoomCaptures": 20,
+    "browsers": [
+      "Chrome 153.0.8010.36",
+      "Edge 153.0.4234.32"
+    ],
+    "size": "720 x 240 fixed image",
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "consoleWidthsCssPixels": [
+      1384,
+      424,
+      692
+    ],
+    "nativeZoomPercent": [
+      100,
+      200
+    ],
+    "result": "Exact arguments and complete native captions; fixed artwork overflows narrow/zoomed viewports and requires scrolling."
+  },
+  "independentReview": {
+    "standards": "No hard violations; optional positional-slot mapping smell deferred with fixture coverage.",
+    "spec": "One serif width underestimate corrected; reviewer confirmed all 5500 recorded measures and new adversarial regressions.",
+    "fontConfidence": "Estimated. Recorded local-font corpus is not an arbitrary recipient-font guarantee."
+  },
+  "release": {
+    "ci": "pending for this runtime integration",
+    "published": false,
+    "deployed": false,
+    "screenReader": "not observed; nonblocking ADR-0013"
+  }
+}

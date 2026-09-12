@@ -96,6 +96,9 @@ describe("closed presentation contract", () => {
       expect.objectContaining({ code: "presentation-letterbox" }),
     );
     for (const title of [
+      "H".repeat(14),
+      "I".repeat(24),
+      "क" + "ा".repeat(30),
       "W".repeat(48),
       "First\nSecond",
       "Wide 👩🏽‍💻".repeat(10),

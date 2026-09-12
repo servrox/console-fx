@@ -1,0 +1,10 @@
+{
+  "observedAt": "2026-09-12T13:55:48.917509+00:00",
+  "testedTarballSha256": "d30f62f3e795a0b9ebb367ce7956c5f4b344af67254fb277df934d2083d8403c",
+  "finalTarballSha256": "34efeda753ac1aac083d43a609e9683386218f892c76d49c4dd7d51355da0bde",
+  "changedFiles": [
+    "package/README.md"
+  ],
+  "runtimeDeclarationsAndMetadataIdentical": true,
+  "evidenceReuse": "Installed consumers, bundle measures and native output identity are reused under ADR-0009 because every file except README.md is byte-identical."
+}

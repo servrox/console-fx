@@ -169,6 +169,53 @@ scenes as unknown effects: retain JSON/drafts for a compatible version after rol
 The new collection has a separate qualification ledger; old browser evidence does
 not establish support for these profiles.
 
+## Useful and Artful cards
+
+```js
+import { buildReceipt, letterpress } from "@servrox/console-fx/presets";
+import { compileConsole } from "@servrox/console-fx/browser";
+
+const receipt = buildReceipt({
+  project: "atlas-web",
+  outcome: "PASSED",
+  revision: "a1b2c3d",
+  duration: "2.34 s",
+  checks: "48 / 48",
+  environment: "preview",
+});
+const compiled = compileConsole(receipt, {
+  target: "chromium",
+  renderer: "svg",
+});
+const title = letterpress({ title: "Make it matter." });
+```
+
+The ten factories are `buildReceipt`, `requestTrace`, `serviceReady`,
+`commandCard`, `releaseBulletin`, `blueprint`, `contourMap`, `letterpress`,
+`signalHalftone` and `orbital`. `PRESETS` groups them as Useful and Artful;
+`createPresetExample(id)` returns explicitly synthetic catalog data. Utility
+factories require supplied facts and do not measure durations, inspect your app,
+execute commands or fetch endpoints. Request Trace requires an explicit status
+`tone`; no status meaning is guessed from its display string.
+
+`getPresentationDescriptors()` exposes frozen named slots, supported styles and
+bounded `accent`/`detail` settings. All content remains ordinary scene text, so
+JSON, React/Next previews, captions and exports preserve the same data. Cards own
+their structure and typography; incompatible edits require explicit detachment
+or fail with a diagnostic. They support static SVG only. Long or unsupported
+content fails rich compilation; `unsupported: "fallback"` preserves the complete
+plain text. The compiler never silently selects a different renderer.
+
+Standard cards use a fixed 720 × 240 artboard. Narrow or zoomed DevTools may need
+scrolling; readable native captions remain available. Local-font estimates are
+approximate and do not guarantee recipient font metrics. Older readers reject
+the new `presentation` field; retain saved data for a compatible version.
+
+For a smaller CSS-only bundle, import `compileCssConsole` from the same browser
+entrypoint. It shares CSS compilation and explicit target/fallback options while
+allowing SVG artwork to be removed by a bundler. It accepts no `renderer` option.
+Use `compileConsole` for complete CSS/SVG selection.
+
 Literal percent specifiers are encoded internally for Chromium's rescan behavior.
 Keep the original text in the scene; never pre-encode it yourself. ESC, unsafe
 controls, unpaired surrogates and excessive input fail validation before rendering.

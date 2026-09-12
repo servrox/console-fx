@@ -1,0 +1,25 @@
+{
+  "checkedOn": "2026-09-12",
+  "windows": {
+    "caption": "Microsoft Windows 11 Pro Insider Preview",
+    "version": "25H2",
+    "build": "26220.9223",
+    "checkedAt": "2026-09-12T13:42:00Z"
+  },
+  "chrome": {
+    "version": "153.0.8010.36",
+    "revision": "1681091",
+    "source": "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json",
+    "feedTimestamp": "2026-09-12T11:15:15.835Z"
+  },
+  "edge": {
+    "source": "https://edgeupdates.microsoft.com/api/products?view=enterprise",
+    "checkedAt": "2026-09-12T13:43:17.115549+00:00",
+    "stableWindowsX64": {
+      "ProductVersion": "153.0.4234.32",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-09-11T00:36:00"
+    }
+  }
+}

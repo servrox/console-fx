@@ -18,7 +18,17 @@ import {
 
 const [port, name, phase = "all"] = process.argv.slice(2);
 assert(/^\d+$/.test(port ?? "") && /^(chrome|edge)$/.test(name ?? ""));
-assert(["all", "offscreen", "policy", "cinematic", "cards"].includes(phase));
+assert(
+  [
+    "all",
+    "offscreen",
+    "policy",
+    "cinematic",
+    "cards",
+    "card-display",
+    "card-zoom",
+  ].includes(phase),
+);
 const directory = resolve(
   `.artifacts/devtools/${name}-lifecycle-${new Date().toISOString().replaceAll(":", "-")}`,
 );
@@ -74,6 +84,13 @@ async function open() {
   );
   nativeTarget = targetId;
   native.setDefaultTimeout(10_000);
+  const settingsDialog = native.getByRole("dialog").filter({
+    has: native.getByRole("heading", { name: "Settings", exact: true }),
+  });
+  if (await settingsDialog.count())
+    await settingsDialog
+      .getByRole("button", { name: "Close", exact: true })
+      .click();
   const drawer = native.getByRole("button", {
     name: "Close drawer",
     exact: true,
@@ -225,6 +242,91 @@ async function copyNative(row, output) {
     row.copiedLiteral,
     "Native copied text did not contain the complete literal message",
   );
+}
+
+if (phase === "card-display" || phase === "card-zoom") {
+  const displayCases =
+    phase === "card-zoom"
+      ? [["Dark", 5]]
+      : [
+          ["Light", 0],
+          ["Dark", 0],
+          ["Dark", 5],
+        ];
+  for (const [theme, zoomSteps] of displayCases) {
+    await native.getByRole("button", { name: /^Settings - F1/ }).click();
+    await native
+      .getByRole("combobox", { name: "Theme:", exact: true })
+      .selectOption({ label: theme });
+    const selectedTheme = await native
+      .getByRole("combobox", { name: "Theme:", exact: true })
+      .inputValue();
+    await native
+      .getByRole("dialog")
+      .getByRole("button", { name: "Close", exact: true })
+      .click();
+    await native.keyboard.press("Control+0");
+    const baseRatio = await native.evaluate(() => window.devicePixelRatio);
+    for (let i = 0; i < zoomSteps; i++)
+      await native.keyboard.press("Control+Equal");
+    await pause(300);
+    const layout = await native.evaluate(() => ({
+      viewport: [window.innerWidth, window.innerHeight],
+      devicePixelRatio: window.devicePixelRatio,
+      theme: document.documentElement.className,
+      consoleWidth: document
+        .querySelector(".console-view")
+        .getBoundingClientRect().width,
+    }));
+    const zoom = Math.round((layout.devicePixelRatio / baseRatio) * 100);
+    assert.equal(
+      zoom,
+      zoomSteps ? 200 : 100,
+      "Native DevTools zoom must actually change",
+    );
+    for (const entry of PRESETS.filter(
+      (item) => item.group === "Useful" || item.group === "Artful",
+    )) {
+      const output = compileConsole(createPresetExample(entry.id), {
+        ...options,
+        motion: "reduce",
+      });
+      await clear();
+      const row = await record(
+        `${entry.id}-${theme.toLowerCase()}-${zoom}`,
+        output,
+        await emit(output),
+      );
+      await richMessage().waitFor();
+      row.visibleText = await richMessage().textContent();
+      assert(row.visibleText.includes(output.text));
+      row.layout = {
+        ...layout,
+        selectedTheme,
+        zoom,
+        zoomMethod: "Native Ctrl+0 then Ctrl+Equal",
+      };
+      row.imageBounds = await richMessage()
+        .locator('span[style*="background"]')
+        .boundingBox();
+      row.context = `${directory}/${row.id}-console.png`;
+      // The native frontend capture uses device-independent coordinates at zoom.
+      // Capture its visible surface without Playwright's CSS-sized viewport clip.
+      const session = await native.context().newCDPSession(native);
+      const surface = await session.send("Page.captureScreenshot", {
+        format: "png",
+        fromSurface: true,
+      });
+      writeFileSync(row.context, Buffer.from(surface.data, "base64"));
+      row.captureMethod =
+        "CDP Page.captureScreenshot, visible surface, no clip";
+      row.captureMetrics = await session.send("Page.getLayoutMetrics");
+      await session.detach();
+      if (zoom === 100) await capture(row, "static");
+      save(row);
+    }
+  }
+  await native.keyboard.press("Control+0");
 }
 
 if (phase === "cinematic" || phase === "cards") {

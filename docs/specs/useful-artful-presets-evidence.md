@@ -1,69 +1,80 @@
 # Useful and artful preset implementation
 
-Status: implementation and qualification in progress, 2026-09-12. No publication
-or public deployment is claimed. The maintainer accepted ADR-0014 and all ten
-standard references, then ADR-0015; compact variants still require visual review.
+All ten approved standard cards are implemented and locally qualified as of
+2026-09-12. Their integration CI, package publication and public deployment are
+separate gates. Compact variants, fitting/recipes and the website specifications
+remain subsequent slices of the active all-spec implementation task.
 
-The current isolated integration adds all ten factories, ordinary scene slots,
-strict presentation data, status palettes, bounded SVG geometry, shared preview
-and standalone output, named studio fields and undoable detachment. The
-implementation follows ADR-0002 through ADR-0010 and ADR-0012 through ADR-0015;
-ADR-0013 keeps the unperformed screen-reader walkthrough nonblocking.
+The implementation follows ADR-0002 through ADR-0010 and ADR-0012 through
+ADR-0015. The maintainer accepted ADR-0014, all ten standard designs, ordinary
+scene slots and Windows font fallbacks. ADR-0013 keeps the unperformed
+screen-reader walkthrough nonblocking. No compact design acceptance is inferred.
 
-## Source and local checks
+## Implemented behavior
 
-The complete unit suite currently passes 193 tests. Approved scene fixtures and
-captions match for all ten profiles; old presets and cinematic output remain in
-the regression suite. Status/tone handling, deterministic minimal variants,
-malformed data, literal-percent exports, full text fallback, and one-call emission
-are exercised. Hostile options and multilingual captions also pass. Six new desktop/mobile
-studio journeys pass, including exact previews, clipboard output, tone/draft
-recovery, import failures, undo and accessible controls. Packed JavaScript,
-TypeScript, React SSR/lifecycle and Next lifecycle checks pass; the additional
-all-card Next browser case is being finalized.
+All ten factories, catalog entries, closed presentation descriptors and bounded
+SVG renderers share ordinary scene text with the studio, React adapter and
+standalone compiler. Named fields, status/tone palettes, accent/detail controls,
+explicit undoable detachment, draft/import recovery and exact format-aware copy
+are integrated. Useful values are supplied by the caller; examples are synthetic.
+Commands, endpoints and durations remain inert strings.
 
-## Design comparison
+Unknown data/options fail validation. Incompatible typography, effects, structure
+or overflowing content produce actionable diagnostics; only explicitly requested
+plain-text fallback preserves the full content. Old presets retain their behavior.
+The [older-reader test](../evidence/cards/2026-09-12/older-reader.json) records the
+qualified cinematic reader rejecting every new card with `unknown-property`.
 
-All ten standard SVGs were rendered beside their immutable references in the same
-Windows Chrome for Testing 153.0.8010.36 environment at 720 × 240. Local font
-stacks resolve to Arial, Consolas and Georgia. Every semantic slot and declared
-anchor matches; all text remains inside its artboard. All ten comparison pairs
-were inspected individually.
+## Source, browser and package checks
 
-The implementation preserves repeated spaces in supplied text. Build Receipt's
-environment field and Request Trace's request ID are approximately one local
-space wider than the reference's collapsed-space display; captions and semantic
-strings are exact and both remain in their safe regions. Other raster differences
-are confined to the outer corners, where a backing surface changes antialiasing.
-No whole-image percentage threshold was used to excuse a missing word or clipping.
+The [validation record](../evidence/cards/2026-09-12/validation.json) records 193
+passing unit tests, type/lint/format checks, and 26 desktop/mobile studio journeys.
+The first studio run passed 24; two CSP cases lacked the local deployment-config
+prerequisite. After `pnpm prepare:vercel`, both focused cases passed. Preparing
+that artifact created no hosted deployment.
 
-Reproduce after building packages with `node scripts/compare-card-references.mjs`
-and an explicitly launched Windows browser at `CONSOLE_FX_CDP`. Current raw
-comparison artifacts are retained locally in `.artifacts/cards/comparison/`.
-The dedicated profile disables background throttling because the older comparison
-window intermittently timed out during screenshots. This is page/image evidence,
-not actual DevTools qualification. Durable release evidence will include final
-candidate and artifact fingerprints.
+Packed JavaScript, TypeScript, React SSR/lifecycle and Next build/browser consumers
+pass, including all ten card previews and exactly-one emissions. The installed
+JavaScript fixture also passes under Nix-managed Bun 1.4.2. The [consumer receipt](../evidence/cards/2026-09-12/consumers.json)
+identifies the tested core tarball `d30f62f3…` and React tarball `51a2f2dd…`.
+The [README-only reconciliation](../evidence/cards/2026-09-12/readme-package-reconciliation.json)
+identifies documented core tarball `34efeda7…`: every runtime, declaration and
+metadata file is identical to the installed candidate, permitting evidence reuse
+under ADR-0009.
 
-## Package boundaries
+The [bundle receipt](../evidence/cards/2026-09-12/bundles.json) measures the public
+CSS-only helper `compileCssConsole` at 9,468 gzip bytes against 10,240. The complete
+compiler measures 16,633 against 25,600. Both share the same pure CSS algorithm;
+the helper permits removal of SVG artwork without adding an entrypoint, package
+or runtime dependency. Root imports retain no renderer or framework modules.
+Module lists count bytes retained in output, not tree-shaken inputs.
 
-An installed simple CSS consumer uses the public `compileCssConsole` helper and
-measures 9,433 gzip bytes against 10,240. The complete compiler, including SVG
-artwork, measures 16,602 against 25,600 with either CSS or SVG selected. The helper
-shares the pure compiler and CSS renderer; it introduces no package, entrypoint,
-plugin registry or alternative CSS algorithm. The original complete compiler's
-defaults and output remain covered by compatibility tests.
+## Design and actual DevTools evidence
 
-Bundle receipts count modules that contribute emitted bytes, distinguishing them
-from imports a bundler scans and removes. The CSS artifact retains no SVG artwork;
-root data imports retain no renderer or framework modules. Current packed-file
-checks pass. Final tarballs, framework installations and release authorization
-remain separate from these provisional size observations.
+The [durable evidence bundle](../evidence/cards/2026-09-12/README.md) separates
+same-environment reference/image comparisons from actual native DevTools captures.
+All ten reference pairs and all ten default native cards in each browser were
+visually inspected. Semantic slots and anchors match; repeated spaces remain
+literal even where the reference SVG collapsed them.
 
-## Remaining evidence
+Two hundred recorded native rows comprise 180 distinct lifecycle/theme/zoom cases
+plus 20 replacement full-window zoom captures. All match the current compiler's
+exact arguments, complete caption and generated source. Windows clipboard CRLF
+is recorded and normalized only for semantic comparison. Current-stable Windows
+Chrome 153.0.8010.36 and Edge 153.0.4234.32 were checked at light/dark 100%, dark
+200%, and a 424 CSS-pixel console, including before-open, reopen, identical
+repetitions and native Copy console.
 
-Complete studio recovery/copy/accessibility journeys, installed JS/TS/React/Next
-consumers, actual Windows Chrome and Edge DevTools observations per card (themes,
-narrow console, zoom, repeats, native copy), independent review, CI, and final
-candidate reconciliation remain pending. Fitting/recipes and the website value
-story are separate approved slices of the active all-spec implementation task.
+Fixed 720 × 240 artwork requires scrolling in narrow/zoomed consoles. Captions
+remain complete and readable; this does not qualify automatic fitting or responsive
+output. Font estimates remain approximate. Independent review found a real wide
+serif underestimate, now fixed with adversarial regressions; all 5,500 recorded
+Windows local-font measurements remain within the new estimate. That corpus is
+not a guarantee for arbitrary recipient fonts.
+
+## Remaining gates
+
+This slice still needs its integration CI result. Final full-spec package
+installation, publication and hosted qualification apply to the later release
+candidate. Fitting, compact variants and the website implementation have their own
+requirements and must not inherit a passing status from this card receipt.
