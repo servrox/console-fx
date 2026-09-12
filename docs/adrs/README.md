@@ -20,6 +20,9 @@ ADR-0001 through ADR-0011 are **Accepted**. The maintainer explicitly approved A
 | ADR-0010 | [Deliver reversible phases with publication gates](0010-deliver-reversible-phases-with-publication-gates.md) | Accepted | Delivery phases, release readiness, promotion, recovery | None |
 | ADR-0011 | [Adopt an explicit accessibility baseline](0011-adopt-an-explicit-accessibility-baseline.md) | Accepted | Studio and documentation journeys, React preview, accessible output | None |
 | ADR-0012 | [Use bounded cinematic lettering profiles](0012-use-bounded-cinematic-lettering-profiles.md) | Proposed | Cinematic presets, composite effect/profile contract, original glyphs, and compatibility | None |
+| ADR-0014 | [Separate content fit from output sizing](0014-separate-content-fit-from-output-sizing.md) | Proposed | Layout, measurement confidence, responsive carriers, render recipes, and fit previews | None |
+
+ADR-0013 is reserved by open [PR #3](https://github.com/servrox/console-fx/pull/3). ADR-0014 is an independent responsiveness proposal; neither proposal is accepted by adding it to this index. Preserve both entries when the branches are reconciled.
 
 ## Status and acceptance
 
