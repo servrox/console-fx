@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import type { PointerEvent, ReactNode } from "react";
 import { usePageEffects } from "../experience/page-effects";
+import { observeIntersection } from "../experience/observe-intersection";
 
 export function ExampleCard({
   selected,
@@ -19,6 +20,7 @@ export function ExampleCard({
   const enabled = usePageEffects();
   const surface = useRef<HTMLSpanElement>(null);
   const frame = useRef<number | null>(null);
+  const ready = useRef(false);
   const position = useRef({ x: 0, y: 0 });
   function reset() {
     if (frame.current !== null) cancelAnimationFrame(frame.current);
@@ -26,20 +28,24 @@ export function ExampleCard({
     surface.current?.removeAttribute("style");
   }
   useEffect(() => {
-    if (!enabled) reset();
-    const observer = new IntersectionObserver((entries) => {
+    if (!enabled) {
+      reset();
+      return;
+    }
+    const observer = observeIntersection(surface.current, (entries) => {
       if (entries.every((entry) => !entry.isIntersecting)) reset();
     });
-    const node = surface.current;
-    if (node) observer.observe(node);
+    ready.current = !!observer;
     return () => {
-      observer.disconnect();
+      ready.current = false;
+      observer?.disconnect();
       reset();
     };
   }, [enabled]);
   function move(event: PointerEvent<HTMLButtonElement>) {
     if (
       !enabled ||
+      !ready.current ||
       event.pointerType !== "mouse" ||
       document.activeElement === event.currentTarget
     )

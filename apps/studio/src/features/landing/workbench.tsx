@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { useTransferSession } from "./session";
 import { useHydrated } from "../experience/use-hydrated";
+import { observeIntersection } from "../experience/observe-intersection";
 
 const Editor = dynamic(
   () => import("../editor/studio").then((module) => module.Studio),
@@ -26,19 +27,16 @@ export function Workbench() {
     };
     fromFragment();
     addEventListener("hashchange", fromFragment);
-    const observer =
-      typeof IntersectionObserver === "function"
-        ? new IntersectionObserver(
-            (entries, activeObserver) => {
-              if (entries.some((entry) => entry.isIntersecting)) {
-                setOpened(true);
-                activeObserver.disconnect();
-              }
-            },
-            { rootMargin: "400px" },
-          )
-        : null;
-    if (section.current) observer?.observe(section.current);
+    const observer = observeIntersection(
+      section.current,
+      (entries, activeObserver) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setOpened(true);
+          activeObserver.disconnect();
+        }
+      },
+      { rootMargin: "400px" },
+    );
     return () => {
       observer?.disconnect();
       removeEventListener("hashchange", fromFragment);
@@ -46,7 +44,7 @@ export function Workbench() {
   }, []);
   return (
     <div id="playground" className="landing-workbench" ref={section}>
-      {opened || session.request ? (
+      {opened || session.editorActivated ? (
         <Editor
           integrated
           transfer={session.request}

@@ -78,6 +78,78 @@ function measure(scene: SceneV1, options = settings): CompileOptions {
   };
 }
 describe("accepted compact card layouts", () => {
+  it.each([
+    ["serviceReady", "footer"],
+    ["commandCard", "command"],
+    ["commandCard", "instruction"],
+  ] as const)("allows clearing the %s %s wrapping slot", (id, field) => {
+    const scene = createPresetExample(id);
+    const slot = getPresentationDescriptors()
+      .find((d) => d.id === id)!
+      .slots.find((s) => s.id === field)!;
+    const empty = {
+      ...scene,
+      lines: scene.lines.map((line, li) => ({
+        ...line,
+        runs: line.runs.map((run, ri) =>
+          li === slot.line && ri === slot.run ? { ...run, text: "" } : run,
+        ),
+      })),
+    };
+    expect(parseScene(empty).ok).toBe(true);
+    const output = compileConsole(empty, measure(empty));
+    expect(output.renderer).toBe("svg");
+    expect(
+      output
+        .layout!.fragments.filter((f) => f.slot === field)
+        .map((f) => f.text)
+        .join(""),
+    ).toBe("");
+  });
+  it.each(["error", "shrink"] as const)(
+    "does not wrap the footer under %s policy",
+    (overflow) => {
+      const scene = createPresetExample("serviceReady");
+      const options = {
+        ...settings,
+        layout: { ...settings.layout!, overflow },
+      };
+      const output = compileConsole(scene, measure(scene, options));
+      expect(
+        output.layout!.fragments.filter((f) => f.slot === "footer"),
+      ).toHaveLength(1);
+    },
+  );
+  it.each([
+    ["buildReceipt", "project", 60],
+    ["blueprint", "title", 70],
+  ] as const)(
+    "rejects %s ink invading neighboring text or original artwork",
+    (id, field, ascent) => {
+      const scene = createPresetExample(id);
+      const slot = getPresentationDescriptors()
+        .find((d) => d.id === id)!
+        .slots.find((s) => s.id === field)!;
+      const text = scene.lines[slot.line]!.runs[slot.run]!.text;
+      const options = measure(scene);
+      const measurements = normalizeMeasurements({
+        ...options.measurements!,
+        records: options.measurements!.records.map((r) =>
+          r.request.text === text ? { ...r, ascent, descent: 14 } : r,
+        ),
+      });
+      expect(() =>
+        compileConsole(scene, { ...options, measurements }),
+      ).toThrow();
+      expect(
+        compileConsole(scene, {
+          ...options,
+          measurements,
+          unsupported: "fallback",
+        }).renderer,
+      ).toBe("text");
+    },
+  );
   it.each(references.presets)(
     "preserves $id slots, approved geometry and immutable reference bytes",
     (reference) => {

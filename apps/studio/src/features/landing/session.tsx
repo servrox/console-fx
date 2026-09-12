@@ -13,6 +13,7 @@ import type { RenderRecipeV1 } from "@servrox/console-fx";
 import { useHydrated } from "../experience/use-hydrated";
 
 type TransferSession = {
+  readonly editorActivated: boolean;
   readonly request: RenderRecipeV1 | null;
   readonly blocked: boolean;
   readonly transfer: (recipe: RenderRecipeV1) => void;
@@ -23,6 +24,7 @@ const Session = createContext<TransferSession | null>(null);
 export function LandingSession({ children }: { readonly children: ReactNode }) {
   const hydrated = useHydrated();
   const [request, setRequest] = useState<RenderRecipeV1 | null>(null);
+  const [editorActivated, setEditorActivated] = useState(false);
   const [shared, setShared] = useState(false);
   const origin = useRef<HTMLElement | null>(null);
   const restore = useRef(false);
@@ -44,19 +46,21 @@ export function LandingSession({ children }: { readonly children: ReactNode }) {
           ? document.activeElement
           : null;
       setRequest(recipe);
+      setEditorActivated(true);
       document.getElementById("playground")?.scrollIntoView();
     },
     [shared, request],
   );
   const value = useMemo(
     () => ({
+      editorActivated,
       request,
       blocked: !hydrated || shared || !!request,
       transfer,
       finish,
       sharedDecision: setShared,
     }),
-    [request, shared, transfer, finish, hydrated],
+    [request, shared, transfer, finish, hydrated, editorActivated],
   );
   return <Session.Provider value={value}>{children}</Session.Provider>;
 }

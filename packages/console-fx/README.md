@@ -216,8 +216,8 @@ card profiles have approved `"compact"` layouts, selected only by explicit fitti
 options; `"auto"` uses their individual reviewed width thresholds. Compact output
 reports a versioned `<preset>/compact/v1` mapping, keeps every slot and enforces a
 12 px floor. It preserves the original scene and standard output. Requests below
-360 px can fail instead of producing unreadable text. The service footer owns two
-rows; command and description fields wrap only under a selected wrapping policy.
+360 px can fail instead of producing unreadable text. The service footer supports two
+rows; it and the command/description fields wrap only under a selected wrapping policy.
 
 Local-font estimates produce `estimated-fit`, never an exact-font claim. Explicit
 `prepareTextMeasurements` and `measureTextBatch` helpers on `./browser` provide

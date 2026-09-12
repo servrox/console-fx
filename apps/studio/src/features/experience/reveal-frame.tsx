@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { usePageEffects } from "./page-effects";
+import { observeIntersection } from "./observe-intersection";
 
 export function RevealFrame({
   selection,
@@ -14,6 +15,7 @@ export function RevealFrame({
 }) {
   const enabled = usePageEffects();
   const frame = useRef<HTMLDivElement>(null);
+  const ready = useRef(false);
   const previous = useRef(selection);
   const [wipe, setWipe] = useState<{
     from: "plain" | "styled";
@@ -22,18 +24,22 @@ export function RevealFrame({
   useEffect(() => {
     if (previous.current !== selection) {
       setWipe(
-        enabled ? { from: previous.current, id: performance.now() } : null,
+        enabled && ready.current
+          ? { from: previous.current, id: performance.now() }
+          : null,
       );
       previous.current = selection;
     } else if (!enabled) setWipe(null);
   }, [selection, enabled]);
   useEffect(() => {
-    if (typeof IntersectionObserver !== "function" || !frame.current) return;
-    const observer = new IntersectionObserver((entries) => {
+    const observer = observeIntersection(frame.current, (entries) => {
       if (entries.some((entry) => !entry.isIntersecting)) setWipe(null);
     });
-    observer.observe(frame.current);
-    return () => observer.disconnect();
+    ready.current = !!observer;
+    return () => {
+      ready.current = false;
+      observer?.disconnect();
+    };
   }, []);
   return (
     <div className="reveal-frame" ref={frame}>

@@ -127,7 +127,7 @@ export function planSvgLayout(
   )
     fitFailure(
       "unsupported-layout",
-      "Container maximum width cannot exceed the laid-out artboard.",
+      "Container maximum width cannot exceed the image artboard.",
     );
   const floorScale = displayScale ?? 1;
   const shrink =
@@ -281,12 +281,13 @@ export function planSvgLayout(
           cardLayout.compact &&
           card.id === "commandCard" &&
           (slot.id === "command" || slot.id === "instruction");
-        const wrapping = footer || (command && wrap);
+        const wrapping = wrap && (footer || command);
         const lineHeight = footer ? 18 : slot.id === "command" ? 24 : 18;
         const tokens = wrapTokens([{ ...run, sourceRun: slot.run }]);
         if (wrapping) resolver.suggest(wrappingAlternatives(tokens), profile);
         const texts = wrapping
           ? wrapTokensToRows(tokens, footer ? 190 : slot.safeWidth, (runs) => {
+              if (!runs.length) return 0;
               const m = resolver.resolve(runs[0]!, profile);
               return Math.max(m.advance, m.inkRight) + Math.max(0, m.inkLeft);
             }).map((row) => row.map((r) => r.text).join(""))
@@ -300,7 +301,7 @@ export function planSvgLayout(
         if (run.text && effectiveSize + 1e-8 < slotFloor(slot.style.fontSize)) {
           fits = false;
           lastFailure =
-            "Fixed scaling would make card text smaller than the requested readable floor. Use a wider frame or a reviewed compact layout.";
+            "Card text falls below its readable floor. Choose a wider frame or compact layout.";
         }
         const transform = (b: PaintBounds) => ({
           x: offsetX + b.x * frameScale,
@@ -323,12 +324,20 @@ export function planSvgLayout(
             ink,
             card.id === "letterpress" && slot.id === "title" ? 1.5 : 0.5,
           );
-          const top = command ? (slot.id === "command" ? 164 : 110) : 0;
+          // Fixed vertical cells reserve surrounding labels and original artwork.
+          const top = command
+            ? slot.id === "command"
+              ? 164
+              : 110
+            : Math.max(0, slot.y - slot.style.fontSize * 1.4 - 2);
           const bottom = command
             ? slot.id === "command"
               ? 215
               : 148
-            : cardLayout.height;
+            : Math.min(
+                cardLayout.height,
+                baseline + slot.style.fontSize * 0.5 + 2,
+              );
           // Authored 3px bearing tolerance never permits crossing another slot.
           if (
             local.x < slotStart - 3 ||
@@ -353,7 +362,21 @@ export function planSvgLayout(
           });
         }
       }
-      if (fits && visualRows <= LIMITS.lines) {
+      const overlaps = fragments.some(
+        (a, i) =>
+          a.text &&
+          fragments
+            .slice(i + 1)
+            .some(
+              (b) =>
+                b.text &&
+                a.paint.x < b.paint.x + b.paint.width &&
+                b.paint.x < a.paint.x + a.paint.width &&
+                a.paint.y < b.paint.y + b.paint.height &&
+                b.paint.y < a.paint.y + a.paint.height,
+            ),
+      );
+      if (fits && !overlaps && visualRows <= LIMITS.lines) {
         selected = {
           scene: { ...scaled, surface: { ...scaled.surface, height } },
           lines: [],
@@ -382,7 +405,7 @@ export function planSvgLayout(
           if (text.includes("\t"))
             fitFailure(
               "unsupported-layout",
-              "Replace visual tabs with spaces or request plain text; original captions are preserved.",
+              "Visual tabs require plain text. Original captions are preserved.",
             );
           paragraphs.at(-1)!.push({ ...run, text, sourceRun });
         }
@@ -510,7 +533,7 @@ export function planSvgLayout(
     diagnostics.push(
       issue(
         "unverified-font-metrics",
-        "Estimated font bounds are not a verified fit. Measure the returned fragments explicitly for this environment.",
+        "Font bounds are estimated. Measure these fragments explicitly for this environment.",
       ),
     );
   if (measuredQuality === "measured-local-font")
@@ -527,7 +550,7 @@ export function planSvgLayout(
     diagnostics.push(
       issue(
         "stale-measurement",
-        "Some exact fragments or sizes have no matching measurement; their confidence remains estimated.",
+        "Unmeasured fragments and sizes remain estimated.",
       ),
     );
   const width = displayScale === null ? null : request.width * displayScale,

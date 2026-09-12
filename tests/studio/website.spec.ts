@@ -21,6 +21,60 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
+for (const failure of ["missing", "throws"] as const) {
+  test(`optional observers ${failure}: plain workflow transfer and undo remain usable`, async ({
+    page,
+  }) => {
+    const prior = neon({ text: "Preserve my earlier work" });
+    await page.addInitScript(
+      ({ prior, key, failure }) => {
+        localStorage.setItem(key, JSON.stringify(prior));
+        Object.defineProperty(window, "IntersectionObserver", {
+          configurable: true,
+          value:
+            failure === "missing"
+              ? undefined
+              : class {
+                  constructor() {
+                    throw new Error("Optional observer unavailable");
+                  }
+                },
+        });
+      },
+      { prior, key: draftKey, failure },
+    );
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    await page.goto("/");
+    await expect(page.locator(".example-card")).toHaveCount(6);
+    const workflow = page.locator(".use-case-comparison").first();
+    await workflow.getByRole("button", { name: "Plain", exact: true }).click();
+    await workflow
+      .getByRole("button", { name: "Edit this example", exact: true })
+      .click();
+    await page
+      .getByRole("button", { name: "Load example", exact: true })
+      .click();
+    const editor = page.locator("#editor-workspace");
+    await expect(editor).toBeVisible();
+    await expect(
+      editor.getByRole("combobox", { name: "Output renderer", exact: true }),
+    ).toHaveValue("text");
+    await editor.getByRole("button", { name: "Undo", exact: true }).click();
+    await expect(
+      editor.getByRole("textbox", { name: "Message text", exact: true }),
+    ).toHaveValue("Preserve my earlier work");
+    expect(errors).toEqual([]);
+    expect(
+      await page.evaluate(
+        () =>
+          (window as unknown as { websiteCalls: unknown[] }).websiteCalls
+            .length,
+      ),
+    ).toBe(0);
+  });
+}
+
 test("hero edits, comparisons and copying use one scene and print only on request", async ({
   page,
   context,
