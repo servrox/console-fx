@@ -6,12 +6,37 @@ a nonblocking follow-up. Required automated, keyboard/focus, zoom/reflow and
 reduced-motion checks remain. Cinematic presets follow Accepted ADR-0012 and have
 a separate [candidate ledger](specs/cinematic-metal-presets-evidence.md); the dated
 artifacts below do not qualify that new implementation.
-Protected hosted verification and GitHub CI on the merged `main` commit passed;
-publication and public promotion remain pending. The approved spec
+Earlier MVP candidates passed protected hosted verification and merged `main`
+CI within the dated scopes below; publication and public promotion remain pending. The approved spec
 requires all 24 acceptance criteria before the full launch; local checks alone do
 not authorize publication or establish CI or production success.
 
-## Current integration candidate — 2026-09-12
+## Current architecture candidate — 2026-09-12
+
+The [architecture improvement receipt](specs/architecture-improvements-evidence.md)
+is the current status pointer for six review/fix passes starting at merged PR #10
+(`e80f1fc`). It replaces older candidate hashes for readiness decisions. Its source,
+local, package and CI observations are identified separately; the earlier approval
+for `0bea5491…` remains limited to that historical protected preview.
+
+The [prior improvement receipt](specs/launch-improvements.md) records completed
+Firefox observations. Missing physical mobile, integrated-GPU laptop, Safari and
+five-developer observations remain explicit promotion items. Screen-reader review
+is nonblocking under ADR-0013. No new candidate is published or deployed by these
+architecture passes.
+
+`pnpm run prepare:vercel` verifies existing output against its ownership receipt,
+stages a complete replacement, and retains prior output and receipts in the
+reported `.vercel/.console-fx-preparation-*` recovery directory. It restores them
+if a normal replacement fails. Changed/unowned output is preserved and rejected.
+An interrupted preparation or failed restoration leaves
+`.vercel/console-fx-preparation.lock/recovery.json` and recovery files; inspect and
+reconcile those before removing the lock. This is exception recovery, not an
+atomic multi-file transaction across process termination or filesystem failure.
+Legacy ownership receipts verify all file/configuration hashes; new receipts also
+record directory membership. Legacy recovery copies retain empty directories.
+
+## Historical fitting integration candidate — 2026-09-12
 
 The [fitting/compact receipt](evidence/fitting/2026-09-12/README.md) and
 [website receipt](evidence/website/2026-09-12/README.md) supersede older pending
@@ -41,8 +66,8 @@ in accordance with the explicit artifact/promotion boundary. Manual prepared-out
 upload remains available after exact-artifact approval; hosted checks precede any
 production promotion. Keep authentication on all URLs until public launch is approved.
 
-The five-developer study, physical mobile, integrated-GPU laptop, Safari and Firefox
-observations remain unperformed and require explicit consideration before public
+At this historical checkpoint, the five-developer study, physical mobile,
+integrated-GPU laptop, Safari and Firefox observations were unperformed and required explicit consideration before public
 promotion. Narrator/NVDA review is already nonblocking under ADR-0013. No exception
 for the other missing observations is inferred from the compact-design approval.
 There is no prior qualified public release to roll back to: retain the protected
