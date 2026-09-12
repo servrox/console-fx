@@ -1,13 +1,16 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import {
   cpSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
+  readdirSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
-import { resolve } from "node:path";
+import { resolve, relative } from "node:path";
+import { verifyRegistryMetadata } from "./verify-release.mjs";
 import {
   artifacts,
   hash,
@@ -17,6 +20,11 @@ import {
   saveReceipt,
 } from "./package-candidate.mjs";
 
+const registryMode = process.argv.includes("--registry");
+assert(
+  process.argv.slice(2).every((arg) => arg === "--registry"),
+  "Use check-consumers.mjs [--registry]",
+);
 const candidate = readJson(resolve(artifacts, "candidate.json"));
 assert.equal(
   candidate.lockSha256,
@@ -25,6 +33,32 @@ assert.equal(
 );
 for (const item of candidate.packages)
   assert.equal(item.sha256, hash(item.tarball));
+const published = [];
+if (registryMode) {
+  for (const item of candidate.packages) {
+    const metadata = JSON.parse(
+      run("npm", [
+        "view",
+        `${item.name}@${item.version}`,
+        "--json",
+        "--registry=https://registry.npmjs.org",
+      ]),
+    );
+    const verified = verifyRegistryMetadata(metadata, item);
+    const response = await fetch(verified.tarball, {
+      signal: globalThis.AbortSignal.timeout(30_000),
+      redirect: "error",
+    });
+    assert(response.ok, `Registry tarball fetch failed (${response.status})`);
+    const bytes = Buffer.from(await response.arrayBuffer());
+    assert.equal(
+      createHash("sha256").update(bytes).digest("hex"),
+      item.sha256,
+      "Registry bytes differ from the tested candidate",
+    );
+    published.push(verified);
+  }
+}
 const consumer = mkdtempSync(resolve(tmpdir(), "console-fx-consumer-"));
 cpSync(resolve(root, "examples/next-app"), consumer, { recursive: true });
 mkdirSync(resolve(consumer, "checks"));
@@ -45,7 +79,9 @@ const manifest = readJson(resolve(consumer, "package.json"));
 const workspace = readJson(resolve(root, "package.json"));
 manifest.packageManager = workspace.packageManager;
 for (const item of candidate.packages)
-  manifest.dependencies[item.name] = `file:${item.tarball}`;
+  manifest.dependencies[item.name] = registryMode
+    ? item.version
+    : `file:${item.tarball}`;
 manifest.devDependencies.jsdom = workspace.devDependencies.jsdom;
 for (const [name, version] of Object.entries({
   ...manifest.dependencies,
@@ -64,13 +100,64 @@ writeFileSync(
 );
 writeFileSync(
   resolve(consumer, "pnpm-workspace.yaml"),
-  "strictPeerDependencies: true\nengineStrict: true\nminimumReleaseAge: 1440\nallowBuilds:\n  esbuild: false\n  sharp: false\n  unrs-resolver: false\n" +
-    // The adapter's real semver dependency is inspected in check:packages.
-    // Before first publication, resolve that dependency to the same candidate.
-    `overrides:\n  '@servrox/console-fx': ${JSON.stringify(manifest.dependencies["@servrox/console-fx"])}\n`,
+  "strictPeerDependencies: true\nengineStrict: true\nminimumReleaseAge: 1440\nminimumReleaseAgeStrict: true\nallowBuilds:\n  esbuild: false\n  sharp: false\n  unrs-resolver: false\n" +
+    (registryMode
+      ? // Only the exact, independently verified first release bypasses the age delay.
+        "minimumReleaseAgeExclude:\n" +
+        candidate.packages
+          .map(
+            (item) => `  - ${JSON.stringify(`${item.name}@${item.version}`)}\n`,
+          )
+          .join("")
+      : // Before first publication, the adapter resolves to the same local candidate.
+        `overrides:\n  '@servrox/console-fx': ${JSON.stringify(manifest.dependencies["@servrox/console-fx"])}\n`),
 );
-console.log(`Installing exact tarballs into ${consumer}`);
+// Generated public registry selection only; never copy the user's auth config.
+writeFileSync(
+  resolve(consumer, ".npmrc"),
+  "registry=https://registry.npmjs.org/\n@servrox:registry=https://registry.npmjs.org/\n",
+);
+const fixtureFiles = [];
+function visit(directory) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const path = resolve(directory, entry.name);
+    if (entry.isDirectory()) visit(path);
+    else
+      fixtureFiles.push({ path: relative(consumer, path), sha256: hash(path) });
+  }
+}
+visit(consumer);
+console.log(
+  `Installing exact ${registryMode ? "registry versions" : "tarballs"} into ${consumer}`,
+);
 run("pnpm", ["install", "--ignore-scripts"], consumer);
+const environmentDirectory = resolve(
+  artifacts,
+  registryMode ? "registry-consumer-environment" : "consumer-environment",
+);
+mkdirSync(environmentDirectory, { recursive: true });
+const environmentFiles = [
+  "pnpm-lock.yaml",
+  "pnpm-workspace.yaml",
+  "package.json",
+  ".npmrc",
+].map((name) => {
+  const path = resolve(environmentDirectory, name);
+  cpSync(resolve(consumer, name), path);
+  return { path: relative(artifacts, path), sha256: hash(path) };
+});
+const consumerLock = readFileSync(resolve(consumer, "pnpm-lock.yaml"), "utf8");
+if (registryMode) {
+  assert(
+    !consumerLock.includes("file:") && !consumerLock.includes("link:"),
+    "Registry consumers must not resolve local packages",
+  );
+  for (const item of published)
+    assert(
+      consumerLock.includes(item.integrity),
+      "Consumer lock is missing the verified registry integrity",
+    );
+}
 console.log(
   run(process.execPath, ["checks/vanilla/check.mjs"], consumer).trim(),
 );
@@ -79,7 +166,7 @@ console.log(
   run(process.execPath, ["checks/website/check.mjs"], consumer).trim(),
 );
 run("pnpm", ["exec", "tsc", "--noEmit"], consumer);
-console.log("Packed TypeScript declarations and React example passed");
+console.log("Installed TypeScript declarations and React example passed");
 const buildLog = run("pnpm", ["run", "build"], consumer);
 assert(
   !buildLog.includes("Packed Next startup"),
@@ -94,7 +181,9 @@ assert(
     "Packed Next consumer",
   ),
 );
-console.log("Packed Next production build and static server rendering passed");
+console.log(
+  "Installed Next production build and static server rendering passed",
+);
 process.env.CONSOLE_FX_CONSUMER_DIR = consumer;
 console.log(
   run("pnpm", [
@@ -105,10 +194,28 @@ console.log(
     "playwright.consumers.config.ts",
   ]).trim(),
 );
-saveReceipt("consumers.json", {
+saveReceipt(registryMode ? "registry-consumers.json" : "consumers.json", {
   createdAt: new Date().toISOString(),
   candidate,
   consumer,
+  mode: registryMode ? "registry" : "tarballs",
+  published,
+  environment: {
+    node: process.version,
+    pnpm: run("pnpm", ["--version"]).trim(),
+    platform: process.platform,
+    architecture: process.arch,
+    files: environmentFiles,
+    fixtureFiles,
+    harness: [
+      "scripts/check-consumers.mjs",
+      "scripts/package-candidate.mjs",
+      "scripts/verify-release.mjs",
+      "playwright.consumers.config.ts",
+      "tests/consumers/next.spec.ts",
+      "tests/studio/fixtures.ts",
+    ].map((path) => ({ path, sha256: hash(resolve(root, path)) })),
+  },
   checks: [
     "javascript",
     "typescript",

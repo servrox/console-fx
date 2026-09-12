@@ -62,6 +62,11 @@ function NumberControl({
   readonly onChange: (value: number) => void;
 }) {
   const [draft, setDraft] = useState(String(value));
+  const [previousValue, setPreviousValue] = useState(value);
+  if (previousValue !== value) {
+    setPreviousValue(value);
+    if (Number(draft) !== value) setDraft(String(value));
+  }
   const parsed = Number(draft);
   const valid =
     draft.trim() !== "" &&
@@ -147,8 +152,38 @@ export function FitInspector({
       : 0.96,
   );
   const [overlay, setOverlay] = useState(false);
+  const fittingKey = JSON.stringify({
+    layout: options.layout,
+    sizing: options.sizing,
+  });
+  const [previousFitting, setPreviousFitting] = useState(fittingKey);
+  // Synchronize saved fitting without discarding drafts on unrelated setting edits.
+  if (previousFitting !== fittingKey) {
+    setPreviousFitting(fittingKey);
+    setRequestedWidth(options.layout?.width ?? 360);
+    setPolicy({
+      algorithm: "fit/v1",
+      maxHeight: options.layout?.maxHeight ?? 400,
+      variant: options.layout?.variant ?? "standard",
+      overflow: options.layout?.overflow ?? "wrap-then-shrink",
+      minFontSize: options.layout?.minFontSize ?? 12,
+    });
+    setMode(options.sizing?.mode ?? "fixed");
+    setOutputWidth(
+      options.sizing?.mode === "fixed"
+        ? options.sizing.width
+        : options.sizing?.mode === "container-experimental"
+          ? options.sizing.maxWidth
+          : (options.layout?.width ?? 360),
+    );
+    setFillFraction(
+      options.sizing?.mode === "container-experimental"
+        ? (options.sizing.fillFraction ?? 0.96)
+        : 0.96,
+    );
+  }
   const boundary = useRef<HTMLDivElement>(null);
-  const width = usePreviewWidth(boundary);
+  const { width, unavailable } = usePreviewWidth(boundary);
   const simulation = useMemo(() => {
     if (width === null) return null;
     try {
@@ -174,6 +209,41 @@ export function FitInspector({
       throw error;
     }
   }, [scene, policy, width, measurement.snapshot]);
+  const motionFit = useMemo(() => {
+    if (width === null || options.motion !== "system") return null;
+    try {
+      compileConsole(scene, {
+        target: "chromium",
+        renderer: "svg",
+        motion: "allow",
+        layout: { ...policy, width },
+        sizing:
+          mode === "fixed"
+            ? { mode, width: outputWidth }
+            : { mode, maxWidth: outputWidth, fillFraction },
+        ...(measurement.snapshot
+          ? {
+              measurements: measurement.snapshot,
+              measurementEnvironment: measurement.snapshot.environment,
+            }
+          : {}),
+      });
+      return { ok: true as const };
+    } catch (error) {
+      if (error instanceof ConsoleCompileError)
+        return { ok: false as const, diagnostics: error.diagnostics };
+      throw error;
+    }
+  }, [
+    scene,
+    policy,
+    width,
+    options.motion,
+    mode,
+    outputWidth,
+    fillFraction,
+    measurement.snapshot,
+  ]);
   const reference = useMemo(
     () =>
       width === null
@@ -263,8 +333,8 @@ export function FitInspector({
         {width === null
           ? "waiting for a visible preview"
           : `${width}px content box`}
-        . Drag its right edge or choose a width above. Compact layouts remain
-        unavailable until their separate review is complete.
+        . Drag its right edge or choose a width above. All ten card presets have
+        reviewed compact layouts; arbitrary text must still pass fitting.
       </p>
       <label className="check-field">
         <input
@@ -289,16 +359,32 @@ export function FitInspector({
             image(simulation.output, overlay)
           ) : (
             <p className="preview-error">
-              {simulation?.diagnostics[0]?.message ??
-                "Fitting is deferred while this preview is hidden."}
+              {unavailable
+                ? "Preview width observation is unavailable. Editing and your existing exports still work."
+                : (simulation?.diagnostics[0]?.message ??
+                  "Fitting is deferred while this preview is hidden.")}
             </p>
           )}
         </div>
       </div>
       <p className="fine-print">
-        The outline includes each fragment’s finite effects and motion envelope.
-        Content and captions are never shortened to make them fit.
+        The outline shows each fragment’s static paint bounds. Content and
+        captions are never shortened to make them fit.
       </p>
+      {motionFit && (
+        <p
+          role="status"
+          className={
+            motionFit.ok
+              ? "fine-print fit-motion-status"
+              : "error-text fit-motion-status"
+          }
+        >
+          {motionFit.ok
+            ? "Finite motion fits the selected export frame. The preview above stays static."
+            : `Motion-enabled SVG export: ${motionFit.diagnostics[0]!.message} Choose a larger frame or disable export motion.`}
+        </p>
+      )}
       {report && (
         <dl className="fit-report">
           <div>
@@ -378,7 +464,7 @@ export function FitInspector({
       <p className="fine-print">
         {mode === "fixed" && width
           ? `Requested display scale: ${Math.round((outputWidth / width) * 100)}%. The compiler checks readable floors at that known size.`
-          : "Container output has unknown display dimensions and unknown image-text readability. The full native caption is retained. This carrier is not qualified for launch."}
+          : "Container output remains experimental. Its resize behavior was observed in recorded Windows Chrome and Edge builds; image-text readability at an unknown display size is not guaranteed. The full native caption is retained."}
       </p>
       <div className="button-row">
         <button

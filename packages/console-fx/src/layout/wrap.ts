@@ -24,23 +24,23 @@ function append(
  * Tokens may cross style/run boundaries: styling cannot make an ID breakable.
  */
 export function wrapTokens(runs: readonly FlowRun[]): readonly Token[] {
+  // Without grapheme boundaries, retain the complete styled paragraph.
+  if (typeof Intl.Segmenter !== "function") return [runs];
+  const segmenter = new Intl.Segmenter("und", { granularity: "grapheme" });
   const pieces = runs.flatMap((run) =>
     (cinematicEffect(run)
       ? [run.text]
-      : [
-          ...new Intl.Segmenter("und", { granularity: "grapheme" }).segment(
-            run.text,
-          ),
-        ].map((part) => part.segment)
+      : [...segmenter.segment(run.text)].map((part) => part.segment)
     ).map((text) => ({ ...run, text })),
   );
   const tokens: FlowRun[][] = [];
   let token: FlowRun[] = [];
   for (const [i, piece] of pieces.entries()) {
     token = append(token, [piece]);
+    const next = pieces[i + 1]?.text ?? "";
     if (
-      piece.text.endsWith(" ") ||
-      (cjk(piece.text) && cjk(pieces[i + 1]?.text ?? ""))
+      !/^[\u2060\ufeff]/u.test(next) &&
+      (piece.text.endsWith(" ") || (cjk(piece.text) && cjk(next)))
     ) {
       tokens.push(token);
       token = [];

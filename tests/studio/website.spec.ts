@@ -101,9 +101,8 @@ for (const failure of ["missing", "throws"] as const) {
 
 test("hero edits, comparisons and copying use one scene and print only on request", async ({
   page,
-  context,
+  clipboard,
 }) => {
-  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto("/");
   const demo = page.locator(".quick-demo");
   const text = demo.getByRole("textbox", { name: "Your message", exact: true });
@@ -121,7 +120,7 @@ test("hero edits, comparisons and copying use one scene and print only on reques
   await demo
     .getByRole("button", { name: "Copy console.log", exact: true })
     .click();
-  const copy = await page.evaluate(() => navigator.clipboard.readText());
+  const copy = await clipboard.readText();
   const calls: unknown[][] = [];
   new Function("console", copy)({
     log: (...args: unknown[]) => calls.push(args),
@@ -173,7 +172,15 @@ test("hero edits, comparisons and copying use one scene and print only on reques
   await demo.screenshot({
     path: `${artifact}/UX-08-${test.info().project.name}.png`,
   });
-  await text.fill("bad\u001b[31m");
+  // Native keyboard insertion can consume Escape (notably in Firefox). Supply
+  // the exact untrusted value to exercise the application's validation in each engine.
+  await text.evaluate((input: HTMLInputElement) => {
+    Object.getOwnPropertyDescriptor(
+      HTMLInputElement.prototype,
+      "value",
+    )!.set!.call(input, "bad\u001b[31m");
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  });
   await expect(text).toHaveValue("bad\u001b[31m");
   await expect(
     demo.getByRole("button", { name: "Test in console", exact: true }),

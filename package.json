@@ -20,6 +20,7 @@
     "test:codegen": "vitest run packages/console-fx/test/codegen.test.ts",
     "test:studio": "playwright test",
     "test:consumers": "node scripts/check-consumers.mjs",
+    "test:registry-consumers": "node scripts/check-consumers.mjs --registry",
     "check:packages": "node scripts/check-packages.mjs",
     "check:bundle-size": "node scripts/check-bundle-size.mjs",
     "fixtures:devtools": "node scripts/devtools-fixtures.mjs",

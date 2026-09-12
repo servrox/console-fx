@@ -60,7 +60,7 @@ test("prepared deployment CSP permits hydration, exact SVG previews and client n
 });
 test("gallery, editing, one explicit emission and complete clipboard export", async ({
   page,
-  context,
+  clipboard,
 }) => {
   const logs: string[] = [];
   page.on("console", (message) => {
@@ -86,11 +86,10 @@ test("gallery, editing, one explicit emission and complete clipboard export", as
     .getByRole("button", { name: "Test in console", exact: true })
     .click();
   expect(logs).toHaveLength(1);
-  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await editor
     .getByRole("button", { name: "Copy console.log", exact: true })
     .click();
-  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  const copied = await clipboard.readText();
   expect(copied).toBe(
     await editor.getByLabel("Generated code", { exact: true }).inputValue(),
   );

@@ -24,11 +24,11 @@ export function textDirection(text: string): "ltr" | "rtl" {
 export class MetricResolver {
   readonly requests = new Map<string, TextMeasurementRequest>();
   readonly available: ReadonlyMap<string, TextMeasurement>;
-  private bytes: number;
-  private readonly alternatives: {
-    runs: Iterable<TextRun>;
-    profile: string;
-  }[] = [];
+  protected bytes: number;
+  declare readonly suggest?: (
+    alternatives: Iterable<TextRun>,
+    profile?: string,
+  ) => void;
   constructor(
     readonly environment: string,
     readonly snapshot?: MeasurementSnapshot,
@@ -52,28 +52,7 @@ export class MetricResolver {
       this.bytes += utf8ByteLength(JSON.stringify(record)) + 1;
     }
   }
-  suggest(alternatives: Iterable<TextRun>, profile = "flow/v1"): void {
-    this.alternatives.push({ runs: alternatives, profile });
-  }
-  /** Fill spare preflight capacity after required shaping work, retaining headroom
-   * for different fragments on the measured pass. Speculation never exhausts it.
-   */
-  completePreflight(): void {
-    for (const alternatives of this.alternatives)
-      for (const run of alternatives.runs) {
-        const request = this.request(run, alternatives.profile);
-        if (this.requests.has(request.key)) continue;
-        const bytes = utf8ByteLength(JSON.stringify(request)) + 256;
-        if (
-          this.requests.size >= 384 ||
-          this.bytes + bytes > LIMITS.inputBytes * 0.75
-        )
-          return;
-        this.requests.set(request.key, request);
-        this.bytes += bytes;
-      }
-  }
-  private request(
+  protected request(
     run: TextRun,
     profile: string,
     italic = false,

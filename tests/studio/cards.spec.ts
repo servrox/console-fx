@@ -6,7 +6,7 @@ import { test, expect } from "./fixtures";
 
 test("all ten card previews use the shared compiler and named fields stay silent", async ({
   page,
-  context,
+  clipboard,
 }) => {
   const calls: string[] = [];
   page.on("console", (event) => {
@@ -67,13 +67,10 @@ test("all ten card previews use the shared compiler and named fields stay silent
   const saved = JSON.parse(await source.inputValue());
   expect(saved.lines[1].runs[0].text).toBe("My %s build");
   expect(saved.presentation.profile).toBe("buildReceipt/v1");
-  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await editor
     .getByRole("button", { name: "Copy scene JSON", exact: true })
     .click();
-  expect(
-    JSON.parse(await page.evaluate(() => navigator.clipboard.readText())),
-  ).toEqual(saved);
+  expect(JSON.parse(await clipboard.readText())).toEqual(saved);
   expect(calls).toHaveLength(0);
   await editor
     .getByRole("button", { name: "Test in console", exact: true })

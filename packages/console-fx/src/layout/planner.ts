@@ -128,6 +128,13 @@ export function planSvgLayout(
     request.overflow === "shrink" || request.overflow === "wrap-then-shrink";
   const wrap =
     request.overflow === "wrap" || request.overflow === "wrap-then-shrink";
+  if (wrap && typeof Intl.Segmenter !== "function")
+    diagnostics.push(
+      issue(
+        "segmentation-unavailable",
+        "Grapheme segmentation is unavailable; whole paragraphs are kept intact.",
+      ),
+    );
   const frameScale = cardLayout
     ? Math.min(
         cardLayout.compact ? 1 : Infinity,
@@ -278,7 +285,7 @@ export function planSvgLayout(
         const wrapping = wrap && (footer || command);
         const lineHeight = footer ? 18 : slot.id === "command" ? 24 : 18;
         const tokens = wrapTokens([{ ...run, sourceRun: slot.run }]);
-        if (wrapping) resolver.suggest(wrappingAlternatives(tokens), profile);
+        if (wrapping) resolver.suggest?.(wrappingAlternatives(tokens), profile);
         const texts = wrapping
           ? wrapTokensToRows(tokens, footer ? 190 : slot.safeWidth, (runs) => {
               if (!runs.length) return 0;
@@ -408,7 +415,7 @@ export function planSvgLayout(
       }
       for (const paragraph of paragraphs) {
         const tokens = wrapTokens(paragraph);
-        if (wrap) resolver.suggest(wrappingAlternatives(tokens));
+        if (wrap) resolver.suggest?.(wrappingAlternatives(tokens));
         const fragments = wrap
           ? wrapTokensToRows(tokens, request.width - 2 * padding, (runs) => {
               const rowSize = Math.max(

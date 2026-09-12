@@ -12,6 +12,37 @@ const sha256 = (path) =>
   createHash("sha256").update(readFileSync(path)).digest("hex");
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
+export function verifyRegistryMetadata(metadata, candidate) {
+  assert.equal(metadata.name, candidate.name, "Wrong registry package");
+  assert.equal(metadata.version, candidate.version, "Wrong registry version");
+  const bytes = readFileSync(candidate.tarball);
+  assert.equal(
+    createHash("sha256").update(bytes).digest("hex"),
+    candidate.sha256,
+    "Candidate bytes changed",
+  );
+  const integrity = `sha512-${createHash("sha512").update(bytes).digest("base64")}`;
+  assert.equal(
+    metadata.dist?.integrity,
+    integrity,
+    "Registry integrity differs from the tested candidate",
+  );
+  const url = new URL(metadata.dist.tarball);
+  assert.equal(
+    url.origin,
+    "https://registry.npmjs.org",
+    "Unexpected registry tarball host",
+  );
+  assert(!url.username && !url.password, "Unexpected registry credentials");
+  return {
+    name: candidate.name,
+    version: candidate.version,
+    tarball: url.href,
+    sha256: candidate.sha256,
+    integrity,
+  };
+}
+
 export function verifyValidationRun(run, artifacts, commit) {
   assert.match(commit, /^[a-f0-9]{40}$/, "A full source commit is required");
   assert.equal(run.repository?.full_name, repository, "Wrong repository");

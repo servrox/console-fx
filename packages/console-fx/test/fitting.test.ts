@@ -33,6 +33,75 @@ const layout: LayoutRequest = {
   minFontSize: 12,
 };
 const options: CompileOptions = { target: "chromium", renderer: "svg", layout };
+
+describe("fitting text boundary recovery", () => {
+  const fit = {
+    ...options,
+    layout: { ...layout, width: 70, overflow: "wrap" as const },
+  };
+  const message = (texts: string[]): SceneInputV1 => ({
+    schemaVersion: 1,
+    label: "Joined text",
+    surface: { padding: 0 },
+    lines: [{ runs: texts.map((text) => ({ text, style: { fontSize: 20 } })) }],
+  });
+  it.each(["\u2060", "\ufeff"])(
+    "keeps a no-break marker joined to preceding spaces across styles: %s",
+    (joiner) => {
+      for (const texts of [[`A ${joiner}B`], ["A ", `${joiner}B`]]) {
+        const scene = message(texts);
+        expect(() => compileConsole(scene, fit)).toThrow(ConsoleCompileError);
+        const fallback = compileConsole(scene, {
+          ...fit,
+          unsupported: "fallback",
+        });
+        expect(fallback.renderer).toBe("text");
+        expect(fallback.text).toBe(`A ${joiner}B`);
+        const calls: unknown[][] = [];
+        new Function(
+          "console",
+          exportConsoleLog(scene, {
+            ...fit,
+            motion: "reduce",
+            unsupported: "fallback",
+          }).code,
+        )({ log: (...args: unknown[]) => calls.push(args) });
+        expect(calls).toEqual([fallback.args]);
+      }
+    },
+  );
+  it("retains whole paragraphs and typed recovery without Intl.Segmenter", () => {
+    const descriptor = Object.getOwnPropertyDescriptor(Intl, "Segmenter")!;
+    Object.defineProperty(Intl, "Segmenter", { value: undefined });
+    try {
+      const scene = message(["A long ", "joined paragraph"]);
+      const output = compileConsole(scene, {
+        ...fit,
+        layout: { ...fit.layout, width: 1000 },
+      });
+      expect(output.renderer).toBe("svg");
+      expect(output.layout?.visualRows).toBe(1);
+      expect(output.layout?.fragments.map((f) => f.text).join("")).toBe(
+        "A long joined paragraph",
+      );
+      expect(output.diagnostics.map((d) => d.code)).toContain(
+        "segmentation-unavailable",
+      );
+      const fallback = compileConsole(scene, {
+        ...fit,
+        layout: { ...fit.layout, overflow: "error" },
+        unsupported: "fallback",
+      });
+      expect(fallback.renderer).toBe("text");
+      expect(fallback.text).toBe("A long joined paragraph");
+      expect(fallback.diagnostics.map((d) => d.code)).toContain(
+        "layout-overflow",
+      );
+    } finally {
+      Object.defineProperty(Intl, "Segmenter", descriptor);
+    }
+  });
+});
 function simple(text: string): SceneInputV1 {
   return {
     schemaVersion: 1,
