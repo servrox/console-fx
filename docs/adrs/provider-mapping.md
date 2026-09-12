@@ -73,3 +73,7 @@ The [index](README.md) exposes the eleven Accepted local records. The maintainer
 ## Accepted card presentation contract — 2026-09-12
 
 The maintainer explicitly answered “Approve ADR-0014 and all ten designs” for [ADR-0014](0014-use-closed-preset-presentations.md), the ten original card references, ordinary scene slots and Windows local-font fallbacks. This is a local extension under ADR-0002 through ADR-0007; no provider record was imported and no accepted identity was overwritten. Runtime implementation and qualification follow the [collection specification](../specs/useful-artful-presets-spec.md). Earlier setup observations remain dated history.
+
+## Accepted fitting contract — 2026-09-12
+
+The maintainer explicitly answered “Approve ADR-0015” for [ADR-0015](0015-separate-content-fit-from-output-sizing.md), covering deterministic layout, separate output sizing, optional explicit font measurements and a validated recipe wrapper. This local extension preserves ADR-0014 standard card profiles and the ADR-0013 nonblocking screen-reader follow-up. Compact visuals still need their own review. Source/probe validation is not runtime or native qualification; later implementation follows the [fitting specification](../specs/responsive-fitting-spec.md). No provider record or accepted history was replaced.
