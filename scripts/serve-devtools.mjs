@@ -20,7 +20,12 @@ const server = createServer(async (request, response) => {
     return;
   }
   try {
-    const content = await readFile(resolve(".artifacts/devtools", file[0]));
+    const content = await readFile(
+      resolve(
+        process.env.CONSOLE_FX_DEVTOOLS_DIR ?? ".artifacts/devtools",
+        file[0],
+      ),
+    );
     response.writeHead(200, {
       "Content-Type": file[1],
       "Cache-Control": "no-store",

@@ -1,0 +1,23 @@
+{
+  "at": "2026-09-12T18:35:58.123Z",
+  "consumer": "/tmp/console-fx-consumer-jl7oX8",
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "sha256": "bea698087b6148bbf55fc8022bd48af35a67e0f8e951202cbca494a7b5b1d8e0"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "sha256": "eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c"
+    }
+  ],
+  "checks": [
+    "all seven displayed recipes executed against packed packages",
+    "caller guards",
+    "one call",
+    "React SSR click and first-enabled",
+    "TypeScript declarations"
+  ],
+  "source": "apps/studio/src/features/landing/recipes.ts",
+  "sourceSha256": "f9a259fc8935832794fb4f69c27245119530229a51ea578415ad42f4c60d4771"
+}

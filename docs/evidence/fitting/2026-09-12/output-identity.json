@@ -1,0 +1,218 @@
+{
+  "at": "2026-09-12T18:05:12.186Z",
+  "qualifiedFixturesSha256": "2083b45a79a630660aa27df8c1cdf7ddc4cff11c42baa4a3a74aaa95dffb43ed",
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.1.0",
+      "sha256": "bea698087b6148bbf55fc8022bd48af35a67e0f8e951202cbca494a7b5b1d8e0"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.1.0",
+      "sha256": "eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c"
+    }
+  ],
+  "rows": [
+    {
+      "id": "compact-buildReceipt",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-requestTrace",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-serviceReady",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-commandCard",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-releaseBulletin",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-blueprint",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-contourMap",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-letterpress",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-signalHalftone",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "compact-orbital",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-lightningMetal",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-iceCathedral",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-liquidChrome",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-moltenGold",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-buildReceipt",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-commandCard",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-releaseBulletin",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-blueprint",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-contourMap",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-letterpress",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-orbital",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-latin-wide",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-combining",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-cjk",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-rtl",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-emoji",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-lines",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fit-short-glow",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fitted-motion-glowPulse",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fitted-motion-gradientDrift",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fitted-motion-wave",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "fitted-motion-indicator",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "website-signature",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "website-sdkWelcome",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "website-devContext",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "website-milestone",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "website-chromeTitle",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "website-quietEditorial",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "container-buildReceipt",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    },
+    {
+      "id": "container-serviceReady",
+      "outputIdentical": true,
+      "standaloneIdentical": true
+    }
+  ]
+}

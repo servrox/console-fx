@@ -1,0 +1,195 @@
+{
+  "createdAt": "2026-09-12T18:36:02.946Z",
+  "framework": "Next static export",
+  "files": [
+    {
+      "path": "__next.__PAGE__.txt",
+      "sha256": "f0b2545e72f7cc08bc6be2151665b89b72f51be87bec795cab9677cb0fbbb392"
+    },
+    {
+      "path": "__next._full.txt",
+      "sha256": "9ffe0c17f086a1993d5162bee1551ce12ab7551619e227720ae53e82597c4594"
+    },
+    {
+      "path": "__next._tree.txt",
+      "sha256": "572e7fd0d82a30050b7c04062cd889ec3491a5de9a0bfb40c931f530b5feeba1"
+    },
+    {
+      "path": "_next/static/0TVSy5LhpuKr5AGorEjcl/_buildManifest.js",
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+    },
+    {
+      "path": "_next/static/0TVSy5LhpuKr5AGorEjcl/_clientMiddlewareManifest.js",
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+    },
+    {
+      "path": "_next/static/0TVSy5LhpuKr5AGorEjcl/_ssgManifest.js",
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+    },
+    {
+      "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "path": "_next/static/chunks/0x-osl9n90jer.js",
+      "sha256": "73c3a778a7bb40d2ea700707bc447fc9e382596bb614499229ed5bf20c0a22a5"
+    },
+    {
+      "path": "_next/static/chunks/0zltwbvmbhwat.js",
+      "sha256": "b8511d36e7e100623103289b3ae098356cf584b9f7f7ad1a71c80749e9654813"
+    },
+    {
+      "path": "_next/static/chunks/1er0cend9lvp-.js",
+      "sha256": "45a666119c4758b13001f33557363ca5bda64ef9712039cf02e6299a46d6fd4d"
+    },
+    {
+      "path": "_next/static/chunks/1fcs3a6dg17ff.js",
+      "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02"
+    },
+    {
+      "path": "_next/static/chunks/1i9x4_u5qt4cn.js",
+      "sha256": "d42886c230c4ddd705d827a90c722f2d28815c049b4d6c66a91d0474b1297dcf"
+    },
+    {
+      "path": "_next/static/chunks/1o-lfwcn7xn6g.js",
+      "sha256": "d97c4c7f6069150ac5336de60ad9f5d7d9aa1545cffff41ffb4cea01d6d55ca7"
+    },
+    {
+      "path": "_next/static/chunks/2ek8anm3get_b.js",
+      "sha256": "5214391e464719678b58ce910f17bc459f4af4185070ba578cd37238fd01bbce"
+    },
+    {
+      "path": "_next/static/chunks/2m_r-k14ri8de.js",
+      "sha256": "74c24b84e26e1fdaeb0e369939efa536dbc7d98a07e839b8c846b295b057a0ce"
+    },
+    {
+      "path": "_next/static/chunks/2n7rlj8fgteq6.js",
+      "sha256": "e81d3ce52db10e28e1fd0806ae349433c165559929c30dcdfd99c7e7c88105f0"
+    },
+    {
+      "path": "_next/static/chunks/2z3sh82dl8glu.js.map",
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95"
+    },
+    {
+      "path": "_next/static/chunks/3a0v84u8wd57i.js",
+      "sha256": "cd907018e32bfb6dbf036dcd9e2c60942e24c10814846cc12e720e6b74e7495d"
+    },
+    {
+      "path": "_next/static/chunks/3b14-d3pzxicm.js",
+      "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec"
+    },
+    {
+      "path": "_next/static/chunks/3t0pxi5buxwbc.js",
+      "sha256": "e2c227d5c2a9eec28b09508c538161a97810ee73c1079ed3fe1e219b8d633db8"
+    },
+    {
+      "path": "_next/static/chunks/40nc4h_p33nvd.css",
+      "sha256": "95f4e93a68a04fe1defafd65f3b545a671897d588fa5d38d5b93816b64664063"
+    },
+    {
+      "path": "_next/static/chunks/43uh7r4gyopnu.js",
+      "sha256": "d3252d65bb44d5dfaba0a646624a2738fb4dc792580861ad6eae5dd31779f666"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-1ehwk0y54f_rm.js",
+      "sha256": "83ed936d8f9031d90b9b8c8ac79bea2e093e4cbf2fc1bb593c79af1a56d47233"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-1n1xv2tik9f0t.js",
+      "sha256": "834f1e5451a6f2a1cbc132044180e365ed1c42a486c89b7fca26827ed8778713"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-worker-2ru9m5gbh1na6.js",
+      "sha256": "861da5809b4f43b053fab88fe560f16efe31827655a06502ada9274a742852de"
+    },
+    {
+      "path": "_next/static/media/measure.worker.1y5_0p3_ohu0_.ts",
+      "sha256": "5542ec129c598dee1ed21f76b03ffaf84a246b900ca8fc4b149ba47268eb7906"
+    },
+    {
+      "path": "_not-found/__next._full.txt",
+      "sha256": "ba4aafd7d7c5d75c92e7d07f388664d35ce007c6549f42fc289df922ff314828"
+    },
+    {
+      "path": "_not-found/__next._not-found.__PAGE__.txt",
+      "sha256": "6f65169b7b6af3d0c15dce989404e10f098cfbc6d858de881fc179c2afc64701"
+    },
+    {
+      "path": "_not-found/__next._tree.txt",
+      "sha256": "78cb051ddd649eac1e18d4cc4f0fa32427a1e620a4e3b9a3fff63256f5a092e5"
+    },
+    {
+      "path": "_not-found/index.html",
+      "sha256": "187b3f78d7d5882581000056f8a4d5bc6dbd7149bc50dece3d21a61ecd49af4e"
+    },
+    {
+      "path": "_not-found/index.txt",
+      "sha256": "ba4aafd7d7c5d75c92e7d07f388664d35ce007c6549f42fc289df922ff314828"
+    },
+    {
+      "path": "404/index.html",
+      "sha256": "187b3f78d7d5882581000056f8a4d5bc6dbd7149bc50dece3d21a61ecd49af4e"
+    },
+    {
+      "path": "404.html",
+      "sha256": "187b3f78d7d5882581000056f8a4d5bc6dbd7149bc50dece3d21a61ecd49af4e"
+    },
+    {
+      "path": "docs/__next._full.txt",
+      "sha256": "374715bfdf38bb276dc47470fa53e5f1c7edb03d6caf707487aa846a52a69cac"
+    },
+    {
+      "path": "docs/__next._tree.txt",
+      "sha256": "27e1e929db4b3821f5b514ce4d06aaa97474f34490faf01401854c981988e347"
+    },
+    {
+      "path": "docs/__next.docs.__PAGE__.txt",
+      "sha256": "7e12bf9fc98f47f4c9dbdd586ca99f4ee573750037afd58215cc8c218be3898b"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "22e5f9b61f88f17c46dc076cde518811d62b037664dbc04e6120146297c33813"
+    },
+    {
+      "path": "docs/index.txt",
+      "sha256": "374715bfdf38bb276dc47470fa53e5f1c7edb03d6caf707487aa846a52a69cac"
+    },
+    {
+      "path": "index.html",
+      "sha256": "1838f1ea75c5cee5571b9bb50f98524840bbde4ac9f76b072ff460df41abcc43"
+    },
+    {
+      "path": "index.txt",
+      "sha256": "9ffe0c17f086a1993d5162bee1551ce12ab7551619e227720ae53e82597c4594"
+    },
+    {
+      "path": "licenses.txt",
+      "sha256": "9989eacae27319ee7793aed2f1ffe8d341f094a7ac9c319196f6d1b655ef8c52"
+    },
+    {
+      "path": "studio/__next._full.txt",
+      "sha256": "61e50c884f77cacf0009916244916a13f63904dd9ab9507dd5cf69f513bb5a4b"
+    },
+    {
+      "path": "studio/__next._tree.txt",
+      "sha256": "e49a12b3608a81a017c4dba3e142ccc96491d0cad8c5d0c00c09b82c66232881"
+    },
+    {
+      "path": "studio/__next.studio.__PAGE__.txt",
+      "sha256": "9f1e8c209434f8c30b117244703d593dc9971392b47754e59438ff0b94d3d692"
+    },
+    {
+      "path": "studio/index.html",
+      "sha256": "86e518e487b66dc7d0dba04ab5b4ce7f4710a88d957d2245f43b25c1ed6f70a8"
+    },
+    {
+      "path": "studio/index.txt",
+      "sha256": "61e50c884f77cacf0009916244916a13f63904dd9ab9507dd5cf69f513bb5a4b"
+    }
+  ],
+  "configSha256": "2a3b88c22ea4a914a2d3bc532bbba286a805c87e376cb6482c76db5a64ecdec2",
+  "cspBytes": 480,
+  "scriptHashes": 5,
+  "deployment": "not deployed",
+  "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/apps/studio/out"
+}

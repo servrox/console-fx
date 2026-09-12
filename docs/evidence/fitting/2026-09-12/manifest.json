@@ -1,0 +1,2704 @@
+{
+  "createdAt": "2026-09-12T18:40:18.318424+00:00",
+  "archive": "observations.tar.gz",
+  "archiveSha256": "7f227130751e9779427cfefbf97acaed77f8a196104e1f975f7f70a1d523c80b",
+  "native": [
+    {
+      "report": "native/chrome-2026-09-12T17-31-42.921Z/observations.json",
+      "browser": "Chrome/153.0.8010.36",
+      "recordedRows": 40,
+      "excludedRows": [
+        "website-signature",
+        "website-sdkWelcome",
+        "website-devContext",
+        "website-milestone",
+        "website-chromeTitle",
+        "website-quietEditorial"
+      ],
+      "usedRows": 34
+    },
+    {
+      "report": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/observations.json",
+      "browser": "Chrome/153.0.8010.36",
+      "recordedRows": 62,
+      "excludedRows": [],
+      "usedRows": 62
+    },
+    {
+      "report": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/observations.json",
+      "browser": "Chrome/153.0.8010.36",
+      "recordedRows": 24,
+      "excludedRows": [
+        "container-buildReceipt-offscreen-return",
+        "container-serviceReady-offscreen-return"
+      ],
+      "usedRows": 22
+    },
+    {
+      "report": "native/chrome-lifecycle-2026-09-12T18-20-07.269Z/observations.json",
+      "browser": "Chrome/153.0.8010.36",
+      "recordedRows": 2,
+      "excludedRows": [],
+      "usedRows": 2
+    },
+    {
+      "report": "native/edge-2026-09-12T18-16-59.938Z/observations.json",
+      "browser": "Edg/153.0.4234.32",
+      "recordedRows": 40,
+      "excludedRows": [
+        "website-signature",
+        "website-sdkWelcome",
+        "website-devContext",
+        "website-milestone",
+        "website-chromeTitle",
+        "website-quietEditorial"
+      ],
+      "usedRows": 34
+    },
+    {
+      "report": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/observations.json",
+      "browser": "Edg/153.0.4234.32",
+      "recordedRows": 62,
+      "excludedRows": [],
+      "usedRows": 62
+    },
+    {
+      "report": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/observations.json",
+      "browser": "Edg/153.0.4234.32",
+      "recordedRows": 24,
+      "excludedRows": [],
+      "usedRows": 24
+    }
+  ],
+  "usedNativeRows": 240,
+  "files": [
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-blueprint-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-blueprint-console.png",
+      "bytes": 34964,
+      "sha256": "a1c2199d6bfb71b0fbdcd9bacb28342ef9294ddbe9336219ffd4486f511f0be3"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-blueprint-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-blueprint-static.png",
+      "bytes": 9170,
+      "sha256": "f70ecdd6e08e8fb6e695657c8c0d55bce4475042fa1b7b846d9de26f9c3db70c"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-buildReceipt-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-buildReceipt-console.png",
+      "bytes": 40503,
+      "sha256": "8e9fbe66e586932bc417d85bff96ce7506cb4a3d2a89e3981356621f95ed4cbb"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-buildReceipt-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-buildReceipt-static.png",
+      "bytes": 12302,
+      "sha256": "d9905e647ed672a64743837edabc2c75039a11834ab1cb423582c33f1a245460"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-commandCard-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-commandCard-console.png",
+      "bytes": 35474,
+      "sha256": "d54edadaa261960639f5d3092dfb47767fd640b589d3f841e2a0f1841f86ca43"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-commandCard-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-commandCard-static.png",
+      "bytes": 9203,
+      "sha256": "7f97ace21180aea5814cd4467e9824218dfa6b7e4ec947de92a1241b9209209a"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-contourMap-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-contourMap-console.png",
+      "bytes": 34246,
+      "sha256": "6d8eadd1c74a148389ed9a3025a620577d3b44c288e892312a105ce28dc67527"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-contourMap-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-contourMap-static.png",
+      "bytes": 8655,
+      "sha256": "ea6b05f129b0e07adf35e1dce1bb3d02ac08f472e495e3fa991bf3e151498bec"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-letterpress-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-letterpress-console.png",
+      "bytes": 37600,
+      "sha256": "01bdbb265754733f490180d77728fc9495d91e9c2364cb53a1933da15e6ceda8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-letterpress-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-letterpress-static.png",
+      "bytes": 11387,
+      "sha256": "de644f514ad12097d46c4be8f93bee47a1ab7c466a8ac8ce1144a917b540978d"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-orbital-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-orbital-console.png",
+      "bytes": 39774,
+      "sha256": "90d0c2d23f2b754187cb930e5f9aca6f717a04df6f8b5e78cc3efe97440b3216"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-orbital-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-orbital-static.png",
+      "bytes": 13734,
+      "sha256": "d5a14b8aa6a1c79b2ebc0fea0a74e8c6d990cbc36d3ca7801e32effe983eb2b0"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-releaseBulletin-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-releaseBulletin-console.png",
+      "bytes": 40640,
+      "sha256": "5d79df25d5d337a381458ffd48ab5c92c00c58e10302b0ac0516bcdc18ba6e77"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-releaseBulletin-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-releaseBulletin-static.png",
+      "bytes": 12599,
+      "sha256": "5ca44daed25ef7729935802e8696a65cd79215520378c32c823685e62491ae59"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-requestTrace-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-requestTrace-console.png",
+      "bytes": 39237,
+      "sha256": "093894a8473509cfd8fcfd612bf6f1261c34f23584e0af68529da8abfa251379"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-requestTrace-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-requestTrace-static.png",
+      "bytes": 11227,
+      "sha256": "4c27d11767b23cb1be773210f03ec4c4cfd5cf369b61dc9402be3d29004b49c6"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-serviceReady-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-serviceReady-console.png",
+      "bytes": 41403,
+      "sha256": "a6ab4af6572a6d94bec39b353fd7d277bd7070716f960cb49d5d6e412d73b10d"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-serviceReady-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-serviceReady-static.png",
+      "bytes": 12289,
+      "sha256": "02c52a737ad8d93cb9320b8343502b01f3cc260b42fc14fdb34b5e122b721078"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-signalHalftone-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-signalHalftone-console.png",
+      "bytes": 37880,
+      "sha256": "aad65f223f808a5e4d5e83a7a8215abbfb90c3874a23484f76a621fddd61651f"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/compact-signalHalftone-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/compact-signalHalftone-static.png",
+      "bytes": 11858,
+      "sha256": "187d8605aecd5aa5e54a5fc1df23edad866d6faa7a9c2cf8ac736dd99da87bc1"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/container-buildReceipt-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/container-buildReceipt-console.png",
+      "bytes": 41843,
+      "sha256": "67ff094f0d8dece1541373769fb1b1e1d06e3cfc5b5e0bfa6fd6d4c588c3a484"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/container-buildReceipt-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/container-buildReceipt-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/container-serviceReady-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/container-serviceReady-console.png",
+      "bytes": 41403,
+      "sha256": "a6ab4af6572a6d94bec39b353fd7d277bd7070716f960cb49d5d6e412d73b10d"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/container-serviceReady-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/container-serviceReady-static.png",
+      "bytes": 12289,
+      "sha256": "02c52a737ad8d93cb9320b8343502b01f3cc260b42fc14fdb34b5e122b721078"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-blueprint-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-blueprint-console.png",
+      "bytes": 38769,
+      "sha256": "cf0c459a8af3d36cd350edc0d9dad7f846b14e9caa578f9b28687ee584de3415"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-blueprint-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-blueprint-static.png",
+      "bytes": 12984,
+      "sha256": "4cf2ae8d9e54b7b72eb32b863ba60e26718867c90d9271e84be16e3c3d47c606"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-buildReceipt-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-buildReceipt-console.png",
+      "bytes": 41843,
+      "sha256": "67ff094f0d8dece1541373769fb1b1e1d06e3cfc5b5e0bfa6fd6d4c588c3a484"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-buildReceipt-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-buildReceipt-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-cjk-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-cjk-console.png",
+      "bytes": 33137,
+      "sha256": "fbbe3b3e49e6c259769d7a83b7c6d7bd31909a787338d320cd3e1a52594702e4"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-cjk-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-cjk-static.png",
+      "bytes": 8027,
+      "sha256": "194c431740e1d6805e4416203da2fa8569961a2c23b8922f8d698a9e878c547a"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-combining-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-combining-console.png",
+      "bytes": 25907,
+      "sha256": "7c5f5d0c5ceb7f92eb87c840b3777443af676b6af762f7bba3c61c83c6dcf0f8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-combining-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-combining-static.png",
+      "bytes": 3182,
+      "sha256": "aee03cc05961bc9e6657125a7bcf33c380151533c8e2f765763d63d19c080b2c"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-commandCard-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-commandCard-console.png",
+      "bytes": 37707,
+      "sha256": "2886fc6f284f6066d76ebf8ff535bef10aca8e375e3a6356f94aacedc9377312"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-commandCard-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-commandCard-static.png",
+      "bytes": 11679,
+      "sha256": "6b44b79da5f74ab21fbbc8f0b8bf3bc873b93dcd04aa6c27f4042a9d69568858"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-contourMap-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-contourMap-console.png",
+      "bytes": 39261,
+      "sha256": "807c1cd4ca75e789f82d9a298c7a1ca6594531049fd8929c333d6b298bf94579"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-contourMap-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-contourMap-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-emoji-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-emoji-console.png",
+      "bytes": 29361,
+      "sha256": "04e73852f9d24e2cac841f762318efcffe41b49bc410f04171efe82e60601f29"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-emoji-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-emoji-static.png",
+      "bytes": 5573,
+      "sha256": "e7a9fb5d88b0cab84f018203fa6e2138f6b4867415ba4ecced21a88ab4eba6e2"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-iceCathedral-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-iceCathedral-console.png",
+      "bytes": 54865,
+      "sha256": "40574a909d969f6a505231b853e2ad116dbdb5d28e2900f0ad99cfbf8aab01fb"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-iceCathedral-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-iceCathedral-static.png",
+      "bytes": 32063,
+      "sha256": "f690efe781084dad5f681311e112517b16bd41f451262c08f97cba6b4ab232ba"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-latin-wide-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-latin-wide-console.png",
+      "bytes": 29654,
+      "sha256": "279bbcd4ef12047184d5ad1d959cc9d89f870fa991ac23ad20755371238f8c89"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-latin-wide-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-latin-wide-static.png",
+      "bytes": 5943,
+      "sha256": "3f7fd9e11bd70577c4e3e95d9fc6eaf1f4fa7c399dd4140c4b29e00a55976128"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-letterpress-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-letterpress-console.png",
+      "bytes": 42845,
+      "sha256": "6045caddb4207826a75505f8a57507e949ae1e675f3bdaf9a1f0482512d3b372"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-letterpress-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-letterpress-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-lightningMetal-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-lightningMetal-console.png",
+      "bytes": 43974,
+      "sha256": "75ee57fba88e8059f798a555fca24c6a267a4e416595c7b4c43a738cc13ebf52"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-lightningMetal-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-lightningMetal-static.png",
+      "bytes": 20976,
+      "sha256": "86463e2ae23afa7007d66189a2b688fca311cb76a39fa8a8a911c5cdd135f535"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-lines-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-lines-console.png",
+      "bytes": 29168,
+      "sha256": "6743938506fcb2d5c495e18ed5e5a68339bdb6ce2444976fa82fe566c63c3278"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-lines-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-lines-static.png",
+      "bytes": 5874,
+      "sha256": "a6291d71b74f27d294d63c452e3c28bfbf576046fc7270910a0c8753a811a566"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-liquidChrome-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-liquidChrome-console.png",
+      "bytes": 71088,
+      "sha256": "60bd2d7e85e3d185af6cd33e87b4ae6cd0bd4df5f510025ca9eced5d770ecb66"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-liquidChrome-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-liquidChrome-static.png",
+      "bytes": 46585,
+      "sha256": "a18704b15c051f29bb2d3fff6d30667d0d77cc477865a0b20d444c40d3b4d398"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-moltenGold-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-moltenGold-console.png",
+      "bytes": 41918,
+      "sha256": "2d9f070fccf556df8088d6d7d865a51f5f64fbf4f14457acf81bd47564044897"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-moltenGold-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-moltenGold-static.png",
+      "bytes": 18739,
+      "sha256": "2ba31a7a87148c56e6320f2b442cbbb7c46cce1fdc28ae5c1af525df59b4b965"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-orbital-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-orbital-console.png",
+      "bytes": 46431,
+      "sha256": "4b6dc6253cd36cb304810fc406afe9ae22887bde3f495f944983eff67b9dd224"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-orbital-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-orbital-static.png",
+      "bytes": 20890,
+      "sha256": "3d8d692431b84d4ca09a24346845573be2d761336a2f2ac94b881e562b2377e4"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-releaseBulletin-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-releaseBulletin-console.png",
+      "bytes": 42404,
+      "sha256": "afacbe81df633c1106f37d036b1684ccef01fe856b9c7a0be16c86130fd3f187"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-releaseBulletin-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-releaseBulletin-static.png",
+      "bytes": 14835,
+      "sha256": "d2f2f7948972c7be91e5885b7cdf711a070aa545eabcefbb5c237d4e9ba6a4ac"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-rtl-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-rtl-console.png",
+      "bytes": 27206,
+      "sha256": "e1d711072af0427afbfe989147c2bc2d6b7b683078aa58d57db89b51b4b5156e"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-rtl-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-rtl-static.png",
+      "bytes": 4014,
+      "sha256": "35ccc8e07348af482de16641af0d1cd0ed2a14bd25a5cd9e71d7b847ed307051"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-short-glow-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-short-glow-console.png",
+      "bytes": 24325,
+      "sha256": "50b13e78f3d11be7987723c451ee048baf24a09dc9292575b97f3af025bc6337"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fit-short-glow-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fit-short-glow-static.png",
+      "bytes": 2103,
+      "sha256": "296d6c00ffb6a942d55f90198c5a6b6b419ad12e6e1baf81572075eae10676a8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-after.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-after.png",
+      "bytes": 7030,
+      "sha256": "500dc31cfff9f540e10fbaa3175e58895abd770626c54281c1170ee26fd51941"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-console.png",
+      "bytes": 30114,
+      "sha256": "218113c6b3230e67b4afab0835c7a688d1bc45b13f844a4a21e09185a6ffaa06"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-early.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-early.png",
+      "bytes": 7949,
+      "sha256": "b73b336d80faafff95a00575553b857b5a775328da2776136fc1e7c14fe349c1"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-end.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-end.png",
+      "bytes": 7030,
+      "sha256": "500dc31cfff9f540e10fbaa3175e58895abd770626c54281c1170ee26fd51941"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-moving.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-glowPulse-moving.png",
+      "bytes": 7333,
+      "sha256": "63a5c812a3f27783f8671ccafbcd6e82b8e7f2a3451e7b94a495f703f14e2a4f"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-after.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-after.png",
+      "bytes": 7030,
+      "sha256": "500dc31cfff9f540e10fbaa3175e58895abd770626c54281c1170ee26fd51941"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-console.png",
+      "bytes": 30114,
+      "sha256": "218113c6b3230e67b4afab0835c7a688d1bc45b13f844a4a21e09185a6ffaa06"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-early.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-early.png",
+      "bytes": 7073,
+      "sha256": "a75a73f5dabb3130d65ff4350dadb1c8456c1dc05057b3d04ca938947a26006f"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-end.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-end.png",
+      "bytes": 7030,
+      "sha256": "500dc31cfff9f540e10fbaa3175e58895abd770626c54281c1170ee26fd51941"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-moving.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-gradientDrift-moving.png",
+      "bytes": 7063,
+      "sha256": "897b6127700fa3affb818bba415cb4c6c70edde1dc392164dbbffd740f7b03bf"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-after.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-after.png",
+      "bytes": 7102,
+      "sha256": "8a043971fe28ad1b180536ebd55bf6138f2cd42527439b90ecde1b1c004ebf7f"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-console.png",
+      "bytes": 30199,
+      "sha256": "a987175b8c716e9c7732a2dd956775ecd94fe927d4dbdf74a55a7088931c1ccb"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-early.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-early.png",
+      "bytes": 7090,
+      "sha256": "a6009237ffc5793a557dba9dc14a3f344bb781166bc9fe1314b78c094a182dee"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-end.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-end.png",
+      "bytes": 7102,
+      "sha256": "8a043971fe28ad1b180536ebd55bf6138f2cd42527439b90ecde1b1c004ebf7f"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-moving.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-indicator-moving.png",
+      "bytes": 7101,
+      "sha256": "7853ed9c44e6807965f5b427e6a82c515dbb5d0f0ba1a435213387b58fa4c0fa"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-after.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-after.png",
+      "bytes": 7130,
+      "sha256": "31243f86b2dd0a57e851831d228ac96599dd4eb2146e72e655f29a7eda7bc4c0"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-console.png",
+      "bytes": 30153,
+      "sha256": "53f591f7a2b03fca6e98732cb39497abc9d9e6e99d4b91ff4a203d31d9e28fb0"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-early.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-early.png",
+      "bytes": 7127,
+      "sha256": "ae569cd9f059ce5982c59bc69179f973a61c1c5400db91873cdcdce0aea4bc33"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-end.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-end.png",
+      "bytes": 7130,
+      "sha256": "31243f86b2dd0a57e851831d228ac96599dd4eb2146e72e655f29a7eda7bc4c0"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-moving.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/fitted-motion-wave-moving.png",
+      "bytes": 7086,
+      "sha256": "d68b3e4aeb25ef8bf6c5a3847ee24296b5c36e010323de06bd13ac32277adad8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/frame-review.json",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/frame-review.json",
+      "bytes": 1920,
+      "sha256": "307165ccb687856fafb315583b385270599aabce6646c20d65deebcd026de398"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/observations.json",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/observations.json",
+      "bytes": 397162,
+      "sha256": "b402f6b0bf9aec8ca0cddd0156fa976a392f175a39b1adf5c1f89aa51c2c185f"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-chromeTitle-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-chromeTitle-console.png",
+      "bytes": 30860,
+      "sha256": "550bc06b251100c36a462800bc2b01d23e903f88ffc6efdcca0d1b756038c363"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-chromeTitle-static.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-chromeTitle-static.png",
+      "bytes": 7733,
+      "sha256": "a542a6f73ae668b4009267ba2f56e79619cd5b94539545de128bd076043bf4f1"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-devContext-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-devContext-console.png",
+      "bytes": 26057,
+      "sha256": "8326f60509ba1f268d97d56bff0c7a59c6b3afa9365b062d9e09e5f8ae7f0463"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-milestone-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-milestone-console.png",
+      "bytes": 26945,
+      "sha256": "59e0551ee460425040b7ebcfb4f9bb6fa901872af030a836db5765ec20361c25"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-quietEditorial-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-quietEditorial-console.png",
+      "bytes": 27261,
+      "sha256": "6e23bd90dc7d0ef15ff4b6e4652ce53f8a99f435c7f754b348ab87e1b003d8a7"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-sdkWelcome-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-sdkWelcome-console.png",
+      "bytes": 26472,
+      "sha256": "4be4ed9df662cb86005d324df9ac88e21d15607e8c681d63f5c18c3b21de21d7"
+    },
+    {
+      "path": "native/chrome-2026-09-12T17-31-42.921Z/website-signature-console.png",
+      "source": ".artifacts/devtools/chrome-2026-09-12T17-31-42.921Z/website-signature-console.png",
+      "bytes": 37871,
+      "sha256": "2b13c65607944e9cacdace704e3b80b7c1def16611aea92d93049b99f43c61a8"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-blueprint-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-blueprint-Dark-200-appearance.png",
+      "bytes": 79800,
+      "sha256": "745a9a7d73b0af2849f2bc8d141551a4b611c44721eebf626bf3deb1b909b845"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-blueprint-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-blueprint-Light-100-appearance.png",
+      "bytes": 33944,
+      "sha256": "0cfe0b4cfed8753029356c4c749e45dee104fd63459ba8c289b5c4c190795370"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-blueprint-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-blueprint-generated-copy-native.png",
+      "bytes": 117548,
+      "sha256": "bd0c62fc956d476653cc0be2eaa2a0a1d8565a73c0937d04e40c625bb51d190d"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-Dark-200-appearance.png",
+      "bytes": 84355,
+      "sha256": "47b425799dc6f511185797c9f9148e076db86ade6e1c641a6969e47b3d147d84"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-Light-100-appearance.png",
+      "bytes": 39338,
+      "sha256": "b3cde58fe8aa9919afb9f52d4c6c772eea57ab3dbb42d187c772483f4958879a"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-before-open-opened.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-before-open-opened.png",
+      "bytes": 38937,
+      "sha256": "129e53e493da378c4c12359b94ddac25b9a26bfa7c6c37955fa2e7f3fa144d19"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-generated-copy-native.png",
+      "bytes": 153834,
+      "sha256": "f0e184c76b3151ec75e01e8215fcec06d0a7c7c94b8ecdc1d34ac752a370a95d"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-reopened-reopened.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-reopened-reopened.png",
+      "bytes": 38937,
+      "sha256": "129e53e493da378c4c12359b94ddac25b9a26bfa7c6c37955fa2e7f3fa144d19"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-repeat-1-repeated.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-repeat-1-repeated.png",
+      "bytes": 39355,
+      "sha256": "215b77e1264449db608c04b2a2799768218f97502d6b9c0b01895b16561846bb"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-repeat-2-repeated.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-buildReceipt-repeat-2-repeated.png",
+      "bytes": 57012,
+      "sha256": "aaba6e7bec3cc12fffb5828aa1455e3dcc56fd57be766263701f1a6fca14cf17"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-commandCard-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-commandCard-Dark-200-appearance.png",
+      "bytes": 79930,
+      "sha256": "617e579a98e93fdb903359eaaf8e0cec6b693d42237a6bba43e4ed67de91677b"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-commandCard-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-commandCard-Light-100-appearance.png",
+      "bytes": 34322,
+      "sha256": "16128a88a44c2a697ee1fc6831e63c3a6696a1f4da59d0d1ed5327184a003708"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-commandCard-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-commandCard-generated-copy-native.png",
+      "bytes": 128391,
+      "sha256": "fcd4a3c9ce497318d7f50b92e0cfe531dbad7138c57c74647a83db95dd83abf2"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-contourMap-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-contourMap-Dark-200-appearance.png",
+      "bytes": 78639,
+      "sha256": "8b9495dc846351c1d7ffdf69b9c42552d3975560ca0c7efec48ce3144aeb01c0"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-contourMap-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-contourMap-Light-100-appearance.png",
+      "bytes": 33441,
+      "sha256": "6c6d6f601e220985716b224f62d820dcda5324eefb8be6e93c99b5d40cb5a4f7"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-contourMap-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-contourMap-generated-copy-native.png",
+      "bytes": 123288,
+      "sha256": "d690eba01915fd2b69a3a7447a68ef35b8224445070f63fe100f980df73b2c49"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-letterpress-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-letterpress-Dark-200-appearance.png",
+      "bytes": 85705,
+      "sha256": "bdf390e5698cd1ebfac33202b548fae89a17496cc26411f6d846c3d7502b8732"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-letterpress-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-letterpress-Light-100-appearance.png",
+      "bytes": 36626,
+      "sha256": "2c4573d01ef7fd66a51d9e98b350df61e5419c9b545a613f3e203a4375ddc12b"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-letterpress-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-letterpress-generated-copy-native.png",
+      "bytes": 127567,
+      "sha256": "f8b3dd2895db7acdd3a3e9bd890af7001d0da305c147747f261eab29730f63d7"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-orbital-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-orbital-Dark-200-appearance.png",
+      "bytes": 86565,
+      "sha256": "e1c7f7ed884ef26a433c2da538d71412fad6c0d5f277925da1490be65a9a4155"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-orbital-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-orbital-Light-100-appearance.png",
+      "bytes": 38830,
+      "sha256": "d1a38d57d9be3e2616bc082d92bf342db97447fd9e5f41e129869ecb4b99d24c"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-orbital-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-orbital-generated-copy-native.png",
+      "bytes": 126567,
+      "sha256": "f613ca1fb907eb342653878ded694c46099a5ee4b611c372050efebba6676db0"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-releaseBulletin-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-releaseBulletin-Dark-200-appearance.png",
+      "bytes": 92815,
+      "sha256": "38aebce959b14c4d3e8adab0a1fc5b2204b8d6e5eff9242dc54ec5bfc77f2e7d"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-releaseBulletin-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-releaseBulletin-Light-100-appearance.png",
+      "bytes": 39365,
+      "sha256": "250e2af5c6ce50af3d357e8242ca088aa9215a1f9a9d7a47b5de104d6d661ac1"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-releaseBulletin-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-releaseBulletin-generated-copy-native.png",
+      "bytes": 152700,
+      "sha256": "f3e3dfab6461e542c20e86bb5b38313d0a179be446dbd4664a4ce434844f8165"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-requestTrace-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-requestTrace-Dark-200-appearance.png",
+      "bytes": 84286,
+      "sha256": "238a45626d460417e9a3cf3d7cff6819eaa06e84f1857990c83836f480c3c5b3"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-requestTrace-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-requestTrace-Light-100-appearance.png",
+      "bytes": 37810,
+      "sha256": "a563d184129f36a034d7320b2b31988bbff0f8024e909c7339be7a233d9d8fb5"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-requestTrace-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-requestTrace-generated-copy-native.png",
+      "bytes": 145255,
+      "sha256": "f84f14c5c3ed08ae79d7c290ba5f71f93044f4ea11c77eae98b722da410acbb4"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-serviceReady-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-serviceReady-Dark-200-appearance.png",
+      "bytes": 89065,
+      "sha256": "ffab9564d6cc2b834099d3d15e3a09165b67f366f68d25a86d897889c4992ee1"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-serviceReady-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-serviceReady-Light-100-appearance.png",
+      "bytes": 39867,
+      "sha256": "e999cc1bb5f1d52321b7ce425c423bcadc0b56fbbda701d2be436299118b3ce5"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-serviceReady-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-serviceReady-generated-copy-native.png",
+      "bytes": 141547,
+      "sha256": "8b012f0e95645af20ac38ba1997c97d6a260cad3da2552d55ba99d67beb61209"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-signalHalftone-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-signalHalftone-Dark-200-appearance.png",
+      "bytes": 83070,
+      "sha256": "c2263a38fb437f550e256880d70d1928ede0f17f3bad0434fa376e6fbaaa9eb2"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-signalHalftone-Light-100-appearance.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-signalHalftone-Light-100-appearance.png",
+      "bytes": 36918,
+      "sha256": "0e8effd81383b88451fb2486752fca46f3b70b94ae96b8af19864409f981a1b6"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-signalHalftone-generated-copy-native.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/compact-signalHalftone-generated-copy-native.png",
+      "bytes": 129512,
+      "sha256": "cc79a849da06bf6e88878762c0e63d585ce04f8e2516d64798d64c956da2c156"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-before-open-opened.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-before-open-opened.png",
+      "bytes": 40679,
+      "sha256": "177d998861e470f364927986b19e637f702464c943c2636b36a4e17be3b05ee5"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-280-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-280-resized.png",
+      "bytes": 22717,
+      "sha256": "9e11bdbe3fe4c2574a8198ee15078cb997be2743f0ca13b2595c1c6262aca15c"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-360-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-360-resized.png",
+      "bytes": 25675,
+      "sha256": "1deabb6cbd7439223d1ad9e796e70cd04179df51ab5b689b995b84ef8f6e854b"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-480-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-480-resized.png",
+      "bytes": 28201,
+      "sha256": "a517713a073bd8888745e780695ab736a5dd2267c300266d2cf927e2c0ac8f86"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-720-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-720-resized.png",
+      "bytes": 39584,
+      "sha256": "885a4cbca3a152648600432527850babff3e56ab8efb0ee32b67b11aa5f42f68"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-960-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-container-experimental-960-resized.png",
+      "bytes": 40108,
+      "sha256": "67b8e70b6eb264473c7d769ee6e99ec842f93cd4868b8b338af2ae8848a7af26"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-280-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-280-resized.png",
+      "bytes": 27105,
+      "sha256": "b48e710d0aabf7dc61030299e6179570141a1cc5fbf7b4f2066588e5edfb9bd6"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-360-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-360-resized.png",
+      "bytes": 28893,
+      "sha256": "b36a2621d8fac26e2b6153cd2cd99f57d90ad93a732463f5ebfe65e7055d32cc"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-480-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-480-resized.png",
+      "bytes": 31160,
+      "sha256": "d0681e47e1a484559c4f54d93a57ac24cc3d65039cc9d8f8263fbdddfbebae72"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-720-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-720-resized.png",
+      "bytes": 37481,
+      "sha256": "cd4eb2240b70e580b15a3aac511d59362736df8b0eb01feb97962134515e1089"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-960-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-fixed-960-resized.png",
+      "bytes": 40048,
+      "sha256": "11a5850146d203bace7cbe024dbd4ba13bbca6a1706a3a4db40f1810151b27ec"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-reopened-reopened.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-reopened-reopened.png",
+      "bytes": 40679,
+      "sha256": "177d998861e470f364927986b19e637f702464c943c2636b36a4e17be3b05ee5"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-repeat-1-repeated.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-repeat-1-repeated.png",
+      "bytes": 41103,
+      "sha256": "820550de291107e8a446324a3cb39725ac43abfc8f339fe8026371a6419db43a"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-repeat-2-repeated.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-buildReceipt-repeat-2-repeated.png",
+      "bytes": 61598,
+      "sha256": "a0c046af200be562e72255c8d6d4f384777c56c701b4c8a1e3b803b59cc808b0"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-before-open-opened.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-before-open-opened.png",
+      "bytes": 39521,
+      "sha256": "ad91f07db95278c16c343e4b0e9f7417ccb762614616589e0695494f51607ffa"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-280-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-280-resized.png",
+      "bytes": 30189,
+      "sha256": "207eff5b61e217d79c491bdb148b51ef9729046b97f7940188ca4eed2f538c28"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-360-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-360-resized.png",
+      "bytes": 33668,
+      "sha256": "f37800c9aa5c21a65f3747e1646f5168576fe7dacd7871c0bedb6abdace28315"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-480-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-480-resized.png",
+      "bytes": 34570,
+      "sha256": "487a43a5f9d91cd461284358d563b98fcf3691401d1c974280adee4f7a7e0773"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-720-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-720-resized.png",
+      "bytes": 38307,
+      "sha256": "30f3f50fda8d081eeed93220967f12fcc8bea4e126b9dc60cdd3508ae54d37bb"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-960-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-container-experimental-960-resized.png",
+      "bytes": 39705,
+      "sha256": "7e5357c2e97852d6e3e0c076513457566438e46392f9db1b98ff922e78c21630"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-280-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-280-resized.png",
+      "bytes": 31353,
+      "sha256": "c0118f228b35e5a32bb56fa244fa76dc34c278a2b1886497475b02e486391f3a"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-360-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-360-resized.png",
+      "bytes": 32979,
+      "sha256": "99ef2ad6cd67e49bf1cd34237eee6c232f60462fc7910f34e32139a2671d74e5"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-480-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-480-resized.png",
+      "bytes": 34541,
+      "sha256": "0a649ae2637f22333be4889d825a5d1ff0e5fb251045749c1fbe7b767bd7f8d4"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-720-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-720-resized.png",
+      "bytes": 38270,
+      "sha256": "1ad6786b1726d68df7448b11d144b6552b2e4426bad4700b39220e58812cb948"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-960-resized.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-fixed-960-resized.png",
+      "bytes": 39671,
+      "sha256": "fb81e22f4252395fef8250448b03ac87512bfd8813b9f32221bbe66691e42494"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-reopened-reopened.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-reopened-reopened.png",
+      "bytes": 39521,
+      "sha256": "ad91f07db95278c16c343e4b0e9f7417ccb762614616589e0695494f51607ffa"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-repeat-1-repeated.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-repeat-1-repeated.png",
+      "bytes": 39856,
+      "sha256": "f6344849a5ef8ed7dc17f8de6a41d86ccd01f15104652f8d4922adbee020fa93"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-repeat-2-repeated.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/container-serviceReady-repeat-2-repeated.png",
+      "bytes": 53792,
+      "sha256": "14b4d47ded9f6d80b607ada560c6430775e4a35afbff758a4ba4c83a39705c91"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-35-10.937Z/observations.json",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-35-10.937Z/observations.json",
+      "bytes": 1045398,
+      "sha256": "0dbc6876539c064c98adc07c4a65b7b14cbe42ed4e6ab6ce6fd76a061ab6f110"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-anonymous-source-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-anonymous-source-context.png",
+      "bytes": 41920,
+      "sha256": "164b280696a2474e0c8a2aee258cb1bf6bb62b3e73a5f836c0ee91dc8e3638f5"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-dock-bottom-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-dock-bottom-context.png",
+      "bytes": 34304,
+      "sha256": "4609fc1cbf2dfa162319afe06f1928b833292f008d06ccbc90a2473379cab08b"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-dock-right-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-dock-right-context.png",
+      "bytes": 37016,
+      "sha256": "9f6501028ceb4a29237b66028adde935dff2227e9d0e5a461fc0a28b43ef7b10"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-dock-undocked-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-dock-undocked-context.png",
+      "bytes": 41427,
+      "sha256": "a971d1f511ede30225e14c691d4755f383c98118beee0f6ab38f39da81ec45a7"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-drawer-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-drawer-context.png",
+      "bytes": 57090,
+      "sha256": "d27439f305f317b1d30a637fd4fba95bbbc48a54bd1fe4439fb21c7ff3024952"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-long-source-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-long-source-context.png",
+      "bytes": 42669,
+      "sha256": "6480441b5a236c0bce4fff1783b056189582e24223798c88786f82ade75362fc"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-nested-groups-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-nested-groups-context.png",
+      "bytes": 45603,
+      "sha256": "15ac5db7b6af1e3837b05297d4b08f9b934644b1ef6fd8e936dde4e395064f7d"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-offscreen-return-returned.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-offscreen-return-returned.png",
+      "bytes": 65647,
+      "sha256": "4f4bcccdd35df051ebe974ca941e10d8d1a2a53ea50fec796cac65204433ecc6"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-page-zoom-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-page-zoom-context.png",
+      "bytes": 41926,
+      "sha256": "656f922012d55352aefee8e48a5b393e5c89c55fe3a9526e51fa6caa91906d79"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-sidebar-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-sidebar-context.png",
+      "bytes": 48068,
+      "sha256": "3240e4b779daa600824a134f483f8c9c8d3a705e33abd9071a60ceae57f6c0b2"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-timestamps-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-timestamps-context.png",
+      "bytes": 43076,
+      "sha256": "27f25ff17f1f0ef162f827565cb5ee5b8debd883b3e26def7a5f4e61e46277fd"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-zoom-125-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-buildReceipt-zoom-125-context.png",
+      "bytes": 55835,
+      "sha256": "81366399e8c8eb107728e3174695435aa409da9626c3398cf5edd953798128d2"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-anonymous-source-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-anonymous-source-context.png",
+      "bytes": 40838,
+      "sha256": "f1b7e3852f3b46f5a86fcb8cba6627960002bd32fc18f371b27296df4588e81e"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-dock-bottom-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-dock-bottom-context.png",
+      "bytes": 32123,
+      "sha256": "5e7acef3ff2c907bce3a07fb7af86ea64cabbbd57f5e9c4f4cf02e92b7439205"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-dock-right-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-dock-right-context.png",
+      "bytes": 41010,
+      "sha256": "abd2347e3c61ea2c0e0a16eee71505d470709a76ff0e14f0e5ceb8b803db85bf"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-dock-undocked-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-dock-undocked-context.png",
+      "bytes": 40337,
+      "sha256": "e483d4a7f42fedb9e6c0ad0c8a9bfe1c25dd386396d5dd987203432ff2192f8a"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-drawer-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-drawer-context.png",
+      "bytes": 57542,
+      "sha256": "eb6ddb82683485808d8094abfcf13e5975c83f8ec50063271d3f17892dd5ff93"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-long-source-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-long-source-context.png",
+      "bytes": 41723,
+      "sha256": "0f58a6202dd9ffac6b0e19bac15bd8ec3532a882263cc5ab4e941727fbdf4267"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-nested-groups-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-nested-groups-context.png",
+      "bytes": 44876,
+      "sha256": "965a6305ced471afec326ea65a953b98cd751ab72181e2dba1326023102ec8d6"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-offscreen-return-returned.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-offscreen-return-returned.png",
+      "bytes": 61575,
+      "sha256": "7318e5aae0c746509a974337f71b0e80f64072e4f978fdcbadb021d9a1441b9a"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-page-zoom-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-page-zoom-context.png",
+      "bytes": 40910,
+      "sha256": "2c7c4d9071840a7997e01d1fa6c59aad91b1855e9c6d5023048d1b13b5d889c7"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-sidebar-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-sidebar-context.png",
+      "bytes": 47288,
+      "sha256": "2b3a4b09b015e76a33879586b71efc3fb8f4dc247ee41d924c0cd836ac9cf876"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-timestamps-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-timestamps-context.png",
+      "bytes": 42116,
+      "sha256": "5fe2a19a4b002f5cdb6631957a69dfdd07b4ab733bfea21743fd8410af8a6e72"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-zoom-125-context.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/container-serviceReady-zoom-125-context.png",
+      "bytes": 55474,
+      "sha256": "40ac8a3c9010c0c6bbf580e3bec526ea38664c80a68985b93a1e298417708be0"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T17-52-03.247Z/observations.json",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T17-52-03.247Z/observations.json",
+      "bytes": 199008,
+      "sha256": "31ffc6ab28d36afbe317106a8bac9798ba282d391ed9c889daa53eb9db289939"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T18-20-07.269Z/container-buildReceipt-offscreen-return-returned.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T18-20-07.269Z/container-buildReceipt-offscreen-return-returned.png",
+      "bytes": 69221,
+      "sha256": "0825ba344736a5ddc7b02e4db4793e38fbf2cc5ea17d6ddf4c0f1f0aa1c61e0a"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T18-20-07.269Z/container-serviceReady-offscreen-return-returned.png",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T18-20-07.269Z/container-serviceReady-offscreen-return-returned.png",
+      "bytes": 61675,
+      "sha256": "8705682b9d52b799acc9cf439bde8746aa3d859b13e1155851fd44e7baee50b6"
+    },
+    {
+      "path": "native/chrome-lifecycle-2026-09-12T18-20-07.269Z/observations.json",
+      "source": ".artifacts/devtools/chrome-lifecycle-2026-09-12T18-20-07.269Z/observations.json",
+      "bytes": 19583,
+      "sha256": "a3215da5c3b913ba9ec8f1894e6b1945c212c47dba8194fa17f8f7753c02973e"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-blueprint-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-blueprint-console.png",
+      "bytes": 32467,
+      "sha256": "278a0850ea9c88059d69596b0e351c7a3eb8ce9a65bc3ad6ede930b717125014"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-blueprint-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-blueprint-static.png",
+      "bytes": 9884,
+      "sha256": "213075881d22ff59abbc868a29deb9781c843164a80d530aa1e452e41dff80b7"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-buildReceipt-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-buildReceipt-console.png",
+      "bytes": 37209,
+      "sha256": "a4b858d5fb14b46038d65ffebbf61d04aaebc5acd3e550ad0a33ba7257d38dbf"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-buildReceipt-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-buildReceipt-static.png",
+      "bytes": 12325,
+      "sha256": "7d3e23c31cba46d389aa04db3e880e708dcfd5fca061276aaaf120b681e5fa57"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-commandCard-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-commandCard-console.png",
+      "bytes": 32183,
+      "sha256": "67cc31c90b8d5f6311ca1824e24d35bba88bbe96cf99660b43c6a854f6084011"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-commandCard-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-commandCard-static.png",
+      "bytes": 9252,
+      "sha256": "96387de6951675661a3a960e785ff3b214736f6ad535ca768645b2bc6af1e466"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-contourMap-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-contourMap-console.png",
+      "bytes": 31197,
+      "sha256": "d3d11d55772e5466258f077340cc81d38db92f413890d689130bf5bc949c102a"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-contourMap-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-contourMap-static.png",
+      "bytes": 9143,
+      "sha256": "5e0cd3622039982a9bc96fddbb1e0b398221bcfd1db81deac7ce73a245c273b4"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-letterpress-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-letterpress-console.png",
+      "bytes": 34337,
+      "sha256": "78d5023a5a0837a77c7592261e74b6fb238029756d3bb00d0414fb80afa3dfda"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-letterpress-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-letterpress-static.png",
+      "bytes": 11445,
+      "sha256": "e9c13d910359109b10a586271399aef67c9645ff78d95076df4d80ed627506b9"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-orbital-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-orbital-console.png",
+      "bytes": 37635,
+      "sha256": "0e77cc4d009409ed015fcd63864afca0fe4c8a874b9067499bc3a26feb6e06a6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-orbital-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-orbital-static.png",
+      "bytes": 14953,
+      "sha256": "e4113d9701971a7f6dc4b05090f055340b567d2bc6547d8c8dd48b317b079daa"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-releaseBulletin-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-releaseBulletin-console.png",
+      "bytes": 37414,
+      "sha256": "fc73be9b7ba97c041628d56f95034111b4c7b6c15bffcbe63ae8b9ccc47ab8cc"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-releaseBulletin-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-releaseBulletin-static.png",
+      "bytes": 12649,
+      "sha256": "1053ff1c3f752fc4c450bfb0e42271fd0f2afc664c34c6005d15a29ff8e6bb40"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-requestTrace-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-requestTrace-console.png",
+      "bytes": 36006,
+      "sha256": "58a053c9136982b15f17392573ef9f17c6329f07408a348d491c305fa040da6c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-requestTrace-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-requestTrace-static.png",
+      "bytes": 11202,
+      "sha256": "47883c85a5058a8d7d92afc9d9698b1714a59b3938ce73c3aae426810c44f8a7"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-serviceReady-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-serviceReady-console.png",
+      "bytes": 38043,
+      "sha256": "d84544c7f4832e08950afd405ec396a959a85806b8cadb5b2c2420490d492b65"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-serviceReady-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-serviceReady-static.png",
+      "bytes": 12279,
+      "sha256": "44f1c33b6f6203f505cd85bdabb7f0903a393fc73ae520b8400e175d1ddcf08f"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-signalHalftone-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-signalHalftone-console.png",
+      "bytes": 34577,
+      "sha256": "5b843be91599f4b5fd25b78007394ce2f32ba327d7302e3b8d51d4ed09f07a80"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/compact-signalHalftone-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/compact-signalHalftone-static.png",
+      "bytes": 11950,
+      "sha256": "22ade36d962c7fa98a0943303bbf9a68b0ca67c56087755bdfadd9141b168dde"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/container-buildReceipt-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/container-buildReceipt-console.png",
+      "bytes": 39417,
+      "sha256": "30d77acc2c7031c85a3db44593a506055ad92ba3a5dfa1e5fe32be6c79516084"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/container-buildReceipt-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/container-buildReceipt-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/container-serviceReady-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/container-serviceReady-console.png",
+      "bytes": 38043,
+      "sha256": "d84544c7f4832e08950afd405ec396a959a85806b8cadb5b2c2420490d492b65"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/container-serviceReady-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/container-serviceReady-static.png",
+      "bytes": 12279,
+      "sha256": "44f1c33b6f6203f505cd85bdabb7f0903a393fc73ae520b8400e175d1ddcf08f"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-blueprint-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-blueprint-console.png",
+      "bytes": 36840,
+      "sha256": "abb90eb709bcfb3b5bc729c1a1b741479e841a99833e08d9dd0badb18025c359"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-blueprint-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-blueprint-static.png",
+      "bytes": 14192,
+      "sha256": "b3db72530191e033ffd29aba9101f92359c06d3ee7874b6439f0f1a6702d82d6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-buildReceipt-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-buildReceipt-console.png",
+      "bytes": 39417,
+      "sha256": "30d77acc2c7031c85a3db44593a506055ad92ba3a5dfa1e5fe32be6c79516084"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-buildReceipt-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-buildReceipt-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-cjk-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-cjk-console.png",
+      "bytes": 29596,
+      "sha256": "7f563d0aa5aa4d69d7e0cc679102eeedd494757d865d031dc590d69340ef50bb"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-cjk-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-cjk-static.png",
+      "bytes": 8042,
+      "sha256": "cac405913f86aeb41ee51a785aaa1227b7f465b685d549cfbc4f46a2b46b6e4f"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-combining-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-combining-console.png",
+      "bytes": 22439,
+      "sha256": "c61700bec30d34acea10b6de167a0268c04c02de9232b030bdd867d29a1670d0"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-combining-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-combining-static.png",
+      "bytes": 3210,
+      "sha256": "4e3ad418153d4357cf0a6d3a35545d6237fbb6d58513519bfa4de074b356eeea"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-commandCard-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-commandCard-console.png",
+      "bytes": 34406,
+      "sha256": "364c78e6041e056e0c5bd7d45f47be8f12c8381cdc2708285b0840fe5571c9b6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-commandCard-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-commandCard-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-contourMap-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-contourMap-console.png",
+      "bytes": 38470,
+      "sha256": "40336b8de122ccf15062d805908260895a7bcfa017abe2160d7fbe888e429d43"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-contourMap-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-contourMap-static.png",
+      "bytes": 16166,
+      "sha256": "6d16bd3b93290eadf049b6e0e3bfa4d8553d7a5b7e23f5b108325665a54c1fe9"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-emoji-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-emoji-console.png",
+      "bytes": 25888,
+      "sha256": "862875e57f86bb131f9da1fc721fc83f1ec51b1fbadc883b52d8d2f29d21c93c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-emoji-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-emoji-static.png",
+      "bytes": 5604,
+      "sha256": "99225b162d312b08e59ee3e176297039cc446ef228c741d31de7dcf2a3edecd1"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-iceCathedral-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-iceCathedral-console.png",
+      "bytes": 53235,
+      "sha256": "0d2def74968ab899b4f71ec3016584d53e661ac8fb830807ffcdfc57b19d8f7e"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-iceCathedral-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-iceCathedral-static.png",
+      "bytes": 34199,
+      "sha256": "81a863a59679532aa61044480f8177e986bfe0e5241b9e1b36ebe28776eebe88"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-latin-wide-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-latin-wide-console.png",
+      "bytes": 26131,
+      "sha256": "c3f3d7b394b129b356b1b22b9d64b5eea47611342e60f3fb8f2d6b4327631898"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-latin-wide-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-latin-wide-static.png",
+      "bytes": 5945,
+      "sha256": "83966162b9da63bc8814dd6baac74b93c40e653cc4b0e8c42ba7dfbc5408fd59"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-letterpress-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-letterpress-console.png",
+      "bytes": 39591,
+      "sha256": "0418cc5ab960b810071da68e4f3f94f49d527970f50d26991ef8da7fb8d38e5c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-letterpress-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-letterpress-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-lightningMetal-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-lightningMetal-console.png",
+      "bytes": 46772,
+      "sha256": "81de47d5d9858274cbe66de24ff1b422f321a555ee62b3a89652cf4507cd405f"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-lightningMetal-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-lightningMetal-static.png",
+      "bytes": 26817,
+      "sha256": "1b7e22c6452ba13b63cfa6bf79c3b4eefa7a48a104614c94634eeeefaa427fb9"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-lines-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-lines-console.png",
+      "bytes": 25584,
+      "sha256": "7bff85eca7b55926a5d951a417f9333083630277ffd0c40e0f6c0f672cd7f1a4"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-lines-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-lines-static.png",
+      "bytes": 5832,
+      "sha256": "cbb6949446362a412bece28e631f4ca52d86c3aa974502ee5eeb6b64a62b642a"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-liquidChrome-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-liquidChrome-console.png",
+      "bytes": 70019,
+      "sha256": "148670a2e2b99b98dfc20e4ee26c35e607865054b3c9d1d09e8ca2d926f4b18d"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-liquidChrome-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-liquidChrome-static.png",
+      "bytes": 49147,
+      "sha256": "847d935df96c6bd9d48e109448f26671396986e41066c592622cefa40c1ab644"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-moltenGold-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-moltenGold-console.png",
+      "bytes": 44258,
+      "sha256": "de1e310d807dd5333127dc23f7828364b09bb50253435bbf364dbe92ffc7e5d3"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-moltenGold-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-moltenGold-static.png",
+      "bytes": 24187,
+      "sha256": "567cf3e87e1cf8fedfb7204f3b0a72dd58b34a55a62a3e33a99b6fadd20baa87"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-orbital-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-orbital-console.png",
+      "bytes": 45203,
+      "sha256": "bd852ecf44dd4be2264ca5eac8fb6b80d122d45ce0bf72a8b0634dc01c449fbd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-orbital-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-orbital-static.png",
+      "bytes": 22958,
+      "sha256": "c3cb0f66dab58804e069b1cb09c475991ea6d3431afc51fbff001010a80fc3cd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-releaseBulletin-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-releaseBulletin-console.png",
+      "bytes": 39072,
+      "sha256": "e71c654d0010e8066ca51f6777ebd39839da9e5aacd65db1e8f3e9a00289f1f4"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-releaseBulletin-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-releaseBulletin-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-rtl-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-rtl-console.png",
+      "bytes": 23742,
+      "sha256": "17d487096fd39d7d9102b28433bd85f2953e2dbe715afe79f33a1df9a7833566"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-rtl-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-rtl-static.png",
+      "bytes": 4040,
+      "sha256": "95f88b56996597e95126819411591acef15c58ae37aada4f1a68c808731554c1"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-short-glow-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-short-glow-console.png",
+      "bytes": 20937,
+      "sha256": "58b96f24b82e22230005a34967f7f236eb8654c6eface41f996eeb1cd343c4a8"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fit-short-glow-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fit-short-glow-static.png",
+      "bytes": 2139,
+      "sha256": "67bc8805718b6abb972b1b68406ce4ac18da2ef1d4300ea217f55a7007b27036"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-after.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-after.png",
+      "bytes": 7022,
+      "sha256": "1566725575d6950ca5b85a41069e3483f9ba2b8a5c6a6ff7ae3df05eadf7e7dd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-console.png",
+      "bytes": 26610,
+      "sha256": "3c566393ac0fc869f136e1c9904d62dba0503133b433069775a166d64896c576"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-early.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-early.png",
+      "bytes": 7966,
+      "sha256": "2e1bbc419669583ccb41edc533600cb0a1e972169edc21bab706e22dc297ca59"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-end.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-end.png",
+      "bytes": 7022,
+      "sha256": "1566725575d6950ca5b85a41069e3483f9ba2b8a5c6a6ff7ae3df05eadf7e7dd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-moving.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-glowPulse-moving.png",
+      "bytes": 7307,
+      "sha256": "e58848c9266e806f5e9069dd11eb4b76f7c84795a273b872d65bdd5f8a907b06"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-after.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-after.png",
+      "bytes": 7022,
+      "sha256": "1566725575d6950ca5b85a41069e3483f9ba2b8a5c6a6ff7ae3df05eadf7e7dd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-console.png",
+      "bytes": 26610,
+      "sha256": "3c566393ac0fc869f136e1c9904d62dba0503133b433069775a166d64896c576"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-early.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-early.png",
+      "bytes": 7100,
+      "sha256": "d43bdbd5b349669e17a32c15a64271699056111c10780d1fb686f747890f2d1d"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-end.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-end.png",
+      "bytes": 7022,
+      "sha256": "1566725575d6950ca5b85a41069e3483f9ba2b8a5c6a6ff7ae3df05eadf7e7dd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-moving.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-gradientDrift-moving.png",
+      "bytes": 7053,
+      "sha256": "408eeff46210165c74be02c8e6565b7dcbed8fcfdcf12e3e283574c1a0d6b3fe"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-after.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-after.png",
+      "bytes": 7101,
+      "sha256": "2ae6edeffd96e00ed4dfb50abc78914e365bab44533d2145c24b4f3b3c6da208"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-console.png",
+      "bytes": 26699,
+      "sha256": "bd036446780aef6868891b49b22d235a6fd166b9bfc45cfc4102f7354aefd89b"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-early.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-early.png",
+      "bytes": 7102,
+      "sha256": "3239ff0c8e0f46939a5bb0d45f2ca88bce009ca8fb0d746dc3f2a7ab5d1ddd4f"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-end.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-end.png",
+      "bytes": 7101,
+      "sha256": "2ae6edeffd96e00ed4dfb50abc78914e365bab44533d2145c24b4f3b3c6da208"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-moving.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-indicator-moving.png",
+      "bytes": 7090,
+      "sha256": "6ffcd6a26572e810e2eec02e77a37fdf1a11ccabf0006e787ae7e71299fd0cd4"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-after.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-after.png",
+      "bytes": 7117,
+      "sha256": "4797cc36cf49502843fc79be2d316d3ab74a0666ec70fb6011067372abab0997"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-console.png",
+      "bytes": 26652,
+      "sha256": "83000e82967cf7d3a7b9b125b9d4929b7cda99974f4cd25d34405e63cf5ab092"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-early.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-early.png",
+      "bytes": 7114,
+      "sha256": "6a1c170afaae0bd0fd85fe8612af3a458ad7ea0318d4e87dc06eb091a707f251"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-end.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-end.png",
+      "bytes": 7117,
+      "sha256": "4797cc36cf49502843fc79be2d316d3ab74a0666ec70fb6011067372abab0997"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-moving.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/fitted-motion-wave-moving.png",
+      "bytes": 7082,
+      "sha256": "2ef3396d156a0853d07374ecd87e5335a2f57c8a5c6f5b346008c451457b8a05"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/frame-review.json",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/frame-review.json",
+      "bytes": 1919,
+      "sha256": "30dbbc7fa9ca8b17eb2ef6152fa37f738759e36c460b1368d8280b1211bd4fc4"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/observations.json",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/observations.json",
+      "bytes": 397265,
+      "sha256": "c5c6f38b33cef3fd5ed1e51b72b12f13b1e4918cdcbb4dbcd1287a8f9d7daff3"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-chromeTitle-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-chromeTitle-console.png",
+      "bytes": 27399,
+      "sha256": "a708d3c2488bf93fcb2a60b5326142c35da512e3816a351aee6d4299e172cc5b"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-chromeTitle-static.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-chromeTitle-static.png",
+      "bytes": 7793,
+      "sha256": "2a56ea78637554002935fa926867717f2ef9ffded7f24f8ce91e502c47475413"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-devContext-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-devContext-console.png",
+      "bytes": 22624,
+      "sha256": "df404c87735cafaac4efa27950552acdee7900b4fc22ff3d80a2ec925fc88d29"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-milestone-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-milestone-console.png",
+      "bytes": 23537,
+      "sha256": "40a4f144d275f6f68d8b16a9cdf455ccbf1a2fc3df30634af9dd63ba85eaa60c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-quietEditorial-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-quietEditorial-console.png",
+      "bytes": 23830,
+      "sha256": "d99c076ee28b1f5f5982a311fb3bc2bd56231cb23d497e90b5783536338c875b"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-sdkWelcome-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-sdkWelcome-console.png",
+      "bytes": 23046,
+      "sha256": "e25c1da581c428ff9a04cac0551a506f4a2f8dfefce925117de9683e91b31a7b"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-16-59.938Z/website-signature-console.png",
+      "source": ".artifacts/devtools/edge-2026-09-12T18-16-59.938Z/website-signature-console.png",
+      "bytes": 34828,
+      "sha256": "2838102ef9653a30186cb54c653dc21433aae3029e66ca644adfdbda31033a77"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-blueprint-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-blueprint-Dark-200-appearance.png",
+      "bytes": 65938,
+      "sha256": "b28785ce10ee44cd907848fab491bdfc04e8a47e10083a2107c4671bb5ac97d8"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-blueprint-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-blueprint-Light-100-appearance.png",
+      "bytes": 32396,
+      "sha256": "0ed9053a5034ea0abb88f65548791f533e0a33067ac3bb77f6e634f08167a50b"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-blueprint-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-blueprint-generated-copy-native.png",
+      "bytes": 115242,
+      "sha256": "3e27dfe2f708ce287f86c1a106e934a976815e69035d3411b6d2eeea42f77fd8"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-Dark-200-appearance.png",
+      "bytes": 78899,
+      "sha256": "c5c7b6fe4d9ce8640b1eef7f0941c591146e8f48f67173eae487053e26c1fac4"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-Light-100-appearance.png",
+      "bytes": 37158,
+      "sha256": "ceeddf11a4e8812fd4fc6e40efa8c7487c6c1ba3240552c9c2c5e19fc36903b2"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-before-open-opened.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-before-open-opened.png",
+      "bytes": 36931,
+      "sha256": "4045606fd2477c920b51267c393b419c37b5e68598cd22ee279a0738cc346ab7"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-generated-copy-native.png",
+      "bytes": 184027,
+      "sha256": "80a7ecd2a8de4533cf228036d9bc0b88a1b5bb3eaf680f8af0105528108b77a5"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-reopened-reopened.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-reopened-reopened.png",
+      "bytes": 36931,
+      "sha256": "4045606fd2477c920b51267c393b419c37b5e68598cd22ee279a0738cc346ab7"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-repeat-1-repeated.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-repeat-1-repeated.png",
+      "bytes": 37106,
+      "sha256": "8f2ca332f05a45ea763115cd475eddefad045ce38da7f32d9bf59141e4e3bfc0"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-repeat-2-repeated.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-buildReceipt-repeat-2-repeated.png",
+      "bytes": 55917,
+      "sha256": "d121bcf7f5e6551f20a58d1fd0221da67f872bc01952714cbf649cec49be7ee6"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-commandCard-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-commandCard-Dark-200-appearance.png",
+      "bytes": 66611,
+      "sha256": "d40995cc37bd175c6035eb0fa67ebc797ca27808d7a347d2455bfc559859e634"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-commandCard-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-commandCard-Light-100-appearance.png",
+      "bytes": 32132,
+      "sha256": "3efe9a845bd3ef1e8e158598eb291be97367b597fd6830f3c645b709b98f2656"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-commandCard-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-commandCard-generated-copy-native.png",
+      "bytes": 124616,
+      "sha256": "882f30dbbd127f65f213e991ab7032d55fa29f93f37d201d09601129501cb2a1"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-contourMap-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-contourMap-Dark-200-appearance.png",
+      "bytes": 62855,
+      "sha256": "c2a1f245882a385df6877e36aaeb9889dbecc7393906ab4172c602ead1054045"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-contourMap-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-contourMap-Light-100-appearance.png",
+      "bytes": 31067,
+      "sha256": "23f1545f8af1adfa1d50043574fd6a9313405e1ca39790909d151a663c6e682e"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-contourMap-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-contourMap-generated-copy-native.png",
+      "bytes": 119358,
+      "sha256": "dbba17fb45faab9597fc81e48ca193b670ea6ed1474e5fa0105cd18ddaf26b81"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-letterpress-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-letterpress-Dark-200-appearance.png",
+      "bytes": 70458,
+      "sha256": "ba9847d430df711fba8d37f74c62c813bb5f8872487758aa28751929eb990a9b"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-letterpress-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-letterpress-Light-100-appearance.png",
+      "bytes": 34314,
+      "sha256": "aa07140c5e18c4afb0ff3f92a7379371f8ce75b40abca124f15946e9b817ed4a"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-letterpress-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-letterpress-generated-copy-native.png",
+      "bytes": 123564,
+      "sha256": "9541bd4fdf71037bfee30c8cd0ed271d3deec9c020ea19ce54e989aa1c4f344e"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-orbital-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-orbital-Dark-200-appearance.png",
+      "bytes": 79775,
+      "sha256": "00596f3324a3d890f8b41176b7c419b48d388159a5641a7c3e35dd4c400fa090"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-orbital-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-orbital-Light-100-appearance.png",
+      "bytes": 37580,
+      "sha256": "7dadebaa03287e489f06650d4a7c4d3d6fafe2d7826cff1f5a710aa3b9a943f8"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-orbital-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-orbital-generated-copy-native.png",
+      "bytes": 124017,
+      "sha256": "0c81cec32bf8c687899e90b5b742f15a7bace5d5457c6c5dfd37ad361e559dcc"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-releaseBulletin-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-releaseBulletin-Dark-200-appearance.png",
+      "bytes": 85698,
+      "sha256": "80e3919cba0f01cedf5163095718bc99feb0366be1f9a3edc8b1be6af66f5d38"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-releaseBulletin-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-releaseBulletin-Light-100-appearance.png",
+      "bytes": 37354,
+      "sha256": "4612191c452f5cc486c18cd7e4df3f003bbde6ae77fa30ea6b2818f25cd73a1a"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-releaseBulletin-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-releaseBulletin-generated-copy-native.png",
+      "bytes": 149122,
+      "sha256": "bf085753d6a47de5b5f19b3a67476e5d1d923eb78f1ba8e5168ad04058853634"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-requestTrace-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-requestTrace-Dark-200-appearance.png",
+      "bytes": 72467,
+      "sha256": "c547dfb6c4a038431d68f354cb1109d2e5d42b28c25eddffddd502e803d6c97e"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-requestTrace-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-requestTrace-Light-100-appearance.png",
+      "bytes": 35943,
+      "sha256": "d25013fc0fd4dbf7fdfec833421c4969cf18d601a66b89f52265b8c793e73064"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-requestTrace-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-requestTrace-generated-copy-native.png",
+      "bytes": 173244,
+      "sha256": "d5653d823facdbbf6d465f801309c2e0857acad919c3cce5e988ba9fa69d5b1a"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-serviceReady-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-serviceReady-Dark-200-appearance.png",
+      "bytes": 81008,
+      "sha256": "bc34f50d2b571f7702e674d39d94c639a6b346770eec0f8776f1d4feb05981f1"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-serviceReady-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-serviceReady-Light-100-appearance.png",
+      "bytes": 37920,
+      "sha256": "44366e235d23a369a4bb0005791d0a8f4d6b9cccda147e141541259861c558e9"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-serviceReady-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-serviceReady-generated-copy-native.png",
+      "bytes": 169836,
+      "sha256": "2de221fd9db7a963420a2edbddd628801b91754697f7269e1b4a942a05db00e6"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-signalHalftone-Dark-200-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-signalHalftone-Dark-200-appearance.png",
+      "bytes": 71619,
+      "sha256": "d9437e73c07f28de6e9ba7c3ebb6ae0f8182579151e0e9e78741b3ae3e1cbd45"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-signalHalftone-Light-100-appearance.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-signalHalftone-Light-100-appearance.png",
+      "bytes": 34530,
+      "sha256": "0096d3ff745d45982e326bb6b8c2b0b6ba769e76841fdd70186e8b866fcc79ef"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-signalHalftone-generated-copy-native.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/compact-signalHalftone-generated-copy-native.png",
+      "bytes": 125651,
+      "sha256": "f81407901c10d84f407f988a0111eab676b12f9737ae1e8b430503b426f250a3"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-before-open-opened.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-before-open-opened.png",
+      "bytes": 39187,
+      "sha256": "1f7e7ea45b0a1697a83919ebfe2b7fb34242bbcf790ba12dc382166a59d8f815"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-280-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-280-resized.png",
+      "bytes": 17199,
+      "sha256": "8bd0982850299a1b45c21fdd9515e9e549656d96e1517c6bfc29339ee909330f"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-360-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-360-resized.png",
+      "bytes": 22198,
+      "sha256": "76fa9981a9195b47cd9b4ac1bfcd8bac4b9c91ca19f05d2966f3add073c1a699"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-480-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-480-resized.png",
+      "bytes": 23331,
+      "sha256": "665c3af7c4a2dee4aa279ab6fbf2197e0e3d2dd428245fd96757c86c8f9dc6bf"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-720-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-720-resized.png",
+      "bytes": 38427,
+      "sha256": "45cd44d7a6168d3de4a10a0685b45540f1b3596b08cd360de3b1afac7ad07a9a"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-960-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-container-experimental-960-resized.png",
+      "bytes": 36676,
+      "sha256": "7a7fb8dc8fdc867b656ebcd44377115364429e8b472beaf15215424540bf5edd"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-280-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-280-resized.png",
+      "bytes": 21111,
+      "sha256": "ce9f65fa0bea0b1d0456f9c23f7bf92c49bbbe5cab31cbfd4014332302011ae2"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-360-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-360-resized.png",
+      "bytes": 23200,
+      "sha256": "fa5a9df16174f00ced23dcd20f7bab1cfbaf920de054452345a313bad93e1884"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-480-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-480-resized.png",
+      "bytes": 25843,
+      "sha256": "3393ba2f4b5e25ee1624c7bdd3f562ae79f92e202a76cc51c3a858e43ee913ec"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-720-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-720-resized.png",
+      "bytes": 31764,
+      "sha256": "a35b2fef29acae5c1a8c901f69e7e4520bef797e53b30e60a037b5b3725613d2"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-960-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-fixed-960-resized.png",
+      "bytes": 36596,
+      "sha256": "ac6a14ea057bceff575589a628993d7a984d723f033ccea7ddaaa2e7e6193261"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-reopened-reopened.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-reopened-reopened.png",
+      "bytes": 39187,
+      "sha256": "1f7e7ea45b0a1697a83919ebfe2b7fb34242bbcf790ba12dc382166a59d8f815"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-repeat-1-repeated.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-repeat-1-repeated.png",
+      "bytes": 39378,
+      "sha256": "9a6846f1e31295d5dec33fcecd2dcb07b5a473d85c838d09fcb824afd957abb1"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-repeat-2-repeated.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-buildReceipt-repeat-2-repeated.png",
+      "bytes": 60637,
+      "sha256": "14b9fa438aa37825708283f569f6fac049cf5af4b6738402b0f8e41d29753375"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-before-open-opened.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-before-open-opened.png",
+      "bytes": 37810,
+      "sha256": "23a9fe83c0033137c2b63b2f1dcb6c31a3208c4e3d0a02b9b60f35edd6217d93"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-280-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-280-resized.png",
+      "bytes": 24191,
+      "sha256": "f1d829d41140dc4bf2321d650427c42e01068f81ac51cec855e1e3a5383066f5"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-360-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-360-resized.png",
+      "bytes": 28050,
+      "sha256": "d7c28a97b553597086c2544b64da18cc64b96b369460cefb163b3648bb9ae348"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-480-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-480-resized.png",
+      "bytes": 29273,
+      "sha256": "4419a673314ccd031859c0e57425d8169bacbfb8cd518e8bedf1cb16db631a89"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-720-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-720-resized.png",
+      "bytes": 32481,
+      "sha256": "89f91b5c4f9d6a297df8546208d206deaa936845b8f7c0ad338bc04365fda7bc"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-960-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-container-experimental-960-resized.png",
+      "bytes": 35224,
+      "sha256": "5b17ba5da608b8c6b32c4271db8790da774b7578ea5a61dd5bc55b2ab1aa3038"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-280-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-280-resized.png",
+      "bytes": 25474,
+      "sha256": "3348d4e283122be449ca5ab89fc962ea754e896109752e5b8b64e35b19b017f4"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-360-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-360-resized.png",
+      "bytes": 27432,
+      "sha256": "c0c790bcd0e3c547646943e6e0f48283e56878d0384b804527c6efa507267c04"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-480-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-480-resized.png",
+      "bytes": 29335,
+      "sha256": "6fb46b13bd4d02d68d804db2f5f82245cf427117d5292ac7fb0965096ecc01ca"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-720-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-720-resized.png",
+      "bytes": 32543,
+      "sha256": "b834c0ad7414d0fc495de8975f9f3a34c11e8b91302129a5738a18013d3a969c"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-960-resized.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-fixed-960-resized.png",
+      "bytes": 35286,
+      "sha256": "6cbe8ba002b346012c3905ebb46d008c298f75e9721115f3d02af4864ede067a"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-reopened-reopened.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-reopened-reopened.png",
+      "bytes": 37810,
+      "sha256": "23a9fe83c0033137c2b63b2f1dcb6c31a3208c4e3d0a02b9b60f35edd6217d93"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-repeat-1-repeated.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-repeat-1-repeated.png",
+      "bytes": 37908,
+      "sha256": "7e1a3f2e2d79aa0240b4a9def8bd215c67974c7aa5754afb3de961c9b36422ed"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-repeat-2-repeated.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/container-serviceReady-repeat-2-repeated.png",
+      "bytes": 57216,
+      "sha256": "4434432b6a28356d6c2c2263d81a4affdd662f20a63c6b0ca495b4f410c11c76"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-17-41.560Z/observations.json",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-17-41.560Z/observations.json",
+      "bytes": 1045922,
+      "sha256": "ad3440a0e80461fb1926229689d99e69fa223d8d3103670a885895f10aa9b18c"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-anonymous-source-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-anonymous-source-context.png",
+      "bytes": 39315,
+      "sha256": "c30025b08a5f7512a88e0b34b62e707b30f2103ed4921d53ec0478c9fca7e402"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-dock-bottom-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-dock-bottom-context.png",
+      "bytes": 34174,
+      "sha256": "f30d9d9b7fc54676ed552ecf292c7402cc1de934d3dd2cbfe685943c08acb156"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-dock-right-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-dock-right-context.png",
+      "bytes": 31987,
+      "sha256": "f92507353a58b5fb34d70808659f00b48ee08a13e7f1315d5b69b7216c88f6e0"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-dock-undocked-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-dock-undocked-context.png",
+      "bytes": 39065,
+      "sha256": "f02625afeb3ee2157a0947c639a41271433aee121ac08250db675c4d2933ce2b"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-drawer-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-drawer-context.png",
+      "bytes": 56132,
+      "sha256": "4786ffb6bf4404d5b9abbe04be2d033d650529109dc7b4fe66caf8af8d7e80ab"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-long-source-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-long-source-context.png",
+      "bytes": 40254,
+      "sha256": "df723221fd4b9831e033c92aa74bd5308e7cff1ba6f55ab421af1fdcb69aea93"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-nested-groups-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-nested-groups-context.png",
+      "bytes": 42225,
+      "sha256": "726f3beb588fffa19d8d7c694bb3419b7bce42ac72010512c82f2870c7af43d1"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-offscreen-return-returned.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-offscreen-return-returned.png",
+      "bytes": 71122,
+      "sha256": "30ad0f8f6cc49c6845b0f84a51740934cccca6b3290e4589705c77a1f5f494b1"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-page-zoom-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-page-zoom-context.png",
+      "bytes": 39065,
+      "sha256": "f02625afeb3ee2157a0947c639a41271433aee121ac08250db675c4d2933ce2b"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-sidebar-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-sidebar-context.png",
+      "bytes": 45234,
+      "sha256": "50faffd69c9fb06740c1dc0f8f89dc62f78f5f47aa7d46c36cfb5194c71ac164"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-timestamps-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-timestamps-context.png",
+      "bytes": 40737,
+      "sha256": "f35efcef45a49ca5d0aa40694518403b8224d99cc25668bd749b0668eadb5fc1"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-zoom-125-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-buildReceipt-zoom-125-context.png",
+      "bytes": 47884,
+      "sha256": "de002f8f2fb8765371c19d8cbe37741050ed179389ae388273c015e3626097e6"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-anonymous-source-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-anonymous-source-context.png",
+      "bytes": 37917,
+      "sha256": "62da92eacfaab1f1194542f1bde31feadadf144b809c97a0c4abf575f96198e0"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-dock-bottom-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-dock-bottom-context.png",
+      "bytes": 29881,
+      "sha256": "65b5c7f4511f06690cde57f9c671cca5bb3f9993552cc2471434993535086baf"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-dock-right-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-dock-right-context.png",
+      "bytes": 35450,
+      "sha256": "294f93a3faf22c687715dee8da465e57afa8d99ba632a2788b234f9748c8f97d"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-dock-undocked-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-dock-undocked-context.png",
+      "bytes": 37692,
+      "sha256": "d1a3b9073f18991ab0e6133e1ac39f6629904586099a6ab5d5b80a2ff6f481c8"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-drawer-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-drawer-context.png",
+      "bytes": 57201,
+      "sha256": "2a0681d122e1cb92d817771dbcd9cc457a36b9fb2bdc2197aae06fa6cb4f227e"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-long-source-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-long-source-context.png",
+      "bytes": 38886,
+      "sha256": "6c0f2ee20b9e8cc94d5c6b299397b566fb212d4202a6cab31fd3ef9460028f12"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-nested-groups-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-nested-groups-context.png",
+      "bytes": 41037,
+      "sha256": "e672f984a905d01c3820616128e3ef2e3b652dba15f2e5a2200a82532b9f6bff"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-offscreen-return-returned.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-offscreen-return-returned.png",
+      "bytes": 63362,
+      "sha256": "2eff1b962a29d4db9ef103d80a59764512b8f649af1cd97014eea9b55220461a"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-page-zoom-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-page-zoom-context.png",
+      "bytes": 37692,
+      "sha256": "d1a3b9073f18991ab0e6133e1ac39f6629904586099a6ab5d5b80a2ff6f481c8"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-sidebar-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-sidebar-context.png",
+      "bytes": 43791,
+      "sha256": "7ad210cbd42269dbddc5709f6f05e69a4708a4ecb69c3b520d411b836531fdb2"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-timestamps-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-timestamps-context.png",
+      "bytes": 39375,
+      "sha256": "f3de05e8aa543099d243710fa8e1b15c44ff089f2c83ec71bf742a6a7eee693d"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-zoom-125-context.png",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/container-serviceReady-zoom-125-context.png",
+      "bytes": 45537,
+      "sha256": "a24e41354dc91303839bb79b78af6bd56a55e380b415b8d8653dbb23a86021cf"
+    },
+    {
+      "path": "native/edge-lifecycle-2026-09-12T18-26-11.253Z/observations.json",
+      "source": ".artifacts/devtools/edge-lifecycle-2026-09-12T18-26-11.253Z/observations.json",
+      "bytes": 199927,
+      "sha256": "6a85cb916f5b736084d7009ed1e8c3ca9b2b34ea7ae182800ebc6f42d6dc2e5f"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/blueprint-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/blueprint-360.png",
+      "bytes": 9119,
+      "sha256": "e2ee49f3196538de776b0755006026326e029c3d2fb8632a9ba71da43705ec55"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/buildReceipt-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/buildReceipt-360.png",
+      "bytes": 12281,
+      "sha256": "cadd5d9952bac7fd811d1bb6e6638d723b5d14f86deabb148ab798a114bff5f4"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/commandCard-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/commandCard-360.png",
+      "bytes": 9092,
+      "sha256": "d189f88f509356af78cade96cf75a1fbbef3b02f7c0062ea0dd41cd2281ae24f"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/comparison.json",
+      "source": ".artifacts/fitting/compact-chrome-qualified/comparison.json",
+      "bytes": 2784,
+      "sha256": "a6d2da16d11d930bf20907110dd105d6e57dc986c660701a891f3bbf5fa29dc1"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/comparison.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/comparison.png",
+      "bytes": 154098,
+      "sha256": "d1af8e6e6a711f592d5be8c6bfbf476237f054a26079cf4bb4ad51703c5ac26b"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/contourMap-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/contourMap-360.png",
+      "bytes": 8589,
+      "sha256": "3e40bfc1b5289df22911a8323740bc89bfe670b4020eb8ded68815c4e485503a"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/letterpress-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/letterpress-360.png",
+      "bytes": 11476,
+      "sha256": "bec46dac24823381145d8638850c79bcf4d11377114abdfbe458e5ea82595e7d"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/orbital-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/orbital-360.png",
+      "bytes": 13593,
+      "sha256": "8b2d3cbf5224c995ad6190c39ab5564f1de834955852e9061d012650bedaef7c"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/receipt.json",
+      "source": ".artifacts/fitting/compact-chrome-qualified/receipt.json",
+      "bytes": 1842263,
+      "sha256": "82e34c4c20c757beb9a893cb92c92c7a103f2b85dfa39e5cc720cf72c0dc8de0"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/releaseBulletin-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/releaseBulletin-360.png",
+      "bytes": 12685,
+      "sha256": "1c01bb941918d1797d6dad93597d8bb2a90cfe1b5e4fc328c7d451439f5d3533"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/requestTrace-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/requestTrace-360.png",
+      "bytes": 11151,
+      "sha256": "955e8aa4e4366211254c55b9fb2521433a3a7913a247ea70799b872e51e1ef3e"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/serviceReady-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/serviceReady-360.png",
+      "bytes": 12130,
+      "sha256": "867b2ddfb429fb70e4916b5c154be941c3bee88be51b845e31d960bb18aa964f"
+    },
+    {
+      "path": "fonts/compact-chrome-qualified/signalHalftone-360.png",
+      "source": ".artifacts/fitting/compact-chrome-qualified/signalHalftone-360.png",
+      "bytes": 11912,
+      "sha256": "fde558d500cee3a2189e9644f7951f7672d22d38ef5b4b4793cae374e4e7a7f1"
+    },
+    {
+      "path": "fonts/compact-edge-stable/blueprint-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/blueprint-360.png",
+      "bytes": 9861,
+      "sha256": "77782d1c2243d691c1dc0b20c430ccdde9ef9b97c6f0b2abb34cfba4bf7d4ab2"
+    },
+    {
+      "path": "fonts/compact-edge-stable/buildReceipt-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/buildReceipt-360.png",
+      "bytes": 12323,
+      "sha256": "17ff6d5cc7a9f07c5fe9f27d6351094029c33ebaaf993d131c788f87db13ee34"
+    },
+    {
+      "path": "fonts/compact-edge-stable/commandCard-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/commandCard-360.png",
+      "bytes": 9140,
+      "sha256": "83eef3e2fb2ef727a99a5b8e36aa2082d097d0a06c3e6f11e7179a81f1993f69"
+    },
+    {
+      "path": "fonts/compact-edge-stable/comparison.json",
+      "source": ".artifacts/fitting/compact-edge-stable/comparison.json",
+      "bytes": 2784,
+      "sha256": "36cb862d6642970c4fe397e5434da08397617ca01c217ddc760f82caf0ef7039"
+    },
+    {
+      "path": "fonts/compact-edge-stable/comparison.png",
+      "source": ".artifacts/fitting/compact-edge-stable/comparison.png",
+      "bytes": 157916,
+      "sha256": "099d7cf5d0c38cec0d27e792efeebf4ab5f7918b1e6cdee826e40a43d0ec7e88"
+    },
+    {
+      "path": "fonts/compact-edge-stable/contourMap-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/contourMap-360.png",
+      "bytes": 9057,
+      "sha256": "89dd653c576bdbe8ff61689a533c9d825114ba70221abb01726718ce73c2ede4"
+    },
+    {
+      "path": "fonts/compact-edge-stable/letterpress-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/letterpress-360.png",
+      "bytes": 11521,
+      "sha256": "8e15bad5f8f6c1a4d52503f64a9c6d3930928fed1e30405b5ef6818a4082084e"
+    },
+    {
+      "path": "fonts/compact-edge-stable/orbital-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/orbital-360.png",
+      "bytes": 14794,
+      "sha256": "fca6053b0b20aac85fabb444db4f6e03a1cdff440ee1319a891adee4406d1cac"
+    },
+    {
+      "path": "fonts/compact-edge-stable/receipt.json",
+      "source": ".artifacts/fitting/compact-edge-stable/receipt.json",
+      "bytes": 1842111,
+      "sha256": "b3f4c02ebbe2561b8e0d7176b6c73e7a05e62eb443dd993bccd4e6cf03e682cc"
+    },
+    {
+      "path": "fonts/compact-edge-stable/releaseBulletin-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/releaseBulletin-360.png",
+      "bytes": 12704,
+      "sha256": "144b615fbe15b93a08ea1c3692ca1e12c802b4d70cd1d38b894c186b3c645108"
+    },
+    {
+      "path": "fonts/compact-edge-stable/requestTrace-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/requestTrace-360.png",
+      "bytes": 11108,
+      "sha256": "0e697ef7f6af00b680824d14022979f5d40317b8683960f53915267524e0c2fa"
+    },
+    {
+      "path": "fonts/compact-edge-stable/serviceReady-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/serviceReady-360.png",
+      "bytes": 12116,
+      "sha256": "6b08ef41be40d6a2311c68731c8e9ca9611220d20b915e6c86f16b165f91d5eb"
+    },
+    {
+      "path": "fonts/compact-edge-stable/signalHalftone-360.png",
+      "source": ".artifacts/fitting/compact-edge-stable/signalHalftone-360.png",
+      "bytes": 12005,
+      "sha256": "28c7146910cea1d6d8a3ae83401256876487825262b9322b826f742222a1ca9e"
+    },
+    {
+      "path": "fonts/standard-chrome-final/blueprint-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/blueprint-720.png",
+      "bytes": 13017,
+      "sha256": "6f88f66ef8b9f42606abb5d348f589ab0a7831bf06b615495d1a26f48243a888"
+    },
+    {
+      "path": "fonts/standard-chrome-final/buildReceipt-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/buildReceipt-720.png",
+      "bytes": 14259,
+      "sha256": "351e12c280bdfc6d7e2a3780d0c4d0b8b1f03118a47b1d4c52a5e410abfee324"
+    },
+    {
+      "path": "fonts/standard-chrome-final/cjk-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/cjk-720.png",
+      "bytes": 8006,
+      "sha256": "2690e6368df1c459078d5fb61986483caccf2171d20aa8ca48657afef303d85f"
+    },
+    {
+      "path": "fonts/standard-chrome-final/combining-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/combining-720.png",
+      "bytes": 3141,
+      "sha256": "c4e257a2f2172bfd5bdf4fcf836146023585f59056b1ae047e4886dd1f2046d5"
+    },
+    {
+      "path": "fonts/standard-chrome-final/commandCard-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/commandCard-720.png",
+      "bytes": 11677,
+      "sha256": "dc3a9acf17a7179b5a731781018613cfbb3e4538ba80c7879538272821ba194e"
+    },
+    {
+      "path": "fonts/standard-chrome-final/contourMap-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/contourMap-720.png",
+      "bytes": 13943,
+      "sha256": "fd59b6cdfd126b008ce953bd078b0e41e7cb9b3c94d7594e80af93c7f50a686a"
+    },
+    {
+      "path": "fonts/standard-chrome-final/emoji-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/emoji-720.png",
+      "bytes": 5472,
+      "sha256": "33473328285aa292d1e29f88619d2ecad137ed80d0d1a925a7efa55636c3a616"
+    },
+    {
+      "path": "fonts/standard-chrome-final/iceCathedral-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/iceCathedral-720.png",
+      "bytes": 32230,
+      "sha256": "afa224c1f1c32bab36da9919f8de3156ef08828a1cdcedf37611725606d6e983"
+    },
+    {
+      "path": "fonts/standard-chrome-final/latin-wide-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/latin-wide-720.png",
+      "bytes": 5901,
+      "sha256": "e0b25ee9a0597b81178cceddbba3143e211587d954e9d49fc09b4960d9151ef9"
+    },
+    {
+      "path": "fonts/standard-chrome-final/letterpress-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/letterpress-720.png",
+      "bytes": 17209,
+      "sha256": "2b91c8bf399e560c13af295d15db2453f8ac3126b75d498580170ff1f2e351e1"
+    },
+    {
+      "path": "fonts/standard-chrome-final/lightningMetal-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/lightningMetal-720.png",
+      "bytes": 20791,
+      "sha256": "30c530e6dbd3ed6e8df6e3687ab2e8faad058daeabd21ca943fdf3f7d55c7af8"
+    },
+    {
+      "path": "fonts/standard-chrome-final/lines-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/lines-720.png",
+      "bytes": 5819,
+      "sha256": "0edb04b71326546a627cb1e5b3378d79c7b5da4c18c5c6c1b9440867e7ba386e"
+    },
+    {
+      "path": "fonts/standard-chrome-final/liquidChrome-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/liquidChrome-720.png",
+      "bytes": 46518,
+      "sha256": "64204ef15eae4e391ec8e2f53ed650ad92a58f5f66a9e698d5fd20cdcded464f"
+    },
+    {
+      "path": "fonts/standard-chrome-final/moltenGold-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/moltenGold-720.png",
+      "bytes": 18512,
+      "sha256": "a4ca5e233044ca916cfb7123f13b70ef0c70f5c9291312d341411155814d3252"
+    },
+    {
+      "path": "fonts/standard-chrome-final/orbital-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/orbital-720.png",
+      "bytes": 20877,
+      "sha256": "426450881e5ce5e1da9e50f764498eabb8f5497b5585317b13c02c52d6ecafc5"
+    },
+    {
+      "path": "fonts/standard-chrome-final/receipt.json",
+      "source": ".artifacts/fitting/standard-chrome-final/receipt.json",
+      "bytes": 2576955,
+      "sha256": "35e7a3955f76d581eee8e2824b4390280af17c65e5c0dc2606be68e2798815e1"
+    },
+    {
+      "path": "fonts/standard-chrome-final/releaseBulletin-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/releaseBulletin-720.png",
+      "bytes": 14861,
+      "sha256": "dffe1b6db68660aeaafbf8683cff0b7b2ec3251085d006cbe0a20d6c890ce570"
+    },
+    {
+      "path": "fonts/standard-chrome-final/rtl-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/rtl-720.png",
+      "bytes": 3969,
+      "sha256": "20e6798db359a9f6923d4b4b6856f8302c8b332df745f6cf649296a934bddb05"
+    },
+    {
+      "path": "fonts/standard-chrome-final/short-glow-280.png",
+      "source": ".artifacts/fitting/standard-chrome-final/short-glow-280.png",
+      "bytes": 1815,
+      "sha256": "d51376123f4678be42d212c8243e83b9a95d4e00834802628c31dddd8863aa2d"
+    },
+    {
+      "path": "fonts/standard-chrome-final/short-glow-720.png",
+      "source": ".artifacts/fitting/standard-chrome-final/short-glow-720.png",
+      "bytes": 2046,
+      "sha256": "4908bde1a3ba2d8ffe5631d4b08e9335fdcd29d5a2c5230c15b3e4f8fdca21ea"
+    },
+    {
+      "path": "fonts/standard-edge-stable/blueprint-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/blueprint-720.png",
+      "bytes": 14204,
+      "sha256": "66e4097f757494fe8bd9f6d61bbcd19594bed11b163cfe6e1281c813e18bfbc0"
+    },
+    {
+      "path": "fonts/standard-edge-stable/buildReceipt-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/buildReceipt-720.png",
+      "bytes": 14730,
+      "sha256": "aea6a47d353caa047e9dcaf39a9aa38f6ab6e3ce27219ae1b76a9fc9ad26be68"
+    },
+    {
+      "path": "fonts/standard-edge-stable/cjk-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/cjk-720.png",
+      "bytes": 7967,
+      "sha256": "409092683a168c5166efe0cf0b2749e004c1f1d17bb42cc30483c72da6add800"
+    },
+    {
+      "path": "fonts/standard-edge-stable/combining-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/combining-720.png",
+      "bytes": 3119,
+      "sha256": "905b370391c7f4a88f86cd30b15427321208b7f10a47971fc6123c7b102bf3c2"
+    },
+    {
+      "path": "fonts/standard-edge-stable/commandCard-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/commandCard-720.png",
+      "bytes": 11702,
+      "sha256": "19de5a07fed5b98c955491057597b5df6e67620a4d1ce0443005b316fc663f54"
+    },
+    {
+      "path": "fonts/standard-edge-stable/contourMap-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/contourMap-720.png",
+      "bytes": 16228,
+      "sha256": "8839537e96ae0099010a76973aa12aa47c75f052ed4ac57643c78ccb7cd817af"
+    },
+    {
+      "path": "fonts/standard-edge-stable/emoji-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/emoji-720.png",
+      "bytes": 5468,
+      "sha256": "1e2f9b3ff778a306aca054041dffd4f3713295ae7f99e97035b1633497c85c81"
+    },
+    {
+      "path": "fonts/standard-edge-stable/iceCathedral-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/iceCathedral-720.png",
+      "bytes": 34323,
+      "sha256": "d51561165ec591438d3bbad478d55f283ae4bbf89729d8d8294c8fabd2d5100f"
+    },
+    {
+      "path": "fonts/standard-edge-stable/latin-wide-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/latin-wide-720.png",
+      "bytes": 5861,
+      "sha256": "115534295239376a471aaea136b66bbfac8121e9f11f7c0dc665815835c11e2e"
+    },
+    {
+      "path": "fonts/standard-edge-stable/letterpress-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/letterpress-720.png",
+      "bytes": 17205,
+      "sha256": "cbdcaa843b80509cf3c0a6eb2f3bdb865cafaf98be27377b645e227c659fee30"
+    },
+    {
+      "path": "fonts/standard-edge-stable/lightningMetal-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/lightningMetal-720.png",
+      "bytes": 26379,
+      "sha256": "2866fdaad02a2c75fba8af93976fb4cb9e17c3a6f6deb0191e5be8fdc3d3609f"
+    },
+    {
+      "path": "fonts/standard-edge-stable/lines-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/lines-720.png",
+      "bytes": 5903,
+      "sha256": "fda083cd24b8b32f7c8884204b67ab010bcd5feeccf4399b3386118ed122f08a"
+    },
+    {
+      "path": "fonts/standard-edge-stable/liquidChrome-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/liquidChrome-720.png",
+      "bytes": 49074,
+      "sha256": "4cfed9b17e8d881a4e8fc2dafbb5884e00966af93e8f9d1a96a26900ac32697c"
+    },
+    {
+      "path": "fonts/standard-edge-stable/moltenGold-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/moltenGold-720.png",
+      "bytes": 23665,
+      "sha256": "1bd77576b65208f3c20f21509b0ac4fd357b483b043ffa47790aaaaae55a71d5"
+    },
+    {
+      "path": "fonts/standard-edge-stable/orbital-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/orbital-720.png",
+      "bytes": 22947,
+      "sha256": "edfbe49a154c115416f37f7ad2e0021ac15999cada48c3dcc0741afb2038f845"
+    },
+    {
+      "path": "fonts/standard-edge-stable/receipt.json",
+      "source": ".artifacts/fitting/standard-edge-stable/receipt.json",
+      "bytes": 2572705,
+      "sha256": "fa121ded1793ef3fb6f44c1962e8d07db14bd7d5cf8db3e6d2b32daf4ba37e5c"
+    },
+    {
+      "path": "fonts/standard-edge-stable/releaseBulletin-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/releaseBulletin-720.png",
+      "bytes": 14877,
+      "sha256": "a0ca9b0c0f7c6a21a6610c8d55dee3be38797c94ab1dce113992fb036eb5601d"
+    },
+    {
+      "path": "fonts/standard-edge-stable/rtl-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/rtl-720.png",
+      "bytes": 3953,
+      "sha256": "986cf7114fe4104f2d62059cd4be20e0f58216f8f49e79896dc2859d77010157"
+    },
+    {
+      "path": "fonts/standard-edge-stable/short-glow-280.png",
+      "source": ".artifacts/fitting/standard-edge-stable/short-glow-280.png",
+      "bytes": 1818,
+      "sha256": "59d46fa89f77fcc3d55965065424b91652cf994799ef7b26f49309b9bb0d5bf6"
+    },
+    {
+      "path": "fonts/standard-edge-stable/short-glow-720.png",
+      "source": ".artifacts/fitting/standard-edge-stable/short-glow-720.png",
+      "bytes": 2047,
+      "sha256": "f87bd072d08db5e85e04759d9564fecbdb9667b165460068d40eb02286ef8da6"
+    },
+    {
+      "path": "fixtures/fixtures.json",
+      "source": ".artifacts/devtools-fitting/fixtures.json",
+      "bytes": 1339325,
+      "sha256": "2083b45a79a630660aa27df8c1cdf7ddc4cff11c42baa4a3a74aaa95dffb43ed"
+    },
+    {
+      "path": "fixtures/fixture.js",
+      "source": ".artifacts/devtools-fitting/fixture.js",
+      "bytes": 1296,
+      "sha256": "4af80835dded3c3803a06f06ebac8e4779e1ecd5c8148834a9dd0fc461af1c0f"
+    },
+    {
+      "path": "fixtures/index.html",
+      "source": ".artifacts/devtools-fitting/index.html",
+      "bytes": 1111,
+      "sha256": "864dd7bd826edbd6e320f2df41f69e9212e417c4e35f099859fbeb6d4ed850a2"
+    },
+    {
+      "path": "checks/release-tests.log",
+      "source": ".artifacts/fitting/release-tests.log",
+      "bytes": 513,
+      "sha256": "5204894466a8749189889780650d08a87d513c9ec08b35d6bf7b898dc867ef7c"
+    },
+    {
+      "path": "checks/release-build.log",
+      "source": ".artifacts/fitting/release-build.log",
+      "bytes": 892,
+      "sha256": "d7a2a11d337f69c9ef079481240f4f92afe27c57c27ffa9367b8cb6d54d7515c"
+    },
+    {
+      "path": "checks/release-types.log",
+      "source": ".artifacts/fitting/release-types.log",
+      "bytes": 166,
+      "sha256": "e8a5f8d2989c4b44e4b5d8cad1b06bfd251300828840f1f704ebc8656c1effc7"
+    },
+    {
+      "path": "checks/release-lint.log",
+      "source": ".artifacts/fitting/release-lint.log",
+      "bytes": 37,
+      "sha256": "ee16f0c73a2cce3c9067ee07832af01534b111a97ec6e8ea47b793abc93e4d16"
+    },
+    {
+      "path": "checks/release-format.log",
+      "source": ".artifacts/fitting/release-format.log",
+      "bytes": 380,
+      "sha256": "7cb70544b46760ad4fcf7ab802cb29029b72a3cc2e040edaccfa8ec114a002f1"
+    },
+    {
+      "path": "checks/release-artifacts.log",
+      "source": ".artifacts/fitting/release-artifacts.log",
+      "bytes": 716,
+      "sha256": "8c26b358041e3accf9059a8735924a3031a92c697d524420e5afcff7e3ec8ca8"
+    },
+    {
+      "path": "checks/release-packages.log",
+      "source": ".artifacts/fitting/release-packages.log",
+      "bytes": 244,
+      "sha256": "556a90e55a3d029c0d95caa3fe52eb5ceebd85bd575928303f815ca492b5b7fc"
+    },
+    {
+      "path": "checks/release-bundles.log",
+      "source": ".artifacts/fitting/release-bundles.log",
+      "bytes": 340,
+      "sha256": "d1bd38ebcd45ddcba14e15db0e631ace4c6093b6a7be1df94880f33b8420b44a"
+    },
+    {
+      "path": "checks/release-consumers.log",
+      "source": ".artifacts/fitting/release-consumers.log",
+      "bytes": 902,
+      "sha256": "0c4e54b722c7b0cfd2c9c30707a61d41cf7e9e5158a18ad7a138ec22e277ec8e"
+    },
+    {
+      "path": "checks/release-studio-native.log",
+      "source": ".artifacts/fitting/release-studio-native.log",
+      "bytes": 108646,
+      "sha256": "2e5c2e52b336191696adb7e041fc72c60cf4b5c19ab7b5418d3e8acf68e5b14e"
+    },
+    {
+      "path": "checks/options-only-motion-check.log",
+      "source": ".artifacts/fitting/options-only-motion-check.log",
+      "bytes": 324,
+      "sha256": "fe6d07c05afeb2702ae9108553352f268a61392d75557d572856f9b3dcc3d9e8"
+    },
+    {
+      "path": "checks/protected-final.json",
+      "source": ".artifacts/fitting/protected-final.json",
+      "bytes": 231,
+      "sha256": "e3bec9dd5927238809de00ad0a0eda45c5e09ef983b01971331b13cfac134237"
+    }
+  ]
+}

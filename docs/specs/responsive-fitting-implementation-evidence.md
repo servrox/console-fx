@@ -1,7 +1,7 @@
 # Responsive fitting implementation
 
-Status: fixed-fitting core reviewed; compact and studio integration under review, 2026-09-12. This receipt
-does not mark all FIT criteria complete. The active task authorizes implementation
+Status: core, compact layouts and studio integration implemented and reviewed, 2026-09-12.
+Local and recorded Windows Stable qualification passed within the scopes below. The active task authorizes implementation
 and integration; ADR-0015 is Accepted. The maintainer explicitly answered
 “Approve all ten compact designs” for the [separate 360 px references](../mockups/preset-compact-v1/README.md).
 No fitting publication or deployment
@@ -78,94 +78,67 @@ Next.js formats preserve their full materialized scene and integration semantics
 and include the validated numeric snapshot as explicit compilation data. They do
 not call the measurement adapter; recipient font variation remains disclosed.
 
-## Current observations
+## Final verification — 2026-09-12
 
-Existing 193 unit regressions passed after the first opt-in seam. New focused
-fitting tests cover Unicode/content preservation, geometry, explicit fallback,
-no implicit measurement, one-call exports, strict snapshots, preflight failures,
-recipe compatibility and unknown sizing. Latest final counts belong to the next
-saved validation receipt rather than this provisional paragraph.
+The [durable fitting evidence](../evidence/fitting/2026-09-12/README.md) identifies
+source checkpoint `f6b4963`, exact package artifacts, fixture identities, native
+observations, font reports and reviewer corrections. Later website-only changes
+do not alter the compiler. Acceptance is scoped to the recorded fixtures and builds;
+container sizing remains explicitly experimental with unknown display readability.
 
-The first Windows Chrome 153.0.8010.36 owned-page run checked 105 cases across
-280/360/480/720/960 widths: 72 compiled, 33 returned explicit size/readability
-failures. All successful text stayed inside its artboard; 62 used recorded local
-font measurements and ten used authored geometry. The adapter made zero network
-requests and did not change the page DOM; a page-supplied font was declined. The
-four cinematic, RTL, CJK, combining, emoji and short-glow sample images were
-inspected. Raw artifacts are local under `.artifacts/fitting/fonts/`. Later source
-changes and Edge results need their own reconciliation; this is page/font evidence,
-not actual DevTools qualification.
+| Criteria | Evidence and result |
+| --- | --- |
+| FIT-01–02 | Fifty legacy argument/code cases across all 23 presets remain byte-identical; deterministic and nonmutating compilation regressions pass. The old reader rejects all 69 new option/recipe cases. |
+| FIT-03–06 | Authored geometry, complete finite effect bounds, legal Unicode wrapping and explicit full-text fallback pass unit regressions. Compact text avoids neighboring slots and ornament regions; all ten samples preserve their reviewed fields. |
+| FIT-04/07/09 | Each browser's local-font matrix covers 105 standard cases (72 compiled, 33 explicit failures) and 50 compact cases (40 compiled, ten 280 px floor failures). No successful text bounds escape; no measurement network request occurs. Full reports retain dimensions, confidence and diagnostics at 280/360/480/720/960. |
+| FIT-08 | Maintainer approved all ten 360 px references. Slot strings, anchors, fonts and fragment counts match the runtime exactly. Original standard/cinematic references and approved SVG hashes remain intact. |
+| FIT-10 | Compilation/import/preview/SSR stay silent. Explicit native calls and standalone snippets emit once; resize, reopen and offscreen return do not cause another library call. |
+| FIT-11–12 | Actual Windows 11 Chrome 153.0.8010.36 and Edge 153.0.4234.32 observations cover source anchors, groups, timestamps, repeated messages, docking/drawer, browser and DevTools zoom, resizing, reopen and asserted offscreen return. Four fitted motions visibly change and settle. Fixed clipping is recorded; container image readability stays unknown. |
+| FIT-13–14 | Studio tests cover recipe/draft/share round trips, invalid import recovery, one undoable import, raw-draft retention, clear failures, simulated versus applied width, measurement cancellation, keyboard and focus. |
+| FIT-15 | Exact packed JS/TS/React/Next consumers and Bun checks pass. CSS is 9,670 gzip bytes; complete compiler 25,583; SVG entry 25,582, within unchanged 10/25 KiB budgets. No runtime dependency was added. |
 
-## Fixed-core review corrections
+All 257 unit tests across fifteen files passed, as did type checking, lint,
+formatting, full build, release-artifact checks, package inspection and consumer
+checks. The final studio suite passed fifty desktop/mobile-sized cases in the
+isolated Windows browser. Its installed Edge 152 Beta context is page-test
+evidence; the separate 153 Stable native matrix supplies renderer qualification.
+An initial default Playwright launch had no Linux browser binary in this NixOS
+environment and exercised no application cases; the documented CDP run passed.
+CI and publication are recorded separately when performed.
 
-The independent Standards and Spec reviews at `e67719a` found five distinct
-regressions: split-run wrapping, estimate-only wrapping blocking measurement
-recovery, invisible card separators preventing shrinking, rounded cinematic glyphs
-violating a reported floor, and changed fractional legacy dimensions. Corrections
-use row-wide legal breaks and matching measurements, visible descriptor slots,
-full-precision fitted serialization, and an untouched legacy renderer branch.
-Original SceneV1 separators and unfitted serialization remain unchanged.
-
-After these corrections, all 213 unit tests passed across 13 files, including five
-new regression cases. Type checking, lint and formatting passed. Package validation
-passed; installed-bundle checks measured 9,670 gzip bytes for CSS and 23,485 for the
-complete compiler, within the unchanged 10/25KiB budgets. The first restricted
-sandbox run could not spawn Node for five import tests (`EPERM`); the authorized
-Linux subprocess rerun passed all tests. This is local evidence; new packed-consumer
-and native fitting observations are still pending. Protected root checks confirmed
-all 205 recorded files, its HEAD and Git index were unchanged.
-
-## Studio and distribution checks — 2026-09-12
-
-The final studio integration passed all 219 unit tests across 13 files, type
-checking, lint and formatting. The production studio build and prepared Vercel CSP passed all 32 desktop/mobile
-browser checks, including six fitting journeys. They cover all five simulation
-widths, explicit application, exact preview/export image identity, local worker
-measurement, no font network requests, unmount cleanup, raw-draft retention,
-recipe import/share conflicts, undo, invalid-import preservation, clear and
-sequential numeric editing. Axe checks include the fitting disclosure and mobile
-scroll region. The focused six checks also passed with the repaired test-server
-lifecycle: Playwright waits for its own Python server's successful bind rather
-than probing an unopened WSL port or reusing another build's server.
-
-The current packed core is SHA-256
-`5df238dfef92a823d20445ce0b3f93d9005a9b5c34ead1dab8075d8b61c0d766`;
-React is `51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a`.
-These exact tarballs passed isolated JavaScript, TypeScript, React SSR/lifecycle,
-Next production build and all three native Edge Next browser checks. The same
-installed JavaScript and React checks passed Bun 1.4.2. The core differs from the
-earlier `d8dc8896…` candidate only by its corrected and expanded package README.
-The lockfile remains SHA-256
+The final core tarball SHA-256 is
+`bea698087b6148bbf55fc8022bd48af35a67e0f8e951202cbca494a7b5b1d8e0`;
+React is `eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c`.
+Both are version 0.1.0. The lockfile is
 `a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497`.
-An isolated archived-reader comparison against core `d30f62f3…` preserved all 50
-default output-argument and standalone-code cases across the 23 presets. The old
-reader explicitly rejected all 69 new layout, sizing and recipe cases. The first
-ad-hoc recipe fixture used the wrong envelope-version field and was corrected;
-the successful run uses the actual `recipeVersion: 1` contract. Its receipt is
-`.artifacts/fitting/legacy-compatibility.json`.
+Consumer installs use these tarballs, never workspace imports. This is not npm
+publication or a public studio deployment.
 
-Fresh owned-page Chrome 153.0.8010.36 (15:33 UTC) and Edge 153.0.4234.32 (15:23 UTC)
-runs used source tree `5fd8e7d7516678d738930457a174f11f3463c5b5` and browser bundle
-SHA-256 `c6f090cd17f40a41a4719f31bc55e6d31ccbaabb5f942021101ce689b411c7dd`.
-Each checked 105 cases: 72 compiled and 33 explicitly failed size/readability;
-zero successful text bounds escaped and zero network requests occurred. These
-observations do not establish native DevTools fit or recipient font identity.
-Local logs, full recipes, reports and images are under `.artifacts/fitting/`,
-`.artifacts/fitting-*.log` and `.artifacts/packages/consumers.json`; durable native
-qualification packaging remains pending.
+## Review corrections and limits
 
-## Remaining work
+Two independent reviewers closed the product findings: split-run wrapping,
+measurement recovery, separator handling, fractional legacy dimensions, compact
+floors/overlap/ornament regions, and landing transfer/recovery. Seven measured
+ornament regressions reject unsafe text while retaining complete fallback. Legacy
+Letterpress geometry remains unchanged. No Accepted ADR intent was rewritten.
 
-- Studio review and actual Windows Chrome/Edge DevTools fitting observations with
-  candidate fingerprints. Independent Standards and Spec reviewers closed all
-  five fixed-core findings at `90dce1c19cfa986e4d82fe46a7ee75f8702b2ef4`.
-- Finish native compact comparisons and package/CI reconciliation; visual approval
-  and runtime integration are complete, with all sample slots preserved.
-- Container qualification across docking/drawer, source anchors, groups, timestamps,
-  repeats, zoom, resize, reopen and offscreen return. The opt-in carrier is explicitly
-  experimental; it reports unknown image readability and never reprints on resize.
-- Full website value/experience specifications, their interaction/accessibility and
-  performance evidence, then final CI, publication and hosted launch gates.
+Evidence review also corrected the fixture's merged motion policy and required
+both standalone branches to match compiled arguments. Offscreen return now asserts
+that the native message left the console clipping area and fully returned before
+capture. Earlier inverted offscreen rows are retained and explicitly excluded.
+A newer installed Edge Beta run was initially mistaken for Stable in progress
+reporting; current qualification uses the separately signature-verified 153 Stable
+executable. Beta receipts are never relabeled as Stable. Earlier merged standard
+card evidence already used actual Stable and remains valid for its own scope.
 
-ADR-0002 through ADR-0010 and ADR-0012 through ADR-0015 govern this work. The
-unperformed screen-reader walkthrough remains nonblocking under ADR-0013.
+Fixed output can overflow a narrow console, including at increased native zoom.
+Container sizing preserves a measured carrier ratio and cap in the observed
+contexts, but cannot promise legible image text or infer the actual console width.
+Windows fonts and segmentation results are local observations, not a recipient-font
+guarantee. Original canonical captions and native copying remain available.
+
+Website integration and external follow-ups are tracked in the [value receipt](website-value-implementation-evidence.md)
+and [experience receipt](website-experience-implementation-evidence.md). Exact-head
+CI, npm publication and hosted launch retain their own evidence/approval gates.
+The unperformed screen-reader walkthrough remains nonblocking under ADR-0013.
+ADR-0002 through ADR-0010 and ADR-0012 through ADR-0015 materially governed this work.

@@ -1,0 +1,185 @@
+{
+  "at": "2026-09-12T18:42:19.055414+00:00",
+  "checkpoint": "f6b4963d0ea024ec729b9ee17bd8b59771bc0207",
+  "appSourceHashes": {
+    "apps/studio/src/app/docs/page.tsx": "f5d65b6dda78176c53f0ac848dc1f2d89491a0c5ba19c5c45d752de0fd85f663",
+    "apps/studio/src/app/globals.css": "96fc2c3e976bc4281539f1afcabebef54da9b5b1f6e0215fc02d1a6796919af2",
+    "apps/studio/src/app/layout.tsx": "dd2bffc52d708faa768e2a7e6837840c1271938b5b36e3faf47842d05ccd8913",
+    "apps/studio/src/app/page.tsx": "5d33eef5a8fda09ea2d4cb9d60ac536b912d3a61f7459b110dc6eb0dc1fd0121",
+    "apps/studio/src/app/studio/page.tsx": "2c20306ca510afac49e445adf7cd3c404355166ef2d0b94ccdc45fb1bf0237a3",
+    "apps/studio/src/features/editor/card-fields.tsx": "1e7d81ebccb92ee365dc2f750a95b7119f93802faaed916e608114cfd429f447",
+    "apps/studio/src/features/editor/confirm-dialog.tsx": "db0a7e92d8c9c8332a12ba96f5bc1ef4c9505e3f1d86bc9a52dce8788d38b4c9",
+    "apps/studio/src/features/editor/document.ts": "b1c3a92112fa6e6428db241adb454108fd99d4b078a6513779b30b96f91986e7",
+    "apps/studio/src/features/editor/fit-inspector.tsx": "a4ac31fbda60887db44805fb79321c62179153f1f6b9d0eafd2a80bfb5d03f74",
+    "apps/studio/src/features/editor/measure.worker.ts": "5542ec129c598dee1ed21f76b03ffaf84a246b900ca8fc4b149ba47268eb7906",
+    "apps/studio/src/features/editor/presentation.ts": "4099a6163760bd71146533447b4ba1a9cd5718d04f251344cc180c9c4585a86a",
+    "apps/studio/src/features/editor/renderer.ts": "99f245648261d78b4777cd41005289562a988c9840b94405c6e05db78c121726",
+    "apps/studio/src/features/editor/studio.tsx": "2b2d41957e415b87cfdfd01fe61c4452915c8f967586aedcd16ea160d32cb10c",
+    "apps/studio/src/features/editor/use-local-measurements.ts": "e9fc399e34df9adaf92ceb62e6eed14617fa1194f0716e5b8291782e21b575b8",
+    "apps/studio/src/features/editor/use-preview-width.ts": "8fcfed87c18b899d70ca1cf2a1995a7c3919edffcd1ed95e2e03a1819a3fd5e2",
+    "apps/studio/src/features/experience/observe-intersection.ts": "e800ad892e18216a0228ab325ac7210cc5cbc932939b028569e0bc85f7ed441d",
+    "apps/studio/src/features/experience/page-effects.tsx": "33c7f0b5efd972d7e4677eae6c78c8ebdeeab016832096ba66469b6274e7f258",
+    "apps/studio/src/features/experience/reveal-frame.tsx": "252eed8187f2e99306c951dea451f5207f7c6512aa0340b2e0cbf8a85a542642",
+    "apps/studio/src/features/experience/use-hydrated.ts": "d96cfac267468312c9430644ab44943af91b914ae2c202ef5af7444c374e098f",
+    "apps/studio/src/features/landing/example-card.tsx": "bd4b8d2800669e43a9dd86db2d79450d9f5d41d5d98ade7e82b0c2c7f3c2ecbe",
+    "apps/studio/src/features/landing/examples.test.ts": "4c7ed5c3199540ee03eef540fb601054a89889198d34a98e60aa67a236802abb",
+    "apps/studio/src/features/landing/examples.ts": "999c9e3b5e264c92f9f51faffc3a998267c08df64c5ce7a55cc260f303b29aaa",
+    "apps/studio/src/features/landing/gallery.tsx": "9508d34d4656ad9543e1d0eae8fe97e59651f0d6a7159608cd9d25a0b211bb24",
+    "apps/studio/src/features/landing/landing-page.tsx": "cfe9febef623139db383a7b18c3136760e713feef36c23c0d2022ade7a5a0dbb",
+    "apps/studio/src/features/landing/quick-demo.tsx": "6baf4a304314bea8a9d2da3449895d1bbfee1f7bb101e5e9c8a627b24ec9f238",
+    "apps/studio/src/features/landing/recipes.ts": "f9a259fc8935832794fb4f69c27245119530229a51ea578415ad42f4c60d4771",
+    "apps/studio/src/features/landing/session.tsx": "42334e102805b0c736629007c02123e91f381a11a6fbe63d41387a37525048f0",
+    "apps/studio/src/features/landing/use-case-comparison.tsx": "7e8fd5d62b91ac745ee4991c209b65b23a751b2159cc0f6778abadcf40df0e6b",
+    "apps/studio/src/features/landing/workbench.tsx": "0aa67cfdbbceb66015477fe52a59eb1d9f9178d1e65d6cdfef9119f4a1117bea",
+    "apps/studio/src/features/persistence/documents.ts": "7624ed68b1e827d7d341c168f0e396637e8201f846b1ee9dff4cb621d7283bb8",
+    "apps/studio/src/features/persistence/draft.ts": "e56b3c341cc9448010f1a1e93c758f194a065955ae20a57ace61a4bc98dfe197",
+    "apps/studio/src/features/persistence/persistence.test.ts": "a795aea2a4cddeded5bcb9015c5ffa03cda6aeda5d961599c6380ad49328222d",
+    "apps/studio/src/styles/experience.css": "dfdf185115d2e1283c5602f16bad32b23ff7ec27670b1ad765e700de41e61aba",
+    "apps/studio/src/styles/studio.css": "6ec7633e9e00f51b33613948cb8c63e29bbe68ec739399293dbc5717cfa7b829"
+  },
+  "studio": {
+    "passed": 50,
+    "browser": "Windows installed Edge Beta 152.0.4191.51",
+    "contexts": "1440 desktop and 390 touch emulation; no physical mobile claim"
+  },
+  "native": {
+    "rows": 36,
+    "browsers": [
+      "Chrome Stable 153.0.8010.36",
+      "Edge Stable 153.0.4234.32"
+    ],
+    "themes": [
+      "Light",
+      "Dark"
+    ]
+  },
+  "performance": [
+    {
+      "mode": "before-traced",
+      "width": 1440,
+      "initialGzipBytes": 179203,
+      "lcp": 164,
+      "cls": 0,
+      "idle": {
+        "duration": 10004.899999856949,
+        "longTasks": []
+      },
+      "active": {
+        "task": "pointer movement",
+        "longTasks": [],
+        "frameSamples": 2401,
+        "frameP95": 4.299999999999272
+      },
+      "visibility": "visible",
+      "focused": true
+    },
+    {
+      "mode": "before-traced",
+      "width": 390,
+      "initialGzipBytes": 179203,
+      "lcp": 168,
+      "cls": 0,
+      "idle": {
+        "duration": 10001.5,
+        "longTasks": []
+      },
+      "active": {
+        "task": "pointer movement",
+        "longTasks": [],
+        "frameSamples": 2401,
+        "frameP95": 4.299999999999272
+      },
+      "visibility": "visible",
+      "focused": true
+    },
+    {
+      "mode": "after-final-traced",
+      "width": 1440,
+      "initialGzipBytes": 174782,
+      "lcp": 116,
+      "cls": 0.010739150692520776,
+      "idle": {
+        "duration": 10005.299999952316,
+        "longTasks": []
+      },
+      "active": {
+        "task": "plain/styled selection",
+        "longTasks": [],
+        "frameSamples": 2394,
+        "frameP95": 4.299999999999272
+      },
+      "visibility": "visible",
+      "focused": true
+    },
+    {
+      "mode": "after-final-traced",
+      "width": 390,
+      "initialGzipBytes": 174782,
+      "lcp": 132,
+      "cls": 0,
+      "idle": {
+        "duration": 10001.399999856949,
+        "longTasks": []
+      },
+      "active": {
+        "task": "plain/styled selection",
+        "longTasks": [],
+        "frameSamples": 2401,
+        "frameP95": 4.299999999999272
+      },
+      "visibility": "visible",
+      "focused": true
+    },
+    {
+      "mode": "after-final-off-traced",
+      "width": 1440,
+      "initialGzipBytes": 174782,
+      "lcp": 128,
+      "cls": 0.010739150692520776,
+      "idle": {
+        "duration": 10001.5,
+        "longTasks": []
+      },
+      "active": {
+        "task": "plain/styled selection",
+        "longTasks": [],
+        "frameSamples": 2400,
+        "frameP95": 4.299999999999272
+      },
+      "visibility": "visible",
+      "focused": true
+    },
+    {
+      "mode": "after-final-off-traced",
+      "width": 390,
+      "initialGzipBytes": 174782,
+      "lcp": 140,
+      "cls": 0,
+      "idle": {
+        "duration": 10001.200000047684,
+        "longTasks": []
+      },
+      "active": {
+        "task": "plain/styled selection",
+        "longTasks": [],
+        "frameSamples": 2399,
+        "frameP95": 4.299999999999272
+      },
+      "visibility": "visible",
+      "focused": true
+    }
+  ],
+  "stateCaptureScope": "UX-01/02/04/07/08/09 final Playwright page suite; UX-03/05/06 final native Chrome controlled storyboard; UX-10 omitted",
+  "zoomReuse": "Chrome 200/400% receipt predates final sample-only SVG/guide changes; tested navigation, editor and reset behavior unchanged",
+  "notObserved": [
+    "five-developer formative study",
+    "physical mobile",
+    "integrated-GPU laptop",
+    "Safari",
+    "Firefox",
+    "Narrator/NVDA (nonblocking ADR-0013)"
+  ],
+  "ci": "pending integration PR",
+  "published": false,
+  "deployed": false
+}

@@ -1,0 +1,904 @@
+{
+  "createdAt": "2026-09-12T18:42:19.055414+00:00",
+  "archive": "observations.tar.gz",
+  "archiveSha256": "61122814661b523c6923657aa823ab5ff9edd50cedf5b299dbe84a503dd96d9a",
+  "nativeRuns": [
+    {
+      "browser": "chrome",
+      "theme": "Light",
+      "path": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/observations.json",
+      "archiveReport": "native/chrome-2026-09-12T18-36-53.131Z/observations.json"
+    },
+    {
+      "browser": "chrome",
+      "theme": "Dark",
+      "path": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/observations.json",
+      "archiveReport": "native/chrome-2026-09-12T18-36-57.776Z/observations.json"
+    },
+    {
+      "browser": "edge",
+      "theme": "Light",
+      "path": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/observations.json",
+      "archiveReport": "native/edge-2026-09-12T18-37-02.322Z/observations.json"
+    },
+    {
+      "browser": "edge",
+      "theme": "Dark",
+      "path": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/observations.json",
+      "archiveReport": "native/edge-2026-09-12T18-37-06.864Z/observations.json"
+    }
+  ],
+  "nativeRows": 36,
+  "files": [
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/observations.json",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/observations.json",
+      "bytes": 23066,
+      "sha256": "f2e65336b1ddcfef3c82e1d0e1e65cad8d38ceae1a6b421c15a2708565c077f2"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-chromeTitle-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-chromeTitle-console.png",
+      "bytes": 30383,
+      "sha256": "a9b2fb90af686a5268dead0777ced689aa4244f604eefb400e39900424ba7ab4"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-chromeTitle-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-chromeTitle-static.png",
+      "bytes": 7733,
+      "sha256": "a542a6f73ae668b4009267ba2f56e79619cd5b94539545de128bd076043bf4f1"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-devContext-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-devContext-console.png",
+      "bytes": 28564,
+      "sha256": "776b1deaf6328f9a05e05c91eaae1580a67be5f1ce0d6966c559c1e50c74ae6c"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-devContext-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-devContext-static.png",
+      "bytes": 5049,
+      "sha256": "68f7edd318ec8cc7251467880f6009bc39f30146b639c4e7ec2b1ebc921929be"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-guide-contextExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-guide-contextExample-console.png",
+      "bytes": 35128,
+      "sha256": "f8b2c3fa0431b747efa4be4a145a855ec1670d6e9035960d4913240d98da10ee"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-guide-contextExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-guide-contextExample-static.png",
+      "bytes": 11499,
+      "sha256": "fda335696a5c0cc971c15b10b0d46dc039b09055eb9c06d4702d78cf8996a899"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-guide-sdkExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-guide-sdkExample-console.png",
+      "bytes": 36177,
+      "sha256": "d8d6928a64968cdf8919e79c95915efc34780d410449f2f8a9c1e11eb82b7999"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-guide-sdkExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-guide-sdkExample-static.png",
+      "bytes": 12374,
+      "sha256": "37fa671c49c7dcdf7d9928a199dbb7963b491a99cd8f364936e017a211aa9b6a"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-guide-summaryExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-guide-summaryExample-console.png",
+      "bytes": 37268,
+      "sha256": "f2119f923fa7fb3642346b636785e40d6ddcbab92a318a94a6416e16dc247c18"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-guide-summaryExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-guide-summaryExample-static.png",
+      "bytes": 13073,
+      "sha256": "2eba54170f35a645d32e51097e5e654866a1c3f535e5a68380abc6a42e37262d"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-milestone-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-milestone-console.png",
+      "bytes": 29917,
+      "sha256": "b131439e1687447be23bfaad88bcdff9e6af2a35fe6e993d563bcb9dec23f1d8"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-milestone-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-milestone-static.png",
+      "bytes": 5900,
+      "sha256": "93438aba03bf68e521448ac41ae58bdbd3168f39487ee2ae5e4c238a7798c9bc"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-quietEditorial-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-quietEditorial-console.png",
+      "bytes": 29912,
+      "sha256": "9614556dd6cb0e6b21b0c8d0ace5d4a57fbb000121670d4d8ca5dff0c90b538b"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-quietEditorial-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-quietEditorial-static.png",
+      "bytes": 6469,
+      "sha256": "662e86cd7a60271f0e92186fcf311b05d3607edbc9c57f29227f0940b7f401d6"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-sdkWelcome-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-sdkWelcome-console.png",
+      "bytes": 28999,
+      "sha256": "8a5c733a69e39cae048694df151e107c4c0d162c615c0a8fcdb6ff30adae3e44"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-sdkWelcome-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-sdkWelcome-static.png",
+      "bytes": 5314,
+      "sha256": "b53bfec0de50f79e30a80b365edaf4231bf67a5f4031c428f075e99d062e2157"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-53.131Z/website-signature-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-53.131Z/website-signature-console.png",
+      "bytes": 37500,
+      "sha256": "42aa32a2c19b5470093d0000dae8b4ad75962f521d900f31ebbc2309e9428673"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/observations.json",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/observations.json",
+      "bytes": 23090,
+      "sha256": "3e7549669753ca2d3a9291c783261622c153c3a19acbc16cb9de361755e5f298"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-chromeTitle-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-chromeTitle-console.png",
+      "bytes": 31242,
+      "sha256": "df6fca440013a783298584ad54640874ad2df0ee569e07d7cfe28600952c9312"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-chromeTitle-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-chromeTitle-static.png",
+      "bytes": 7670,
+      "sha256": "5086805c294f059b5f54e3ff3e155354165866427c15696547324eadaf3d8b74"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-devContext-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-devContext-console.png",
+      "bytes": 29434,
+      "sha256": "b4a5183fc25f69d9725d61ecc053af1657df6cdc0372d2e480893d1fd6e7d2db"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-devContext-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-devContext-static.png",
+      "bytes": 5021,
+      "sha256": "d4a7dabb2b0b0530743a025a881c44d42aa40b61df854e5b3139b774bbbfcbb7"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-guide-contextExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-guide-contextExample-console.png",
+      "bytes": 35926,
+      "sha256": "55b8bb478c9f340074d3fc13dc8eab199c645a294cb9a61e1f99af0d0cb97ebb"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-guide-contextExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-guide-contextExample-static.png",
+      "bytes": 11458,
+      "sha256": "948226c1cce412b0e367dd4433e86d02e7279a971018f61082b0681ee82ddcb0"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-guide-sdkExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-guide-sdkExample-console.png",
+      "bytes": 36986,
+      "sha256": "6a5c56f2442e1211dccf7dc176ef44ef6ba3c79fd919330e3bbc737daebc4e42"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-guide-sdkExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-guide-sdkExample-static.png",
+      "bytes": 12329,
+      "sha256": "9a07a7334ecb3d8af6f77056d6bca07b072457928d27fac0f27c45c79d860c06"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-guide-summaryExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-guide-summaryExample-console.png",
+      "bytes": 38043,
+      "sha256": "d525486a78a7b700f1c07eed22ddf211c2387ba0d71e5a01f146caaa397a9adc"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-guide-summaryExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-guide-summaryExample-static.png",
+      "bytes": 13055,
+      "sha256": "f7857c125e89b90f8ebcdc7e79860f6e83cd89029fc4ce796ec1f45d7019b198"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-milestone-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-milestone-console.png",
+      "bytes": 30787,
+      "sha256": "615829546aa3b6d74877caf1482f711025388a666cd7eafc929c07a508f9eb47"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-milestone-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-milestone-static.png",
+      "bytes": 5876,
+      "sha256": "095662503ab301b25e0af2f9f08d39cbb1a61dbe3b78d58fc4750888f6419dba"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-quietEditorial-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-quietEditorial-console.png",
+      "bytes": 30864,
+      "sha256": "05e093b01e0752d9fac89d5cb1773e529987f882032ae5c2caacff724e885580"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-quietEditorial-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-quietEditorial-static.png",
+      "bytes": 6445,
+      "sha256": "2d470b4ec996fef010412f5440c4ae9f3661cba6c58beea22561193a055ecaef"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-sdkWelcome-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-sdkWelcome-console.png",
+      "bytes": 29920,
+      "sha256": "3b5db4a058be2cd81c8fccdf12ea04e8fd5b5fd643f332ad73e028ce0e27437b"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-sdkWelcome-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-sdkWelcome-static.png",
+      "bytes": 5289,
+      "sha256": "3241ac293193699c726872b1457b65df45a936db5f9f8564aef1d1fb9d199b4b"
+    },
+    {
+      "path": "native/chrome-2026-09-12T18-36-57.776Z/website-signature-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/chrome-2026-09-12T18-36-57.776Z/website-signature-console.png",
+      "bytes": 39686,
+      "sha256": "bf4b976020e0822b96f07c052938701f5a84a054f6c15ad38702e9f50081d5e5"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/observations.json",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/observations.json",
+      "bytes": 23345,
+      "sha256": "f07ad456bd793eddf65b62eefd0cf0645b2632e433326ee5bbffe2434611525b"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-chromeTitle-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-chromeTitle-console.png",
+      "bytes": 27123,
+      "sha256": "509f6cad6677bb626f98e144c25f0f5051ad3c548ee43a3c0d3d006eea61d4dc"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-chromeTitle-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-chromeTitle-static.png",
+      "bytes": 7793,
+      "sha256": "2a56ea78637554002935fa926867717f2ef9ffded7f24f8ce91e502c47475413"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-devContext-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-devContext-console.png",
+      "bytes": 25396,
+      "sha256": "5ecb436717ca2353fe45d0879251e8e41fd23735d04e45d4971638d51ff7a98f"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-devContext-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-devContext-static.png",
+      "bytes": 5087,
+      "sha256": "6b24b6023ab07ee4e21fcae848e09f087302715950bd8a33078ebcef067bc09c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-guide-contextExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-guide-contextExample-console.png",
+      "bytes": 32029,
+      "sha256": "e727bec40d4da36a2cfc7ffde78626a5d8d57c042a311ae5616841865cfe3039"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-guide-contextExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-guide-contextExample-static.png",
+      "bytes": 11497,
+      "sha256": "d55b31e48edf19dc362eae3766e971f521b0c54670d3555b8a3ef947e8994661"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-guide-sdkExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-guide-sdkExample-console.png",
+      "bytes": 33162,
+      "sha256": "baead86cf1677332eba986aee06506b59ccd096852c09f275d6ed52f62d8e8f3"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-guide-sdkExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-guide-sdkExample-static.png",
+      "bytes": 12386,
+      "sha256": "50b00ecc9dfc24a92bc3f6ae11f532abd10e6de03cad82f0347cddeef7f7f658"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-guide-summaryExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-guide-summaryExample-console.png",
+      "bytes": 34310,
+      "sha256": "88020e54f136ff84a5f2806c8548b0528f7647e88e66e279c990c5b79eafe00b"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-guide-summaryExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-guide-summaryExample-static.png",
+      "bytes": 13056,
+      "sha256": "4fae787c832e77a4a7acf820712c8d7b92ce74cf6c85eb07a739b577d1497fbb"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-milestone-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-milestone-console.png",
+      "bytes": 26802,
+      "sha256": "c0e33aacef1ed3066dd40b7a3308d602726e5f69fc044f32392bc7994332a0b4"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-milestone-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-milestone-static.png",
+      "bytes": 5933,
+      "sha256": "619496afaa1f64450688e64d8656239f684105760bcdc556ba300836ca33badd"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-quietEditorial-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-quietEditorial-console.png",
+      "bytes": 26706,
+      "sha256": "a8fade38c7074b3ca84a00b44be1f8974b9bfbdae94419d24d6eefaa36de85e5"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-quietEditorial-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-quietEditorial-static.png",
+      "bytes": 6497,
+      "sha256": "1b12ce9569fdacac6a0fc434b83a95b6eadce861669adb7738c2db5374c36e80"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-sdkWelcome-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-sdkWelcome-console.png",
+      "bytes": 25793,
+      "sha256": "718098f8f50db2cf1ff2215a56a47bb330ef3a8a4b76cae8009a2672fad57820"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-sdkWelcome-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-sdkWelcome-static.png",
+      "bytes": 5359,
+      "sha256": "321705be553242dd0bcc87139e42143201f1539a1c6a00effe78e371f53099d6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-02.322Z/website-signature-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-02.322Z/website-signature-console.png",
+      "bytes": 34828,
+      "sha256": "2838102ef9653a30186cb54c653dc21433aae3029e66ca644adfdbda31033a77"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/observations.json",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/observations.json",
+      "bytes": 23397,
+      "sha256": "787520d8f7a9440f8cbbde8896536da939e7ec5bdc7045965a459b111b5ac657"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-chromeTitle-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-chromeTitle-console.png",
+      "bytes": 27444,
+      "sha256": "cd8d057ca51e89ded8e192bb68386323bcc5d5fc2666e0049de8d0791f648b7e"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-chromeTitle-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-chromeTitle-static.png",
+      "bytes": 7694,
+      "sha256": "af3878b2a98f3459573cb749ca783614125c5deecf63a0f370a06b26129d66d2"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-devContext-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-devContext-console.png",
+      "bytes": 25775,
+      "sha256": "c8fa14010781110f12fc6ff26cd23fd0b697b54848e20873b48f10a619eac985"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-devContext-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-devContext-static.png",
+      "bytes": 5016,
+      "sha256": "2eb459673025259ef55ba077e4c32b21f366fcaecacdb8e7f42511e83a1b5f45"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-guide-contextExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-guide-contextExample-console.png",
+      "bytes": 32494,
+      "sha256": "c2c82dfd9d04ee7d15c1858a235c52dd984326ea0d0fc46fb5f1cd5c9df947aa"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-guide-contextExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-guide-contextExample-static.png",
+      "bytes": 11406,
+      "sha256": "e4ab582c20309a2083c900a3e331f6408cf3296e3e92a0585101bc0f53640e2e"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-guide-sdkExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-guide-sdkExample-console.png",
+      "bytes": 33525,
+      "sha256": "5b5669aa526d6f21600fff9a2d2f8ddb57458866dc7da94714a9cfb50734a189"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-guide-sdkExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-guide-sdkExample-static.png",
+      "bytes": 12299,
+      "sha256": "1fda67b643bb77b9f66df91345d063d711afbd3a17c49a296478ee4c038afb65"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-guide-summaryExample-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-guide-summaryExample-console.png",
+      "bytes": 34646,
+      "sha256": "9ae2ba5ccfc42936da58489abaebbda4e5119d0265446d063fb65fd7dd95949d"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-guide-summaryExample-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-guide-summaryExample-static.png",
+      "bytes": 12980,
+      "sha256": "17ffa10017c1878bb1cea8017b4dd60137163068589af5a6a325028b4b2a5851"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-milestone-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-milestone-console.png",
+      "bytes": 27183,
+      "sha256": "98e10c36107cd9db3fd5ef3440355110b078018bf8fe33ef6c5ad25ed5097564"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-milestone-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-milestone-static.png",
+      "bytes": 5864,
+      "sha256": "193e803a65284aa92786e8f1957d9fd52850e734fdfbcfdb25e5f041ebb93024"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-quietEditorial-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-quietEditorial-console.png",
+      "bytes": 27208,
+      "sha256": "4ccc7a78da7b3f1e531f3fd64a72933abec0770f29f13ec97bfea2036e9d9b3a"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-quietEditorial-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-quietEditorial-static.png",
+      "bytes": 6429,
+      "sha256": "abb7bc04aae90613246ba56282b13763fef2cbcfa2283a66379a3d7432fcac8c"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-sdkWelcome-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-sdkWelcome-console.png",
+      "bytes": 26209,
+      "sha256": "0a4914dd68db71474a0ed4b2a6e69e1e89e3800499717be7e90d84b1bd28ecc6"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-sdkWelcome-static.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-sdkWelcome-static.png",
+      "bytes": 5286,
+      "sha256": "15800cf3e33d4a1bfa4bc9163b470bb9ae48f5c0f021f0dbe8f3b37f6422e24a"
+    },
+    {
+      "path": "native/edge-2026-09-12T18-37-06.864Z/website-signature-console.png",
+      "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-integration/.artifacts/devtools/edge-2026-09-12T18-37-06.864Z/website-signature-console.png",
+      "bytes": 37009,
+      "sha256": "0eaf63b95ab74b944b6c19c6e70d1b88a356e68dae648c4afe0707ebc7865a6f"
+    },
+    {
+      "path": "before-traced/page-metrics.json",
+      "source": ".artifacts/website/before-traced/page-metrics.json",
+      "bytes": 5655,
+      "sha256": "876747a71cd1510184ab97c2e2d3588c1a68304e2b94bfc029b2bc5fd6dc7ada"
+    },
+    {
+      "path": "before-traced/rest-1440.png",
+      "source": ".artifacts/website/before-traced/rest-1440.png",
+      "bytes": 142232,
+      "sha256": "c5981083d54e5316ba8d450368df832b8ce3b1ba55605b9a5d340265fde275db"
+    },
+    {
+      "path": "before-traced/rest-390.png",
+      "source": ".artifacts/website/before-traced/rest-390.png",
+      "bytes": 59204,
+      "sha256": "009dbe48facd068a70bf57f6fc5c7975f4380f3e6cdc343d6c7eb8918b6dc9ec"
+    },
+    {
+      "path": "before-traced/timeline-1440.json.gz",
+      "source": ".artifacts/website/before-traced/timeline-1440.json.gz",
+      "bytes": 380153,
+      "sha256": "6c8552993d652187dfa9477cd9c411a2d3889badc0eda3b85588305137399eb8"
+    },
+    {
+      "path": "before-traced/timeline-390.json.gz",
+      "source": ".artifacts/website/before-traced/timeline-390.json.gz",
+      "bytes": 373320,
+      "sha256": "be0755a754d41eed4f500972bafedfa2c5e3d3cf2585f8e825e58e1afcb36216"
+    },
+    {
+      "path": "after-final-traced/page-metrics.json",
+      "source": ".artifacts/website/after-final-traced/page-metrics.json",
+      "bytes": 6127,
+      "sha256": "68e9df3f708900c8e7597ce242e149ae0f612c98bb7a85ca73c8dcc01e51d256"
+    },
+    {
+      "path": "after-final-traced/rest-1440.png",
+      "source": ".artifacts/website/after-final-traced/rest-1440.png",
+      "bytes": 116735,
+      "sha256": "1c14629cbeeb4dfcaec31f7994219b1cd57363e16c2aeff47f8f9583c981128c"
+    },
+    {
+      "path": "after-final-traced/rest-390.png",
+      "source": ".artifacts/website/after-final-traced/rest-390.png",
+      "bytes": 49402,
+      "sha256": "ce1b5098fd423dac74448e6162ae2c7fcc08577bce05c3ac9e13822955c43837"
+    },
+    {
+      "path": "after-final-traced/timeline-1440.json.gz",
+      "source": ".artifacts/website/after-final-traced/timeline-1440.json.gz",
+      "bytes": 481983,
+      "sha256": "0477e99140cb13c505a483086d3627b3bd3de0593ae2fc1dc634568dc5e2c7a4"
+    },
+    {
+      "path": "after-final-traced/timeline-390.json.gz",
+      "source": ".artifacts/website/after-final-traced/timeline-390.json.gz",
+      "bytes": 464728,
+      "sha256": "235e4d45045a940ecba72e81f39962a8fa9ff3d7c44ab33cc56673bf003a934e"
+    },
+    {
+      "path": "after-final-off-traced/page-metrics.json",
+      "source": ".artifacts/website/after-final-off-traced/page-metrics.json",
+      "bytes": 6114,
+      "sha256": "ab827c3ebde9c1ca8b4417d70307233ba1c1419bcdd6ec7036f51dd71745843d"
+    },
+    {
+      "path": "after-final-off-traced/rest-1440.png",
+      "source": ".artifacts/website/after-final-off-traced/rest-1440.png",
+      "bytes": 116486,
+      "sha256": "66a2f2eeacdc8889138579eefe89029654b894f077c7cce25541b646aeed139b"
+    },
+    {
+      "path": "after-final-off-traced/rest-390.png",
+      "source": ".artifacts/website/after-final-off-traced/rest-390.png",
+      "bytes": 49335,
+      "sha256": "fa099c9093f6e9b8bdd9cf34ca1723e9f659e54751ab37af469c7ed4d8a43c82"
+    },
+    {
+      "path": "after-final-off-traced/timeline-1440.json.gz",
+      "source": ".artifacts/website/after-final-off-traced/timeline-1440.json.gz",
+      "bytes": 463470,
+      "sha256": "315dec0db6af496800704d7fc1a20c1c55ce76f44632bbc0e9e841cd72c68fcf"
+    },
+    {
+      "path": "after-final-off-traced/timeline-390.json.gz",
+      "source": ".artifacts/website/after-final-off-traced/timeline-390.json.gz",
+      "bytes": 454766,
+      "sha256": "c08a3ed55ee76caf07d9b841fd88858db5cff0bf8eb9d38ed32bb74172e74989"
+    },
+    {
+      "path": "states/UX-01-1280-desktop.png",
+      "source": ".artifacts/website/states/UX-01-1280-desktop.png",
+      "bytes": 113902,
+      "sha256": "afdfb5850d1840cffd917e3572e4c0b3b11a15fd72dde73ce98be685d0271e54"
+    },
+    {
+      "path": "states/UX-01-1280-mobile.png",
+      "source": ".artifacts/website/states/UX-01-1280-mobile.png",
+      "bytes": 534364,
+      "sha256": "27a6799be05c7f6988d8411a6d4f87c900b0384635ecd3aae914ce04c7809aa8"
+    },
+    {
+      "path": "states/UX-01-1440-desktop.png",
+      "source": ".artifacts/website/states/UX-01-1440-desktop.png",
+      "bytes": 117566,
+      "sha256": "3c1ad5821254102d144ce84cfd8540963e93d86b16002e68f1f89eabb8dc9e7c"
+    },
+    {
+      "path": "states/UX-01-1440-mobile.png",
+      "source": ".artifacts/website/states/UX-01-1440-mobile.png",
+      "bytes": 563756,
+      "sha256": "651dd9abf99b88576114e66ca559f5996f361bf4a10317c1cfa3c67eb7b3195a"
+    },
+    {
+      "path": "states/UX-01-320-desktop.png",
+      "source": ".artifacts/website/states/UX-01-320-desktop.png",
+      "bytes": 45817,
+      "sha256": "f7650f7be2be040c07fd39d26b2323e08f3d5a468cd171cb78149321d59c5a5d"
+    },
+    {
+      "path": "states/UX-01-320-mobile.png",
+      "source": ".artifacts/website/states/UX-01-320-mobile.png",
+      "bytes": 266345,
+      "sha256": "07843fe7e1fc72f814a42c9830a6c1f149bef575b85d83d2b16f7d3cfe94a583"
+    },
+    {
+      "path": "states/UX-01-360-desktop.png",
+      "source": ".artifacts/website/states/UX-01-360-desktop.png",
+      "bytes": 49446,
+      "sha256": "a542fdd5c1a336282c27fca2009506b03d00504a6d2132e8c523df195c02e443"
+    },
+    {
+      "path": "states/UX-01-360-mobile.png",
+      "source": ".artifacts/website/states/UX-01-360-mobile.png",
+      "bytes": 281219,
+      "sha256": "f72c35938ec58e8e2b32eae42d8d9a9268d2e6985f9756181208c4e82ce85d9f"
+    },
+    {
+      "path": "states/UX-01-390-desktop.png",
+      "source": ".artifacts/website/states/UX-01-390-desktop.png",
+      "bytes": 49963,
+      "sha256": "77b54041a562c0444e74110e4d7d0420fb0306aad7e3bbf7d000573b8be4e082"
+    },
+    {
+      "path": "states/UX-01-390-mobile.png",
+      "source": ".artifacts/website/states/UX-01-390-mobile.png",
+      "bytes": 284651,
+      "sha256": "dbbcbcc7c30b49bb507200a8562ef5297accc5ab30010f413f58f413875ef258"
+    },
+    {
+      "path": "states/UX-01-768-desktop.png",
+      "source": ".artifacts/website/states/UX-01-768-desktop.png",
+      "bytes": 86493,
+      "sha256": "b6298333e04e417382498fbe125b4480bda45a2319e1eeb354f36ea192608d03"
+    },
+    {
+      "path": "states/UX-01-768-mobile.png",
+      "source": ".artifacts/website/states/UX-01-768-mobile.png",
+      "bytes": 403453,
+      "sha256": "f4e633ecb24bb8bfcffbf6d0ba0eb3dd26dcde8c922a2c8564766d7665044ffc"
+    },
+    {
+      "path": "states/UX-01-no-js-desktop.png",
+      "source": ".artifacts/website/states/UX-01-no-js-desktop.png",
+      "bytes": 44653,
+      "sha256": "723076f9c9b7718a5a9d02fc1d8f449158e83fbe4356dbae716b72e549f0ad0d"
+    },
+    {
+      "path": "states/UX-01-no-js-mobile.png",
+      "source": ".artifacts/website/states/UX-01-no-js-mobile.png",
+      "bytes": 255378,
+      "sha256": "febd3a14731082e155a4127a983c91c262304fc42d23549cbb8b1fd455bfb9b1"
+    },
+    {
+      "path": "states/UX-02-desktop.png",
+      "source": ".artifacts/website/states/UX-02-desktop.png",
+      "bytes": 32802,
+      "sha256": "4eee0bf84d8cc69c181ea8e3ec8e7474f05bcfeca2819df290073b0b637ae928"
+    },
+    {
+      "path": "states/UX-02-mobile.png",
+      "source": ".artifacts/website/states/UX-02-mobile.png",
+      "bytes": 178162,
+      "sha256": "aabe83eae526c4f1f03ce44103df3afcd3c97223d35e8c2dbbf249b4bae14ea9"
+    },
+    {
+      "path": "states/UX-03-final-1440.png",
+      "source": ".artifacts/website/states/UX-03-final-1440.png",
+      "bytes": 3656,
+      "sha256": "a757c7e6a41721c20888fb5dd9ee46c96fada48e8c9a04e0fd5a1f23a19c02ed"
+    },
+    {
+      "path": "states/UX-03-final-390.png",
+      "source": ".artifacts/website/states/UX-03-final-390.png",
+      "bytes": 3341,
+      "sha256": "0505f17eb994a5a9306587ce42add1369c710daf1ed603ad75c9b789ed4bdaf2"
+    },
+    {
+      "path": "states/UX-03-intermediate-1440.png",
+      "source": ".artifacts/website/states/UX-03-intermediate-1440.png",
+      "bytes": 5658,
+      "sha256": "6842578beccb6864f371e027e17ea820a7cfaa8aa3a8d5ebc2926844e18a349c"
+    },
+    {
+      "path": "states/UX-03-intermediate-390.png",
+      "source": ".artifacts/website/states/UX-03-intermediate-390.png",
+      "bytes": 5980,
+      "sha256": "b5636f66ab69b2b1f2c14e3369e02647f6fe10f1fb0c9bf9cd232f2be5500ef9"
+    },
+    {
+      "path": "states/UX-03-start-1440.png",
+      "source": ".artifacts/website/states/UX-03-start-1440.png",
+      "bytes": 19612,
+      "sha256": "def2957fe680c1f028a7404327b96e91f0ab136a7c682ace86f476f23faf13b3"
+    },
+    {
+      "path": "states/UX-03-start-390.png",
+      "source": ".artifacts/website/states/UX-03-start-390.png",
+      "bytes": 19824,
+      "sha256": "fb2a0a56fc406b4daf9196d91b4e88dd1aec53b5a543d6eb06b1f667a30d6062"
+    },
+    {
+      "path": "states/UX-04-desktop.png",
+      "source": ".artifacts/website/states/UX-04-desktop.png",
+      "bytes": 38123,
+      "sha256": "e18ef81b8682afa83deba9402c865973eddd61e92d9a52b57726ff1675550e29"
+    },
+    {
+      "path": "states/UX-04-mobile.png",
+      "source": ".artifacts/website/states/UX-04-mobile.png",
+      "bytes": 141967,
+      "sha256": "e77e8575f5e13a64f225626ef2364db909cf2c5d1c2e60bf44ca25e33dedaf59"
+    },
+    {
+      "path": "states/UX-05-editor-1440.png",
+      "source": ".artifacts/website/states/UX-05-editor-1440.png",
+      "bytes": 131231,
+      "sha256": "ddac0ffd0f8d17c06f554ebaad5c26194705cf6c3e5124d3619df1a18e038040"
+    },
+    {
+      "path": "states/UX-05-editor-390.png",
+      "source": ".artifacts/website/states/UX-05-editor-390.png",
+      "bytes": 114897,
+      "sha256": "648295bd9fdf637e44c2b1c7f9234c447fb3fe5067f8b3f040a108e2cd02209d"
+    },
+    {
+      "path": "states/UX-05-selected-1440.png",
+      "source": ".artifacts/website/states/UX-05-selected-1440.png",
+      "bytes": 26939,
+      "sha256": "5edc007758027d606494c569cc7ec5803c52f029f4e7712dad8352c5cce851f0"
+    },
+    {
+      "path": "states/UX-05-selected-390.png",
+      "source": ".artifacts/website/states/UX-05-selected-390.png",
+      "bytes": 25276,
+      "sha256": "58803175c30786cb8891af430a390a5ff481ece6f37e4b5043493146c6213bfd"
+    },
+    {
+      "path": "states/UX-06-1440.png",
+      "source": ".artifacts/website/states/UX-06-1440.png",
+      "bytes": 40112,
+      "sha256": "369410d3102601a4b91ce8aadaaf0ef68e1bce964d20c833eb81aebfca88cb30"
+    },
+    {
+      "path": "states/UX-06-390.png",
+      "source": ".artifacts/website/states/UX-06-390.png",
+      "bytes": 32914,
+      "sha256": "f6755955b9e6c3e38c9e2d9dfe1b021e1cccfb98474f68ac1a1b90a372e1c5ed"
+    },
+    {
+      "path": "states/UX-07-desktop.png",
+      "source": ".artifacts/website/states/UX-07-desktop.png",
+      "bytes": 39102,
+      "sha256": "92942d6ca530653d3014f0ba3ead62d5ab8135bf61c2fb9e7ba59c41def394b0"
+    },
+    {
+      "path": "states/UX-07-mobile.png",
+      "source": ".artifacts/website/states/UX-07-mobile.png",
+      "bytes": 188838,
+      "sha256": "e8ed107d2ddd9ebc21f91c250a528b2b8b1becbb5bc2cd820007faeefc3f0e8d"
+    },
+    {
+      "path": "states/UX-08-desktop.png",
+      "source": ".artifacts/website/states/UX-08-desktop.png",
+      "bytes": 46541,
+      "sha256": "1d1d1d3048abc4381b4f3699db76b6f1a6791d2f87df855cded502bf16d8b0ee"
+    },
+    {
+      "path": "states/UX-08-mobile.png",
+      "source": ".artifacts/website/states/UX-08-mobile.png",
+      "bytes": 223153,
+      "sha256": "510bc1bc8cead3351a3cfe5522dec0a15bf6d4381e7e5627f77b4905640b18e7"
+    },
+    {
+      "path": "states/UX-09-desktop.png",
+      "source": ".artifacts/website/states/UX-09-desktop.png",
+      "bytes": 51454,
+      "sha256": "5297657d8ee8f8d673fdb415466f053c57d7c9e4ee129e93d5bbd68c0311204e"
+    },
+    {
+      "path": "states/UX-09-mobile.png",
+      "source": ".artifacts/website/states/UX-09-mobile.png",
+      "bytes": 272536,
+      "sha256": "a67c1a73ac725ab4895e2aa5365d862b059f0bc52f14f6b4ff7ccad156ae0415"
+    },
+    {
+      "path": "states/static-desktop.html",
+      "source": ".artifacts/website/states/static-desktop.html",
+      "bytes": 49993,
+      "sha256": "4027130af9eb0538d31feeb4854753745c1e543d0d71741c566a11a43a30a25c"
+    },
+    {
+      "path": "states/static-mobile.html",
+      "source": ".artifacts/website/states/static-mobile.html",
+      "bytes": 49993,
+      "sha256": "4027130af9eb0538d31feeb4854753745c1e543d0d71741c566a11a43a30a25c"
+    },
+    {
+      "path": "states/storyboard-completion.json",
+      "source": ".artifacts/website/states/storyboard-completion.json",
+      "bytes": 810,
+      "sha256": "7f9cb275a7b363ad7df06292705b9b8043425913aebc59342ea0e72a05a46814"
+    },
+    {
+      "path": "native-zoom/docs-200.png",
+      "source": ".artifacts/website/native-zoom/docs-200.png",
+      "bytes": 94992,
+      "sha256": "172388650c018014a942ae7bac5ca09c63397e7f7dca475a498dd7b3699fbbdf"
+    },
+    {
+      "path": "native-zoom/docs-400.png",
+      "source": ".artifacts/website/native-zoom/docs-400.png",
+      "bytes": 59525,
+      "sha256": "525ab3e8601dc6ba45f77ae42bef76a45fe4ce8f7c6bd0e5b5fa1f88e4a34a3e"
+    },
+    {
+      "path": "native-zoom/landing-200.png",
+      "source": ".artifacts/website/native-zoom/landing-200.png",
+      "bytes": 101934,
+      "sha256": "285a624b1ea3f5f6a1bc3842d0f30ce662caa8131bfbda4eb9984e3c1579855c"
+    },
+    {
+      "path": "native-zoom/landing-400.png",
+      "source": ".artifacts/website/native-zoom/landing-400.png",
+      "bytes": 61190,
+      "sha256": "a2090bd0ae7f4c2e1a7d1bc68c4a61ae2ca7ca22089920ef53581eb67db0ecb4"
+    },
+    {
+      "path": "native-zoom/receipt.json",
+      "source": ".artifacts/website/native-zoom/receipt.json",
+      "bytes": 1610,
+      "sha256": "468b842e17ffe6b59e077d316df303c7ae80922b43fc275b88c84b87018ed93f"
+    },
+    {
+      "path": "native-zoom/studio-200.png",
+      "source": ".artifacts/website/native-zoom/studio-200.png",
+      "bytes": 67300,
+      "sha256": "32a2dc1a6ef572b1376c07cd178946eb1a25fd939a73564af500c581cca9f048"
+    },
+    {
+      "path": "native-zoom/studio-400.png",
+      "source": ".artifacts/website/native-zoom/studio-400.png",
+      "bytes": 54263,
+      "sha256": "d2396f068675720e6b396f4bd01617710e7cd00b44594635af196c8d3b2c4392"
+    },
+    {
+      "path": "fixtures/fixtures.json",
+      "source": ".artifacts/devtools-website/fixtures.json",
+      "bytes": 130391,
+      "sha256": "5c245c096b6d0b82c6471bf06dd1d15d4756a03102ec42df7e7eeff008e1ff07"
+    },
+    {
+      "path": "fixtures/fixture.js",
+      "source": ".artifacts/devtools-website/fixture.js",
+      "bytes": 1296,
+      "sha256": "4af80835dded3c3803a06f06ebac8e4779e1ecd5c8148834a9dd0fc461af1c0f"
+    },
+    {
+      "path": "fixtures/index.html",
+      "source": ".artifacts/devtools-website/index.html",
+      "bytes": 1111,
+      "sha256": "864dd7bd826edbd6e320f2df41f69e9212e417c4e35f099859fbeb6d4ed850a2"
+    },
+    {
+      "path": "checks/final-build.log",
+      "source": ".artifacts/website/final-build.log",
+      "bytes": 892,
+      "sha256": "46b5bb49696a117348b08f1b5eac256a8d5695fea1640332db1b94470c8fac2c"
+    },
+    {
+      "path": "checks/final-studio.log",
+      "source": ".artifacts/website/final-studio.log",
+      "bytes": 114965,
+      "sha256": "47bb9148d64d014e8e0ad376504c76e8fbbb7a0d9ce793158ced9aca27acf5e0"
+    },
+    {
+      "path": "checks/final-types.log",
+      "source": ".artifacts/website/final-types.log",
+      "bytes": 166,
+      "sha256": "e8a5f8d2989c4b44e4b5d8cad1b06bfd251300828840f1f704ebc8656c1effc7"
+    },
+    {
+      "path": "checks/final-lint.log",
+      "source": ".artifacts/website/final-lint.log",
+      "bytes": 37,
+      "sha256": "ee16f0c73a2cce3c9067ee07832af01534b111a97ec6e8ea47b793abc93e4d16"
+    },
+    {
+      "path": "checks/final-format.log",
+      "source": ".artifacts/website/final-format.log",
+      "bytes": 380,
+      "sha256": "7cb70544b46760ad4fcf7ab802cb29029b72a3cc2e040edaccfa8ec114a002f1"
+    },
+    {
+      "path": "checks/final-recipes-consumer.json",
+      "source": ".artifacts/website/final-recipes-consumer.json",
+      "bytes": 719,
+      "sha256": "b18f2cf36363157b59234574fc643818e6066b8e057e06d61904c163ccefd017"
+    },
+    {
+      "path": "checks/windows-hardware.json",
+      "source": ".artifacts/website/windows-hardware.json",
+      "bytes": 546,
+      "sha256": "15d4dcfc3807622e4393d14aba1e1a831b7edc1956c54e52a930288c48603cf7"
+    },
+    {
+      "path": "checks/native-final-runs.json",
+      "source": ".artifacts/website/native-final-runs.json",
+      "bytes": 804,
+      "sha256": "82f19c4c55b4625da36994db97deb4fe719ebe409168d0d6b7fc5bc595964b0e"
+    },
+    {
+      "path": "checks/native-cases.json",
+      "source": ".artifacts/website/native-cases.json",
+      "bytes": 15364,
+      "sha256": "49b973a48d5ff4fddb26ce235689ed2ee220a31e8ff36f60ab65dede782682df"
+    }
+  ]
+}

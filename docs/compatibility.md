@@ -51,6 +51,26 @@ not qualify compact layouts, automatic fitting or experimental container sizing.
 See the [card implementation receipt](specs/useful-artful-presets-evidence.md)
 for separate package, CI and release status.
 
+## Explicit fitting and compact cards
+
+The [2026-09-12 fitting qualification](evidence/fitting/2026-09-12/README.md) adds
+explicit `fit/v1`, the ten maintainer-approved 360 px compact layouts, optional
+local-font measurement and saved render recipes. Omitted options preserve old
+output. Compact designs center at their native width in wider frames; all ten
+sample designs explicitly fail at 280 px rather than shrink below their 12 px floor.
+
+Actual Windows Chrome 153.0.8010.36 and Edge 153.0.4234.32 observations include
+fixed/container resize, native copy, light/dark and zoom, source anchors, groups,
+timestamps, docking/drawer, repeated entries, reopening and verified offscreen
+return. All four fitted motion families visibly changed and settled in the recorded
+fixtures. The complete caption remains available. Fixed output can require scrolling.
+
+`container-experimental` stays opt-in and experimental. Observed carriers preserve
+the ratio and cap across the recorded contexts; actual image-text readability and
+display dimensions are unknown to the compiler. It never reads DevTools geometry,
+selects a compact variant at print time, or logs again when the console resizes.
+Font/Unicode results are local observations, not universal recipient guarantees.
+
 ## Runtime consumption
 
 The isolated packed JavaScript fixture passes under Node 24.20.0 and the existing

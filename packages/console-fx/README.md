@@ -1,10 +1,11 @@
 # ConsoleFX
 
 Compose one expressive console entry. Compilation is silent; emission is explicit.
-ESM JavaScript and TypeScript declarations are included. The release candidate is
+ESM JavaScript and TypeScript declarations are included. Packed consumers are
 tested on Node 24; rich output targets the recorded Windows Chromium profiles.
 See the repository's [compatibility evidence](https://github.com/servrox/console-fx/blob/main/docs/compatibility.md)
-before relying on a particular DevTools treatment. Publication is pending.
+before relying on a particular DevTools treatment. Current release status is
+recorded in the [repository](https://github.com/servrox/console-fx#readme).
 
 ```js
 import { neon } from "@servrox/console-fx/presets";
@@ -114,7 +115,7 @@ most five seconds, and cannot update an already printed entry. Browser emission
 and standalone export accept `motion: "system"` and choose animation only on a
 positive no-preference result. The pure compiler accepts already-resolved
 `motion: "allow" | "reduce"`. Repeated identical SVG images may retain their
-finished frame. Full release qualification remains pending for this candidate.
+finished frame. Consult the compatibility record for observed builds and limits.
 
 ## Cinematic Metal
 

@@ -1,6 +1,6 @@
 ---
 title: "ConsoleFX — responsive sizing and reliable content fitting"
-status: "approved for implementation; qualification pending"
+status: "implemented; recorded Windows qualification complete; release pending"
 created: "2026-09-12"
 artifact_path: "docs/specs/responsive-fitting-spec.md"
 repository: "servrox/console-fx"

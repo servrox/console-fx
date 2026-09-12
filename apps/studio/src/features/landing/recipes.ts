@@ -22,7 +22,11 @@ export function welcomeToSdk(showWelcome: boolean) {
       { runs: [{ text: "See the SDK guide" }] },
     ],
   });
-  emitConsole(scene, { target: "chromium", renderer: "css", motion: "reduce" });
+  emitConsole(scene, {
+    target: "chromium", renderer: "svg", motion: "reduce", unsupported: "fallback",
+    layout: { algorithm: "fit/v1", width: 600, maxHeight: 400,
+      variant: "standard", overflow: "wrap-then-shrink", minFontSize: 12 },
+  });
 }`;
 
 export const contextExample = `import { defineScene } from "@servrox/console-fx";
@@ -40,7 +44,11 @@ export function showBuild(development: boolean, build: Build) {
       { runs: [{ text: "Revision " + build.revision }] },
     ],
   });
-  emitConsole(scene, { target: "chromium", renderer: "css", motion: "reduce" });
+  emitConsole(scene, {
+    target: "chromium", renderer: "svg", motion: "reduce", unsupported: "fallback",
+    layout: { algorithm: "fit/v1", width: 600, maxHeight: 400,
+      variant: "standard", overflow: "wrap-then-shrink", minFontSize: 12 },
+  });
 }`;
 
 export const summaryExample = `import { defineScene } from "@servrox/console-fx";
@@ -54,7 +62,11 @@ export function showSummary(approved: boolean, facts: readonly string[]) {
     label: "Supplied summary",
     lines: facts.map((text) => ({ runs: [{ text }] })),
   });
-  emitConsole(scene, { target: "chromium", renderer: "css", motion: "reduce" });
+  emitConsole(scene, {
+    target: "chromium", renderer: "svg", motion: "reduce", unsupported: "fallback",
+    layout: { algorithm: "fit/v1", width: 600, maxHeight: 400,
+      variant: "standard", overflow: "wrap-then-shrink", minFontSize: 12 },
+  });
 }`;
 
 export const reactExample = `import { neon } from "@servrox/console-fx/presets";

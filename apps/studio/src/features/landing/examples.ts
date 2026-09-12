@@ -120,7 +120,9 @@ export function exampleRecipe(
     scene,
     options: {
       target: "chromium",
-      renderer: metal ? "svg" : "css",
+      // The multi-line examples use their opaque authored surface so their
+      // pale type remains readable in both light and dark DevTools themes.
+      renderer: metal || id !== "signature" ? "svg" : "css",
       motion: "reduce",
       unsupported: "error",
     },
