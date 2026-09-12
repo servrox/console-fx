@@ -1,6 +1,11 @@
 # Release candidate and promotion gates
 
-The first MVP candidate is implemented under Accepted ADR-0001 through ADR-0011.
+The first MVP candidate was implemented under ADR-0001 through ADR-0011.
+Accepted ADR-0013 now supersedes ADR-0011: missing screen-reader observations are
+a nonblocking follow-up. Required automated, keyboard/focus, zoom/reflow and
+reduced-motion checks remain. Cinematic presets follow Accepted ADR-0012 and have
+a separate [candidate ledger](specs/cinematic-metal-presets-evidence.md); the dated
+artifacts below do not qualify that new implementation.
 Protected hosted verification and GitHub CI on the merged `main` commit passed;
 publication and public promotion remain pending. The approved spec
 requires all 24 acceptance criteria before the full launch; local checks alone do
@@ -41,14 +46,14 @@ release-workflow, Bun fixture and evidence update still needs its own final CI r
 | --- | --- | --- |
 | AC-01–06 | Silent imports/compilation, exactly one emission, standalone parity, adversarial percent corpus, SVG structure; local/CI unit checks and native samples | None for the approved snapshot |
 | AC-07–09 | Static defaults/fallbacks and preference/error tests locally and in CI; native static samples and finite motion frame comparisons | Retain the recorded native browser scope |
-| AC-10–11 | Sixteen desktop/mobile production journeys locally and in CI; silent editing, import/history and recovery | Manual accessibility review under AC-18 |
+| AC-10–11 | Sixteen desktop/mobile production journeys locally and in CI; silent editing, import/history and recovery | None for the approved snapshot; screen-reader follow-up is nonblocking |
 | AC-12–13 | Local/CI React SSR, first-enabled behavior, Strict Mode, toggles and true remount; packed Next startup/banner consumer | None for the approved snapshot |
 | AC-14–15 | Local/CI tarball inspection, bundle input graphs and fresh isolated JS/TS/React/Next installs; CI tarballs match local hashes | Post-publication registry install |
 | AC-16 / AC-19 | [Native Windows matrix](evidence/devtools/2026-09-11/README.md), all required families and motions, 100 combinations, sampled visual review, copying/lifecycle/narrow behavior; [final scope audit](evidence/devtools/2026-09-11/release-review.json) passed | Retain the recorded browser, theme, timing and fixture scope; requalify affected changes |
 | AC-17 | Resource boundaries, invalid-data and generated-source tests in the local/CI 101-test suite | None for the approved snapshot |
-| AC-18 | Automated accessibility, focus/reduced-motion checks, 320 CSS-pixel reflow, native 200%/400% zoom and recovery journeys | [Representative screen-reader/browser checklist](accessibility.md) |
+| AC-18 | Automated accessibility, focus/reduced-motion checks, 320 CSS-pixel reflow, native 200%/400% zoom and recovery journeys | None for the recorded required observations; [screen-reader follow-up](accessibility.md) is nonblocking |
 | AC-20–22 | Local/CI immutable descriptors, typed validation/preview, UTF-8 sizes and explicit renderer/default/error/fallback contracts | None for the approved snapshot |
-| AC-23 | Local/CI draft/resume/conflict, corrupt/quota/unavailable storage, reset, repeatable clear and queued-write regressions | Representative manual accessibility review |
+| AC-23 | Local/CI draft/resume/conflict, corrupt/quota/unavailable storage, reset, repeatable clear and queued-write regressions | Screen-reader follow-up is nonblocking |
 | AC-24 | Core, studio, adapter, Next recipes, MIT files, generated notices, npm ownership, initial CI and protected hosted checks | Final addendum CI, release authority, publication and public promotion |
 
 ## Rights, accounts and automation

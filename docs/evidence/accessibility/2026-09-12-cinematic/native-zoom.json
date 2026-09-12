@@ -1,0 +1,247 @@
+{
+  "observedAt": "2026-09-12T10:58:53.308Z",
+  "browser": "153.0.8010.36",
+  "studioCandidate": {
+    "createdAt": "2026-09-12T10:43:00.794Z",
+    "framework": "Next static export",
+    "files": [
+      {
+        "path": "__next.__PAGE__.txt",
+        "sha256": "49022e0eb8c4233980a9aa3db367af960fc2ec25c000fdcfb0dd2d230bb17cf9"
+      },
+      {
+        "path": "__next._full.txt",
+        "sha256": "0cd67787d6050a2c22bb0d5cc2cd2f9e4a554760b097e9d8b16bd77f43002811"
+      },
+      {
+        "path": "__next._tree.txt",
+        "sha256": "6645f61e97cbf1c57da18ecca17e4b2d7241f7a4fe1f67cbcc61b5d4d99a37be"
+      },
+      {
+        "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+        "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+      },
+      {
+        "path": "_next/static/chunks/0mqkl1lqlm755.js",
+        "sha256": "1525f7377c736f0e6722f7ba72f2416b79769dab8f316aa745be94dcfcde6ec9"
+      },
+      {
+        "path": "_next/static/chunks/1fcs3a6dg17ff.js",
+        "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02"
+      },
+      {
+        "path": "_next/static/chunks/1jc1cb6zppbhu.js",
+        "sha256": "789805462f92907f23c92f3037ace5a9155ea02ad1fac7557c72d407e5a53e36"
+      },
+      {
+        "path": "_next/static/chunks/1t9xegdxhrkq0.css",
+        "sha256": "7f9c2eb7eb434734bb82adf1fe631840395cca0227eb1166bbc980ae96b689bc"
+      },
+      {
+        "path": "_next/static/chunks/2ek8anm3get_b.js",
+        "sha256": "5214391e464719678b58ce910f17bc459f4af4185070ba578cd37238fd01bbce"
+      },
+      {
+        "path": "_next/static/chunks/3_gvevdc4w3iw.js",
+        "sha256": "e77202c256bb93be88dda196598950f0cc3a9e7e4da24525c134485f878faa8f"
+      },
+      {
+        "path": "_next/static/chunks/3b14-d3pzxicm.js",
+        "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec"
+      },
+      {
+        "path": "_next/static/chunks/3uhrbazk7ka33.js",
+        "sha256": "27ee0c1b754cb3505933a7662cc35dbfe11b455935631a0eb990ba4ecba99166"
+      },
+      {
+        "path": "_next/static/chunks/turbopack-2wwt1m04ithaq.js",
+        "sha256": "b69e8d3cc40eec1794a70923af0c5588c14b3cd4ed8ca9c0315d26db06103fd6"
+      },
+      {
+        "path": "_next/static/GA2rTV7MdleTX_vPFQJ7z/_buildManifest.js",
+        "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+      },
+      {
+        "path": "_next/static/GA2rTV7MdleTX_vPFQJ7z/_clientMiddlewareManifest.js",
+        "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+      },
+      {
+        "path": "_next/static/GA2rTV7MdleTX_vPFQJ7z/_ssgManifest.js",
+        "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+      },
+      {
+        "path": "_not-found/__next._full.txt",
+        "sha256": "e3f43efb4427c2ec0a5025ce0fbe705db1c956e9ea41ecd25b82a1132a86f956"
+      },
+      {
+        "path": "_not-found/__next._not-found.__PAGE__.txt",
+        "sha256": "3afc8a4080afe61f8a3a974f5d72e08d6b3389412cbb0fcbc40e6a15dcd1994f"
+      },
+      {
+        "path": "_not-found/__next._tree.txt",
+        "sha256": "6ac6168c05c0caf3aa40a3640f26a976e57f13ae59330a27d8a5e942b6ace862"
+      },
+      {
+        "path": "_not-found/index.html",
+        "sha256": "32399a65dfef7a1f24df293a2474dab5009d1568083826716d9887b26f767e9e"
+      },
+      {
+        "path": "_not-found/index.txt",
+        "sha256": "e3f43efb4427c2ec0a5025ce0fbe705db1c956e9ea41ecd25b82a1132a86f956"
+      },
+      {
+        "path": "404/index.html",
+        "sha256": "32399a65dfef7a1f24df293a2474dab5009d1568083826716d9887b26f767e9e"
+      },
+      {
+        "path": "404.html",
+        "sha256": "32399a65dfef7a1f24df293a2474dab5009d1568083826716d9887b26f767e9e"
+      },
+      {
+        "path": "docs/__next._full.txt",
+        "sha256": "306c364e26b734ce6790bbfbddd031406836e72ed8e5d579eb2838d5fcd4e4e6"
+      },
+      {
+        "path": "docs/__next._tree.txt",
+        "sha256": "81150c6d47cde55a9dbe36099486b5857104fd92a6f6e132a7b9c8a9b9eff027"
+      },
+      {
+        "path": "docs/__next.docs.__PAGE__.txt",
+        "sha256": "51487c137d8d55df61052e6850761af55464b03ac34b80ceb9f028de8f6dfeca"
+      },
+      {
+        "path": "docs/index.html",
+        "sha256": "c7ef3f2ddd77e0dca7f6cbe9f7955489b39877224648fcafcb5087baf421ce8b"
+      },
+      {
+        "path": "docs/index.txt",
+        "sha256": "306c364e26b734ce6790bbfbddd031406836e72ed8e5d579eb2838d5fcd4e4e6"
+      },
+      {
+        "path": "index.html",
+        "sha256": "b1a7ef1e9b96f67104c16edc8676038cb918c3f725e75ac7b63cd938ded5ef8d"
+      },
+      {
+        "path": "index.txt",
+        "sha256": "0cd67787d6050a2c22bb0d5cc2cd2f9e4a554760b097e9d8b16bd77f43002811"
+      },
+      {
+        "path": "licenses.txt",
+        "sha256": "9989eacae27319ee7793aed2f1ffe8d341f094a7ac9c319196f6d1b655ef8c52"
+      },
+      {
+        "path": "studio/__next._full.txt",
+        "sha256": "287142f9b0b614ee00dbb57a3b9b40fd3b2bbc4a9bbf8fba06faeb36e45ebb54"
+      },
+      {
+        "path": "studio/__next._tree.txt",
+        "sha256": "95422b96e77ff3952c7978950c5774e633002e5b9272924db49cc2b1d7443df5"
+      },
+      {
+        "path": "studio/__next.studio.__PAGE__.txt",
+        "sha256": "59058573ac6b0d989f8f9341590fcc789901f38d6ac843d45f6b8052ab7a7b88"
+      },
+      {
+        "path": "studio/index.html",
+        "sha256": "8da96e1191331e2d7174373568b22ce494762178ad430496718a759c0b76e5c5"
+      },
+      {
+        "path": "studio/index.txt",
+        "sha256": "287142f9b0b614ee00dbb57a3b9b40fd3b2bbc4a9bbf8fba06faeb36e45ebb54"
+      }
+    ],
+    "configSha256": "0a1219cdb8394839c5f19626e07a9f1fa48e65d49ce12a4da04e50f6180220cb",
+    "cspBytes": 480,
+    "scriptHashes": 5,
+    "deployment": "not deployed",
+    "source": "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/apps/studio/out"
+  },
+  "before": {
+    "width": 1264,
+    "height": 849,
+    "devicePixelRatio": 1,
+    "documentWidth": 1249
+  },
+  "method": "Native Chrome menu UI Automation Zoom In; measured devicePixelRatio and layout viewport",
+  "rows": [
+    {
+      "percent": 200,
+      "path": "/studio/",
+      "width": 632,
+      "height": 424,
+      "devicePixelRatio": 2,
+      "documentWidth": 624,
+      "screenshot": ".artifacts/accessibility/native-viewport-200-studio.png"
+    },
+    {
+      "percent": 200,
+      "path": "/",
+      "width": 632,
+      "height": 424,
+      "devicePixelRatio": 2,
+      "documentWidth": 624,
+      "screenshot": ".artifacts/accessibility/native-viewport-200-landing.png"
+    },
+    {
+      "percent": 200,
+      "path": "/docs/",
+      "width": 632,
+      "height": 424,
+      "devicePixelRatio": 2,
+      "documentWidth": 624,
+      "screenshot": ".artifacts/accessibility/native-viewport-200-docs.png"
+    },
+    {
+      "percent": 400,
+      "path": "/studio/",
+      "width": 316,
+      "height": 212,
+      "devicePixelRatio": 4,
+      "documentWidth": 312,
+      "screenshot": ".artifacts/accessibility/native-viewport-400-studio.png"
+    },
+    {
+      "percent": 400,
+      "path": "/",
+      "width": 316,
+      "height": 212,
+      "devicePixelRatio": 4,
+      "documentWidth": 312,
+      "screenshot": ".artifacts/accessibility/native-viewport-400-landing.png"
+    },
+    {
+      "percent": 400,
+      "path": "/docs/",
+      "width": 316,
+      "height": 212,
+      "devicePixelRatio": 4,
+      "documentWidth": 312,
+      "screenshot": ".artifacts/accessibility/native-viewport-400-docs.png"
+    },
+    {
+      "journey": "400% keyboard edit and reset cancellation",
+      "message": "Native zoom review",
+      "focusBefore": {
+        "text": "Keep current scene",
+        "insideDialog": true
+      },
+      "focusAfter": {
+        "text": "Reset scene",
+        "insideDialog": true
+      },
+      "focusReturned": true
+    }
+  ],
+  "visualReview": {
+    "reviewedAt": "2026-09-12T11:00:22.809089+00:00",
+    "reviewer": "Implementation agent",
+    "capturedStates": "All eight original native viewport captures inspected",
+    "result": "Readable gallery name and image, labels, visible focused text field, keyboard-reachable dialog actions, vertical dialog scrolling, and no horizontal page overflow in these sampled states.",
+    "screenReader": "Not observed; nonblocking follow-up per ADR-0013"
+  },
+  "restored": {
+    "devicePixelRatio": 1,
+    "innerWidth": 1264,
+    "documentWidth": 1249
+  }
+}

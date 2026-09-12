@@ -1,0 +1,85 @@
+{
+  "method": "SHA-256 of decoded RGBA bytes and exact dimensions",
+  "rows": [
+    {
+      "id": "lightningMetal",
+      "width": 840,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "a8067b454f02fb392cba4264574033e5ee15893c4351ae9709b8a13fbe86f0c2",
+        "23e5eb2ee8ddddbced6f2c1f0d1a4dfaccf079eff917c890503ba980f5965c5b"
+      ]
+    },
+    {
+      "id": "lightningMetal",
+      "width": 480,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "d8db005576832602b8b52351412eb3feccf3c4087f818b77eb13c9c31d6dd711",
+        "df87bdac8ea0c0450e6756820ecce51174e20596b3d0cbd7c15566da06b5addf"
+      ]
+    },
+    {
+      "id": "iceCathedral",
+      "width": 840,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "225e9f95df50eab0b9e3a87ffafe67103ad67ac815cc83737d231c6d3c0385e3",
+        "8736ef6fa4633a4bd1b42f4c381870f9eace7631fbfdf7a45d2b080c354e8660"
+      ]
+    },
+    {
+      "id": "iceCathedral",
+      "width": 480,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "05fbffb7ebf3f2ee9fc96d2bdd16bf57bb97b4468f6faf6b0eab4993af223f00",
+        "7b2cf32555eb38e9cec9432182e4afc2763c73cf25a4796f155a7e5052c90ddb"
+      ]
+    },
+    {
+      "id": "liquidChrome",
+      "width": 840,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "d5c0ad3a1227cb94c10ec1e6579e8646b4c5726e1758a7a5b818ad4b04a3efda",
+        "2c381eb69612c746e36d36a4b8de2095ac56b6b61c0562bee715f06b6ebb8614"
+      ]
+    },
+    {
+      "id": "liquidChrome",
+      "width": 480,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "ba124eb26eefd1a1631f5b597e1401326f32b3ceee3b2c11bb616f6e886129bf",
+        "3d580fde2d9870ff4fd0adc458a587ccdf85173442e0e4b3d3daa348bd505e00"
+      ]
+    },
+    {
+      "id": "moltenGold",
+      "width": 840,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "365a6a62ba4322bada888eb67844c5b9bbaa46ec0d8a729e6439179c579fb727",
+        "e05e0f9eed7011de617449aa1bcaa5270182055962cf0265f82f7ea8984f29b4"
+      ]
+    },
+    {
+      "id": "moltenGold",
+      "width": 480,
+      "equalDimensions": true,
+      "pixelIdenticalBetweenBrowsers": false,
+      "hashes": [
+        "a8b41c7de758641f39db13abe4a9b9c3b745cd765224ccd3be325c6cb6d7db5a",
+        "6ab165935d41f482f36d6a97eb406b4609762df771b9f5eba171c3f285bcdbbe"
+      ]
+    }
+  ]
+}

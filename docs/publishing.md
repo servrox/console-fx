@@ -9,10 +9,11 @@ This release automation and later evidence form a separate reviewable follow-up.
 
 ## First-publication bootstrap
 
-Complete the [release ledger](releasing.md), including real CI and representative
-screen-reader results, and obtain approval for the exact packages, versions,
+Complete the required [release ledger](releasing.md) gates, including real CI,
+and obtain approval for the exact packages, versions,
 tarball hashes and distribution tag. The qualified studio preview does not grant
-package publication authority.
+package publication authority. Representative screen-reader review is a
+nonblocking follow-up under ADR-0013; its missing evidence is not a publication gate.
 
 Both npm package names were absent at the last authenticated check. npm's
 [trust prerequisites](https://docs.npmjs.com/cli/v11/commands/npm-trust/)

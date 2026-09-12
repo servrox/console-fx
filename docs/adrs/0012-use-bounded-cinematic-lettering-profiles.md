@@ -1,18 +1,18 @@
 # ADR-0012: Use bounded cinematic lettering profiles
 
-Status: Proposed
+Status: Accepted
 Date: 2026-09-12
 Owner: ConsoleFX maintainer
 Applies when: Cinematic metal presets, their shared effect contract, glyph data, rendering, or document compatibility change.
 Supersedes: None
 Superseded by: None
-Approval: Pending maintainer review; permission to save the specification is not acceptance of this decision.
+Approval: On 2026-09-12 the maintainer explicitly answered “Approve ADR-0012 and ADR-0013” when asked to accept the prepared records. The earlier request to implement commit 3c42e12d705b044809c05579f762bcb8c137890a supplies implementation authority; the original specification save alone did not.
 
 ## Context
 
 The requested cinematic presets need original silhouettes, nonuniform metallic reflections, extrusion, glow, and ornaments. The current rich compiler allows one static effect per run, so independently stacking metallic, extruded, and neon effects is unsupported. A separate app renderer or arbitrary SVG field would violate the existing shared-model and validated-data boundaries.
 
-## Proposed decision
+## Decision
 
 Represent a complete treatment as one static built-in `cinematicMetal` effect in the existing JSON-compatible SceneV1 model. Use four closed, versioned profile IDs and bounded parameters for accent color, depth, glow, and ornaments. Preset factories materialize ordinary scenes; the core catalog owns validation metadata, and the existing SVG compiler owns rendering. No plugin registration, arbitrary paths, font API, new npm package, or second editor renderer is introduced.
 
@@ -35,7 +35,7 @@ The feature gets expressive, deterministic, inspectable output without expanding
 
 ## Validation
 
-Follow the [feature specification](../specs/cinematic-metal-presets-spec.md): test old/new reader combinations, literal text and Unicode handling, strict/fallback behavior, deterministic IDs and bytes, bounded geometry/filters, single-call exports, package consumers, and exact-preview integration. Qualify each new profile in actual Windows Chrome and Edge DevTools under ADR-0006. Tests and qualification are pending; this record reports no implementation success.
+Follow the [feature specification](../specs/cinematic-metal-presets-spec.md): test old/new reader combinations, literal text and Unicode handling, strict/fallback behavior, deterministic IDs and bytes, bounded geometry/filters, single-call exports, package consumers, and exact-preview integration. Qualify each new profile in actual Windows Chrome and Edge DevTools under ADR-0006. Execution results belong in the [feature evidence](../specs/cinematic-metal-presets-evidence.md); acceptance itself reports no implementation success.
 
 ## Sources and lineage
 

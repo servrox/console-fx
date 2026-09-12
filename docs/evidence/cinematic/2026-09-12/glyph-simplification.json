@@ -1,0 +1,192 @@
+[
+  {
+    "before": "M0 100 30 0H50L70 100H50L50 80H30L20 100ZM30 60H40L40 30Z",
+    "after": "M0 100L30 0H50L70 100H50V80H30L20 100ZM30 60H40V30Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H50L70 20V40L60 50 70 60V90L60 100H0ZM20 20V40H50L50 40V30L40 20ZM20 60V80H50L50 80V70L50 60Z",
+    "after": "M0 0H50L70 20V40L60 50 70 60V90L60 100H0ZM20 20V40H50V30L40 20ZM20 60V80H50V60Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H70V20H30L20 30V70L30 80H70V100H20L0 80V20Z",
+    "after": "M20 0H70V20H30L20 30V70L30 80H70V100H20L0 80V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H50L80 30V80L50 100H0ZM20 20V80H40L60 70V40L40 20Z",
+    "after": "M0 0H50L80 30V80L50 100H0ZM20 20V80H40L60 70V40L40 20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H70V20H20V40H60V60H20V80H70V100H0Z",
+    "after": "M0 0H70V20H20V40H60V60H20V80H70V100H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H70V20H20V40H60V60H20V100H0Z",
+    "after": "M0 0H70V20H20V40H60V60H20V100H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H80V20H30L20 30V70L30 80H60V60H40V40H80V100H20L0 80V20Z",
+    "after": "M20 0H80V20H30L20 30V70L30 80H60V60H40V40H80V100H20L0 80V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H20V40H60V0H80V100H60V60H20V100H0Z",
+    "after": "M0 0H20V40H60V0H80V100H60V60H20V100H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H40V20H30V90H40V100H0V90H10V20H0Z",
+    "after": "M0 0H40V20H30V90H40V100H0V90H10V20H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M10 0H70V80L50 100H20L0 90V70H20V80L30 80H40L50 80V20H10Z",
+    "after": "M10 0H70V80L50 100H20L0 90V70H20V80H50V20H10Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H20V40L50 0H80L40 50 80 100H50L20 60V100H0Z",
+    "after": "M0 0H20V40L50 0H80L40 50 80 100H50L20 60V100H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H20V80H70V100H0Z",
+    "after": "M0 0H20V80H70V100H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 100V0H20L50 50 70 0H90V100H70V40L50 80 20 40V100Z",
+    "after": "M0 100V0H20L50 50 70 0H90V100H70V40L50 80 20 40V100Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 100V0H20L60 60V0H80V100H60L20 40V100Z",
+    "after": "M0 100V0H20L60 60V0H80V100H60L20 40V100Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H60L80 20V80L60 100H20L0 80V20ZM30 20 20 30V80L30 80H50L60 80V30L50 20Z",
+    "after": "M20 0H60L80 20V80L60 100H20L0 80V20ZM30 20L20 30V80H60V30L50 20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 100V0H50L70 20V50L50 70H20V100ZM20 20V50H50L50 40V30L50 20Z",
+    "after": "M0 100V0H50L70 20V50L50 70H20V100ZM20 20V50H50V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H60L80 20V80L80 100H60L60 90 50 100H20L0 80V20ZM30 20 20 30V80L30 80H50L40 60H60V30L50 20Z",
+    "after": "M20 0H60L80 20V100H60V90L50 100H20L0 80V20ZM30 20L20 30V80H50L40 60H60V30L50 20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 100V0H50L70 20V50L60 60 80 100H50L40 70H20V100ZM20 20V50H50L50 40V30L50 20Z",
+    "after": "M0 100V0H50L70 20V50L60 60 80 100H50L40 70H20V100ZM20 20V50H50V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H70V20H30L20 30V40L30 40H60L70 60V80L60 100H0V80H50L50 70V70L50 60H20L0 40V20Z",
+    "after": "M20 0H70V20H30L20 30V40H60L70 60V80L60 100H0V80H50V60H20L0 40V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H70V20H50V100H30V20H0Z",
+    "after": "M0 0H70V20H50V100H30V20H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H20V70L30 80H50L60 70V0H80V80L60 100H20L0 80Z",
+    "after": "M0 0H20V70L30 80H50L60 70V0H80V80L60 100H20L0 80Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H20L40 70 50 0H80L50 100H30Z",
+    "after": "M0 0H20L40 70 50 0H80L50 100H30Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H20L30 70 40 20H60L70 70 80 0H100L90 100H70L50 60 40 100H20Z",
+    "after": "M0 0H20L30 70 40 20H60L70 70 80 0H100L90 100H70L50 60 40 100H20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H30L40 30 50 0H80L50 50 80 100H50L40 70 30 100H0L30 50Z",
+    "after": "M0 0H30L40 30 50 0H80L50 50 80 100H50L40 70 30 100H0L30 50Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H30L40 40 50 0H80L50 60V100H30V60Z",
+    "after": "M0 0H30L40 40 50 0H80L50 60V100H30V60Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H70V20L30 80H70V100H0V80L50 20H0Z",
+    "after": "M0 0H70V20L30 80H70V100H0V80L50 20H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H60L70 20V90L60 100H20L0 90V20ZM30 20 20 30V80L30 80H50L50 80V30L50 20Z",
+    "after": "M20 0H60L70 20V90L60 100H20L0 90V20ZM30 20L20 30V80H50V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M10 20 30 0H50V80H50V100H10V80H20V30L10 40Z",
+    "after": "M10 20L30 0H50V100H10V80H20V30L10 40Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H50L70 20V40L30 80H70V100H0V80L50 40V30L40 20H0Z",
+    "after": "M0 0H50L70 20V40L30 80H70V100H0V80L50 40V30L40 20H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H50L70 20V40L60 50 70 60V80L50 100H0V80H50L50 80V70L40 60H20V40H40L50 40V30L50 20H0Z",
+    "after": "M0 0H50L70 20V40L60 50 70 60V80L50 100H0V80H50V70L40 60H20V40H50V20H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M40 0H60V60H70V80H60V100H40V80H0V60ZM40 30 20 60H40Z",
+    "after": "M40 0H60V60H70V80H60V100H40V80H0V60ZM40 30L20 60H40Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H70V20H20V40H50L70 60V80L50 100H0V80H50L50 80V70L40 60H0Z",
+    "after": "M0 0H70V20H20V40H50L70 60V80L50 100H0V80H50V70L40 60H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H70V20H30L20 30V40L40 40H60L70 60V80L60 100H20L0 80V20ZM30 60 20 70V80L30 80H50L50 80V70L50 60Z",
+    "after": "M20 0H70V20H30L20 30V40H60L70 60V80L60 100H20L0 80V20ZM30 60L20 70V80H50V60Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 0H70V20L40 100H10L50 20H0Z",
+    "after": "M0 0H70V20L40 100H10L50 20H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H60L70 20V40L60 50 70 60V80L60 100H20L0 80V60L10 50 0 40V20ZM30 20 20 30V40L30 40H50L50 40V30L50 20ZM30 60 20 70V80L30 80H50L50 80V70L50 60Z",
+    "after": "M20 0H60L70 20V40L60 50 70 60V80L60 100H20L0 80V60L10 50 0 40V20ZM30 20L20 30V40H50V20ZM30 60L20 70V80H50V60Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M20 0H60L70 20V80L50 100H10V80H50L50 70V60L40 70H20L0 50V20ZM30 20 20 30V40L30 50H50L50 40V30L50 20Z",
+    "after": "M20 0H60L70 20V80L50 100H10V80H50V60L40 70H20L0 50V20ZM30 20L20 30V40L30 50H50V20Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "M0 40H50V60H0Z",
+    "after": "M0 40H50V60H0Z",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  },
+  {
+    "before": "",
+    "after": "",
+    "rule": "Only repeated points and intermediate collinear vertices removed; identical polygon boundaries."
+  }
+]

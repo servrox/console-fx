@@ -1,0 +1,12 @@
+{
+  "blueprint.svg": "ecbf9d9d95d97d015d120d38a9a4c9abdb4f04c946503ff61b659b23e929e6cf",
+  "buildReceipt.svg": "5990a79475b203cf15fd4fa282edd405f0aaf5db18698fa391c2bd208387ad9b",
+  "commandCard.svg": "26f584d3c308db2fdb309393099a34081365adc94827055ca5acafe04b7a5c7e",
+  "contourMap.svg": "bbb3f6253416bf2c315b7a67b2c53a54106386ad9350667c63fd1b0b30783164",
+  "letterpress.svg": "d9823a54a5a42260e708be9dbc23705251f9d7045cef3cac096ad7630d0cdf62",
+  "orbital.svg": "9dfb5a8ad315acf985c862d5b013376bb0ca5ad197443070c746ca345baccc59",
+  "releaseBulletin.svg": "9f758f3900151d6e0a0552a0c68f967905c5835a1025ce9a0e538f22e033230f",
+  "requestTrace.svg": "9cec0fea1314b6037781a8e5c70e8ad117d883b435db7890c3cdd8129c4589e0",
+  "serviceReady.svg": "c7541e456464151e0a14fb1b23e4f476bc7ef86c341a4b69ef48bb45305b1405",
+  "signalHalftone.svg": "b0a04305514702ccd92761e0c6aeb70d044d75fd32112dc01adadf66a682af46"
+}
