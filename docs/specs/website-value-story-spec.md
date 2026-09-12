@@ -8,7 +8,7 @@ repository: "servrox/console-fx"
 inspected_revision: "3c42e12d705b044809c05579f762bcb8c137890a"
 owner: "ConsoleFX maintainer"
 source_request: "Evaluate how the website can show playful output, professional use cases, and the value of the library; add a PR specifying the recommendations."
-implementation_authorized: false
+implementation_authorized: true
 ---
 
 # Website: demonstrate the result and the reason to adopt
@@ -47,9 +47,9 @@ The source audit used commit `3c42e12d705b044809c05579f762bcb8c137890a`. The hos
 | [Compatibility](../compatibility.md), [release guidance](../releasing.md), [implementation receipt](console-fx-implementation-evidence.md) | Distinguish implemented capability, recorded qualification and publication. Do not infer a release from a version in a manifest. |
 | [Design direction](../mockups/README.md) | Professional minimalism, soft neumorphic depth and restrained cyan; decorative variety belongs inside examples. |
 
-**ADR required: no new record for this scope.** This is app-local presentation and workflow work under existing decisions, not a new public contract. Governing Accepted ADRs: [0002](../adrs/0002-compile-purely-and-emit-exactly-once.md) for silent composition/single emission; [0003](../adrs/0003-share-one-versioned-scene-model.md) for shared scenes; [0004](../adrs/0004-separate-core-react-adapter-and-studio.md) for ownership; [0005](../adrs/0005-generate-output-from-validated-data.md) for validated output; [0006](../adrs/0006-qualify-renderer-profiles-in-real-devtools.md) for claims; [0007](../adrs/0007-keep-studio-documents-local.md) for persistence; [0009](../adrs/0009-validate-changed-contracts-with-proportional-evidence.md) and [0011](../adrs/0011-adopt-an-explicit-accessibility-baseline.md) for evidence and accessibility. No ADR status or index changes are part of this PR.
+**ADR required: no new record for this scope.** This is app-local presentation and workflow work under existing decisions, not a new public contract. Governing Accepted ADRs: [0002](../adrs/0002-compile-purely-and-emit-exactly-once.md) for silent composition/single emission; [0003](../adrs/0003-share-one-versioned-scene-model.md) for shared scenes; [0004](../adrs/0004-separate-core-react-adapter-and-studio.md) for ownership; [0005](../adrs/0005-generate-output-from-validated-data.md) for validated output; [0006](../adrs/0006-qualify-renderer-profiles-in-real-devtools.md) for claims; [0007](../adrs/0007-keep-studio-documents-local.md) for persistence; [0009](../adrs/0009-validate-changed-contracts-with-proportional-evidence.md) and [0013](../adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md) for evidence and accessibility. ADR-0011 is superseded. No ADR status or index changes are part of this PR.
 
-If implementation discovers it needs a new scene type, public export, remote analytics, a different persistence format, or a new emission policy, stop that portion for a separate decision. The core presentation features in Proposed ADR-0012/0013/0014 are not authorized by this website spec.
+If implementation discovers it needs a new scene type, public export, remote analytics, a different persistence format, or a new emission policy, stop that portion for a separate decision. Cinematic ADR-0012, accessibility successor ADR-0013 and card-presentation ADR-0014 were separately accepted by the maintainer. The fitting proposal receives unused ADR-0015 during integration. This website specification does not change those independent contracts or grant acceptance to a proposed decision.
 
 ## 3. Page structure and copy
 
@@ -280,7 +280,7 @@ pnpm check:bundle-size
 
 Use targeted app example/interaction tests first, then the affected full suites before review. Package-consumer regression matters for copied framework recipes even though no core code should change. This list is an implementation validation plan; none of these application commands was run for this spec save.
 
-Manual cases: first visit; resumed draft; different shared scene; cancelled replacement; repeated test clicks; narrow/mobile screen; reduced motion; clipboard denied; invalid rich combination; literal percent/control-text fixtures; copy each export format; return from focused studio; assistive-technology walkthrough; package-not-published status. Test synthetic support data with deliberate secret-looking input to confirm documentation does not claim automatic redaction; never use real secrets.
+Manual cases: first visit; resumed draft; different shared scene; cancelled replacement; repeated test clicks; narrow/mobile screen; reduced motion; clipboard denied; invalid rich combination; literal percent/control-text fixtures; copy each export format; return from focused studio; screen-reader walkthrough as nonblocking follow-up under ADR-0013; package-not-published status. Test synthetic support data with deliberate secret-looking input to confirm documentation does not claim automatic redaction; never use real secrets.
 
 Formative study: five web developers, including two unfamiliar with ConsoleFX. Ask them to explain the product without prompts, customize and test one message, find a professional use, choose snippet versus package, and identify a limitation. Record task success/time and misunderstandings manually with consent. Revise unclear copy before public promotion; no analytics SDK, session replay or fingerprinting is authorized.
 
@@ -314,3 +314,7 @@ Assumptions for review: English-first copy; developers are the audience; maintai
 **Source challenge result:** existing code supports the reusable-library story, but future card/fitting features and publication must stay gated. A website-only change can deliver the main benefit without changing shared architecture. No additional ADR is proposed. No core, runtime, preset or prior-PR implementation is included.
 
 **Verification status:** source inspection and documentation validation only for this PR. No current hosted-site inspection, application build/tests, native DevTools exercise, user study, package publication or deployment was performed. The maintainer has not yet accepted the detailed copy or implementation criteria. Preserve that distinction in the PR description and later evidence receipt.
+
+## Integration review — 2026-09-12
+
+The active maintainer request to review/merge all PRs and fully implement all specifications supplies implementation authority for this app-local work. The original source audit remains pinned historical evidence. Current accessibility follows Accepted ADR-0013: missing Narrator/NVDA observations are nonblocking follow-up, while keyboard, focus, contrast, zoom/reflow and recovery checks remain required. A moderated developer study is still unperformed; no automated or agent check substitutes for participant evidence.
