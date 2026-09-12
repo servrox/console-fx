@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import {
   memo,
   useEffect,
@@ -13,6 +14,7 @@ import {
   getEffectDescriptors,
   LIMITS,
   parseScene,
+  parseRenderRecipe,
   utf8ByteLength,
 } from "@servrox/console-fx";
 import type {
@@ -20,6 +22,7 @@ import type {
   ParameterDescriptor,
   Renderer,
   SceneV1,
+  RenderRecipeV1,
 } from "@servrox/console-fx";
 import {
   compileConsole,
@@ -38,18 +41,27 @@ import {
   decodeDocument,
   decodeShare,
   encodeShare,
+  isRecipe,
+  type SavedDocument,
 } from "../persistence/documents";
 import { DraftStore } from "../persistence/draft";
 import type { DraftStatus } from "../persistence/draft";
-import { documentReducer, initialDocument, sameScene } from "./document";
+import {
+  documentReducer,
+  initialDocument,
+  sameDocument,
+  savedDocument,
+  recipeOf,
+} from "./document";
 import { ConfirmDialog } from "./confirm-dialog";
 import { rendererForLoadedScene } from "./renderer";
 import { CardFields } from "./card-fields";
+import { FitInspector } from "./fit-inspector";
+import { useLocalMeasurements } from "./use-local-measurements";
 import { cardDescriptor, editCardParameter } from "./presentation";
 
 const descriptors = getEffectDescriptors();
 const initialScene = neon({ text: "Hello, developer." });
-const heroScene = neon({ text: "console-fx" });
 const presetScenes = Object.fromEntries(
   PRESETS.map((item) => [item.id, createPresetExample(item.id)]),
 ) as Record<PresetId, SceneV1>;
@@ -71,7 +83,8 @@ type Notice = {
   readonly kind: "success" | "error" | "info";
   readonly message: string;
 };
-type ExportFormat = "javascript" | "typescript" | "react" | "next" | "json";
+type ExportFormat =
+  "javascript" | "typescript" | "react" | "next" | "json" | "recipe";
 const formats = {
   javascript: {
     copy: "Copy console.log",
@@ -92,19 +105,26 @@ const formats = {
   json: {
     copy: "Copy scene JSON",
     description:
-      "Editable scene data. This format is not executable JavaScript.",
+      "Content only. Render settings are excluded; use Recipe JSON to retain them.",
+  },
+  recipe: {
+    copy: "Copy recipe JSON",
+    description:
+      "Scene plus explicit render settings. Local font measurements are excluded.",
   },
 } as const;
 const sourceString = (value: unknown) =>
   JSON.stringify(value, null, 2).replaceAll("<", "\\u003c");
 
-function download(scene: SceneV1) {
+function download(scene: SavedDocument) {
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(scene, null, 2)], { type: "application/json" }),
   );
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = "console-fx-scene.json";
+  anchor.download = isRecipe(scene)
+    ? "console-fx-recipe.json"
+    : "console-fx-scene.json";
   anchor.click();
   URL.revokeObjectURL(url);
 }
@@ -213,23 +233,39 @@ function ParameterField({
   );
 }
 
-export function Studio({ focused = false }: { readonly focused?: boolean }) {
+export function Studio({
+  focused = false,
+  integrated = false,
+  transfer = null,
+  onTransferDone,
+  onSharedDecisionChange,
+}: {
+  readonly focused?: boolean;
+  readonly integrated?: boolean;
+  readonly transfer?: SavedDocument | null;
+  readonly onTransferDone?: (restoreFocus?: boolean) => void;
+  readonly onSharedDecisionChange?: (pending: boolean) => void;
+}) {
   const [document, dispatch] = useReducer(
     documentReducer,
     initialScene,
     initialDocument,
   );
   const [ready, setReady] = useState(false);
-  const [renderer, setRenderer] = useState<Renderer>("css");
   const [selection, setSelection] = useState({ line: 0, run: 0 });
   const [notice, setNotice] = useState<Notice | null>(null);
   const [draftStatus, setDraftStatus] = useState<DraftStatus | null>(null);
-  const [pendingShared, setPendingShared] = useState<SceneV1 | null>(null);
+  const [pendingShared, setPendingShared] = useState<SavedDocument | null>(
+    null,
+  );
   const [confirmReset, setConfirmReset] = useState(false);
+  const router = useRouter();
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const Heading = focused ? "h1" : "h2";
+  const PanelHeading = focused ? "h2" : "h3";
   const [previewTheme, setPreviewTheme] = useState("dark");
   const [playing, setPlaying] = useState(false);
   const [previewInstance, setPreviewInstance] = useState(0);
-  const [systemMotion, setSystemMotion] = useState(false);
   const [format, setFormat] = useState<ExportFormat>("javascript");
   const [store] = useState(
     () => new DraftStore(() => window.localStorage, setDraftStatus),
@@ -238,13 +274,34 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
   const importSequence = useRef(0);
   const releaseShared = useRef<(() => void) | null>(null);
   const scene = document.scene;
+  const settings = document.options;
+  const measurement = useLocalMeasurements(scene, settings);
+  const options = useMemo(
+    () => ({
+      ...settings,
+      ...(measurement.snapshot
+        ? {
+            measurements: measurement.snapshot,
+            measurementEnvironment: measurement.snapshot.environment,
+          }
+        : {}),
+    }),
+    [settings, measurement.snapshot],
+  );
+  const renderer = settings.renderer ?? "css";
+  const systemMotion = options.motion === "system";
+  const persisted = useMemo(() => savedDocument(document), [document]);
+  const pendingExample =
+    ready && !pendingShared && transfer && !sameDocument(persisted, transfer)
+      ? transfer
+      : null;
 
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
     const draft = store.read();
-    let baseline = draft.kind === "valid" ? draft.scene : initialScene;
-    let shared: SceneV1 | null = null;
+    let baseline = draft.kind === "valid" ? draft.document : initialScene;
+    let shared: SavedDocument | null = null;
     let startupNotice: Notice | null =
       draft.kind === "valid"
         ? { kind: "success", message: "Your local draft was resumed." }
@@ -258,7 +315,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           kind: "error",
           message: result.diagnostics[0]!.message,
         };
-      else if (draft.kind === "valid" && !sameScene(baseline, result.value)) {
+      else if (
+        draft.kind === "valid" &&
+        !sameDocument(baseline, result.value)
+      ) {
         shared = result.value;
         releaseShared.current = store.hold();
       } else if (draft.kind !== "valid") {
@@ -269,8 +329,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
         };
       }
     }
-    dispatch({ type: "initialize", scene: baseline });
-    setRenderer(rendererForLoadedScene(baseline, "css"));
+    dispatch({ type: "initialize", document: baseline });
     // Storage and fragments are intentionally read after hydration. The initial
     // server/client render is identical, and no default draft is ever persisted.
     setPendingShared(shared);
@@ -284,7 +343,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
       const result = decodeShare(window.location.hash);
       if (!result.ok) {
         setNotice({ kind: "error", message: result.diagnostics[0]!.message });
-      } else if (!sameScene(scene, result.value)) {
+      } else if (!sameDocument(persisted, result.value)) {
         if (!releaseShared.current) {
           store.flush();
           releaseShared.current = store.hold();
@@ -295,10 +354,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     };
     window.addEventListener("hashchange", receiveShare);
     return () => window.removeEventListener("hashchange", receiveShare);
-  }, [ready, scene, store]);
+  }, [ready, persisted, store]);
   useEffect(() => {
-    if (ready) store.queue(scene, document.revision);
-  }, [scene, document.revision, ready, store]);
+    if (ready) store.queue(persisted, document.revision);
+  }, [persisted, document.revision, ready, store]);
   useEffect(() => {
     const flush = () => store.flush();
     const hidden = () => {
@@ -327,25 +386,26 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     return () => query.removeEventListener("change", changed);
   }, [playing]);
 
-  const options = useMemo(
-    () => ({
-      target: "chromium" as const,
-      renderer,
-      motion:
-        systemMotion && renderer === "svg"
-          ? ("system" as const)
-          : ("reduce" as const),
-    }),
-    [renderer, systemMotion],
-  );
+  useEffect(() => {
+    onSharedDecisionChange?.(!!pendingShared);
+    return () => onSharedDecisionChange?.(false);
+  }, [pendingShared, onSharedDecisionChange]);
+  useEffect(() => {
+    if (!transfer || !ready) return;
+    if (pendingShared) {
+      onTransferDone?.();
+      return;
+    }
+    if (sameDocument(persisted, transfer)) onTransferDone?.();
+  }, [transfer, ready, pendingShared, persisted, onTransferDone]);
+
   const { log } = useConsoleScene(scene, options);
   const compilation = useMemo(() => {
     try {
       return {
         ok: true as const,
         output: compileConsole(scene, {
-          target: "chromium",
-          renderer,
+          ...options,
           motion: "reduce",
         }),
         exported: exportConsoleLog(scene, options),
@@ -355,7 +415,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
         return { ok: false as const, diagnostics: error.diagnostics };
       throw error;
     }
-  }, [scene, renderer, options]);
+  }, [scene, options]);
   const diagnostics = compilation.ok
     ? [
         ...compilation.output.diagnostics,
@@ -367,16 +427,21 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     : compilation.diagnostics;
   const source = useMemo(() => {
     if (format === "json") return JSON.stringify(scene, null, 2);
+    if (format === "recipe")
+      return JSON.stringify(recipeOf({ scene, options: settings }), null, 2);
     if (format === "javascript")
       return compilation.ok ? compilation.exported.code : "";
+    const measurementNote = measurement.snapshot
+      ? "// Fixed local-font metrics are included as data, not measured at runtime.\n// Recipient fonts can differ; remeasure explicitly or omit metrics after edits.\n"
+      : "";
     const sceneCode = sourceString(scene);
     const optionsCode = sourceString(options);
     if (format === "typescript")
-      return `import { defineScene } from "@servrox/console-fx";\nimport { emitConsole } from "@servrox/console-fx/browser";\n\nconst scene = defineScene(${sceneCode});\nemitConsole(scene, ${optionsCode});`;
+      return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { emitConsole } from "@servrox/console-fx/browser";\n\nconst scene = defineScene(${sceneCode});\nemitConsole(scene, ${optionsCode});`;
     if (format === "next")
-      return `"use client";\n\nimport { defineScene } from "@servrox/console-fx";\nimport { ConsoleBanner } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport default function StartupBanner() {\n  return <ConsoleBanner scene={scene} enabled options={${optionsCode}} />;\n}`;
-    return `import { defineScene } from "@servrox/console-fx";\nimport { useConsoleScene } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport function PrintMessage() {\n  const { log } = useConsoleScene(scene, ${optionsCode});\n  return <button onClick={log}>Print message</button>;\n}`;
-  }, [scene, format, options, compilation]);
+      return `"use client";\n\n${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { ConsoleBanner } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport default function StartupBanner() {\n  return <ConsoleBanner scene={scene} enabled options={${optionsCode}} />;\n}`;
+    return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { useConsoleScene } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport function PrintMessage() {\n  const { log } = useConsoleScene(scene, ${optionsCode});\n  return <button onClick={log}>Print message</button>;\n}`;
+  }, [scene, format, options, settings, measurement.snapshot, compilation]);
   const lineIndex = Math.max(
     0,
     Math.min(selection.line, scene.lines.length - 1),
@@ -416,6 +481,31 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     ),
   );
 
+  function updateSettings(candidate: RenderRecipeV1["options"]) {
+    const result = parseRenderRecipe({
+      kind: "consoleFxRenderRecipe",
+      recipeVersion: 1,
+      scene,
+      options: candidate,
+    });
+    if (!result.ok) {
+      setNotice({ kind: "error", message: result.diagnostics[0]!.message });
+      return;
+    }
+    if (sameDocument(recipeOf(document), result.value)) return;
+    dispatch({ type: "settings", options: result.value.options });
+    setPlaying(false);
+    setNotice({
+      kind: "info",
+      message:
+        "Render settings will be saved with this recipe. Your earlier scene draft is retained.",
+    });
+  }
+  const setRenderer = (renderer: Renderer) =>
+    updateSettings({ ...settings, renderer });
+  const setSystemMotion = (enabled: boolean) =>
+    updateSettings({ ...settings, motion: enabled ? "system" : "reduce" });
+
   function commit(candidate: unknown) {
     const result = parseScene(candidate);
     if (!result.ok) {
@@ -442,10 +532,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     });
   }
   function selectPreset(id: PresetId) {
-    commit(createPresetExample(id));
+    dispatch({ type: "load", document: createPresetExample(id) });
     setSelection({ line: 0, run: 0 });
-    setRenderer(PRESETS.find((item) => item.id === id)!.renderer);
-    setSystemMotion(false);
+    setPlaying(false);
+    setNotice(null);
   }
   async function copy(text: string, label: string) {
     try {
@@ -481,13 +571,13 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
         });
         return;
       }
-      dispatch({ type: "replace", scene: result.value });
-      setRenderer(rendererForLoadedScene(result.value, renderer));
+      dispatch({ type: "load", document: result.value });
       setSelection({ line: 0, run: 0 });
       setPlaying(false);
       setNotice({
         kind: "success",
-        message: "Scene imported. Undo restores your previous scene.",
+        message:
+          "Document imported. Undo restores your previous scene and render settings.",
       });
     } catch {
       setNotice({
@@ -501,7 +591,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     if (result.kind === "error")
       setNotice({ kind: "error", message: result.message });
     else {
-      store.queue(scene, document.revision, true);
+      store.queue(persisted, document.revision, true);
       setNotice({
         kind: "info",
         message: "Storage is available. Your current scene has been preserved.",
@@ -546,71 +636,15 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
   }
 
   return (
-    <div className="page-shell">
-      {!focused && (
-        <>
-          <section className="hero" aria-labelledby="hero-title">
-            <div>
-              <p className="eyebrow">
-                For developers who appreciate the details
-              </p>
-              <h1 id="hero-title">
-                Beautiful console output,
-                <br />
-                <span>made simple.</span>
-              </h1>
-              <p className="hero-description">
-                Give your next hello a little character. Compose a message, make
-                it yours, and export a single console.log.
-              </p>
-              <div className="button-row">
-                <a className="button primary" href="#playground">
-                  Open the playground <span aria-hidden="true">↗</span>
-                </a>
-                <a className="button" href="#presets">
-                  Explore presets
-                </a>
-              </div>
-              <ul className="hero-notes">
-                <li>One console entry</li>
-                <li>No snippet dependencies</li>
-                <li>Your data stays local</li>
-              </ul>
-            </div>
-            <div className="hero-demo">
-              <div className="console-chrome">
-                <span className="console-dots" aria-hidden="true">
-                  ● ● ●
-                </span>
-                <span>Console</span>
-                <span className="console-prompt" aria-hidden="true">
-                  ›_
-                </span>
-              </div>
-              <div className="hero-output">
-                <ConsolePreview
-                  scene={heroScene}
-                  options={{ target: "chromium", renderer: "css" }}
-                />
-              </div>
-              <div className="demo-footnote">
-                <code>console.log(your.signature)</code>
-                <span>One expressive entry.</span>
-              </div>
-            </div>
-          </section>
-          <section
-            className="gallery-section"
-            id="presets"
-            aria-labelledby="presets-title"
-          >
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Start with a little inspiration</p>
-                <h2 id="presets-title">Pick your personality.</h2>
-              </div>
-              <p>Every example is an editable scene.</p>
-            </div>
+    <div className={integrated ? "integrated-editor" : "page-shell"}>
+      <details
+        className="full-preset-gallery"
+        onToggle={(event) => setGalleryOpen(event.currentTarget.open)}
+      >
+        <summary>Browse all 23 presets</summary>
+        {galleryOpen && (
+          <div className="gallery-section" aria-label="All preset collections">
+            <h2>All presets</h2>
             {presetGroups.map((group) => (
               <div className="preset-group" key={group}>
                 <h3>{group}</h3>
@@ -645,37 +679,30 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                 </div>
               </div>
             ))}
-            <p className="fine-print">
-              Compiler-generated previews. Select a preset to edit the same
-              scene below.
-            </p>
-          </section>
-        </>
-      )}
+          </div>
+        )}
+      </details>
 
       <section
         className="studio-shell"
-        id="playground"
+        id={integrated ? "editor-workspace" : "playground"}
         aria-labelledby="playground-title"
       >
         <div className="studio-heading">
           <div>
             <p className="eyebrow">Make it yours</p>
-            <h2 id="playground-title">
-              The playground
+            <Heading id="playground-title">
+              Choose. Change. Copy
               <span className="small-dot" aria-hidden="true">
                 .
               </span>
-            </h2>
+            </Heading>
           </div>
           <div className="button-row">
             <button
               type="button"
               disabled={!ready || !!pendingShared || !document.past.length}
               onClick={() => {
-                const restored = document.past.at(-1);
-                if (restored)
-                  setRenderer(rendererForLoadedScene(restored, renderer));
                 dispatch({ type: "undo" });
                 setPlaying(false);
               }}
@@ -686,9 +713,6 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               type="button"
               disabled={!ready || !!pendingShared || !document.future.length}
               onClick={() => {
-                const restored = document.future[0];
-                if (restored)
-                  setRenderer(rendererForLoadedScene(restored, renderer));
                 dispatch({ type: "redo" });
                 setPlaying(false);
               }}
@@ -716,9 +740,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           <legend className="sr-only">Scene editor</legend>
           <div className="editor-grid">
             <aside className="content-panel panel">
-              <h3>
+              <PanelHeading>
                 01 <span>Content</span>
-              </h3>
+              </PanelHeading>
               <label>
                 Start from a preset
                 <select
@@ -868,9 +892,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
 
             <div className="preview-panel panel">
               <div className="preview-heading">
-                <h3>
+                <PanelHeading>
                   02 <span>Preview</span>
-                </h3>
+                </PanelHeading>
                 <label className="inline-label">
                   Canvas
                   <select
@@ -898,8 +922,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                       key={previewInstance}
                       scene={scene}
                       options={{
-                        target: "chromium",
-                        renderer,
+                        ...options,
                         motion:
                           playing && renderer === "svg" ? "allow" : "reduce",
                       }}
@@ -987,9 +1010,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
             </div>
 
             <aside className="style-panel panel">
-              <h3>
+              <PanelHeading>
                 03 <span>Customize</span>
-              </h3>
+              </PanelHeading>
               {presentation && (
                 <fieldset className="effect-control">
                   <legend>{presentation.name}</legend>
@@ -1318,10 +1341,25 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
             </aside>
           </div>
 
+          <details className="fit-section">
+            <summary>Fit and sizing</summary>
+            <FitInspector
+              key={JSON.stringify(settings)}
+              scene={scene}
+              options={settings}
+              onApply={updateSettings}
+              measurement={measurement}
+              onMeasure={measurement.measure}
+              onClearMeasurements={measurement.clear}
+            />
+          </details>
+
           <section className="export-panel" aria-labelledby="export-title">
             <div className="export-heading">
               <div>
-                <h3 id="export-title">Your message, ready to go.</h3>
+                <PanelHeading id="export-title">
+                  Your message, ready to go.
+                </PanelHeading>
                 <p>{formats[format].description}</p>
               </div>
               <label className="inline-label">
@@ -1336,7 +1374,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                   <option value="typescript">TypeScript package</option>
                   <option value="react">React hook</option>
                   <option value="next">Next.js client banner</option>
-                  <option value="json">Editable JSON</option>
+                  <option value="json">Scene JSON (content only)</option>
+                  <option value="recipe">
+                    Recipe JSON (scene and settings)
+                  </option>
                 </select>
               </label>
             </div>
@@ -1400,9 +1441,19 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                 <button
                   type="button"
                   className="primary"
-                  disabled={!source || (format !== "json" && !compilation.ok)}
+                  disabled={
+                    !source ||
+                    (format !== "json" &&
+                      format !== "recipe" &&
+                      !compilation.ok)
+                  }
                   onClick={() => {
-                    if (source && (compilation.ok || format === "json"))
+                    if (
+                      source &&
+                      (compilation.ok ||
+                        format === "json" ||
+                        format === "recipe")
+                    )
                       void copy(
                         source,
                         formats[format].copy.replace(/^Copy /, ""),
@@ -1448,7 +1499,28 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               <button
                 type="button"
                 onClick={() => {
-                  const result = encodeShare(scene);
+                  try {
+                    download(recipeOf(document));
+                    setNotice({
+                      kind: "success",
+                      message:
+                        "Recipe JSON export prepared with scene and render settings.",
+                    });
+                  } catch {
+                    setNotice({
+                      kind: "error",
+                      message:
+                        "Download failed. Choose Recipe JSON above and copy it.",
+                    });
+                  }
+                }}
+              >
+                Export recipe JSON
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  const result = encodeShare(persisted);
                   if (!result.ok)
                     setNotice({
                       kind: "error",
@@ -1463,6 +1535,22 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               >
                 Copy share link
               </button>
+              {!focused && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const result = encodeShare(recipeOf(document));
+                    if (!result.ok)
+                      setNotice({
+                        kind: "error",
+                        message: `${result.diagnostics[0]!.message} Export Recipe JSON and import it in the full studio instead.`,
+                      });
+                    else router.push(`/studio/${result.value}`);
+                  }}
+                >
+                  Open full studio
+                </button>
+              )}
             </div>
             <button
               type="button"
@@ -1514,14 +1602,35 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           onConfirm={() => {
             releaseShared.current?.();
             releaseShared.current = null;
-            dispatch({ type: "replace", scene: pendingShared });
-            setRenderer(rendererForLoadedScene(pendingShared, renderer));
+            dispatch({ type: "load", document: pendingShared });
             setPendingShared(null);
             setPlaying(false);
             setNotice({
               kind: "success",
               message:
                 "Shared scene loaded. Undo restores your previous scene.",
+            });
+          }}
+        />
+      )}
+      {pendingExample && !pendingShared && (
+        <ConfirmDialog
+          title="Edit this example in the playground?"
+          description="This replaces your current scene and render settings as one undoable change. Your previous work remains in Undo."
+          confirmLabel="Load example"
+          onCancel={() => {
+            onTransferDone?.(true);
+            setNotice({ kind: "info", message: "Kept your current scene." });
+          }}
+          onConfirm={() => {
+            dispatch({ type: "load", document: pendingExample });
+            setSelection({ line: 0, run: 0 });
+            setPlaying(false);
+            onTransferDone?.();
+            setNotice({
+              kind: "success",
+              message:
+                "Example loaded with its render settings. Undo restores your previous work.",
             });
           }}
         />
@@ -1535,7 +1644,6 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           onConfirm={() => {
             store.protectThrough(document.revision + 1);
             dispatch({ type: "reset" });
-            setRenderer("css");
             setSelection({ line: 0, run: 0 });
             setConfirmReset(false);
             setPlaying(false);

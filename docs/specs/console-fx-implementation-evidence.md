@@ -1,5 +1,13 @@
 # ConsoleFX implementation and launch evidence
 
+Current integration addendum (2026-09-12): the [fitting receipt](responsive-fitting-implementation-evidence.md),
+[website value receipt](website-value-implementation-evidence.md) and
+[website experience receipt](website-experience-implementation-evidence.md) supersede
+older pending statements for those slices. They record compact design approval,
+implementation, exact package identities, local checks and actual Stable DevTools
+qualification. Earlier dated CI/deployment observations below retain their original
+scope; they do not qualify this newer integration or imply publication.
+
 Current accessibility policy (2026-09-12): Accepted [ADR-0013](../adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md) supersedes ADR-0011. Representative screen-reader/browser review is unperformed, nonblocking follow-up; required automated, keyboard/focus, zoom/reflow and reduced-motion checks remain. Dated receipts below retain their original evidence scope. The new [cinematic candidate](cinematic-metal-presets-evidence.md) requires its own affected-contract checks.
 
 

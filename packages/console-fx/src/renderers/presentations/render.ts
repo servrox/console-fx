@@ -1,19 +1,25 @@
 import { presentationDescriptor } from "../../presentations/catalog.js";
 import type { SceneV1 } from "../../model/types.js";
-import { escapeXml as xml, svgNumber as n } from "../svg-values.js";
+import { escapeXml as xml, svgNumber } from "../svg-values.js";
+import { CARD_FONT_STACKS as fonts } from "../../presentations/fonts.js";
+import { textDirection } from "../../layout/metrics.js";
+import type { SvgLayoutPlan } from "../../layout/planner.js";
+import { compactArtwork } from "./compact-art.js";
+import { rect, line, path, circle } from "./shapes.js";
 
-const fonts = {
-  sans: "DejaVu Sans, Arial, sans-serif",
-  mono: "DejaVu Sans Mono, monospace",
-  serif: "DejaVu Serif, Georgia, serif",
-};
-export function renderPresentation(scene: SceneV1): string {
+export function renderPresentation(
+  scene: SceneV1,
+  plan?: SvgLayoutPlan,
+): string {
+  const n = plan ? String : svgNumber;
   const presentation = scene.presentation!;
   const descriptor = presentationDescriptor(presentation.profile)!;
   const { width, height, padding, background, borderRadius } = scene.surface;
+  const cardWidth = plan?.cardLayout?.width ?? 720;
+  const cardHeight = plan?.cardLayout?.height ?? 240;
   const scale = Math.min(
-    (width - 2 * padding) / 720,
-    (height - 2 * padding) / 240,
+    (width - 2 * padding) / cardWidth,
+    (height - 2 * padding) / cardHeight,
   );
   const accent = presentation.accent;
   const detailed = presentation.detail === "standard";
@@ -27,38 +33,18 @@ export function renderPresentation(scene: SceneV1): string {
             : scene.lines[statusSlot.line]!.runs[statusSlot.run]!.text
         ]
       : undefined;
-  const rect = (
-    x: number,
-    y: number,
-    w: number,
-    h: number,
-    fill: string,
-    radius = 0,
-    stroke = "none",
-  ) =>
-    `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" rx="${radius}" stroke="${stroke}"/>`;
-  const line = (
-    x1: number,
-    y1: number,
-    x2: number,
-    y2: number,
-    color: string,
-    extra = "",
-  ) =>
-    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" ${extra}/>`;
-  const path = (d: string, fill: string, stroke: string, extra = "") =>
-    `<path d="${d}" fill="${fill}" stroke="${stroke}" ${extra}/>`;
-  const circle = (
-    x: number,
-    y: number,
-    r: number,
-    fill: string,
-    stroke = "none",
-    extra = "",
-  ) =>
-    `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" ${extra}/>`;
   let art = "";
-  if (descriptor.id === "buildReceipt") {
+  if (plan?.cardLayout?.compact) {
+    art = compactArtwork(
+      descriptor.id,
+      background,
+      accent,
+      cardHeight,
+      detailed,
+      palette,
+      descriptor.id === "buildReceipt" ? scene.lines[1]!.runs[2]!.text : "",
+    );
+  } else if (descriptor.id === "buildReceipt") {
     const status = scene.lines[1]!.runs[2]!.text;
     art =
       rect(0, 0, 720, 240, background, borderRadius) +
@@ -224,17 +210,38 @@ export function renderPresentation(scene: SceneV1): string {
       line(115, 126, 141, 126, "#668895", 'stroke-width="0.8"') +
       line(264, 174, 681, 174, "#31434f");
   }
-  const texts = descriptor.slots
-    .map((slot) => {
+  const texts = (
+    plan?.cardTexts ??
+    descriptor.slots.map((slot) => ({
+      slot,
+      text: scene.lines[slot.line]!.runs[slot.run]!.text,
+      baseline: slot.y,
+    }))
+  )
+    .map(({ slot, text: value, baseline }) => {
       const run = scene.lines[slot.line]!.runs[slot.run]!;
+      const direction = plan ? textDirection(value) : undefined;
+      const anchor =
+        direction === "rtl"
+          ? slot.anchor === "start"
+            ? "end"
+            : slot.anchor === "middle"
+              ? "middle"
+              : "start"
+          : slot.anchor;
       const text = (x: number, y: number, color: string, decoration = false) =>
-        `<text ${decoration ? 'aria-hidden="true"' : `data-slot="${slot.id}"`} x="${x}" y="${y}" fill="${color}" font-size="${run.style.fontSize}" font-family="${fonts[run.style.fontFamily]}" font-weight="${run.style.fontWeight}" letter-spacing="${run.style.letterSpacing}" text-anchor="${slot.anchor}" xml:space="preserve">${xml(run.text)}</text>`;
+        `<text ${decoration ? 'aria-hidden="true"' : `data-slot="${slot.id}"`} x="${x}" y="${y}" fill="${color}" font-size="${run.style.fontSize}" font-family="${fonts[run.style.fontFamily]}" font-weight="${run.style.fontWeight}" letter-spacing="${run.style.letterSpacing}" text-anchor="${anchor}" xml:space="preserve"${direction ? ` direction="${direction}"` : ""}>${xml(value)}</text>`;
       return (
         (descriptor.id === "letterpress" && slot.id === "title"
-          ? text(35.8, 127.3, "#faf9ef", true)
-          : "") + text(slot.x, slot.y, run.style.color)
+          ? text(
+              plan?.cardLayout?.compact ? slot.x - 0.2 : 35.8,
+              baseline + 1.3,
+              "#faf9ef",
+              true,
+            )
+          : "") + text(slot.x, baseline, run.style.color)
       );
     })
     .join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${rect(0, 0, width, height, background, borderRadius)}<g transform="translate(${n((width - 720 * scale) / 2)} ${n((height - 240 * scale) / 2)}) scale(${n(scale)})">${art}${texts}</g></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${rect(0, 0, width, height, background, borderRadius)}<g transform="translate(${n((width - cardWidth * scale) / 2)} ${n((height - cardHeight * scale) / 2)}) scale(${n(scale)})">${art}${texts}</g></svg>`;
 }

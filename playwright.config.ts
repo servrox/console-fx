@@ -30,8 +30,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `python3 -m http.server ${port} --bind 127.0.0.1 --directory apps/studio/out`,
-    url: `http://127.0.0.1:${port}/`,
-    reuseExistingServer: !process.env.CI,
+    command: `python3 -u -m http.server ${port} --bind 127.0.0.1 --directory apps/studio/out`,
+    // Wait for our process to bind. An unopened-port HTTP probe can stall in WSL,
+    // and reusing an unrelated server would not validate this build.
+    wait: { stdout: /Serving HTTP on 127\.0\.0\.1 port \d+/ },
+    timeout: 15_000,
+    gracefulShutdown: { signal: "SIGTERM", timeout: 500 },
   },
 });

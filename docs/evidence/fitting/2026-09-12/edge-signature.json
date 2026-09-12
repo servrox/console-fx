@@ -1,0 +1,7 @@
+{
+  "Signer": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+  "Path": "C:\\Users\\servr\\AppData\\Local\\Temp\\console-fx-qualification\\edge-portable-153.0.4234.32\\Chrome-bin\\153.0.4234.32\\msedge.exe",
+  "Signature": "Valid",
+  "Version": "153.0.4234.32",
+  "SHA256": "81EE5FF42FCEC883312170606B10EBBB2B01F5B4CDDC2CF485290E40C15B027D"
+}

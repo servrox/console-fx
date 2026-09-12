@@ -1,0 +1,27 @@
+{
+  "observedAt": "2026-09-12T18:18:35.070Z",
+  "runtime": "1.4.2",
+  "consumer": "/tmp/console-fx-consumer-jl7oX8",
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "sha256": "bea698087b6148bbf55fc8022bd48af35a67e0f8e951202cbca494a7b5b1d8e0"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "sha256": "eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c"
+    }
+  ],
+  "checks": [
+    {
+      "path": "checks/vanilla/check.mjs",
+      "output": "Packed JavaScript consumer passed",
+      "passed": true
+    },
+    {
+      "path": "checks/react/check.mjs",
+      "output": "Packed React SSR, first-enabled, Strict Mode and remount consumer passed",
+      "passed": true
+    }
+  ]
+}

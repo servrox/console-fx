@@ -1,0 +1,1184 @@
+{
+  "collection": "preset-compact-v1",
+  "baselineStatus": "accepted",
+  "algorithm": "fit/v1",
+  "fontStacks": {
+    "sans": "DejaVu Sans, Arial, sans-serif",
+    "mono": "DejaVu Sans Mono, monospace",
+    "serif": "DejaVu Serif, Georgia, serif"
+  },
+  "notes": "Accepted design comparison references. Canonical SceneV1 and all standard output remain unchanged without fitting options. Runtime and DevTools qualification are separate evidence.",
+  "presets": [
+    {
+      "id": "buildReceipt",
+      "name": "Build Receipt",
+      "profile": "buildReceipt/v1",
+      "recipeMapping": "buildReceipt/compact/v1",
+      "width": 360,
+      "height": 304,
+      "compactBelow": 620,
+      "caption": "BUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#65716d",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "BUILD / RECEIPT"
+          ]
+        },
+        {
+          "id": "project",
+          "x": 24,
+          "y": 79,
+          "fontSize": 28,
+          "safeWidth": 206,
+          "anchor": "start",
+          "color": "#1c2a26",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "atlas-web"
+          ]
+        },
+        {
+          "id": "outcome",
+          "x": 281,
+          "y": 75,
+          "fontSize": 12,
+          "safeWidth": 82,
+          "anchor": "middle",
+          "color": "#156751",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "PASSED"
+          ]
+        },
+        {
+          "id": "revisionLabel",
+          "x": 24,
+          "y": 131,
+          "fontSize": 12,
+          "safeWidth": 106,
+          "anchor": "start",
+          "color": "#63736c",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "REVISION"
+          ]
+        },
+        {
+          "id": "durationLabel",
+          "x": 24,
+          "y": 165,
+          "fontSize": 12,
+          "safeWidth": 106,
+          "anchor": "start",
+          "color": "#63736c",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "DURATION"
+          ]
+        },
+        {
+          "id": "checksLabel",
+          "x": 24,
+          "y": 199,
+          "fontSize": 12,
+          "safeWidth": 106,
+          "anchor": "start",
+          "color": "#63736c",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "CHECKS"
+          ]
+        },
+        {
+          "id": "revision",
+          "x": 158,
+          "y": 131,
+          "fontSize": 16,
+          "safeWidth": 177,
+          "anchor": "start",
+          "color": "#263831",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "a1b2c3d"
+          ]
+        },
+        {
+          "id": "duration",
+          "x": 158,
+          "y": 165,
+          "fontSize": 16,
+          "safeWidth": 177,
+          "anchor": "start",
+          "color": "#263831",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "2.34 s"
+          ]
+        },
+        {
+          "id": "checks",
+          "x": 158,
+          "y": 199,
+          "fontSize": 16,
+          "safeWidth": 177,
+          "anchor": "start",
+          "color": "#263831",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "48 / 48"
+          ]
+        },
+        {
+          "id": "environment",
+          "x": 24,
+          "y": 245,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#50675e",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "ENVIRONMENT  preview"
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 279,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#50675e",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "COMPLETED SNAPSHOT"
+          ]
+        }
+      ],
+      "sha256": "b42bcc893a3d214529589621ce14c2854bf20a060232e549c7818a8c15481dee"
+    },
+    {
+      "id": "requestTrace",
+      "name": "Request Trace",
+      "profile": "requestTrace/v1",
+      "recipeMapping": "requestTrace/compact/v1",
+      "width": 360,
+      "height": 322,
+      "compactBelow": 640,
+      "caption": "REQUEST / SNAPSHOT\nGET  /api/orders  200 OK  148 ms\nAUTH  QUERY  SERIALIZE\n12 ms  106 ms  30 ms\nID  req_demo_0042\nONE REQUEST / NO LIVE CONNECTION",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 196,
+          "anchor": "start",
+          "color": "#8a9ca7",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "REQUEST / SNAPSHOT"
+          ]
+        },
+        {
+          "id": "method",
+          "x": 24,
+          "y": 77,
+          "fontSize": 16,
+          "safeWidth": 44,
+          "anchor": "start",
+          "color": "#58d4d5",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "GET"
+          ]
+        },
+        {
+          "id": "path",
+          "x": 69,
+          "y": 77,
+          "fontSize": 16,
+          "safeWidth": 176,
+          "anchor": "start",
+          "color": "#edf3f6",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "/api/orders"
+          ]
+        },
+        {
+          "id": "status",
+          "x": 290,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 80,
+          "anchor": "middle",
+          "color": "#b8e1cd",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "200 OK"
+          ]
+        },
+        {
+          "id": "total",
+          "x": 336,
+          "y": 77,
+          "fontSize": 16,
+          "safeWidth": 90,
+          "anchor": "end",
+          "color": "#edf3f6",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "148 ms"
+          ]
+        },
+        {
+          "id": "s0",
+          "x": 53,
+          "y": 128,
+          "fontSize": 12,
+          "safeWidth": 180,
+          "anchor": "start",
+          "color": "#aebfc7",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "AUTH"
+          ]
+        },
+        {
+          "id": "s1",
+          "x": 53,
+          "y": 172,
+          "fontSize": 12,
+          "safeWidth": 180,
+          "anchor": "start",
+          "color": "#aebfc7",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "QUERY"
+          ]
+        },
+        {
+          "id": "s2",
+          "x": 53,
+          "y": 216,
+          "fontSize": 12,
+          "safeWidth": 180,
+          "anchor": "start",
+          "color": "#aebfc7",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "SERIALIZE"
+          ]
+        },
+        {
+          "id": "d0",
+          "x": 324,
+          "y": 128,
+          "fontSize": 14,
+          "safeWidth": 86,
+          "anchor": "end",
+          "color": "#dce8ee",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "12 ms"
+          ]
+        },
+        {
+          "id": "d1",
+          "x": 324,
+          "y": 172,
+          "fontSize": 14,
+          "safeWidth": 86,
+          "anchor": "end",
+          "color": "#dce8ee",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "106 ms"
+          ]
+        },
+        {
+          "id": "d2",
+          "x": 324,
+          "y": 216,
+          "fontSize": 14,
+          "safeWidth": 86,
+          "anchor": "end",
+          "color": "#dce8ee",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "30 ms"
+          ]
+        },
+        {
+          "id": "requestId",
+          "x": 24,
+          "y": 268,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#90a2af",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "ID  req_demo_0042"
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 302,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#90a2af",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "ONE REQUEST / NO LIVE CONNECTION"
+          ]
+        }
+      ],
+      "sha256": "bf8ffb928bdb9154356a6126741e589bc5725081d50b44b3f9350f8ca39ba126"
+    },
+    {
+      "id": "serviceReady",
+      "name": "Service Passport",
+      "profile": "serviceReady/v1",
+      "recipeMapping": "serviceReady/compact/v1",
+      "width": 360,
+      "height": 344,
+      "compactBelow": 650,
+      "caption": "SERVICE / PASSPORT\nAtlas API  READY\nhttp://localhost:3000\nENVIRONMENT  RUNTIME  REGION\ndevelopment  Node 24  local\nSTARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 204,
+          "anchor": "start",
+          "color": "#8a9eaa",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "SERVICE / PASSPORT"
+          ]
+        },
+        {
+          "id": "service",
+          "x": 24,
+          "y": 79,
+          "fontSize": 28,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#f0f5f5",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "Atlas API"
+          ]
+        },
+        {
+          "id": "state",
+          "x": 295,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 70,
+          "anchor": "middle",
+          "color": "#9de9c8",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "READY"
+          ]
+        },
+        {
+          "id": "endpoint",
+          "x": 24,
+          "y": 115,
+          "fontSize": 16,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#5fced1",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "http://localhost:3000"
+          ]
+        },
+        {
+          "id": "envLabel",
+          "x": 24,
+          "y": 167,
+          "fontSize": 12,
+          "safeWidth": 117,
+          "anchor": "start",
+          "color": "#8a9eaa",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "ENVIRONMENT"
+          ]
+        },
+        {
+          "id": "runtimeLabel",
+          "x": 24,
+          "y": 207,
+          "fontSize": 12,
+          "safeWidth": 117,
+          "anchor": "start",
+          "color": "#8a9eaa",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "RUNTIME"
+          ]
+        },
+        {
+          "id": "regionLabel",
+          "x": 24,
+          "y": 247,
+          "fontSize": 12,
+          "safeWidth": 117,
+          "anchor": "start",
+          "color": "#8a9eaa",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "REGION"
+          ]
+        },
+        {
+          "id": "environment",
+          "x": 160,
+          "y": 167,
+          "fontSize": 14,
+          "safeWidth": 176,
+          "anchor": "start",
+          "color": "#e2eaed",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "development"
+          ]
+        },
+        {
+          "id": "runtime",
+          "x": 160,
+          "y": 207,
+          "fontSize": 14,
+          "safeWidth": 176,
+          "anchor": "start",
+          "color": "#e2eaed",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Node 24"
+          ]
+        },
+        {
+          "id": "region",
+          "x": 160,
+          "y": 247,
+          "fontSize": 14,
+          "safeWidth": 176,
+          "anchor": "start",
+          "color": "#e2eaed",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "local"
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 299,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#8a9eaa",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "STARTUP SNAPSHOT / VALUES ",
+            "PROVIDED BY YOUR APP"
+          ]
+        }
+      ],
+      "sha256": "6c2e28feac81adb0d8bc02b0b2af7ef2072db0eff8f2edc4ddc78436df362953"
+    },
+    {
+      "id": "commandCard",
+      "name": "Command Card",
+      "profile": "commandCard/v1",
+      "recipeMapping": "commandCard/compact/v1",
+      "width": 360,
+      "height": 280,
+      "compactBelow": 590,
+      "caption": "NEXT / ACTION\n01  Run the test suite\nRun from the project root.\npnpm test\nCommand shown, never executed.",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 231,
+          "anchor": "start",
+          "color": "#8fa1a8",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "NEXT / ACTION"
+          ]
+        },
+        {
+          "id": "step",
+          "x": 336,
+          "y": 50,
+          "fontSize": 32,
+          "safeWidth": 70,
+          "anchor": "end",
+          "color": "#657780",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "01"
+          ]
+        },
+        {
+          "id": "title",
+          "x": 24,
+          "y": 96,
+          "fontSize": 24,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#eff3f4",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "Run the test suite"
+          ]
+        },
+        {
+          "id": "instruction",
+          "x": 24,
+          "y": 130,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#aab9c1",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Run from the project root."
+          ]
+        },
+        {
+          "id": "command",
+          "x": 50,
+          "y": 195,
+          "fontSize": 20,
+          "safeWidth": 267,
+          "anchor": "start",
+          "color": "#dce7e9",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "pnpm test"
+          ]
+        },
+        {
+          "id": "safety",
+          "x": 24,
+          "y": 253,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#95a8b1",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Command shown, never executed."
+          ]
+        }
+      ],
+      "sha256": "b19ee343dd5d093e87d12612cd5d21362ebe33b75b8f38fccbd9b61a8e214278"
+    },
+    {
+      "id": "releaseBulletin",
+      "name": "Release Bulletin",
+      "profile": "releaseBulletin/v1",
+      "recipeMapping": "releaseBulletin/compact/v1",
+      "width": 360,
+      "height": 296,
+      "compactBelow": 610,
+      "caption": "ATLAS / RELEASE NOTES  v2.4.0\nA quieter kind of fast.\nSmaller payloads.\nClearer diagnostics.\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 212,
+          "anchor": "start",
+          "color": "#64665b",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "ATLAS / RELEASE NOTES"
+          ]
+        },
+        {
+          "id": "version",
+          "x": 304,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 62,
+          "anchor": "middle",
+          "color": "#3b665d",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "v2.4.0"
+          ]
+        },
+        {
+          "id": "headline",
+          "x": 24,
+          "y": 99,
+          "fontSize": 26,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#26302b",
+          "fontFamily": "DejaVu Serif, Georgia, serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "A quieter kind of fast."
+          ]
+        },
+        {
+          "id": "change0",
+          "x": 38,
+          "y": 151,
+          "fontSize": 15,
+          "safeWidth": 298,
+          "anchor": "start",
+          "color": "#34443b",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Smaller payloads."
+          ]
+        },
+        {
+          "id": "change1",
+          "x": 38,
+          "y": 186,
+          "fontSize": 15,
+          "safeWidth": 298,
+          "anchor": "start",
+          "color": "#34443b",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Clearer diagnostics."
+          ]
+        },
+        {
+          "id": "channel",
+          "x": 24,
+          "y": 237,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#587068",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Preview channel"
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 274,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#65736b",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "TWO CHANGES. ONE CLEAR MESSAGE."
+          ]
+        }
+      ],
+      "sha256": "3a4c1a9b1766e3e5c9d7509806377882b9f5723ba4c82d38469661495c67734f"
+    },
+    {
+      "id": "blueprint",
+      "name": "Blueprint",
+      "profile": "blueprint/v1",
+      "recipeMapping": "blueprint/compact/v1",
+      "width": 360,
+      "height": 304,
+      "compactBelow": 610,
+      "caption": "ENGINEERING / EDITION 01\nBUILT TO LAST\nAn interface worth understanding.\nPRECISION OVER NOISE",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 32,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#a5c1cc",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "ENGINEERING / EDITION 01"
+          ]
+        },
+        {
+          "id": "title",
+          "x": 24,
+          "y": 191,
+          "fontSize": 28,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#e0eff2",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "BUILT TO LAST"
+          ]
+        },
+        {
+          "id": "subtitle",
+          "x": 24,
+          "y": 228,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#9bbac6",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "An interface worth understanding."
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 281,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#87abb9",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "PRECISION OVER NOISE"
+          ]
+        }
+      ],
+      "sha256": "8b4ce4c58c8a5389219cedd11f1109e77b281c40cf1887dbd32106e5645ad402"
+    },
+    {
+      "id": "contourMap",
+      "name": "Contour Map",
+      "profile": "contourMap/v1",
+      "recipeMapping": "contourMap/compact/v1",
+      "width": 360,
+      "height": 264,
+      "compactBelow": 580,
+      "caption": "FIELD NOTES / 007\nFIND YOUR SIGNAL\nLess noise. More direction.\nCONTOUR STUDY",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#96aca8",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "FIELD NOTES / 007"
+          ]
+        },
+        {
+          "id": "title",
+          "x": 24,
+          "y": 121,
+          "fontSize": 27,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#edf1ea",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "FIND YOUR SIGNAL"
+          ]
+        },
+        {
+          "id": "subtitle",
+          "x": 24,
+          "y": 162,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#a6bcb6",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Less noise. More direction."
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 239,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#86aaa2",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "CONTOUR STUDY"
+          ]
+        }
+      ],
+      "sha256": "9ec1b11df26223293472457e255e681ad4069847ea27e717665aad4a3605ea2d"
+    },
+    {
+      "id": "letterpress",
+      "name": "Letterpress",
+      "profile": "letterpress/v1",
+      "recipeMapping": "letterpress/compact/v1",
+      "width": 360,
+      "height": 264,
+      "compactBelow": 520,
+      "caption": "STUDIO / CONSOLE EDITION\nMake it matter.\nThoughtful tools. Everyday work.\nLESS, BUT CONSIDERED.",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#78786f",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "STUDIO / CONSOLE EDITION"
+          ]
+        },
+        {
+          "id": "title",
+          "x": 24,
+          "y": 126,
+          "fontSize": 34,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#464842",
+          "fontFamily": "DejaVu Serif, Georgia, serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "Make it matter."
+          ]
+        },
+        {
+          "id": "subtitle",
+          "x": 24,
+          "y": 168,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#74776c",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Thoughtful tools. Everyday work."
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 239,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#70776e",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "LESS, BUT CONSIDERED."
+          ]
+        }
+      ],
+      "sha256": "76664b5b3cbf2d806208358b8101db14dd9a73a80b3de77afcbb0019cff42c98"
+    },
+    {
+      "id": "signalHalftone",
+      "name": "Signal Halftone",
+      "profile": "signalHalftone/v1",
+      "recipeMapping": "signalHalftone/compact/v1",
+      "width": 360,
+      "height": 302,
+      "compactBelow": 560,
+      "caption": "TWO INKS / ONE IDEA\nMAKE SOME\nSIGNAL\nSmall tools. Clear intent.\nPRINT STUDY 04",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 34,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#777566",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "TWO INKS / ONE IDEA"
+          ]
+        },
+        {
+          "id": "title",
+          "x": 24,
+          "y": 132,
+          "fontSize": 36,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#293931",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "MAKE SOME"
+          ]
+        },
+        {
+          "id": "title2",
+          "x": 24,
+          "y": 177,
+          "fontSize": 36,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#293931",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "SIGNAL"
+          ]
+        },
+        {
+          "id": "subtitle",
+          "x": 24,
+          "y": 226,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#626b5d",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Small tools. Clear intent."
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 279,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#737566",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "PRINT STUDY 04"
+          ]
+        }
+      ],
+      "sha256": "e0d557cc61a03cfd1197f15481baad42099fb1875fdab178c4d7f0d2b3422d93"
+    },
+    {
+      "id": "orbital",
+      "name": "Orbital",
+      "profile": "orbital/v1",
+      "recipeMapping": "orbital/compact/v1",
+      "width": 360,
+      "height": 312,
+      "compactBelow": 620,
+      "caption": "MISSION / CONSOLE 01\nSTAY CURIOUS\nBuild something worth discovering.\nIDEAS IN ORBIT",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "x": 24,
+          "y": 161,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#92a1aa",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "MISSION / CONSOLE 01"
+          ]
+        },
+        {
+          "id": "title",
+          "x": 24,
+          "y": 207,
+          "fontSize": 29,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#edf3f3",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 700,
+          "letterSpacing": 0,
+          "fragments": [
+            "STAY CURIOUS"
+          ]
+        },
+        {
+          "id": "subtitle",
+          "x": 24,
+          "y": 244,
+          "fontSize": 14,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#a5b7c1",
+          "fontFamily": "DejaVu Sans, Arial, sans-serif",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "Build something worth discovering."
+          ]
+        },
+        {
+          "id": "footer",
+          "x": 24,
+          "y": 290,
+          "fontSize": 12,
+          "safeWidth": 312,
+          "anchor": "start",
+          "color": "#90aab3",
+          "fontFamily": "DejaVu Sans Mono, monospace",
+          "fontWeight": 400,
+          "letterSpacing": 0,
+          "fragments": [
+            "IDEAS IN ORBIT"
+          ]
+        }
+      ],
+      "sha256": "620b8c334bf0279b633a70ea4819ba6adcfd62626c096ccc0c0a18342d552072"
+    }
+  ],
+  "approval": {
+    "date": "2026-09-12",
+    "source": "Maintainer conversation: Approve all ten compact designs",
+    "scope": "All ten 360 px references, full sample fields, versioned compact fitting mappings and per-profile selection thresholds."
+  }
+}

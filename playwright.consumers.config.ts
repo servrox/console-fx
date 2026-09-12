@@ -10,8 +10,9 @@ export default defineConfig({
   reporter: "list",
   use: { baseURL: "http://127.0.0.1:4177", trace: "retain-on-failure" },
   webServer: {
-    command: `python3 -m http.server 4177 --bind 127.0.0.1 --directory '${directory}/out'`,
-    url: "http://127.0.0.1:4177",
-    reuseExistingServer: false,
+    command: `python3 -u -m http.server 4177 --bind 127.0.0.1 --directory '${directory}/out'`,
+    wait: { stdout: /Serving HTTP on 127\.0\.0\.1 port 4177/ },
+    timeout: 15_000,
+    gracefulShutdown: { signal: "SIGTERM", timeout: 500 },
   },
 });

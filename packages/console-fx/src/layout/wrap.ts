@@ -1,0 +1,82 @@
+import type { TextRun } from "../model/types.js";
+import { cinematicEffect } from "../renderers/cinematic/layout.js";
+
+export type FlowRun = TextRun & { readonly sourceRun: number };
+type Token = readonly FlowRun[];
+const cjk = (text: string) =>
+  /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]+$/u.test(text);
+
+function append(
+  left: readonly FlowRun[],
+  right: readonly FlowRun[],
+): FlowRun[] {
+  const result = [...left];
+  for (const run of right) {
+    const last = result.at(-1);
+    if (last?.sourceRun === run.sourceRun)
+      result[result.length - 1] = { ...last, text: last.text + run.text };
+    else result.push(run);
+  }
+  return result;
+}
+
+/** fit/v1 breaks only at complete graphemes, ASCII spaces and CJK letter boundaries.
+ * Tokens may cross style/run boundaries: styling cannot make an ID breakable.
+ */
+export function wrapTokens(runs: readonly FlowRun[]): readonly Token[] {
+  const pieces = runs.flatMap((run) =>
+    (cinematicEffect(run)
+      ? [run.text]
+      : [
+          ...new Intl.Segmenter("und", { granularity: "grapheme" }).segment(
+            run.text,
+          ),
+        ].map((part) => part.segment)
+    ).map((text) => ({ ...run, text })),
+  );
+  const tokens: FlowRun[][] = [];
+  let token: FlowRun[] = [];
+  for (const [i, piece] of pieces.entries()) {
+    token = append(token, [piece]);
+    if (
+      piece.text.endsWith(" ") ||
+      (cjk(piece.text) && cjk(pieces[i + 1]?.text ?? ""))
+    ) {
+      tokens.push(token);
+      token = [];
+    }
+  }
+  if (token.length || !tokens.length) tokens.push(token);
+  return tokens;
+}
+
+export function wrapTokensToRows(
+  tokens: readonly Token[],
+  width: number,
+  occupiedWidth: (runs: readonly FlowRun[]) => number,
+): FlowRun[][] {
+  const rows: FlowRun[][] = [];
+  let row: FlowRun[] = [];
+  for (const token of tokens) {
+    const candidate = append(row, token);
+    if (occupiedWidth(candidate) > width && row.length) {
+      rows.push(row);
+      row = [...token];
+    } else row = candidate;
+  }
+  rows.push(row);
+  return rows;
+}
+
+/** Optional preflight lookahead. The caller stops this iterator at its byte/work budget.
+ * Actual line fragments are shaped whole, never inferred from summed glyph advances.
+ */
+export function* wrappingAlternatives(tokens: readonly Token[]) {
+  for (let start = 0; start < tokens.length; start++) {
+    let row: FlowRun[] = [];
+    for (let end = start; end < tokens.length; end++) {
+      row = append(row, tokens[end]!);
+      yield* row.filter((run) => !cinematicEffect(run));
+    }
+  }
+}

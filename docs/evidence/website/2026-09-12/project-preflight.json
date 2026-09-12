@@ -1,0 +1,24 @@
+{
+  "at": "2026-09-12T18:38:55.320Z",
+  "id": "prj_1l26eTv5TAxawo3B7gvcBXl4l5CN",
+  "name": "console-fx",
+  "accountId": "team_ZMyECTz65A2Bi8v8vYOavwsM",
+  "live": false,
+  "ssoProtection": {
+    "deploymentType": "all"
+  },
+  "rootDirectory": "apps/studio",
+  "buildCommand": null,
+  "outputDirectory": null,
+  "link": {
+    "type": "github",
+    "repo": "console-fx",
+    "org": "servrox",
+    "productionBranch": "main"
+  },
+  "production": {
+    "id": "dpl_F5MudtfzqDAXZ9MeK6JfECaKsqX2",
+    "url": "console-l88p7suvi-servroxs-projects.vercel.app",
+    "readyState": "ERROR"
+  }
+}

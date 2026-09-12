@@ -8,6 +8,8 @@ Supersedes: None
 Superseded by: None
 Approval: On 2026-09-12 the maintainer explicitly answered “Approve ADR-0015” for this reviewed fitting, sizing, measurement and render-recipe contract. The active request to review/merge all PRs and fully implement all specifications supplies implementation authority. Compact visual variants still need their own review.
 
+Subsequent visual approval: On 2026-09-12 the maintainer explicitly answered “Approve all ten compact designs” for the [360 px references](../mockups/preset-compact-v1/README.md) and captured overview. This satisfies the separate compact appearance gate without changing this decision's accepted intent or claiming runtime qualification.
+
 ## Context
 
 The current SVG renderer estimates text widths and reserves a fixed-pixel console box. Content can overflow its frame or a correctly laid-out frame can overflow a narrow console. Shrinking a whole card can make meaningful text unreadable. A normal package has no supported API for measuring the DevTools message area. Proposed cinematic and card profiles increase the importance of honest geometry and readability contracts.

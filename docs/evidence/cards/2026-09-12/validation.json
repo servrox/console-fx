@@ -60,7 +60,7 @@
     "fontConfidence": "Estimated. Recorded local-font corpus is not an arbitrary recipient-font guarantee."
   },
   "release": {
-    "ci": "pending for this runtime integration",
+    "ci": "PR #8 head 06d6dfefb60b538a8bd6736d08b44ab7fde2c33b passed run 34697850568 and was merged",
     "published": false,
     "deployed": false,
     "screenReader": "not observed; nonblocking ADR-0013"

@@ -1,4 +1,4 @@
-import { normalizeExportOptions } from "../validation/options.js";
+import { normalizeRenderExportOptions as normalizeExportOptions } from "../validation/render-options.js";
 import { SceneValidationError } from "../validation/index.js";
 import { compileConsole, ConsoleCompileError } from "../browser/index.js";
 import { deepFreeze, LIMITS, utf8ByteLength } from "../model/limits.js";

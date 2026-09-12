@@ -6,7 +6,7 @@ ADR-0001 through ADR-0010 and ADR-0012 through ADR-0015 are **Accepted**. ADR-00
 
 On 2026-09-12 the maintainer also explicitly answered “Approve ADR-0014 and all ten designs” for the prepared card-presentation contract, ordinary scene slots, visual references and Windows font fallbacks. The later all-spec implementation request supplies execution authority; accepted status alone remains separate from runtime and release evidence.
 
-The maintainer also explicitly answered “Approve ADR-0015” on 2026-09-12 for the separated fitting/sizing, optional font measurement and saved-recipe contract. Compact visual variants remain separately reviewable.
+The maintainer also explicitly answered “Approve ADR-0015” on 2026-09-12 for the separated fitting/sizing, optional font measurement and saved-recipe contract, followed by “Approve all ten compact designs” for the separately reviewed [360 px references](../mockups/preset-compact-v1/README.md). Runtime qualification remains separate.
 
 ## Decision index
 

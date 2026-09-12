@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-12T17:07:03.388922+00:00",
+  "chrome": {
+    "source": "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json",
+    "feedTimestamp": "2026-09-12T11:15:15.835Z",
+    "version": "153.0.8010.36",
+    "revision": "1681091"
+  },
+  "edge": {
+    "source": "https://edgeupdates.microsoft.com/api/products",
+    "version": "153.0.4234.32",
+    "published": "2026-09-12T13:11:00"
+  }
+}

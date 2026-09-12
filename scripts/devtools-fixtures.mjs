@@ -1,3 +1,5 @@
+import assert from "node:assert/strict";
+import { runInNewContext } from "node:vm";
 import { mkdir, writeFile, readFile, readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { resolve, join } from "node:path";
@@ -13,7 +15,9 @@ import {
   rainbow,
 } from "../packages/console-fx/dist/presets/index.js";
 
-const root = resolve(".artifacts/devtools");
+const root = resolve(
+  process.env.CONSOLE_FX_DEVTOOLS_DIR ?? ".artifacts/devtools",
+);
 await mkdir(root, { recursive: true });
 const sourceHash = createHash("sha256");
 async function hashTree(directory) {
@@ -27,158 +31,188 @@ async function hashTree(directory) {
   }
 }
 await hashTree("packages/console-fx/dist");
-const cases = [
-  ...PRESETS.filter(
-    ({ group }) => group === "Useful" || group === "Artful",
-  ).map(({ id, name }) => ({
-    id: `card-${id}`,
-    title: name,
-    scene: createPresetExample(id),
-    renderer: "svg",
-  })),
-  ...PRESETS.filter(({ group }) => group === "Cinematic Metal").flatMap(
-    ({ id, name }) => {
-      const scene = preset(id);
-      return [
-        { id: `cinematic-${id}`, title: name, scene, renderer: "svg" },
-        {
-          id: `cinematic-${id}-480`,
-          title: `${name} / 480 pixels`,
-          renderer: "svg",
-          scene: defineScene({
-            ...scene,
-            surface: { ...scene.surface, width: 480 },
-            lines: scene.lines.map((line) => ({
-              ...line,
-              runs: line.runs.map((run) => ({
-                ...run,
-                style: { ...run.style, fontSize: 46 },
-              })),
-            })),
-          }),
-        },
-      ];
-    },
-  ),
-  {
-    id: "phase0-badge",
-    title: "Phase 0 · Badge",
-    scene: badge({ text: "ConsoleFX ready" }),
-    renderer: "css",
-  },
-  {
-    id: "phase0-multistyle",
-    title: "Phase 0 · Multistyle and literal percent",
-    scene: defineScene({
-      schemaVersion: 1,
-      label: "Literal percent",
-      lines: [
-        {
-          runs: [
+const cases = process.env.CONSOLE_FX_FIXTURE_SET
+  ? JSON.parse(await readFile(process.env.CONSOLE_FX_FIXTURE_SET, "utf8"))
+  : [
+      ...PRESETS.filter(
+        ({ group }) => group === "Useful" || group === "Artful",
+      ).map(({ id, name }) => ({
+        id: `card-${id}`,
+        title: name,
+        scene: createPresetExample(id),
+        renderer: "svg",
+      })),
+      ...PRESETS.filter(({ group }) => group === "Cinematic Metal").flatMap(
+        ({ id, name }) => {
+          const scene = preset(id);
+          return [
+            { id: `cinematic-${id}`, title: name, scene, renderer: "svg" },
             {
-              text: "100% %c %s 👩🏽‍💻 ",
-              style: { color: "#22d3ee", fontSize: 22 },
+              id: `cinematic-${id}-480`,
+              title: `${name} / 480 pixels`,
+              renderer: "svg",
+              scene: defineScene({
+                ...scene,
+                surface: { ...scene.surface, width: 480 },
+                lines: scene.lines.map((line) => ({
+                  ...line,
+                  runs: line.runs.map((run) => ({
+                    ...run,
+                    style: { ...run.style, fontSize: 46 },
+                  })),
+                })),
+              }),
             },
-            { text: "second run", style: { color: "#f3bd67", fontSize: 22 } },
-          ],
+          ];
         },
-      ],
-    }),
-    renderer: "css",
-  },
-  {
-    id: "phase0-svg",
-    title: "Phase 0 · Static SVG",
-    scene: neon({ text: "One expressive entry" }),
-    renderer: "svg",
-  },
-  {
-    id: "phase0-motion",
-    title: "Phase 0 · Finite SVG wave",
-    scene: neon({ text: "One gentle wave", motion: "wave" }),
-    renderer: "svg",
-    motion: "allow",
-  },
-  ...PRESETS.filter(({ group }) => group === "Classic").map(
-    ({ id, name, renderer }) => ({
-      id: `gallery-${id}`,
-      title: name,
-      scene: preset(id, { text: name }),
-      renderer,
-    }),
-  ),
-  ...["glowPulse", "gradientDrift", "wave", "indicator"].map((motion) => ({
-    id: `motion-${motion}`,
-    title: motion,
-    scene: rainbow({ text: "ConsoleFX", motion }),
-    renderer: "svg",
-    motion: "allow",
-  })),
-  ...[
-    ...PRESETS.filter(({ group }) => group === "Classic"),
-    { id: "plain", name: "Plain lettering" },
-  ].flatMap(({ id, name }) =>
-    ["none", "glowPulse", "gradientDrift", "wave", "indicator"].map(
-      (motion) => ({
-        id: `combo-${id}-${motion}`,
-        title: `${name} / ${motion}`,
-        scene:
-          id === "plain"
-            ? defineScene({
-                schemaVersion: 1,
-                label: "ConsoleFX",
-                surface: {
-                  width: 600,
-                  height: 180,
-                  padding: 34,
-                  background: "#0c1117",
-                  borderRadius: 16,
+      ),
+      {
+        id: "phase0-badge",
+        title: "Phase 0 · Badge",
+        scene: badge({ text: "ConsoleFX ready" }),
+        renderer: "css",
+      },
+      {
+        id: "phase0-multistyle",
+        title: "Phase 0 · Multistyle and literal percent",
+        scene: defineScene({
+          schemaVersion: 1,
+          label: "Literal percent",
+          lines: [
+            {
+              runs: [
+                {
+                  text: "100% %c %s 👩🏽‍💻 ",
+                  style: { color: "#22d3ee", fontSize: 22 },
                 },
-                lines: [
-                  {
-                    align: "center",
-                    runs: [
+                {
+                  text: "second run",
+                  style: { color: "#f3bd67", fontSize: 22 },
+                },
+              ],
+            },
+          ],
+        }),
+        renderer: "css",
+      },
+      {
+        id: "phase0-svg",
+        title: "Phase 0 · Static SVG",
+        scene: neon({ text: "One expressive entry" }),
+        renderer: "svg",
+      },
+      {
+        id: "phase0-motion",
+        title: "Phase 0 · Finite SVG wave",
+        scene: neon({ text: "One gentle wave", motion: "wave" }),
+        renderer: "svg",
+        motion: "allow",
+      },
+      ...PRESETS.filter(({ group }) => group === "Classic").map(
+        ({ id, name, renderer }) => ({
+          id: `gallery-${id}`,
+          title: name,
+          scene: preset(id, { text: name }),
+          renderer,
+        }),
+      ),
+      ...["glowPulse", "gradientDrift", "wave", "indicator"].map((motion) => ({
+        id: `motion-${motion}`,
+        title: motion,
+        scene: rainbow({ text: "ConsoleFX", motion }),
+        renderer: "svg",
+        motion: "allow",
+      })),
+      ...[
+        ...PRESETS.filter(({ group }) => group === "Classic"),
+        { id: "plain", name: "Plain lettering" },
+      ].flatMap(({ id, name }) =>
+        ["none", "glowPulse", "gradientDrift", "wave", "indicator"].map(
+          (motion) => ({
+            id: `combo-${id}-${motion}`,
+            title: `${name} / ${motion}`,
+            scene:
+              id === "plain"
+                ? defineScene({
+                    schemaVersion: 1,
+                    label: "ConsoleFX",
+                    surface: {
+                      width: 600,
+                      height: 180,
+                      padding: 34,
+                      background: "#0c1117",
+                      borderRadius: 16,
+                    },
+                    lines: [
                       {
-                        text: "ConsoleFX",
-                        style: {
-                          color: "#e8f3f5",
-                          fontSize: 42,
-                          fontWeight: 700,
-                        },
-                        effects: motion === "none" ? [] : [{ kind: motion }],
+                        align: "center",
+                        runs: [
+                          {
+                            text: "ConsoleFX",
+                            style: {
+                              color: "#e8f3f5",
+                              fontSize: 42,
+                              fontWeight: 700,
+                            },
+                            effects:
+                              motion === "none" ? [] : [{ kind: motion }],
+                          },
+                        ],
                       },
                     ],
-                  },
-                ],
-                motion: { durationMs: 4800, finish: "freeze" },
-              })
-            : preset(id, {
-                text: id === "rainbow" ? "ConsoleFX color" : "ConsoleFX",
-                motion,
-              }),
-        renderer: "svg",
-        ...(motion === "none" ? {} : { motion: "allow" }),
-      }),
-    ),
-  ),
-];
+                    motion: { durationMs: 4800, finish: "freeze" },
+                  })
+                : preset(id, {
+                    text: id === "rainbow" ? "ConsoleFX color" : "ConsoleFX",
+                    motion,
+                  }),
+            renderer: "svg",
+            ...(motion === "none" ? {} : { motion: "allow" }),
+          }),
+        ),
+      ),
+    ];
 const fixtures = cases.map((entry) => {
   const options = {
     target: "chromium",
     renderer: entry.renderer,
     motion: entry.motion ?? "reduce",
+    ...entry.options,
   };
+  const output = compileConsole(entry.scene, options);
+  const staticOutput = compileConsole(entry.scene, {
+    ...options,
+    motion: "reduce",
+  });
+  const code = exportConsoleLog(entry.scene, {
+    ...options,
+    motion: options.motion === "allow" ? "system" : "reduce",
+  }).code;
+  for (const reduced of [false, true]) {
+    const calls = [];
+    runInNewContext(
+      code,
+      {
+        console: { log: (...args) => calls.push(args) },
+        matchMedia: () => ({ matches: !reduced }),
+      },
+      { timeout: 1000 },
+    );
+    assert.equal(calls.length, 1, `${entry.id}: standalone emission count`);
+    assert.equal(
+      JSON.stringify(calls[0]),
+      JSON.stringify((reduced ? staticOutput : output).args),
+      `${entry.id}: standalone motion branch`,
+    );
+  }
   return {
     id: entry.id,
     title: entry.title,
     scene: entry.scene,
     options,
-    output: compileConsole(entry.scene, options),
-    staticOutput: compileConsole(entry.scene, { ...options, motion: "reduce" }),
-    code: exportConsoleLog(entry.scene, {
-      ...options,
-      motion: entry.motion ? "system" : "reduce",
-    }).code,
+    output,
+    staticOutput,
+    code,
   };
 });
 const metadata = {

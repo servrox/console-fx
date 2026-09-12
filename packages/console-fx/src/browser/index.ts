@@ -1,4 +1,7 @@
-import { normalizeExportOptions } from "../validation/options.js";
+import {
+  normalizeRenderExportOptions as normalizeExportOptions,
+  normalizeRenderOptions,
+} from "../validation/render-options.js";
 import type {
   CompileOptions,
   CompiledConsole,
@@ -6,7 +9,9 @@ import type {
   SceneInputV1,
 } from "../model/types.js";
 import { compileScene } from "./compiler.js";
-import { renderSvg } from "../renderers/svg.js";
+import { renderWithLayout } from "../layout/render.js";
+export { measureTextBatch } from "./measure.js";
+export { prepareTextMeasurements } from "./preflight.js";
 import { record, SceneValidationError } from "../validation/index.js";
 import { ConsoleCompileError } from "./compiler.js";
 export { ConsoleCompileError } from "./compiler.js";
@@ -22,10 +27,13 @@ export function compileConsole(
   input: SceneInputV1,
   options: CompileOptions = {},
 ): CompiledConsole {
-  return compileScene(input, options, renderSvg);
+  return compileScene(input, options, renderWithLayout, normalizeRenderOptions);
 }
 
-export type CssCompileOptions = Omit<CompileOptions, "renderer">;
+export type CssCompileOptions = Pick<
+  CompileOptions,
+  "target" | "motion" | "unsupported"
+>;
 /** Explicit CSS compilation that lets bundlers omit SVG artwork; fallback remains opt-in. */
 export function compileCssConsole(
   input: SceneInputV1,

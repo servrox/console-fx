@@ -3,7 +3,7 @@ import { GLYPHS } from "./glyphs.js";
 import { PROFILES, type CinematicEffect } from "./profiles.js";
 import type { CinematicLayout } from "./layout.js";
 
-import { escapeXml as xml, svgNumber as n } from "../svg-values.js";
+import { escapeXml as xml, svgNumber } from "../svg-values.js";
 
 export function renderCinematic(
   run: TextRun,
@@ -13,7 +13,9 @@ export function renderCinematic(
   x: number,
   baseline: number,
   fontStack: string,
+  fitted = false,
 ) {
+  const n = fitted ? String : svgNumber;
   if (layout.empty) return { definitions: "", markup: "" };
   const profile = PROFILES[effect.profile];
   const { faceWidth: w, faceHeight: h, depth, blur } = layout;
@@ -35,7 +37,7 @@ export function renderCinematic(
       advance += layout.advances[index]! + run.style.letterSpacing;
     });
   } else {
-    letters = `<text x="${n(w / profile.xScale / 2)}" text-anchor="middle" y="${run.style.fontSize}" font-family="${fontStack}" font-size="${run.style.fontSize}" font-weight="${run.style.fontWeight}" font-style="${profile.italic ? "italic" : "normal"}" letter-spacing="${run.style.letterSpacing}" xml:space="preserve" transform="scale(${profile.xScale} ${profile.yScale})">${xml(run.text)}</text>`;
+    letters = `<text x="${n(w / profile.xScale / 2)}" text-anchor="middle" y="${run.style.fontSize}" font-family="${fontStack}" font-size="${run.style.fontSize}" font-weight="${run.style.fontWeight}" font-style="${profile.italic ? "italic" : "normal"}" letter-spacing="${run.style.letterSpacing}" xml:space="preserve"${layout.direction ? ` direction="${layout.direction}"` : ""} transform="scale(${profile.xScale} ${profile.yScale})">${xml(run.text)}</text>`;
   }
   const use = (fill: string, extra = "") =>
     `<use href="#${id}-face" fill="${fill}" ${extra}/>`;

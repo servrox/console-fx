@@ -1,8 +1,8 @@
 # ConsoleFX React
 
 A thin React 19 adapter using ConsoleFX's public compiler. ESM JavaScript,
-TypeScript declarations and the `use client` boundary are included. This release
-candidate is not published yet. The adapter depends on `@servrox/console-fx` and
+TypeScript declarations and the `use client` boundary are included. The adapter
+depends on `@servrox/console-fx` and
 keeps React as a peer dependency.
 
 ```tsx

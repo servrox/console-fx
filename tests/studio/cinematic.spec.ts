@@ -24,8 +24,9 @@ test("cinematic gallery uses exact static previews, editable controls and one ex
   page.on("console", (event) => {
     if (event.type() === "log") calls.push(event.text());
   });
-  await page.goto("/");
-  const editor = page.locator("#playground");
+  await page.goto("/#playground");
+  await page.locator(".full-preset-gallery > summary").click();
+  const editor = page.locator("#editor-workspace");
   for (const [name, factory] of titles) {
     const card = page.getByRole("button", {
       name: `Load ${name} preset`,
@@ -102,7 +103,7 @@ test("cinematic gallery uses exact static previews, editable controls and one ex
   expect(calls).toHaveLength(1);
   await expect
     .poll(() =>
-      page.evaluate(() => localStorage.getItem("console-fx:scene:v1")),
+      page.evaluate(() => localStorage.getItem("console-fx:recipe:v1")),
     )
     .toContain("EDIT IN CSS");
   await page.reload();

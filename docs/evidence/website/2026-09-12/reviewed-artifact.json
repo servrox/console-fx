@@ -1,0 +1,13 @@
+{
+  "at": "2026-09-12T18:42:19.055414+00:00",
+  "artifactFingerprint": "aa7a9211c35610a25848d0d974a0d1315408d61d264fd5f601259eb2a2f6c781",
+  "fingerprintMethod": "SHA256(JSON.stringify({files,configSha256})); ordered files from candidate",
+  "archive": ".artifacts/deployment/console-fx-reviewed.tgz",
+  "archiveSha256": "11b31389ebba6ff58e01fa6099a19a687dfe1d9807701f433ac8c21d5708b59c",
+  "files": 46,
+  "project": "servroxs-projects/console-fx",
+  "projectId": "prj_1l26eTv5TAxawo3B7gvcBXl4l5CN",
+  "target": "protected preview, then separately approved production promotion",
+  "authority": "exact artifact upload not yet approved",
+  "deployment": "not deployed"
+}

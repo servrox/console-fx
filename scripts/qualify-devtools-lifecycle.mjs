@@ -7,6 +7,7 @@ import { createHash } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { performance } from "node:perf_hooks";
+import { nativeBrowserZoom } from "./native-browser-zoom.mjs";
 import { compileConsole } from "../packages/console-fx/dist/browser/index.js";
 import { exportConsoleLog } from "../packages/console-fx/dist/codegen/index.js";
 import { defineScene } from "../packages/console-fx/dist/index.js";
@@ -27,6 +28,9 @@ assert(
     "cards",
     "card-display",
     "card-zoom",
+    "fitting",
+    "fitting-context",
+    "fitting-offscreen",
   ].includes(phase),
 );
 const directory = resolve(
@@ -100,6 +104,20 @@ async function open() {
     .getByRole("tab", { name: "Console", exact: true })
     .last()
     .click();
+  await native
+    .getByRole("button", {
+      name: "Customize and control DevTools",
+      exact: true,
+    })
+    .last()
+    .click();
+  const undock = native.getByRole("button", {
+    name: "Undock into separate window",
+    exact: true,
+  });
+  if (await undock.count()) await undock.click();
+  else await native.keyboard.press("Escape");
+  await pause(200);
   ({ windowId } = await cdp.send("Browser.getWindowForTarget", { targetId }));
   await resize(1400, 950);
   await native.keyboard.press("Control+0");
@@ -242,6 +260,421 @@ async function copyNative(row, output) {
     row.copiedLiteral,
     "Native copied text did not contain the complete literal message",
   );
+}
+
+if (["fitting", "fitting-context", "fitting-offscreen"].includes(phase)) {
+  const fixtures = await fixture.evaluate(
+    () => window.consoleFxFixtures.fixtures,
+  );
+  const compact = fixtures.filter((entry) => entry.id.startsWith("compact-"));
+  const containers = fixtures.filter((entry) =>
+    entry.id.startsWith("container-"),
+  );
+  assert.equal(compact.length, 10);
+  assert.equal(containers.length, 2);
+  async function surface(row, label) {
+    const message = richMessage();
+    await message.waitFor();
+    await native.bringToFront();
+    await pause(180);
+    row.visibleText = await message.textContent();
+    assert(row.visibleText.includes(row.expectedText));
+    row.layout = await message.evaluate((element) => {
+      const box = (node) => {
+        const r = node.getBoundingClientRect();
+        return { x: r.x, y: r.y, width: r.width, height: r.height };
+      };
+      return {
+        message: box(element),
+        carrier: box(element.querySelector('span[style*="background"]')),
+        scrollWidth: element.scrollWidth,
+        clientWidth: element.clientWidth,
+        console: box(document.querySelector(".console-view")),
+        viewport: [window.innerWidth, window.innerHeight],
+        devicePixelRatio: window.devicePixelRatio,
+        theme: document.documentElement.className,
+        sourceAnchor:
+          element
+            .closest(".console-message-wrapper")
+            ?.querySelector(".console-message-anchor")?.textContent ?? null,
+        timestamp:
+          element
+            .closest(".console-message-wrapper")
+            ?.querySelector(".console-timestamp")?.textContent ?? null,
+      };
+    });
+    const session = await native.context().newCDPSession(native);
+    const screenshot = await session.send("Page.captureScreenshot", {
+      format: "png",
+      fromSurface: true,
+    });
+    await session.detach();
+    const path = `${directory}/${row.id}-${label}.png`;
+    writeFileSync(path, Buffer.from(screenshot.data, "base64"));
+    row.frames.push({ name: label, path });
+  }
+  async function offscreenReturn(entry) {
+    await clear();
+    const emission = await emit(entry.output);
+    const row = await record(
+      `${entry.id}-offscreen-return`,
+      entry.output,
+      emission,
+    );
+    const clipping = async () => {
+      const bounds = await native.locator("#console-messages").boundingBox();
+      assert(bounds);
+      const message = await richMessage().boundingBox();
+      return { console: bounds, message };
+    };
+    await richMessage().waitFor();
+    await fixture.evaluate(() =>
+      console.log("Qualification spacer\n".repeat(65)),
+    );
+    await native.bringToFront();
+    await native
+      .locator(".console-message-text")
+      .filter({ hasText: "Qualification spacer" })
+      .last()
+      .waitFor();
+    await native.locator("#console-messages").evaluate((element) => {
+      element.scrollTop = element.scrollHeight;
+    });
+    let hidden;
+    for (let attempt = 0; attempt < 30; attempt++) {
+      await pause(100);
+      hidden = await clipping();
+      if (
+        !hidden.message ||
+        hidden.message.y + hidden.message.height <= hidden.console.y ||
+        hidden.message.y >= hidden.console.y + hidden.console.height
+      )
+        break;
+    }
+    assert(
+      !hidden.message ||
+        hidden.message.y + hidden.message.height <= hidden.console.y ||
+        hidden.message.y >= hidden.console.y + hidden.console.height,
+      "Message must leave the console clipping area",
+    );
+    row.hiddenGeometry = hidden;
+    // A user scroll also releases DevTools' sticky-bottom mode. Assigning
+    // scrollTop alone can be immediately undone by the frontend's viewport.
+    await native.locator("#console-messages").hover();
+    await native.mouse.wheel(0, -10000);
+    await pause(250);
+    await richMessage().scrollIntoViewIfNeeded();
+    let returned;
+    for (let attempt = 0; attempt < 30; attempt++) {
+      await pause(100);
+      returned = await clipping();
+      if (
+        returned.message &&
+        returned.message.y >= returned.console.y &&
+        returned.message.y + returned.message.height <=
+          returned.console.y + returned.console.height
+      )
+        break;
+    }
+    assert(
+      returned.message &&
+        returned.message.y >= returned.console.y &&
+        returned.message.y + returned.message.height <=
+          returned.console.y + returned.console.height,
+      "Returned message must fit within the console clipping area",
+    );
+    row.returnedGeometry = returned;
+    await surface(row, "returned");
+    row.harnessSpacerCalls = 1;
+    assert.equal(events.length - emission.before, 2);
+    save(row);
+  }
+  if (phase === "fitting-offscreen") {
+    for (const entry of containers) await offscreenReturn(entry);
+  }
+  if (phase === "fitting") {
+    // Execute the shipped standalone expression, then copy the actual native caption.
+    for (const entry of compact) {
+      await clear();
+      const before = events.length;
+      const prompt = native.getByRole("textbox", {
+        name: "Console prompt",
+        exact: true,
+      });
+      await prompt.fill(entry.code);
+      await prompt.press("Enter");
+      await pause(180);
+      const row = await record(`${entry.id}-generated-copy`, entry.output, {
+        before,
+      });
+      row.code = entry.code;
+      await surface(row, "native");
+      await richMessage().click({ button: "right" });
+      await copyNative(row, entry.output);
+      save(row);
+    }
+    // Both carriers use the same fitted scene; resize each existing entry without logging again.
+    for (const entry of containers)
+      for (const mode of ["fixed", "container-experimental"]) {
+        const output = compileConsole(entry.scene, {
+          ...entry.options,
+          sizing:
+            mode === "fixed"
+              ? { mode, width: entry.options.sizing.maxWidth }
+              : entry.options.sizing,
+        });
+        await clear();
+        const emission = await emit(output);
+        for (const width of [280, 360, 480, 720, 960]) {
+          await resize(width + 28, 950);
+          const row = await record(
+            `${entry.id}-${mode}-${width}`,
+            output,
+            emission,
+          );
+          row.requestedConsoleWidth = width;
+          row.resizedExistingEntry = true;
+          row.options = {
+            ...entry.options,
+            sizing:
+              mode === "fixed"
+                ? { mode, width: entry.options.sizing.maxWidth }
+                : entry.options.sizing,
+          };
+          await surface(row, "resized");
+          row.clippedHorizontally =
+            row.layout.carrier.x + row.layout.carrier.width >
+            row.layout.viewport[0];
+          row.observation =
+            "Measured frontend geometry; actual image-text readability remains unknown for container sizing.";
+          save(row);
+        }
+        await resize(1400, 950);
+      }
+    for (const entry of [compact[0], ...containers]) {
+      await clear();
+      await close();
+      const emission = await emit(entry.output);
+      await open();
+      const late = await record(
+        `${entry.id}-before-open`,
+        entry.output,
+        emission,
+      );
+      await surface(late, "opened");
+      save(late);
+      await close();
+      await open();
+      const reopened = await record(
+        `${entry.id}-reopened`,
+        entry.output,
+        emission,
+      );
+      await surface(reopened, "reopened");
+      save(reopened);
+      await clear();
+      for (const repeat of [1, 2]) {
+        const repeated = await record(
+          `${entry.id}-repeat-${repeat}`,
+          entry.output,
+          await emit(entry.output),
+        );
+        await surface(repeated, "repeated");
+        save(repeated);
+      }
+    }
+    // Light theme and actual 200% DevTools zoom supplement the dark/100% fixture run.
+    for (const [theme, steps] of [
+      ["Light", 0],
+      ["Dark", 5],
+    ]) {
+      await native.getByRole("button", { name: /^Settings - F1/ }).click();
+      await native
+        .getByRole("combobox", { name: "Theme:", exact: true })
+        .selectOption({ label: theme });
+      await native
+        .getByRole("dialog")
+        .getByRole("button", { name: "Close", exact: true })
+        .click();
+      await native.keyboard.press("Control+0");
+      const base = await native.evaluate(() => window.devicePixelRatio);
+      for (let i = 0; i < steps; i++)
+        await native.keyboard.press("Control+Equal");
+      await pause(200);
+      for (const entry of compact) {
+        await clear();
+        const row = await record(
+          `${entry.id}-${theme}-${steps ? 200 : 100}`,
+          entry.output,
+          await emit(entry.output),
+        );
+        await surface(row, "appearance");
+        row.zoom = Math.round((row.layout.devicePixelRatio / base) * 100);
+        assert.equal(row.zoom, steps ? 200 : 100);
+        save(row);
+      }
+    }
+    await native.keyboard.press("Control+0");
+  }
+  if (phase === "fitting-context") {
+    for (const entry of containers) {
+      const output = entry.output;
+      const snap = async (label, emission, details = {}) => {
+        const row = await record(`${entry.id}-${label}`, output, emission);
+        Object.assign(row, details);
+        await surface(row, "context");
+        save(row);
+      };
+      await clear();
+      let emission = await emit(output);
+      await snap("anonymous-source", emission, {
+        sourceMethod: "Harness evaluate, native anonymous VM anchor retained",
+      });
+      await clear();
+      const before = events.length;
+      await fixture.addScriptTag({
+        content: `${entry.code}\n//# sourceURL=https://consolefx.invalid/qualification/a-long-source-link/unchanged-container-entry/source-context-for-the-responsive-fitting-matrix.js`,
+      });
+      emission = { before };
+      await snap("long-source", emission, {
+        sourceMethod:
+          "Inline harness script with an explicit long sourceURL; no network request",
+      });
+      const sidebar = native.getByRole("button", {
+        name: "Show Console sidebar",
+        exact: true,
+      });
+      if (await sidebar.count()) {
+        await sidebar.click();
+        await snap("sidebar", emission, {
+          sidebar: "visible",
+          resizedExistingEntry: true,
+        });
+        await native
+          .getByRole("button", { name: "Hide Console sidebar", exact: true })
+          .click();
+      }
+      await native.getByRole("button", { name: /^Settings - F1/ }).click();
+      const timestamps = native.getByRole("checkbox", {
+        name: /^(Show timestamps|Timestamps)$/i,
+      });
+      if (await timestamps.count()) {
+        await timestamps.check();
+        await native
+          .getByRole("dialog")
+          .getByRole("button", { name: "Close", exact: true })
+          .click();
+        await snap("timestamps", emission, {
+          timestamps: true,
+        });
+        await native.getByRole("button", { name: /^Settings - F1/ }).click();
+        await timestamps.uncheck();
+      } else
+        save({
+          id: `${entry.id}-timestamps`,
+          status: "not-observed",
+          reason: "Native timestamp control was unavailable",
+        });
+      await native
+        .getByRole("dialog")
+        .getByRole("button", { name: "Close", exact: true })
+        .click();
+      await clear();
+      await fixture.evaluate(() => {
+        console.group("Fitting outer group");
+        console.group("Fitting inner group");
+      });
+      emission = await emit(output);
+      await snap("nested-groups", emission, {
+        groupDepth: 2,
+        harnessGroupCalls: 2,
+      });
+      await fixture.evaluate(() => {
+        console.groupEnd();
+        console.groupEnd();
+      });
+      await clear();
+      emission = await emit(output);
+      const baseRatio = await native.evaluate(() => window.devicePixelRatio);
+      await native.keyboard.press("Control+Equal");
+      await native.keyboard.press("Control+Equal");
+      await pause(200);
+      const zoom = Math.round(
+        ((await native.evaluate(() => window.devicePixelRatio)) / baseRatio) *
+          100,
+      );
+      assert.equal(zoom, 125);
+      await snap("zoom-125", emission, { zoom, resizedExistingEntry: true });
+      await native.keyboard.press("Control+0");
+      await nativeBrowserZoom(fixture, processId, 0);
+      const pageBase = await fixture.evaluate(() => window.devicePixelRatio);
+      await nativeBrowserZoom(fixture, processId, 2);
+      const pageZoom = Math.round(
+        ((await fixture.evaluate(() => window.devicePixelRatio)) / pageBase) *
+          100,
+      );
+      assert.equal(pageZoom, 125);
+      await snap("page-zoom", emission, {
+        pageZoom,
+        devtoolsZoom: 100,
+        resizedExistingEntry: true,
+      });
+      await nativeBrowserZoom(fixture, processId, 0);
+      for (const [dock, button] of [
+        ["right", "Dock to right"],
+        ["bottom", "Dock to bottom"],
+        ["undocked", "Undock into separate window"],
+      ]) {
+        await native
+          .getByRole("button", {
+            name: "Customize and control DevTools",
+            exact: true,
+          })
+          .last()
+          .click();
+        const control = native.getByRole("button", {
+          name: button,
+          exact: true,
+        });
+        if (!(await control.count())) {
+          await native.keyboard.press("Escape");
+          save({
+            id: `${entry.id}-dock-${dock}`,
+            status: "not-observed",
+            reason: "Native docking control unavailable",
+          });
+          continue;
+        }
+        await control.click();
+        await pause(250);
+        await snap(`dock-${dock}`, emission, {
+          docking: dock,
+          resizedExistingEntry: true,
+        });
+      }
+      await native
+        .getByRole("tab", { name: "Elements", exact: true })
+        .first()
+        .click();
+      await native.keyboard.press("Escape");
+      await snap("drawer", emission, {
+        docking: "undocked",
+        consoleDrawer: true,
+        resizedExistingEntry: true,
+      });
+      const drawerClose = native.getByRole("button", {
+        name: "Close drawer",
+        exact: true,
+      });
+      if (await drawerClose.count()) await drawerClose.click();
+      await native
+        .getByRole("tab", { name: "Console", exact: true })
+        .first()
+        .click();
+      await offscreenReturn(entry);
+      await open();
+    }
+  }
 }
 
 if (phase === "card-display" || phase === "card-zoom") {

@@ -12,8 +12,9 @@ test("all ten card previews use the shared compiler and named fields stay silent
   page.on("console", (event) => {
     if (event.type() === "log") calls.push(event.text());
   });
-  await page.goto("/");
-  const editor = page.locator("#playground");
+  await page.goto("/#playground");
+  await page.locator(".full-preset-gallery > summary").click();
+  const editor = page.locator("#editor-workspace");
   for (const descriptor of getPresentationDescriptors()) {
     const scene = createPresetExample(descriptor.id);
     const output = compileConsole(scene, {
@@ -45,6 +46,7 @@ test("all ten card previews use the shared compiler and named fields stay silent
         }),
       ).toHaveValue(scene.lines[slot.line]!.runs[slot.run]!.text);
   }
+  await page.locator(".full-preset-gallery > summary").click();
   await editor
     .getByRole("combobox", { name: "Start from a preset", exact: true })
     .selectOption("buildReceipt");
@@ -84,7 +86,7 @@ test("all ten card previews use the shared compiler and named fields stay silent
   await editor.getByRole("button", { name: "Undo", exact: true }).click();
   expect(JSON.parse(await source.inputValue())).toEqual(saved);
   expect(
-    (await new AxeBuilder({ page }).include("#playground").analyze())
+    (await new AxeBuilder({ page }).include("#editor-workspace").analyze())
       .violations,
   ).toEqual([]);
 });

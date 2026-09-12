@@ -1,4 +1,5 @@
 @import "../styles/studio.css";
+@import "../styles/experience.css";
 
 :root {
   color-scheme: dark;
@@ -388,4 +389,109 @@ dialog p {
     transition: none !important;
     animation: none !important;
   }
+}
+
+.fit-section {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin: 1.25rem 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.fit-section summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+}
+.fit-inspector {
+  padding-top: 1rem;
+  min-width: 0;
+}
+.fit-inspector > p,
+.fit-inspector details p {
+  margin: 0.75rem 0;
+  color: #bdcbd6;
+}
+.fit-widths {
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+.fit-widths [aria-pressed="true"] {
+  border-color: #68d6dc;
+  color: #b4f4f4;
+}
+.fit-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.fit-controls label {
+  min-width: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.fit-controls input,
+.fit-controls select {
+  width: 100%;
+  min-width: 0;
+}
+.fit-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+  padding-bottom: 0.5rem;
+}
+.fit-boundary {
+  box-sizing: content-box;
+  min-width: 180px;
+  max-width: 1200px;
+  min-height: 5rem;
+  overflow: auto;
+  resize: horizontal;
+  border: 1px solid #728596;
+  background: #10171d;
+}
+.fit-image {
+  position: relative;
+}
+.fit-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.fit-image svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.fit-inspector pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.fit-report {
+  display: flex;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.fit-report dt {
+  color: #afc1ce;
+  font-size: 0.8rem;
+}
+.fit-report dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+.fit-diagnostics {
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  color: #cad5dd;
+}
+.fit-inspector .button-row {
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }

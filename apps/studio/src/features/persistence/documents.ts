@@ -1,11 +1,26 @@
-import { LIMITS, parseScene, utf8ByteLength } from "@servrox/console-fx";
-import type { SceneV1, ValidationResult } from "@servrox/console-fx";
+import {
+  LIMITS,
+  parseScene,
+  parseRenderRecipe,
+  utf8ByteLength,
+} from "@servrox/console-fx";
+import type {
+  SceneV1,
+  RenderRecipeV1,
+  ValidationResult,
+} from "@servrox/console-fx";
+
+export type SavedDocument = SceneV1 | RenderRecipeV1;
+export const isRecipe = (document: SavedDocument): document is RenderRecipeV1 =>
+  "kind" in document;
 
 const failure = <T>(code: string, message: string): ValidationResult<T> => ({
   ok: false,
   diagnostics: [{ code, message, severity: "error", path: [] }],
 });
-export function decodeDocument(source: string): ValidationResult<SceneV1> {
+export function decodeDocument(
+  source: string,
+): ValidationResult<SavedDocument> {
   if (utf8ByteLength(source) > LIMITS.inputBytes)
     return failure(
       "input-too-large",
@@ -20,10 +35,12 @@ export function decodeDocument(source: string): ValidationResult<SceneV1> {
       "This file is not valid JSON. Your current work is unchanged.",
     );
   }
-  return parseScene(value);
+  return value !== null && typeof value === "object" && "kind" in value
+    ? parseRenderRecipe(value)
+    : parseScene(value);
 }
-export function encodeShare(scene: SceneV1): ValidationResult<string> {
-  const bytes = new TextEncoder().encode(JSON.stringify(scene));
+export function encodeShare(document: SavedDocument): ValidationResult<string> {
+  const bytes = new TextEncoder().encode(JSON.stringify(document));
   const encoded = btoa(
     Array.from(bytes, (byte) => String.fromCharCode(byte)).join(""),
   )
@@ -38,7 +55,7 @@ export function encodeShare(scene: SceneV1): ValidationResult<string> {
       )
     : { ok: true, value: fragment, diagnostics: [] };
 }
-export function decodeShare(fragment: string): ValidationResult<SceneV1> {
+export function decodeShare(fragment: string): ValidationResult<SavedDocument> {
   if (utf8ByteLength(fragment) > LIMITS.shareBytes)
     return failure(
       "share-too-large",

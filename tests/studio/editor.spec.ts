@@ -44,7 +44,7 @@ test("prepared deployment CSP permits hydration, exact SVG previews and client n
   await page.getByRole("link", { name: "Docs", exact: true }).click();
   await expect(
     page.getByRole("heading", {
-      name: "Make one message your own.",
+      name: "Use ConsoleFX in your app.",
       exact: true,
     }),
   ).toBeVisible();
@@ -66,8 +66,9 @@ test("gallery, editing, one explicit emission and complete clipboard export", as
   page.on("console", (message) => {
     if (message.type() === "log") logs.push(message.text());
   });
-  await page.goto("/");
-  const editor = page.locator("#playground");
+  await page.goto("/#playground");
+  await page.locator(".full-preset-gallery > summary").click();
+  const editor = page.locator("#editor-workspace");
   await expect(
     page.getByRole("button", { name: "Load Neon preset", exact: true }),
   ).toBeEnabled();
@@ -332,7 +333,9 @@ test("landing and documentation have no automated critical accessibility violati
     await page.goto(path);
     if (path === "/")
       await expect(
-        page.getByRole("button", { name: "Load Neon preset", exact: true }),
+        page
+          .locator(".quick-demo")
+          .getByRole("button", { name: "Test in console", exact: true }),
       ).toBeEnabled();
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])

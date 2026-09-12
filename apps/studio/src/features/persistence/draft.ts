@@ -1,7 +1,7 @@
-import type { SceneV1 } from "@servrox/console-fx";
-import { decodeDocument } from "./documents";
+import { decodeDocument, isRecipe, type SavedDocument } from "./documents";
 
 export const DRAFT_KEY = "console-fx:scene:v1";
+export const RECIPE_DRAFT_KEY = "console-fx:recipe:v1";
 export type DraftStatus = {
   readonly kind: "saved" | "cleared" | "error";
   readonly message: string;
@@ -9,13 +9,14 @@ export type DraftStatus = {
 type StoragePort = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 export type DraftRead =
   | { readonly kind: "empty" }
-  | { readonly kind: "valid"; readonly scene: SceneV1 }
+  | { readonly kind: "valid"; readonly document: SavedDocument }
   | { readonly kind: "error"; readonly message: string };
 
-/** Owns only this origin's scene key. The provider is evaluated inside guards. */
+/** Owns this origin's scene and recipe keys. Conversion never replaces legacy bytes. */
 export class DraftStore {
   private timer: ReturnType<typeof setTimeout> | undefined;
   private pending: (() => void) | undefined;
+  private pendingRecipe = false;
   private generation = 0;
   private protectedRevision = 0;
   private lastQueuedRevision = 0;
@@ -28,13 +29,15 @@ export class DraftStore {
   read(): DraftRead {
     this.cancel();
     try {
-      const source = this.storage().getItem(DRAFT_KEY);
+      const storage = this.storage();
+      const recipe = storage.getItem(RECIPE_DRAFT_KEY);
+      const source = recipe ?? storage.getItem(DRAFT_KEY);
       if (source === null) {
         this.held = false;
         return { kind: "empty" };
       }
       const result = decodeDocument(source);
-      if (!result.ok) {
+      if (!result.ok || (recipe !== null && !isRecipe(result.value))) {
         this.held = true;
         return {
           kind: "error",
@@ -43,7 +46,7 @@ export class DraftStore {
         };
       }
       this.held = false;
-      return { kind: "valid", scene: result.value };
+      return { kind: "valid", document: result.value };
     } catch {
       this.held = true;
       return {
@@ -54,14 +57,18 @@ export class DraftStore {
     }
   }
 
-  queue(scene: SceneV1, revision: number, retry = false): void {
+  queue(document: SavedDocument, revision: number, retry = false): void {
     if (
       this.held ||
       revision <= this.protectedRevision ||
       (!retry && revision <= this.lastQueuedRevision)
     )
       return;
+    // The final queued raw-scene edit becomes the recoverable original before
+    // the first explicit recipe edit writes to the separate recipe key.
+    if (isRecipe(document) && !this.pendingRecipe) this.flush();
     this.cancel();
+    this.pendingRecipe = isRecipe(document);
     this.lastQueuedRevision = revision;
     const generation = this.generation;
     this.pending = () => {
@@ -72,7 +79,10 @@ export class DraftStore {
       )
         return;
       try {
-        this.storage().setItem(DRAFT_KEY, JSON.stringify(scene));
+        this.storage().setItem(
+          isRecipe(document) ? RECIPE_DRAFT_KEY : DRAFT_KEY,
+          JSON.stringify(document),
+        );
         this.notify({ kind: "saved", message: "Draft saved in this browser." });
       } catch {
         this.notify({
@@ -116,6 +126,7 @@ export class DraftStore {
     this.protectThrough(revision);
     try {
       this.storage().removeItem(DRAFT_KEY);
+      this.storage().removeItem(RECIPE_DRAFT_KEY);
       this.held = false;
       this.notify({
         kind: "cleared",

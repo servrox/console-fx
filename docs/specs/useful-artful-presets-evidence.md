@@ -1,8 +1,8 @@
 # Useful and artful preset implementation
 
 All ten approved standard cards are implemented and locally qualified as of
-2026-09-12. Their integration CI, package publication and public deployment are
-separate gates. Compact variants, fitting/recipes and the website specifications
+2026-09-12. Their [integration CI](../evidence/cards/2026-09-12/ci.json) passed and PR #8
+was merged. Package publication and public deployment are separate gates. Compact variants, fitting/recipes and the website specifications
 remain subsequent slices of the active all-spec implementation task.
 
 The implementation follows ADR-0002 through ADR-0010 and ADR-0012 through
@@ -74,7 +74,7 @@ not a guarantee for arbitrary recipient fonts.
 
 ## Remaining gates
 
-This slice still needs its integration CI result. Final full-spec package
-installation, publication and hosted qualification apply to the later release
+PR #8 passed CI run `34697850568` at reviewed head `06d6dfef…` and was merged.
+Final full-spec package installation, publication and hosted qualification apply to the later release
 candidate. Fitting, compact variants and the website implementation have their own
 requirements and must not inherit a passing status from this card receipt.

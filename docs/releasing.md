@@ -11,6 +11,46 @@ publication and public promotion remain pending. The approved spec
 requires all 24 acceptance criteria before the full launch; local checks alone do
 not authorize publication or establish CI or production success.
 
+## Current integration candidate — 2026-09-12
+
+The [fitting/compact receipt](evidence/fitting/2026-09-12/README.md) and
+[website receipt](evidence/website/2026-09-12/README.md) supersede older pending
+statements for the new implementation. ADR-0014/0015 and all ten compact references
+are accepted. Independent product/harness reviews, 257 units, fifty final studio
+checks, package/consumer checks and recorded Stable Windows native qualification
+are complete within their documented scopes. Exact-head integration/main CI remains
+pending; older CI below does not qualify the new source.
+
+| Artifact | Version / SHA-256 |
+| --- | --- |
+| Core tarball | `0.1.0` / `bea698087b6148bbf55fc8022bd48af35a67e0f8e951202cbca494a7b5b1d8e0` |
+| React tarball | `0.1.0` / `eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c` |
+| Prepared studio manifest | `aa7a9211c35610a25848d0d974a0d1315408d61d264fd5f601259eb2a2f6c781` |
+
+The packages retain MIT rights, no new runtime dependency, system fonts and original
+artwork. The final studio includes its generated notices. Package names/access
+must be rechecked immediately before publication. The tested packages and prepared
+studio have not been published or deployed. The earlier approval for studio artifact
+`0bea5491…` does not approve this newer upload.
+
+Current Vercel preflight confirms `servroxs-projects/console-fx`, configured root
+`apps/studio`, with authentication covering all URLs. Two recent Git-triggered
+production attempts failed; neither is the reviewed upload. The project-root
+[Git deployment setting](../apps/studio/vercel.json) disables automatic deployments
+in accordance with the explicit artifact/promotion boundary. Manual prepared-output
+upload remains available after exact-artifact approval; hosted checks precede any
+production promotion. Keep authentication on all URLs until public launch is approved.
+
+The five-developer study, physical mobile, integrated-GPU laptop, Safari and Firefox
+observations remain unperformed and require explicit consideration before public
+promotion. Narrator/NVDA review is already nonblocking under ADR-0013. No exception
+for the other missing observations is inferred from the compact-design approval.
+There is no prior qualified public release to roll back to: retain the protected
+candidate and the tested ability to pause/protect the project. Published-package
+recovery uses a corrective version or explicitly approved dist-tag change.
+
+The remainder of this ledger is dated historical evidence for the earlier MVP.
+
 ## Identified candidate — 2026-09-11
 
 | Artifact | Version / SHA-256 |
