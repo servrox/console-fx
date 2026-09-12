@@ -1,9 +1,14 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { defineScene } from "@servrox/console-fx";
+import { defineScene, parseRenderRecipe } from "@servrox/console-fx";
 import { neon, rainbow } from "@servrox/console-fx/presets";
-import { documentReducer, initialDocument } from "../editor/document";
+import {
+  documentReducer,
+  initialDocument,
+  recipeOf,
+  savedDocument,
+} from "../editor/document";
 import { decodeDocument, decodeShare, encodeShare } from "./documents";
-import { DRAFT_KEY, DraftStore } from "./draft";
+import { DRAFT_KEY, RECIPE_DRAFT_KEY, DraftStore } from "./draft";
 
 afterEach(() => vi.useRealTimers());
 describe("validated editor documents", () => {
@@ -61,7 +66,7 @@ describe("validated editor documents", () => {
       type: "replace",
       scene: imported,
     });
-    expect(state.past).toEqual([first]);
+    expect(state.past[0]?.scene).toEqual(first);
     state = documentReducer(state, { type: "undo" });
     expect(state.scene).toEqual(first);
     state = documentReducer(state, { type: "redo" });
@@ -134,7 +139,7 @@ describe("draft ownership and write ordering", () => {
     const scene = neon({ text: "saved work" });
     values.set(DRAFT_KEY, JSON.stringify(scene));
     store.queue(neon({ text: "default" }), 0);
-    expect(store.read()).toEqual({ kind: "valid", scene });
+    expect(store.read()).toEqual({ kind: "valid", document: scene });
     vi.runAllTimers();
     expect(storage.setItem).not.toHaveBeenCalled();
   });
@@ -181,7 +186,7 @@ describe("draft ownership and write ordering", () => {
     vi.runAllTimers();
     expect(values.get(DRAFT_KEY)).toContain("Later valid work");
   });
-  it("clear is repeatable, touches one key, preserves memory, and blocks stale callbacks/effects until a later edit", () => {
+  it("clear is repeatable, touches only owned keys, preserves memory, and blocks stale callbacks/effects until a later edit", () => {
     vi.useFakeTimers();
     const { values, store, storage } = storageFixture();
     const current = neon();
@@ -194,7 +199,12 @@ describe("draft ownership and write ordering", () => {
     vi.runAllTimers();
     expect(values.get(DRAFT_KEY)).toBeUndefined();
     expect(values.get("another-app")).toBe("keep");
-    expect(storage.removeItem.mock.calls).toEqual([[DRAFT_KEY], [DRAFT_KEY]]);
+    expect(storage.removeItem.mock.calls).toEqual([
+      [DRAFT_KEY],
+      [RECIPE_DRAFT_KEY],
+      [DRAFT_KEY],
+      [RECIPE_DRAFT_KEY],
+    ]);
     expect(current.lines[0]?.runs[0]?.text).toBe("Hello, developer.");
     store.queue(neon({ text: "later edit" }), 2);
     vi.runAllTimers();
@@ -243,5 +253,163 @@ describe("draft ownership and write ordering", () => {
     }, vi.fn());
     expect(store.read().kind).toBe("error");
     expect(store.clear(0)).toBe(false);
+  });
+});
+
+function fittedRecipe(text = "fitted") {
+  const result = parseRenderRecipe({
+    kind: "consoleFxRenderRecipe",
+    recipeVersion: 1,
+    scene: neon({ text }),
+    options: {
+      target: "chromium",
+      renderer: "svg",
+      motion: "system",
+      unsupported: "fallback",
+      layout: {
+        algorithm: "fit/v1",
+        width: 360,
+        maxHeight: 400,
+        variant: "standard",
+        overflow: "shrink",
+        minFontSize: 12,
+      },
+      sizing: { mode: "fixed", width: 360 },
+    },
+  });
+  if (!result.ok) throw new Error("Invalid test recipe");
+  return result.value;
+}
+describe("recipe history and recoverable draft conversion", () => {
+  it("restores scene and all render intent as one undoable import across JSON and sharing", () => {
+    const first = initialDocument(neon({ text: "first" }));
+    const recipe = fittedRecipe();
+    const decoded = decodeDocument(JSON.stringify(recipe));
+    expect(decoded).toMatchObject({ ok: true, value: recipe });
+    const shared = encodeShare(recipe);
+    expect(shared.ok).toBe(true);
+    if (shared.ok)
+      expect(decodeShare(shared.value)).toMatchObject({
+        ok: true,
+        value: recipe,
+      });
+    const imported = documentReducer(first, { type: "load", document: recipe });
+    expect(recipeOf(imported)).toEqual(recipe);
+    const undone = documentReducer(imported, { type: "undo" });
+    expect(undone.scene).toEqual(first.scene);
+    expect(undone.options).toEqual(first.options);
+    expect(undone.recipe).toBe(true);
+    expect(savedDocument(undone)).toMatchObject({
+      kind: "consoleFxRenderRecipe",
+    });
+    expect(recipeOf(documentReducer(undone, { type: "redo" }))).toEqual(recipe);
+  });
+  it("ignores semantically unchanged settings without converting storage or clearing redo", () => {
+    const original = initialDocument(neon());
+    const edited = documentReducer(original, {
+      type: "replace",
+      scene: rainbow(),
+    });
+    const undone = documentReducer(edited, { type: "undo" });
+    const normalized = parseRenderRecipe(recipeOf(undone));
+    if (!normalized.ok) throw new Error("Invalid fixture");
+    expect(
+      documentReducer(undone, {
+        type: "settings",
+        options: normalized.value.options,
+      }),
+    ).toBe(undone);
+    expect(undone.future).toHaveLength(1);
+    expect(undone.recipe).toBe(false);
+  });
+  it("uses documented static defaults for raw scenes and retains them until explicit settings conversion", () => {
+    const raw = neon();
+    const initial = initialDocument(raw);
+    expect(initial.options).toEqual({
+      target: "chromium",
+      renderer: "css",
+      motion: "reduce",
+      unsupported: "error",
+    });
+    expect(savedDocument(initial)).toBe(raw);
+    const edited = documentReducer(initial, {
+      type: "settings",
+      options: fittedRecipe().options,
+    });
+    expect(edited.recipe).toBe(true);
+    expect(edited.past).toHaveLength(1);
+    const importedRaw = documentReducer(edited, {
+      type: "load",
+      document: raw,
+    });
+    expect(importedRaw.options).toEqual(initial.options);
+    expect(importedRaw.recipe).toBe(true);
+  });
+  it("flushes the last raw edit before conversion, debounces recipe edits and preserves the raw record", () => {
+    vi.useFakeTimers();
+    const { values, storage, store } = storageFixture();
+    store.read();
+    store.queue(neon({ text: "recover this raw edit" }), 1);
+    store.queue(fittedRecipe("first recipe edit"), 2);
+    expect(values.get(DRAFT_KEY)).toContain("recover this raw edit");
+    store.queue(fittedRecipe("latest recipe edit"), 3);
+    expect(values.has(RECIPE_DRAFT_KEY)).toBe(false);
+    vi.runAllTimers();
+    expect(storage.setItem).toHaveBeenCalledTimes(2);
+    expect(values.get(DRAFT_KEY)).toContain("recover this raw edit");
+    expect(values.get(RECIPE_DRAFT_KEY)).toContain("latest recipe edit");
+    expect(store.read()).toEqual({
+      kind: "valid",
+      document: fittedRecipe("latest recipe edit"),
+    });
+  });
+  it("holds invalid/future recipes without overwriting either record or falling back silently", () => {
+    vi.useFakeTimers();
+    for (const invalid of [
+      "broken",
+      JSON.stringify({ ...fittedRecipe(), recipeVersion: 2 }),
+      JSON.stringify({
+        ...fittedRecipe(),
+        options: { layout: { algorithm: "fit/v99" } },
+      }),
+    ]) {
+      const { values, storage, store } = storageFixture();
+      const raw = JSON.stringify(neon({ text: "legacy recovery" }));
+      values.set(DRAFT_KEY, raw);
+      values.set(RECIPE_DRAFT_KEY, invalid);
+      expect(store.read().kind).toBe("error");
+      store.queue(fittedRecipe("current work"), 1);
+      vi.runAllTimers();
+      expect(values.get(DRAFT_KEY)).toBe(raw);
+      expect(values.get(RECIPE_DRAFT_KEY)).toBe(invalid);
+      expect(storage.setItem).not.toHaveBeenCalled();
+    }
+  });
+  it("preserves a valid recipe on failed writes or partial clear and supports explicit recovery", () => {
+    vi.useFakeTimers();
+    const { values, storage, store } = storageFixture();
+    const original = JSON.stringify(fittedRecipe("stored"));
+    values.set(RECIPE_DRAFT_KEY, original);
+    store.read();
+    storage.setItem.mockImplementationOnce(() => {
+      throw new Error("quota");
+    });
+    store.queue(fittedRecipe("current"), 1);
+    vi.runAllTimers();
+    expect(values.get(RECIPE_DRAFT_KEY)).toBe(original);
+    storage.removeItem
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => {
+        throw new Error("denied");
+      });
+    expect(store.clear(1)).toBe(false);
+    store.queue(fittedRecipe("must remain in memory"), 2);
+    vi.runAllTimers();
+    expect(values.get(RECIPE_DRAFT_KEY)).toBe(original);
+    expect(store.clear(2)).toBe(true);
+    expect(values.has(RECIPE_DRAFT_KEY)).toBe(false);
+    store.queue(fittedRecipe("next edit"), 3);
+    vi.runAllTimers();
+    expect(values.get(RECIPE_DRAFT_KEY)).toContain("next edit");
   });
 });

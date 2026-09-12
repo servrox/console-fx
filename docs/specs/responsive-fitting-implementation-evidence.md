@@ -1,6 +1,6 @@
 # Responsive fitting implementation
 
-Status: fixed-fitting core implementation under review, 2026-09-12. This receipt
+Status: fixed-fitting core reviewed; studio integration under review, 2026-09-12. This receipt
 does not mark all FIT criteria complete. The active task authorizes implementation
 and integration; ADR-0015 is Accepted. Compact references are prepared separately
 and still await maintainer visual acceptance. No fitting publication or deployment
@@ -56,8 +56,20 @@ explain this conservative guard; browser observations establish its actual resul
 `parseRenderRecipe` validates a separate `consoleFxRenderRecipe` v1 envelope with
 one SceneV1 and explicit export/layout/sizing options. It rejects measurements,
 environment identifiers, unknown/future versions and excess data. `parseScene`
-continues to reject envelopes. Core recipe parsing exists; studio draft/share
-conversion and recovery integration are still pending.
+continues to reject envelopes. The studio now imports, exports, shares and resumes
+recipes. Raw scenes retain their original storage key. An explicit settings edit
+or recipe import converts the current document to recipe persistence, retaining
+the previous raw draft. Invalid recipes hold writes and preserve current work;
+clear failures remain recoverable. Imported scenes and render settings form one
+undoable change. No-op settings do not clear redo or convert a raw draft.
+
+The fitting inspector owns its ResizeObserver and coalesces resize work into one
+pending frame. Width simulation is transient; applying that width to exports is
+explicit. Fixed output sizing and the experimental carrier remain separate. Local
+font measurement runs only after its button is activated, in an owned worker with
+an empty web-font set. It is canceled on changed inputs or unmount, and its snapshot
+never enters a recipe, draft, share link or generated runtime measurement loop.
+Measured exports and previews use the same precompiled arguments.
 
 ## Current observations
 
@@ -96,16 +108,54 @@ Linux subprocess rerun passed all tests. This is local evidence; new packed-cons
 and native fitting observations are still pending. Protected root checks confirmed
 all 205 recorded files, its HEAD and Git index were unchanged.
 
+## Studio and distribution checks — 2026-09-12
+
+The final studio integration passed all 219 unit tests across 13 files, type
+checking, lint and formatting. The production studio build and prepared Vercel CSP passed all 32 desktop/mobile
+browser checks, including six fitting journeys. They cover all five simulation
+widths, explicit application, exact preview/export image identity, local worker
+measurement, no font network requests, unmount cleanup, raw-draft retention,
+recipe import/share conflicts, undo, invalid-import preservation, clear and
+sequential numeric editing. Axe checks include the fitting disclosure and mobile
+scroll region. The focused six checks also passed with the repaired test-server
+lifecycle: Playwright waits for its own Python server's successful bind rather
+than probing an unopened WSL port or reusing another build's server.
+
+The current packed core is SHA-256
+`5df238dfef92a823d20445ce0b3f93d9005a9b5c34ead1dab8075d8b61c0d766`;
+React is `51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a`.
+These exact tarballs passed isolated JavaScript, TypeScript, React SSR/lifecycle,
+Next production build and all three native Edge Next browser checks. The same
+installed JavaScript and React checks passed Bun 1.4.2. The core differs from the
+earlier `d8dc8896…` candidate only by its corrected and expanded package README.
+The lockfile remains SHA-256
+`a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497`.
+An isolated archived-reader comparison against core `d30f62f3…` preserved all 50
+default output-argument and standalone-code cases across the 23 presets. The old
+reader explicitly rejected all 69 new layout, sizing and recipe cases. The first
+ad-hoc recipe fixture used the wrong envelope-version field and was corrected;
+the successful run uses the actual `recipeVersion: 1` contract. Its receipt is
+`.artifacts/fitting/legacy-compatibility.json`.
+
+Fresh owned-page Chrome 153.0.8010.36 (15:33 UTC) and Edge 153.0.4234.32 (15:23 UTC)
+runs used source tree `5fd8e7d7516678d738930457a174f11f3463c5b5` and browser bundle
+SHA-256 `c6f090cd17f40a41a4719f31bc55e6d31ccbaabb5f942021101ce689b411c7dd`.
+Each checked 105 cases: 72 compiled and 33 explicitly failed size/readability;
+zero successful text bounds escaped and zero network requests occurred. These
+observations do not establish native DevTools fit or recipient font identity.
+Local logs, full recipes, reports and images are under `.artifacts/fitting/`,
+`.artifacts/fitting-*.log` and `.artifacts/packages/consumers.json`; durable native
+qualification packaging remains pending.
+
 ## Remaining work
 
-- Independent fixed-core review, final package/bundle/consumer checks and actual
-  Windows Chrome/Edge fitting observations with candidate fingerprints.
+- Studio review and actual Windows Chrome/Edge DevTools fitting observations with
+  candidate fingerprints. Independent Standards and Spec reviewers closed all
+  five fixed-core findings at `90dce1c19cfa986e4d82fe46a7ee75f8702b2ef4`.
 - Compact reference acceptance and runtime integration, with per-slot comparisons.
 - Container qualification across docking/drawer, source anchors, groups, timestamps,
   repeats, zoom, resize, reopen and offscreen return. The opt-in carrier is explicitly
   experimental; it reports unknown image readability and never reprints on resize.
-- Fit inspector, owned ResizeObserver lifecycle, simulation/export separation,
-  explicit local measurement, and recipe draft/share/import/undo/recovery integration.
 - Full website value/experience specifications, their interaction/accessibility and
   performance evidence, then final CI, publication and hosted launch gates.
 

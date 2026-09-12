@@ -1,5 +1,7 @@
 // Owned-page local-font evidence only; this is not native DevTools qualification.
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { build } from "esbuild";
@@ -218,6 +220,14 @@ try {
     JSON.stringify(
       {
         observedAt: new Date().toISOString(),
+        sourceTree: execFileSync(
+          "git",
+          ["rev-parse", "HEAD:packages/console-fx/src"],
+          { encoding: "utf8" },
+        ).trim(),
+        bundledSourceSha256: createHash("sha256")
+          .update(bundle.outputFiles[0].contents)
+          .digest("hex"),
         browser: await browser.version(),
         evidenceKind: "owned-page-font-measurement-and-svg-bounds",
         networkRequests: requests,

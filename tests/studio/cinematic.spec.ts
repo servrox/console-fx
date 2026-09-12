@@ -102,7 +102,7 @@ test("cinematic gallery uses exact static previews, editable controls and one ex
   expect(calls).toHaveLength(1);
   await expect
     .poll(() =>
-      page.evaluate(() => localStorage.getItem("console-fx:scene:v1")),
+      page.evaluate(() => localStorage.getItem("console-fx:recipe:v1")),
     )
     .toContain("EDIT IN CSS");
   await page.reload();

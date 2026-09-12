@@ -72,6 +72,35 @@ for (const { id } of getPresentationDescriptors()) {
 }
 assert.equal(calls.length, 0);
 
+const fittedScene = lightningMetal({ text: "FITTED REACT" });
+const fittedOptions = {
+  target: "chromium",
+  renderer: "svg",
+  layout: {
+    algorithm: "fit/v1",
+    width: 360,
+    maxHeight: 400,
+    variant: "standard",
+    overflow: "shrink",
+    minFontSize: 12,
+  },
+};
+const fittedOutput = compileConsole(fittedScene, fittedOptions);
+const fittedHtml = new JSDOM(
+  renderToStaticMarkup(
+    createElement(ConsolePreview, {
+      scene: fittedScene,
+      options: fittedOptions,
+    }),
+  ),
+);
+assert.equal(
+  fittedHtml.window.document.querySelector("img").getAttribute("src"),
+  fittedOutput.preview.imageUri,
+);
+fittedHtml.window.close();
+assert.equal(calls.length, 0);
+
 const dom = new JSDOM('<!doctype html><div id="root"></div>', {
   url: "https://example.invalid",
 });

@@ -169,52 +169,74 @@ scenes as unknown effects: retain JSON/drafts for a compatible version after rol
 The new collection has a separate qualification ledger; old browser evidence does
 not establish support for these profiles.
 
-## Useful and Artful cards
+## Explicit fitting and saved render recipes
+
+Fitting is opt-in and currently has separate qualification work in progress.
+Omitting `layout` and `sizing` preserves legacy output. Choose a content frame
+independently from the requested display width:
 
 ```js
-import { buildReceipt, letterpress } from "@servrox/console-fx/presets";
+import { parseRenderRecipe } from "@servrox/console-fx";
+import { lightningMetal } from "@servrox/console-fx/presets";
 import { compileConsole } from "@servrox/console-fx/browser";
 
-const receipt = buildReceipt({
-  project: "atlas-web",
-  outcome: "PASSED",
-  revision: "a1b2c3d",
-  duration: "2.34 s",
-  checks: "48 / 48",
-  environment: "preview",
+const parsed = parseRenderRecipe({
+  kind: "consoleFxRenderRecipe",
+  recipeVersion: 1,
+  scene: lightningMetal({ text: "BUILD 2026" }),
+  options: {
+    target: "chromium",
+    renderer: "svg",
+    motion: "reduce",
+    layout: {
+      algorithm: "fit/v1",
+      width: 360,
+      maxHeight: 400,
+      variant: "standard",
+      overflow: "shrink",
+      minFontSize: 12,
+    },
+    sizing: { mode: "fixed", width: 360 },
+  },
 });
-const compiled = compileConsole(receipt, {
-  target: "chromium",
-  renderer: "svg",
-});
-const title = letterpress({ title: "Make it matter." });
+if (parsed.ok) {
+  const output = compileConsole(parsed.value.scene, parsed.value.options);
+  // Inspect output.layout and output.outputSizing before explicit emission.
+  console.log(...output.args);
+}
 ```
 
-The ten factories are `buildReceipt`, `requestTrace`, `serviceReady`,
-`commandCard`, `releaseBulletin`, `blueprint`, `contourMap`, `letterpress`,
-`signalHalftone` and `orbital`. `PRESETS` groups them as Useful and Artful;
-`createPresetExample(id)` returns explicitly synthetic catalog data. Utility
-factories require supplied facts and do not measure durations, inspect your app,
-execute commands or fetch endpoints. Request Trace requires an explicit status
-`tone`; no status meaning is guessed from its display string.
+`layout` reports the exact plan used by the SVG serializer: fragment/paint bounds,
+font sizes, wrapping, scale, measurement quality and diagnostics. Legal wrapping
+preserves all text and crosses styled runs without breaking identifiers. Readable
+floors and finite effects are checked at a known fixed size. Impossible fitting
+fails; only `unsupported: "fallback"` permits the complete native text instead.
+CSS fitting is unsupported. Standard cards retain their approved layout; compact
+variants require a separate review and are currently unavailable.
 
-`getPresentationDescriptors()` exposes frozen named slots, supported styles and
-bounded `accent`/`detail` settings. All content remains ordinary scene text, so
-JSON, React/Next previews, captions and exports preserve the same data. Cards own
-their structure and typography; incompatible edits require explicit detachment
-or fail with a diagnostic. They support static SVG only. Long or unsupported
-content fails rich compilation; `unsupported: "fallback"` preserves the complete
-plain text. The compiler never silently selects a different renderer.
+Local-font estimates produce `estimated-fit`, never an exact-font claim. Explicit
+`prepareTextMeasurements` and `measureTextBatch` helpers on `./browser` provide
+bounded optional measurements. Preflight may return a partial batch together with
+a planning/resource diagnostic; this does not establish fit. Missing fragment
+measurements remain estimated. The adapter requires an empty document/worker font
+set and declines page-supplied fonts before shaping. It does not fetch fonts.
+Compilation never invokes the adapter. Measured local fonts can differ from a
+recipient's fonts; authored cinematic geometry carries separate confidence.
 
-Standard cards use a fixed 720 × 240 artboard. Narrow or zoomed DevTools may need
-scrolling; readable native captions remain available. Local-font estimates are
-approximate and do not guarantee recipient font metrics. Older readers reject
-the new `presentation` field; retain saved data for a compatible version.
+`{ mode: "container-experimental", maxWidth, fillFraction }` is an experimental
+carrier, not console-width detection. It reports unknown display dimensions and
+unknown image-text readability. It never listens, redraws, or prints again on
+resize. Current fixed/text paths remain available; container support requires its
+own actual Chrome/Edge matrix.
 
-For a smaller CSS-only bundle, import `compileCssConsole` from the same browser
-entrypoint. It shares CSS compilation and explicit target/fallback options while
-allowing SVG artwork to be removed by a bundler. It accepts no `renderer` option.
-Use `compileConsole` for complete CSS/SVG selection.
+A render recipe contains one ordinary SceneV1 plus explicit render intent. Core
+`parseRenderRecipe` owns validation; `parseScene` rejects envelopes. Unknown
+versions fail. Recipe data excludes transient font snapshots and environment IDs.
+Scene JSON remains content-only. The studio saves recipes to a separate local key
+after an explicit settings edit, retains the earlier scene draft, and restores both
+scene and settings through import, sharing and undo. Clear local draft removes
+both owned keys while preserving in-memory work. See the [fitting receipt](https://github.com/servrox/console-fx/blob/main/docs/specs/responsive-fitting-implementation-evidence.md)
+for current evidence and remaining gates.
 
 Literal percent specifiers are encoded internally for Chromium's rescan behavior.
 Keep the original text in the scene; never pre-encode it yourself. ESC, unsafe

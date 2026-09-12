@@ -84,3 +84,58 @@ test("packed Next startup, first-enabled root-layout banner, edits and true remo
   await expect.poll(() => logs.length).toBe(5);
   expect(logs[4]).toContain("Packed Next startup");
 });
+
+test("packed fitting options update the exact preview silently and emit once on request", async ({
+  page,
+}) => {
+  const calls: unknown[][] = [];
+  page.on("console", async (event) => {
+    if (event.type() === "log")
+      calls.push(await Promise.all(event.args().map((arg) => arg.jsonValue())));
+  });
+  await page.goto("/");
+  await expect.poll(() => calls.length).toBe(1);
+  const region = page.getByRole("region", {
+    name: "Packed fitting consumer",
+    exact: true,
+  });
+  await region
+    .getByRole("button", { name: "Use 280px preview", exact: true })
+    .click();
+  const scene = createPresetExample("lightningMetal");
+  const output = compileConsole(
+    {
+      ...scene,
+      lines: [
+        {
+          ...scene.lines[0]!,
+          runs: [{ ...scene.lines[0]!.runs[0]!, text: "FITTED NEXT" }],
+        },
+      ],
+    },
+    {
+      target: "chromium",
+      renderer: "svg",
+      motion: "reduce",
+      layout: {
+        algorithm: "fit/v1",
+        width: 280,
+        maxHeight: 400,
+        variant: "standard",
+        overflow: "shrink",
+        minFontSize: 12,
+      },
+    },
+  );
+  if (output.preview.kind !== "svg") throw Error("SVG expected");
+  await expect(region.locator("img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  expect(calls).toHaveLength(1);
+  await region
+    .getByRole("button", { name: "Print fitted message", exact: true })
+    .click();
+  await expect.poll(() => calls.length).toBe(2);
+  expect(calls.at(-1)).toEqual(output.args);
+});

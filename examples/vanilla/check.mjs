@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import {
   defineScene,
   parseScene,
+  parseRenderRecipe,
   getEffectDescriptors,
   getPresentationDescriptors,
 } from "@servrox/console-fx";
@@ -60,6 +61,47 @@ for (const { id } of getPresentationDescriptors()) {
   assert.deepEqual(printed, [[...output.args]]);
   assert.match(exportConsoleLog(card, options).code, /^console\.log\(/);
 }
+const recipeResult = parseRenderRecipe({
+  kind: "consoleFxRenderRecipe",
+  recipeVersion: 1,
+  scene: lightningMetal({ text: "FITTED PACKAGE" }),
+  options: {
+    target: "chromium",
+    renderer: "svg",
+    motion: "reduce",
+    layout: {
+      algorithm: "fit/v1",
+      width: 360,
+      maxHeight: 400,
+      variant: "standard",
+      overflow: "shrink",
+      minFontSize: 12,
+    },
+    sizing: { mode: "fixed", width: 360 },
+  },
+});
+assert(recipeResult.ok);
+const recipe = recipeResult.value;
+assert.deepEqual(
+  parseRenderRecipe(JSON.parse(JSON.stringify(recipe))).value,
+  recipe,
+);
+assert.equal(parseScene(recipe).ok, false);
+const fitted = compileConsole(recipe.scene, recipe.options);
+assert.equal(fitted.layout.measurementQuality, "authored-geometry");
+assert.equal(fitted.layout.resolvedDisplayWidth, 360);
+const fittedCalls = [];
+new Function("console", exportConsoleLog(recipe.scene, recipe.options).code)({
+  log: (...args) => fittedCalls.push(args),
+});
+assert.deepEqual(fittedCalls, [[...fitted.args]]);
+assert.throws(() =>
+  compileConsole(recipe.scene, {
+    ...recipe.options,
+    layout: { ...recipe.options.layout, algorithm: "fit/v99" },
+  }),
+);
+
 await assert.rejects(import("@servrox/console-fx/dist/index.js"), {
   // Both runtimes reject private exports, using different error codes.
   code: process.versions.bun
