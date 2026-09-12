@@ -8,6 +8,7 @@ import type { ExampleId, SignatureStyle } from "./examples";
 import { useTransferSession } from "./session";
 import { RevealFrame } from "../experience/reveal-frame";
 import { useHydrated } from "../experience/use-hydrated";
+import { useClipboardCopy } from "../export/use-clipboard-copy";
 
 export function QuickDemo() {
   const hydrated = useHydrated();
@@ -16,8 +17,15 @@ export function QuickDemo() {
   const [style, setStyle] = useState<SignatureStyle>("neon");
   const [comparison, setComparison] = useState<"plain" | "styled">("styled");
   const [notice, setNotice] = useState("");
-  const [copying, setCopying] = useState(false);
-  const [failedSource, setFailedSource] = useState<string | null>(null);
+  const { copy, copying, failedCopy } = useClipboardCopy(({ kind }) => {
+    setNotice(
+      kind === "copying"
+        ? ""
+        : kind === "copied"
+          ? "Copied console.log. Paste it in your own code when you are ready."
+          : "Copy was blocked. Select the complete source below and copy it manually, or retry.",
+    );
+  });
   const session = useTransferSession();
   const result = useMemo(() => {
     try {
@@ -49,26 +57,6 @@ export function QuickDemo() {
       };
     }
   }, [id, text, style, comparison]);
-  async function copy() {
-    if (!result.ok || copying) return;
-    const code = result.source.code;
-    setCopying(true);
-    setNotice("");
-    try {
-      await navigator.clipboard.writeText(code);
-      setFailedSource(null);
-      setNotice(
-        "Copied console.log. Paste it in your own code when you are ready.",
-      );
-    } catch {
-      setFailedSource(code);
-      setNotice(
-        "Copy was blocked. Select the complete source below and copy it manually, or retry.",
-      );
-    } finally {
-      setCopying(false);
-    }
-  }
   return (
     <section className="quick-demo" aria-labelledby="demo-title">
       <div className="demo-heading">
@@ -189,7 +177,9 @@ export function QuickDemo() {
           type="button"
           className="primary"
           disabled={!hydrated || !result.ok || copying}
-          onClick={() => void copy()}
+          onClick={() => {
+            if (result.ok) void copy(result.source.code, "Source");
+          }}
         >
           {copying ? "Copying…" : "Copy console.log"}
         </button>
@@ -206,13 +196,13 @@ export function QuickDemo() {
       >
         {notice}
       </div>
-      {failedSource !== null && (
+      {failedCopy !== null && (
         <label className="copy-recovery">
           Source from the blocked copy attempt
           <textarea
             readOnly
             rows={6}
-            value={failedSource}
+            value={failedCopy.text}
             onFocus={(event) => event.target.select()}
           />
         </label>

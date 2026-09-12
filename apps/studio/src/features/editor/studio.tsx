@@ -61,6 +61,7 @@ import { CardFields } from "./card-fields";
 import { FitInspector } from "./fit-inspector";
 import { useLocalMeasurements } from "./use-local-measurements";
 import { cardDescriptor, editCardParameter } from "./presentation";
+import { useClipboardCopy } from "../export/use-clipboard-copy";
 
 const descriptors = getEffectDescriptors();
 const initialScene = neon({ text: "Hello, developer." });
@@ -264,12 +265,19 @@ export function Studio({
   const [notice, setNotice] = useState<Notice | null>(null);
   const [draftStatus, setDraftStatus] = useState<DraftStatus | null>(null);
   const [storageIssue, setStorageIssue] = useState(false);
-  const [copying, setCopying] = useState(false);
-  const copyPending = useRef(false);
-  const [failedCopy, setFailedCopy] = useState<{
-    text: string;
-    label: string;
-  } | null>(null);
+  const { copy, copying, failedCopy } = useClipboardCopy(({ kind, label }) => {
+    setNotice(
+      kind === "copying"
+        ? { kind: "info", message: `Copying ${label}…` }
+        : kind === "copied"
+          ? { kind: "success", message: `${label} copied.` }
+          : {
+              kind: "error",
+              message:
+                "Clipboard access failed. Select the captured text below and copy it manually, or retry.",
+            },
+    );
+  });
   const [pendingShared, setPendingShared] = useState<SavedDocument | null>(
     null,
   );
@@ -566,27 +574,6 @@ export function Studio({
     setSelection({ line: 0, run: 0 });
     setPlaying(false);
     setNotice(null);
-  }
-  async function copy(text: string, label: string) {
-    if (copyPending.current) return;
-    copyPending.current = true;
-    setCopying(true);
-    setNotice({ kind: "info", message: `Copying ${label}…` });
-    try {
-      await navigator.clipboard.writeText(text);
-      setFailedCopy(null);
-      setNotice({ kind: "success", message: `${label} copied.` });
-    } catch {
-      setFailedCopy({ text, label });
-      setNotice({
-        kind: "error",
-        message:
-          "Clipboard access failed. Select the captured text below and copy it manually, or retry.",
-      });
-    } finally {
-      copyPending.current = false;
-      setCopying(false);
-    }
   }
   async function importFile(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
