@@ -13,7 +13,8 @@ artifacts; this record preserves each finding, ownership and verification.
 | 3 | Deferred import invalidation and document lifecycle rules are spread across editor effects and event handlers. | `features/editor/use-document-session.ts` owns hydration, reducer dispatch, import generations, draft lifecycle and shared/example/reset decisions. The view supplies visual transition callbacks. | Ten session tests and 28 persistence tests pass; independent source review found no extraction regression. Production browser journeys remain in the final gate. |
 | 4 | Standalone motion selection fails on throwing media preferences while direct emission correctly falls back to static output. | `browser/motion.ts` owns the shared query, runtime policy and explicit source guard. Generated snippets catch unavailable preferences and emit the precompiled static branch once. | 32 codegen/grammar checks pass, including nine runtime/source parity cases and four negative grammar fixtures. |
 | 5 | Consumer, bundle and release checks interpret the same package receipt differently; only release checks relocate downloaded CI tarballs. | The existing `package-candidate.mjs` owns `readCandidate`; all three checks use its identity, byte, source and relocation validation. | Twelve release/candidate checks pass. The shared reader also verified both historical main-CI tarballs after relocation without modifying the receipt. |
-| 6 | Artifact preparation trusts marker existence and deletes the previous candidate before its replacement is complete. | Pending. | Source review confirms deletion precedes copying/configuration/receipt writes. |
+| 6a | Artifact preparation trusts marker existence and deletes the previous candidate before its replacement is complete. | `studio-artifact.mjs` owns verified ownership, staging, CSP/configuration, serialized replacement and recovery. `prepare-vercel.mjs` is its CLI adapter. | Thirteen artifact tests pass, including mid-replacement rollback. Re-preparing the existing studio preserves all 46 static files and exact routing/CSP bytes. |
+| 6b | The canonical release ledger calls an older candidate current and lists completed Firefox checks as unperformed. | The current evidence pointer now distinguishes these passes from historical candidates and external promotion observations. | Link/status reconciliation accompanies the final receipt. |
 
 The [domain glossary](../../CONTEXT.md) records existing product terms only.
 No new ADR or acceptance change is required for internal module consolidation.
@@ -52,3 +53,14 @@ identity and the toolchain, ADR-0009 evidence ownership, and ADR-0010 separate
 release approval. Exact reviewed hashes and tags remain release-verifier checks;
 a valid candidate is not publication authority. The historical relocation check
 does not qualify those old tarballs as the newly changed source.
+
+Pass 6a owns Node-only artifact preparation and recovery under ADR-0009/0010.
+The CLI invokes one preparation interface; it never deploys. Existing output and
+receipt bytes are checked before replacement, staged files are verified, and
+previous output/receipts remain in an identified recovery directory. Ordinary
+failures restore the previous state; interrupted or failed recovery preserves the
+lock and recovery journal for inspection. Tests exercise actual filesystem
+permissions and temporary files rather than an invented filesystem adapter.
+
+The [implementation evidence](architecture-improvements-evidence.md) records the
+final source, local, CI and package observations separately.
