@@ -17,6 +17,24 @@ as JSON or plain text; rich compilation reports `unsupported-combination`.
 Descriptor metadata describes implemented renderer capabilities. It does not
 replace this browser evidence.
 
+## Cinematic Metal collection
+
+`lightningMetal`, `iceCathedral`, `liquidChrome` and `moltenGold` are static SVG
+profiles introduced after the dated baseline below. See their
+[separate implementation and qualification ledger](specs/cinematic-metal-presets-evidence.md).
+They reject decorative motion even when reduced. Angular profiles use original
+A–Z/0–9/space/hyphen outlines and display ASCII lowercase as capitals; captions keep
+the saved text. Serif profiles use local fonts and report platform variation.
+The [2026-09-12 native qualification](evidence/devtools/2026-09-12-cinematic/README.md)
+passed all four static profiles at 840 × 270 and adjusted 480 × 270 in actual
+current-stable Windows Chrome/Edge builds, plus generated copy, before-open,
+reopen and repeated-snippet checks. The maintainer approved all four appearances.
+This evidence belongs to the exact cinematic candidate, separately from the
+older matrix below.
+
+Titles are single-line and at most 24 code points. Other glyph/title requests
+require a compatible profile or explicit plain-text fallback.
+
 ## Runtime consumption
 
 The isolated packed JavaScript fixture passes under Node 24.20.0 and the existing
@@ -83,7 +101,7 @@ The production studio's Play and Replay controls both produced changing frames a
 the same useful finished frame in a dedicated Chrome page check. The exact SVG URI
 was retained; CSS previews remain labeled approximate. These page observations do
 not replace native DevTools evidence. Representative screen-reader/browser review
-remains a launch gate. [Merged-main source CI](evidence/ci/2026-09-12/main.json)
+is nonblocking follow-up under [ADR-0013](adrs/0013-keep-screen-reader-review-as-nonblocking-follow-up.md). [Merged-main source CI](evidence/ci/2026-09-12/main.json)
 passed; the later local release update still needs its own CI result. The separate
 [protected hosted checks](evidence/hosting/2026-09-11/preview.json) passed against the
 approved studio artifact.

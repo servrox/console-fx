@@ -725,3 +725,37 @@
     padding: 0.7rem 0.9rem;
   }
 }
+
+.preset-group + .preset-group {
+  margin-top: 32px;
+}
+.preset-group > h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--muted);
+}
+.cinematic-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.cinematic-card .preset-sample {
+  height: auto;
+  padding: 12px;
+  display: block;
+}
+.cinematic-card .preset-sample img {
+  aspect-ratio: 840 / 270;
+  width: 100%;
+}
+.preset-description {
+  display: block;
+  padding: 6px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .cinematic-grid {
+    grid-template-columns: 1fr;
+  }
+}

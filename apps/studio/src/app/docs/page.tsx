@@ -11,6 +11,14 @@ export function PrintMessage() {
   });
   return <button onClick={log}>Print message</button>;
 }`;
+const cinematicExample = `import { lightningMetal } from "@servrox/console-fx/presets";
+import { exportConsoleLog } from "@servrox/console-fx/codegen";
+
+const scene = lightningMetal({ text: "BUILD 2026", depth: 7,
+  glow: 0.25, color: "#69dcff", ornaments: true });
+const { code } = exportConsoleLog(scene, {
+  target: "chromium", renderer: "svg",
+});`;
 const startupExample = `// instrumentation-client.ts — explicit, static startup output
 import { neon } from "@servrox/console-fx/presets";
 import { emitConsole } from "@servrox/console-fx/browser";
@@ -57,6 +65,37 @@ export default function Documentation() {
         Other rich target profiles error unless you explicitly select a text
         fallback. Renderer descriptors describe implemented capabilities; actual
         compatibility depends on the recorded browser qualification.
+      </p>
+      <h2>Cinematic Metal titles</h2>
+      <p>
+        Lightning Metal, Ice Cathedral, Liquid Chrome and Molten Gold are
+        original, static SVG presets. Edit a single-line title of up to 24 code
+        points, accent color, depth, glow and ornaments. Decorative motion is
+        unavailable for these profiles.
+      </p>
+      <pre>
+        <code>{cinematicExample}</code>
+      </pre>
+      <p>
+        Lightning Metal and Molten Gold draw A–Z, digits, spaces and hyphens
+        using original angular paths. Lowercase displays as capitals while saved
+        text and the readable caption retain their case. Ice Cathedral and
+        Liquid Chrome use local serif fonts; glyph coverage, shaping and width
+        vary by platform. No film or studio affiliation or endorsement is
+        implied.
+      </p>
+      <p>
+        Unsupported glyphs or long titles keep your text and show a diagnostic.
+        Choose a serif profile, edit the title, or explicitly choose plain text.
+        Use SVG for cinematic output. A clipping warning means the text size or
+        surface needs adjusting. The profile owns letter shapes, so inapplicable
+        font controls are disabled; size and spacing remain editable.
+      </p>
+      <p>
+        These scenes work with the same React and Next.js APIs below. Earlier
+        ConsoleFX versions reject the new effect, so retain your JSON or draft
+        for a compatible version after a rollback. The collection has separate
+        browser qualification evidence from the original presets.
       </p>
       <h2>Use the React adapter</h2>
       <p>

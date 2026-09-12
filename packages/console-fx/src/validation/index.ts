@@ -31,29 +31,22 @@ function record(
   }
   const prototype = Object.getPrototypeOf(input);
   if (prototype !== Object.prototype && prototype !== null)
-    fail("invalid-object", "Only plain data objects are supported.", path);
+    fail("invalid-object", "Expected a plain data object.", path);
   const descriptors = Object.getOwnPropertyDescriptors(input);
   const result: Record<string, unknown> = Object.create(null) as Record<
     string,
     unknown
   >;
   for (const key of Reflect.ownKeys(descriptors)) {
-    if (
-      typeof key !== "string" ||
-      !keys.includes(key) ||
-      ["__proto__", "prototype", "constructor"].includes(key)
-    ) {
-      fail(
-        "unknown-property",
-        "The document contains an unsupported property.",
-        path,
-      );
+    // The schema-owned allowlists contain no prototype-related property names.
+    if (typeof key !== "string" || !keys.includes(key)) {
+      fail("unknown-property", "Unsupported property.", path);
     }
     const descriptor = descriptors[key]!;
     if (!("value" in descriptor) || !descriptor.enumerable)
       fail(
         "invalid-property",
-        "Accessors and hidden properties are not scene data.",
+        "Accessors and hidden properties are unsupported.",
         [...path, key],
       );
     result[key] = descriptor.value;
@@ -63,9 +56,9 @@ function record(
 function array(input: unknown, max: number, path: Path): readonly unknown[] {
   if (!Array.isArray(input)) fail("invalid-array", "Expected an array.", path);
   if (Object.getPrototypeOf(input) !== Array.prototype)
-    fail("invalid-array", "Only plain arrays are supported.", path);
+    fail("invalid-array", "Expected a plain array.", path);
   if (input.length > max)
-    fail("resource-limit", "The document exceeds a structure limit.", path);
+    fail("resource-limit", "Structure limit exceeded.", path);
   for (const key of Reflect.ownKeys(input)) {
     if (
       key !== "length" &&
@@ -73,7 +66,7 @@ function array(input: unknown, max: number, path: Path): readonly unknown[] {
         !/^(0|[1-9]\d*)$/.test(key) ||
         Number(key) >= input.length)
     )
-      fail("unknown-property", "Arrays cannot contain extra properties.", path);
+      fail("unknown-property", "Extra array properties are unsupported.", path);
   }
   // Validate data descriptors before accessing items; never invoke an imported getter.
   for (let index = 0; index < input.length; index++) {
@@ -81,7 +74,7 @@ function array(input: unknown, max: number, path: Path): readonly unknown[] {
     if (!descriptor || !("value" in descriptor))
       fail(
         "invalid-array",
-        "Sparse arrays and accessors are not supported.",
+        "Sparse arrays and accessors are unsupported.",
         path,
       );
   }
@@ -101,11 +94,7 @@ function numeric(
     value < min ||
     value > max
   ) {
-    fail(
-      "invalid-number",
-      "Expected a finite number within the documented limits.",
-      path,
-    );
+    fail("invalid-number", "Expected a finite number within limits.", path);
   }
   return value;
 }
@@ -117,7 +106,7 @@ function choice<T extends string>(
 ): T {
   if (value === undefined) return fallback;
   if (typeof value !== "string" || !values.includes(value as T))
-    fail("invalid-enum", "Choose one of the documented options.", path);
+    fail("invalid-enum", "Choose a documented option.", path);
   return value as T;
 }
 function color(value: unknown, fallback: string, path: Path): string {
@@ -135,12 +124,12 @@ function color(value: unknown, fallback: string, path: Path): string {
 function text(value: unknown, path: Path): string {
   if (typeof value !== "string") fail("invalid-text", "Expected text.", path);
   if (value.length > LIMITS.textCodePoints * 2)
-    fail("resource-limit", "The document text is too long.", path);
+    fail("resource-limit", "Text limit exceeded.", path);
   // eslint-disable-next-line no-control-regex -- This boundary deliberately rejects forbidden control characters.
   if (/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/u.test(value))
     fail(
       "invalid-control-character",
-      "Control and ANSI escape characters are not supported.",
+      "Control and ANSI escape characters are unsupported.",
       path,
     );
   if (
@@ -162,7 +151,7 @@ function normalize(input: unknown): SceneV1 {
     [],
   );
   if (root.schemaVersion !== 1)
-    fail("unsupported-schema-version", "This scene version is not supported.", [
+    fail("unsupported-schema-version", "Unsupported scene version.", [
       "schemaVersion",
     ]);
   const label = text(root.label, ["label"]);
@@ -221,7 +210,7 @@ function normalize(input: unknown): SceneV1 {
           if (textCount > LIMITS.textCodePoints)
             fail(
               "resource-limit",
-              "A scene supports at most 2,000 text code points, including its label.",
+              "At most 2,000 text code points, including the label.",
               runPath,
             );
           const style = record(
@@ -259,7 +248,7 @@ function normalize(input: unknown): SceneV1 {
               if (families.has(descriptor.family))
                 fail(
                   "effect-conflict",
-                  "Effects in the same family cannot be combined.",
+                  "Effects cannot share a family.",
                   effectPath,
                 );
               families.add(descriptor.family);
@@ -365,7 +354,7 @@ function normalize(input: unknown): SceneV1 {
     },
   );
   if (textCount > LIMITS.textCodePoints)
-    fail("resource-limit", "The document text is too long.", ["label"]);
+    fail("resource-limit", "Text limit exceeded.", ["label"]);
   const visualLineCount =
     lines.length +
     lines.reduce(
@@ -380,7 +369,7 @@ function normalize(input: unknown): SceneV1 {
   if (visualLineCount > LIMITS.lines)
     fail(
       "resource-limit",
-      "A scene supports at most eight visual lines, including newlines inside text runs.",
+      "At most eight visual lines, including run newlines.",
       ["lines"],
     );
   return deepFreeze({

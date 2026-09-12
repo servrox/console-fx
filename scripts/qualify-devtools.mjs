@@ -25,8 +25,9 @@ const pause = (ms) => new Promise((done) => setTimeout(done, ms));
 const browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`);
 const cdp = await browser.newBrowserCDPSession();
 const pages = () => browser.contexts().flatMap((context) => context.pages());
+const fixturePort = Number(process.env.CONSOLE_FX_FIXTURE_PORT ?? 4176);
 const fixture = pages().find((page) =>
-  page.url().startsWith("http://127.0.0.1:4176/"),
+  page.url().startsWith(`http://127.0.0.1:${fixturePort}/`),
 );
 async function nativeConsole() {
   const candidates = pages().filter((page) =>

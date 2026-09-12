@@ -95,9 +95,14 @@ export class DraftStore {
   }
 
   /** Hold writes while a shared-scene decision is pending. */
-  hold(): void {
+  hold(): () => void {
+    const previous = this.held;
     this.cancel();
     this.held = true;
+    // A dialog must not release an earlier hold protecting failed storage.
+    return () => {
+      this.held = previous;
+    };
   }
   release(): void {
     this.held = false;

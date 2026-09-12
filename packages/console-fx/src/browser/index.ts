@@ -103,16 +103,17 @@ export function compileConsole(
       code: "plain-text",
       severity: "info",
       path: [],
-      message: "Readable text omits visual decoration and motion.",
+      message: "Plain text omits decoration and motion.",
     });
     return plain();
   }
   const unsupported: Diagnostic[] = [];
+  const richDiagnostics: Diagnostic[] = [];
   if (configuration.target !== "chromium")
     unsupported.push(
       problem(
         "unsupported-renderer",
-        "This target does not have a qualified rich-renderer profile.",
+        "Rich output requires a qualified Chromium target.",
         ["target"],
       ),
     );
@@ -126,10 +127,73 @@ export function compileConsole(
         unsupported.push(
           problem(
             "unsupported-combination",
-            "Rich output supports one style effect and one decorative motion per text run. Remove an extra style effect or choose plain text.",
+            "Use one style effect and one motion per run, or choose plain text.",
             ["lines", lineIndex, "runs", runIndex, "effects"],
           ),
         );
+      const cinematic = run.effects.find(
+        (effect) => effect.kind === "cinematicMetal",
+      );
+      if (cinematic) {
+        const path = ["lines", lineIndex, "runs", runIndex];
+        const angular =
+          cinematic.profile === "lightning-metal-v1" ||
+          cinematic.profile === "molten-gold-v1";
+        if (
+          run.effects.some(
+            (effect) => effectDescriptor(effect.kind)!.motion === "decorative",
+          )
+        )
+          unsupported.push(
+            problem(
+              "unsupported-combination",
+              "Remove motion: cinematic profiles are static-only.",
+              [...path, "effects"],
+            ),
+          );
+        if ([...run.text].length > 24 || /[\n\u2028\u2029]/u.test(run.text))
+          unsupported.push(
+            problem(
+              "unsupported-cinematic-title",
+              "Use one line of up to 24 code points, or plain text.",
+              [...path, "text"],
+            ),
+          );
+        if (angular && run.text.trim() && /[^a-zA-Z0-9 -]/u.test(run.text))
+          unsupported.push(
+            problem(
+              "unsupported-cinematic-glyph",
+              "Use A–Z, 0–9, space or hyphen; otherwise use plain text.",
+              [...path, "text"],
+            ),
+          );
+        if (angular && /[a-z]/.test(run.text))
+          richDiagnostics.push({
+            code: "cinematic-uppercase-display",
+            severity: "info",
+            path,
+            message: "Capitalized display; original captions.",
+          });
+        if (
+          (angular &&
+            (run.style.fontFamily !== "mono" ||
+              run.style.fontWeight !== 700)) ||
+          (!angular && run.style.fontFamily !== "serif")
+        )
+          richDiagnostics.push({
+            code: "cinematic-shape-owned",
+            severity: "info",
+            path: [...path, "style"],
+            message: "The profile controls font shape.",
+          });
+        if (!angular)
+          richDiagnostics.push({
+            code: "platform-font-variation",
+            severity: "info",
+            path,
+            message: "Local fonts vary by platform.",
+          });
+      }
       for (const effect of run.effects) {
         const descriptor = effectDescriptor(effect.kind)!;
         if (
@@ -159,7 +223,7 @@ export function compileConsole(
         code: "renderer-fallback",
         severity: "warning",
         path: [],
-        message: `Requested ${configuration.renderer} output resolved to static text.`,
+        message: `${configuration.renderer} output fell back to static text.`,
       },
     );
     return plain();
@@ -170,8 +234,7 @@ export function compileConsole(
       code: "approximate-layout",
       severity: "info",
       path: [],
-      message:
-        "CSS text uses the console's layout; surface dimensions and alignment are approximate.",
+      message: "CSS layout, dimensions and alignment are approximate.",
     });
     return result({
       ...output,
@@ -187,21 +250,17 @@ export function compileConsole(
   } catch (error) {
     if (error instanceof RangeError)
       throw new ConsoleCompileError([
-        problem(
-          "resource-limit",
-          "The scene exceeds the generated SVG element limit.",
-        ),
+        problem("resource-limit", "The scene exceeds the SVG element limit."),
       ]);
     throw error;
   }
-  diagnostics.push(...output.diagnostics);
+  diagnostics.push(...richDiagnostics, ...output.diagnostics);
   if (output.animated)
     diagnostics.push({
       code: "experimental-animation",
       severity: "warning",
       path: ["motion"],
-      message:
-        "SVG motion requires qualification in your exact DevTools build. The full launch matrix is pending.",
+      message: "SVG motion requires qualification in your DevTools build.",
     });
   const { width, height } = scene.surface;
   const args: ConsoleArgs = [

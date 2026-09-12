@@ -2,7 +2,13 @@ import assert from "node:assert/strict";
 import { createElement, StrictMode, act } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { JSDOM } from "jsdom";
-import { neon } from "@servrox/console-fx/presets";
+import {
+  neon,
+  lightningMetal,
+  iceCathedral,
+  liquidChrome,
+  moltenGold,
+} from "@servrox/console-fx/presets";
 import { ConsoleBanner, ConsolePreview } from "@servrox/console-fx-react";
 
 const calls = [];
@@ -17,6 +23,27 @@ renderToStaticMarkup(
   createElement(ConsoleBanner, { scene, options, enabled: true }),
 );
 assert.match(html, /Approximate browser preview/);
+for (const factory of [
+  lightningMetal,
+  iceCathedral,
+  liquidChrome,
+  moltenGold,
+]) {
+  const cinematic = renderToStaticMarkup(
+    createElement(ConsolePreview, {
+      scene: factory(),
+      options: { target: "chromium", renderer: "svg" },
+    }),
+  );
+  assert.match(cinematic, /data:image\/svg\+xml/);
+  renderToStaticMarkup(
+    createElement(ConsoleBanner, {
+      scene: factory(),
+      options: { target: "chromium", renderer: "svg" },
+      enabled: true,
+    }),
+  );
+}
 assert.equal(calls.length, 0);
 
 const dom = new JSDOM('<!doctype html><div id="root"></div>', {

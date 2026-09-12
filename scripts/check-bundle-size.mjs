@@ -62,7 +62,7 @@ for (const [renderer, effect, budget] of [
   const gzipBytes = gzipSync(bytes, { level: 9 }).byteLength;
   assert(
     gzipBytes <= budget,
-    `${renderer} consumer exceeds ${budget} gzip bytes`,
+    `${renderer} consumer is ${gzipBytes} gzip bytes, exceeding ${budget}`,
   );
   measurements.push({
     renderer,
@@ -75,9 +75,34 @@ for (const [renderer, effect, budget] of [
     `${renderer}: ${gzipBytes.toLocaleString("en-US")} gzip bytes / ${budget.toLocaleString("en-US")} budget; no React, Next, codegen or presets`,
   );
 }
+const rootEntry = resolve(consumer, "root.mjs");
+writeFileSync(
+  rootEntry,
+  'export { defineScene, parseScene, getEffectDescriptors } from "@servrox/console-fx";',
+);
+const rootBundle = await build({
+  absWorkingDir: consumer,
+  entryPoints: [rootEntry],
+  bundle: true,
+  write: false,
+  platform: "browser",
+  format: "esm",
+  metafile: true,
+});
+const rootModules = Object.keys(rootBundle.metafile.inputs);
+assert(
+  !rootModules.some((name) =>
+    /\/(?:renderers|browser|codegen|presets)\//.test(name),
+  ),
+  "Root data APIs must not import rendering or glyph assets",
+);
+console.log(
+  "Root data APIs contain no renderer, glyph, preset or exporter modules",
+);
 saveReceipt("bundles.json", {
   createdAt: new Date().toISOString(),
   core,
   tool: readJson(resolve(root, "package.json")).devDependencies.esbuild,
   measurements,
+  rootModules,
 });
