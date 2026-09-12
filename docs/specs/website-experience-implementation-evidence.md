@@ -28,7 +28,7 @@ effect implementation.
 
 | Criteria | Evidence boundary |
 | --- | --- |
-| UXR-01–03 | Complete static HTML, immediate semantic selection and bounded reveal are tested in Windows Chrome. |
+| UXR-01–03 | Complete static HTML is covered by the final Edge Beta page suite; immediate selection and bounded reveal also have native Chrome storyboard evidence. |
 | UXR-04–10 | Keyboard/touch-sized interaction, effects policy, exact output identity, clipboard failure, transfer recovery and quiet editor behavior are covered by website/studio tests. |
 | UXR-11 | Original DOM/CSS source is app-local; no third-party effect source or dependency was adopted. Packed core/React allowlists and dependency checks pass. |
 | UXR-12 | The durable archive preserves before/after and effects-off initial-load, ten-second idle and active traces. Foreground desktop lab samples meet the measured load/idle budgets. The requested integrated-GPU laptop and physical mobile remain unobserved. |
