@@ -66,7 +66,24 @@ def main() -> None:
         require((f['width'],f['height'])==(720,240),f['id']+': fixture dimensions')
         require(f['svg']==f['id']+'.svg',f['id']+': reference filename')
         counts.append(check_svg(f['svg'],(720,240),f['text']))
+    scenes=json.loads((ROOT/'scene-fixtures.json').read_text())['presets']
+    require([s['id'] for s in scenes]==[f['id'] for f in entries],'Materialized fixture identities')
+    for f,materialized in zip(entries,scenes):
+        scene=materialized['scene']
+        require(scene['presentation']['profile']==f['profile'],f['id']+': scene profile')
+        require(len(scene['lines'])<=8 and sum(len(l['runs']) for l in scene['lines'])<=32,f['id']+': scene limits')
+        selected={s['id']:scene['lines'][s['line']]['runs'][s['run']]['text'] for s in materialized['slots']}
+        require(list(selected.items())==list(f['text'].items()),f['id']+': scene semantic slots/order')
+        occupied={(s['line'],s['run']) for s in materialized['slots']}
+        for li,line in enumerate(scene['lines']):
+            for ri,run in enumerate(line['runs']):
+                require(run['effects']==[],f['id']+': unexpected effect')
+                if (li,ri) not in occupied:
+                    require(run['text']=='  ',f['id']+': separator content')
+        require(materialized['caption']=='\n'.join(''.join(r['text'] for r in l['runs']) for l in scene['lines']),f['id']+': scene caption')
+        require(scene['presentation'].get('tone')==f['factoryInput'].get('tone'),f['id']+': persisted tone')
     print(f'PASS: 10 individual references; text/order, dimensions, IDs, internal URLs and SHA-256.')
+    print('PASS: 10 materialized scene/slot proposals; exact captions, separators, tone and structure limits.')
     print(f'Individual maxima: {max(v[0] for v in counts)} XML elements, {max(v[1] for v in counts)} SVG bytes.')
     print('Design-source checks only; no runtime or DevTools qualification.')
 if __name__=='__main__':

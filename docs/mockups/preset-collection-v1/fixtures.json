@@ -1,7 +1,7 @@
 {
   "fixtureVersion": 1,
   "collection": "useful-artful-presets-v1",
-  "baselineStatus": "proposed, not accepted golden tests",
+  "baselineStatus": "accepted",
   "inspectedRevision": "3c42e12d705b044809c05579f762bcb8c137890a",
   "units": "CSS pixels",
   "fontStacks": {
@@ -275,5 +275,6 @@
         "footer": "IDEAS IN ORBIT"
       }
     }
-  ]
+  ],
+  "approval": "2026-09-12: maintainer explicitly approved ADR-0014 and all ten designs, scene slots and Windows local-font fallbacks."
 }

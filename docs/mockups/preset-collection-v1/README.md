@@ -1,8 +1,10 @@
 # Useful + artful preset references
 
-**Design proposals, not current ConsoleFX output.** All sample facts are fictional. Each plate is 720 × 240 CSS px, static, self-contained SVG. These are individually reviewable comparison targets, not proof of DevTools rendering.
+**Approved design baselines; ConsoleFX implementation pending.** All sample facts are fictional. Each plate is 720 × 240 CSS px, static, self-contained SVG. These are individually reviewable comparison targets, not proof of DevTools rendering.
 
 [Implementation spec](../../specs/useful-artful-presets-spec.md) · [Comparison procedure](comparison.md) · [Fixed fixtures](fixtures.json) · [Reference fingerprints](sha256.json)
+
+Approved on 2026-09-12: [ordinary scene/slot fixtures](scene-fixtures.json) and [ten native Windows Chrome captures with font/bounds evidence](review-2026-09-12/receipt.json). The declared local stacks resolve to Arial, Consolas and Georgia in that environment; no fonts are bundled.
 
 | Useful / Artful | Useful / Artful |
 | --- | --- |

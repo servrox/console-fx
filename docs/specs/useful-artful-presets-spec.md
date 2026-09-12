@@ -1,6 +1,6 @@
 ---
 title: "ConsoleFX — useful and artful preset collection"
-status: "proposed; PR for specification and visual review"
+status: "approved for implementation; runtime evidence pending"
 created: "2026-09-12"
 artifact_path: "docs/specs/useful-artful-presets-spec.md"
 mode: "deep"
@@ -8,7 +8,7 @@ repository: "servrox/console-fx"
 inspected_revision: "3c42e12d705b044809c05579f762bcb8c137890a"
 owner: "ConsoleFX maintainer"
 source_request: "Add a PR describing more useful and artful presets; include an individual visual mockup for later comparison."
-implementation_authorized: false
+implementation_authorized: true
 ---
 
 # Useful + artful presets
@@ -34,9 +34,9 @@ The [visual overview](../mockups/preset-collection-v1/README.md) embeds the same
 | `signalHalftone` | Give a creative tool a two-ink poster identity | Teal disc, terracotta halftone, explicit two-line title | [SVG](../mockups/preset-collection-v1/signalHalftone.svg) |
 | `orbital` | Give a runtime/product a mission-card signature | Sparse orbital rings, small amber satellite, clean title | [SVG](../mockups/preset-collection-v1/orbital.svg) |
 
-These complement the nine existing basic presets and the separately proposed [cinematic metal presets](cinematic-metal-presets-spec.md). They do not rename or replace `gold`, `chrome`, or the four cinematic proposals. Existing work and prior visual references remain intact.
+These complement the nine existing basic presets and the separately approved [cinematic metal presets](cinematic-metal-presets-spec.md). They do not rename or replace `gold`, `chrome`, or the four cinematic proposals. Existing work and prior visual references remain intact.
 
-**Review checkpoint:** the user authorized this documentation/mockup PR. The detailed designs, added data contract, and mockups remain proposals; neither PR creation nor an image hash constitutes maintainer acceptance. Implementation waits for the applicable decision and design review below.
+**Review checkpoint:** On 2026-09-12 the maintainer explicitly answered “Approve ADR-0014 and all ten designs,” including the prepared ordinary scene slots and Windows local-font fallbacks. The active request authorizes full implementation and integration. The original PR was documentation only; approval does not claim runtime or release evidence.
 
 ## 2. Product boundaries
 
@@ -65,7 +65,7 @@ The branch was inspected at `3c42e12d705b044809c05579f762bcb8c137890a`. The impl
 | [React adapter](../../packages/console-fx-react) | Preview and explicit emission consume compiled scenes | Reuse it; no preset-specific React components or Next.js package. |
 | [Resource and safety decision](../adrs/0005-generate-output-from-validated-data.md) | Bounded validated data, internal SVG references, no external fonts | Keep the limits and original geometric artwork; no font assets. |
 | [Compatibility decision](../adrs/0006-qualify-renderer-profiles-in-real-devtools.md) | Image previews and actual DevTools evidence differ | Mockups cannot establish rich console support. |
-| [Cinematic ADR](../adrs/0012-use-bounded-cinematic-lettering-profiles.md) | Proposed single-run cinematic effect, not accepted | This collection does not implement or accept that decision. |
+| [Cinematic ADR](../adrs/0012-use-bounded-cinematic-lettering-profiles.md) | Separately approved single-run cinematic effect | This collection does not replace that decision. |
 
 Chrome documents `%c` styling and data-URL image backgrounds [E1]. SVG's secure image modes distinguish image rendering from interactive/scripted documents [E2]. These support the rendering direction, not a browser-support claim for these unimplemented presets. No external documentation settles a product-specific layout or gives permission to alter accepted local contracts.
 
@@ -73,7 +73,7 @@ Chrome documents `%c` styling and data-URL image backgrounds [E1]. SVG's secure 
 
 ## 4. Architecture proposal and gate
 
-**ADR required: yes.** [ADR-0013](../adrs/0013-use-closed-preset-presentations.md) proposes a closed, static, scene-level presentation contract because this changes a shared JSON/API boundary. Status is **Proposed**. Implementation depending on it is blocked until accepted. It does not supersede Accepted ADR-0002 through ADR-0011 or accept Proposed ADR-0012.
+**ADR required: yes.** [ADR-0014](../adrs/0014-use-closed-preset-presentations.md) proposes a closed, static, scene-level presentation contract because this changes a shared JSON/API boundary. Status is **Accepted**, with explicit maintainer approval recorded on 2026-09-12. It supersedes none of the accepted decisions, including the separately approved cinematic ADR-0012 and accessibility successor ADR-0013.
 
 ### 4.1 One scene, not two models
 
@@ -86,14 +86,16 @@ interface PresetPresentationInput {
   readonly profile: PresetPresentationProfile; // Closed, versioned IDs below.
   readonly accent?: string;                   // Existing validated hex-color rules.
   readonly detail?: "minimal" | "standard";
+  // Valid only for requestTrace/v1; materialized during normalization.
+  readonly tone?: "success" | "warning" | "error" | "neutral";
 }
 ```
 
-Profiles are `buildReceipt/v1`, `requestTrace/v1`, `serviceReady/v1`, `commandCard/v1`, `releaseBulletin/v1`, `blueprint/v1`, `contourMap/v1`, `letterpress/v1`, `signalHalftone/v1`, and `orbital/v1`. Normalization resolves `accent` and `detail`; it never stores a live lookup to mutable preset defaults. A profile is an immutable renderer algorithm version, not a pointer to the latest factory configuration. A redesign that changes stored meaning receives a new profile ID.
+Profiles are `buildReceipt/v1`, `requestTrace/v1`, `serviceReady/v1`, `commandCard/v1`, `releaseBulletin/v1`, `blueprint/v1`, `contourMap/v1`, `letterpress/v1`, `signalHalftone/v1`, and `orbital/v1`. Normalization resolves `accent` and `detail`, plus `tone` for Request Trace only (direct-authoring default `neutral`; rejected on other profiles); it never stores a live lookup to mutable preset defaults. A profile is an immutable renderer algorithm version, not a pointer to the latest factory configuration. A redesign that changes stored meaning receives a new profile ID.
 
 All visible strings live in ordinary `scene.lines[].runs[].text`, in documented reading order, with normalized text styles. The profile descriptor maps named content slots to those line/run positions and owns their geometry. Text is **not duplicated** in the presentation object, SVG blobs, raw markup, JSX, or arbitrary key/value payloads. Every visible fixed label also maps to a run, so the plain-text caption includes labels and units rather than a misleading list of values.
 
-Before implementation, materialize and review the slot mapping from `fixtures.json` into ordinary scene fixtures. Group equal-row labels/values into runs, keeping at most eight lines and 32 runs. The SVGs' pixel coordinates and design fixtures' `factoryInput` objects are documentation data, **not an already supported SceneV1 import format**. Do not ship that design-file format as a second scene model.
+The proposed [materialized scene fixtures](../mockups/preset-collection-v1/scene-fixtures.json) map every semantic slot to an ordinary line/run. Adjacent slots on one line have a locked, ordinary two-space separator run; this preserves readable captions and text on explicit detachment. The ten scenes use at most six lines and twenty runs. Review these fixtures with ADR-0014 before runtime implementation. The SVGs' pixel coordinates and design fixtures' `factoryInput` objects are documentation data, **not an already supported SceneV1 import format**. Do not ship that design-file format as a second scene model.
 
 The presentation descriptor is the common source for slot labels, compatible typography, row/run shape, text limits, profile version, parameter controls, and renderer support. It is internal owned metadata with a read-only consumer view, not arbitrary layout registration. Preset selection materializes normalized data; editor, preview, export, and package users consume the same scene.
 
@@ -136,7 +138,7 @@ const output = compileConsole(scene, {
 console.log(...output.args);
 ```
 
-The example uses synthetic inputs. Numeric-looking fields are caller-provided display strings in this first collection; no sorting, totals, pass-rate calculations, unit conversion, or HTTP-status inference is implied. Build Receipt uses an explicit outcome enum (PASSED/FAILED/WARNING/UNKNOWN); Service Passport an explicit state enum (READY/DEGRADED/OFFLINE/UNKNOWN), with descriptor-owned word/icon/color mappings. Request Trace takes a separate explicit tone (success/warning/error/neutral); it does not infer that tone from the status string. Request Trace accepts exactly three named display stages; Release Bulletin exactly two highlights. General timelines, arbitrary rows, arithmetic, and inferred state are outside this scope.
+The example uses synthetic inputs. Numeric-looking fields are caller-provided display strings in this first collection; no sorting, totals, pass-rate calculations, unit conversion, or HTTP-status inference is implied. Build Receipt uses an explicit outcome enum (PASSED/FAILED/WARNING/UNKNOWN); Service Passport an explicit state enum (READY/DEGRADED/OFFLINE/UNKNOWN), with descriptor-owned word/icon/color mappings. Request Trace takes a separate explicit tone (success/warning/error/neutral), persisted in `presentation.tone`; JSON, history, sharing and editor changes preserve it independently of accent and status text. It does not infer that tone from the status string. Request Trace accepts exactly three named display stages; Release Bulletin exactly two highlights. General timelines, arbitrary rows, arithmetic, and inferred state are outside this scope.
 
 ### 4.4 Compatibility and fallback
 
@@ -152,7 +154,7 @@ The example uses synthetic inputs. Numeric-looking fields are caller-provided di
 | Valid text exceeds profile's rich-layout capacity | Strict rich request errors; explicit fallback returns full text with an overflow reason. |
 | Unsafe/malformed/over-global-limit data | Validation failure; fallback is not a validation bypass. |
 
-No destructive migration, removal of old readers, or schema renumbering is proposed. Tests must prove the matrix before promoting the shared API; ADR-0013 acceptance can revise this versioning choice. Exporting standalone JS eliminates the package dependency at execution time, not the need to validate the generating scene.
+No destructive migration, removal of old readers, or schema renumbering is proposed. Tests must prove the matrix before promoting the shared API; ADR-0014 acceptance can revise this versioning choice. Exporting standalone JS eliminates the package dependency at execution time, not the need to validate the generating scene.
 
 ## 5. Layout and resource policy
 
@@ -187,7 +189,7 @@ Every preset has all of the following in [the collection folder](../mockups/pres
 - A byte fingerprint in `sha256.json`, plus a standard-library-only structural/semantic reference validator.
 - An individual catalog section embedding that SVG, distinguishing sample values from real measurements.
 
-The overview is supplemental, not a substitute for individual baselines. `baselineStatus` is **proposed**, not accepted. The maintainer approves the designs in this PR (or specifies changes) before they become goldens. Do not overwrite the reference to conceal an implementation mismatch; a baseline change needs a separate reviewed revision and a reason.
+The overview is supplemental, not a substitute for individual baselines. `baselineStatus` is **accepted**, following the explicit 2026-09-12 review of all ten designs and their slot fixtures. Do not overwrite the reference to conceal an implementation mismatch; a baseline change needs a separate reviewed revision and a reason.
 
 Comparison has three layers: **exact semantic content**, **geometry/color/structural intent**, then **environment-specific raster appearance**. Follow [comparison.md](../mockups/preset-collection-v1/comparison.md). No single global percentage-difference threshold is allowed to hide missing labels, bad status words, dropped commands, or clipping. Source hashes prove integrity/reproducibility only; they do not prove implemented behavior or DevTools support.
 
@@ -195,7 +197,7 @@ Comparison has three layers: **exact semantic content**, **geometry/color/struct
 
 | Phase | Work | Exit gate |
 | --- | --- | --- |
-| 0 — review | Approve/revise the ten visuals, slot schema, and ADR-0013 | Accepted shared contract; agreed comparison baseline. No runtime work before that gate. |
+| 0 — review | Approve/revise the ten visuals, slot schema, and ADR-0014 | Accepted shared contract; agreed comparison baseline. No runtime work before that gate. |
 | 1 — vertical slice | Shared presentation metadata + validation; Build Receipt and Letterpress; strict/text fallback | Old-scene tests pass; two exact semantic fixtures; end-to-end preview/export/emission parity. |
 | 2 — collection | Remaining eight profiles, bounded geometry, named factories and catalog entries | All ten individually compared; per-profile rich capability failures handled. |
 | 3 — integration | Useful/Artful gallery grouping, field editing, drafts/import/export and React/Next recipes | Both app entry points behave identically; no editing emissions or document loss. |
@@ -263,11 +265,11 @@ Actual console qualification remains separate from browser image rendering. Test
 
 Ship a small reviewed vertical slice before the whole collection. Preserve prior profiles and schemas. A rollback can remove new gallery exposure while keeping readers and plain-text recovery for saved presentation scenes; never destroy users' stored documents to disable artwork. Revert only the implementation slice under review. Documentation goldens remain versioned evidence rather than moving to match whatever rendered.
 
-Unresolved until review: ADR-0013 acceptance, approval of each visual baseline, the final descriptor/slot API names, and rich-layout qualification for target font stacks. Global safety, one-emission behavior, static scope, and no-purple/minimal studio direction are preserved requirements, not optional review questions. Exact publishing/deployment status is irrelevant to creating this proposal and has not been inferred.
+Resolved by the 2026-09-12 review: ADR-0014 acceptance, all ten visual baselines, ordinary scene slot mapping and declared local font stacks including Windows fallbacks. Runtime API integration and rich-layout qualification still require implementation evidence. Global safety, one-emission behavior, static scope, and no-purple/minimal studio direction are preserved requirements, not optional review questions. Exact publishing/deployment status is irrelevant to creating this proposal and has not been inferred.
 
 ## 12. Companion implementation handover
 
-> Read `AGENTS.md`, the applicable Accepted ADRs, this spec, and `docs/mockups/preset-collection-v1/README.md`. Do not implement the new shared presentation boundary until ADR-0013 and the visual baselines have explicit maintainer acceptance. Re-inspect current code and preserve concurrent changes. Implement the vertical slice first without changing old preset semantics or accepted boundaries. Use the exact fixture inputs and individual SVGs; create separate actual-render artifacts and comparisons rather than editing goldens to fit. Keep all text in the shared scene, compile silently, and emit once. Integrate via the existing catalog, compiler, preview, and export APIs. Record semantic, structural, raster, package, and actual DevTools evidence separately. Do not publish or deploy without separate authorization.
+> Read `AGENTS.md`, the applicable Accepted ADRs, this spec, and `docs/mockups/preset-collection-v1/README.md`. Do not implement the new shared presentation boundary until ADR-0014 and the visual baselines have explicit maintainer acceptance. Re-inspect current code and preserve concurrent changes. Implement the vertical slice first without changing old preset semantics or accepted boundaries. Use the exact fixture inputs and individual SVGs; create separate actual-render artifacts and comparisons rather than editing goldens to fit. Keep all text in the shared scene, compile silently, and emit once. Integrate via the existing catalog, compiler, preview, and export APIs. Record semantic, structural, raster, package, and actual DevTools evidence separately. Do not publish or deploy without separate authorization.
 
 ## Sources
 

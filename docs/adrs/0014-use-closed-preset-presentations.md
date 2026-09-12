@@ -1,24 +1,24 @@
-# ADR-0013: Use closed preset presentations
+# ADR-0014: Use closed preset presentations
 
-Status: Proposed
+Status: Accepted
 Date: 2026-09-12
 Owner: ConsoleFX maintainer
 Applies when: Useful/artful card presets, shared presentation data, profile rendering, or their document compatibility change.
 Supersedes: None
 Superseded by: None
-Approval: Pending explicit maintainer review; permission to create this specification PR is not acceptance.
+Approval: On 2026-09-12 the maintainer explicitly answered “Approve ADR-0014 and all ten designs” for this prepared record, the scene/slot fixtures, ten reviewed references and Windows local-font fallbacks. The active request to review/merge PRs and fully implement all specifications supplies implementation authority.
 
 ## Context
 
 The ten proposed presets need full-card composition: labels, aligned facts, inset regions, original ornamentation, and typography. The current SVG renderer lays out text in flow and the rich compiler allows only one static effect per run. Stacking effects or storing a studio-only SVG would not supply a coherent editable card across the core, preview, export, and saved document.
 
-Proposed ADR-0012 addresses single-run cinematic lettering. It does not authorize a card-wide layout boundary and remains proposed. A general graphics scene, font API, template uploader, or separate package is not justified by this collection.
+The separately approved ADR-0012 addresses single-run cinematic lettering. It does not authorize a card-wide layout boundary. A general graphics scene, font API, template uploader, or separate package is not justified by this collection.
 
-## Proposed decision
+## Decision
 
-Extend SceneV1 with an optional, closed `presentation` field for static `presetCard` profiles. Profiles have immutable versioned IDs, bounded accent/detail parameters, fixed slot schemas, and core-owned geometry. Existing scenes omit the field and retain their normalization/meaning. All visible text remains in existing lines/runs, in reading order; the descriptor maps slots to those positions. Do not duplicate text in the presentation object or persist raw SVG/CSS, executable templates, paths, JSX, or arbitrary metadata.
+Extend SceneV1 with an optional, closed `presentation` field for static `presetCard` profiles. Profiles have immutable versioned IDs, bounded accent/detail parameters, a persisted Request Trace tone, fixed slot schemas, and core-owned geometry. Existing scenes omit the field and retain their normalization/meaning. All visible text remains in existing lines/runs, in reading order; the descriptor maps slots to those positions. Do not duplicate text in the presentation object or persist raw SVG/CSS, executable templates, paths, JSX, or arbitrary metadata.
 
-Preset factories materialize the complete normalized scene and resolved settings. A profile ID names a versioned renderer algorithm, not mutable preset defaults. The same descriptor owns validation, supported structure/typography, controls, content limits, renderer compatibility, and original decorative geometry. The studio consumes that shared metadata; it does not own a second layout/compiler or silently detach content from its profile.
+Preset factories materialize the complete normalized scene and resolved settings. A profile ID names a versioned renderer algorithm, not mutable preset defaults. The same descriptor owns validation, supported structure/typography, controls, content limits, renderer compatibility, and original decorative geometry. The studio consumes that shared metadata; it does not own a second layout/compiler or silently detach content from its profile. The proposed [scene fixtures](../mockups/preset-collection-v1/scene-fixtures.json) map every semantic slot to ordinary lines/runs, with locked two-space separator runs between adjacent facts. The recorded local font stacks and their Windows fallback resolutions are part of baseline review.
 
 Initial presentation scenes are static and permit no extra run effects. Preserve existing effect rules for ordinary scenes. Incompatible structure/style/effect edits require a reversible explicit conversion or a diagnostic. No hidden ignored fields or missing rows. Compilation is pure. Emission/export remains exactly once with complete, reset-styled readable text; commands and endpoint strings are inert data.
 
@@ -35,7 +35,7 @@ Use internal authored SVG and local font stacks under ADR-0005's security/resour
 
 ## Consequences and review gate
 
-The collection becomes an additive but real shared-API/document extension. It introduces compatibility and slot-mapping work, not a free styling tweak. Implementation is blocked until this proposal and the design baselines are reviewed and accepted. Acceptance may revise the proposed additive-v1 strategy; do not infer it from merging documentation. Accepted ADRs remain binding and unchanged; ADR-0012 is neither accepted nor superseded.
+The collection becomes an additive but real shared-API/document extension. It introduces compatibility and slot-mapping work, not a free styling tweak. The maintainer approved this concrete record, all ten design baselines and the materialized scene/slot fixtures on 2026-09-12. That review settles the additive-v1 strategy; implementation and qualification still require their own evidence. Accepted ADRs remain binding and unchanged; this proposal supersedes none. ADR-0013 is the separately approved accessibility successor and its identity is preserved.
 
 ## Validation
 
@@ -43,4 +43,4 @@ Follow the [collection spec](../specs/useful-artful-presets-spec.md) and [compar
 
 ## Governing decisions
 
-[ADR-0002](0002-compile-purely-and-emit-exactly-once.md), [ADR-0003](0003-share-one-versioned-scene-model.md), [ADR-0004](0004-separate-core-react-adapter-and-studio.md), [ADR-0005](0005-generate-output-from-validated-data.md), [ADR-0006](0006-qualify-renderer-profiles-in-real-devtools.md), [ADR-0007](0007-keep-studio-documents-local.md), [ADR-0009](0009-validate-changed-contracts-with-proportional-evidence.md), and [ADR-0011](0011-adopt-an-explicit-accessibility-baseline.md).
+[ADR-0002](0002-compile-purely-and-emit-exactly-once.md), [ADR-0003](0003-share-one-versioned-scene-model.md), [ADR-0004](0004-separate-core-react-adapter-and-studio.md), [ADR-0005](0005-generate-output-from-validated-data.md), [ADR-0006](0006-qualify-renderer-profiles-in-real-devtools.md), [ADR-0007](0007-keep-studio-documents-local.md), [ADR-0009](0009-validate-changed-contracts-with-proportional-evidence.md), and [ADR-0013](0013-keep-screen-reader-review-as-nonblocking-follow-up.md).

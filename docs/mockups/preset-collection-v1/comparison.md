@@ -2,7 +2,7 @@
 
 ## What is frozen, and what is not
 
-These ten SVGs are **proposed design baselines**. Review and record acceptance per preset before treating them as goldens. A hash records which artwork was reviewed; it is not approval, a benchmark, or proof of console rendering. Keep this `v1` folder immutable after approval except for explicitly reviewed corrections. Do not replace expected artwork with an implementation screenshot to make a test pass.
+These ten SVGs are **accepted design baselines**, explicitly approved with ADR-0014, the ordinary scene slots and Windows font fallbacks on 2026-09-12. A hash records which artwork was reviewed; it is not approval, a benchmark, or proof of console rendering. Keep this `v1` folder immutable after approval except for explicitly reviewed corrections. Do not replace expected artwork with an implementation screenshot to make a test pass.
 
 Each baseline is a 720 × 240 CSS-pixel **output plate**, without fabricated DevTools chrome or a surrounding caption. The future single console emission must also include its full readable caption. Test that caption separately: it is not part of the plate's pixel crop.
 
@@ -50,6 +50,17 @@ The standard-library script reads the ten SVGs, fixed fixtures, and hash manifes
 
 On 2026-09-12 the ten individual SVGs were parsed and checked locally with the reference validator. Every reference matched its SHA-256, dimensions, and ordered semantic slots. The largest individual file was 4,588 SVG bytes; the largest individual XML tree had 41 elements. These are source-file measurements, not compiled-snippet sizes or rendering benchmarks.
 
-All ten images were rasterized locally with **CairoSVG 2.8.2** using installed DejaVu fonts. The rendered overview was visually inspected for hierarchy, contrast, spacing, and clipping. A per-slot font-bound check was also used as a local aid; it does not replace target-browser observation. The SVGs are original editable geometry/text, not captured application output.
+The original author reported rasterization with **CairoSVG 2.8.2**, installed DejaVu fonts, overview inspection and a font-bound aid. Those raster artifacts and the font-bound command were not retained in this PR; treat that report as unreconciled historical evidence. Fresh recorded browser/reference checks belong in the review receipt before acceptance. The SVGs are original editable geometry/text, not captured application output.
 
-**Not performed:** implementation, application tests, package-consumer checks, production browser compatibility qualification, actual Windows Chrome/Edge DevTools captures, or maintainer baseline acceptance. Those remain the later feature's validation gates.
+**Not performed:** implementation, application tests, package-consumer checks, production browser compatibility qualification, actual Windows Chrome/Edge DevTools captures, or runtime acceptance. Those remain the later feature's validation gates.
+
+### Fresh reference review
+
+The [Windows Chrome receipt](review-2026-09-12/receipt.json) records all ten native 720 × 240 page captures, source/fixture/capture hashes, platform font observations and SVG text bounds. Chrome for Testing 153.0.8010.36 resolved the declared local stacks to Arial, Consolas and Georgia on Windows 11 build 26220.9223. Every semantic text slot stayed inside its artboard, and all ten captures were inspected individually. Service Passport's corrected marker is visible. These are reference-page observations, not implemented ConsoleFX output or DevTools qualification.
+
+The [ordinary scene fixtures](scene-fixtures.json) propose exact slot positions, normalized styles, presentation parameters and readable captions. Locked two-space separator runs keep adjacent facts separate without duplicating semantic content or changing old scene caption rules. These data and the recorded fallback font stacks are part of the explicit 2026-09-12 maintainer baseline approval.
+
+
+## Review corrections — 2026-09-12
+
+The new presentation proposal is ADR-0014 because the maintainer separately accepted ADR-0013 for accessibility. Request Trace now explicitly persists its independent tone. Before baseline acceptance, Service Passport's status marker was moved after its opaque badge background so the marker remains visible; only that reference fingerprint changed. Semantic strings and slot order are unchanged. The original proposed hash remains in commit `6c6ab18` for comparison.
