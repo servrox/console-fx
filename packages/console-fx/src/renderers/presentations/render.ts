@@ -1,10 +1,11 @@
 import { presentationDescriptor } from "../../presentations/catalog.js";
 import type { SceneV1 } from "../../model/types.js";
-import { escapeXml as xml, svgNumber as n } from "../svg-values.js";
+import { escapeXml as xml, svgNumber } from "../svg-values.js";
 import { CARD_FONT_STACKS as fonts } from "../../presentations/fonts.js";
 import { textDirection } from "../../layout/metrics.js";
 
 export function renderPresentation(scene: SceneV1, fitted = false): string {
+  const n = fitted ? String : svgNumber;
   const presentation = scene.presentation!;
   const descriptor = presentationDescriptor(presentation.profile)!;
   const { width, height, padding, background, borderRadius } = scene.surface;

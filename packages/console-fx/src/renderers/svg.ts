@@ -12,7 +12,7 @@ import type { SvgLayoutPlan } from "../layout/planner.js";
 import type { LayoutReport, OutputSizingReport } from "../model/layout.js";
 import { textDirection } from "../layout/metrics.js";
 
-import { escapeXml, svgNumber as number } from "./svg-values.js";
+import { escapeXml, svgNumber } from "./svg-values.js";
 export { escapeXml } from "./svg-values.js";
 function dataUri(svg: string): string {
   return `data:image/svg+xml,${encodeURIComponent(svg).replace(/[!'()*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`)}`;
@@ -26,7 +26,7 @@ function gradient(
   if (drift?.kind === "gradientDrift") {
     animation = `<animateTransform attributeName="gradientTransform" type="translate" values="0 0;${drift.distance / 100} 0;0 0" dur="${drift.periodMs}ms" repeatCount="indefinite"/>`;
   }
-  return `<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">${colors.map((color, index) => `<stop offset="${number(index / (colors.length - 1))}" stop-color="${color}"/>`).join("")}${animation}</linearGradient>`;
+  return `<linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">${colors.map((color, index) => `<stop offset="${svgNumber(index / (colors.length - 1))}" stop-color="${color}"/>`).join("")}${animation}</linearGradient>`;
 }
 function motionEffect(run: TextRun): Effect | undefined {
   return run.effects.find((effect) =>
@@ -67,6 +67,8 @@ export function renderSvg(
   allowMotion: boolean,
   plan?: SvgLayoutPlan,
 ): SvgResult {
+  // Fitted geometry must retain the precision used for paint/readability checks.
+  const number = plan ? String : svgNumber;
   scene = plan?.scene ?? scene;
   if (scene.presentation) {
     const svg = renderPresentation(scene, Boolean(plan));
@@ -213,6 +215,7 @@ export function renderSvg(
           x,
           y,
           FONT_STACKS.serif,
+          Boolean(plan),
         );
         definitions.push(output.definitions);
         elements.push(output.markup);

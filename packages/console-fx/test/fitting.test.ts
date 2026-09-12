@@ -13,6 +13,7 @@ import {
   lightningMetal,
   letterpress,
   liquidChrome,
+  buildReceipt,
 } from "../src/presets/index.js";
 import { exportConsoleLog } from "../src/codegen/index.js";
 import type {
@@ -75,6 +76,133 @@ function snapshot(
 }
 afterEach(() => vi.unstubAllGlobals());
 describe("explicit fitting contracts", () => {
+  it("preserves fractional legacy dimensions without proportional recomputation", () => {
+    const output = compileConsole(
+      { ...simple("x"), surface: { width: 80.1, height: 120.123 } },
+      { target: "chromium", renderer: "svg" },
+    );
+    expect(output.preview).toMatchObject({ width: 80.1, height: 120.123 });
+    expect(output.args[1]).toContain("60.0615px");
+  });
+  it("wraps across styled runs without inventing breaks inside identifiers", () => {
+    const settings = {
+      ...options,
+      layout: {
+        ...layout,
+        width: 90,
+        maxHeight: 200,
+        overflow: "wrap" as const,
+      },
+    };
+    for (const parts of [["one two"], ["one ", "two"], ["on", "e ", "two"]]) {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "wrapped",
+        surface: { padding: 0 },
+        lines: [
+          {
+            runs: parts.map((text) => ({
+              text,
+              style: { fontFamily: "mono", fontSize: 20 },
+            })),
+          },
+        ],
+      });
+      const output = compileConsole(scene, settings);
+      expect(output.layout?.visualRows).toBe(2);
+      expect(
+        output.layout?.fragments.map((fragment) => fragment.text).join(""),
+      ).toBe("one two");
+    }
+    expect(() =>
+      compileConsole(
+        {
+          schemaVersion: 1,
+          label: "ID",
+          surface: { padding: 0 },
+          lines: [
+            {
+              runs: ["long-", "identifier"].map((text) => ({
+                text,
+                style: { fontFamily: "mono", fontSize: 20 },
+              })),
+            },
+          ],
+        },
+        settings,
+      ),
+    ).toThrow(ConsoleCompileError);
+  });
+  it("keeps the serialized cinematic scale equal to its fitted font size", () => {
+    const scene = {
+      ...lightningMetal({ text: "H", depth: 0, glow: 0, ornaments: false }),
+      surface: { padding: 0 },
+    };
+    const output = compileConsole(scene, {
+      ...options,
+      layout: {
+        ...layout,
+        width: 6.2,
+        maxHeight: 12,
+        overflow: "shrink",
+        minFontSize: 8,
+      },
+      sizing: { mode: "fixed", width: 217 },
+    });
+    if (output.preview.kind !== "svg") throw new Error("expected svg");
+    const svg = decodeURIComponent(output.preview.imageUri.split(",")[1]!);
+    const scale = Number(svg.match(/translate\([^)]*\) scale\(([^)]+)\)/)?.[1]);
+    expect(scale * 100).toBeCloseTo(output.layout!.fragments[0]!.fontSize, 12);
+    expect(scale * 100 * output.layout!.displayScale!).toBeGreaterThanOrEqual(
+      8 - 1e-8,
+    );
+  });
+  it("shrinks rendered card slots without changing canonical separators", () => {
+    const scene = buildReceipt({
+      project: "H".repeat(17),
+      outcome: "PASSED",
+      revision: "a1b2c3",
+      duration: "2s",
+      checks: "4/4",
+      environment: "local",
+    });
+    const settings: CompileOptions = {
+      ...options,
+      layout: {
+        ...layout,
+        width: 720,
+        maxHeight: 240,
+        overflow: "shrink",
+        minFontSize: 8,
+      },
+    };
+    const before = JSON.stringify(scene);
+    const data = snapshot(scene, settings);
+    const measurements = normalizeMeasurements({
+      ...data,
+      records: data.records.map((record) =>
+        record.request.text === "H".repeat(17)
+          ? {
+              ...record,
+              advance: record.request.style.fontSize * 15.1,
+              inkLeft: 0,
+              inkRight: record.request.style.fontSize * 15.1,
+            }
+          : record,
+      ),
+    });
+    const output = compileConsole(scene, {
+      ...settings,
+      measurements,
+      measurementEnvironment: "test-fonts-v1",
+    });
+    expect(output.layout!.contentScale).toBeLessThan(1);
+    expect(output.layout!.shrinkCandidates).toBeGreaterThan(1);
+    expect(
+      output.layout!.fragments.every((fragment) => fragment.fontSize >= 8),
+    ).toBe(true);
+    expect(JSON.stringify(scene)).toBe(before);
+  });
   it("preserves legacy output when fitting requests are absent", () => {
     for (const scene of [
       neon(),
@@ -261,6 +389,31 @@ describe("explicit fitting contracts", () => {
   });
 });
 describe("optional data-only font measurements", () => {
+  it("recovers estimated CJK row overflow using a bounded measured preflight", () => {
+    const text = "漢".repeat(45);
+    const scene = {
+      schemaVersion: 1 as const,
+      label: "CJK",
+      surface: { padding: 0 },
+      lines: [{ runs: [{ text, style: { fontSize: 20 } }] }],
+    };
+    const settings: CompileOptions = {
+      ...options,
+      layout: { ...layout, width: 200, maxHeight: 200, overflow: "wrap" },
+    };
+    expect(() => compileConsole(scene, settings)).toThrow(ConsoleCompileError);
+    const measurements = snapshot(scene, settings);
+    expect(measurements.records.length).toBeGreaterThan(0);
+    expect(measurements.records.length).toBeLessThanOrEqual(512);
+    const output = compileConsole(scene, {
+      ...settings,
+      measurements,
+      measurementEnvironment: "test-fonts-v1",
+    });
+    expect(output.text).toBe(text);
+    expect(output.layout!.visualRows).toBeLessThanOrEqual(8);
+    expect(output.layout!.measurementQuality).toBe("measured-local-font");
+  });
   it("returns typed preflight failures for incompatible valid scenes", () => {
     const settings = { ...options, measurementEnvironment: "test-fonts-v1" };
     expect(

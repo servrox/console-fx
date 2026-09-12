@@ -3,7 +3,7 @@ import { GLYPHS } from "./glyphs.js";
 import { PROFILES, type CinematicEffect } from "./profiles.js";
 import type { CinematicLayout } from "./layout.js";
 
-import { escapeXml as xml, svgNumber as n } from "../svg-values.js";
+import { escapeXml as xml, svgNumber } from "../svg-values.js";
 
 export function renderCinematic(
   run: TextRun,
@@ -13,7 +13,9 @@ export function renderCinematic(
   x: number,
   baseline: number,
   fontStack: string,
+  fitted = false,
 ) {
+  const n = fitted ? String : svgNumber;
   if (layout.empty) return { definitions: "", markup: "" };
   const profile = PROFILES[effect.profile];
   const { faceWidth: w, faceHeight: h, depth, blur } = layout;

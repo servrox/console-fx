@@ -47,16 +47,21 @@ export function prepareTextMeasurements(
       if (
         error instanceof SceneValidationError &&
         error.diagnostics.every((d) =>
-          ["layout-overflow", "below-readable-size"].includes(d.code),
+          ["layout-overflow", "below-readable-size", "resource-limit"].includes(
+            d.code,
+          ),
         )
-      )
+      ) {
+        resolver.completePreflight();
         return {
           ok: true,
           value: deepFreeze([...resolver.requests.values()]),
           diagnostics: error.diagnostics,
         };
+      }
       throw error;
     }
+    resolver.completePreflight();
     return {
       ok: true,
       value: deepFreeze([...resolver.requests.values()]),

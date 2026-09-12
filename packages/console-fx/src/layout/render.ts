@@ -11,6 +11,7 @@ export function renderWithLayout(
   motion: boolean,
   options: CompileOptions,
 ): SvgResult {
+  if (!options.layout && !options.sizing) return renderSvg(scene, motion);
   const plan = options.layout
     ? planSvgLayout(scene, options.layout, options)
     : undefined;

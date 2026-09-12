@@ -21,7 +21,7 @@ source size to the requested display font floor. It uses whole grapheme clusters
 with ASCII-space and CJK-letter break opportunities; unspaced identifiers and other
 scripts remain intact unless an explicitly allowed shrink fits them. Canonical
 text and original newlines remain in the caption. Derived wrapping stays within
-eight visual rows and the 400px height limit. Native segmentation is recorded as
+eight visual rows and the 400px height limit. Wrapping considers occupied space across styled runs; changing style does not introduce a break inside an identifier. Native segmentation is recorded as
 `fit/v1-grapheme-space-cjk`; cross-runtime segmentation still needs qualification.
 
 The layout reserves extrusion, offset copies, badge/background regions and finite
@@ -36,7 +36,7 @@ are integrated. Authored card decoration still follows its original artboard cli
 
 `prepareTextMeasurements(scene, options)` is pure and returns a bounded batch.
 It requires an explicit layout, SVG target and a caller-owned font-environment
-identifier. Even a conservative fit failure can return useful preflight requests.
+identifier. Even a conservative fit failure can return useful preflight requests. A stopped planning budget returns the collected batch with its structured resource diagnostic; this is not a successful fit verdict. Request accounting reserves room for the resulting numeric metrics and snapshot envelope. Optional wrapping lookahead fills at most three quarters of the byte/request budget after required work, leaving capacity for changed fragments in the measured pass.
 The caller may explicitly invoke `measureTextBatch(requests, environment)` and
 pass the returned snapshot to compilation/export. Neither compilation nor logging
 calls the adapter. Missing exact fragments/sizes remain visibly estimated; there
@@ -76,6 +76,25 @@ four cinematic, RTL, CJK, combining, emoji and short-glow sample images were
 inspected. Raw artifacts are local under `.artifacts/fitting/fonts/`. Later source
 changes and Edge results need their own reconciliation; this is page/font evidence,
 not actual DevTools qualification.
+
+## Fixed-core review corrections
+
+The independent Standards and Spec reviews at `e67719a` found five distinct
+regressions: split-run wrapping, estimate-only wrapping blocking measurement
+recovery, invisible card separators preventing shrinking, rounded cinematic glyphs
+violating a reported floor, and changed fractional legacy dimensions. Corrections
+use row-wide legal breaks and matching measurements, visible descriptor slots,
+full-precision fitted serialization, and an untouched legacy renderer branch.
+Original SceneV1 separators and unfitted serialization remain unchanged.
+
+After these corrections, all 213 unit tests passed across 13 files, including five
+new regression cases. Type checking, lint and formatting passed. Package validation
+passed; installed-bundle checks measured 9,670 gzip bytes for CSS and 23,485 for the
+complete compiler, within the unchanged 10/25KiB budgets. The first restricted
+sandbox run could not spawn Node for five import tests (`EPERM`); the authorized
+Linux subprocess rerun passed all tests. This is local evidence; new packed-consumer
+and native fitting observations are still pending. Protected root checks confirmed
+all 205 recorded files, its HEAD and Git index were unchanged.
 
 ## Remaining work
 

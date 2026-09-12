@@ -21,9 +21,14 @@ import {
 } from "../renderers/cinematic/layout.js";
 import { PROFILES } from "../renderers/cinematic/profiles.js";
 import { GLYPHS } from "../renderers/cinematic/glyphs.js";
-import { MetricResolver, type FontMetric } from "./metrics.js";
+import { MetricResolver } from "./metrics.js";
 import { expand, runBounds, translate, union } from "./bounds.js";
-import { wrapRun } from "./wrap.js";
+import {
+  wrapTokens,
+  wrapTokensToRows,
+  wrappingAlternatives,
+  type FlowRun,
+} from "./wrap.js";
 
 export interface PlannedRun {
   readonly run: TextRun & { readonly sourceRun: number };
@@ -114,20 +119,85 @@ export function planSvgLayout(
     request.overflow === "shrink" || request.overflow === "wrap-then-shrink";
   const wrap =
     request.overflow === "wrap" || request.overflow === "wrap-then-shrink";
-  const bodyRuns = scene.lines
-    .flatMap((l) => l.runs)
-    .filter((r) => r.text.length);
+  const card = scene.presentation
+    ? presentationDescriptor(scene.presentation.profile)!
+    : undefined;
+  const frameScale = card
+    ? Math.min(
+        (request.width - 2 * padding) / 720,
+        (request.maxHeight - 2 * padding) / 240,
+      )
+    : 1;
+  const slotFloor = (size: number) =>
+    Math.max(
+      request.minFontSize,
+      card?.group === "Useful" && size >= 14 ? 12 : 0,
+    );
+  const visibleRuns = card
+    ? card.slots.map((slot) => scene.lines[slot.line]!.runs[slot.run]!)
+    : scene.lines.flatMap((line) => line.runs);
   const minimumScale = Math.max(
     0,
-    ...bodyRuns.map(
-      (r) => request.minFontSize / (r.style.fontSize * floorScale),
-    ),
+    ...visibleRuns
+      .filter((run) => run.text.length)
+      .map(
+        (run) =>
+          slotFloor(run.style.fontSize) /
+          (run.style.fontSize * frameScale * floorScale),
+      ),
   );
   // fit/v1: 16 uniform candidates, descending, including the exact readability floor.
   const scales =
     !shrink || minimumScale >= 1
       ? [1]
       : Array.from({ length: 16 }, (_, i) => 1 - ((1 - minimumScale) * i) / 15);
+  const flowGeometry = (run: FlowRun, rowSize: number) => {
+    const cinematic = cinematicEffect(run);
+    if (cinematic) {
+      const descriptor = PROFILES[cinematic.profile];
+      const metric = descriptor.angular
+        ? undefined
+        : resolver.resolve(
+            { ...run, style: { ...run.style, fontFamily: "serif" } },
+            cinematic.profile,
+            descriptor.italic,
+          );
+      const layout = cinematicLayout(run, cinematic, metric);
+      return {
+        run,
+        advance: layout.width,
+        ink: metric
+          ? {
+              x: layout.insetX - metric.inkLeft * descriptor.xScale,
+              y: -metric.ascent * descriptor.yScale,
+              width: (metric.inkLeft + metric.inkRight) * descriptor.xScale,
+              height: (metric.ascent + metric.descent) * descriptor.yScale,
+            }
+          : {
+              x: layout.insetX,
+              y: -layout.faceHeight,
+              width: layout.faceWidth,
+              height: layout.faceHeight,
+            },
+        paint: {
+          x: 0,
+          y: -layout.ascent,
+          width: layout.width,
+          height: layout.ascent + layout.descent,
+        },
+        quality: metric?.quality ?? ("authored-geometry" as MeasurementQuality),
+        cinematic: layout,
+      };
+    }
+    const metrics = resolver.resolve(run, "flow/v1");
+    return {
+      run,
+      advance: metrics.advance,
+      ...runBounds(run, metrics, options.motion === "allow", rowSize),
+      quality: metrics.quality,
+      cinematic: undefined,
+    };
+  };
   let selected:
     | {
         scene: SceneV1;
@@ -163,10 +233,6 @@ export function planSvgLayout(
     };
     if (scene.presentation) {
       const descriptor = presentationDescriptor(scene.presentation.profile)!;
-      const frameScale = Math.min(
-        (request.width - 2 * padding) / 720,
-        (request.maxHeight - 2 * padding) / 240,
-      );
       const height = 240 * frameScale + 2 * padding;
       const offsetX = (request.width - 720 * frameScale) / 2;
       const fragments: LayoutFragment[] = [];
@@ -205,14 +271,7 @@ export function planSvgLayout(
         )
           fits = false;
         const effectiveSize = run.style.fontSize * frameScale * floorScale;
-        const bodyFloor =
-          descriptor.group === "Useful" && slot.style.fontSize >= 14
-            ? 12
-            : request.minFontSize;
-        if (
-          run.text &&
-          effectiveSize + 1e-8 < Math.max(request.minFontSize, bodyFloor)
-        ) {
+        if (run.text && effectiveSize + 1e-8 < slotFloor(slot.style.fontSize)) {
           fits = false;
           lastFailure =
             "Fixed scaling would make card text smaller than the requested readable floor. Use a wider frame or a reviewed compact layout.";
@@ -258,59 +317,45 @@ export function planSvgLayout(
     const rows: {
       align: PlannedLine["align"];
       sourceLine: number;
-      runs: (TextRun & { sourceRun: number })[];
+      runs: FlowRun[];
     }[] = [];
     for (const [sourceLine, line] of scaled.lines.entries()) {
-      let row: {
-        align: PlannedLine["align"];
-        sourceLine: number;
-        runs: (TextRun & { sourceRun: number })[];
-      } = { align: line.align, sourceLine, runs: [] };
-      rows.push(row);
+      const paragraphs: FlowRun[][] = [[]];
       for (const [sourceRun, run] of line.runs.entries()) {
-        const explicit = run.text.split(/\n|\u2028|\u2029/u);
-        for (const [part, text] of explicit.entries()) {
-          if (part) {
-            row = { align: line.align, sourceLine, runs: [] };
-            rows.push(row);
-          }
+        for (const [part, text] of run.text
+          .split(/\n|\u2028|\u2029/u)
+          .entries()) {
+          if (part) paragraphs.push([]);
           if (text.includes("\t"))
             fitFailure(
               "unsupported-layout",
               "Replace visual tabs with spaces or request plain text; original captions are preserved.",
             );
-          // Reserve the finite effect envelope before selecting wrap opportunities.
-          const estimate = { ...run, text };
-          const metric: FontMetric = {
-            advance: 0,
-            inkLeft: 0,
-            inkRight: 0,
-            ascent: run.style.fontSize * 1.3,
-            descent: run.style.fontSize * 0.4,
-            quality: "estimated",
-          };
-          const envelope = runBounds(
-            estimate,
-            metric,
-            options.motion === "allow",
-          ).paint;
-          const usable =
-            request.width -
-            2 * padding -
-            Math.max(0, -envelope.x) -
-            Math.max(0, envelope.x + envelope.width);
-          const fragments =
-            wrap && !cinematicEffect(run)
-              ? wrapRun(estimate, Math.max(1, usable))
-              : [text];
-          fragments.forEach((fragment, i) => {
-            if (i) {
-              row = { align: line.align, sourceLine, runs: [] };
-              rows.push(row);
-            }
-            row.runs.push({ ...run, text: fragment, sourceRun });
-          });
+          paragraphs.at(-1)!.push({ ...run, text, sourceRun });
         }
+      }
+      for (const paragraph of paragraphs) {
+        const tokens = wrapTokens(paragraph);
+        if (wrap) resolver.suggest(wrappingAlternatives(tokens));
+        const fragments = wrap
+          ? wrapTokensToRows(tokens, request.width - 2 * padding, (runs) => {
+              const rowSize = Math.max(
+                8,
+                ...runs.map((run) => run.style.fontSize),
+              );
+              return runs.reduce((total, run) => {
+                const item = flowGeometry(run, rowSize);
+                return (
+                  total +
+                  Math.max(item.advance, item.paint.x + item.paint.width) -
+                  Math.min(0, item.paint.x)
+                );
+              }, 0);
+            })
+          : [paragraph];
+        rows.push(
+          ...fragments.map((runs) => ({ align: line.align, sourceLine, runs })),
+        );
       }
     }
     if (rows.length > LIMITS.lines) {
@@ -322,54 +367,7 @@ export function planSvgLayout(
     let fits = true;
     for (const row of rows) {
       const rowSize = Math.max(8, ...row.runs.map((r) => r.style.fontSize));
-      const items = row.runs.map((run) => {
-        const cinematic = cinematicEffect(run);
-        if (cinematic) {
-          const descriptor = PROFILES[cinematic.profile];
-          const metric = descriptor.angular
-            ? undefined
-            : resolver.resolve(
-                { ...run, style: { ...run.style, fontFamily: "serif" } },
-                cinematic.profile,
-                descriptor.italic,
-              );
-          const layout = cinematicLayout(run, cinematic, metric);
-          return {
-            run,
-            advance: layout.width,
-            ink: metric
-              ? {
-                  x: layout.insetX - metric.inkLeft * descriptor.xScale,
-                  y: -metric.ascent * descriptor.yScale,
-                  width: (metric.inkLeft + metric.inkRight) * descriptor.xScale,
-                  height: (metric.ascent + metric.descent) * descriptor.yScale,
-                }
-              : {
-                  x: layout.insetX,
-                  y: -layout.faceHeight,
-                  width: layout.faceWidth,
-                  height: layout.faceHeight,
-                },
-            paint: {
-              x: 0,
-              y: -layout.ascent,
-              width: layout.width,
-              height: layout.ascent + layout.descent,
-            },
-            quality:
-              metric?.quality ?? ("authored-geometry" as MeasurementQuality),
-            cinematic: layout,
-          };
-        }
-        const metrics = resolver.resolve(run, "flow/v1");
-        return {
-          run,
-          advance: metrics.advance,
-          ...runBounds(run, metrics, options.motion === "allow", rowSize),
-          quality: metrics.quality,
-          cinematic: undefined,
-        };
-      });
+      const items = row.runs.map((run) => flowGeometry(run, rowSize));
       const widths = items.map(
         (r) =>
           Math.max(r.advance, r.paint.x + r.paint.width) -
