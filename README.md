@@ -2,11 +2,54 @@
 
 **Ordinary logs. Extraordinary output.**
 
-A planned TypeScript framework and visual playground for designing expressive browser-console messages and exporting a single, self-contained `console.log(...)`.
+A TypeScript library and visual studio for designing expressive browser-console messages and exporting a single, self-contained `console.log(...)`.
 
-> **Status: specification and visual prototypes.** The framework and Next.js app are not implemented in this repository yet. Mockups illustrate the intended experience; they are not screenshots of a released product or evidence of DevTools compatibility.
+> **Status: implemented release candidate, under qualification.** Core, React adapter, integrated Next.js studio and consumer examples are implemented. npm publication and public launch remain pending. See the [implementation receipt](docs/specs/console-fx-implementation-evidence.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
 
 [Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Mockup collection](docs/mockups/README.md)
+
+## Run the studio locally
+
+Use the pinned Linux toolchain: Node 24.20.0 and pnpm 12.3.4. Dependency install scripts are disabled by the workspace policy.
+
+```sh
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm build:packages
+pnpm dev
+```
+
+Open the localhost URL printed by Next.js. Choose a preset, edit it, select the renderer, then copy the complete export. Editing is silent; **Test in console** emits exactly once. Valid local drafts resume automatically. JSON import/export and fragment sharing work without a server.
+
+The default output is static plain text. Rich output requires an explicit Chromium target and CSS or SVG renderer. Each run supports one style effect and one optional motion. Motion lasts at most five seconds; printed images may keep a cached finished frame. Page previews and native DevTools have separate compatibility evidence.
+
+```js
+import { neon } from "@servrox/console-fx/presets";
+import { emitConsole } from "@servrox/console-fx/browser";
+
+emitConsole(neon({ text: "100% your message" }), {
+  target: "chromium",
+  renderer: "css",
+});
+```
+
+The [core guide](packages/console-fx/README.md), [React guide](packages/console-fx-react/README.md), and [tested consumer examples](examples/README.md) cover public APIs and Next.js integration. Package names above are workspace imports until publication completes. ConsoleFX is [MIT licensed](LICENSE); the studio includes generated third-party notices.
+
+## Validate a candidate
+
+```sh
+pnpm build
+pnpm format:check
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm check:packages
+pnpm check:bundle-size
+pnpm prepare:vercel
+pnpm test:studio
+pnpm test:consumers
+```
+
+Browser checks need Playwright Chromium or the documented dedicated Windows CDP browser (`CONSOLE_FX_CDP_PORT`). See [compatibility](docs/compatibility.md) for actual Windows DevTools qualification. CI configuration is present; local checks alone do not establish a successful remote run or release.
 
 ## Latest combined mockup
 
@@ -60,16 +103,16 @@ A focused workspace with preset library, output preview, export code, renderer s
 
 These are editable design mockups. Their buttons, fields, sliders, and exports are illustrations, not implemented controls. Code previews inside the SVG-mode and mobile mockups are explicitly shortened for presentation; real generated exports must be complete.
 
-## Planned packages
+## Deliverables
 
 | Deliverable | Name / location | Status |
 | --- | --- | --- |
-| TypeScript core | `@servrox/console-fx` | Planned |
-| React adapter | `@servrox/console-fx-react` | Planned |
-| Next.js configurator | `apps/studio` | Planned |
-| Next.js integration | Recipes and example application | Planned; no separate runtime package initially |
+| TypeScript core | `@servrox/console-fx` | Implemented; publication pending |
+| React adapter | `@servrox/console-fx-react` | Implemented; publication pending |
+| Integrated Next.js studio | `apps/studio` | Implemented; launch checks pending |
+| Next.js integration | `examples/next-app` | Isolated production consumer tested; no separate runtime package |
 
-Compilation should print nothing. An explicit emission should make exactly one console call. The core should not depend on React or Next.js. See the [specification](docs/specs/console-fx-spec.md) for the authoritative scope and release gates.
+Compilation prints nothing. Explicit emission makes one console call. The core has no runtime dependencies. See the [specification](docs/specs/console-fx-spec.md) for the authoritative scope and release gates. The illustrations below and above retain their original design-prototype status.
 
 ## Design validation
 
