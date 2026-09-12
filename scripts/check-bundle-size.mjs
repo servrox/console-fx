@@ -29,14 +29,15 @@ writeFileSync(
 );
 run("pnpm", ["install", "--ignore-scripts", "--offline"], consumer);
 const measurements = [];
-for (const [renderer, effect, budget] of [
-  ["css", "neon", 10 * 1024],
-  ["svg", "rainbow", 25 * 1024],
+for (const [fixture, renderer, effect, compiler, budget] of [
+  ["css", "css", "neon", "compileCssConsole", 10 * 1024],
+  ["complete-css", "css", "neon", "compileConsole", 25 * 1024],
+  ["svg", "svg", "rainbow", "compileConsole", 25 * 1024],
 ]) {
-  const path = resolve(consumer, `${renderer}.mjs`);
+  const path = resolve(consumer, `${fixture}.mjs`);
   writeFileSync(
     path,
-    `import { defineScene } from "@servrox/console-fx";\nimport { compileConsole } from "@servrox/console-fx/browser";\nexport const message = compileConsole(defineScene({schemaVersion:1,label:"Bundle fixture",lines:[{runs:[{text:"Bundle fixture",effects:[{kind:"${effect}"}]}]}]}), {renderer:"${renderer}",target:"chromium"});\n`,
+    `import { defineScene } from "@servrox/console-fx";\nimport { ${compiler} } from "@servrox/console-fx/browser";\nexport const message = ${compiler}(defineScene({schemaVersion:1,label:"Bundle fixture",lines:[{runs:[{text:"Bundle fixture",effects:[{kind:"${effect}"}]}]}]}), {${compiler === "compileConsole" ? `renderer:"${renderer}",` : ""}target:"chromium"});\n`,
   );
   const result = await build({
     absWorkingDir: consumer,
@@ -49,7 +50,25 @@ for (const [renderer, effect, budget] of [
     target: "es2022",
     metafile: true,
   });
-  const modules = Object.keys(result.metafile.inputs);
+  // Scanned imports can be removed by tree shaking. Count modules with emitted bytes.
+  const modules = [
+    ...new Set(
+      Object.values(result.metafile.outputs).flatMap((output) =>
+        Object.entries(output.inputs)
+          .filter(([, info]) => info.bytesInOutput > 0)
+          .map(([path]) => path),
+      ),
+    ),
+  ];
+  if (compiler === "compileCssConsole")
+    assert(
+      !modules.some((path) =>
+        /\/renderers\/(?:svg\.js|cinematic\/|presentations\/render\.js)/.test(
+          path,
+        ),
+      ),
+      "CSS consumer retained SVG artwork",
+    );
   assert(
     !modules.some((name) =>
       /(?:console-fx-react|\/react\/|\/next\/|\/codegen\/|\/presets\/)/.test(
@@ -62,9 +81,11 @@ for (const [renderer, effect, budget] of [
   const gzipBytes = gzipSync(bytes, { level: 9 }).byteLength;
   assert(
     gzipBytes <= budget,
-    `${renderer} consumer is ${gzipBytes} gzip bytes, exceeding ${budget}`,
+    `${fixture} consumer is ${gzipBytes} gzip bytes, exceeding ${budget}`,
   );
   measurements.push({
+    fixture,
+    compiler,
     renderer,
     rawBytes: bytes.byteLength,
     gzipBytes,
@@ -72,7 +93,7 @@ for (const [renderer, effect, budget] of [
     modules,
   });
   console.log(
-    `${renderer}: ${gzipBytes.toLocaleString("en-US")} gzip bytes / ${budget.toLocaleString("en-US")} budget; no React, Next, codegen or presets`,
+    `${fixture}: ${gzipBytes.toLocaleString("en-US")} gzip bytes / ${budget.toLocaleString("en-US")} budget; no React, Next, codegen or presets`,
   );
 }
 const rootEntry = resolve(consumer, "root.mjs");

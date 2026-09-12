@@ -1,0 +1,146 @@
+{
+  "observedAt": "2026-09-12T13:52:03.837Z",
+  "oldCoreSha256": "1d1bfbcce41cc4880d582db9cb4e4f6590ed87f806bfe43cbd5ca369bd994649",
+  "rows": [
+    {
+      "id": "buildReceipt",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "requestTrace",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "serviceReady",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "commandCard",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "releaseBulletin",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "blueprint",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "contourMap",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "letterpress",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "signalHalftone",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "orbital",
+      "result": {
+        "ok": false,
+        "diagnostics": [
+          {
+            "code": "unknown-property",
+            "severity": "error",
+            "message": "Unsupported property.",
+            "path": []
+          }
+        ]
+      }
+    }
+  ]
+}

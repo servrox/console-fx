@@ -1,0 +1,1416 @@
+{
+  "observedAt": "2026-09-12T13:52:03.876Z",
+  "candidate": [
+    {
+      "name": "@servrox/console-fx",
+      "sha256": "d30f62f3e795a0b9ebb367ce7956c5f4b344af67254fb277df934d2083d8403c"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "sha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a"
+    }
+  ],
+  "checks": "Every observed argument array, complete caption and generated source equals the final compiler. Exactly one call in each row. Windows clipboard CRLF alone normalized for semantic comparison.",
+  "rows": [
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "buildReceipt-generated-copy",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": "09f709294723dd2042228ee93c803280c8b6e0f29a525cc74384b91fd6aa7321",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "buildReceipt-before-open",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "buildReceipt-reopened",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "buildReceipt-repeated-snippet-1",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "buildReceipt-repeated-snippet-2",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "buildReceipt-narrow-console",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "requestTrace-generated-copy",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": "56235e743ca913623324215a4a32c02bdc0b7d00f8bc5da9ba416764a9b6525a",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "requestTrace-before-open",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "requestTrace-reopened",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "requestTrace-repeated-snippet-1",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "requestTrace-repeated-snippet-2",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "requestTrace-narrow-console",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "serviceReady-generated-copy",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": "45b4386f6883165e35ae83284b9890a16b138c487b0f9a362e2c82228bc06a84",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "serviceReady-before-open",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "serviceReady-reopened",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "serviceReady-repeated-snippet-1",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "serviceReady-repeated-snippet-2",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "serviceReady-narrow-console",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "commandCard-generated-copy",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": "2a4571d8298de8137e4f3a2f958d4a47dfd902f97789d2a01d428449385cebae",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "commandCard-before-open",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "commandCard-reopened",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "commandCard-repeated-snippet-1",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "commandCard-repeated-snippet-2",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "commandCard-narrow-console",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "releaseBulletin-generated-copy",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": "93ebb682949a76d561e429c1075e0dd3ab71b8d429b73e961aaf03060044b34a",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "releaseBulletin-before-open",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "releaseBulletin-reopened",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "releaseBulletin-repeated-snippet-1",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "releaseBulletin-repeated-snippet-2",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "releaseBulletin-narrow-console",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "blueprint-generated-copy",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": "fc7910ecec32b1c6cfb75cebe574ebbf29d9778e967f306d4ba78164597f1d68",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "blueprint-before-open",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "blueprint-reopened",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "blueprint-repeated-snippet-1",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "blueprint-repeated-snippet-2",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "blueprint-narrow-console",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "contourMap-generated-copy",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": "079247291a6ae38a41d752f395f9195e405c4a8a5b5ce298c26c30921d325b28",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "contourMap-before-open",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "contourMap-reopened",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "contourMap-repeated-snippet-1",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "contourMap-repeated-snippet-2",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "contourMap-narrow-console",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "letterpress-generated-copy",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": "e9a6b3da2f648cf093e7b42b760f8deb21bf8156129276726b8f88c4972d147b",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "letterpress-before-open",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "letterpress-reopened",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "letterpress-repeated-snippet-1",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "letterpress-repeated-snippet-2",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "letterpress-narrow-console",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "signalHalftone-generated-copy",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": "e48a70406f3f7150f8f69b211a5e1113466ff8f46023a7f4aeda81295c8ee818",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "signalHalftone-before-open",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "signalHalftone-reopened",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "signalHalftone-repeated-snippet-1",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "signalHalftone-repeated-snippet-2",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "signalHalftone-narrow-console",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "orbital-generated-copy",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": "8cccc4bb7ff7eeb8223c90dc20932b793e742ec5bd98ec01d5e97c6a5bd4cfd0",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "orbital-before-open",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "orbital-reopened",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "orbital-repeated-snippet-1",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "orbital-repeated-snippet-2",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-08-36.100Z",
+      "id": "orbital-narrow-console",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "buildReceipt-light-100",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "requestTrace-light-100",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "serviceReady-light-100",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "commandCard-light-100",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "releaseBulletin-light-100",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "blueprint-light-100",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "contourMap-light-100",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "letterpress-light-100",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "signalHalftone-light-100",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "orbital-light-100",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "buildReceipt-dark-100",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "requestTrace-dark-100",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "serviceReady-dark-100",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "commandCard-dark-100",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "releaseBulletin-dark-100",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "blueprint-dark-100",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "contourMap-dark-100",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "letterpress-dark-100",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "signalHalftone-dark-100",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "orbital-dark-100",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "buildReceipt-dark-200",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "requestTrace-dark-200",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "serviceReady-dark-200",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "commandCard-dark-200",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "releaseBulletin-dark-200",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "blueprint-dark-200",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "contourMap-dark-200",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "letterpress-dark-200",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "signalHalftone-dark-200",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-28-27.162Z",
+      "id": "orbital-dark-200",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "buildReceipt-dark-200",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "requestTrace-dark-200",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "serviceReady-dark-200",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "commandCard-dark-200",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "releaseBulletin-dark-200",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "blueprint-dark-200",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "contourMap-dark-200",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "letterpress-dark-200",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "signalHalftone-dark-200",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "chrome-lifecycle-2026-09-12T13-40-30.986Z",
+      "id": "orbital-dark-200",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "buildReceipt-generated-copy",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": "09f709294723dd2042228ee93c803280c8b6e0f29a525cc74384b91fd6aa7321",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "buildReceipt-before-open",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "buildReceipt-reopened",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "buildReceipt-repeated-snippet-1",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "buildReceipt-repeated-snippet-2",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "buildReceipt-narrow-console",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "requestTrace-generated-copy",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": "56235e743ca913623324215a4a32c02bdc0b7d00f8bc5da9ba416764a9b6525a",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "requestTrace-before-open",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "requestTrace-reopened",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "requestTrace-repeated-snippet-1",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "requestTrace-repeated-snippet-2",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "requestTrace-narrow-console",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "serviceReady-generated-copy",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": "45b4386f6883165e35ae83284b9890a16b138c487b0f9a362e2c82228bc06a84",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "serviceReady-before-open",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "serviceReady-reopened",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "serviceReady-repeated-snippet-1",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "serviceReady-repeated-snippet-2",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "serviceReady-narrow-console",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "commandCard-generated-copy",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": "2a4571d8298de8137e4f3a2f958d4a47dfd902f97789d2a01d428449385cebae",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "commandCard-before-open",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "commandCard-reopened",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "commandCard-repeated-snippet-1",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "commandCard-repeated-snippet-2",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "commandCard-narrow-console",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "releaseBulletin-generated-copy",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": "93ebb682949a76d561e429c1075e0dd3ab71b8d429b73e961aaf03060044b34a",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "releaseBulletin-before-open",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "releaseBulletin-reopened",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "releaseBulletin-repeated-snippet-1",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "releaseBulletin-repeated-snippet-2",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "releaseBulletin-narrow-console",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "blueprint-generated-copy",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": "fc7910ecec32b1c6cfb75cebe574ebbf29d9778e967f306d4ba78164597f1d68",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "blueprint-before-open",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "blueprint-reopened",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "blueprint-repeated-snippet-1",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "blueprint-repeated-snippet-2",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "blueprint-narrow-console",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "contourMap-generated-copy",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": "079247291a6ae38a41d752f395f9195e405c4a8a5b5ce298c26c30921d325b28",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "contourMap-before-open",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "contourMap-reopened",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "contourMap-repeated-snippet-1",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "contourMap-repeated-snippet-2",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "contourMap-narrow-console",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "letterpress-generated-copy",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": "e9a6b3da2f648cf093e7b42b760f8deb21bf8156129276726b8f88c4972d147b",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "letterpress-before-open",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "letterpress-reopened",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "letterpress-repeated-snippet-1",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "letterpress-repeated-snippet-2",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "letterpress-narrow-console",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "signalHalftone-generated-copy",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": "e48a70406f3f7150f8f69b211a5e1113466ff8f46023a7f4aeda81295c8ee818",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "signalHalftone-before-open",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "signalHalftone-reopened",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "signalHalftone-repeated-snippet-1",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "signalHalftone-repeated-snippet-2",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "signalHalftone-narrow-console",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "orbital-generated-copy",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": "8cccc4bb7ff7eeb8223c90dc20932b793e742ec5bd98ec01d5e97c6a5bd4cfd0",
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "orbital-before-open",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "orbital-reopened",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "orbital-repeated-snippet-1",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "orbital-repeated-snippet-2",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-09-56.777Z",
+      "id": "orbital-narrow-console",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "buildReceipt-light-100",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "requestTrace-light-100",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "serviceReady-light-100",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "commandCard-light-100",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "releaseBulletin-light-100",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "blueprint-light-100",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "contourMap-light-100",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "letterpress-light-100",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "signalHalftone-light-100",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "orbital-light-100",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "buildReceipt-dark-100",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "requestTrace-dark-100",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "serviceReady-dark-100",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "commandCard-dark-100",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "releaseBulletin-dark-100",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "blueprint-dark-100",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "contourMap-dark-100",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "letterpress-dark-100",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "signalHalftone-dark-100",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "orbital-dark-100",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "buildReceipt-dark-200",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "requestTrace-dark-200",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "serviceReady-dark-200",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "commandCard-dark-200",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "releaseBulletin-dark-200",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "blueprint-dark-200",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "contourMap-dark-200",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "letterpress-dark-200",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "signalHalftone-dark-200",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-28-52.077Z",
+      "id": "orbital-dark-200",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "Playwright screenshot; original 200% display contexts are partial and replaced"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "buildReceipt-dark-200",
+      "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "requestTrace-dark-200",
+      "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "serviceReady-dark-200",
+      "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "commandCard-dark-200",
+      "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "releaseBulletin-dark-200",
+      "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "blueprint-dark-200",
+      "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "contourMap-dark-200",
+      "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "letterpress-dark-200",
+      "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "signalHalftone-dark-200",
+      "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    },
+    {
+      "directory": "edge-lifecycle-2026-09-12T13-40-37.810Z",
+      "id": "orbital-dark-200",
+      "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c",
+      "codeSha256": null,
+      "captureMethod": "CDP Page.captureScreenshot, visible surface, no clip"
+    }
+  ]
+}

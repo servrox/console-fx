@@ -3,6 +3,8 @@ export default function Page() {
     <main>
       <h1>Packed Next consumer</h1>
       <p>A server page with an explicit client banner.</p>
+      <Cards />
     </main>
   );
 }
+import { Cards } from "./cards";

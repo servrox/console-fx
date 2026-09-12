@@ -7,6 +7,7 @@ import {
   cinematicElementBound,
 } from "./cinematic/layout.js";
 import { renderCinematic } from "./cinematic/render.js";
+import { renderPresentation } from "./presentations/render.js";
 
 import { escapeXml, svgNumber as number } from "./svg-values.js";
 export { escapeXml } from "./svg-values.js";
@@ -54,6 +55,33 @@ export interface SvgResult {
 }
 
 export function renderSvg(scene: SceneV1, allowMotion: boolean): SvgResult {
+  if (scene.presentation) {
+    const svg = renderPresentation(scene);
+    if ((svg.match(/<[a-z]/g)?.length ?? 0) > LIMITS.svgElements)
+      throw new RangeError();
+    const { width, height, padding } = scene.surface;
+    const diagnostics: Diagnostic[] = [
+      {
+        code: "platform-font-variation",
+        severity: "info",
+        path: ["presentation"],
+        message: "Local fonts vary; slot widths use conservative estimates.",
+      },
+    ];
+    if (width - padding * 2 !== (height - padding * 2) * 3)
+      diagnostics.push({
+        code: "presentation-letterbox",
+        severity: "info",
+        path: ["surface"],
+        message:
+          "The card is scaled uniformly and centered inside the padded surface; the different aspect ratio leaves space.",
+      });
+    return {
+      imageUri: dataUri(svg),
+      animated: false,
+      diagnostics,
+    };
+  }
   const definitions: string[] = [];
   const elements: string[] = [];
   const diagnostics: Diagnostic[] = [];

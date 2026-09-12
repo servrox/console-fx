@@ -6,6 +6,7 @@ import {
 } from "@servrox/console-fx";
 import {
   compileConsole,
+  compileCssConsole,
   type CompileOptions,
 } from "@servrox/console-fx/browser";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
@@ -16,6 +17,8 @@ import {
   liquidChrome,
   moltenGold,
   preset,
+  buildReceipt,
+  createPresetExample,
   type PresetId,
 } from "@servrox/console-fx/presets";
 
@@ -62,3 +65,23 @@ preset("lightningMetal", { depth: 2, motion: "none" });
 preset("lightningMetal", { motion: "wave" });
 const dynamicId: PresetId = Math.random() > 0.5 ? "neon" : "iceCathedral";
 preset(dynamicId, { text: "A shared title" });
+compileCssConsole(scene, { target: "chromium" });
+// @ts-expect-error The CSS-specific compiler cannot choose an SVG renderer.
+compileCssConsole(scene, { renderer: "svg" });
+const facts = {
+  project: "demo",
+  outcome: "PASSED",
+  revision: "r1",
+  duration: "1s",
+  checks: "1 / 1",
+  environment: "test",
+} as const;
+buildReceipt(facts) satisfies SceneV1;
+preset("buildReceipt", facts) satisfies SceneV1;
+createPresetExample("buildReceipt") satisfies SceneV1;
+// @ts-expect-error Useful factories require supplied facts.
+preset("buildReceipt");
+// @ts-expect-error Useful options are correlated with their preset ID.
+preset("buildReceipt", { title: "invented" });
+// @ts-expect-error Status words have a closed explicit enum.
+buildReceipt({ ...facts, outcome: "200" });

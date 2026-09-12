@@ -1,3 +1,5 @@
+import { normalizeExportOptions } from "../validation/options.js";
+import { SceneValidationError } from "../validation/index.js";
 import { compileConsole, ConsoleCompileError } from "../browser/index.js";
 import { deepFreeze, LIMITS, utf8ByteLength } from "../model/limits.js";
 import type {
@@ -22,19 +24,13 @@ export function exportConsoleLog(
   scene: SceneInputV1,
   options: ExportOptions = {},
 ): ExportedConsole {
-  if (
-    options.motion !== undefined &&
-    options.motion !== "system" &&
-    options.motion !== "reduce"
-  )
-    throw new ConsoleCompileError([
-      {
-        code: "invalid-options",
-        severity: "error",
-        path: ["motion"],
-        message: "Choose system or reduce for standalone motion.",
-      },
-    ]);
+  try {
+    options = normalizeExportOptions(options);
+  } catch (error) {
+    if (error instanceof SceneValidationError)
+      throw new ConsoleCompileError(error.diagnostics);
+    throw error;
+  }
   const staticOutput = compileConsole(scene, { ...options, motion: "reduce" });
   let code = `console.log(${argumentsSource(staticOutput.args)});`;
   const diagnostics: Diagnostic[] = [...staticOutput.diagnostics];

@@ -8,18 +8,20 @@ export function rendererForLoadedScene(
   scene: SceneV1,
   current: Renderer,
 ): Renderer {
-  return scene.lines.some((line) =>
-    line.runs.some((run) =>
-      run.effects.some((effect) => {
-        const descriptor = descriptors.find(
-          (item) => item.kind === effect.kind,
-        )!;
-        return (
-          descriptor.renderers.length === 1 && descriptor.renderers[0] === "svg"
-        );
-      }),
-    ),
-  )
+  return scene.presentation ||
+    scene.lines.some((line) =>
+      line.runs.some((run) =>
+        run.effects.some((effect) => {
+          const descriptor = descriptors.find(
+            (item) => item.kind === effect.kind,
+          )!;
+          return (
+            descriptor.renderers.length === 1 &&
+            descriptor.renderers[0] === "svg"
+          );
+        }),
+      ),
+    )
     ? "svg"
     : current;
 }

@@ -2,6 +2,7 @@ import { JSDOM } from "jsdom";
 import { describe, expect, it, vi } from "vitest";
 import {
   compileConsole,
+  compileCssConsole,
   ConsoleCompileError,
   emitConsole,
   resolveMotion,
@@ -10,6 +11,35 @@ import { defineScene, utf8ByteLength } from "../src/index.js";
 import { neon, preset, PRESETS, rainbow } from "../src/presets/index.js";
 
 describe("compilation and emission", () => {
+  it("offers identical CSS output through the explicit CSS compiler", () => {
+    for (const { id } of PRESETS.filter((p) => p.renderer === "css")) {
+      const scene = preset(id, { text: '%s %c quotes " <&>' });
+      expect(compileCssConsole(scene, { target: "chromium" })).toEqual(
+        compileConsole(scene, { renderer: "css", target: "chromium" }),
+      );
+    }
+    expect(() => compileCssConsole(rainbow(), { target: "chromium" })).toThrow(
+      ConsoleCompileError,
+    );
+    expect(
+      compileCssConsole(rainbow(), {
+        target: "chromium",
+        unsupported: "fallback",
+      }).renderer,
+    ).toBe("text");
+    expect(() =>
+      compileCssConsole(neon(), { renderer: "svg" } as never),
+    ).toThrow(ConsoleCompileError);
+    const getter = vi.fn(() => "chromium");
+    expect(() =>
+      compileCssConsole(neon(), {
+        get target() {
+          return getter();
+        },
+      } as never),
+    ).toThrow(ConsoleCompileError);
+    expect(getter).not.toHaveBeenCalled();
+  });
   it("defaults to literal static text on unknown and terminal targets", () => {
     const scene = neon({ text: "%c 100% complete" });
     for (const target of [undefined, "node", "bun"] as const) {

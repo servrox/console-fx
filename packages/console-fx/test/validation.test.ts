@@ -5,7 +5,7 @@ import {
   parseScene,
   SceneValidationError,
 } from "../src/index.js";
-import { neon, preset, PRESETS } from "../src/presets/index.js";
+import { neon, createPresetExample, PRESETS } from "../src/presets/index.js";
 
 const scene = (text = "Hello") => ({
   schemaVersion: 1,
@@ -129,8 +129,8 @@ describe("public metadata and presets", () => {
   it.each(PRESETS)(
     "materializes the $name preset as independent editable JSON",
     ({ id }) => {
-      const a = preset(id);
-      const b = preset(id);
+      const a = createPresetExample(id);
+      const b = createPresetExample(id);
       expect(a).toEqual(b);
       expect(a).not.toBe(b);
       expect(parseScene(JSON.parse(JSON.stringify(a)))).toMatchObject({

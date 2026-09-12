@@ -3,14 +3,20 @@ import {
   defineScene,
   parseScene,
   getEffectDescriptors,
+  getPresentationDescriptors,
 } from "@servrox/console-fx";
-import { compileConsole, emitConsole } from "@servrox/console-fx/browser";
+import {
+  compileConsole,
+  compileCssConsole,
+  emitConsole,
+} from "@servrox/console-fx/browser";
 import {
   neon,
   lightningMetal,
   iceCathedral,
   liquidChrome,
   moltenGold,
+  createPresetExample,
 } from "@servrox/console-fx/presets";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
 
@@ -18,6 +24,7 @@ const scene = defineScene(neon({ text: "100% %c package consumer 👩🏽‍💻
 assert.deepEqual(parseScene(JSON.parse(JSON.stringify(scene))).value, scene);
 const options = { target: "chromium", renderer: "css" };
 const compiled = compileConsole(scene, options);
+assert.deepEqual(compileCssConsole(scene, { target: "chromium" }), compiled);
 const calls = [];
 emitConsole(scene, options, (...args) => calls.push(args));
 assert.deepEqual(calls, [[...compiled.args]]);
@@ -39,6 +46,19 @@ for (const factory of [
     /^console\.log\(/,
   );
   assert.deepEqual(parseScene(JSON.parse(JSON.stringify(title))).value, title);
+}
+for (const { id } of getPresentationDescriptors()) {
+  const card = createPresetExample(id);
+  const options = { target: "chromium", renderer: "svg" };
+  const output = compileConsole(card, options);
+  assert.deepEqual(parseScene(JSON.parse(JSON.stringify(card))).value, card);
+  assert.equal(output.preview.kind, "svg");
+  assert.equal(output.preview.alt, output.text);
+  assert.equal(output.animated, false);
+  const printed = [];
+  emitConsole(card, options, (...args) => printed.push(args));
+  assert.deepEqual(printed, [[...output.args]]);
+  assert.match(exportConsoleLog(card, options).code, /^console\.log\(/);
 }
 await assert.rejects(import("@servrox/console-fx/dist/index.js"), {
   // Both runtimes reject private exports, using different error codes.

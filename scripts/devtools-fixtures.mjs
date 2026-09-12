@@ -9,6 +9,7 @@ import {
   neon,
   preset,
   PRESETS,
+  createPresetExample,
   rainbow,
 } from "../packages/console-fx/dist/presets/index.js";
 
@@ -27,6 +28,14 @@ async function hashTree(directory) {
 }
 await hashTree("packages/console-fx/dist");
 const cases = [
+  ...PRESETS.filter(
+    ({ group }) => group === "Useful" || group === "Artful",
+  ).map(({ id, name }) => ({
+    id: `card-${id}`,
+    title: name,
+    scene: createPresetExample(id),
+    renderer: "svg",
+  })),
   ...PRESETS.filter(({ group }) => group === "Cinematic Metal").flatMap(
     ({ id, name }) => {
       const scene = preset(id);

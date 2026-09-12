@@ -1,6 +1,59 @@
-import { defineScene, SceneValidationError } from "../validation/index.js";
+import {
+  defineScene,
+  fail,
+  SceneValidationError,
+} from "../validation/index.js";
 import { deepFreeze } from "../model/limits.js";
-import type { CinematicProfile, EffectInput, SceneV1 } from "../model/types.js";
+import type {
+  CardPresetId,
+  CinematicProfile,
+  EffectInput,
+  SceneV1,
+} from "../model/types.js";
+import { getPresentationDescriptors } from "../presentations/catalog.js";
+import {
+  buildReceipt,
+  requestTrace,
+  serviceReady,
+  commandCard,
+  releaseBulletin,
+  blueprint,
+  contourMap,
+  letterpress,
+  signalHalftone,
+  orbital,
+  cardExample,
+} from "./cards.js";
+import type {
+  BuildReceiptOptions,
+  RequestTraceOptions,
+  ServiceReadyOptions,
+  CommandCardOptions,
+  ReleaseBulletinOptions,
+  ArtfulOptions,
+} from "./cards.js";
+export {
+  buildReceipt,
+  requestTrace,
+  serviceReady,
+  commandCard,
+  releaseBulletin,
+  blueprint,
+  contourMap,
+  letterpress,
+  signalHalftone,
+  orbital,
+} from "./cards.js";
+export type {
+  BuildReceiptOptions,
+  RequestTraceOptions,
+  RequestStage,
+  ServiceReadyOptions,
+  CommandCardOptions,
+  ReleaseBulletinOptions,
+  CardOptions,
+  ArtfulOptions,
+} from "./cards.js";
 
 export type PresetId =
   | "badge"
@@ -12,7 +65,8 @@ export type PresetId =
   | "chrome"
   | "crt"
   | "rainbow"
-  | CinematicPresetId;
+  | CinematicPresetId
+  | CardPresetId;
 export type CinematicPresetId =
   "lightningMetal" | "iceCathedral" | "liquidChrome" | "moltenGold";
 export type MotionId =
@@ -120,6 +174,16 @@ export const PRESETS = deepFreeze([
     renderer: "svg",
     group: "Cinematic Metal",
   },
+  ...getPresentationDescriptors().map((descriptor) => ({
+    id: descriptor.id,
+    name: descriptor.name,
+    description:
+      descriptor.group === "Useful"
+        ? "A supplied snapshot. Sample data."
+        : "An original, static graphic signature.",
+    renderer: "svg" as const,
+    group: descriptor.group,
+  })),
 ] as const);
 
 function create(effect: EffectInput, options: PresetOptions = {}): SceneV1 {
@@ -292,17 +356,41 @@ export function moltenGold(options: CinematicPresetOptions = {}): SceneV1 {
     options,
   );
 }
+export type UsefulPresetId =
+  | "buildReceipt"
+  | "requestTrace"
+  | "serviceReady"
+  | "commandCard"
+  | "releaseBulletin";
+export type PresetOptionsMap = {
+  readonly [Id in PresetId]: Id extends "buildReceipt"
+    ? BuildReceiptOptions
+    : Id extends "requestTrace"
+      ? RequestTraceOptions
+      : Id extends "serviceReady"
+        ? ServiceReadyOptions
+        : Id extends "commandCard"
+          ? CommandCardOptions
+          : Id extends "releaseBulletin"
+            ? ReleaseBulletinOptions
+            : Id extends CardPresetId
+              ? ArtfulOptions
+              : Id extends CinematicPresetId
+                ? CinematicPresetOptions
+                : PresetOptions;
+};
+type PresetArguments<Id extends PresetId> = Id extends UsefulPresetId
+  ? [options: PresetOptionsMap[Id]]
+  : [options?: PresetOptionsMap[Id]];
 export function preset<Id extends PresetId>(
   id: Id,
-  options?: Id extends CinematicPresetId
-    ? CinematicPresetOptions
-    : PresetOptions,
+  ...args: PresetArguments<Id>
 ): SceneV1;
 export function preset(
   id: PresetId,
-  options: PresetOptions | CinematicPresetOptions = {},
+  options?: PresetOptionsMap[PresetId],
 ): SceneV1 {
-  return {
+  const factories = {
     badge,
     neon,
     rgbSplit,
@@ -316,5 +404,26 @@ export function preset(
     iceCathedral,
     liquidChrome,
     moltenGold,
-  }[id](options as CinematicPresetOptions);
+    buildReceipt,
+    requestTrace,
+    serviceReady,
+    commandCard,
+    releaseBulletin,
+    blueprint,
+    contourMap,
+    letterpress,
+    signalHalftone,
+    orbital,
+  };
+  if (!Object.hasOwn(factories, id))
+    fail("invalid-preset", "Choose a documented preset.", ["id"]);
+  // The public ID/options overload preserves correlation; each factory validates data at runtime.
+  return factories[id](options as never);
+}
+
+/** Materialize an explicit authored catalog example, including synthetic useful facts. */
+export function createPresetExample(id: PresetId): SceneV1 {
+  return getPresentationDescriptors().some((d) => d.id === id)
+    ? cardExample(id as CardPresetId)
+    : preset(id);
 }

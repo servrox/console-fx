@@ -2,6 +2,41 @@ export type Renderer = "css" | "svg" | "text";
 export type Target =
   "chromium" | "firefox" | "safari" | "node" | "bun" | "unknown";
 export type FontFamily = "sans" | "mono" | "serif";
+export type CardPresetId =
+  | "buildReceipt"
+  | "requestTrace"
+  | "serviceReady"
+  | "commandCard"
+  | "releaseBulletin"
+  | "blueprint"
+  | "contourMap"
+  | "letterpress"
+  | "signalHalftone"
+  | "orbital";
+export type PresentationProfile = `${CardPresetId}/v1`;
+export type StatusTone = "success" | "warning" | "error" | "neutral";
+export type PresetPresentationInput = {
+  readonly kind: "presetCard";
+  readonly accent?: string;
+  readonly detail?: "minimal" | "standard";
+} & (
+  | { readonly profile: "requestTrace/v1"; readonly tone?: StatusTone }
+  | {
+      readonly profile: Exclude<PresentationProfile, "requestTrace/v1">;
+      readonly tone?: never;
+    }
+);
+export type PresetPresentation = {
+  readonly kind: "presetCard";
+  readonly accent: string;
+  readonly detail: "minimal" | "standard";
+} & (
+  | { readonly profile: "requestTrace/v1"; readonly tone: StatusTone }
+  | {
+      readonly profile: Exclude<PresentationProfile, "requestTrace/v1">;
+      readonly tone?: never;
+    }
+);
 export type CinematicProfile =
   | "lightning-metal-v1"
   | "ice-cathedral-v1"
@@ -83,6 +118,7 @@ export interface LineInput {
 export interface SceneInputV1 {
   readonly schemaVersion: 1;
   readonly label: string;
+  readonly presentation?: PresetPresentationInput;
   readonly surface?: Partial<Surface>;
   readonly lines: readonly LineInput[];
   readonly motion?: {
@@ -102,6 +138,7 @@ export interface SceneLine {
 export interface SceneV1 {
   readonly schemaVersion: 1;
   readonly label: string;
+  readonly presentation?: PresetPresentation;
   readonly surface: Surface;
   readonly lines: readonly SceneLine[];
   readonly motion: { readonly durationMs: number; readonly finish: "freeze" };
@@ -143,6 +180,50 @@ export interface EffectDescriptor {
   readonly parameters: Readonly<Record<string, ParameterDescriptor>>;
   readonly renderers: readonly Renderer[];
   readonly motion: "static" | "decorative";
+}
+export interface PresentationSlot {
+  readonly id: string;
+  readonly label: string;
+  readonly line: number;
+  readonly run: number;
+  readonly style: TextStyle;
+  readonly x: number;
+  readonly y: number;
+  readonly anchor: "start" | "end";
+  readonly safeWidth: number;
+  readonly maxCodePoints: number;
+  readonly values?: readonly string[];
+  readonly editableStyleKeys?: readonly (keyof TextStyle)[];
+}
+export interface PresentationStatus {
+  readonly slot: string;
+  readonly source: "text" | "tone";
+  readonly palettes: Readonly<
+    Record<
+      string,
+      {
+        readonly background: string;
+        readonly ink: string;
+        readonly marker: string;
+        readonly stroke: string;
+      }
+    >
+  >;
+}
+export interface PresentationDescriptor {
+  readonly id: CardPresetId;
+  readonly profile: PresentationProfile;
+  readonly name: string;
+  readonly group: "Useful" | "Artful";
+  readonly accent: string;
+  readonly background: string;
+  readonly rows: readonly number[];
+  readonly slots: readonly PresentationSlot[];
+  readonly renderers: readonly Renderer[];
+  readonly editableStyleKeys: readonly (keyof TextStyle)[];
+  readonly parameters: Readonly<Record<string, ParameterDescriptor>>;
+  readonly accentGeometry: readonly string[];
+  readonly status?: PresentationStatus;
 }
 export type ConsoleArgs = readonly [format: string, ...values: string[]];
 export type CompiledPreview =

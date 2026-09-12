@@ -1,0 +1,1472 @@
+{
+  "createdAt": "2026-09-12T13:53:44.728751+00:00",
+  "archive": "observations.tar.gz",
+  "archiveSha256": "8f55e49570c8d307a2f0d4393cf159bcc62f70aba0a3ba84343cbc62b4ca8c7a",
+  "files": [
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/blueprint-before-open-static.png",
+      "bytes": 12984,
+      "sha256": "4cf2ae8d9e54b7b72eb32b863ba60e26718867c90d9271e84be16e3c3d47c606"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/blueprint-generated-copy-static.png",
+      "bytes": 12984,
+      "sha256": "4cf2ae8d9e54b7b72eb32b863ba60e26718867c90d9271e84be16e3c3d47c606"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/blueprint-narrow-console-console.png",
+      "bytes": 26868,
+      "sha256": "b37ac9eca5e62c8308d6af580465bad9dd436461d2713aabcfa2b751fbe171b4"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/blueprint-reopened-static.png",
+      "bytes": 12984,
+      "sha256": "4cf2ae8d9e54b7b72eb32b863ba60e26718867c90d9271e84be16e3c3d47c606"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/blueprint-repeated-snippet-1-static.png",
+      "bytes": 12984,
+      "sha256": "4cf2ae8d9e54b7b72eb32b863ba60e26718867c90d9271e84be16e3c3d47c606"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/blueprint-repeated-snippet-2-static.png",
+      "bytes": 12984,
+      "sha256": "f67fc2dfc5fcd34ca39c922e3e0af360a23c5c18a31940dbce9dff787a1853f9"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/buildReceipt-before-open-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/buildReceipt-generated-copy-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/buildReceipt-narrow-console-console.png",
+      "bytes": 27950,
+      "sha256": "34a83a56e31f680823b75f0d22211c5341899c2b3c167309cf1b61af10e3effb"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/buildReceipt-reopened-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/buildReceipt-repeated-snippet-1-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/buildReceipt-repeated-snippet-2-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/commandCard-before-open-static.png",
+      "bytes": 11679,
+      "sha256": "6b44b79da5f74ab21fbbc8f0b8bf3bc873b93dcd04aa6c27f4042a9d69568858"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/commandCard-generated-copy-static.png",
+      "bytes": 11677,
+      "sha256": "4ce5b47441aac7eee275d6f20fafddc13e0161fe3fe7e39ef83cd31137c79af2"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/commandCard-narrow-console-console.png",
+      "bytes": 28355,
+      "sha256": "9a39edfcbd9bbab679da208de7eefcfcb99556b4eca1a5b233af9d21b4b4f949"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/commandCard-reopened-static.png",
+      "bytes": 11679,
+      "sha256": "6b44b79da5f74ab21fbbc8f0b8bf3bc873b93dcd04aa6c27f4042a9d69568858"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/commandCard-repeated-snippet-1-static.png",
+      "bytes": 11677,
+      "sha256": "4ce5b47441aac7eee275d6f20fafddc13e0161fe3fe7e39ef83cd31137c79af2"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/commandCard-repeated-snippet-2-static.png",
+      "bytes": 11678,
+      "sha256": "31d9df17da46ad4f16d7caa1dcdea8c0d9ba58f3c8b406dcaabeaf5ae8090bdd"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/contourMap-before-open-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/contourMap-generated-copy-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/contourMap-narrow-console-console.png",
+      "bytes": 26071,
+      "sha256": "f58eb4e2b09961b2f60c9dc568ae95b57f4d7470598aba831fe63a8c8bbcb51c"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/contourMap-reopened-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/contourMap-repeated-snippet-1-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/contourMap-repeated-snippet-2-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/letterpress-before-open-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/letterpress-generated-copy-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/letterpress-narrow-console-console.png",
+      "bytes": 31556,
+      "sha256": "038f0a11ddebe732ab6964818555b1e0fe6358412eb5a91b522eeaa52d86800e"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/letterpress-reopened-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/letterpress-repeated-snippet-1-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/letterpress-repeated-snippet-2-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/observations.json",
+      "bytes": 419801,
+      "sha256": "7f24df052fd3f132cf17c38b73f36a8f04f9695b9a88726202aec4ac58ca1a7f"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/orbital-before-open-static.png",
+      "bytes": 20891,
+      "sha256": "fa08b01a981ae36636fae9eeb920fc559d4f2932b92ca89de9c667405d19fb80"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/orbital-generated-copy-static.png",
+      "bytes": 20891,
+      "sha256": "e492d56cdd00eb1022f3d4fc767e99e09c9b41de95f375e1ea00c758fb74f928"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/orbital-narrow-console-console.png",
+      "bytes": 34495,
+      "sha256": "461f69f6a327fc8dd18f11acde10b5dbed4d31e807d95de32d2d57af56b89280"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/orbital-reopened-static.png",
+      "bytes": 20891,
+      "sha256": "fa08b01a981ae36636fae9eeb920fc559d4f2932b92ca89de9c667405d19fb80"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/orbital-repeated-snippet-1-static.png",
+      "bytes": 20891,
+      "sha256": "e492d56cdd00eb1022f3d4fc767e99e09c9b41de95f375e1ea00c758fb74f928"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/orbital-repeated-snippet-2-static.png",
+      "bytes": 20892,
+      "sha256": "f2fb6c13c979e0e6c1c06120f05d48ccb14725e1ea130da39e2a286d2de150af"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/releaseBulletin-before-open-static.png",
+      "bytes": 14691,
+      "sha256": "069d55848a9055c60ff6e5583f486160eac01daa1eb91ac32dc00e1f1e06a06b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/releaseBulletin-generated-copy-static.png",
+      "bytes": 14691,
+      "sha256": "069d55848a9055c60ff6e5583f486160eac01daa1eb91ac32dc00e1f1e06a06b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/releaseBulletin-narrow-console-console.png",
+      "bytes": 29355,
+      "sha256": "427dd3feea20d5df949f9643b20d1d2b586d9559aabc6119b0660a628159fec4"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/releaseBulletin-reopened-static.png",
+      "bytes": 14691,
+      "sha256": "069d55848a9055c60ff6e5583f486160eac01daa1eb91ac32dc00e1f1e06a06b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/releaseBulletin-repeated-snippet-1-static.png",
+      "bytes": 14691,
+      "sha256": "069d55848a9055c60ff6e5583f486160eac01daa1eb91ac32dc00e1f1e06a06b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/releaseBulletin-repeated-snippet-2-static.png",
+      "bytes": 14691,
+      "sha256": "069d55848a9055c60ff6e5583f486160eac01daa1eb91ac32dc00e1f1e06a06b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/requestTrace-before-open-static.png",
+      "bytes": 13971,
+      "sha256": "6efd0c396592280d74312d6dcd0650dc2f254607d6b339ce94cc2baefe3fb225"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/requestTrace-generated-copy-static.png",
+      "bytes": 13971,
+      "sha256": "4400a3b4bec5f13177623fd1a5c680996f538a55da345992ecc290182586d81a"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/requestTrace-narrow-console-console.png",
+      "bytes": 28093,
+      "sha256": "6bf26af808372882dbae3de21bb9715087858e0ca4ee7bd050ffa183e427406b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/requestTrace-reopened-static.png",
+      "bytes": 13971,
+      "sha256": "6efd0c396592280d74312d6dcd0650dc2f254607d6b339ce94cc2baefe3fb225"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/requestTrace-repeated-snippet-1-static.png",
+      "bytes": 13971,
+      "sha256": "4400a3b4bec5f13177623fd1a5c680996f538a55da345992ecc290182586d81a"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/requestTrace-repeated-snippet-2-static.png",
+      "bytes": 13971,
+      "sha256": "6efd0c396592280d74312d6dcd0650dc2f254607d6b339ce94cc2baefe3fb225"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/serviceReady-before-open-static.png",
+      "bytes": 14573,
+      "sha256": "05629bf7f4eb35ef311aefaf0625f615674f89cfdeb51d19e26d8bf047b9cde5"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/serviceReady-generated-copy-static.png",
+      "bytes": 14574,
+      "sha256": "6083a4fc1778f39fffe41954ccfc99a3f184fc446421e4eda38e1a04ee3e3c0e"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/serviceReady-narrow-console-console.png",
+      "bytes": 32686,
+      "sha256": "86b9d974683d257e9fc962681621ce2c32577c1eb0ea5f110de3ff2d71f242f8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/serviceReady-reopened-static.png",
+      "bytes": 14573,
+      "sha256": "05629bf7f4eb35ef311aefaf0625f615674f89cfdeb51d19e26d8bf047b9cde5"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/serviceReady-repeated-snippet-1-static.png",
+      "bytes": 14571,
+      "sha256": "8b6af8d454f510a525f13307a16a9caa180c438b2477d36ad41f65331ca6452d"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/serviceReady-repeated-snippet-2-static.png",
+      "bytes": 14571,
+      "sha256": "8b6af8d454f510a525f13307a16a9caa180c438b2477d36ad41f65331ca6452d"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/signalHalftone-before-open-static.png",
+      "bytes": 18013,
+      "sha256": "7ef1880fe1a4e24b28857c32092a6e52499c6662c30cfa435a8749278ec5c281"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/signalHalftone-generated-copy-static.png",
+      "bytes": 18013,
+      "sha256": "7ef1880fe1a4e24b28857c32092a6e52499c6662c30cfa435a8749278ec5c281"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/signalHalftone-narrow-console-console.png",
+      "bytes": 31522,
+      "sha256": "a3dfdc80f8b80a18a69ca01139c6c9afc5e6d85ffc88d4da33f57e4f42c899ba"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/signalHalftone-reopened-static.png",
+      "bytes": 18013,
+      "sha256": "7ef1880fe1a4e24b28857c32092a6e52499c6662c30cfa435a8749278ec5c281"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/signalHalftone-repeated-snippet-1-static.png",
+      "bytes": 18013,
+      "sha256": "7ef1880fe1a4e24b28857c32092a6e52499c6662c30cfa435a8749278ec5c281"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-08-36.100Z/signalHalftone-repeated-snippet-2-static.png",
+      "bytes": 18013,
+      "sha256": "7ef1880fe1a4e24b28857c32092a6e52499c6662c30cfa435a8749278ec5c281"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/blueprint-dark-100-console.png",
+      "bytes": 38904,
+      "sha256": "197b388ce552b3aea55ba95677924bc3ffef30ccf77fe90924aeedbbe62a5c93"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/blueprint-dark-100-static.png",
+      "bytes": 13004,
+      "sha256": "0ad9ce4ce4417b41e91a9deab85bc99de4d1fd8f2bc2d802f8a3109cc8bc7147"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/blueprint-dark-200-console.png",
+      "bytes": 36039,
+      "sha256": "6c24097441754facbc4cdf6ecdac917c09d5c347df6ce96821a06e27c6a8cef1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/blueprint-light-100-console.png",
+      "bytes": 37900,
+      "sha256": "140b7695ac51cab9969c8ce0c94c67009fc0d59b93e2ede0b87fd48e152d2ba5"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/blueprint-light-100-static.png",
+      "bytes": 12984,
+      "sha256": "4cf2ae8d9e54b7b72eb32b863ba60e26718867c90d9271e84be16e3c3d47c606"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/buildReceipt-dark-100-console.png",
+      "bytes": 41931,
+      "sha256": "6eb7b4d33ff55b5dd16c8cd0b0712e8f16914ddf6a8eb00a4054fc38144cc903"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/buildReceipt-dark-100-static.png",
+      "bytes": 14284,
+      "sha256": "b4c8c0dd168886174886eaca14e55d705ffe50aaf9c170bc7807477637e82737"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/buildReceipt-dark-200-console.png",
+      "bytes": 40315,
+      "sha256": "fc6ada286cf6de9285197ae3cc9d2e21c3fe9d006759a56638dada94937ef8d0"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/buildReceipt-light-100-console.png",
+      "bytes": 41045,
+      "sha256": "0ad3ade053b12f95afe327742f65378b49773adae2885e30d69a62bd51c569fa"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/buildReceipt-light-100-static.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/commandCard-dark-100-console.png",
+      "bytes": 37770,
+      "sha256": "769fbf1c1146b15249dadaa4d9845c8f1d37ecb8f7918a506526a431b3bd1866"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/commandCard-dark-100-static.png",
+      "bytes": 11679,
+      "sha256": "2a02e615783aa9667f496472d6f35485820dab2736a0d60d040c8c71dfc0bac4"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/commandCard-dark-200-console.png",
+      "bytes": 41875,
+      "sha256": "c0b3e96020db08eed8ea3e9c4acb2db94333ba99b7daa86b54fb91b873d05c95"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/commandCard-light-100-console.png",
+      "bytes": 36880,
+      "sha256": "a352fd469edb582c0e3334f159f81b45ab75c687ca703b2f781ca903b5ba67f1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/commandCard-light-100-static.png",
+      "bytes": 11679,
+      "sha256": "6b44b79da5f74ab21fbbc8f0b8bf3bc873b93dcd04aa6c27f4042a9d69568858"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/contourMap-dark-100-console.png",
+      "bytes": 39808,
+      "sha256": "cb75bf848a29f8c7003ec9ee8956930f33e1e88107aa13d1282e7ba180e9dfb5"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/contourMap-dark-100-static.png",
+      "bytes": 13944,
+      "sha256": "f0d12458ccd6f24be8d7fd72e02cc1763fd900f39cb48fb427f111811dd8e08f"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/contourMap-dark-200-console.png",
+      "bytes": 38591,
+      "sha256": "4b2bad2addffae121faed94d2ec0d1ce9206159e3aa8889903fbbcca10b92a80"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/contourMap-light-100-console.png",
+      "bytes": 38553,
+      "sha256": "1ee5a486ba98db17145fd400171c39dc9c727fa6fc901712b24f7f3a591f4641"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/contourMap-light-100-static.png",
+      "bytes": 13944,
+      "sha256": "f984c14a44eb35391c1ac94cdfac6c7b1a0493b1cdeef0110212af38154175d1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/letterpress-dark-100-console.png",
+      "bytes": 42927,
+      "sha256": "4317c5537b745757f88c8a0fb35d5097ad3329a18e8eb65e39fea3fa7b41aa0b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/letterpress-dark-100-static.png",
+      "bytes": 17209,
+      "sha256": "5de8e7036521b6236ae4990f4c281558c22415bafd01bbb3c673aee4b060d1a9"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/letterpress-dark-200-console.png",
+      "bytes": 43257,
+      "sha256": "1269e61c9eb0c12970703c93120511a5e37abd36ecf64bc4d27c96ca5f54d2c4"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/letterpress-light-100-console.png",
+      "bytes": 42053,
+      "sha256": "7349bba212b6ed5764c4b91a75329ce015d206c8d4db601944e6b079f2b77d83"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/letterpress-light-100-static.png",
+      "bytes": 17124,
+      "sha256": "dd8a1c1d597baa0cbc0c089c23f18f1815246fe150f9bbaff5ebe4c5c9faf939"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/observations.json",
+      "bytes": 174859,
+      "sha256": "47e5c1383c187556910694805d598ae7f0677288091d37ed6c2276d034affbc2"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/orbital-dark-100-console.png",
+      "bytes": 46730,
+      "sha256": "304804d5dcef378e5e66d82b0cd233ed6d2442608bdeb43efdd242582eff7e23"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/orbital-dark-100-static.png",
+      "bytes": 20871,
+      "sha256": "c0714b0fc78cebd5b0173eb388762eb593b3fc28d30b54eb38b97ea748f5fa3c"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/orbital-dark-200-console.png",
+      "bytes": 44814,
+      "sha256": "e1c663c36fd69dd909d1bdaeac4d6855ccf3f3ed9a31e7105845e9ba117ab6a5"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/orbital-light-100-console.png",
+      "bytes": 45692,
+      "sha256": "66f2b7331c1a33be77f814e05949f4101e1ec228c9c22beed26198c328e8da13"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/orbital-light-100-static.png",
+      "bytes": 20891,
+      "sha256": "fa08b01a981ae36636fae9eeb920fc559d4f2932b92ca89de9c667405d19fb80"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/releaseBulletin-dark-100-console.png",
+      "bytes": 42454,
+      "sha256": "19c3757efddff75ed7cc77ae4a6df46057677baf2862a0207c918eacf8cb8024"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/releaseBulletin-dark-100-static.png",
+      "bytes": 14757,
+      "sha256": "9f61e37c1b44bd17e23c5e1d4b6865a9ab845f654f2fb248edffb5cf6a50af02"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/releaseBulletin-dark-200-console.png",
+      "bytes": 41961,
+      "sha256": "46cb8cd1e1192aec8b2a43168c2f481fc055d1816ea000c921483e10cbddc0cd"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/releaseBulletin-light-100-console.png",
+      "bytes": 41318,
+      "sha256": "cf1fb717dff800fd47344025e723022377e99bec08fbac908d457edf7ff61a00"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/releaseBulletin-light-100-static.png",
+      "bytes": 14691,
+      "sha256": "069d55848a9055c60ff6e5583f486160eac01daa1eb91ac32dc00e1f1e06a06b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/requestTrace-dark-100-console.png",
+      "bytes": 41849,
+      "sha256": "d7030a43bab2b184ae2bbb1c701f0a76845c9a88a73e2cb9e445063bc229c995"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/requestTrace-dark-100-static.png",
+      "bytes": 13965,
+      "sha256": "50a9d3ebf75da2b7cbe8b03ad9f0707263d2e4f9a867e3dbda68c129492959a8"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/requestTrace-dark-200-console.png",
+      "bytes": 32174,
+      "sha256": "6500b8b54dd6fa3c41acb470adf80b81390df5e2625ca2775fd9a4bf0e644d7b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/requestTrace-light-100-console.png",
+      "bytes": 40903,
+      "sha256": "59ef1e802aa86828a00564f1b9d708468b513181d788d1d60bf2f7ad8c52e60a"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/requestTrace-light-100-static.png",
+      "bytes": 13971,
+      "sha256": "6efd0c396592280d74312d6dcd0650dc2f254607d6b339ce94cc2baefe3fb225"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/serviceReady-dark-100-console.png",
+      "bytes": 43210,
+      "sha256": "8062bd8894a3496b378532f6703b6b074c4491448171383f73035087d3bfec5e"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/serviceReady-dark-100-static.png",
+      "bytes": 14569,
+      "sha256": "4ae73e8db288f3d33428718812829d75877b63015f0dffd9f821c4cd1896b7b2"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/serviceReady-dark-200-console.png",
+      "bytes": 39473,
+      "sha256": "09486e055279612fade4fee2e5fa1ad00d5cbf053f636fc9ad10eae08b0e40f3"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/serviceReady-light-100-console.png",
+      "bytes": 42259,
+      "sha256": "1dd8a7c42e579e9726204488b1b37fef04ae03515cc510e9e937dd72885e3524"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/serviceReady-light-100-static.png",
+      "bytes": 14573,
+      "sha256": "05629bf7f4eb35ef311aefaf0625f615674f89cfdeb51d19e26d8bf047b9cde5"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/signalHalftone-dark-100-console.png",
+      "bytes": 43874,
+      "sha256": "c517dd4a5a1312ee7b4a9207341364cb263259c88be9f4c6536033121ce629d3"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/signalHalftone-dark-100-static.png",
+      "bytes": 18061,
+      "sha256": "69d55cd448cb6557053d00a610ea6af221952b3904a0ed1494c4d77b539aef78"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/signalHalftone-dark-200-console.png",
+      "bytes": 39662,
+      "sha256": "15bc2b36ed48f7af1bcd0bb99b007b373b2acb7dacd61b68291d81ac84821f1c"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/signalHalftone-light-100-console.png",
+      "bytes": 43240,
+      "sha256": "a09a9cda62af98ad79da0733b2ec66de531d4d54d5cc6f923c92c9fb0d9db293"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-28-27.162Z/signalHalftone-light-100-static.png",
+      "bytes": 18013,
+      "sha256": "7ef1880fe1a4e24b28857c32092a6e52499c6662c30cfa435a8749278ec5c281"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/blueprint-dark-200-console.png",
+      "bytes": 85976,
+      "sha256": "a6a49f2837240aebdf93f8a6256cd2756bc6095b4bee10d83c093c618bd5aac0"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/buildReceipt-dark-200-console.png",
+      "bytes": 89110,
+      "sha256": "3f73bfadd8a827259e3bd9a5f2d6c1c09ed8320c4810860bf303d6b64b46fe7b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/commandCard-dark-200-console.png",
+      "bytes": 87606,
+      "sha256": "360ad19fc6745a8d08f0a67ae33632e42bfd393756a547488fd40e18ea2805b1"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/contourMap-dark-200-console.png",
+      "bytes": 87273,
+      "sha256": "bf1b6e008a85a2495c2fddc25f6d4abdda220be009657b7db6afe124450edc2c"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/letterpress-dark-200-console.png",
+      "bytes": 95950,
+      "sha256": "9546463e12b51ac880eb63f27b3c48b179512472ccc51ae60dd72a46cf9b009b"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/observations.json",
+      "bytes": 70275,
+      "sha256": "07b8e1574e0e967d63871032fb33f0a81f51374344135dcc1f59436323602b52"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/orbital-dark-200-console.png",
+      "bytes": 107715,
+      "sha256": "555f9106a5d92085af8f99e9c8e5ba0036804ac976de21d98fbaf78977bf70c0"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/releaseBulletin-dark-200-console.png",
+      "bytes": 101170,
+      "sha256": "b6d1f886f6fc8fada012ad56e856cc1c52bc71287a97a1f61a688f0e540dbd0a"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/requestTrace-dark-200-console.png",
+      "bytes": 84333,
+      "sha256": "a38a6bd45e7e7e147a1ca5e4fd4fed9a3c2423469b766455573e3cfa570c3d08"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/serviceReady-dark-200-console.png",
+      "bytes": 95194,
+      "sha256": "7cd36fe649b83ae120389d8d78b65663f7b0a6b44317a3b229a0ac204bc583d4"
+    },
+    {
+      "path": "devtools/chrome-lifecycle-2026-09-12T13-40-30.986Z/signalHalftone-dark-200-console.png",
+      "bytes": 98899,
+      "sha256": "5377a136c654c1080e0859b099103a0cc3cc4331684532ced057311cda6d18d7"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/blueprint-before-open-static.png",
+      "bytes": 14192,
+      "sha256": "b3db72530191e033ffd29aba9101f92359c06d3ee7874b6439f0f1a6702d82d6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/blueprint-generated-copy-static.png",
+      "bytes": 14193,
+      "sha256": "c3337551cbf6eb6721357a4b8e34f56f89fa054f58044f2abdb0e92053a543d6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/blueprint-narrow-console-console.png",
+      "bytes": 22997,
+      "sha256": "7b57d2c90c7ae005d1a35cbb1d123ec8ef220968b894f39b3f9edcc672b29d87"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/blueprint-reopened-static.png",
+      "bytes": 14192,
+      "sha256": "b3db72530191e033ffd29aba9101f92359c06d3ee7874b6439f0f1a6702d82d6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/blueprint-repeated-snippet-1-static.png",
+      "bytes": 14193,
+      "sha256": "c3337551cbf6eb6721357a4b8e34f56f89fa054f58044f2abdb0e92053a543d6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/blueprint-repeated-snippet-2-static.png",
+      "bytes": 14192,
+      "sha256": "dc25b850984e72ae7074ac48f2fef3c9edba65dbe809e56cd6c2f66b367c64d5"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/buildReceipt-before-open-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/buildReceipt-generated-copy-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/buildReceipt-narrow-console-console.png",
+      "bytes": 23054,
+      "sha256": "571ea16c64c29bf6e5c6172e173828f0b47fe5606c1292e18b383b75fc02023f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/buildReceipt-reopened-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/buildReceipt-repeated-snippet-1-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/buildReceipt-repeated-snippet-2-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/commandCard-before-open-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/commandCard-generated-copy-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/commandCard-narrow-console-console.png",
+      "bytes": 23421,
+      "sha256": "22f9575eebf5b5af7122deff62e167c32d143552e4ba0e382b07abf90c7b9821"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/commandCard-reopened-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/commandCard-repeated-snippet-1-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/commandCard-repeated-snippet-2-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/contourMap-before-open-static.png",
+      "bytes": 16166,
+      "sha256": "6d16bd3b93290eadf049b6e0e3bfa4d8553d7a5b7e23f5b108325665a54c1fe9"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/contourMap-generated-copy-static.png",
+      "bytes": 16154,
+      "sha256": "4f6d4d07bfdd3f26453cbc64ed0674f5ccb4271094f2a91c096c5b6e9ed17fb2"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/contourMap-narrow-console-console.png",
+      "bytes": 20928,
+      "sha256": "5ca5afd0be7f0612830801ceb5f823b192f4da7d30f4e18f10eacb09ff78921c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/contourMap-reopened-static.png",
+      "bytes": 16166,
+      "sha256": "6d16bd3b93290eadf049b6e0e3bfa4d8553d7a5b7e23f5b108325665a54c1fe9"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/contourMap-repeated-snippet-1-static.png",
+      "bytes": 16154,
+      "sha256": "4f6d4d07bfdd3f26453cbc64ed0674f5ccb4271094f2a91c096c5b6e9ed17fb2"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/contourMap-repeated-snippet-2-static.png",
+      "bytes": 16166,
+      "sha256": "1ca9b527131617e07aaa6a6221e510be3b1e3133d202368423c378e45f8ebae2"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/letterpress-before-open-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/letterpress-generated-copy-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/letterpress-narrow-console-console.png",
+      "bytes": 26637,
+      "sha256": "bd9901dfbc32b8830de978d9fa3cad9552827e24a1e7993131dfb9b96722614f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/letterpress-reopened-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/letterpress-repeated-snippet-1-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/letterpress-repeated-snippet-2-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/observations.json",
+      "bytes": 420188,
+      "sha256": "1aea6beaa6b06931fe04b5a016a9702d262a115194f09e89abf405134d02d2c7"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/orbital-before-open-static.png",
+      "bytes": 22958,
+      "sha256": "e914af0bc484a81f4d9119d339c082b839b9bf47ae89c941d3c410e7e19e4370"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/orbital-generated-copy-static.png",
+      "bytes": 22958,
+      "sha256": "e914af0bc484a81f4d9119d339c082b839b9bf47ae89c941d3c410e7e19e4370"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/orbital-narrow-console-console.png",
+      "bytes": 31779,
+      "sha256": "62c7f7c178d092187551ecca731c325fa7d09b77321fbc7927b4ead6fc718e0b"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/orbital-reopened-static.png",
+      "bytes": 22958,
+      "sha256": "e914af0bc484a81f4d9119d339c082b839b9bf47ae89c941d3c410e7e19e4370"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/orbital-repeated-snippet-1-static.png",
+      "bytes": 22958,
+      "sha256": "e914af0bc484a81f4d9119d339c082b839b9bf47ae89c941d3c410e7e19e4370"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/orbital-repeated-snippet-2-static.png",
+      "bytes": 22961,
+      "sha256": "38aa571a6f11f162dd530a4df09dbb052a065f6275b2ebcfe5166a86a3a140ef"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/releaseBulletin-before-open-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/releaseBulletin-generated-copy-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/releaseBulletin-narrow-console-console.png",
+      "bytes": 24680,
+      "sha256": "2ea8b267b9b0b1ff8c74f78a7df9027ad0e651ebaa4135ef73ac43ad7572b604"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/releaseBulletin-reopened-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/releaseBulletin-repeated-snippet-1-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/releaseBulletin-repeated-snippet-2-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/requestTrace-before-open-static.png",
+      "bytes": 14060,
+      "sha256": "43c7dc0ffccfcc79f8f408443b71fa55bed79812ccc2fd1f9b23aa69fa05c83a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/requestTrace-generated-copy-static.png",
+      "bytes": 14060,
+      "sha256": "43c7dc0ffccfcc79f8f408443b71fa55bed79812ccc2fd1f9b23aa69fa05c83a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/requestTrace-narrow-console-console.png",
+      "bytes": 23365,
+      "sha256": "f6927f66486d4db2411721a5c2bb6f0a1b5fce2faf468813f98d2b008a4e370f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/requestTrace-reopened-static.png",
+      "bytes": 14060,
+      "sha256": "43c7dc0ffccfcc79f8f408443b71fa55bed79812ccc2fd1f9b23aa69fa05c83a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/requestTrace-repeated-snippet-1-static.png",
+      "bytes": 14060,
+      "sha256": "43c7dc0ffccfcc79f8f408443b71fa55bed79812ccc2fd1f9b23aa69fa05c83a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/requestTrace-repeated-snippet-2-static.png",
+      "bytes": 14060,
+      "sha256": "43c7dc0ffccfcc79f8f408443b71fa55bed79812ccc2fd1f9b23aa69fa05c83a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/serviceReady-before-open-static.png",
+      "bytes": 14469,
+      "sha256": "3b4f7b57d1eda5aae7e6dd53caebba6c22e4a8d8b628f1e5880d6631c81f1bf4"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/serviceReady-generated-copy-static.png",
+      "bytes": 14469,
+      "sha256": "3b4f7b57d1eda5aae7e6dd53caebba6c22e4a8d8b628f1e5880d6631c81f1bf4"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/serviceReady-narrow-console-console.png",
+      "bytes": 27930,
+      "sha256": "fac03f0b448f2fac3a7ff6e9259e64d80da32f6031f0932690c790acb8533ff0"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/serviceReady-reopened-static.png",
+      "bytes": 14469,
+      "sha256": "3b4f7b57d1eda5aae7e6dd53caebba6c22e4a8d8b628f1e5880d6631c81f1bf4"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/serviceReady-repeated-snippet-1-static.png",
+      "bytes": 14469,
+      "sha256": "3b4f7b57d1eda5aae7e6dd53caebba6c22e4a8d8b628f1e5880d6631c81f1bf4"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/serviceReady-repeated-snippet-2-static.png",
+      "bytes": 14469,
+      "sha256": "3b4f7b57d1eda5aae7e6dd53caebba6c22e4a8d8b628f1e5880d6631c81f1bf4"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/signalHalftone-before-open-static.png",
+      "bytes": 18055,
+      "sha256": "32e88455132f41745ac3f0cedfc10e2e05b6f4daf59ecc756017d49932f2aad1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/signalHalftone-generated-copy-static.png",
+      "bytes": 18055,
+      "sha256": "32e88455132f41745ac3f0cedfc10e2e05b6f4daf59ecc756017d49932f2aad1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/signalHalftone-narrow-console-console.png",
+      "bytes": 26495,
+      "sha256": "a458917c2941d32551295fa0eb4fb39590fe41bf7fcee4177e938356b3bf3992"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/signalHalftone-reopened-static.png",
+      "bytes": 18055,
+      "sha256": "32e88455132f41745ac3f0cedfc10e2e05b6f4daf59ecc756017d49932f2aad1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/signalHalftone-repeated-snippet-1-static.png",
+      "bytes": 18055,
+      "sha256": "32e88455132f41745ac3f0cedfc10e2e05b6f4daf59ecc756017d49932f2aad1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-09-56.777Z/signalHalftone-repeated-snippet-2-static.png",
+      "bytes": 18055,
+      "sha256": "32e88455132f41745ac3f0cedfc10e2e05b6f4daf59ecc756017d49932f2aad1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/blueprint-dark-100-console.png",
+      "bytes": 37162,
+      "sha256": "403ad6c3a76fe9d1551b6e7c1c475be37275b0b8860c83a149366300036687ca"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/blueprint-dark-100-static.png",
+      "bytes": 14200,
+      "sha256": "c18fd2c5e80dbe18687df6584cd44ce1053494dc9260d9ebebf232af6b3cb97f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/blueprint-dark-200-console.png",
+      "bytes": 29488,
+      "sha256": "067acdf7f001abf3eea0a593941d7fd24d11be494de8336fcaf0afb33384e6b8"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/blueprint-light-100-console.png",
+      "bytes": 36649,
+      "sha256": "e69cac55cf1094b2ba4d95bf5c1c462a27fae981e27db12dc5e285b1cff0e0dc"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/blueprint-light-100-static.png",
+      "bytes": 14192,
+      "sha256": "b3db72530191e033ffd29aba9101f92359c06d3ee7874b6439f0f1a6702d82d6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/buildReceipt-dark-100-console.png",
+      "bytes": 39876,
+      "sha256": "0732f31d7031e9df06f186e9a277951ccf5b735181ffddf43d3ff4039e639e31"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/buildReceipt-dark-100-static.png",
+      "bytes": 14761,
+      "sha256": "bfd3438c3367e57b4921a4496b87ed14459998fc236ae6d8b5ad8ec873b23554"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/buildReceipt-dark-200-console.png",
+      "bytes": 25454,
+      "sha256": "4a42ef2950c69e1143c10034acb423aadb8dc27196e04598c373d6ffe8b5f85b"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/buildReceipt-light-100-console.png",
+      "bytes": 39350,
+      "sha256": "210ebff5720882832c09db36e78ec34f2be8b35f578ef5fbd7b0521d3bf319ab"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/buildReceipt-light-100-static.png",
+      "bytes": 14739,
+      "sha256": "ae03cdcf54f2836365d823fadd40e8472fad7b88e87c9aa27362901ded0f5dd6"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/commandCard-dark-100-console.png",
+      "bytes": 34700,
+      "sha256": "7fc8dfb725bbdd64496cbc68ab6908145411bb12eea8492f95de7d22436f2440"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/commandCard-dark-100-static.png",
+      "bytes": 11712,
+      "sha256": "cfbc5b35ac27b6253da685f85a002fe910382fbf9d5b75b1e6e1c75ffb940004"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/commandCard-dark-200-console.png",
+      "bytes": 28294,
+      "sha256": "749dab37e88a3815a333d62d7cf30f0002b1463c5b676f21a43ed91e67269d07"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/commandCard-light-100-console.png",
+      "bytes": 34249,
+      "sha256": "3dcf8838e5ad328e6eb3219254294016995c04c5bdea47de4fb3b0ab33d69cc8"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/commandCard-light-100-static.png",
+      "bytes": 11697,
+      "sha256": "acf81de9cde00f63360d3895aaaa7e03425ae6ac437de1e3d7584f187a6848a3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/contourMap-dark-100-console.png",
+      "bytes": 38854,
+      "sha256": "b6fd78e6409d25def8f05b351b73e7d41099edc5c92819203cd367600353369b"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/contourMap-dark-100-static.png",
+      "bytes": 16167,
+      "sha256": "11d533f22e15db8c1b3f341eb7571ce5ca4d3c46590e3b69d965f28925d808a9"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/contourMap-dark-200-console.png",
+      "bytes": 30403,
+      "sha256": "69296c5d30e3d67e79fbd156afb4403e9656fe580d7690b1a5f7bdd04607ce4b"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/contourMap-light-100-console.png",
+      "bytes": 38328,
+      "sha256": "b85dc167869a93a06b8ef587a530f957998156d67c9563bf03b52e552f7e3299"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/contourMap-light-100-static.png",
+      "bytes": 16166,
+      "sha256": "6d16bd3b93290eadf049b6e0e3bfa4d8553d7a5b7e23f5b108325665a54c1fe9"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/letterpress-dark-100-console.png",
+      "bytes": 39977,
+      "sha256": "10e2138fa84ca09c3205862e3be25c17982cf7fdc06988f6d1a5703a9b7da9b3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/letterpress-dark-100-static.png",
+      "bytes": 17197,
+      "sha256": "be138c7b187a8341443118c7b7517b7f4f76e08aa2e58f27cad1a6eccd820028"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/letterpress-dark-200-console.png",
+      "bytes": 29862,
+      "sha256": "f90dd9a1a7aaef4ab8fbab34dd833bb6954b6014fa23ae1b533fd37a3ecdce48"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/letterpress-light-100-console.png",
+      "bytes": 39499,
+      "sha256": "024bbb4bc4053046e8c28efee2f869cd1af97dfef2256246f076cda44f40ff7e"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/letterpress-light-100-static.png",
+      "bytes": 17124,
+      "sha256": "04d6304546cf879190d9d6474e5f8a86aaf875efb47798024810c278a2f31037"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/observations.json",
+      "bytes": 176196,
+      "sha256": "5c5e95aa4c8a45de095f026ddf860b35028ea6a8fb5c8f05eaff52128ef8aead"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/orbital-dark-100-console.png",
+      "bytes": 45591,
+      "sha256": "a42261a0ea7cefe52996ca176a655e2f5465f1c81323c65ecf98c5a4e6e8245a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/orbital-dark-100-static.png",
+      "bytes": 22946,
+      "sha256": "cba373c46575e7622ba07b80d746fe45cbc609e998978d8cee513b0c62d9b480"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/orbital-dark-200-console.png",
+      "bytes": 38515,
+      "sha256": "96e560c66c7cc381ff71e0b55ac4abe48e84bd7c1848515cb44869d0a661260d"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/orbital-light-100-console.png",
+      "bytes": 45050,
+      "sha256": "3130598086f9874d12da4f00deb117e58f1add0e77c8f4dfd06f1b0d67032776"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/orbital-light-100-static.png",
+      "bytes": 22958,
+      "sha256": "e914af0bc484a81f4d9119d339c082b839b9bf47ae89c941d3c410e7e19e4370"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/releaseBulletin-dark-100-console.png",
+      "bytes": 39741,
+      "sha256": "9035455f9c8ff427cd3459d6670e9c57bd4d1997970e23aa6f72b838a0c94f6e"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/releaseBulletin-dark-100-static.png",
+      "bytes": 14881,
+      "sha256": "54fe63a68e59d0c2be6745fbfb720d4948e3310901e6b38b505b6252f5c7f41f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/releaseBulletin-dark-200-console.png",
+      "bytes": 27734,
+      "sha256": "711fef21c01ff2b44433c4a6f0faa4f217275acb6cc3ee589572d1289ce29534"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/releaseBulletin-light-100-console.png",
+      "bytes": 38996,
+      "sha256": "216d3a98a868b6f20ad89cd8a55747aa393b72f66d583f775055aa79d693f582"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/releaseBulletin-light-100-static.png",
+      "bytes": 14823,
+      "sha256": "0361e50dfdb82641f8f22e114d0760d7962f6b836e5c0ce8ab7725f3b1fde82c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/requestTrace-dark-100-console.png",
+      "bytes": 39086,
+      "sha256": "2c663d45f3261872bbc73b5f851a8063a44492d77ff888e5a14497e4efa8f039"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/requestTrace-dark-100-static.png",
+      "bytes": 14065,
+      "sha256": "f9fd96ce12d89ecff00ca76460898211aa69ad907a5f06e4133b21b4e7487a0f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/requestTrace-dark-200-console.png",
+      "bytes": 23237,
+      "sha256": "952e6b8516c358fa54f9790d18ec1a2fba4e6164922e96d1a2310e84e854dc3a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/requestTrace-light-100-console.png",
+      "bytes": 38492,
+      "sha256": "a1ad0a195f5179c131dd3670567c49564c3956ec377dd9602f004e5f578b7cbe"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/requestTrace-light-100-static.png",
+      "bytes": 14060,
+      "sha256": "43c7dc0ffccfcc79f8f408443b71fa55bed79812ccc2fd1f9b23aa69fa05c83a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/serviceReady-dark-100-console.png",
+      "bytes": 40320,
+      "sha256": "71f91a127077c36976660f0d18743117d6f2401c5154eb72249f600fff1d518d"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/serviceReady-dark-100-static.png",
+      "bytes": 14478,
+      "sha256": "7578bb8bdcc23a85b71010834ddaebe7b7b590425cb14b745c97c021f3a09f65"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/serviceReady-dark-200-console.png",
+      "bytes": 29451,
+      "sha256": "261351e43cb55aefa1838e63d1116f8c551950989cb8234691d09a25936e26a9"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/serviceReady-light-100-console.png",
+      "bytes": 39810,
+      "sha256": "abab54c3783b1940788fc32876d0b4bd0cc7c83ed54f70af43f9b47c69509f8e"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/serviceReady-light-100-static.png",
+      "bytes": 14469,
+      "sha256": "3b4f7b57d1eda5aae7e6dd53caebba6c22e4a8d8b628f1e5880d6631c81f1bf4"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/signalHalftone-dark-100-console.png",
+      "bytes": 40836,
+      "sha256": "defb17c7a543fa29ba3164e503734e4986da49957ed8e3bd635ca37890587215"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/signalHalftone-dark-100-static.png",
+      "bytes": 18112,
+      "sha256": "36f68bc5e997114ecfa1a74d030dfd3b4887d07c5ec0643f11f8e09ef2d219c5"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/signalHalftone-dark-200-console.png",
+      "bytes": 26716,
+      "sha256": "e3f0e940144aa030c0190b6961bf6bb6c8880266191cc8a9959ca93557f9fa6c"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/signalHalftone-light-100-console.png",
+      "bytes": 40505,
+      "sha256": "dba04a71d37cb0f317d000af23e9bd0590ab25232ee666e66f82761df8965ce3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-28-52.077Z/signalHalftone-light-100-static.png",
+      "bytes": 18055,
+      "sha256": "32e88455132f41745ac3f0cedfc10e2e05b6f4daf59ecc756017d49932f2aad1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/blueprint-dark-200-console.png",
+      "bytes": 77239,
+      "sha256": "fb5459935dc6706b86798f9a821c2ff13f631b38db16d50ca615614cc141b1b3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/buildReceipt-dark-200-console.png",
+      "bytes": 77033,
+      "sha256": "59753dd909a553de4188089026b4cec8f3cd75d0ec3c997925425945af1819a1"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/commandCard-dark-200-console.png",
+      "bytes": 70314,
+      "sha256": "7e0d96544700bf2d04892b65d7fe69cccc8e29e3208e1aa530b244e01c70a7f3"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/contourMap-dark-200-console.png",
+      "bytes": 82660,
+      "sha256": "4391b0b604a14ac516eb828f2afdc33aa9d750ec7b88c52feccf97bdf99b9206"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/letterpress-dark-200-console.png",
+      "bytes": 78674,
+      "sha256": "5068445095af824411582c87dd7e3c11027f51b3580d9b06efd9f488db2ba279"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/observations.json",
+      "bytes": 71071,
+      "sha256": "a1bec34e0aca09857f51f80c0936f62d4ae021e756a3b4e4974b07ca3e73870b"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/orbital-dark-200-console.png",
+      "bytes": 97242,
+      "sha256": "5f01c0341ea188afcfd90346664be926c14b0b16bdeb3213878f47301ef3956a"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/releaseBulletin-dark-200-console.png",
+      "bytes": 85111,
+      "sha256": "60223f5381170c8c94ffca5ae675208ef9ac88fc839735fe0403daf00bf2b72f"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/requestTrace-dark-200-console.png",
+      "bytes": 76110,
+      "sha256": "d13d3b0f3b13c7c8e574b01f5e9e3c17589d6853fea69aec4c003e6124de8259"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/serviceReady-dark-200-console.png",
+      "bytes": 84357,
+      "sha256": "0eec6a931ce934a9cb722f707cf404828d73e7196ef4e43c7e01ed12d0d92fbf"
+    },
+    {
+      "path": "devtools/edge-lifecycle-2026-09-12T13-40-37.810Z/signalHalftone-dark-200-console.png",
+      "bytes": 84823,
+      "sha256": "7f1bbcf27d8998728a36aafe75d6752d542911f6586bf0c320a8c70bc4094b65"
+    },
+    {
+      "path": "cards/comparison/blueprint-actual.png",
+      "bytes": 13018,
+      "sha256": "2e7835b910703e168fe54f9538bf28329e0834d668c9244e246d741aa2a197be"
+    },
+    {
+      "path": "cards/comparison/blueprint-comparison.png",
+      "bytes": 15844,
+      "sha256": "922c0e17e67902d61d21932f02ac4b86697a0e6741b26b51134171c4ff5ebbe6"
+    },
+    {
+      "path": "cards/comparison/blueprint-reference.png",
+      "bytes": 13017,
+      "sha256": "fb06ef5f51ec921bb685374cee63e589b64181e02638daaf9b933e64e1c7100c"
+    },
+    {
+      "path": "cards/comparison/blueprint.svg",
+      "bytes": 2285,
+      "sha256": "f99e6ab7e9c77b6bb8ddb065c5f9ff41b6bf6409155a3e4aa8e2c8b3499fa505"
+    },
+    {
+      "path": "cards/comparison/buildReceipt-actual.png",
+      "bytes": 14279,
+      "sha256": "40379f9c4f6b5aa1d520066caf15647f7ed0b27f44bc53a9214ed6b50c9af9c8"
+    },
+    {
+      "path": "cards/comparison/buildReceipt-comparison.png",
+      "bytes": 17369,
+      "sha256": "d30fb6f741d10f0a5fb7010556e227ae2736505c8cc55b331e93894476885da7"
+    },
+    {
+      "path": "cards/comparison/buildReceipt-reference.png",
+      "bytes": 14279,
+      "sha256": "a1d5deb95f05cdacba49a75626fcd6f78c80b1d07ff61a4ed4d120997b40075c"
+    },
+    {
+      "path": "cards/comparison/buildReceipt.svg",
+      "bytes": 4628,
+      "sha256": "93535b3467899a331a992b00511fb47370aab9a294052a22c9a7a34f4ec0e416"
+    },
+    {
+      "path": "cards/comparison/commandCard-actual.png",
+      "bytes": 11672,
+      "sha256": "7c6d70aac8a3c82de761a849868a6723756b1abc6288b9263d3a6a26acd57d75"
+    },
+    {
+      "path": "cards/comparison/commandCard-comparison.png",
+      "bytes": 13742,
+      "sha256": "d6841fc6f4880ff923f037a633e15bbc669d7fde2f6c2f1a9f2493cc0634f65c"
+    },
+    {
+      "path": "cards/comparison/commandCard-reference.png",
+      "bytes": 11667,
+      "sha256": "4df4af51e9216a521295bc90c254bafed9da889cbe1384de997293f0b8988fa7"
+    },
+    {
+      "path": "cards/comparison/commandCard.svg",
+      "bytes": 1960,
+      "sha256": "3e9de6c2ecdd5a09103e71796386a7f6f24d0ecb7f1c514dc8ae5cb40527df49"
+    },
+    {
+      "path": "cards/comparison/contourMap-actual.png",
+      "bytes": 13940,
+      "sha256": "d25fd96c196dbb065e3db484c1a0dd686b3e1953eb91d304d1d4f18e16c11980"
+    },
+    {
+      "path": "cards/comparison/contourMap-comparison.png",
+      "bytes": 17145,
+      "sha256": "6c58eab8a3c367d5be1925684b2e6f40977904d0dc3156122e8d4cacb08ad780"
+    },
+    {
+      "path": "cards/comparison/contourMap-reference.png",
+      "bytes": 13964,
+      "sha256": "18cb6090b5fbc3000be1b574b4513bd8bab260382069dfbba50691f696e0ed12"
+    },
+    {
+      "path": "cards/comparison/contourMap.svg",
+      "bytes": 2947,
+      "sha256": "57d265f9c8b83075120ed5128728dc22a6455d70d4eb0fbac9cef37597592688"
+    },
+    {
+      "path": "cards/comparison/letterpress-actual.png",
+      "bytes": 17133,
+      "sha256": "8c937d015a1d0587940d8b9d6dbaf150f14dc4a583e28d68241aa3aff8494684"
+    },
+    {
+      "path": "cards/comparison/letterpress-comparison.png",
+      "bytes": 19573,
+      "sha256": "87471c18c4a1dfc3a62ab5763cd32eacea0b8f6a5d5c9f385495af22581751ee"
+    },
+    {
+      "path": "cards/comparison/letterpress-reference.png",
+      "bytes": 17128,
+      "sha256": "3633f55551e781621ebccf2eaf42ea130110005adf90a14e78433d214c1803ed"
+    },
+    {
+      "path": "cards/comparison/letterpress.svg",
+      "bytes": 1744,
+      "sha256": "7cc614c461f2fa870dd4d3abc9f758c9f9f0a6e9035322a32977fb722b64686c"
+    },
+    {
+      "path": "cards/comparison/orbital-actual.png",
+      "bytes": 20893,
+      "sha256": "c61904896d442c983547ba3a8f1421c00e99e49eacc96afd4b2d1c9fedbb74b9"
+    },
+    {
+      "path": "cards/comparison/orbital-comparison.png",
+      "bytes": 24104,
+      "sha256": "301d40edb34852b2ad62ad75b5a7b169a6d9faf046121ad9aa6f324c9fcafda2"
+    },
+    {
+      "path": "cards/comparison/orbital-reference.png",
+      "bytes": 20888,
+      "sha256": "8ab125abb9da6bfdd679d7edefc486d94e662361f6c1bd58cf117a45712c3db5"
+    },
+    {
+      "path": "cards/comparison/orbital.svg",
+      "bytes": 1926,
+      "sha256": "d9b3feb011b209a0819aa9107edbeddf9f69cfdfba3374038b8eda88ea00bc04"
+    },
+    {
+      "path": "cards/comparison/raster-differences.json",
+      "bytes": 2795,
+      "sha256": "29e6e4a19e88f2de17f6218406782cee8cf01b7b2af95f4c4ffb04701404ba42"
+    },
+    {
+      "path": "cards/comparison/receipt.json",
+      "bytes": 54082,
+      "sha256": "fdc7eb2cfb3377a0e2e7675045b77e74e6167d227c7527f86a5d3d70fa448fab"
+    },
+    {
+      "path": "cards/comparison/releaseBulletin-actual.png",
+      "bytes": 14815,
+      "sha256": "1a703da35dd412641c43ab291a7b58ffdaf61839503a9b5de039eb1e79d223ed"
+    },
+    {
+      "path": "cards/comparison/releaseBulletin-comparison.png",
+      "bytes": 17036,
+      "sha256": "db748f7520c2c1413bc1c23fd9312dd789bfff8b66868089f79cdc7877af7640"
+    },
+    {
+      "path": "cards/comparison/releaseBulletin-reference.png",
+      "bytes": 14815,
+      "sha256": "6d979c7ba168e98de79a67db07245d39104764ba71383e3031ca5fdd5511e920"
+    },
+    {
+      "path": "cards/comparison/releaseBulletin.svg",
+      "bytes": 2286,
+      "sha256": "3ed364e85bd55ff535605ddb93c0c52c1895f9b78303582c727e6d0cc9cc219d"
+    },
+    {
+      "path": "cards/comparison/requestTrace-actual.png",
+      "bytes": 13987,
+      "sha256": "2f45447c055387bebaf87a4982a5cfd6a0296518db2ca2064dfc48df7434d79c"
+    },
+    {
+      "path": "cards/comparison/requestTrace-comparison.png",
+      "bytes": 17003,
+      "sha256": "b3f1b65db62b5c321df3ce449b2675f099f8c8fa5086e9e0b7992c3f800f98b8"
+    },
+    {
+      "path": "cards/comparison/requestTrace-reference.png",
+      "bytes": 13972,
+      "sha256": "f6064e042d7cc6394c67ab177c4f2957fe6ae861637184d3bdb4c373789278fe"
+    },
+    {
+      "path": "cards/comparison/requestTrace.svg",
+      "bytes": 3558,
+      "sha256": "9a021256f9be13382bc8746e721c1d7e1f215e6aa2d5ec8954f7c4c1f6a954cb"
+    },
+    {
+      "path": "cards/comparison/serviceReady-actual.png",
+      "bytes": 14587,
+      "sha256": "96f8fc29c666cf63c4d57a983c9c400069c620067564cfdd4d7f67f471d74d9f"
+    },
+    {
+      "path": "cards/comparison/serviceReady-comparison.png",
+      "bytes": 17022,
+      "sha256": "882e6bcc547a2bfb3dd7a2fb8431346e00f43d6e175833aa9f3fd773fcdb9754"
+    },
+    {
+      "path": "cards/comparison/serviceReady-reference.png",
+      "bytes": 14581,
+      "sha256": "32a5a77b632e3f5d57e9d2d7b69ad2e84bc7146503c7209c4446d2b97023c5b2"
+    },
+    {
+      "path": "cards/comparison/serviceReady.svg",
+      "bytes": 3279,
+      "sha256": "eb684bfa5b508ff657a5d02a1bfa35383143e61b9057dc7085e9ecd824fd61cd"
+    },
+    {
+      "path": "cards/comparison/signalHalftone-actual.png",
+      "bytes": 18024,
+      "sha256": "2cf56a81e47ff3c18c4e659997253899222f407c3fbe10aef0e36170585cc3d0"
+    },
+    {
+      "path": "cards/comparison/signalHalftone-comparison.png",
+      "bytes": 21458,
+      "sha256": "162076dcbfbc0cb6df6ba0a464fde53dc0d3aefda02671b664683916973bc55d"
+    },
+    {
+      "path": "cards/comparison/signalHalftone-reference.png",
+      "bytes": 18003,
+      "sha256": "c0905857476a573fbb66605782c0aeb157477223d31e56d3624507aa108fce45"
+    },
+    {
+      "path": "cards/comparison/signalHalftone.svg",
+      "bytes": 1819,
+      "sha256": "eb79c206769af025f49674a31b1178f302259451297fbce5def3bad42380fc90"
+    },
+    {
+      "path": "cards/font-boundary-check.json",
+      "bytes": 1633999,
+      "sha256": "998ea884802ead7de229c0ba8c549f3ce75a479af9c767800c12fa12bd6ce08e"
+    },
+    {
+      "path": "cards/serif-overflow-reproduction.json",
+      "bytes": 567,
+      "sha256": "440942e77f2dbfeb805685b9116dc9c90d32cf10f8c349ba6adf95ae9f3bfea5"
+    },
+    {
+      "path": "cards/native-reconciliation.json",
+      "bytes": 46740,
+      "sha256": "d63b366b5274a0fc516872404552823179a7aca8eec76242c3062530b83bdd8e"
+    },
+    {
+      "path": "cards/fixture-generation.json",
+      "bytes": 2597,
+      "sha256": "13fa7c06094e50cbfcd3a3d5f6ea79d5803bcff25126d5b0a1ab8b8ada31bd0f"
+    },
+    {
+      "path": "cards/reconcile.mjs",
+      "bytes": 2900,
+      "sha256": "a0ab1ca09f8eddc563e8a34eeadf9eeeb64d0413c9fceac793b8e26e5927d86f"
+    }
+  ]
+}
