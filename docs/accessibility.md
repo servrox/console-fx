@@ -2,7 +2,7 @@
 
 The target is WCAG 2.2 AA under [ADR-0011](adrs/0011-adopt-an-explicit-accessibility-baseline.md).
 The implementation is a release candidate; this document does not claim completed
-conformance. Manual screen-reader/browser and native zoom evidence remain pending.
+conformance. Representative screen-reader/browser evidence remains pending.
 
 ## Completed local observations
 
@@ -19,10 +19,19 @@ viewport. Each measured 305 pixels of document width inside the 320-pixel window
 with its scrollbar, without horizontal page overflow. The [receipt and captures](evidence/accessibility/2026-09-11/receipt.json)
 record visual inspection of the editor labels, preview/export controls and reset
 dialog at that width. Controls remained readable without overlapping or hidden
-actions in those captured states. This checks reflow width;
-it does not substitute for a real browser zoom observation. Attempts to trigger
-native zoom through the automation interface did not change the measured scale
-and are not counted as a pass.
+actions in those captured states.
+
+A separate [native zoom receipt](evidence/accessibility/2026-09-11/native-zoom.json)
+records Chrome's actual 200% and 400% browser zoom on the same studio artifact.
+The native browser menu changed the 1280-pixel window to 640 and 320 CSS pixels,
+with device-pixel ratios of 2 and 4. All three routes stayed within the page width.
+Eight unaltered viewport captures were visually inspected. At 400%, keyboard
+editing remained usable with visible focus; the reset dialog scrolled vertically,
+both actions were reachable, and Escape preserved the message and returned focus
+to Reset. The dedicated test browser was restored to 100%. This sampled observation
+does not establish screen-reader behavior or complete conformance. Earlier keyboard
+zoom attempts that did not change scale and clipped automation screenshots are
+excluded from passing evidence.
 
 Static previews are the default. An explicit Play action stays static when the
 browser reports reduced motion. A separate page-image check observed Play and

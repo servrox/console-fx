@@ -1,0 +1,61 @@
+{
+  "recordedAt": "2026-09-11T17:24:41.954996+00:00",
+  "scope": "Prepared manual npm OIDC workflow and verification helper; no package publication or trust/environment configuration performed.",
+  "tests": {
+    "command": "pnpm run test:release",
+    "passed": 7,
+    "scope": "CI/source/artifact identity and package-byte tampering, with owned temporary fixtures"
+  },
+  "actualCandidateCheck": {
+    "command": "node scripts/verify-release.mjs artifacts",
+    "result": "pass",
+    "coreSha256": "5740c25432bf5e88abf6c0b65560383a6daeeb27694a59c85432b680c20350e1",
+    "reactSha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a"
+  },
+  "staticChecks": {
+    "actionlint": "1.7.12, both workflows pass",
+    "eslint": "changed JavaScript passes",
+    "prettier": "changed code/workflows pass"
+  },
+  "githubApi": "2026-03-10; required workflow-run artifact metadata observed on official actions/download-artifact artifact",
+  "downloadAction": {
+    "version": "v8.0.1",
+    "commit": "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+  },
+  "approvalOrder": "Read-only verification first, npm-publish environment approval second, downloaded bytes rechecked before OIDC publication.",
+  "files": [
+    {
+      "path": ".github/workflows/publish.yml",
+      "sha256": "dab79fe741ef0e89f8ea61d8935673836aa340f94bf54f2bab2c687ceca7a92f"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "de2521d8e142c2d5dec40a4ad58f6a8b6a6f25b8dbd92036def94f4773c370ea"
+    },
+    {
+      "path": "scripts/verify-release.mjs",
+      "sha256": "9c8f6adf0c3a066f75633c5a5c2ee9d71dd7271f5e5f3aec541e7b163abe35cc"
+    },
+    {
+      "path": "tests/release-artifacts.test.js",
+      "sha256": "a3d42f41cf1f47ebd4688a84670fbd89322ca5c22990c2eddd7d30b137b9e7fd"
+    },
+    {
+      "path": "package.json",
+      "sha256": "0a52786130158e691af307308529446d567026bd97d2f77e5617737d661b3fed"
+    },
+    {
+      "path": "examples/vanilla/check.mjs",
+      "sha256": "b6aa84059ebe00ab5e8240085cc97a9e4fd088e656a67780776210f79d3a4c81"
+    }
+  ],
+  "remaining": [
+    "Review and commit this addendum",
+    "CI on the final source",
+    "Representative screen-reader/browser results",
+    "First-publication approval and bootstrap",
+    "Approved protected environment and per-package trusted publisher setup",
+    "OIDC execution and registry consumer verification",
+    "Public studio promotion authority"
+  ]
+}

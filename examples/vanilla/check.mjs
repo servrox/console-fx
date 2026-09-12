@@ -19,7 +19,10 @@ assert.equal(compiled.preview.lines[0].runs[0].text, scene.label);
 assert.match(exportConsoleLog(scene, options).code, /^console\.log\(/);
 assert(Object.isFrozen(getEffectDescriptors()[0].parameters));
 await assert.rejects(import("@servrox/console-fx/dist/index.js"), {
-  code: "ERR_PACKAGE_PATH_NOT_EXPORTED",
+  // Both runtimes reject private exports, using different error codes.
+  code: process.versions.bun
+    ? "ERR_MODULE_NOT_FOUND"
+    : "ERR_PACKAGE_PATH_NOT_EXPORTED",
 });
 assert(
   !import.meta.resolve("@servrox/console-fx").includes("/packages/console-fx/"),

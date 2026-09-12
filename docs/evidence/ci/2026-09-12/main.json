@@ -1,0 +1,116 @@
+{
+  "recordedAt": "2026-09-12T08:58:14.795736+00:00",
+  "stage": "CI",
+  "status": "verified",
+  "owner": "ConsoleFX maintainer",
+  "obligation": "Validate the merged approved source on main and reconcile the produced package bytes with the qualified candidate.",
+  "source": {
+    "repository": "servrox/console-fx",
+    "pullRequest": "https://github.com/servrox/console-fx/pull/1",
+    "pullRequestState": "merged",
+    "mergedAt": "2026-09-12T08:52:52Z",
+    "commit": "347e7cea6196f9995e7c25b3ee1a5e209e24b02c",
+    "treeSha": "2f6b8cdd13899f7dc73c268a758009d1b20567e1",
+    "approvedSnapshotSha256": "89b267022e830c751316ac58ce75f4211373e483e8dc75671bee6dfad0ddea4c",
+    "identityCheck": "GitHub returned the same tree as the earlier approved head and successful PR merge build; the local frozen source hashes were rechecked."
+  },
+  "run": {
+    "id": 34684403898,
+    "head_sha": "347e7cea6196f9995e7c25b3ee1a5e209e24b02c",
+    "head_branch": "main",
+    "path": ".github/workflows/validate.yml",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/servrox/console-fx/actions/runs/34684403898",
+    "created_at": "2026-09-12T08:52:54Z",
+    "updated_at": "2026-09-12T08:54:16Z",
+    "repository": {
+      "full_name": "servrox/console-fx"
+    }
+  },
+  "checks": {
+    "build": "passed",
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "unitTests": 101,
+    "studioJourneys": 16,
+    "packedNextBrowserJourneys": 1,
+    "packageInspection": "passed",
+    "isolatedConsumers": [
+      "javascript",
+      "typescript",
+      "react-ssr-lifecycle",
+      "next-production-build",
+      "next-browser-lifecycle"
+    ],
+    "browserBundles": [
+      {
+        "renderer": "css",
+        "gzipBytes": 7201,
+        "budgetBytes": 10240
+      },
+      {
+        "renderer": "svg",
+        "gzipBytes": 7201,
+        "budgetBytes": 25600
+      }
+    ]
+  },
+  "artifact": {
+    "id": 10294719007,
+    "name": "console-fx-candidate-347e7cea6196f9995e7c25b3ee1a5e209e24b02c",
+    "digestReportedByGitHub": "sha256:d75a930875ff0e25f8e2c4f35a34aeab9ae2b3816cca80021b9d10e5088325e8",
+    "sizeBytes": 1496545,
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.1.0",
+        "sha256": "5740c25432bf5e88abf6c0b65560383a6daeeb27694a59c85432b680c20350e1"
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.1.0",
+        "sha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a"
+      }
+    ],
+    "tarballsMatchQualifiedLocalBytes": true,
+    "lockSha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497",
+    "studio": {
+      "filesVerified": 36,
+      "fingerprint": "9532970b2144e0c166eeda4f36adf1a7f31fc661d0fe77dee663dc0dc8d269b3",
+      "configSha256": "658ff2639dc0726614aaaddf1dc5c9f052c5b9831b8cf0f16e83628e3155f88d",
+      "protectedPreviewFingerprint": "0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1",
+      "sameBytesAsProtectedPreview": false,
+      "deployment": "not deployed"
+    }
+  },
+  "localEvidence": {
+    "directory": ".artifacts/ci/34684403898/",
+    "logSha256": "6ca16c03619c3acd2dcc2ca035bdd138ebba650412988f91cdfde78678e42536",
+    "receiptHashes": {
+      ".artifacts/packages/candidate.json": "7a7872015e084ced7c902336af551490c0cb59a4e6201b1f801b2451fd12ae63",
+      ".artifacts/packages/consumers.json": "6a0f46c4805a4f5888b8175c4dfcd7e51e9bced3ecee26b6802d5b8d76953a10",
+      ".artifacts/packages/bundles.json": "e06030928ca3b7e164a6cfb10772ade335d91c1bd3936bd76c412f80e8faa2b6",
+      ".artifacts/deployment/candidate.json": "6a22e632b9b57661ad34a2b68252f28eb8ad49ea22202fdf8adb2a45b595f736"
+    }
+  },
+  "limitations": [
+    "This main run covers the original approved source. The later release workflow, Bun fixture and evidence addendum were not merged and need their own final CI.",
+    "The static studio is a separate CI rebuild. It has not replaced the qualified protected preview.",
+    "Native DevTools and representative screen-reader checks remain separate evidence stages.",
+    "No publication, registry consumer installation, npm trusted publisher, GitHub publishing environment or public promotion is established."
+  ],
+  "invalidators": [
+    "Changes to the relevant source, lockfile, toolchain, workflow, fixture or artifact invalidate affected proof.",
+    "A later main commit must use its own successful validation and artifact identity for the prepared release workflow."
+  ],
+  "environment": {
+    "host": "GitHub-hosted ubuntu-24.04",
+    "node": "24.20.0",
+    "pnpm": "12.3.4",
+    "workflowSha256": "bd56650746a5eebcfd9fe570098f3a8dab83b2f56f463699799f5719b036ec4b",
+    "harness": "Pinned build, Vitest, production Playwright studio, package inspection and isolated consumer scripts from the recorded source tree."
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "before": {
+    "width": 1280,
+    "height": 899,
+    "devicePixelRatio": 1,
+    "documentWidth": 1265
+  },
+  "method": "Native Chrome menu UI Automation Zoom In; measured devicePixelRatio and layout viewport",
+  "rows": [
+    {
+      "percent": 200,
+      "path": "/studio/",
+      "width": 640,
+      "height": 449,
+      "devicePixelRatio": 2,
+      "documentWidth": 632,
+      "screenshot": "native-viewport-200-studio.png"
+    },
+    {
+      "percent": 200,
+      "path": "/",
+      "width": 640,
+      "height": 449,
+      "devicePixelRatio": 2,
+      "documentWidth": 632,
+      "screenshot": "native-viewport-200-landing.png"
+    },
+    {
+      "percent": 200,
+      "path": "/docs/",
+      "width": 640,
+      "height": 449,
+      "devicePixelRatio": 2,
+      "documentWidth": 632,
+      "screenshot": "native-viewport-200-docs.png"
+    },
+    {
+      "percent": 400,
+      "path": "/studio/",
+      "width": 320,
+      "height": 224,
+      "devicePixelRatio": 4,
+      "documentWidth": 316,
+      "screenshot": "native-viewport-400-studio.png"
+    },
+    {
+      "percent": 400,
+      "path": "/",
+      "width": 320,
+      "height": 224,
+      "devicePixelRatio": 4,
+      "documentWidth": 316,
+      "screenshot": "native-viewport-400-landing.png"
+    },
+    {
+      "percent": 400,
+      "path": "/docs/",
+      "width": 320,
+      "height": 224,
+      "devicePixelRatio": 4,
+      "documentWidth": 316,
+      "screenshot": "native-viewport-400-docs.png"
+    },
+    {
+      "journey": "400% keyboard edit and reset cancellation",
+      "message": "Native zoom review",
+      "focusBefore": {
+        "text": "Keep current scene",
+        "insideDialog": true
+      },
+      "focusAfter": {
+        "text": "Reset scene",
+        "insideDialog": true
+      },
+      "focusReturned": true
+    }
+  ],
+  "recordedAt": "2026-09-11T16:38:35.295156+00:00",
+  "artifactFingerprint": "0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1",
+  "url": "http://127.0.0.1:4175/studio/",
+  "operatingSystem": "Windows 11 25H2 build 26220.9223",
+  "browser": "Chrome for Testing 153.0.8010.36",
+  "physicalViewport": {
+    "width": 1280,
+    "height": 899
+  },
+  "restored": {
+    "width": 1280,
+    "height": 899,
+    "devicePixelRatio": 1,
+    "documentWidth": 1265
+  },
+  "captureMethod": "CDP Page.captureScreenshot without a CSS viewport clip; raw 1280 by 899 pixel PNGs",
+  "review": "Agent visually inspected all eight unaltered captures. Route headings/navigation reflowed without horizontal page overflow at 200% and 400%. At 400%, the message remained editable with a visible focus ring; the reset dialog scrolled vertically and exposed both actions. Tab moved between dialog actions, Escape canceled, focus returned to Reset, and edited text survived.",
+  "limitations": [
+    "This is a sampled native zoom and keyboard observation, not a screen-reader check or a complete WCAG conformance audit.",
+    "At 400%, only part of the content fits vertically; normal page and dialog scrolling is required.",
+    "Earlier keyboard zoom attempts did not change scale; earlier Playwright screenshots were clipped. Neither is counted as passing visual evidence."
+  ],
+  "files": [
+    {
+      "path": "native-viewport-200-docs.png",
+      "sha256": "a89f8204edbba06f724d8b18e4d8ad72b4daed19b3d1cdf8d5098a2fed8c974e",
+      "bytes": 86855
+    },
+    {
+      "path": "native-viewport-200-landing.png",
+      "sha256": "dfd9160f710fb7d7715a4deaf3b70eb47eb98496b57d123682afc668ca5f64a2",
+      "bytes": 88834
+    },
+    {
+      "path": "native-viewport-200-studio.png",
+      "sha256": "6194727483087fc0d16f725c5343fc078748a077017b3250f1c8c871234124dd",
+      "bytes": 54856
+    },
+    {
+      "path": "native-viewport-400-dialog.png",
+      "sha256": "3d771310699a75092c6e1ddabd3974bf7195810306c04b8546509b3d0a2bf4ec",
+      "bytes": 75651
+    },
+    {
+      "path": "native-viewport-400-docs.png",
+      "sha256": "90c62414d840bc94b5dd7a8ee237589389e5e618ae95dab2d66db3fd051a5c6a",
+      "bytes": 50676
+    },
+    {
+      "path": "native-viewport-400-edit.png",
+      "sha256": "e13015260f973c74a9d600068f13803ae94265f3db42b1b6842ec2cbb58fb05e",
+      "bytes": 44721
+    },
+    {
+      "path": "native-viewport-400-landing.png",
+      "sha256": "4f76c45594dfae64f950abe13200e19710c3dcc7c39f822c5d30b9f37b20a951",
+      "bytes": 61708
+    },
+    {
+      "path": "native-viewport-400-studio.png",
+      "sha256": "7eaf38ea81bba8edd7d781cbfdd357426a92d7b47b35e2815427483f3a8bf03e",
+      "bytes": 57433
+    }
+  ]
+}
