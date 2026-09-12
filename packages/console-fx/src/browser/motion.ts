@@ -1,5 +1,5 @@
-// Both adapters own the same positive-only preference contract. Keep the
-// explicit source representation here; never evaluate or stringify runtime code.
+// Both adapters require positive no-preference. Helpers additionally recover
+// from host errors; standalone source preserves the spec's no-IIFE grammar.
 const query = "(prefers-reduced-motion: no-preference)";
 
 export function resolveMotion(): "allow" | "reduce" {
@@ -15,5 +15,5 @@ export function resolveMotion(): "allow" | "reduce" {
 
 /** Read-only, self-contained guard used only when both motion branches exist. */
 export function motionGuardSource(): string {
-  return `(() => { try { return typeof globalThis.matchMedia === "function" && globalThis.matchMedia(${JSON.stringify(query)})?.matches === true; } catch { return false; } })()`;
+  return `typeof globalThis.matchMedia === "function" && globalThis.matchMedia(${JSON.stringify(query)})?.matches === true`;
 }

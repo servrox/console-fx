@@ -164,8 +164,8 @@ describe("standalone code generation", () => {
       false,
     ],
   ] as const)(
-    "keeps direct and standalone motion selection identical for %s preferences",
-    (_name, descriptor, animated) => {
+    "preserves the documented adapter behavior for %s preferences",
+    (name, descriptor, animated) => {
       const scene = rainbow({ motion: "gradientDrift" });
       const options = {
         target: "chromium",
@@ -183,13 +183,27 @@ describe("standalone code generation", () => {
       const context = Object.defineProperty(
         { console: { log: (...args: unknown[]) => standalone.push(args) } },
         "matchMedia",
-        descriptor,
+        { configurable: true, ...descriptor },
       );
       const exported = exportConsoleLog(scene, options);
-      runInNewContext(exported.code, context, {
-        timeout: 1000,
-        contextCodeGeneration: { strings: false, wasm: false },
-      });
+      const setup =
+        name === "throwing method getter"
+          ? 'Object.defineProperty(globalThis, "matchMedia", { configurable: true, get() { throw new Error("unavailable"); } });\n'
+          : "";
+      const execute = () =>
+        runInNewContext(setup + exported.code, context, {
+          timeout: 1000,
+          contextCodeGeneration: { strings: false, wasm: false },
+        });
+      if (name.startsWith("throwing")) {
+        expect(execute).toThrow("unavailable");
+        expect(standalone).toEqual([]);
+        expect(direct).toEqual([
+          compileConsole(scene, { ...options, motion: "reduce" }).args,
+        ]);
+        return;
+      }
+      execute();
       expect(standalone).toEqual(direct);
       expect(standalone).toEqual([
         compileConsole(scene, {
