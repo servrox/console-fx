@@ -6,6 +6,7 @@ import { ExampleGallery } from "./gallery";
 import { UseCaseComparison } from "./use-case-comparison";
 import { Workbench } from "./workbench";
 import { packageExample } from "./recipes";
+import { UsageVideo } from "./usage-video";
 
 export function LandingPage() {
   return (
@@ -47,6 +48,7 @@ export function LandingPage() {
             </div>
             <QuickDemo />
           </section>
+          <UsageVideo />
           <ExampleGallery />
           <section
             className="use-cases"

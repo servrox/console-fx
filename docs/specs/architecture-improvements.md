@@ -68,3 +68,8 @@ permissions and temporary files rather than an invented filesystem adapter.
 
 The [implementation evidence](architecture-improvements-evidence.md) records the
 final source, local, CI and package observations separately.
+
+The subsequent request for repeated review produced zero remaining architecture
+findings after the recorded corrections. The separately requested
+[usage video](usage-video-evidence.md) received its own Standards/Spec review;
+both recorder cleanup findings were corrected and re-reviewed to zero findings.
