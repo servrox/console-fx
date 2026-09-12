@@ -1,0 +1,494 @@
+{
+  "capturedAt": "2026-09-12T20:11:11.044755+00:00",
+  "source": {
+    "baselineCommit": "3316574868716ac673e1e3ba73e9da272aaa9c30",
+    "branch": "feat/console-fx-launch-polish",
+    "files": [
+      {
+        "path": "apps/studio/src/features/editor/fit-inspector.tsx",
+        "sha256": "18497c1e686acb7142c58a4fbb6e4cec8e173e61af081ac40623734a0ec9fb91"
+      },
+      {
+        "path": "apps/studio/src/features/editor/studio.tsx",
+        "sha256": "5b1aecb283b86f55fc61c0c1d333a87cabc041bb9033bc4e05cc530ecdf748eb"
+      },
+      {
+        "path": "apps/studio/src/features/editor/use-preview-width.ts",
+        "sha256": "dc291a79deafc4a9810bda895e530acd90780da9226d4dd7aec97f2bc099109a"
+      },
+      {
+        "path": "package.json",
+        "sha256": "f904b71d5308ca5a8f0e5075e78f8dd49598e3fae1b7b1c44080ed7a702d8c2c"
+      },
+      {
+        "path": "packages/console-fx/src/browser/preflight.ts",
+        "sha256": "32df939b20a791d38a24dbbf10c16060e80996b260b935d88dbbce8ce58f8adf"
+      },
+      {
+        "path": "packages/console-fx/src/layout/metrics.ts",
+        "sha256": "a11aaa72483f58e34d28cbb9daa0e00dcbdc87645c7aa11b390a618e1e6e3292"
+      },
+      {
+        "path": "packages/console-fx/src/layout/planner.ts",
+        "sha256": "9b54e0321a5866d4e63f69450fd487db62dacc196a237c8dad0974fc97b418d0"
+      },
+      {
+        "path": "packages/console-fx/src/layout/wrap.ts",
+        "sha256": "5131cc67de83a11d7ae96e5dc6ec63a1eeff6be4aa86cd68253b43ff6a3f9bbb"
+      },
+      {
+        "path": "packages/console-fx/test/fitting.test.ts",
+        "sha256": "f4497f091ed550dbcbdcb3ec6ae6d56583cc15969fe0c1c11a63afeb5a500c4f"
+      },
+      {
+        "path": "playwright.config.ts",
+        "sha256": "45b56d48219b4f1d79e0872009da8d3ff26f8e14375b356aec084968f1ea9d3c"
+      },
+      {
+        "path": "scripts/check-consumers.mjs",
+        "sha256": "181f44ce317ba72943c08510a6c9569266843ea91cdc3d0351f767b3a69b0b38"
+      },
+      {
+        "path": "scripts/verify-release.mjs",
+        "sha256": "35f5258015c692f71675ed0a9495435e3cc80bc59cbedd73f8c3e5a60748831c"
+      },
+      {
+        "path": "tests/release-artifacts.test.js",
+        "sha256": "241c58d21faf1a9637bed35368627326ecc36f4c99ecfe15822e8fb32062f920"
+      },
+      {
+        "path": "tests/studio/cards.spec.ts",
+        "sha256": "0502d941d1c50c884d13463802c19bf242fe4db692b2dad54d2392908055b1cc"
+      },
+      {
+        "path": "tests/studio/cinematic.spec.ts",
+        "sha256": "d8bd644ce4ac2893e0ab11f79cf8379840b558f4691847326924a5c3de5f98ca"
+      },
+      {
+        "path": "tests/studio/editor.spec.ts",
+        "sha256": "5b96704d1ebbf340730468f6ae29180a5e123fba8a42c611d7b3f6722f56debf"
+      },
+      {
+        "path": "tests/studio/fixtures.ts",
+        "sha256": "f004485e19bfad2760f92e76d1a5c83e809345279e7119f039817c67a970a09e"
+      },
+      {
+        "path": "tests/studio/improvements.spec.ts",
+        "sha256": "9d0b5aaf060cf4dc29311ebe217cfe8273cc62d4ec15629f61ef64379f1c0ac4"
+      },
+      {
+        "path": "tests/studio/website.spec.ts",
+        "sha256": "db33e868158bf0b68c03693c0fcfb4acc08f1a1a7f9e841d1668dd32bc7f8d46"
+      }
+    ],
+    "fingerprintMethod": "SHA256 of compact JSON for the sorted changed implementation files",
+    "fingerprint": "7fe7b7a6df213c320f1aed0ba486243792e80118670bbe2053e248c0852339ad"
+  },
+  "archive": {
+    "path": "observations.tar.gz",
+    "bytes": 448160,
+    "sha256": "d0f2c2e03ef06172dbbe4a50566570f4b6195404ab1c80d4f29bd6fcd04021a9"
+  },
+  "files": [
+    {
+      "path": "compare-output.mjs",
+      "bytes": 3046,
+      "sha256": "6f9a16a12dd3b46e6bc738455e0c684676b4685afdbbde58ce84385ab6f0dd66"
+    },
+    {
+      "path": "final-ui.json",
+      "bytes": 798,
+      "sha256": "61a82e2b26bd4e9f0cb6f72342317cd816f9bdde49bf89a1da8c79691ecbb9c4"
+    },
+    {
+      "path": "fixtures/fixture.js",
+      "bytes": 1296,
+      "sha256": "4af80835dded3c3803a06f06ebac8e4779e1ecd5c8148834a9dd0fc461af1c0f"
+    },
+    {
+      "path": "fixtures/fixtures.json",
+      "bytes": 63776,
+      "sha256": "a8fca55e470e6942415ec7c3f4792d31d23e6bd67471cea51d7bd3641212c8e2"
+    },
+    {
+      "path": "fixtures/index.html",
+      "bytes": 1111,
+      "sha256": "864dd7bd826edbd6e320f2df41f69e9212e417c4e35f099859fbeb6d4ed850a2"
+    },
+    {
+      "path": "native-chrome-target.json",
+      "bytes": 413,
+      "sha256": "2af47701d4ae8cc4b5b1e71621770ba3c7d128cdadeb9fface5473ee65c46af7"
+    },
+    {
+      "path": "native-edge-target.json",
+      "bytes": 423,
+      "sha256": "c27c0a21525131744b2c2c1c93a7fad617bbe5de43eaf0bdeef228266ee63a6e"
+    },
+    {
+      "path": "native/chrome/improve-no-break-single-130-console.png",
+      "bytes": 24128,
+      "sha256": "7d69998aadf0da455e0f9aeee40c24decae582f3e52a4d8584a297b9119239c5"
+    },
+    {
+      "path": "native/chrome/improve-no-break-single-130-static.png",
+      "bytes": 1039,
+      "sha256": "12f4305788f47eacba2d4c698a3963edd4935feffa7565bc96b6386b88bf206d"
+    },
+    {
+      "path": "native/chrome/improve-no-break-single-70-console.png",
+      "bytes": 22988,
+      "sha256": "7d707913c468493ddc71188a6dbfe2801aac9bb958bc4813b7a1e7fe3f2d6846"
+    },
+    {
+      "path": "native/chrome/improve-no-break-styled-130-console.png",
+      "bytes": 24136,
+      "sha256": "5a217df68bd6d36523e97b4e3f18c3d9b2562c364f3976f3beded4483c5226d9"
+    },
+    {
+      "path": "native/chrome/improve-no-break-styled-130-static.png",
+      "bytes": 1043,
+      "sha256": "60219f7e12901f5850dd4df1a136389f608a8c8b1c52ba5271ab908dce58e34c"
+    },
+    {
+      "path": "native/chrome/improve-no-break-styled-70-console.png",
+      "bytes": 22988,
+      "sha256": "7d707913c468493ddc71188a6dbfe2801aac9bb958bc4813b7a1e7fe3f2d6846"
+    },
+    {
+      "path": "native/chrome/improve-word-joiner-single-130-console.png",
+      "bytes": 24128,
+      "sha256": "7d69998aadf0da455e0f9aeee40c24decae582f3e52a4d8584a297b9119239c5"
+    },
+    {
+      "path": "native/chrome/improve-word-joiner-single-130-static.png",
+      "bytes": 1039,
+      "sha256": "12f4305788f47eacba2d4c698a3963edd4935feffa7565bc96b6386b88bf206d"
+    },
+    {
+      "path": "native/chrome/improve-word-joiner-single-70-console.png",
+      "bytes": 22988,
+      "sha256": "7d707913c468493ddc71188a6dbfe2801aac9bb958bc4813b7a1e7fe3f2d6846"
+    },
+    {
+      "path": "native/chrome/improve-word-joiner-styled-130-console.png",
+      "bytes": 24136,
+      "sha256": "5a217df68bd6d36523e97b4e3f18c3d9b2562c364f3976f3beded4483c5226d9"
+    },
+    {
+      "path": "native/chrome/improve-word-joiner-styled-130-static.png",
+      "bytes": 1043,
+      "sha256": "60219f7e12901f5850dd4df1a136389f608a8c8b1c52ba5271ab908dce58e34c"
+    },
+    {
+      "path": "native/chrome/improve-word-joiner-styled-70-console.png",
+      "bytes": 22988,
+      "sha256": "7d707913c468493ddc71188a6dbfe2801aac9bb958bc4813b7a1e7fe3f2d6846"
+    },
+    {
+      "path": "native/chrome/observations.json",
+      "bytes": 13222,
+      "sha256": "f5f46c5f99ca7902a92bc6870a586c4ed56d3909a4e6689081595579c038e294"
+    },
+    {
+      "path": "native/edge/improve-no-break-single-130-console.png",
+      "bytes": 20269,
+      "sha256": "d1a2f2128795ceaf09ae78dd470ee44a9a4e039fc01be87a82ff9e351763dbc4"
+    },
+    {
+      "path": "native/edge/improve-no-break-single-130-static.png",
+      "bytes": 1053,
+      "sha256": "976d4a770cbcde6bc0a958e3cce347bfbfcb5d56072284b0d790549c8a918e9f"
+    },
+    {
+      "path": "native/edge/improve-no-break-single-70-console.png",
+      "bytes": 19309,
+      "sha256": "88954ee7084236517fab65308023d56b10e60589f0c01ef76d4e1162153930de"
+    },
+    {
+      "path": "native/edge/improve-no-break-styled-130-console.png",
+      "bytes": 20279,
+      "sha256": "6906c658027809faa15a2d8be542a94f122aa8d3a07e4b9df710cf8325b0ca1d"
+    },
+    {
+      "path": "native/edge/improve-no-break-styled-130-static.png",
+      "bytes": 1057,
+      "sha256": "5b240c29b4d7553915ea10fa6c4387693c168aaa818968e00a8f1a77295dc47f"
+    },
+    {
+      "path": "native/edge/improve-no-break-styled-70-console.png",
+      "bytes": 19309,
+      "sha256": "88954ee7084236517fab65308023d56b10e60589f0c01ef76d4e1162153930de"
+    },
+    {
+      "path": "native/edge/improve-word-joiner-single-130-console.png",
+      "bytes": 20269,
+      "sha256": "d1a2f2128795ceaf09ae78dd470ee44a9a4e039fc01be87a82ff9e351763dbc4"
+    },
+    {
+      "path": "native/edge/improve-word-joiner-single-130-static.png",
+      "bytes": 1053,
+      "sha256": "976d4a770cbcde6bc0a958e3cce347bfbfcb5d56072284b0d790549c8a918e9f"
+    },
+    {
+      "path": "native/edge/improve-word-joiner-single-70-console.png",
+      "bytes": 19309,
+      "sha256": "88954ee7084236517fab65308023d56b10e60589f0c01ef76d4e1162153930de"
+    },
+    {
+      "path": "native/edge/improve-word-joiner-styled-130-console.png",
+      "bytes": 20279,
+      "sha256": "6906c658027809faa15a2d8be542a94f122aa8d3a07e4b9df710cf8325b0ca1d"
+    },
+    {
+      "path": "native/edge/improve-word-joiner-styled-130-static.png",
+      "bytes": 1057,
+      "sha256": "5b240c29b4d7553915ea10fa6c4387693c168aaa818968e00a8f1a77295dc47f"
+    },
+    {
+      "path": "native/edge/improve-word-joiner-styled-70-console.png",
+      "bytes": 19309,
+      "sha256": "88954ee7084236517fab65308023d56b10e60589f0c01ef76d4e1162153930de"
+    },
+    {
+      "path": "native/edge/observations.json",
+      "bytes": 13544,
+      "sha256": "024ba76e54dcf2e50b0ca63abb8f6ee3aaf4c31ca384fa7133a51eca75a8b4b6"
+    },
+    {
+      "path": "output-identity.json",
+      "bytes": 51801,
+      "sha256": "0c2c1eb226797d082dc4366e9b7356f11d8512f4b173372a17ad155e0fe53b44"
+    },
+    {
+      "path": "packages/bundles.json",
+      "bytes": 23261,
+      "sha256": "412fca64ee12537a0b99b2bc8b54430980d793379f0c47ecaa7dda381ff0622c"
+    },
+    {
+      "path": "packages/candidate.json",
+      "bytes": 8318,
+      "sha256": "846b563b5d7f4e03281483e672fad50a6e9a7dc14f0f7bd16ee02ca2bb42df78"
+    },
+    {
+      "path": "packages/consumer-environment/.npmrc",
+      "bytes": 83,
+      "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1"
+    },
+    {
+      "path": "packages/consumer-environment/package.json",
+      "bytes": 756,
+      "sha256": "ca02b9d6da14fae6a26ccafa6a97900991ac603de12a6d8cd5220cf05717a86b"
+    },
+    {
+      "path": "packages/consumer-environment/pnpm-lock.yaml",
+      "bytes": 36293,
+      "sha256": "1c4b1d2aeca8bb51424890611d3d53b6d15046b71e8e6758c281cbc3ef3f1202"
+    },
+    {
+      "path": "packages/consumer-environment/pnpm-workspace.yaml",
+      "bytes": 325,
+      "sha256": "e1efb78d329deea56001dd502ea709d314ce228e4ebaf64386de4555dce52af2"
+    },
+    {
+      "path": "packages/consumers.json",
+      "bytes": 13112,
+      "sha256": "9d1fa5cf1682b02fcc5f40e965022169d797f487f06b9d9d3d25dcfe953322fc"
+    },
+    {
+      "path": "preflight-reduction-historical.mjs",
+      "bytes": 8670,
+      "sha256": "11982066f77ec67474e34deaeba0a4798d66eff435176165fa99dcc81ab956a5"
+    },
+    {
+      "path": "preflight-reduction-receipt.json",
+      "bytes": 2898,
+      "sha256": "c1d4681299fb7c3b559c3a28f3a109f55a25dd7d2738c533a88ea62214bec423"
+    },
+    {
+      "path": "protected-checkout.json",
+      "bytes": 261,
+      "sha256": "41513606d1447fb1bec5cae6124613a97f3dc4e6e476734eddfe3b1e3e20ee9b"
+    },
+    {
+      "path": "recorded-stable-feed.json",
+      "bytes": 448,
+      "sha256": "c7588fd3f10fc698b32288c9b08c74a215d81ed580b7a99485aba6fb3e4d0441"
+    },
+    {
+      "path": "reviews.json",
+      "bytes": 440,
+      "sha256": "b7235fd55351e810bc028160212d04816c26c2554f2d4fb33a9919104003da54"
+    },
+    {
+      "path": "source.json",
+      "bytes": 3104,
+      "sha256": "93145cfc9e20722fe3c718ffe2a0c464241260ad1a7a37d43ff0803c1d4b9758"
+    },
+    {
+      "path": "studio-candidate.json",
+      "bytes": 6989,
+      "sha256": "3077d14b08df873d9fa17a72d0b5c5399ad368311df0122497515105dfd21d1f"
+    },
+    {
+      "path": "studio-config.json",
+      "bytes": 1362,
+      "sha256": "5eedc61826c5e31446d6368cfbbad906a9b8a3288fca0139d37419956d28e120"
+    },
+    {
+      "path": "ui/clipboard-recovery-final.png",
+      "bytes": 10796,
+      "sha256": "6b9b32d3d2479db76fa123d3cff0b528e7624a67d67af440864448929b4f4610"
+    },
+    {
+      "path": "ui/fitting-final.png",
+      "bytes": 90312,
+      "sha256": "e2e26ede5db741c0db7117108100a78ecb6740b996783e4bd2acd55c3cf02201"
+    },
+    {
+      "path": "validation/build-final.log",
+      "bytes": 893,
+      "sha256": "c0357cc2230ddbb4ab3281ae1cbd3569439eb93f1e715b1db023ec6d52880e68"
+    },
+    {
+      "path": "validation/bundles-check.log",
+      "bytes": 340,
+      "sha256": "7a6457b8882f0d2fc7b912d6c213fb1f5096ac4ea4d7bc12784c2826893dc069"
+    },
+    {
+      "path": "validation/chrome-corrected.log",
+      "bytes": 4077,
+      "sha256": "47ab74b226c39f93d2035cdc331d701dfd3e44e6b95236ae3ca3b26882749b22"
+    },
+    {
+      "path": "validation/chrome-full.log",
+      "bytes": 147060,
+      "sha256": "43d1f6d9f15bfe0a48f3ba50a27a755aad8d1a13a42bface50e85623467f316b"
+    },
+    {
+      "path": "validation/chrome-regressions-final.log",
+      "bytes": 46895,
+      "sha256": "83c8289589b56db2e79cfae6ba0d75b48a6bb7b368f415c38d41a87e6985d81e"
+    },
+    {
+      "path": "validation/consumers.log",
+      "bytes": 908,
+      "sha256": "22052ed8456144dc3dab8a9f0caf6563335b810d73cccdb61e1e6c6798c73297"
+    },
+    {
+      "path": "validation/edge-regressions-final.log",
+      "bytes": 47075,
+      "sha256": "b2a03e9184e5f4d1b35fe52e53f21140dc8ecae2ea03ec87544162cd48e59dae"
+    },
+    {
+      "path": "validation/firefox-corrected.log",
+      "bytes": 4789,
+      "sha256": "c8dcdb3cd8326f340f0d97a4176b60e8d2c6b8bd38bdc0f67b4c9a203a4e0d86"
+    },
+    {
+      "path": "validation/firefox-full.log",
+      "bytes": 173358,
+      "sha256": "452a2dc6bf1671073193970faac00ad2d4ac555dbb0016d86d9e095635aad892"
+    },
+    {
+      "path": "validation/firefox-install-corrected.log",
+      "bytes": 4912,
+      "sha256": "787072b5a17c2d5284e093aa797258417c6b24ebf6501a45a43375c0006231b6"
+    },
+    {
+      "path": "validation/firefox-install.log",
+      "bytes": 93,
+      "sha256": "7740ace240ccc52f7b5c0b0101ea87beb02ee7158840440c17ffe1a3b6e1bd98"
+    },
+    {
+      "path": "validation/firefox-launch-final.log",
+      "bytes": 156,
+      "sha256": "a1b09444bb73331c0babdb964da7664037fa22640fa844b9d784168c04e20f58"
+    },
+    {
+      "path": "validation/firefox-launch.log",
+      "bytes": 3193,
+      "sha256": "d9d521e14d327f45eef605db2e51e05ab7c0e2bcf7d92f99746b390541b40eb0"
+    },
+    {
+      "path": "validation/format-final.log",
+      "bytes": 380,
+      "sha256": "7cb70544b46760ad4fcf7ab802cb29029b72a3cc2e040edaccfa8ec114a002f1"
+    },
+    {
+      "path": "validation/lint-final.log",
+      "bytes": 37,
+      "sha256": "ee16f0c73a2cce3c9067ee07832af01534b111a97ec6e8ea47b793abc93e4d16"
+    },
+    {
+      "path": "validation/native-chrome.log",
+      "bytes": 901,
+      "sha256": "9f9726ceb7ceac17ec9328135588e34057bc8a5418fa207606da63dbd3306e0f"
+    },
+    {
+      "path": "validation/native-edge.log",
+      "bytes": 899,
+      "sha256": "264a6dec16627377434083ea4db4fb8f6426f115c6288ccd4700877986117890"
+    },
+    {
+      "path": "validation/package-check.log",
+      "bytes": 244,
+      "sha256": "556a90e55a3d029c0d95caa3fe52eb5ceebd85bd575928303f815ca492b5b7fc"
+    },
+    {
+      "path": "validation/prepare-vercel.log",
+      "bytes": 136,
+      "sha256": "21bf340f753a3bf03e17a2a8688da721a5317b7c65bb648e6f599f193ad1c842"
+    },
+    {
+      "path": "validation/release-tests.log",
+      "bytes": 811,
+      "sha256": "31d936202d1800ea2b870b1ca948f169039f6a1878b1df6fc332e44c6a8373f6"
+    },
+    {
+      "path": "validation/studio-build-final.log",
+      "bytes": 794,
+      "sha256": "077bce8205ba14737aae2db645579466256965f61ec66153cad49fe9fa55245f"
+    },
+    {
+      "path": "validation/types.log",
+      "bytes": 166,
+      "sha256": "e8a5f8d2989c4b44e4b5d8cad1b06bfd251300828840f1f704ebc8656c1effc7"
+    },
+    {
+      "path": "validation/unit-tests.log",
+      "bytes": 513,
+      "sha256": "c80b29dc11749cfd1c004fd4112ef4b5d5157af6c2cd3c2d4ad2d5f090d2f0ef"
+    },
+    {
+      "path": "windows-host.json",
+      "bytes": 92,
+      "sha256": "161a8ce600f96533608780930dcde650b123c8c13d6e7a0e42e062e4addc7903"
+    },
+    {
+      "path": "windows-os.json",
+      "bytes": 101,
+      "sha256": "41e627c52d13dcc2dcc4bc3d54efa57fa86c5bc7ee04d98450b97e5f39253a20"
+    }
+  ],
+  "native": [
+    {
+      "browser": "Chrome/153.0.8010.36",
+      "cases": 8,
+      "visualReview": "All SVG samples retain both letters in one row; representative native fallback context and all exact captions preserve complete text."
+    },
+    {
+      "browser": "Edg/153.0.4234.32",
+      "cases": 8,
+      "visualReview": "All SVG samples retain both letters in one row; representative native fallback context and all exact captions preserve complete text."
+    }
+  ],
+  "evidenceBoundaries": [
+    "Local checks only; PR/main CI is separate.",
+    "Firefox is Playwright Firefox 155.0, not Windows DevTools qualification or physical mobile.",
+    "The initial Firefox run has two keyboard-fixture failures; the corrected exact-value fixture passes both desktop and narrow reruns.",
+    "Chrome full68 preceded the final confirmation guard; all22 affected recovery cases were rerun after that guard, plus both corrected keyboard fixtures.",
+    "Registry installation and publication have not run.",
+    "Older compiler output is reused only for the 411 identical comparisons."
+  ]
+}

@@ -71,8 +71,10 @@ is pointer movement rather than the final page's repeated selections. These are
 local lab observations, not causal field-performance claims. Earlier occluded runs
 with roughly 100 ms frame intervals remain local excluded setup evidence.
 
-The requested integrated-GPU laptop, representative physical mobile, Safari,
-Firefox and five-developer formative study remain unobserved. No participant
+At this receipt's capture, the requested integrated-GPU laptop, representative
+physical mobile, Safari, Firefox and five-developer formative study were unobserved.
+The later [improvement receipt](../../improvements/2026-09-12/README.md) supplies
+Playwright Firefox studio coverage; the other external observations remain pending. No participant
 timings, success rates, consent or effects preference was invented. Screen-reader
 review is a separate nonblocking follow-up under ADR-0013. Missing external
 observations remain explicit items for promotion review.

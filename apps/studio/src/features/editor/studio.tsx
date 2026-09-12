@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import {
   memo,
+  useCallback,
   useEffect,
   useId,
   useMemo,
@@ -52,6 +53,7 @@ import {
   sameDocument,
   savedDocument,
   recipeOf,
+  type DocumentAction,
 } from "./document";
 import { ConfirmDialog } from "./confirm-dialog";
 import { rendererForLoadedScene } from "./renderer";
@@ -246,15 +248,28 @@ export function Studio({
   readonly onTransferDone?: (restoreFocus?: boolean) => void;
   readonly onSharedDecisionChange?: (pending: boolean) => void;
 }) {
-  const [document, dispatch] = useReducer(
+  const importSequence = useRef(0);
+  const [document, dispatchDocument] = useReducer(
     documentReducer,
     initialScene,
     initialDocument,
   );
+  const dispatch = useCallback((action: DocumentAction) => {
+    // A completed read belongs only to the document/action that requested it.
+    importSequence.current++;
+    dispatchDocument(action);
+  }, []);
   const [ready, setReady] = useState(false);
   const [selection, setSelection] = useState({ line: 0, run: 0 });
   const [notice, setNotice] = useState<Notice | null>(null);
   const [draftStatus, setDraftStatus] = useState<DraftStatus | null>(null);
+  const [storageIssue, setStorageIssue] = useState(false);
+  const [copying, setCopying] = useState(false);
+  const copyPending = useRef(false);
+  const [failedCopy, setFailedCopy] = useState<{
+    text: string;
+    label: string;
+  } | null>(null);
   const [pendingShared, setPendingShared] = useState<SavedDocument | null>(
     null,
   );
@@ -268,10 +283,16 @@ export function Studio({
   const [previewInstance, setPreviewInstance] = useState(0);
   const [format, setFormat] = useState<ExportFormat>("javascript");
   const [store] = useState(
-    () => new DraftStore(() => window.localStorage, setDraftStatus),
+    () =>
+      new DraftStore(
+        () => window.localStorage,
+        (status) => {
+          setDraftStatus(status);
+          setStorageIssue(status.kind === "error");
+        },
+      ),
   );
   const initialized = useRef(false);
-  const importSequence = useRef(0);
   const releaseShared = useRef<(() => void) | null>(null);
   const scene = document.scene;
   const settings = document.options;
@@ -300,6 +321,7 @@ export function Studio({
     if (initialized.current) return;
     initialized.current = true;
     const draft = store.read();
+    setStorageIssue(draft.kind === "error");
     let baseline = draft.kind === "valid" ? draft.document : initialScene;
     let shared: SavedDocument | null = null;
     let startupNotice: Notice | null =
@@ -335,7 +357,13 @@ export function Studio({
     setPendingShared(shared);
     setNotice(startupNotice);
     setReady(true);
-  }, [store]);
+  }, [store, dispatch]);
+  useEffect(
+    () => () => {
+      importSequence.current++;
+    },
+    [],
+  );
   useEffect(() => {
     if (!ready) return;
     const receiveShare = () => {
@@ -344,6 +372,7 @@ export function Studio({
       if (!result.ok) {
         setNotice({ kind: "error", message: result.diagnostics[0]!.message });
       } else if (!sameDocument(persisted, result.value)) {
+        importSequence.current++;
         if (!releaseShared.current) {
           store.flush();
           releaseShared.current = store.hold();
@@ -392,6 +421,7 @@ export function Studio({
   }, [pendingShared, onSharedDecisionChange]);
   useEffect(() => {
     if (!transfer || !ready) return;
+    importSequence.current++;
     if (pendingShared) {
       onTransferDone?.();
       return;
@@ -538,15 +568,24 @@ export function Studio({
     setNotice(null);
   }
   async function copy(text: string, label: string) {
+    if (copyPending.current) return;
+    copyPending.current = true;
+    setCopying(true);
+    setNotice({ kind: "info", message: `Copying ${label}…` });
     try {
       await navigator.clipboard.writeText(text);
+      setFailedCopy(null);
       setNotice({ kind: "success", message: `${label} copied.` });
     } catch {
+      setFailedCopy({ text, label });
       setNotice({
         kind: "error",
         message:
-          "Clipboard access failed. Select and copy the generated code below, or export JSON.",
+          "Clipboard access failed. Select the captured text below and copy it manually, or retry.",
       });
+    } finally {
+      copyPending.current = false;
+      setCopying(false);
     }
   }
   async function importFile(event: ChangeEvent<HTMLInputElement>) {
@@ -562,8 +601,9 @@ export function Studio({
       return;
     }
     try {
-      const result = decodeDocument(await file.text());
+      const source = await file.text();
       if (sequence !== importSequence.current) return;
+      const result = decodeDocument(source);
       if (!result.ok) {
         setNotice({
           kind: "error",
@@ -580,6 +620,7 @@ export function Studio({
           "Document imported. Undo restores your previous scene and render settings.",
       });
     } catch {
+      if (sequence !== importSequence.current) return;
       setNotice({
         kind: "error",
         message: "The file could not be read. Your current work is unchanged.",
@@ -588,6 +629,7 @@ export function Studio({
   }
   function retryStorage() {
     const result = store.read();
+    setStorageIssue(result.kind === "error");
     if (result.kind === "error")
       setNotice({ kind: "error", message: result.message });
     else {
@@ -722,7 +764,10 @@ export function Studio({
             <button
               type="button"
               disabled={!ready || !!pendingShared}
-              onClick={() => setConfirmReset(true)}
+              onClick={() => {
+                importSequence.current++;
+                setConfirmReset(true);
+              }}
             >
               Reset
             </button>
@@ -1003,9 +1048,10 @@ export function Studio({
                 ))}
               </div>
               <p className="fine-print">
-                Rich output is being qualified in Windows 11 Chrome and Edge.
-                Page previews do not prove DevTools compatibility. Motion is
-                decorative and lasts at most five seconds.
+                Rich output has recorded Windows 11 Chrome and Edge DevTools
+                checks. <a href="/docs/#compatibility">See the tested scope</a>.
+                Page previews can differ. Motion is decorative and lasts at most
+                five seconds.
               </p>
             </div>
 
@@ -1290,7 +1336,7 @@ export function Studio({
                   value={scene.surface.padding}
                   min={0}
                   max={Math.min(
-                    80,
+                    64,
                     Math.floor(
                       (Math.min(scene.surface.width, scene.surface.height) -
                         1) /
@@ -1309,7 +1355,7 @@ export function Studio({
                   unit=" px"
                   value={scene.surface.borderRadius}
                   min={0}
-                  max={80}
+                  max={64}
                   onChange={(value) =>
                     commit({
                       ...scene,
@@ -1344,7 +1390,6 @@ export function Studio({
           <details className="fit-section">
             <summary>Fit and sizing</summary>
             <FitInspector
-              key={JSON.stringify(settings)}
               scene={scene}
               options={settings}
               onApply={updateSettings}
@@ -1442,6 +1487,7 @@ export function Studio({
                   type="button"
                   className="primary"
                   disabled={
+                    copying ||
                     !source ||
                     (format !== "json" &&
                       format !== "recipe" &&
@@ -1519,6 +1565,7 @@ export function Studio({
               </button>
               <button
                 type="button"
+                disabled={copying}
                 onClick={() => {
                   const result = encodeShare(persisted);
                   if (!result.ok)
@@ -1561,6 +1608,17 @@ export function Studio({
             </button>
           </div>
         </fieldset>
+        {failedCopy && (
+          <label className="copy-recovery">
+            {failedCopy.label} from the blocked copy attempt
+            <textarea
+              readOnly
+              rows={5}
+              value={failedCopy.text}
+              onFocus={(event) => event.target.select()}
+            />
+          </label>
+        )}
         <div className="editor-status" aria-live="polite" aria-atomic="true">
           {notice && (
             <p className={notice.kind === "error" ? "error-text" : ""}>
@@ -1573,7 +1631,7 @@ export function Studio({
             </p>
           )}
         </div>
-        {(draftStatus?.kind === "error" || notice?.kind === "error") && (
+        {storageIssue && (
           <button
             type="button"
             disabled={!!pendingShared}

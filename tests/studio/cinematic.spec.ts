@@ -18,7 +18,7 @@ const titles = [
 
 test("cinematic gallery uses exact static previews, editable controls and one explicit call", async ({
   page,
-  context,
+  clipboard,
 }) => {
   const calls: string[] = [];
   page.on("console", (event) => {
@@ -86,14 +86,13 @@ test("cinematic gallery uses exact static previews, editable controls and one ex
     .getByRole("button", { name: "Use SVG renderer", exact: true })
     .click();
   expect(calls).toHaveLength(0);
-  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await editor
     .getByRole("button", { name: "Copy console.log", exact: true })
     .click();
   const code = await editor
     .getByLabel("Generated code", { exact: true })
     .inputValue();
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(code);
+  expect(await clipboard.readText()).toBe(code);
   expect(code.match(/console\.log\(/g)).toHaveLength(1);
   expect(code).not.toMatch(/matchMedia|<animate|requestAnimationFrame/);
   expect(calls).toHaveLength(0);

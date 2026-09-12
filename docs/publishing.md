@@ -1,11 +1,10 @@
 # Publishing the reviewed packages
 
 The manual [publishing workflow](../.github/workflows/publish.yml) and
-[artifact verifier](../scripts/verify-release.mjs) are prepared locally under
-ADR-0008 and ADR-0010. They have not run on GitHub or published a package. The
-approved source snapshot merged through PR #1 as
-`347e7cea6196f9995e7c25b3ee1a5e209e24b02c`, and its main CI passed.
-This release automation and later evidence form a separate reviewable follow-up.
+[artifact verifier](../scripts/verify-release.mjs) are merged under ADR-0008 and
+ADR-0010. Validation CI has run; the publishing workflow has not published a
+package. Select evidence for the exact release candidate below rather than
+reusing a successful check for an older source snapshot.
 
 ## First-publication bootstrap
 
@@ -26,6 +25,24 @@ After publication, inspect the registry's exact versions, integrity and file
 contents, then install those registry versions in fresh JS/TS/React/Next consumers
 without the local tarball overrides. That observation remains separate from the
 existing successful tarball tests.
+
+Run `pnpm run test:registry-consumers` with the reviewed candidate tarballs and
+`candidate.json` in `.artifacts/packages`. The runner checks the registry package
+names, exact versions and SHA-512 integrity against those tarballs, downloads and
+compares their SHA-256 bytes, then installs exact registry versions without local
+overrides. Only these independently checked `name@version` pairs receive a
+[version-scoped release-age exception](https://pnpm.io/settings/dependency-resolution#minimumreleaseageexclude)
+for the first-release check. Other packages retain the one-day age gate and strict
+peer/engine policy. A missing version or integrity mismatch stops before install.
+This read-only command does not publish packages or configure npm authentication.
+
+Both `test:consumers` (local tarballs) and `test:registry-consumers` archive their
+effective manifest, generated public-registry configuration, pnpm configuration
+and lockfile alongside the receipt in `.artifacts/packages`. Receipts include
+their hashes, fixture/harness hashes and Node/pnpm versions. The archived `.npmrc`
+contains only public registry URLs; user authentication configuration is never
+copied. Registry results use `registry-consumers.json` and
+`registry-consumer-environment/`, separate from the local-tarball evidence.
 
 ## Configure OIDC after bootstrap
 

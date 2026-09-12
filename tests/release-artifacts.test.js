@@ -13,6 +13,7 @@ import { join } from "node:path";
 import test from "node:test";
 import {
   verifyReleaseArtifacts,
+  verifyRegistryMetadata,
   verifyValidationRun,
 } from "../scripts/verify-release.mjs";
 
@@ -124,6 +125,47 @@ function fixture(t) {
     save,
   };
 }
+
+test("registry consumers bind exact names, versions, bytes and the public registry", (t) => {
+  const { candidate } = fixture(t);
+  const item = candidate.packages[0];
+  const integrity = `sha512-${createHash("sha512").update(readFileSync(item.tarball)).digest("base64")}`;
+  const metadata = {
+    name: item.name,
+    version: item.version,
+    dist: {
+      integrity,
+      tarball:
+        "https://registry.npmjs.org/@servrox/console-fx/-/console-fx-0.1.0.tgz",
+    },
+  };
+  assert.deepEqual(verifyRegistryMetadata(metadata, item), {
+    name: item.name,
+    version: item.version,
+    tarball: metadata.dist.tarball,
+    integrity,
+    sha256: item.sha256,
+  });
+  for (const changed of [
+    { name: "@someone/console-fx" },
+    { version: "0.2.0" },
+    { dist: { ...metadata.dist, integrity: "sha512-different" } },
+    ...[
+      "https://registry.npmjs.org.example.com/package.tgz",
+      "http://registry.npmjs.org/package.tgz",
+      "file:///tmp/package.tgz",
+      "https://user:password@registry.npmjs.org/package.tgz",
+    ].map((tarball) => ({ dist: { ...metadata.dist, tarball } })),
+  ])
+    assert.throws(() =>
+      verifyRegistryMetadata({ ...metadata, ...changed }, item),
+    );
+  writeFileSync(item.tarball, "changed after packing");
+  assert.throws(
+    () => verifyRegistryMetadata(metadata, item),
+    /Candidate bytes changed/,
+  );
+});
 
 test("reviewed tarballs are resolved from the download directory", (t) => {
   const f = fixture(t);

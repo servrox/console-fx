@@ -1,5 +1,11 @@
 # ConsoleFX implementation and launch evidence
 
+Latest improvement addendum (2026-09-12): the [complete improvement list](launch-improvements.md)
+and [verification receipt](../evidence/improvements/2026-09-12/README.md) cover eleven
+implemented recovery, fitting, Unicode and release-verification corrections. They
+supersede older pending statements only for their stated scope, including Firefox
+studio coverage. Publication, hosted checks and promotion remain separate.
+
 Current integration addendum (2026-09-12): the [fitting receipt](responsive-fitting-implementation-evidence.md),
 [website value receipt](website-value-implementation-evidence.md) and
 [website experience receipt](website-experience-implementation-evidence.md) supersede

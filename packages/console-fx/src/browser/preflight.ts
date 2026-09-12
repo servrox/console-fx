@@ -1,5 +1,6 @@
-import { deepFreeze } from "../model/limits.js";
+import { deepFreeze, LIMITS, utf8ByteLength } from "../model/limits.js";
 import type {
+  TextRun,
   CompileOptions,
   SceneInputV1,
   ValidationResult,
@@ -14,6 +15,37 @@ import { normalizeRenderOptions } from "../validation/render-options.js";
 import { planSvgLayout } from "../layout/planner.js";
 import { MetricResolver } from "../layout/metrics.js";
 import { diagnoseRichScene } from "./compiler.js";
+
+class PreflightMetricResolver extends MetricResolver {
+  private readonly alternatives: {
+    runs: Iterable<TextRun>;
+    profile: string;
+  }[] = [];
+  override readonly suggest = (
+    alternatives: Iterable<TextRun>,
+    profile = "flow/v1",
+  ): void => {
+    this.alternatives.push({ runs: alternatives, profile });
+  };
+  /** Fill spare preflight capacity after required shaping work, retaining headroom
+   * for different fragments on the measured pass. Speculation never exhausts it.
+   */
+  completePreflight(): void {
+    for (const alternatives of this.alternatives)
+      for (const run of alternatives.runs) {
+        const request = this.request(run, alternatives.profile);
+        if (this.requests.has(request.key)) continue;
+        const bytes = utf8ByteLength(JSON.stringify(request)) + 256;
+        if (
+          this.requests.size >= 384 ||
+          this.bytes + bytes > LIMITS.inputBytes * 0.75
+        )
+          return;
+        this.requests.set(request.key, request);
+        this.bytes += bytes;
+      }
+  }
+}
 
 /** Pure preflight. Layout failure can still supply a bounded batch for explicit measurement. */
 export function prepareTextMeasurements(
@@ -37,7 +69,7 @@ export function prepareTextMeasurements(
       );
     const { unsupported } = diagnoseRichScene(scene, config);
     if (unsupported.length) return { ok: false, diagnostics: unsupported };
-    const resolver = new MetricResolver(
+    const resolver = new PreflightMetricResolver(
       config.measurementEnvironment,
       config.measurements,
     );
