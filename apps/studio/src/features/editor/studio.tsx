@@ -317,7 +317,6 @@ export function Studio({
     }
     if (sameDocument(recipeOf(document), result.value)) return;
     dispatch({ type: "settings", options: result.value.options });
-    setPlaying(false);
     setNotice({
       kind: "info",
       message:
@@ -336,7 +335,6 @@ export function Studio({
       return;
     }
     dispatch({ type: "replace", scene: result.value });
-    setPlaying(false);
     setNotice(null);
   }
   function patchRun(patch: Record<string, unknown>) {
@@ -356,8 +354,6 @@ export function Studio({
   }
   function selectPreset(id: PresetId) {
     dispatch({ type: "load", document: createPresetExample(id) });
-    setSelection({ line: 0, run: 0 });
-    setPlaying(false);
     setNotice(null);
   }
   function playPreview() {
@@ -464,20 +460,14 @@ export function Studio({
             <button
               type="button"
               disabled={!ready || !!pendingShared || !document.past.length}
-              onClick={() => {
-                dispatch({ type: "undo" });
-                setPlaying(false);
-              }}
+              onClick={() => dispatch({ type: "undo" })}
             >
               Undo
             </button>
             <button
               type="button"
               disabled={!ready || !!pendingShared || !document.future.length}
-              onClick={() => {
-                dispatch({ type: "redo" });
-                setPlaying(false);
-              }}
+              onClick={() => dispatch({ type: "redo" })}
             >
               Redo
             </button>
@@ -727,10 +717,9 @@ export function Studio({
                 Output renderer
                 <select
                   value={renderer}
-                  onChange={(event) => {
-                    setRenderer(event.target.value as Renderer);
-                    setPlaying(false);
-                  }}
+                  onChange={(event) =>
+                    setRenderer(event.target.value as Renderer)
+                  }
                 >
                   <option value="css">CSS text · Chromium</option>
                   <option value="svg">SVG image · Chromium</option>
@@ -740,10 +729,7 @@ export function Studio({
               {recommendedRenderer !== renderer && (
                 <button
                   type="button"
-                  onClick={() => {
-                    setRenderer(recommendedRenderer);
-                    setPlaying(false);
-                  }}
+                  onClick={() => setRenderer(recommendedRenderer)}
                 >
                   Use SVG renderer
                 </button>
