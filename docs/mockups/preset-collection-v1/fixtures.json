@@ -1,0 +1,279 @@
+{
+  "fixtureVersion": 1,
+  "collection": "useful-artful-presets-v1",
+  "baselineStatus": "proposed, not accepted golden tests",
+  "inspectedRevision": "3c42e12d705b044809c05579f762bcb8c137890a",
+  "units": "CSS pixels",
+  "fontStacks": {
+    "sans": "DejaVu Sans, Arial, sans-serif",
+    "mono": "DejaVu Sans Mono, monospace",
+    "serif": "DejaVu Serif, Georgia, serif"
+  },
+  "warning": "All metrics, versions, identifiers and service details are synthetic design fixtures, not ConsoleFX measurements. These are not SceneV1 documents.",
+  "presets": [
+    {
+      "id": "buildReceipt",
+      "name": "Build Receipt",
+      "profile": "buildReceipt/v1",
+      "group": "Useful",
+      "svg": "buildReceipt.svg",
+      "factoryInput": {
+        "project": "atlas-web",
+        "outcome": "PASSED",
+        "revision": "a1b2c3d",
+        "duration": "2.34 s",
+        "checks": "48 / 48",
+        "environment": "preview"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "BUILD / RECEIPT",
+        "project": "atlas-web",
+        "outcome": "PASSED",
+        "revisionLabel": "REVISION",
+        "durationLabel": "DURATION",
+        "checksLabel": "CHECKS",
+        "revision": "a1b2c3d",
+        "duration": "2.34 s",
+        "checks": "48 / 48",
+        "environment": "ENVIRONMENT  preview",
+        "footer": "COMPLETED SNAPSHOT"
+      }
+    },
+    {
+      "id": "requestTrace",
+      "name": "Request Trace",
+      "profile": "requestTrace/v1",
+      "group": "Useful",
+      "svg": "requestTrace.svg",
+      "factoryInput": {
+        "method": "GET",
+        "path": "/api/orders",
+        "status": "200 OK",
+        "total": "148 ms",
+        "stages": [
+          {
+            "label": "AUTH",
+            "duration": "12 ms"
+          },
+          {
+            "label": "QUERY",
+            "duration": "106 ms"
+          },
+          {
+            "label": "SERIALIZE",
+            "duration": "30 ms"
+          }
+        ],
+        "requestId": "req_demo_0042",
+        "tone": "success"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "REQUEST / SNAPSHOT",
+        "method": "GET",
+        "path": "/api/orders",
+        "status": "200 OK",
+        "total": "148 ms",
+        "s0": "AUTH",
+        "s1": "QUERY",
+        "s2": "SERIALIZE",
+        "d0": "12 ms",
+        "d1": "106 ms",
+        "d2": "30 ms",
+        "requestId": "ID  req_demo_0042",
+        "footer": "ONE REQUEST / NO LIVE CONNECTION"
+      }
+    },
+    {
+      "id": "serviceReady",
+      "name": "Service Passport",
+      "profile": "serviceReady/v1",
+      "group": "Useful",
+      "svg": "serviceReady.svg",
+      "factoryInput": {
+        "service": "Atlas API",
+        "state": "READY",
+        "endpoint": "http://localhost:3000",
+        "environment": "development",
+        "runtime": "Node 24",
+        "region": "local"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "SERVICE / PASSPORT",
+        "service": "Atlas API",
+        "state": "READY",
+        "endpoint": "http://localhost:3000",
+        "envLabel": "ENVIRONMENT",
+        "runtimeLabel": "RUNTIME",
+        "regionLabel": "REGION",
+        "environment": "development",
+        "runtime": "Node 24",
+        "region": "local",
+        "footer": "STARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP"
+      }
+    },
+    {
+      "id": "commandCard",
+      "name": "Command Card",
+      "profile": "commandCard/v1",
+      "group": "Useful",
+      "svg": "commandCard.svg",
+      "factoryInput": {
+        "step": "01",
+        "title": "Run the test suite",
+        "command": "pnpm test",
+        "safety": "Command shown, never executed.",
+        "instruction": "Run from the project root."
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "NEXT / ACTION",
+        "step": "01",
+        "title": "Run the test suite",
+        "instruction": "Run from the project root.",
+        "command": "pnpm test",
+        "safety": "Command shown, never executed."
+      }
+    },
+    {
+      "id": "releaseBulletin",
+      "name": "Release Bulletin",
+      "profile": "releaseBulletin/v1",
+      "group": "Useful",
+      "svg": "releaseBulletin.svg",
+      "factoryInput": {
+        "product": "ATLAS",
+        "version": "v2.4.0",
+        "headline": "A quieter kind of fast.",
+        "changes": [
+          "Smaller payloads.",
+          "Clearer diagnostics."
+        ],
+        "channel": "Preview channel"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "ATLAS / RELEASE NOTES",
+        "version": "v2.4.0",
+        "headline": "A quieter kind of fast.",
+        "change0": "Smaller payloads.",
+        "change1": "Clearer diagnostics.",
+        "channel": "Preview channel",
+        "footer": "TWO CHANGES. ONE CLEAR MESSAGE."
+      }
+    },
+    {
+      "id": "blueprint",
+      "name": "Blueprint",
+      "profile": "blueprint/v1",
+      "group": "Artful",
+      "svg": "blueprint.svg",
+      "factoryInput": {
+        "title": "BUILT TO LAST",
+        "subtitle": "An interface worth understanding.",
+        "eyebrow": "ENGINEERING / EDITION 01",
+        "footer": "PRECISION OVER NOISE"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "ENGINEERING / EDITION 01",
+        "title": "BUILT TO LAST",
+        "subtitle": "An interface worth understanding.",
+        "footer": "PRECISION OVER NOISE"
+      }
+    },
+    {
+      "id": "contourMap",
+      "name": "Contour Map",
+      "profile": "contourMap/v1",
+      "group": "Artful",
+      "svg": "contourMap.svg",
+      "factoryInput": {
+        "title": "FIND YOUR SIGNAL",
+        "subtitle": "Less noise. More direction.",
+        "eyebrow": "FIELD NOTES / 007",
+        "footer": "CONTOUR STUDY"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "FIELD NOTES / 007",
+        "title": "FIND YOUR SIGNAL",
+        "subtitle": "Less noise. More direction.",
+        "footer": "CONTOUR STUDY"
+      }
+    },
+    {
+      "id": "letterpress",
+      "name": "Letterpress",
+      "profile": "letterpress/v1",
+      "group": "Artful",
+      "svg": "letterpress.svg",
+      "factoryInput": {
+        "title": "Make it matter.",
+        "subtitle": "Thoughtful tools. Everyday work.",
+        "eyebrow": "STUDIO / CONSOLE EDITION",
+        "footer": "LESS, BUT CONSIDERED."
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "STUDIO / CONSOLE EDITION",
+        "title": "Make it matter.",
+        "subtitle": "Thoughtful tools. Everyday work.",
+        "footer": "LESS, BUT CONSIDERED."
+      }
+    },
+    {
+      "id": "signalHalftone",
+      "name": "Signal Halftone",
+      "profile": "signalHalftone/v1",
+      "group": "Artful",
+      "svg": "signalHalftone.svg",
+      "factoryInput": {
+        "title": "MAKE SOME\nSIGNAL",
+        "subtitle": "Small tools. Clear intent.",
+        "eyebrow": "TWO INKS / ONE IDEA",
+        "footer": "PRINT STUDY 04"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "TWO INKS / ONE IDEA",
+        "title": "MAKE SOME",
+        "title2": "SIGNAL",
+        "subtitle": "Small tools. Clear intent.",
+        "footer": "PRINT STUDY 04"
+      }
+    },
+    {
+      "id": "orbital",
+      "name": "Orbital",
+      "profile": "orbital/v1",
+      "group": "Artful",
+      "svg": "orbital.svg",
+      "factoryInput": {
+        "title": "STAY CURIOUS",
+        "subtitle": "Build something worth discovering.",
+        "eyebrow": "MISSION / CONSOLE 01",
+        "footer": "IDEAS IN ORBIT"
+      },
+      "width": 720,
+      "height": 240,
+      "text": {
+        "eyebrow": "MISSION / CONSOLE 01",
+        "title": "STAY CURIOUS",
+        "subtitle": "Build something worth discovering.",
+        "footer": "IDEAS IN ORBIT"
+      }
+    }
+  ]
+}
