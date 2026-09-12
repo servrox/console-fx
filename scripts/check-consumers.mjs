@@ -34,6 +34,13 @@ cpSync(resolve(root, "examples/vanilla"), resolve(consumer, "checks/vanilla"), {
 cpSync(resolve(root, "examples/react"), resolve(consumer, "checks/react"), {
   recursive: true,
 });
+cpSync(resolve(root, "examples/website"), resolve(consumer, "checks/website"), {
+  recursive: true,
+});
+cpSync(
+  resolve(root, "apps/studio/src/features/landing/recipes.ts"),
+  resolve(consumer, "checks/website/recipes.ts"),
+);
 const manifest = readJson(resolve(consumer, "package.json"));
 const workspace = readJson(resolve(root, "package.json"));
 manifest.packageManager = workspace.packageManager;
@@ -68,6 +75,9 @@ console.log(
   run(process.execPath, ["checks/vanilla/check.mjs"], consumer).trim(),
 );
 console.log(run(process.execPath, ["checks/react/check.mjs"], consumer).trim());
+console.log(
+  run(process.execPath, ["checks/website/check.mjs"], consumer).trim(),
+);
 run("pnpm", ["exec", "tsc", "--noEmit"], consumer);
 console.log("Packed TypeScript declarations and React example passed");
 const buildLog = run("pnpm", ["run", "build"], consumer);
@@ -105,5 +115,6 @@ saveReceipt("consumers.json", {
     "react-ssr-lifecycle",
     "next-production-build",
     "next-browser-lifecycle",
+    "displayed-website-recipes",
   ],
 });

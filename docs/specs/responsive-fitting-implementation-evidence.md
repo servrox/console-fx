@@ -1,9 +1,10 @@
 # Responsive fitting implementation
 
-Status: fixed-fitting core reviewed; studio integration under review, 2026-09-12. This receipt
+Status: fixed-fitting core reviewed; compact and studio integration under review, 2026-09-12. This receipt
 does not mark all FIT criteria complete. The active task authorizes implementation
-and integration; ADR-0015 is Accepted. Compact references are prepared separately
-and still await maintainer visual acceptance. No fitting publication or deployment
+and integration; ADR-0015 is Accepted. The maintainer explicitly answered
+“Approve all ten compact designs” for the [separate 360 px references](../mockups/preset-compact-v1/README.md).
+No fitting publication or deployment
 has occurred.
 
 ## Current core slice
@@ -28,9 +29,12 @@ The layout reserves extrusion, offset copies, badge/background regions and finit
 motion extrema, including the entire wave amplitude and moving indicator range.
 Neon and cinematic blur use a finite three-sigma allowance. Fitted neon uses an
 explicit filter region, including for short glyphs. Legacy filter serialization
-is unchanged. Current standard cards keep their reviewed geometry; small sizes
-can fail the declared readable floor until separately reviewed compact layouts
-are integrated. Authored card decoration still follows its original artboard clip.
+is unchanged. Standard cards keep their reviewed geometry; the ten accepted
+compact layouts are now explicit `fit/v1` choices. Each has its own versioned
+mapping and auto-selection threshold. Compact geometry is capped at its native
+360 px size, centered in wider requested frames; all visible compact text has a
+12 px floor. Smaller frames can fail explicitly. Authored card decoration still
+follows its original artboard clip.
 
 ## Optional measurement and saved recipes
 
@@ -69,7 +73,10 @@ explicit. Fixed output sizing and the experimental carrier remain separate. Loca
 font measurement runs only after its button is activated, in an owned worker with
 an empty web-font set. It is canceled on changed inputs or unmount, and its snapshot
 never enters a recipe, draft, share link or generated runtime measurement loop.
-Measured exports and previews use the same precompiled arguments.
+Measured exports and previews use the same compiled arguments. Package, React and
+Next.js formats preserve their full materialized scene and integration semantics,
+and include the validated numeric snapshot as explicit compilation data. They do
+not call the measurement adapter; recipient font variation remains disclosed.
 
 ## Current observations
 
@@ -152,7 +159,8 @@ qualification packaging remains pending.
 - Studio review and actual Windows Chrome/Edge DevTools fitting observations with
   candidate fingerprints. Independent Standards and Spec reviewers closed all
   five fixed-core findings at `90dce1c19cfa986e4d82fe46a7ee75f8702b2ef4`.
-- Compact reference acceptance and runtime integration, with per-slot comparisons.
+- Finish native compact comparisons and package/CI reconciliation; visual approval
+  and runtime integration are complete, with all sample slots preserved.
 - Container qualification across docking/drawer, source anchors, groups, timestamps,
   repeats, zoom, resize, reopen and offscreen return. The opt-in carrier is explicitly
   experimental; it reports unknown image readability and never reprints on resize.

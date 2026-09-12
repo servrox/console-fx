@@ -71,7 +71,7 @@ export function renderSvg(
   const number = plan ? String : svgNumber;
   scene = plan?.scene ?? scene;
   if (scene.presentation) {
-    const svg = renderPresentation(scene, Boolean(plan));
+    const svg = renderPresentation(scene, plan);
     if ((svg.match(/<[a-z]/g)?.length ?? 0) > LIMITS.svgElements)
       throw new RangeError();
     const { width, height, padding } = scene.surface;

@@ -9,10 +9,12 @@ import { chromium } from "@playwright/test";
 const destination = resolve(
   process.env.CONSOLE_FX_FITTING_DIR ?? ".artifacts/fitting/fonts",
 );
+const variant = process.env.CONSOLE_FX_LAYOUT_VARIANT ?? "standard";
+assert(["standard", "compact", "auto"].includes(variant));
 mkdirSync(destination, { recursive: true });
 const bundle = await build({
   stdin: {
-    contents: `import * as api from './packages/console-fx/src/browser/index.ts';import * as presets from './packages/console-fx/src/presets/index.ts';import {defineScene} from './packages/console-fx/src/index.ts';globalThis.consoleFxTest={...api,...presets,defineScene};`,
+    contents: `import * as api from './packages/console-fx/src/browser/index.ts';import * as presets from './packages/console-fx/src/presets/index.ts';import {defineScene} from './packages/console-fx/src/index.ts';import {exportConsoleLog} from './packages/console-fx/src/codegen/index.ts';globalThis.consoleFxTest={...api,...presets,defineScene,exportConsoleLog};`,
     resolveDir: process.cwd(),
     sourcefile: "font-verification.ts",
   },
@@ -36,7 +38,7 @@ await page.setContent(
 );
 await page.addScriptTag({ content: bundle.outputFiles[0].text });
 try {
-  const results = await page.evaluate(() => {
+  const results = await page.evaluate((variant) => {
     const api = globalThis.consoleFxTest;
     const environment = `${navigator.platform};${navigator.userAgent};fonts-empty/v1`;
     // Keep the explicit identifier within the core's bound and record the full UA separately.
@@ -89,7 +91,9 @@ try {
     const rows = [];
     const main = document.querySelector("main");
     let measuredCalls = 0;
-    for (const item of cases)
+    for (const item of cases.filter(
+      (item) => variant !== "compact" || item.scene.presentation,
+    ))
       for (const width of [280, 360, 480, 720, 960]) {
         const options = {
           target: "chromium",
@@ -99,9 +103,9 @@ try {
             algorithm: "fit/v1",
             width,
             maxHeight: 400,
-            variant: "standard",
-            overflow: "shrink",
-            minFontSize: 10,
+            variant,
+            overflow: variant === "compact" ? "wrap-then-shrink" : "shrink",
+            minFontSize: variant === "compact" ? 12 : 10,
           },
           measurementEnvironment: id,
         };
@@ -167,6 +171,14 @@ try {
             phase: "compiled",
             report: output.layout,
             text: output.text,
+            scene: item.scene,
+            options: { ...options, measurements: measured.value },
+            output,
+            code: api.exportConsoleLog(item.scene, {
+              ...options,
+              motion: "reduce",
+              measurements: measured.value,
+            }).code,
             imageUri: output.preview.imageUri,
             textBounds,
           });
@@ -207,7 +219,7 @@ try {
       measuredCalls,
       webFontGuard: denied,
     };
-  });
+  }, variant);
   const escaped = results.rows.filter((r) =>
     r.textBounds?.some((b) => !b.inside),
   );
@@ -220,7 +232,7 @@ try {
     JSON.stringify(
       {
         observedAt: new Date().toISOString(),
-        sourceTree: execFileSync(
+        committedBaseSourceTree: execFileSync(
           "git",
           ["rev-parse", "HEAD:packages/console-fx/src"],
           { encoding: "utf8" },
@@ -238,7 +250,9 @@ try {
     ) + "\n",
   );
   for (const row of compiled.filter(
-    (r) => r.width === 720 || (r.id === "short-glow" && r.width === 280),
+    (r) =>
+      r.width === (variant === "compact" ? 360 : 720) ||
+      (r.id === "short-glow" && r.width === 280),
   )) {
     await page.locator("main").evaluate((main, uri) => {
       main.replaceChildren(

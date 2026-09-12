@@ -4,9 +4,9 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ConsoleFX — One expressive console message",
+  title: "ConsoleFX — Browser-console styling for JavaScript and TypeScript",
   description:
-    "Compose a browser console message, preview the effect, and copy one self-contained console.log. Your scenes stay in your browser.",
+    "Make an SDK welcome memorable, show supplied development context, or design one expressive console.log. Compose typed scenes or copy a standalone message.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,8 @@ export default function RootLayout({
               console-<span>fx</span>
             </Link>
             <nav aria-label="Main navigation">
-              <Link href="/#presets">Presets</Link>
+              <Link href="/#presets">Examples</Link>
+              <Link href="/#use-cases">Use cases</Link>
               <Link href="/#playground">Playground</Link>
               <Link href="/docs/">Docs</Link>
             </nav>

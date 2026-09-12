@@ -341,9 +341,9 @@ describe("explicit fitting contracts", () => {
       }).renderer,
     ).toBe("text");
   });
-  it("does not silently accept unapproved compact layouts", () => {
+  it("does not invent compact layouts for ordinary flow scenes", () => {
     expect(() =>
-      compileConsole(letterpress(), {
+      compileConsole(simple("Unprofiled"), {
         ...options,
         layout: { ...layout, variant: "compact" },
       }),

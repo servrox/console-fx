@@ -15,6 +15,11 @@ import { deepFreeze, LIMITS } from "../model/limits.js";
 import { fail } from "../validation/index.js";
 import { presentationDescriptor } from "../presentations/catalog.js";
 import {
+  cardFitLayout,
+  type CardFitLayout,
+  type CardFitSlot,
+} from "../presentations/compact.js";
+import {
   cinematicEffect,
   cinematicLayout,
   type CinematicLayout,
@@ -45,6 +50,12 @@ export interface SvgLayoutPlan {
   readonly scene: SceneV1;
   readonly lines: readonly PlannedLine[];
   readonly report: LayoutReport;
+  readonly cardLayout?: CardFitLayout;
+  readonly cardTexts?: readonly {
+    readonly slot: CardFitSlot;
+    readonly text: string;
+    readonly baseline: number;
+  }[];
 }
 const issue = (code: string, message: string): Diagnostic => ({
   code,
@@ -69,10 +80,10 @@ export function planSvgLayout(
   options: CompileOptions,
   suppliedResolver?: MetricResolver,
 ): SvgLayoutPlan {
-  if (request.variant === "compact")
+  if (request.variant === "compact" && !scene.presentation)
     fitFailure(
       "unsupported-layout",
-      "This compact layout has not yet completed its separate visual review.",
+      "This scene has no reviewed compact card layout.",
     );
   const padding = scene.surface.padding;
   if (request.width <= 2 * padding || request.maxHeight <= 2 * padding)
@@ -80,7 +91,11 @@ export function planSvgLayout(
       "layout-overflow",
       "The requested frame leaves no padded content space.",
     );
-  const profile = scene.presentation?.profile ?? "flow/v1";
+  const card = scene.presentation
+    ? presentationDescriptor(scene.presentation.profile)!
+    : undefined;
+  const cardLayout = card ? cardFitLayout(card, request) : undefined;
+  const profile = cardLayout?.profile ?? "flow/v1";
   const environment =
     options.measurementEnvironment ?? "unspecified-local-fonts";
   // A supplied snapshot is trusted only with an explicit matching environment.
@@ -119,22 +134,24 @@ export function planSvgLayout(
     request.overflow === "shrink" || request.overflow === "wrap-then-shrink";
   const wrap =
     request.overflow === "wrap" || request.overflow === "wrap-then-shrink";
-  const card = scene.presentation
-    ? presentationDescriptor(scene.presentation.profile)!
-    : undefined;
-  const frameScale = card
+  const frameScale = cardLayout
     ? Math.min(
-        (request.width - 2 * padding) / 720,
-        (request.maxHeight - 2 * padding) / 240,
+        cardLayout.compact ? 1 : Infinity,
+        (request.width - 2 * padding) / cardLayout.width,
+        (request.maxHeight - 2 * padding) / cardLayout.height,
       )
     : 1;
   const slotFloor = (size: number) =>
     Math.max(
       request.minFontSize,
+      cardLayout?.compact ? 12 : 0,
       card?.group === "Useful" && size >= 14 ? 12 : 0,
     );
-  const visibleRuns = card
-    ? card.slots.map((slot) => scene.lines[slot.line]!.runs[slot.run]!)
+  const visibleRuns = cardLayout
+    ? cardLayout.slots.map((slot) => ({
+        ...scene.lines[slot.line]!.runs[slot.run]!,
+        style: slot.style,
+      }))
     : scene.lines.flatMap((line) => line.runs);
   const minimumScale = Math.max(
     0,
@@ -206,6 +223,7 @@ export function planSvgLayout(
         height: number;
         scale: number;
         rows: number;
+        cardTexts?: SvgLayoutPlan["cardTexts"];
       }
     | undefined;
   let lastFailure = "The complete painted content exceeds the chosen frame.";
@@ -219,57 +237,65 @@ export function planSvgLayout(
         width: request.width,
         height: request.maxHeight,
       },
-      lines: scene.lines.map((l) => ({
+      lines: scene.lines.map((l, li) => ({
         ...l,
-        runs: l.runs.map((r) => ({
+        runs: l.runs.map((r, ri) => ({
           ...r,
           style: {
             ...r.style,
-            fontSize: r.style.fontSize * scale,
-            letterSpacing: r.style.letterSpacing * scale,
+            fontSize:
+              (cardLayout?.compact
+                ? (cardLayout.slots.find((s) => s.line === li && s.run === ri)
+                    ?.style.fontSize ?? r.style.fontSize)
+                : r.style.fontSize) * scale,
+            letterSpacing: cardLayout?.compact
+              ? 0
+              : r.style.letterSpacing * scale,
           },
         })),
       })),
     };
-    if (scene.presentation) {
-      const descriptor = presentationDescriptor(scene.presentation.profile)!;
-      const height = 240 * frameScale + 2 * padding;
-      const offsetX = (request.width - 720 * frameScale) / 2;
+    if (cardLayout && card) {
+      const height = cardLayout.height * frameScale + 2 * padding;
+      const offsetX = (request.width - cardLayout.width * frameScale) / 2;
       const fragments: LayoutFragment[] = [];
+      const cardTexts: NonNullable<SvgLayoutPlan["cardTexts"]>[number][] = [];
+      let visualRows = cardLayout.rows;
       let fits = true;
-      for (const slot of descriptor.slots) {
+      for (const slot of cardLayout.slots) {
         const run = scaled.lines[slot.line]!.runs[slot.run]!;
-        // Standard card slots stay single-line. Compact variants own reviewed reflow.
         if (
           /[\n\t\u2028\u2029]/u.test(run.text) ||
           [...run.text].length > slot.maxCodePoints
         ) {
           fits = false;
-          lastFailure =
-            "A named slot exceeds this standard profile's content contract.";
+          lastFailure = "A named slot exceeds this profile's content contract.";
           break;
         }
-        const metrics = resolver.resolve(run, profile);
-        const left = slot.anchor === "end" ? slot.x - metrics.advance : slot.x;
-        const local = expand(
-          {
-            x: left - metrics.inkLeft,
-            y: slot.y - metrics.ascent,
-            width: metrics.inkLeft + metrics.inkRight,
-            height: metrics.ascent + metrics.descent,
-          },
-          descriptor.id === "letterpress" && slot.id === "title" ? 1.5 : 0.5,
-        );
-        const slotStart =
-          slot.anchor === "end" ? slot.x - slot.safeWidth : slot.x;
-        // An ink bearing may occupy the authored 3px tolerance without colliding with a neighbor.
-        if (
-          local.x < slotStart - 3 ||
-          local.x + local.width > slotStart + slot.safeWidth + 3 ||
-          local.y < 0 ||
-          local.y + local.height > 240
-        )
-          fits = false;
+        // Only the reviewed footer and command/description regions have extra rows.
+        const footer =
+          cardLayout.compact &&
+          card.id === "serviceReady" &&
+          slot.id === "footer";
+        const command =
+          cardLayout.compact &&
+          card.id === "commandCard" &&
+          (slot.id === "command" || slot.id === "instruction");
+        const wrapping = footer || (command && wrap);
+        const lineHeight = footer ? 18 : slot.id === "command" ? 24 : 18;
+        const tokens = wrapTokens([{ ...run, sourceRun: slot.run }]);
+        if (wrapping) resolver.suggest(wrappingAlternatives(tokens), profile);
+        const texts = wrapping
+          ? wrapTokensToRows(tokens, footer ? 190 : slot.safeWidth, (runs) => {
+              const m = resolver.resolve(runs[0]!, profile);
+              return Math.max(m.advance, m.inkRight) + Math.max(0, m.inkLeft);
+            }).map((row) => row.map((r) => r.text).join(""))
+          : [run.text];
+        if (texts.length > 2) fits = false;
+        visualRows += texts.length - 1;
+        const anchorFactor =
+          slot.anchor === "end" ? 1 : slot.anchor === "middle" ? 0.5 : 0;
+        const slotStart = slot.x - slot.safeWidth * anchorFactor;
         const effectiveSize = run.style.fontSize * frameScale * floorScale;
         if (run.text && effectiveSize + 1e-8 < slotFloor(slot.style.fontSize)) {
           fits = false;
@@ -282,33 +308,60 @@ export function planSvgLayout(
           width: b.width * frameScale,
           height: b.height * frameScale,
         });
-        fragments.push({
-          sourceLine: slot.line,
-          sourceRun: slot.run,
-          slot: slot.id,
-          text: run.text,
-          x: offsetX + left * frameScale,
-          baseline: padding + slot.y * frameScale,
-          fontSize: run.style.fontSize * frameScale,
-          advance: metrics.advance * frameScale,
-          ink: transform({
+        for (const [row, text] of texts.entries()) {
+          const metrics = resolver.resolve({ ...run, text }, profile);
+          const left = slot.x - metrics.advance * anchorFactor;
+          const baseline =
+            slot.y + lineHeight * (footer ? row : row - (texts.length - 1) / 2);
+          const ink = {
             x: left - metrics.inkLeft,
-            y: slot.y - metrics.ascent,
+            y: baseline - metrics.ascent,
             width: metrics.inkLeft + metrics.inkRight,
             height: metrics.ascent + metrics.descent,
-          }),
-          paint: transform(local),
-          quality: metrics.quality,
-        });
+          };
+          const local = expand(
+            ink,
+            card.id === "letterpress" && slot.id === "title" ? 1.5 : 0.5,
+          );
+          const top = command ? (slot.id === "command" ? 164 : 110) : 0;
+          const bottom = command
+            ? slot.id === "command"
+              ? 215
+              : 148
+            : cardLayout.height;
+          // Authored 3px bearing tolerance never permits crossing another slot.
+          if (
+            local.x < slotStart - 3 ||
+            local.x + local.width > slotStart + slot.safeWidth + 3 ||
+            local.y < top ||
+            local.y + local.height > bottom
+          )
+            fits = false;
+          cardTexts.push({ slot, text, baseline });
+          fragments.push({
+            sourceLine: slot.line,
+            sourceRun: slot.run,
+            slot: slot.id,
+            text,
+            x: offsetX + left * frameScale,
+            baseline: padding + baseline * frameScale,
+            fontSize: run.style.fontSize * frameScale,
+            advance: metrics.advance * frameScale,
+            ink: transform(ink),
+            paint: transform(local),
+            quality: metrics.quality,
+          });
+        }
       }
-      if (fits) {
+      if (fits && visualRows <= LIMITS.lines) {
         selected = {
           scene: { ...scaled, surface: { ...scaled.surface, height } },
           lines: [],
           fragments,
           height,
           scale: scale * frameScale,
-          rows: scene.lines.length,
+          rows: visualRows,
+          cardTexts,
         };
         break;
       }
@@ -487,7 +540,7 @@ export function planSvgLayout(
   const report: LayoutReport = {
     algorithm: "fit/v1",
     profile,
-    variant: "standard",
+    variant: cardLayout?.compact ? "compact" : "standard",
     artboard: { width: request.width, height: selected.height },
     paint: scene.presentation
       ? { x: 0, y: 0, width: request.width, height: selected.height }
@@ -538,5 +591,10 @@ export function planSvgLayout(
     blurTolerance: "3-sigma",
     diagnostics,
   };
-  return deepFreeze({ scene: selected.scene, lines: selected.lines, report });
+  return deepFreeze({
+    scene: selected.scene,
+    lines: selected.lines,
+    report,
+    ...(cardLayout ? { cardLayout, cardTexts: selected.cardTexts! } : {}),
+  });
 }

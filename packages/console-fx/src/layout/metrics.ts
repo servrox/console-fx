@@ -25,7 +25,10 @@ export class MetricResolver {
   readonly requests = new Map<string, TextMeasurementRequest>();
   readonly available: ReadonlyMap<string, TextMeasurement>;
   private bytes: number;
-  private readonly alternatives: Iterable<TextRun>[] = [];
+  private readonly alternatives: {
+    runs: Iterable<TextRun>;
+    profile: string;
+  }[] = [];
   constructor(
     readonly environment: string,
     readonly snapshot?: MeasurementSnapshot,
@@ -49,16 +52,16 @@ export class MetricResolver {
       this.bytes += utf8ByteLength(JSON.stringify(record)) + 1;
     }
   }
-  suggest(alternatives: Iterable<TextRun>): void {
-    this.alternatives.push(alternatives);
+  suggest(alternatives: Iterable<TextRun>, profile = "flow/v1"): void {
+    this.alternatives.push({ runs: alternatives, profile });
   }
   /** Fill spare preflight capacity after required shaping work, retaining headroom
    * for different fragments on the measured pass. Speculation never exhausts it.
    */
   completePreflight(): void {
     for (const alternatives of this.alternatives)
-      for (const run of alternatives) {
-        const request = this.request(run, "flow/v1");
+      for (const run of alternatives.runs) {
+        const request = this.request(run, alternatives.profile);
         if (this.requests.has(request.key)) continue;
         const bytes = utf8ByteLength(JSON.stringify(request)) + 256;
         if (

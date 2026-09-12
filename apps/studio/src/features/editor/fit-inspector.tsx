@@ -73,6 +73,7 @@ function NumberControl({
       {label}
       <input
         type="number"
+        step="any"
         aria-label={label}
         min={min}
         max={max}
@@ -136,7 +137,14 @@ export function FitInspector({
   const [outputWidth, setOutputWidth] = useState(
     options.sizing?.mode === "fixed"
       ? options.sizing.width
-      : (options.layout?.width ?? 360),
+      : options.sizing?.mode === "container-experimental"
+        ? options.sizing.maxWidth
+        : (options.layout?.width ?? 360),
+  );
+  const [fillFraction, setFillFraction] = useState(
+    options.sizing?.mode === "container-experimental"
+      ? (options.sizing.fillFraction ?? 0.96)
+      : 0.96,
   );
   const [overlay, setOverlay] = useState(false);
   const boundary = useRef<HTMLDivElement>(null);
@@ -215,9 +223,7 @@ export function FitInspector({
           >
             <option value="standard">Standard</option>
             <option value="auto">Auto (reviewed variants only)</option>
-            <option value="compact" disabled>
-              Compact — awaiting design review
-            </option>
+            <option value="compact">Compact (reviewed cards)</option>
           </select>
         </label>
         <label>
@@ -359,6 +365,15 @@ export function FitInspector({
           max={1200}
           onChange={setOutputWidth}
         />
+        {mode === "container-experimental" && (
+          <NumberControl
+            label="Container fill fraction"
+            value={fillFraction}
+            min={0.5}
+            max={0.98}
+            onChange={setFillFraction}
+          />
+        )}
       </div>
       <p className="fine-print">
         {mode === "fixed" && width
@@ -379,7 +394,7 @@ export function FitInspector({
                 sizing:
                   mode === "fixed"
                     ? { mode, width: outputWidth }
-                    : { mode, maxWidth: outputWidth },
+                    : { mode, maxWidth: outputWidth, fillFraction },
               });
           }}
         >

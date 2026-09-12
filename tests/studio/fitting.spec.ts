@@ -2,17 +2,96 @@ import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 import { parseRenderRecipe } from "../../packages/console-fx/dist/index.js";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
-import { neon } from "../../packages/console-fx/dist/presets/index.js";
+import {
+  neon,
+  createPresetExample,
+} from "../../packages/console-fx/dist/presets/index.js";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
 
 const rawKey = "console-fx:scene:v1";
 const recipeKey = "console-fx:recipe:v1";
-function recipe(text = "Local font fit", width = 360) {
+
+test("compact cards keep full fields, exact measured exports and recoverable recipes", async ({
+  page,
+}) => {
+  const card = createPresetExample("serviceReady");
+  await page.addInitScript(
+    ({ card, key }) => localStorage.setItem(key, JSON.stringify(card)),
+    { card, key: rawKey },
+  );
+  const calls: string[] = [];
+  page.on("console", (event) => {
+    if (event.type() === "log") calls.push(event.text());
+  });
+  await page.goto("/studio/");
+  await expect(
+    page.getByRole("textbox", { name: "Service", exact: true }),
+  ).toHaveValue(card.lines[1]!.runs[0]!.text);
+  await page.locator(".fit-section > summary").click();
+  const fit = page.locator(".fit-inspector");
+  await fit
+    .getByRole("combobox", { name: "Layout variant", exact: true })
+    .selectOption("compact");
+  await fit.getByRole("button", { name: "360px", exact: true }).click();
+  await fit
+    .getByRole("spinbutton", { name: "Export display width (px)", exact: true })
+    .fill("360");
+  await fit
+    .getByRole("button", { name: "Use this width for export", exact: true })
+    .click();
+  await fit
+    .getByRole("button", {
+      name: "Measure local fonts for export",
+      exact: true,
+    })
+    .click();
+  await expect(
+    fit.getByRole("button", { name: "Clear font measurements", exact: true }),
+  ).toBeVisible();
+  const uri = await page.locator(".preview-content img").getAttribute("src");
+  const source = page.getByLabel("Generated code", { exact: true });
+  const printed: unknown[][] = [];
+  new Function("console", await source.inputValue())({
+    log: (...args: unknown[]) => printed.push(args),
+  });
+  expect(printed).toHaveLength(1);
+  expect(printed[0]!.join(" ")).toContain(uri!);
+  await page
+    .getByRole("combobox", { name: "Format", exact: true })
+    .selectOption("recipe");
+  const saved = JSON.parse(await source.inputValue());
+  expect(saved.scene).toEqual(card);
+  expect(saved.options.layout).toMatchObject({
+    width: 360,
+    variant: "compact",
+  });
+  expect(saved.options).not.toHaveProperty("measurements");
+  expect(saved.options).not.toHaveProperty("measurementEnvironment");
+  await expect
+    .poll(() => page.evaluate((key) => localStorage.getItem(key), recipeKey))
+    .toContain('"variant":"compact"');
+  expect(
+    JSON.parse(
+      (await page.evaluate((key) => localStorage.getItem(key), rawKey))!,
+    ),
+  ).toEqual(card);
+  await fit
+    .getByRole("button", { name: "Remove fitting and sizing", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  expect(JSON.parse(await source.inputValue()).options).toEqual(saved.options);
+  expect(calls).toHaveLength(0);
+});
+function recipe(
+  text = "Local font fit",
+  width = 360,
+  motion: "none" | "wave" = "none",
+) {
   const result = parseRenderRecipe({
     kind: "consoleFxRenderRecipe",
     recipeVersion: 1,
-    scene: neon({ text }),
+    scene: neon({ text, motion }),
     options: {
       target: "chromium",
       renderer: "svg",
@@ -137,7 +216,7 @@ test("simulation is silent and transient; applied fitting persists as an exact e
   await page.getByRole("link", { name: "Docs", exact: true }).click();
   await expect(
     page.getByRole("heading", {
-      name: "Make one message your own.",
+      name: "Use ConsoleFX in your app.",
       exact: true,
     }),
   ).toBeVisible();
@@ -176,7 +255,7 @@ test("explicit local measurement runs under deployment CSP and preview matches p
   await page.locator('input[type="file"]').setInputFiles({
     name: "fit.json",
     mimeType: "application/json",
-    buffer: Buffer.from(JSON.stringify(recipe())),
+    buffer: Buffer.from(JSON.stringify(recipe("Local font fit", 360, "wave"))),
   });
   await expect(
     page.getByRole("textbox", { name: "Message text", exact: true }),
@@ -209,7 +288,7 @@ test("explicit local measurement runs under deployment CSP and preview matches p
     .getByRole("combobox", { name: "Format", exact: true })
     .selectOption("recipe");
   const saved = JSON.parse(await source.inputValue());
-  expect(saved).toEqual(recipe());
+  expect(saved).toEqual(recipe("Local font fit", 360, "wave"));
   expect(saved.options.measurements).toBeUndefined();
   expect(saved.options.measurementEnvironment).toBeUndefined();
   expect(
@@ -221,6 +300,33 @@ test("explicit local measurement runs under deployment CSP and preview matches p
     (await new AxeBuilder({ page }).include("#playground").analyze())
       .violations,
   ).toEqual([]);
+  for (const [format, expected] of [
+    ["typescript", "emitConsole"],
+    ["react", "useConsoleScene"],
+    ["next", "ConsoleBanner"],
+  ]) {
+    await page
+      .getByRole("combobox", { name: "Format", exact: true })
+      .selectOption(format!);
+    const code = await source.inputValue();
+    expect(code).toContain(expected!);
+    expect(code).toContain("defineScene");
+    expect(code).toContain('"measurements"');
+    expect(code).not.toContain("measureTextBatch");
+  }
+  await page
+    .getByRole("combobox", { name: "Format", exact: true })
+    .selectOption("recipe");
+  await page.getByRole("checkbox", { name: /Enable finite motion/ }).check();
+  await expect
+    .poll(async () => JSON.parse(await source.inputValue()).options.motion)
+    .toBe("system");
+  expect(
+    JSON.parse(await source.inputValue()).options.measurements,
+  ).toBeUndefined();
+  await expect(page.locator(".editor-status")).not.toContainText(
+    "Unknown field",
+  );
 });
 
 test("recipe imports, shared-setting conflicts and undo retain render intent", async ({
@@ -277,4 +383,57 @@ test("recipe imports, shared-setting conflicts and undo retain render intent", a
     ),
   ).toEqual([null, null]);
   expect(JSON.parse(await source.inputValue())).toEqual(recipe("Imported fit"));
+});
+
+test("applying a layout width preserves imported container sizing", async ({
+  page,
+}) => {
+  await page.goto("/studio/");
+  const imported = {
+    ...recipe("Imported container", 960),
+    options: {
+      ...recipe("Imported container", 960).options,
+      sizing: {
+        mode: "container-experimental",
+        maxWidth: 480,
+        fillFraction: 0.5,
+      },
+    },
+  };
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "container.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(imported)),
+  });
+  await page.locator(".fit-section > summary").click();
+  await expect(
+    page.getByRole("spinbutton", {
+      name: "Maximum display width (px)",
+      exact: true,
+    }),
+  ).toHaveValue("480");
+  await expect(
+    page.getByRole("spinbutton", {
+      name: "Container fill fraction",
+      exact: true,
+    }),
+  ).toHaveValue("0.5");
+  await page.getByRole("button", { name: "720px", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Use this width for export", exact: true })
+    .click();
+  await page
+    .getByRole("combobox", { name: "Format", exact: true })
+    .selectOption("recipe");
+  const saved = JSON.parse(
+    await page.getByLabel("Generated code", { exact: true }).inputValue(),
+  );
+  expect(saved.options.layout.width).toBe(720);
+  expect(saved.options.sizing).toEqual(imported.options.sizing);
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  const previous = JSON.parse(
+    await page.getByLabel("Generated code", { exact: true }).inputValue(),
+  );
+  expect(previous.options.layout.width).toBe(960);
+  expect(previous.options.sizing).toEqual(imported.options.sizing);
 });

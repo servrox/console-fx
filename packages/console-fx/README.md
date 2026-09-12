@@ -211,8 +211,13 @@ font sizes, wrapping, scale, measurement quality and diagnostics. Legal wrapping
 preserves all text and crosses styled runs without breaking identifiers. Readable
 floors and finite effects are checked at a known fixed size. Impossible fitting
 fails; only `unsupported: "fallback"` permits the complete native text instead.
-CSS fitting is unsupported. Standard cards retain their approved layout; compact
-variants require a separate review and are currently unavailable.
+CSS fitting is unsupported. Standard cards retain their approved layout. All ten
+card profiles have approved `"compact"` layouts, selected only by explicit fitting
+options; `"auto"` uses their individual reviewed width thresholds. Compact output
+reports a versioned `<preset>/compact/v1` mapping, keeps every slot and enforces a
+12 px floor. It preserves the original scene and standard output. Requests below
+360 px can fail instead of producing unreadable text. The service footer owns two
+rows; command and description fields wrap only under a selected wrapping policy.
 
 Local-font estimates produce `estimated-fit`, never an exact-font claim. Explicit
 `prepareTextMeasurements` and `measureTextBatch` helpers on `./browser` provide

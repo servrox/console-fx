@@ -342,4 +342,4 @@ Sources were inspected for this proposal on 2026-09-12. Upstream source describe
 
 ## Integration approval — 2026-09-12
 
-The maintainer explicitly answered “Approve ADR-0015,” approving the separated layout/sizing, optional measurement and saved-recipe contract. The current all-spec implementation request supplies execution authority. Standard card designs remain accepted under ADR-0014; compact variants require their own visual review. The original source evaluation and probe observations remain historical evidence, not runtime qualification.
+The maintainer explicitly answered “Approve ADR-0015,” approving the separated layout/sizing, optional measurement and saved-recipe contract. The current all-spec implementation request supplies execution authority. Standard card designs remain accepted under ADR-0014. The later explicit answer “Approve all ten compact designs” accepts the [360 px references](../mockups/preset-compact-v1/README.md) and their versioned fitting mappings. The original source evaluation and probe observations remain historical evidence, not runtime qualification.

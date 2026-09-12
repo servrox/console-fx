@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import {
   memo,
   useEffect,
@@ -61,7 +62,6 @@ import { cardDescriptor, editCardParameter } from "./presentation";
 
 const descriptors = getEffectDescriptors();
 const initialScene = neon({ text: "Hello, developer." });
-const heroScene = neon({ text: "console-fx" });
 const presetScenes = Object.fromEntries(
   PRESETS.map((item) => [item.id, createPresetExample(item.id)]),
 ) as Record<PresetId, SceneV1>;
@@ -233,7 +233,19 @@ function ParameterField({
   );
 }
 
-export function Studio({ focused = false }: { readonly focused?: boolean }) {
+export function Studio({
+  focused = false,
+  integrated = false,
+  transfer = null,
+  onTransferDone,
+  onSharedDecisionChange,
+}: {
+  readonly focused?: boolean;
+  readonly integrated?: boolean;
+  readonly transfer?: SavedDocument | null;
+  readonly onTransferDone?: (restoreFocus?: boolean) => void;
+  readonly onSharedDecisionChange?: (pending: boolean) => void;
+}) {
   const [document, dispatch] = useReducer(
     documentReducer,
     initialScene,
@@ -247,6 +259,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     null,
   );
   const [confirmReset, setConfirmReset] = useState(false);
+  const router = useRouter();
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const Heading = focused ? "h1" : "h2";
+  const PanelHeading = focused ? "h2" : "h3";
   const [previewTheme, setPreviewTheme] = useState("dark");
   const [playing, setPlaying] = useState(false);
   const [previewInstance, setPreviewInstance] = useState(0);
@@ -275,6 +291,10 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
   const renderer = settings.renderer ?? "css";
   const systemMotion = options.motion === "system";
   const persisted = useMemo(() => savedDocument(document), [document]);
+  const pendingExample =
+    ready && !pendingShared && transfer && !sameDocument(persisted, transfer)
+      ? transfer
+      : null;
 
   useEffect(() => {
     if (initialized.current) return;
@@ -366,6 +386,19 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
     return () => query.removeEventListener("change", changed);
   }, [playing]);
 
+  useEffect(() => {
+    onSharedDecisionChange?.(!!pendingShared);
+    return () => onSharedDecisionChange?.(false);
+  }, [pendingShared, onSharedDecisionChange]);
+  useEffect(() => {
+    if (!transfer || !ready) return;
+    if (pendingShared) {
+      onTransferDone?.();
+      return;
+    }
+    if (sameDocument(persisted, transfer)) onTransferDone?.();
+  }, [transfer, ready, pendingShared, persisted, onTransferDone]);
+
   const { log } = useConsoleScene(scene, options);
   const compilation = useMemo(() => {
     try {
@@ -398,25 +431,16 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
       return JSON.stringify(recipeOf({ scene, options: settings }), null, 2);
     if (format === "javascript")
       return compilation.ok ? compilation.exported.code : "";
-    if (measurement.snapshot && compilation.ok) {
-      const code = compilation.exported.code;
-      const note =
-        "// Precompiled for the recorded local font environment; recipient fonts may differ.\n";
-      if (format === "typescript") return note + code;
-      return `${format === "next" ? '"use client";\n\n' : ""}${note}export function PrintMessage() {\n  function print() {\n${code
-        .split("\n")
-        .map((line) => "    " + line)
-        .join(
-          "\n",
-        )}\n  }\n  return <button onClick={print}>Print message</button>;\n}`;
-    }
+    const measurementNote = measurement.snapshot
+      ? "// Fixed local-font metrics are included as data, not measured at runtime.\n// Recipient fonts can differ; remeasure explicitly or omit metrics after edits.\n"
+      : "";
     const sceneCode = sourceString(scene);
     const optionsCode = sourceString(options);
     if (format === "typescript")
-      return `import { defineScene } from "@servrox/console-fx";\nimport { emitConsole } from "@servrox/console-fx/browser";\n\nconst scene = defineScene(${sceneCode});\nemitConsole(scene, ${optionsCode});`;
+      return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { emitConsole } from "@servrox/console-fx/browser";\n\nconst scene = defineScene(${sceneCode});\nemitConsole(scene, ${optionsCode});`;
     if (format === "next")
-      return `"use client";\n\nimport { defineScene } from "@servrox/console-fx";\nimport { ConsoleBanner } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport default function StartupBanner() {\n  return <ConsoleBanner scene={scene} enabled options={${optionsCode}} />;\n}`;
-    return `import { defineScene } from "@servrox/console-fx";\nimport { useConsoleScene } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport function PrintMessage() {\n  const { log } = useConsoleScene(scene, ${optionsCode});\n  return <button onClick={log}>Print message</button>;\n}`;
+      return `"use client";\n\n${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { ConsoleBanner } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport default function StartupBanner() {\n  return <ConsoleBanner scene={scene} enabled options={${optionsCode}} />;\n}`;
+    return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { useConsoleScene } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport function PrintMessage() {\n  const { log } = useConsoleScene(scene, ${optionsCode});\n  return <button onClick={log}>Print message</button>;\n}`;
   }, [scene, format, options, settings, measurement.snapshot, compilation]);
   const lineIndex = Math.max(
     0,
@@ -480,7 +504,7 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
   const setRenderer = (renderer: Renderer) =>
     updateSettings({ ...settings, renderer });
   const setSystemMotion = (enabled: boolean) =>
-    updateSettings({ ...options, motion: enabled ? "system" : "reduce" });
+    updateSettings({ ...settings, motion: enabled ? "system" : "reduce" });
 
   function commit(candidate: unknown) {
     const result = parseScene(candidate);
@@ -612,71 +636,15 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
   }
 
   return (
-    <div className="page-shell">
-      {!focused && (
-        <>
-          <section className="hero" aria-labelledby="hero-title">
-            <div>
-              <p className="eyebrow">
-                For developers who appreciate the details
-              </p>
-              <h1 id="hero-title">
-                Beautiful console output,
-                <br />
-                <span>made simple.</span>
-              </h1>
-              <p className="hero-description">
-                Give your next hello a little character. Compose a message, make
-                it yours, and export a single console.log.
-              </p>
-              <div className="button-row">
-                <a className="button primary" href="#playground">
-                  Open the playground <span aria-hidden="true">↗</span>
-                </a>
-                <a className="button" href="#presets">
-                  Explore presets
-                </a>
-              </div>
-              <ul className="hero-notes">
-                <li>One console entry</li>
-                <li>No snippet dependencies</li>
-                <li>Your data stays local</li>
-              </ul>
-            </div>
-            <div className="hero-demo">
-              <div className="console-chrome">
-                <span className="console-dots" aria-hidden="true">
-                  ● ● ●
-                </span>
-                <span>Console</span>
-                <span className="console-prompt" aria-hidden="true">
-                  ›_
-                </span>
-              </div>
-              <div className="hero-output">
-                <ConsolePreview
-                  scene={heroScene}
-                  options={{ target: "chromium", renderer: "css" }}
-                />
-              </div>
-              <div className="demo-footnote">
-                <code>console.log(your.signature)</code>
-                <span>One expressive entry.</span>
-              </div>
-            </div>
-          </section>
-          <section
-            className="gallery-section"
-            id="presets"
-            aria-labelledby="presets-title"
-          >
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Start with a little inspiration</p>
-                <h2 id="presets-title">Pick your personality.</h2>
-              </div>
-              <p>Every example is an editable scene.</p>
-            </div>
+    <div className={integrated ? "integrated-editor" : "page-shell"}>
+      <details
+        className="full-preset-gallery"
+        onToggle={(event) => setGalleryOpen(event.currentTarget.open)}
+      >
+        <summary>Browse all 23 presets</summary>
+        {galleryOpen && (
+          <div className="gallery-section" aria-label="All preset collections">
+            <h2>All presets</h2>
             {presetGroups.map((group) => (
               <div className="preset-group" key={group}>
                 <h3>{group}</h3>
@@ -711,28 +679,24 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
                 </div>
               </div>
             ))}
-            <p className="fine-print">
-              Compiler-generated previews. Select a preset to edit the same
-              scene below.
-            </p>
-          </section>
-        </>
-      )}
+          </div>
+        )}
+      </details>
 
       <section
         className="studio-shell"
-        id="playground"
+        id={integrated ? "editor-workspace" : "playground"}
         aria-labelledby="playground-title"
       >
         <div className="studio-heading">
           <div>
             <p className="eyebrow">Make it yours</p>
-            <h2 id="playground-title">
-              The playground
+            <Heading id="playground-title">
+              Choose. Change. Copy
               <span className="small-dot" aria-hidden="true">
                 .
               </span>
-            </h2>
+            </Heading>
           </div>
           <div className="button-row">
             <button
@@ -776,9 +740,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           <legend className="sr-only">Scene editor</legend>
           <div className="editor-grid">
             <aside className="content-panel panel">
-              <h3>
+              <PanelHeading>
                 01 <span>Content</span>
-              </h3>
+              </PanelHeading>
               <label>
                 Start from a preset
                 <select
@@ -928,9 +892,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
 
             <div className="preview-panel panel">
               <div className="preview-heading">
-                <h3>
+                <PanelHeading>
                   02 <span>Preview</span>
-                </h3>
+                </PanelHeading>
                 <label className="inline-label">
                   Canvas
                   <select
@@ -1046,9 +1010,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
             </div>
 
             <aside className="style-panel panel">
-              <h3>
+              <PanelHeading>
                 03 <span>Customize</span>
-              </h3>
+              </PanelHeading>
               {presentation && (
                 <fieldset className="effect-control">
                   <legend>{presentation.name}</legend>
@@ -1393,7 +1357,9 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
           <section className="export-panel" aria-labelledby="export-title">
             <div className="export-heading">
               <div>
-                <h3 id="export-title">Your message, ready to go.</h3>
+                <PanelHeading id="export-title">
+                  Your message, ready to go.
+                </PanelHeading>
                 <p>{formats[format].description}</p>
               </div>
               <label className="inline-label">
@@ -1569,6 +1535,22 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               >
                 Copy share link
               </button>
+              {!focused && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const result = encodeShare(recipeOf(document));
+                    if (!result.ok)
+                      setNotice({
+                        kind: "error",
+                        message: `${result.diagnostics[0]!.message} Export Recipe JSON and import it in the full studio instead.`,
+                      });
+                    else router.push(`/studio/${result.value}`);
+                  }}
+                >
+                  Open full studio
+                </button>
+              )}
             </div>
             <button
               type="button"
@@ -1627,6 +1609,28 @@ export function Studio({ focused = false }: { readonly focused?: boolean }) {
               kind: "success",
               message:
                 "Shared scene loaded. Undo restores your previous scene.",
+            });
+          }}
+        />
+      )}
+      {pendingExample && !pendingShared && (
+        <ConfirmDialog
+          title="Edit this example in the playground?"
+          description="This replaces your current scene and render settings as one undoable change. Your previous work remains in Undo."
+          confirmLabel="Load example"
+          onCancel={() => {
+            onTransferDone?.(true);
+            setNotice({ kind: "info", message: "Kept your current scene." });
+          }}
+          onConfirm={() => {
+            dispatch({ type: "load", document: pendingExample });
+            setSelection({ line: 0, run: 0 });
+            setPlaying(false);
+            onTransferDone?.();
+            setNotice({
+              kind: "success",
+              message:
+                "Example loaded with its render settings. Undo restores your previous work.",
             });
           }}
         />
