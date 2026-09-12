@@ -24,7 +24,7 @@ The [landing/editor component](../../apps/studio/src/features/editor/studio.tsx)
 
 The [CSS tokens](../../apps/studio/src/app/globals.css) already establish the right visual base: dark neutral surfaces, inset controls, cool readable text, cyan, and restrained opposing shadows. Do not replace this with purple gradients, glowing panel outlines, particles across the page, or a new theme framework.
 
-PR #5 separately proposes purposeful examples, safe demo-to-editor transfer, format-aware copying and honest adoption messaging. That remains the content/workflow foundation. PR #3's card-design specification has since merged and its presentation decision is accepted; card runtime implementation is still a separate concern. PR #4's console-fitting proposal likewise remains separate from this redesign. A responsive page preview is not a responsive native console.
+PR #5's merged specification supplies purposeful examples, safe demo-to-editor transfer, format-aware copying and honest adoption messaging. That remains the content/workflow foundation. PR #3's card-design specification has since merged and its presentation decision is accepted; card runtime implementation is still a separate concern. PR #4's merged console-fitting specification and Accepted ADR-0015 likewise remain separate from this redesign; compact designs require their own review. A responsive page preview is not a responsive native console.
 
 ### Final baseline refresh
 

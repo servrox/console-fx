@@ -1,6 +1,6 @@
 ---
 title: "ConsoleFX — tactile website experience and curated progressive effects"
-status: "proposed; documentation PR for implementation review"
+status: "reviewed; app-local implementation authorized, evidence pending"
 created: "2026-09-12"
 artifact_path: "docs/specs/website-experience-redesign-spec.md"
 mode: "deep"
@@ -9,7 +9,7 @@ inspected_revision: "15bb758a79d2af1d5b5da4c3db7656d1cbd494de"
 initial_inspected_revision: "3c42e12d705b044809c05579f762bcb8c137890a"
 owner: "ConsoleFX maintainer"
 related_prs: [3, 4, 5]
-implementation_authorized: false
+implementation_authorized: true
 ---
 
 # Tactile discovery, precise editing
@@ -20,14 +20,16 @@ Redesign the landing page and integrated workbench so ConsoleFX feels memorable,
 
 The user requested an evaluation inspired by Canvas UI and React Bits and a PR specifying its recommendations. This PR saves proposed documentation and interaction references only. It does not authorize runtime implementation, dependency installation, source vendoring, package publication, deployment, origin-trial enrollment or changes to other Proposed ADRs.
 
+Integration review on 2026-09-12: the active maintainer request to review/merge all PRs and fully implement all specifications authorizes the mandatory app-local work. The source proposal above records its original scope. Use original DOM/CSS implementations; optional source adoption and the GPU exhibit retain their separate gates. This records implementation authority, not accepted visual goldens, measured performance or release approval.
+
 Read the [evaluation and inspected component shortlist](website-experience-redesign-evaluation.md) and [interaction storyboard](../mockups/website-experience-v1/storyboard.md). Detailed designs and budgets are review proposals, not previously accepted visual goldens or measured results.
 
 Success is not the number of effects installed. A visitor should understand the product, enjoy changing a real example, identify a professional use case, and obtain the correct standalone or package code without losing work. The workbench must remain calm during editing.
 
 ### Relationship to existing proposals
 
-- [PR #5](https://github.com/servrox/console-fx/pull/5) owns the proposed value narrative, practical examples, draft-safe transfers, adoption paths and format-aware copying. This proposal adds the visual/material system and detailed interaction/effect behavior. Do not implement a second hero, duplicate example catalogs or competing export panels. Reconcile in one implementation branch; neither spec is silently overwritten.
-- [PR #3](https://github.com/servrox/console-fx/pull/3) has merged its utility/artful preset specification and accepted card-design references; its runtime implementation remains separate. [PR #4](https://github.com/servrox/console-fx/pull/4) proposes content fit/output sizing. This redesign can use existing scene APIs without either runtime extension. Card/fitting controls are promoted only after their own implementation and evidence.
+- [PR #5](https://github.com/servrox/console-fx/pull/5) supplies the merged value narrative, practical examples, draft-safe transfers, adoption paths and format-aware copying. This proposal adds the visual/material system and detailed interaction/effect behavior. Do not implement a second hero, duplicate example catalogs or competing export panels. Reconcile in one implementation branch; neither spec is silently overwritten.
+- [PR #3](https://github.com/servrox/console-fx/pull/3) has merged its utility/artful preset specification and accepted card-design references; its runtime implementation remains separate. [PR #4](https://github.com/servrox/console-fx/pull/4) has merged the content-fit/output-sizing specification with Accepted ADR-0015. Compact visual variants still require separate review. This redesign can use existing scene APIs without either runtime extension. Card/fitting controls are promoted only after their own implementation and evidence.
 - The [cinematic presets](cinematic-metal-presets-spec.md) are implemented in the refreshed main baseline. Preserve their grouping, renderer restoration, documented limits and evidence; this PR does not rebuild or remove them. Page tilt, peel, ASCII art or spark feedback must not be advertised as an exported console effect.
 - This PR targets `main` independently, not the documentation branches. Cross-PR references use explicit PR/pinned links where files are not on `main`.
 
@@ -59,7 +61,7 @@ Do not add a page-level pointer follower. Do not measure the native Console from
 
 Keep PR #5's six curated examples and **All / Make it memorable / Make it useful** filters. Examples are app-local uses of currently implemented factories/scene APIs, not new npm presets. Show renderer and availability labels, and **Sample data** for operational-looking facts.
 
-A React Bits SpotlightCard-style surface can replace flat hover treatment. A faint local cyan/neutral light, <=2 px lift and readable selected border are sufficient. Move the highlight through CSS properties with at most one pending animation frame per active card; do not update React document state per pointer event. Keep a native semantic button/link for the real action. No button inside a button, no invisible hit surface, and no hidden tooltip required to understand a card.
+A React Bits SpotlightCard-style surface can replace flat hover treatment. A faint local cyan/neutral light, <=2 px lift and readable selected border are sufficient. Apply lift to an inner visual layer; the semantic button/link and its pointer target remain stationary. Move the highlight through CSS properties with at most one pending animation frame per active card; do not update React document state per pointer event. Keep a native semantic button/link for the real action. No button inside a button, no invisible hit surface, and no hidden tooltip required to understand a card.
 
 Hover/focus never selects a preset or emits. A committed selection is visible separately from hover. Selecting an example updates the mini-demo or explicitly loads the editor according to the action label. Filtering does not recreate the active document, animate all thumbnails, or queue dozens of delayed entrances. A short local crossfade is enough; focus remains predictable if a filtered card is removed.
 
@@ -224,7 +226,7 @@ A five-developer formative comparison of effects enabled versus disabled should 
 - **UXR-13 — Optional GPU gate:** IF the exhibit is approved and implemented, it SHALL request no GPU/module/assets before explicit Play, run one bounded instance, and restore its poster on unsupported/failed/lost context without affecting editor actions.
 - **UXR-14 — Cleanup:** Completion, Effects off and visibility loss SHALL stop decorative rendering and recurring frame/timer work; retain only the minimal policy/visibility listeners needed by a mounted static fallback. Unmount SHALL disconnect all owned observers/listeners and release GPU resources. Delayed initialization cannot resurrect a disposed island.
 - **UXR-15 — Evidence and truth:** The UI SHALL distinguish website decoration, compiler preview, concepts and qualified native output. No invented statistics, install availability, automatic sizing or unsupported presets are promoted.
-- **UXR-16 — Regression references:** Implementation review SHALL include UX-01–UX-10 state artifacts, motion/viewport metadata, accessibility checks and output-identity comparisons; existing preset references remain unchanged unless explicitly reviewed.
+- **UXR-16 — Regression references:** Implementation review SHALL include UX-01–UX-09 state artifacts, motion/viewport metadata, accessibility checks and output-identity comparisons; UX-10 requires an artifact only when the optional exhibit is implemented, otherwise record “not applicable — exhibit omitted.” Existing preset references remain unchanged unless explicitly reviewed.
 
 ## 11. Delivery, rollback and implementation handover
 
