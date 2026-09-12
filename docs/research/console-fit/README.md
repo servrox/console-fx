@@ -1,6 +1,6 @@
 # Console fit research — experimental, not a support claim
 
-[Proposal](../../specs/responsive-fitting-spec.md) · [ADR-0014](../../adrs/0014-separate-content-fit-from-output-sizing.md) · [Copy-paste probe](responsive-console-probe.js)
+[Proposal](../../specs/responsive-fitting-spec.md) · [ADR-0015](../../adrs/0015-separate-content-fit-from-output-sizing.md) · [Copy-paste probe](responsive-console-probe.js)
 
 This directory preserves the relative-padding experiment from the preceding evaluation so it can be tested and compared later. It is not a ConsoleFX package implementation, a compatibility certification, or a screenshot of actual DevTools.
 
@@ -100,3 +100,7 @@ This is an unfilled template, not an observation. Store future actual observatio
 Preserve PR #3's original ten 720 × 240 SVGs, synthetic input fixtures and hashes. In authorized follow-up work, add per-profile compact references (360 px wide, height within 400 px), boundary widths, and actual output at the same canonical content. Compare text/reading order first, then slot geometry and paint bounds, then raster appearance in the recorded font environment. Long text may legitimately fail; the error/fallback must preserve information.
 
 No new visual baselines are accepted or modified by this responsiveness PR. A future implementation must not regenerate approved goldens solely to hide clipping or a changed layout. All current fitting APIs and compact profiles remain proposals.
+
+## Integration review — 2026-09-12
+
+The new fitting proposal was renumbered ADR-0015 to preserve accepted ADR-0014 card presentations. The probe caption now includes every meaningful visible instruction in reading order. Its source-only tests were rerun with the repository-owned Node 24.20.0. These checks still do not qualify container sizing in DevTools.

@@ -1,18 +1,18 @@
-# ADR-0014: Separate content fit from output sizing
+# ADR-0015: Separate content fit from output sizing
 
-Status: Proposed
+Status: Accepted
 Date: 2026-09-12
 Owner: ConsoleFX maintainer
 Applies when: Layout planning, text measurements, console sizing, render recipes, fit previews or their compatibility changes.
 Supersedes: None
 Superseded by: None
-Approval: Pending explicit maintainer review; creating the proposal PR is not acceptance or implementation authority.
+Approval: On 2026-09-12 the maintainer explicitly answered “Approve ADR-0015” for this reviewed fitting, sizing, measurement and render-recipe contract. The active request to review/merge all PRs and fully implement all specifications supplies implementation authority. Compact visual variants still need their own review.
 
 ## Context
 
 The current SVG renderer estimates text widths and reserves a fixed-pixel console box. Content can overflow its frame or a correctly laid-out frame can overflow a narrow console. Shrinking a whole card can make meaningful text unreadable. A normal package has no supported API for measuring the DevTools message area. Proposed cinematic and card profiles increase the importance of honest geometry and readability contracts.
 
-## Proposed decision
+## Decision
 
 Keep deterministic content layout and output-carrier sizing as separate, explicit requests within the existing core package. Layout receives chosen frame constraints, a versioned fitting policy and bounded measurement data. Carrier sizing selects a fixed width or an explicitly experimental Chromium container-relative rule. Do not expose a guessed console width, a generic `responsive: true` promise, arbitrary CSS, or a second studio renderer.
 
@@ -34,9 +34,9 @@ Preserve SceneV1 and legacy output by default. A core-validated `consoleFxRender
 
 ## Consequences and dependencies
 
-The feature adds explicit layout, confidence and recipe compatibility work, without adding a package, font service, console extension or live-output API. Old default outputs remain stable. Reflow for PR #3 needs that presentation proposal and reviewed compact references; cinematic fitting needs the relevant ADR-0012 implementation. Neither pending decision is accepted here.
+The feature adds explicit layout, confidence and recipe compatibility work, without adding a package, font service, console extension or live-output API. Old default outputs remain stable. Reflow for the accepted card presentations needs separately reviewed compact references; cinematic fitting uses Accepted ADR-0012. Acceptance of those standard profiles does not approve new compact variants or this fitting contract.
 
-ID 0013 is reserved by open [PR #3](https://github.com/servrox/console-fx/pull/3); this independent proposal uses 0014. Existing Accepted ADRs 0002–0007, 0009 and 0011 remain binding. Resolve any discovered conflict through maintainer review before implementation rather than rewriting accepted intent.
+Accepted ADR-0013 owns the accessibility successor and Accepted ADR-0014 owns the ten card presentations. This new fitting proposal uses unused ID 0015. Existing Accepted ADRs 0002–0007, 0009, 0012, 0013 and 0014 remain binding; ADR-0011 is superseded. Resolve any discovered conflict through maintainer review before implementation rather than rewriting accepted intent.
 
 ## Validation
 

@@ -39,7 +39,7 @@ test("one deterministic string-only log, with no page/measurement/timer access",
   assert.equal(first[0][0], "%c %c\n%s");
   assert.equal(first[0][2], "");
   assert.equal(first[0][3],
-    "ConsoleFX — experimental responsive SVG. This caption stays readable.");
+    "console-fx\nResize the console pane.\nONE ENTRY / RELATIVE PADDING\nExperimental responsive SVG; native caption.");
 });
 
 test("bounded static SVG carrier and readable caption", () => {

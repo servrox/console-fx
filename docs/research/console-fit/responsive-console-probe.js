@@ -23,6 +23,6 @@
      padding:min(120px,16%) min(360px,48%);
      background:url("${uri}") center/contain no-repeat;`,
     "",
-    "ConsoleFX — experimental responsive SVG. This caption stays readable."
+    "console-fx\nResize the console pane.\nONE ENTRY / RELATIVE PADDING\nExperimental responsive SVG; native caption."
   );
 })();

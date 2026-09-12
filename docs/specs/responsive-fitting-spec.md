@@ -1,6 +1,6 @@
 ---
 title: "ConsoleFX — responsive sizing and reliable content fitting"
-status: "proposed; documentation and research PR"
+status: "approved for implementation; qualification pending"
 created: "2026-09-12"
 artifact_path: "docs/specs/responsive-fitting-spec.md"
 repository: "servrox/console-fx"
@@ -8,7 +8,7 @@ inspected_revision: "3c42e12d705b044809c05579f762bcb8c137890a"
 related_proposal: "PR #3 at 6c6ab18e76f5ff12c6f45e1c20060e9105e2ed88"
 mode: "deep"
 owner: "ConsoleFX maintainer"
-implementation_authorized: false
+implementation_authorized: true
 ---
 
 # Responsive sizing and reliable content fitting
@@ -19,7 +19,7 @@ Make ConsoleFX fit **content inside a chosen frame**, fit **that frame into a co
 
 The user requested a PR containing the recommendations from the responsiveness evaluation. This PR saves a proposal, an architectural decision, and an isolated research probe. It does not implement a public API, change existing presets, approve an ADR, merge another PR, publish packages, deploy, or authorize those actions. Detailed contracts below remain subject to maintainer review.
 
-[Research probe and qualification procedure](../research/console-fit/README.md) · [Proposed ADR-0014](../adrs/0014-separate-content-fit-from-output-sizing.md)
+[Research probe and qualification procedure](../research/console-fit/README.md) · [Accepted ADR-0015](../adrs/0015-separate-content-fit-from-output-sizing.md)
 
 ### Deliver in this order
 
@@ -42,8 +42,8 @@ Inspected `main` at the revision above. The package, React adapter, studio, and 
 | [CSS renderer](../../packages/console-fx/src/renderers/css.ts) | Native text has approximate layout and effect padding. | Keep CSS/native wrapping separate from a precise SVG layout contract. |
 | [Scene model](../../packages/console-fx/src/model/types.ts) and [validation](../../packages/console-fx/src/validation/index.ts) | Shared, strict versioned data; bounded dimensions and text. | Preserve legacy normalization; validate every new request and metadata field. |
 | [Studio](../../apps/studio/src/features/editor/studio.tsx) and [React adapter](../../packages/console-fx-react) | Both consume the core compiler. | Use the same layout result and exact SVG URI; no independent preview renderer. |
-| [Cinematic specification](cinematic-metal-presets-spec.md) | Original path lettering and local-serif treatments are proposed. | Geometric and font-based fitting have different confidence levels; ADR-0012 remains Proposed. |
-| [PR #3](https://github.com/servrox/console-fx/pull/3) | Card presentation proposal uses a 720 × 240 reference and uniform scaling; ADR-0013 is proposed on that branch. | Compact reflow changes that proposed contract. Do not silently reinterpret its v1 references. |
+| [Cinematic specification](cinematic-metal-presets-spec.md) | Original path lettering and local-serif treatments are proposed. | Geometric and font-based fitting have different confidence levels; ADR-0012 is Accepted. |
+| [PR #3](https://github.com/servrox/console-fx/pull/3) | Card presentation proposal uses a 720 × 240 reference and uniform scaling; the presentation contract is now Accepted ADR-0014. | Compact reflow changes that proposed contract. Do not silently reinterpret its v1 references. |
 
 Primary platform sources are listed in section 13. The Console standard exposes no supported message-area dimension or returned log-element API [E1]. Chrome documents CSS styling and data-URL backgrounds [E2]. Its inspected frontend creates styled inline blocks with paint containment and a maximum width; its style sanitizer allows padding/background but not arbitrary display/width/aspect-ratio controls [E3, E4]. This supports an experiment, not a portable guarantee.
 
@@ -55,13 +55,13 @@ Do not implement `getConsoleWidth()` using `window.innerWidth`, `outerWidth - in
 
 ## 3. Architectural decision and dependency boundaries
 
-**ADR required: yes.** Proposed [ADR-0014](../adrs/0014-separate-content-fit-from-output-sizing.md) separates content layout from output sizing and makes environment-derived measurements explicit data. It also defines how a render recipe carries options without corrupting SceneV1. Implementation of the new shared contract waits for explicit acceptance.
+**ADR required: yes.** Accepted [ADR-0015](../adrs/0015-separate-content-fit-from-output-sizing.md) separates content layout from output sizing and makes environment-derived measurements explicit data. It also defines how a render recipe carries options without corrupting SceneV1. The maintainer explicitly accepted this contract on 2026-09-12 by answering “Approve ADR-0015.” Compact visual variants remain separately reviewable.
 
-Governing accepted decisions: ADR-0002 (pure compilation/single emission), ADR-0003 (one scene and compatibility), ADR-0004 (package boundaries), ADR-0005 (validation and budgets), ADR-0006 (renderer qualification), ADR-0007 (local persistence), ADR-0009 (proportional evidence), and ADR-0011 (accessibility). Their accepted text and status remain unchanged.
+Governing accepted decisions: ADR-0002 (pure compilation/single emission), ADR-0003 (one scene and compatibility), ADR-0004 (package boundaries), ADR-0005 (validation and budgets), ADR-0006 (renderer qualification), ADR-0007 (local persistence), ADR-0009 (proportional evidence), and ADR-0013 (accessibility). Their accepted text and status remain unchanged.
 
-ADR-0013's number is reserved by open PR #3, so this proposal uses 0014. This branch targets main independently and links to PR #3 rather than copying or modifying its files. Reconcile both index additions when both PRs land. No acceptance of ADR-0012 or ADR-0013 is implied.
+Accepted ADR-0013 is the accessibility successor and Accepted ADR-0014 owns the ten card presentations. This fitting decision uses the next unused ID, 0015, and was explicitly accepted on 2026-09-12. Preserve their identities and reconcile the canonical index when these branches integrate.
 
-Fixed-frame work can proceed independently after its own approval. Cinematic integration additionally needs ADR-0012 and the relevant implementation; compact card integration additionally needs ADR-0013 and a reviewed extension to its layout policy. Container sizing need not block the useful fixed-frame slice.
+Fixed-frame work can proceed independently after its own approval. Cinematic integration additionally needs ADR-0012 and the relevant implementation; compact card integration additionally needs Accepted ADR-0014 and a reviewed extension to its layout policy. Container sizing need not block the useful fixed-frame slice.
 
 ## 4. Proposed request/result contract
 
@@ -164,7 +164,7 @@ Compact is a reviewed profile variant, not a universal rearrangement algorithm. 
 
 PR #3's original 720 × 240 SVGs and hashes remain intact. Add compact references at 360 px (height up to 400 px) and representative narrow/wide comparisons during authorized implementation/design work. The reference dimension is not a promise that arbitrary text fits there. Require exact original text and per-slot visual acceptance before accepting a compact baseline. An image hash is not maintainer approval.
 
-Do not add presentation variants to an accepted immutable `/v1` profile if that changes stored meaning. Since PR #3 is still proposed, its author may reconcile the contract before acceptance; otherwise use a successor profile/explicit recipe mapping. This PR does not rewrite ADR-0013 or its ten references.
+Do not add presentation variants to an accepted immutable `/v1` profile if that changes stored meaning. The ten standard card profiles and their scene slots are now approved under ADR-0014. Compact output must use a separately reviewed, versioned recipe mapping or successor profile; the same stored SceneV1 without fitting options keeps its approved standard output. This PR does not rewrite ADR-0014 or its ten references.
 
 ## 7. Experimental container-relative SVG carrier
 
@@ -214,7 +214,7 @@ Add sizes 280, 360, 480, 720 and 960 CSS px plus a resizable preview boundary. O
 
 Separate **simulate at width** from **use this width for export**. The first changes comparison UI only; the second is an explicit recipe edit. Display standard/compact/auto choices, overflow policy, minimum type size, measurement quality, paint-bound overlay, fixed/container sizing, predicted downscale, and diagnostics. Do not label the slider as the actual console width.
 
-Preserve keyboard operation, visible focus, text alternatives, contrast and non-color error states under ADR-0011. Use the existing restrained, cyan-accented neumorphic UI; no purple theme or neon-heavy panels. SVG comparisons render the exact image URI. CSS comparisons remain labeled approximate. Show reference, known-width output, and compact/narrow result separately.
+Preserve keyboard operation, visible focus, text alternatives, contrast and non-color error states under ADR-0013 (screen-reader observation remains nonblocking follow-up). Use the existing restrained, cyan-accented neumorphic UI; no purple theme or neon-heavy panels. SVG comparisons render the exact image URI. CSS comparisons remain labeled approximate. Show reference, known-width output, and compact/narrow result separately.
 
 The React adapter reuses compiled output; do not add preset-specific components, resize-driven console emissions, or a Next.js runtime package. Explicit logging hooks, mount-once semantics, silent SSR and Strict Mode tests remain unchanged.
 
@@ -277,7 +277,7 @@ A PNG loading, a passed source-shape probe, or a page-based reconstruction does 
 
 ## 11. Delivery and validation
 
-**Phase A — approve and plan:** accept/revise ADR-0014 and API/recipe semantics. Record which preset dependencies are approved. Add new compact references through visual review, preserving original hashes.
+**Phase A — approve and plan:** accept/revise ADR-0015 and API/recipe semantics. Record which preset dependencies are approved. Add new compact references through visual review, preserving original hashes.
 
 **Phase B — fixed fit:** implement opt-in planner, authored/estimated metrics, paint bounds and error/fallback tests. Then add the explicit measurement adapter and confidence tests. Keep legacy output unchanged by default.
 
@@ -320,11 +320,11 @@ Keep fixed sizing and existing scenes as defaults. A failed carrier profile can 
 
 **Revised from the exploratory evaluation:** automatic container sizing is only a frontend-resolved hypothesis; minimum type size cannot be guaranteed at unknown display width; accurate local metrics are not portable-font proof; compact reflow requires a reviewed extension to PR #3; fitting settings need a recipe round trip rather than disappearing in raw scene JSON. Prior reconstruction results are historical observations, not new qualification or release evidence.
 
-**Review checkpoint:** the user authorized this proposal PR. Confirm the separation, recipe format, measurement boundary, compact variant policy, numerical engineering budgets and experimental gate before implementation. Open PR #3 and Proposed ADRs 0012/0013 are dependencies only for their respective profiles, not accepted architecture. Existing accepted ADRs are neither silently superseded nor rewritten.
+**Review checkpoint:** the user authorized this proposal PR. Confirm the separation, recipe format, measurement boundary, compact variant policy, numerical engineering budgets and experimental gate before implementation. Accepted ADR-0012 supplies cinematic intent and Accepted ADR-0014 supplies card intent. Their standard designs are approved; rearranged compact baselines still require their own visual review. Existing accepted ADRs are neither silently superseded nor rewritten.
 
 **Companion execution prompt:**
 
-> Read AGENTS.md, the local ADR index, this spec and its research README. Verify approval of ADR-0014 and the selected slice; do not infer approval from this PR's presence. Reinspect current code and relevant preset proposals. Implement one authorized phase using the existing shared compiler and package boundaries. Preserve legacy defaults, canonical text, single emission, explicit fallback and resource budgets. Keep environment measurement explicit and separate from deterministic layout; never detect or mutate the DevTools DOM. Compare against preserved references at every declared width, record measurement confidence and actual evidence type, and leave container responsiveness experimental until the exact Windows Chrome/Edge matrix passes. Run proportional existing tests and packed-consumer checks. Report changed contracts, source revision, commands/results, artifacts, unverified environments and remaining gates. Do not publish, deploy, merge other PRs, or alter reference approvals without separate authorization.
+> Read AGENTS.md, the local ADR index, this spec and its research README. Verify approval of ADR-0015 and the selected slice; do not infer approval from this PR's presence. Reinspect current code and relevant preset proposals. Implement one authorized phase using the existing shared compiler and package boundaries. Preserve legacy defaults, canonical text, single emission, explicit fallback and resource budgets. Keep environment measurement explicit and separate from deterministic layout; never detect or mutate the DevTools DOM. Compare against preserved references at every declared width, record measurement confidence and actual evidence type, and leave container responsiveness experimental until the exact Windows Chrome/Edge matrix passes. Run proportional existing tests and packed-consumer checks. Report changed contracts, source revision, commands/results, artifacts, unverified environments and remaining gates. Do not publish, deploy, merge other PRs, or alter reference approvals without separate authorization.
 
 ## 13. Sources
 
@@ -339,3 +339,7 @@ Sources were inspected for this proposal on 2026-09-12. Upstream source describe
 - [E7 — SVG 2 bounding boxes](https://www.w3.org/TR/SVG2/coords.html#BoundingBoxes): geometry/stroke/decorated bounds distinction.
 - [E8 — Resize Observer](https://www.w3.org/TR/resize-observer/): observing an owned element, not private DevTools elements.
 - [Repository skill source](https://github.com/stark-ai-de/agent-skills/blob/main/plugins/stark-ai-developer/skills/codex-spec-interviewer/SKILL.md) and its [ADR gate](https://github.com/stark-ai-de/agent-skills/blob/main/plugins/stark-ai-developer/skills/codex-spec-interviewer/references/adr-gate.md): source challenge, explicit proposals, acceptance criteria and handover structure.
+
+## Integration approval — 2026-09-12
+
+The maintainer explicitly answered “Approve ADR-0015,” approving the separated layout/sizing, optional measurement and saved-recipe contract. The current all-spec implementation request supplies execution authority. Standard card designs remain accepted under ADR-0014; compact variants require their own visual review. The original source evaluation and probe observations remain historical evidence, not runtime qualification.
