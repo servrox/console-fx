@@ -1,0 +1,613 @@
+{
+  "checkedAt": "2026-09-12T11:43:51.809Z",
+  "candidate": [
+    {
+      "name": "@servrox/console-fx",
+      "sha256": "1d1bfbcce41cc4880d582db9cb4e4f6590ed87f806bfe43cbd5ca369bd994649"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "sha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a"
+    }
+  ],
+  "reports": [
+    "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/.artifacts/devtools/chrome-2026-09-12T11-36-57.533Z/observations.json",
+    "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/.artifacts/devtools/chrome-lifecycle-2026-09-12T11-39-06.302Z/observations.json",
+    "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/.artifacts/devtools/edge-2026-09-12T11-39-02.632Z/observations.json",
+    "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/.artifacts/devtools/edge-lifecycle-2026-09-12T11-39-31.763Z/observations.json"
+  ],
+  "rows": [
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-lightningMetal",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-lightningMetal-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "701439fca2aefbfc9552a11a11996d078f382827e576c256bd37c497923dcafb"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-iceCathedral",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-iceCathedral-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "4786ac3da5af008a7695697737f0305d07a83a40ce8a5601281d6f725f52bc40"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-liquidChrome",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-liquidChrome-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "6c5863e4c87937d2345896aca820a3bfaf8b134281337f3bf68d9296322baa6b"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-moltenGold",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "chrome",
+      "kind": "static",
+      "id": "cinematic-moltenGold-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "d2802b71f6d115679eb838e306b6074eaf5642722b87f04de4c7ba67761cbe36"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "lightningMetal-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "lightningMetal-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "lightningMetal-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "lightningMetal-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "lightningMetal-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "lightningMetal-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec",
+      "layout": {
+        "viewport": [
+          424,
+          605
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "iceCathedral-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "iceCathedral-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "iceCathedral-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "iceCathedral-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "iceCathedral-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "iceCathedral-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23",
+      "layout": {
+        "viewport": [
+          424,
+          605
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "liquidChrome-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "liquidChrome-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "liquidChrome-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "liquidChrome-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "liquidChrome-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "liquidChrome-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7",
+      "layout": {
+        "viewport": [
+          424,
+          605
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "moltenGold-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "moltenGold-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "moltenGold-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "moltenGold-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "moltenGold-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "chrome",
+      "kind": "lifecycle",
+      "id": "moltenGold-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55",
+      "layout": {
+        "viewport": [
+          424,
+          605
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-lightningMetal",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-lightningMetal-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "701439fca2aefbfc9552a11a11996d078f382827e576c256bd37c497923dcafb"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-iceCathedral",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-iceCathedral-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "4786ac3da5af008a7695697737f0305d07a83a40ce8a5601281d6f725f52bc40"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-liquidChrome",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-liquidChrome-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "6c5863e4c87937d2345896aca820a3bfaf8b134281337f3bf68d9296322baa6b"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-moltenGold",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "edge",
+      "kind": "static",
+      "id": "cinematic-moltenGold-480",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "d2802b71f6d115679eb838e306b6074eaf5642722b87f04de4c7ba67761cbe36"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "lightningMetal-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "lightningMetal-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "lightningMetal-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "lightningMetal-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "lightningMetal-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "lightningMetal-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "c90b9255990ba0b922fe6e6f86901dca13422666a1b026deb12153d6e0e685ec",
+      "layout": {
+        "viewport": [
+          424,
+          661
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-grayscale baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "iceCathedral-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "iceCathedral-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "iceCathedral-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "iceCathedral-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "iceCathedral-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "iceCathedral-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "8006ff59e58e9d4afae832cab0e32b18d45f1b76b3ee4cf3d396dfee0bdf4f23",
+      "layout": {
+        "viewport": [
+          424,
+          661
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-grayscale baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "liquidChrome-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "liquidChrome-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "liquidChrome-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "liquidChrome-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "liquidChrome-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "liquidChrome-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "830a67052d6bbcdc3b7f2d497d183282473bfba1d0d329a1aa70c3b80856d7a7",
+      "layout": {
+        "viewport": [
+          424,
+          661
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-grayscale baseline-default"
+      },
+      "copied": true
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "moltenGold-generated-copy",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "moltenGold-before-open",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "moltenGold-reopened",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "moltenGold-repeated-snippet-1",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "moltenGold-repeated-snippet-2",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55"
+    },
+    {
+      "browser": "edge",
+      "kind": "lifecycle",
+      "id": "moltenGold-narrow-console",
+      "oneExactCall": true,
+      "caption": true,
+      "imageSha256": "34316dfe8625848debe9b818ef1449eb9ec0319946d53acc6c9a058748cc3d55",
+      "layout": {
+        "viewport": [
+          424,
+          661
+        ],
+        "consoleWidth": 424,
+        "zoom": "Native Ctrl+0",
+        "theme": "platform-windows baseline-grayscale baseline-default"
+      },
+      "copied": true
+    }
+  ]
+}

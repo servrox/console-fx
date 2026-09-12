@@ -1,0 +1,550 @@
+{
+  "verifiedAt": "2026-09-12T10:54:07.524Z",
+  "candidate": {
+    "createdAt": "2026-09-12T10:42:59.779Z",
+    "lockSha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497",
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.1.0",
+        "directory": "console-fx",
+        "tarball": "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/.artifacts/packages/servrox-console-fx-0.1.0.tgz",
+        "sha256": "31215d1e8638fd218179e916c43d6dd201e2d361d2c912330b72899dfb33af26",
+        "files": [
+          "package/CHANGELOG.md",
+          "package/LICENSE",
+          "package/README.md",
+          "package/dist/browser/index.d.ts",
+          "package/dist/browser/index.d.ts.map",
+          "package/dist/browser/index.js",
+          "package/dist/browser/index.js.map",
+          "package/dist/codegen/index.d.ts",
+          "package/dist/codegen/index.d.ts.map",
+          "package/dist/codegen/index.js",
+          "package/dist/codegen/index.js.map",
+          "package/dist/effects/catalog.d.ts",
+          "package/dist/effects/catalog.d.ts.map",
+          "package/dist/effects/catalog.js",
+          "package/dist/effects/catalog.js.map",
+          "package/dist/index.d.ts",
+          "package/dist/index.d.ts.map",
+          "package/dist/index.js",
+          "package/dist/index.js.map",
+          "package/dist/model/limits.d.ts",
+          "package/dist/model/limits.d.ts.map",
+          "package/dist/model/limits.js",
+          "package/dist/model/limits.js.map",
+          "package/dist/model/types.d.ts",
+          "package/dist/model/types.d.ts.map",
+          "package/dist/model/types.js",
+          "package/dist/model/types.js.map",
+          "package/dist/presets/index.d.ts",
+          "package/dist/presets/index.d.ts.map",
+          "package/dist/presets/index.js",
+          "package/dist/presets/index.js.map",
+          "package/dist/renderers/cinematic/glyphs.d.ts",
+          "package/dist/renderers/cinematic/glyphs.d.ts.map",
+          "package/dist/renderers/cinematic/glyphs.js",
+          "package/dist/renderers/cinematic/glyphs.js.map",
+          "package/dist/renderers/cinematic/layout.d.ts",
+          "package/dist/renderers/cinematic/layout.d.ts.map",
+          "package/dist/renderers/cinematic/layout.js",
+          "package/dist/renderers/cinematic/layout.js.map",
+          "package/dist/renderers/cinematic/profiles.d.ts",
+          "package/dist/renderers/cinematic/profiles.d.ts.map",
+          "package/dist/renderers/cinematic/profiles.js",
+          "package/dist/renderers/cinematic/profiles.js.map",
+          "package/dist/renderers/cinematic/render.d.ts",
+          "package/dist/renderers/cinematic/render.d.ts.map",
+          "package/dist/renderers/cinematic/render.js",
+          "package/dist/renderers/cinematic/render.js.map",
+          "package/dist/renderers/css.d.ts",
+          "package/dist/renderers/css.d.ts.map",
+          "package/dist/renderers/css.js",
+          "package/dist/renderers/css.js.map",
+          "package/dist/renderers/svg-values.d.ts",
+          "package/dist/renderers/svg-values.d.ts.map",
+          "package/dist/renderers/svg-values.js",
+          "package/dist/renderers/svg-values.js.map",
+          "package/dist/renderers/svg.d.ts",
+          "package/dist/renderers/svg.d.ts.map",
+          "package/dist/renderers/svg.js",
+          "package/dist/renderers/svg.js.map",
+          "package/dist/validation/index.d.ts",
+          "package/dist/validation/index.d.ts.map",
+          "package/dist/validation/index.js",
+          "package/dist/validation/index.js.map",
+          "package/package.json"
+        ]
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.1.0",
+        "directory": "console-fx-react",
+        "tarball": "/home/servrox/dev/console-fx/.worktrees/console-fx-cinematic/.artifacts/packages/servrox-console-fx-react-0.1.0.tgz",
+        "sha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a",
+        "files": [
+          "package/CHANGELOG.md",
+          "package/LICENSE",
+          "package/README.md",
+          "package/dist/index.d.ts",
+          "package/dist/index.d.ts.map",
+          "package/dist/index.js",
+          "package/dist/index.js.map",
+          "package/package.json"
+        ]
+      }
+    ]
+  },
+  "method": "Recompile the final built package; compare all observed image URIs, all lifecycle arguments and generated source byte for byte. Native records remain unmodified.",
+  "rows": [
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-lightningMetal",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-lightningMetal-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "0e43d85ebb1b544d37a370b2b0d584b537b089d95f3fcb5389006f2035539a20"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-iceCathedral",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-iceCathedral-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "52e63e651558f7e7ae5e05cc6ef9badd59df09b6a8b64a822178f6a08eb2f40b"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-liquidChrome",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-liquidChrome-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "063b4995c98f76f5895f68c099af7510226f6b8f30435a36bdcfc3f0e0401eb9"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-moltenGold",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "chrome-2026-09-12T10-26-16.990Z",
+      "id": "cinematic-moltenGold-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "e42fdc6b3b09bb5fc9a2aab32084706f4c961cc047355586650a97b5976c9e50"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-lightningMetal",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-lightningMetal-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "0e43d85ebb1b544d37a370b2b0d584b537b089d95f3fcb5389006f2035539a20"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-iceCathedral",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-iceCathedral-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "52e63e651558f7e7ae5e05cc6ef9badd59df09b6a8b64a822178f6a08eb2f40b"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-liquidChrome",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-liquidChrome-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "063b4995c98f76f5895f68c099af7510226f6b8f30435a36bdcfc3f0e0401eb9"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-moltenGold",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "edge-2026-09-12T10-27-43.666Z",
+      "id": "cinematic-moltenGold-480",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": false,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "e42fdc6b3b09bb5fc9a2aab32084706f4c961cc047355586650a97b5976c9e50"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "lightningMetal-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "iceCathedral-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "liquidChrome-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "chrome-lifecycle-2026-09-12T10-33-55.383Z",
+      "id": "moltenGold-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "lightningMetal-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "baa0d954c5ee7b02376562a08af6c307add30202f4474a44a2dde34becb58bf4"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "iceCathedral-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "5090f98ed39eddecc589ac420c2ca63aac6b5f040717c6133747ae7b772f0929"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "liquidChrome-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "f911fa14341e84413ecc045c09a54779929e68d227a2c082d740b221f4d5bcf5"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-generated-copy",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": true,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-before-open",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-reopened",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-repeated-snippet-1",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    },
+    {
+      "report": "edge-lifecycle-2026-09-12T10-29-49.598Z",
+      "id": "moltenGold-repeated-snippet-2",
+      "finalImageIdentical": true,
+      "finalArgsIdentical": true,
+      "finalGeneratedCodeIdentical": null,
+      "outputSha256": "8993c1b3ffa7eca0212b987e5da2d32306669a326a561ec714f31d6d86eeaf22"
+    }
+  ]
+}

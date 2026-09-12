@@ -1,0 +1,17 @@
+{
+  "reviewedAt": "2026-09-12",
+  "reviewer": "ConsoleFX maintainer",
+  "response": "Approve all four designs",
+  "scope": [
+    "Lightning Metal",
+    "Ice Cathedral",
+    "Liquid Chrome",
+    "Molten Gold"
+  ],
+  "reference": "chrome-2026-09-12T10-26-16.990Z",
+  "capturedDimensions": [
+    840,
+    270
+  ],
+  "finalImageIdentity": "final-output-identity.json"
+}

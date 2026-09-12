@@ -8,6 +8,9 @@ const files = new Map([
   ["/fixture.js", ["fixture.js", "text/javascript; charset=utf-8"]],
   ["/fixtures.json", ["fixtures.json", "application/json; charset=utf-8"]],
 ]);
+const port = Number(process.env.CONSOLE_FX_FIXTURE_PORT ?? 4176);
+if (!Number.isInteger(port) || port < 1024 || port > 65535)
+  throw new Error("Invalid fixture port");
 const server = createServer(async (request, response) => {
   const file = files.get(
     new URL(request.url ?? "/", "http://localhost").pathname,
@@ -27,6 +30,6 @@ const server = createServer(async (request, response) => {
     response.writeHead(500).end("Build fixtures first.");
   }
 });
-server.listen(4176, "127.0.0.1", () =>
-  console.log("ConsoleFX qualification fixtures: http://127.0.0.1:4176"),
+server.listen(port, "127.0.0.1", () =>
+  console.log(`ConsoleFX qualification fixtures: http://127.0.0.1:${port}`),
 );

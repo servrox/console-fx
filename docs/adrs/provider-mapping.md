@@ -65,3 +65,11 @@ The spec's Node baseline and optional Bun consumer lane remain visible; a Bun-fi
 ## Acceptance and reconciliation
 
 The [index](README.md) exposes the eleven Accepted local records. The maintainer's 2026-09-11 approval was applied to the reviewed decision text without changing its content. The [setup receipt](setup-receipt.md) records the approval, protected-state recheck, and current validation. Deferred entries and unresolved release/toolchain choices remain unchanged. Later durable changes follow the accepted local successor process; local IDs never inherit authority from their provider ID.
+
+## Maintainer-approved follow-up on 2026-09-12
+
+[ADR-0012](0012-use-bounded-cinematic-lettering-profiles.md) is the accepted local cinematic contract requested for implementation in commit `3c42e12`; no new provider adoption is implied. [ADR-0013](0013-keep-screen-reader-review-as-nonblocking-follow-up.md) succeeds ADR-0011 at the maintainer's explicit request: the AC-ADR-024-derived accessibility target remains, while unperformed screen-reader review becomes nonblocking follow-up. The maintainer explicitly answered “Approve ADR-0012 and ADR-0013” for the prepared records. The original setup mapping and approval history above are retained.
+
+## Accepted card presentation contract — 2026-09-12
+
+The maintainer explicitly answered “Approve ADR-0014 and all ten designs” for [ADR-0014](0014-use-closed-preset-presentations.md), the ten original card references, ordinary scene slots and Windows local-font fallbacks. This is a local extension under ADR-0002 through ADR-0007; no provider record was imported and no accepted identity was overwritten. Runtime implementation and qualification follow the [collection specification](../specs/useful-artful-presets-spec.md). Earlier setup observations remain dated history.

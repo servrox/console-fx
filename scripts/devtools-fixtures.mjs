@@ -27,6 +27,30 @@ async function hashTree(directory) {
 }
 await hashTree("packages/console-fx/dist");
 const cases = [
+  ...PRESETS.filter(({ group }) => group === "Cinematic Metal").flatMap(
+    ({ id, name }) => {
+      const scene = preset(id);
+      return [
+        { id: `cinematic-${id}`, title: name, scene, renderer: "svg" },
+        {
+          id: `cinematic-${id}-480`,
+          title: `${name} / 480 pixels`,
+          renderer: "svg",
+          scene: defineScene({
+            ...scene,
+            surface: { ...scene.surface, width: 480 },
+            lines: scene.lines.map((line) => ({
+              ...line,
+              runs: line.runs.map((run) => ({
+                ...run,
+                style: { ...run.style, fontSize: 46 },
+              })),
+            })),
+          }),
+        },
+      ];
+    },
+  ),
   {
     id: "phase0-badge",
     title: "Phase 0 · Badge",
@@ -66,12 +90,14 @@ const cases = [
     renderer: "svg",
     motion: "allow",
   },
-  ...PRESETS.map(({ id, name, renderer }) => ({
-    id: `gallery-${id}`,
-    title: name,
-    scene: preset(id, { text: name }),
-    renderer,
-  })),
+  ...PRESETS.filter(({ group }) => group === "Classic").map(
+    ({ id, name, renderer }) => ({
+      id: `gallery-${id}`,
+      title: name,
+      scene: preset(id, { text: name }),
+      renderer,
+    }),
+  ),
   ...["glowPulse", "gradientDrift", "wave", "indicator"].map((motion) => ({
     id: `motion-${motion}`,
     title: motion,
@@ -79,50 +105,52 @@ const cases = [
     renderer: "svg",
     motion: "allow",
   })),
-  ...[...PRESETS, { id: "plain", name: "Plain lettering" }].flatMap(
-    ({ id, name }) =>
-      ["none", "glowPulse", "gradientDrift", "wave", "indicator"].map(
-        (motion) => ({
-          id: `combo-${id}-${motion}`,
-          title: `${name} / ${motion}`,
-          scene:
-            id === "plain"
-              ? defineScene({
-                  schemaVersion: 1,
-                  label: "ConsoleFX",
-                  surface: {
-                    width: 600,
-                    height: 180,
-                    padding: 34,
-                    background: "#0c1117",
-                    borderRadius: 16,
-                  },
-                  lines: [
-                    {
-                      align: "center",
-                      runs: [
-                        {
-                          text: "ConsoleFX",
-                          style: {
-                            color: "#e8f3f5",
-                            fontSize: 42,
-                            fontWeight: 700,
-                          },
-                          effects: motion === "none" ? [] : [{ kind: motion }],
+  ...[
+    ...PRESETS.filter(({ group }) => group === "Classic"),
+    { id: "plain", name: "Plain lettering" },
+  ].flatMap(({ id, name }) =>
+    ["none", "glowPulse", "gradientDrift", "wave", "indicator"].map(
+      (motion) => ({
+        id: `combo-${id}-${motion}`,
+        title: `${name} / ${motion}`,
+        scene:
+          id === "plain"
+            ? defineScene({
+                schemaVersion: 1,
+                label: "ConsoleFX",
+                surface: {
+                  width: 600,
+                  height: 180,
+                  padding: 34,
+                  background: "#0c1117",
+                  borderRadius: 16,
+                },
+                lines: [
+                  {
+                    align: "center",
+                    runs: [
+                      {
+                        text: "ConsoleFX",
+                        style: {
+                          color: "#e8f3f5",
+                          fontSize: 42,
+                          fontWeight: 700,
                         },
-                      ],
-                    },
-                  ],
-                  motion: { durationMs: 4800, finish: "freeze" },
-                })
-              : preset(id, {
-                  text: id === "rainbow" ? "ConsoleFX color" : "ConsoleFX",
-                  motion,
-                }),
-          renderer: "svg",
-          ...(motion === "none" ? {} : { motion: "allow" }),
-        }),
-      ),
+                        effects: motion === "none" ? [] : [{ kind: motion }],
+                      },
+                    ],
+                  },
+                ],
+                motion: { durationMs: 4800, finish: "freeze" },
+              })
+            : preset(id, {
+                text: id === "rainbow" ? "ConsoleFX color" : "ConsoleFX",
+                motion,
+              }),
+        renderer: "svg",
+        ...(motion === "none" ? {} : { motion: "allow" }),
+      }),
+    ),
   ),
 ];
 const fixtures = cases.map((entry) => {

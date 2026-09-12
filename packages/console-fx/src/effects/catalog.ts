@@ -1,147 +1,213 @@
-import type {
-  EffectDescriptor,
-  EffectKind,
-  ParameterDescriptor,
-} from "../model/types.js";
+import type { EffectDescriptor, EffectKind } from "../model/types.js";
 import { deepFreeze } from "../model/limits.js";
 
-const number = (
-  value: number,
-  min: number,
-  max: number,
-  step = 0.1,
-): ParameterDescriptor => ({ type: "number", default: value, min, max, step });
-const color = (value: string): ParameterDescriptor => ({
-  type: "color",
-  default: value,
-});
-const period = number(2400, 1000, 5000, 100);
-
+// Every built-in is run-scoped. Keep shared capability fields in one place.
+function descriptor(
+  kind: EffectKind,
+  displayName: string,
+  family: string,
+  parameters: EffectDescriptor["parameters"],
+  css: boolean,
+  motion: EffectDescriptor["motion"],
+): EffectDescriptor {
+  return {
+    kind,
+    displayName,
+    family,
+    scopes: ["run"],
+    parameters,
+    renderers: css ? ["css", "svg"] : ["svg"],
+    motion,
+  };
+}
 const descriptors: readonly EffectDescriptor[] = deepFreeze([
-  {
-    kind: "badge",
-    displayName: "Badge",
-    family: "background",
-    scopes: ["run"],
-    parameters: { color: color("#22d3ee") },
-    renderers: ["css", "svg"],
-    motion: "static",
-  },
-  {
-    kind: "neon",
-    displayName: "Neon",
-    family: "glow",
-    scopes: ["run"],
-    parameters: { color: color("#22d3ee"), intensity: number(0.7, 0, 1) },
-    renderers: ["css", "svg"],
-    motion: "static",
-  },
-  {
-    kind: "rgbSplit",
-    displayName: "RGB split",
-    family: "shadow",
-    scopes: ["run"],
-    parameters: { offset: number(3, 1, 8, 1) },
-    renderers: ["css", "svg"],
-    motion: "static",
-  },
-  {
-    kind: "extruded",
-    displayName: "Extruded text",
-    family: "shadow",
-    scopes: ["run"],
-    parameters: { depth: number(6, 1, 12, 1), color: color("#168da5") },
-    renderers: ["css", "svg"],
-    motion: "static",
-  },
-  {
-    kind: "holographic",
-    displayName: "Holographic",
-    family: "fill",
-    scopes: ["run"],
-    parameters: { intensity: number(0.7, 0, 1) },
-    renderers: ["svg"],
-    motion: "static",
-  },
-  {
-    kind: "metallic",
-    displayName: "Gold / chrome",
-    family: "fill",
-    scopes: ["run"],
-    parameters: {
-      variant: { type: "enum", default: "gold", values: ["gold", "chrome"] },
+  descriptor(
+    "badge",
+    "Badge",
+    "background",
+    { color: { type: "color", default: "#22d3ee" } },
+    true,
+    "static",
+  ),
+  descriptor(
+    "neon",
+    "Neon",
+    "glow",
+    {
+      color: { type: "color", default: "#22d3ee" },
+      intensity: { type: "number", default: 0.7, min: 0, max: 1, step: 0.1 },
     },
-    renderers: ["svg"],
-    motion: "static",
-  },
-  {
-    kind: "crt",
-    displayName: "CRT",
-    family: "fill",
-    scopes: ["run"],
-    parameters: { intensity: number(0.6, 0, 1) },
-    renderers: ["svg"],
-    motion: "static",
-  },
-  {
-    kind: "rainbow",
-    displayName: "Rainbow",
-    family: "fill",
-    scopes: ["run"],
-    parameters: { saturation: number(0.85, 0.2, 1, 0.05) },
-    renderers: ["svg"],
-    motion: "static",
-  },
-  {
-    kind: "glowPulse",
-    displayName: "Glow pulse",
-    family: "motion",
-    scopes: ["run"],
-    parameters: { periodMs: period, intensity: number(0.6, 0.1, 0.8) },
-    renderers: ["svg"],
-    motion: "decorative",
-  },
-  {
-    kind: "gradientDrift",
-    displayName: "Gradient drift",
-    family: "motion",
-    scopes: ["run"],
-    parameters: { periodMs: period, distance: number(30, 5, 50, 1) },
-    renderers: ["svg"],
-    motion: "decorative",
-  },
-  {
-    kind: "wave",
-    displayName: "Gentle wave",
-    family: "motion",
-    scopes: ["run"],
-    parameters: { amplitude: number(5, 1, 10, 1), periodMs: period },
-    renderers: ["svg"],
-    motion: "decorative",
-  },
-  {
-    kind: "indicator",
-    displayName: "Decorative moving indicator",
-    family: "motion",
-    scopes: ["run"],
-    parameters: { color: color("#22d3ee"), periodMs: period },
-    renderers: ["svg"],
-    motion: "decorative",
-  },
+    true,
+    "static",
+  ),
+  descriptor(
+    "rgbSplit",
+    "RGB split",
+    "shadow",
+    { offset: { type: "number", default: 3, min: 1, max: 8, step: 1 } },
+    true,
+    "static",
+  ),
+  descriptor(
+    "extruded",
+    "Extruded text",
+    "shadow",
+    {
+      depth: { type: "number", default: 6, min: 1, max: 12, step: 1 },
+      color: { type: "color", default: "#168da5" },
+    },
+    true,
+    "static",
+  ),
+  descriptor(
+    "holographic",
+    "Holographic",
+    "fill",
+    { intensity: { type: "number", default: 0.7, min: 0, max: 1, step: 0.1 } },
+    false,
+    "static",
+  ),
+  descriptor(
+    "metallic",
+    "Gold / chrome",
+    "fill",
+    { variant: { type: "enum", default: "gold", values: ["gold", "chrome"] } },
+    false,
+    "static",
+  ),
+  descriptor(
+    "cinematicMetal",
+    "Cinematic Metal",
+    "fill",
+    {
+      profile: {
+        type: "enum",
+        default: "lightning-metal-v1",
+        values: [
+          "lightning-metal-v1",
+          "ice-cathedral-v1",
+          "liquid-chrome-v1",
+          "molten-gold-v1",
+        ],
+      },
+      color: { type: "color", default: "#69dcff" },
+      depth: { type: "number", default: 7, min: 0, max: 10, step: 1 },
+      glow: { type: "number", default: 0.25, min: 0, max: 1, step: 0.05 },
+      ornaments: { type: "boolean", default: true },
+    },
+    false,
+    "static",
+  ),
+  descriptor(
+    "crt",
+    "CRT",
+    "fill",
+    { intensity: { type: "number", default: 0.6, min: 0, max: 1, step: 0.1 } },
+    false,
+    "static",
+  ),
+  descriptor(
+    "rainbow",
+    "Rainbow",
+    "fill",
+    {
+      saturation: {
+        type: "number",
+        default: 0.85,
+        min: 0.2,
+        max: 1,
+        step: 0.05,
+      },
+    },
+    false,
+    "static",
+  ),
+  descriptor(
+    "glowPulse",
+    "Glow pulse",
+    "motion",
+    {
+      periodMs: {
+        type: "number",
+        default: 2400,
+        min: 1000,
+        max: 5000,
+        step: 100,
+      },
+      intensity: {
+        type: "number",
+        default: 0.6,
+        min: 0.1,
+        max: 0.8,
+        step: 0.1,
+      },
+    },
+    false,
+    "decorative",
+  ),
+  descriptor(
+    "gradientDrift",
+    "Gradient drift",
+    "motion",
+    {
+      periodMs: {
+        type: "number",
+        default: 2400,
+        min: 1000,
+        max: 5000,
+        step: 100,
+      },
+      distance: { type: "number", default: 30, min: 5, max: 50, step: 1 },
+    },
+    false,
+    "decorative",
+  ),
+  descriptor(
+    "wave",
+    "Gentle wave",
+    "motion",
+    {
+      amplitude: { type: "number", default: 5, min: 1, max: 10, step: 1 },
+      periodMs: {
+        type: "number",
+        default: 2400,
+        min: 1000,
+        max: 5000,
+        step: 100,
+      },
+    },
+    false,
+    "decorative",
+  ),
+  descriptor(
+    "indicator",
+    "Decorative moving indicator",
+    "motion",
+    {
+      color: { type: "color", default: "#22d3ee" },
+      periodMs: {
+        type: "number",
+        default: 2400,
+        min: 1000,
+        max: 5000,
+        step: 100,
+      },
+    },
+    false,
+    "decorative",
+  ),
 ]);
-
 export function getEffectDescriptors(): readonly EffectDescriptor[] {
   return descriptors;
 }
-
 export function effectDescriptor(kind: string): EffectDescriptor | undefined {
   return descriptors.find((descriptor) => descriptor.kind === kind);
 }
-
 export const EFFECT_ORDER: readonly EffectKind[] = [
   "badge",
   "holographic",
   "metallic",
+  "cinematicMetal",
   "crt",
   "rainbow",
   "rgbSplit",

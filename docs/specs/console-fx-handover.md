@@ -1,6 +1,6 @@
 # ConsoleFX — implementation handover for servrox/console-fx
 
-**Persistence status: saved.** This handover and the [approved implementation specification](console-fx-spec.md) record the approved review checkpoint and save-only revisions. The current save changes documentation only. Product implementation, dependency installation, commit, npm publication, and studio deployment require their own authorized task.
+**Persistence status: saved.** This handover and the [approved implementation specification](console-fx-spec.md) record the approved review checkpoint and save-only revisions. That original save changed documentation only. Later authorized implementation is recorded in the [base evidence](console-fx-implementation-evidence.md) and [cinematic feature evidence](cinematic-metal-presets-evidence.md); this historical execution prompt does not replace the current task or its evidence. Commit, npm publication and studio deployment remain separately authorized actions.
 
 Target repository: `servrox/console-fx`. Core package: `@servrox/console-fx`. Required React adapter: `@servrox/console-fx-react`. The product includes an integrated Next.js landing page/studio and tested Next.js recipes. MIT is approved; asset/dependency rights, npm access, hosting, and publication remain later gates. A separate `@servrox/console-fx-next` package remains deferred.
 
@@ -17,8 +17,9 @@ the nixos WSL distribution, a native Linux repository/worktree path, and
 Nix-owned tools. Inspect current manifests, scripts, Git state, and concurrent
 work. Preserve unrelated files and the Git index.
 
-ADR-0001 through ADR-0011 are already Accepted. No new ADR is required for the
-approved specification. Report a conflict and the required maintainer decision
+ADR-0001 through ADR-0010, ADR-0012 and ADR-0013 are Accepted. ADR-0012 governs
+the separate cinematic extension; ADR-0013 supersedes ADR-0011. No additional
+ADR is required for the approved specification. Report a conflict and the required maintainer decision
 before implementing anything that would change Accepted intent. Do not rewrite
 Accepted records or accept a new proposal implicitly.
 
@@ -70,7 +71,7 @@ deploy, configure accounts, or proceed to another phase without task authority.
 6. **Honest preview and exporter.** CSS preview is labeled Approximate browser preview; SVG preview uses the exact compiler image URI through an image element with its caption as alternative text. Preview controls cannot change a printed entry. AST and isolated execution checks cover the single log expression, literal data, direct/export equality, and system/static preference cases. A source-model test, page screenshot, or console argument event is not actual DevTools appearance/motion proof.
 7. **React first-enabled behavior.** The explicit hook emits the current scene only when its callback is invoked. ConsoleBanner defaults disabled and emits once in a client effect on the first committed enabled state for that mounted instance, using current scene/options. Initial disabled-to-enabled works; subsequent scene edits or false/true toggles do not emit again. Render/SSR is silent and Strict Mode effect replay does not duplicate emission. Real remounts are new instances. React is an unbundled peer and built client entrypoints retain use-client directives.
 8. **Recoverable local documents.** Automatically resume valid local drafts before autosave starts. Validate incoming shares; confirm a different shared scene before replacing valid draft/current work. Equal scenes need no confirmation. Preserve valid work/history on invalid, future, oversized imports or storage failures. A successful active-session import is one undoable replacement; startup restoration sets the baseline. Reset requires confirmation, returns to blank/default, and clears session history; it does not delete stored drafts. Clear local draft removes only the owned key, preserves the current scene/history, is repeatable, and visibly reports deletion failure/retry. Prevent pending writes from restoring cleared data and resume autosave after reset/clear only on a later committed edit. No backend or sync; downloads/shared copies cannot be revoked by deletion.
-9. **Accessibility and product scope.** Use the restrained dark/cyan visual direction and the integrated landing page/editor workflow. Apply ADR-0011's WCAG 2.2 AA baseline with automated and manual critical-journey checks, including keyboard/focus/reflow, reduced motion, screen-reader/browser use, clipboard errors, and draft recovery. No accounts, analytics, remote fonts, raw uploads, or invented metrics/compatibility claims.
+9. **Accessibility and product scope.** Use the restrained dark/cyan visual direction and the integrated landing page/editor workflow. Apply ADR-0013's WCAG 2.2 AA target with automated and manual critical-journey checks, including keyboard/focus/reflow, reduced motion, clipboard errors, and draft recovery. Screen-reader/browser review remains nonblocking follow-up; missing observations do not block launch or publication. No accounts, analytics, remote fonts, raw uploads, or invented metrics/compatibility claims.
 10. **Package and release evidence.** Use built ESM, declarations, explicit exports/files, and MIT metadata/license. Inspect and install both packed tarballs into isolated JS/TS/React/Next consumers; workspace imports are not distribution proof. Verify asset/dependency rights, npm access/names, publishing prerequisites, supported builds, exact release artifact/tag, and explicit authority before publication. Resolve host, CSP/runtime checks, target, and rollback before deployment. Partial static delivery does not satisfy the full launch gate.
 
 ## Validation and governance handoff
@@ -84,7 +85,7 @@ All Accepted local ADRs materially govern this handover:
 | ADR-0001 | Authority, conflict handling, and successor process |
 | ADR-0002 / ADR-0003 / ADR-0004 | Single emission, shared model/catalog, package/public API boundaries |
 | ADR-0005 / ADR-0006 | Validated serialization, rendering, fallback, and DevTools qualification |
-| ADR-0007 / ADR-0011 | Local data recovery/deletion and accessibility |
+| ADR-0007 / ADR-0013 | Local data recovery/deletion and accessibility |
 | ADR-0008 / ADR-0009 / ADR-0010 | Toolchain ownership, evidence, reversible phases and release gates |
 
 Consult the [ADR index](../adrs/README.md) and [specification's ADR mapping](console-fx-spec.md#13-architectural-decisions-and-adr-gate). **ADR required: no new ADR.** Read-only descriptor access leaves registration internal; formatter encoding implements the existing literal-text requirement; the complete launch gate permits separately qualified static phase work. No Accepted intent changes.

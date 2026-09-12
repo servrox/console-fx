@@ -108,7 +108,7 @@ describe("scene boundary", () => {
 
 describe("public metadata and presets", () => {
   it("exposes all built-ins as deeply immutable data with defaults accepted by validation", () => {
-    expect(getEffectDescriptors()).toHaveLength(12);
+    expect(getEffectDescriptors()).toHaveLength(13);
     for (const descriptor of getEffectDescriptors()) {
       expect(Object.isFrozen(descriptor.parameters)).toBe(true);
       expect(
