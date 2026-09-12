@@ -13,6 +13,13 @@ or reduced motion, Effects off, document visibility loss and unmount stop owned
 decoration; offscreen reveals/cards cancel. No effect wraps editor inputs or code.
 Observers and callbacks are owned by mounted components and cleaned up explicitly.
 
+Missing IntersectionObserver support is covered before hydration. Constructor
+failures are injected into the application's optional observers while preserving
+Next.js 16.3.4's shared prefetch observer. A globally throwing constructor during
+module evaluation also breaks the pinned Next router before application recovery
+can run (`next/dist/client/components/links.js`); this separate upstream limitation
+was reproduced and is not reported as a passing recovery case.
+
 No upstream source was copied. No GSAP, Motion, GPU/ASCII exhibit, external fonts,
 visual assets or new dependency was added. UX-10 and UXR-13 are **not applicable —
 exhibit omitted**. The package tarballs and generated exports contain no website

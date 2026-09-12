@@ -150,6 +150,54 @@ describe("accepted compact card layouts", () => {
       ).toBe("text");
     },
   );
+  it.each([
+    ["contourMap", "title", "High contours above", 250, 34, 4],
+    ["signalHalftone", "title", "Signal across", 250, 34, 4],
+    ["letterpress", "footer", "A complete footer near the corner", 307, 9, 2],
+    ["buildReceipt", "outcome", "PASSED", 54, 9, 2],
+    ["serviceReady", "state", "READY", 70, 9, 2],
+    ["serviceReady", "envLabel", "ENVIRONMENT", 119.4, 9, 2],
+    ["releaseBulletin", "channel", "Preview channel", 50, 21, 2],
+  ] as const)(
+    "keeps measured %s %s text clear of retained ornaments",
+    (id, field, text, advance, ascent, descent) => {
+      const original = createPresetExample(id);
+      const slot = getPresentationDescriptors()
+        .find((d) => d.id === id)!
+        .slots.find((s) => s.id === field)!;
+      const scene = {
+        ...original,
+        lines: original.lines.map((line, li) => ({
+          ...line,
+          runs: line.runs.map((run, ri) =>
+            li === slot.line && ri === slot.run ? { ...run, text } : run,
+          ),
+        })),
+      };
+      const options = measure(scene, {
+        ...settings,
+        layout: { ...settings.layout!, overflow: "error" },
+      });
+      const measurements = normalizeMeasurements({
+        ...options.measurements!,
+        records: options.measurements!.records.map((r) =>
+          r.request.text === text
+            ? { ...r, advance, inkRight: advance, ascent, descent }
+            : r,
+        ),
+      });
+      expect(() =>
+        compileConsole(scene, { ...options, measurements }),
+      ).toThrow();
+      const fallback = compileConsole(scene, {
+        ...options,
+        measurements,
+        unsupported: "fallback",
+      });
+      expect(fallback.renderer).toBe("text");
+      expect(fallback.text).toContain(text);
+    },
+  );
   it.each(references.presets)(
     "preserves $id slots, approved geometry and immutable reference bytes",
     (reference) => {

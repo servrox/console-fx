@@ -106,11 +106,9 @@ export class MetricResolver {
       // explicitly measured batch can itself satisfy the snapshot byte limit.
       const bytes = utf8ByteLength(JSON.stringify(request)) + 256;
       if (this.requests.size >= 512 || this.bytes + bytes > LIMITS.inputBytes)
-        fail(
-          "resource-limit",
-          "This fitting attempt exceeds its measurement work budget.",
-          ["layout"],
-        );
+        fail("resource-limit", "Fitting exceeds its measurement budget.", [
+          "layout",
+        ]);
       this.bytes += bytes;
       this.requests.set(key, request);
     }

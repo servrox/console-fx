@@ -29,13 +29,29 @@ for (const failure of ["missing", "throws"] as const) {
     await page.addInitScript(
       ({ prior, key, failure }) => {
         localStorage.setItem(key, JSON.stringify(prior));
+        const NativeObserver = window.IntersectionObserver;
+        // Fault the application's optional observers. Next's pinned router
+        // constructs its prefetch observer during module evaluation, before
+        // application recovery can run; preserve that separate dependency.
         Object.defineProperty(window, "IntersectionObserver", {
           configurable: true,
           value:
             failure === "missing"
               ? undefined
-              : class {
-                  constructor() {
+              : class extends NativeObserver {
+                  constructor(
+                    callback: IntersectionObserverCallback,
+                    options?: IntersectionObserverInit,
+                  ) {
+                    if (options?.rootMargin === "200px") {
+                      super(callback, options);
+                      return;
+                    }
+                    const probe = window as unknown as {
+                      optionalObserverFailures?: number;
+                    };
+                    probe.optionalObserverFailures =
+                      (probe.optionalObserverFailures ?? 0) + 1;
                     throw new Error("Optional observer unavailable");
                   }
                 },
@@ -65,6 +81,14 @@ for (const failure of ["missing", "throws"] as const) {
       editor.getByRole("textbox", { name: "Message text", exact: true }),
     ).toHaveValue("Preserve my earlier work");
     expect(errors).toEqual([]);
+    if (failure === "throws")
+      expect(
+        await page.evaluate(
+          () =>
+            (window as unknown as { optionalObserverFailures: number })
+              .optionalObserverFailures,
+        ),
+      ).toBeGreaterThan(0);
     expect(
       await page.evaluate(
         () =>

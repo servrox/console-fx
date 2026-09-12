@@ -81,16 +81,10 @@ export function planSvgLayout(
   suppliedResolver?: MetricResolver,
 ): SvgLayoutPlan {
   if (request.variant === "compact" && !scene.presentation)
-    fitFailure(
-      "unsupported-layout",
-      "This scene has no reviewed compact card layout.",
-    );
+    fitFailure("unsupported-layout", "This scene has no compact card layout.");
   const padding = scene.surface.padding;
   if (request.width <= 2 * padding || request.maxHeight <= 2 * padding)
-    fitFailure(
-      "layout-overflow",
-      "The requested frame leaves no padded content space.",
-    );
+    fitFailure("layout-overflow", "Frame padding leaves no content space.");
   const card = scene.presentation
     ? presentationDescriptor(scene.presentation.profile)!
     : undefined;
@@ -113,7 +107,7 @@ export function planSvgLayout(
     diagnostics.push(
       issue(
         "stale-measurement",
-        "The snapshot's environment was not explicitly selected; font estimates are used.",
+        "Snapshot environment was not selected; font estimates are used.",
       ),
     );
   const sizing = options.sizing;
@@ -226,7 +220,7 @@ export function planSvgLayout(
         cardTexts?: SvgLayoutPlan["cardTexts"];
       }
     | undefined;
-  let lastFailure = "The complete painted content exceeds the chosen frame.";
+  let lastFailure = "Painted content exceeds its safe region.";
   let candidates = 0;
   for (const scale of scales) {
     candidates++;
@@ -269,7 +263,7 @@ export function planSvgLayout(
           [...run.text].length > slot.maxCodePoints
         ) {
           fits = false;
-          lastFailure = "A named slot exceeds this profile's content contract.";
+          lastFailure = "A card slot exceeds its content limit.";
           break;
         }
         // Only the reviewed footer and command/description regions have extra rows.
@@ -301,7 +295,7 @@ export function planSvgLayout(
         if (run.text && effectiveSize + 1e-8 < slotFloor(slot.style.fontSize)) {
           fits = false;
           lastFailure =
-            "Card text falls below its readable floor. Choose a wider frame or compact layout.";
+            "Card text is too small. Choose a wider frame or compact layout.";
         }
         const transform = (b: PaintBounds) => ({
           x: offsetX + b.x * frameScale,
@@ -329,7 +323,10 @@ export function planSvgLayout(
             ? slot.id === "command"
               ? 164
               : 110
-            : Math.max(0, slot.y - slot.style.fontSize * 1.4 - 2);
+            : Math.max(
+                slot.safeTop ?? 0,
+                slot.y - slot.style.fontSize * 1.4 - 2,
+              );
           const bottom = command
             ? slot.id === "command"
               ? 215
@@ -365,16 +362,15 @@ export function planSvgLayout(
       const overlaps = fragments.some(
         (a, i) =>
           a.text &&
-          fragments
-            .slice(i + 1)
-            .some(
-              (b) =>
-                b.text &&
-                a.paint.x < b.paint.x + b.paint.width &&
-                b.paint.x < a.paint.x + a.paint.width &&
-                a.paint.y < b.paint.y + b.paint.height &&
-                b.paint.y < a.paint.y + a.paint.height,
-            ),
+          fragments.some(
+            (b, j) =>
+              j > i &&
+              b.text &&
+              a.paint.x < b.paint.x + b.paint.width &&
+              b.paint.x < a.paint.x + a.paint.width &&
+              a.paint.y < b.paint.y + b.paint.height &&
+              b.paint.y < a.paint.y + a.paint.height,
+          ),
       );
       if (fits && !overlaps && visualRows <= LIMITS.lines) {
         selected = {
@@ -475,8 +471,7 @@ export function planSvgLayout(
           item.run.style.fontSize * floorScale + 1e-8 < request.minFontSize
         ) {
           fits = false;
-          lastFailure =
-            "The output would fall below the requested minimum font size.";
+          lastFailure = "Output text falls below the requested font floor.";
         }
         return {
           run: item.run,
@@ -540,7 +535,7 @@ export function planSvgLayout(
     diagnostics.push(
       issue(
         "platform-font-variation",
-        "These local font measurements do not prove recipient font resolution.",
+        "Recipient fonts may differ from these local measurements.",
       ),
     );
   const requests = [...resolver.requests.values()].filter(
@@ -558,7 +553,7 @@ export function planSvgLayout(
   if (height !== null && height > LIMITS.svgHeight)
     fitFailure(
       "below-readable-size",
-      "The proportional display height exceeds 400 pixels.",
+      "Proportional display height exceeds 400 pixels.",
     );
   const report: LayoutReport = {
     algorithm: "fit/v1",
