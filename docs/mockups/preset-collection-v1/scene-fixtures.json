@@ -1,0 +1,1866 @@
+{
+  "status": "accepted 2026-09-12; documentation fixtures, runtime implementation pending",
+  "separator": "Adjacent semantic slots in the same line use one locked ordinary run with exactly two spaces. This preserves readable captions and text when explicitly detached.",
+  "presets": [
+    {
+      "id": "buildReceipt",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "project",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "outcome",
+          "line": 1,
+          "run": 2
+        },
+        {
+          "id": "revisionLabel",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "durationLabel",
+          "line": 2,
+          "run": 2
+        },
+        {
+          "id": "checksLabel",
+          "line": 2,
+          "run": 4
+        },
+        {
+          "id": "revision",
+          "line": 3,
+          "run": 0
+        },
+        {
+          "id": "duration",
+          "line": 3,
+          "run": 2
+        },
+        {
+          "id": "checks",
+          "line": 3,
+          "run": 4
+        },
+        {
+          "id": "environment",
+          "line": 4,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 5,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Build Receipt",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#111c19",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "BUILD / RECEIPT",
+                "style": {
+                  "color": "#65716d",
+                  "fontSize": 11.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "atlas-web",
+                "style": {
+                  "color": "#1c2a26",
+                  "fontSize": 32.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "PASSED",
+                "style": {
+                  "color": "#156751",
+                  "fontSize": 12.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "REVISION",
+                "style": {
+                  "color": "#63736c",
+                  "fontSize": 11.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "DURATION",
+                "style": {
+                  "color": "#63736c",
+                  "fontSize": 11.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "CHECKS",
+                "style": {
+                  "color": "#63736c",
+                  "fontSize": 11.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "a1b2c3d",
+                "style": {
+                  "color": "#263831",
+                  "fontSize": 21.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "2.34 s",
+                "style": {
+                  "color": "#263831",
+                  "fontSize": 21.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "48 / 48",
+                "style": {
+                  "color": "#263831",
+                  "fontSize": 21.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "ENVIRONMENT  preview",
+                "style": {
+                  "color": "#50675e",
+                  "fontSize": 11.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "COMPLETED SNAPSHOT",
+                "style": {
+                  "color": "#50675e",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "buildReceipt/v1",
+          "accent": "#32816b",
+          "detail": "standard"
+        }
+      },
+      "caption": "BUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT"
+    },
+    {
+      "id": "requestTrace",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "method",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "path",
+          "line": 1,
+          "run": 2
+        },
+        {
+          "id": "status",
+          "line": 1,
+          "run": 4
+        },
+        {
+          "id": "total",
+          "line": 1,
+          "run": 6
+        },
+        {
+          "id": "s0",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "s1",
+          "line": 2,
+          "run": 2
+        },
+        {
+          "id": "s2",
+          "line": 2,
+          "run": 4
+        },
+        {
+          "id": "d0",
+          "line": 3,
+          "run": 0
+        },
+        {
+          "id": "d1",
+          "line": 3,
+          "run": 2
+        },
+        {
+          "id": "d2",
+          "line": 3,
+          "run": 4
+        },
+        {
+          "id": "requestId",
+          "line": 4,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 5,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Request Trace",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#141e26",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "REQUEST / SNAPSHOT",
+                "style": {
+                  "color": "#8a9ca7",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "GET",
+                "style": {
+                  "color": "#58d4d5",
+                  "fontSize": 25.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "/api/orders",
+                "style": {
+                  "color": "#edf3f6",
+                  "fontSize": 25.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "200 OK",
+                "style": {
+                  "color": "#b8e1cd",
+                  "fontSize": 11.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "148 ms",
+                "style": {
+                  "color": "#edf3f6",
+                  "fontSize": 27.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "AUTH",
+                "style": {
+                  "color": "#aebfc7",
+                  "fontSize": 10.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "QUERY",
+                "style": {
+                  "color": "#aebfc7",
+                  "fontSize": 10.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "SERIALIZE",
+                "style": {
+                  "color": "#aebfc7",
+                  "fontSize": 10.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "12 ms",
+                "style": {
+                  "color": "#dce8ee",
+                  "fontSize": 20.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "106 ms",
+                "style": {
+                  "color": "#dce8ee",
+                  "fontSize": 20.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "30 ms",
+                "style": {
+                  "color": "#dce8ee",
+                  "fontSize": 20.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "ID  req_demo_0042",
+                "style": {
+                  "color": "#90a2af",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "ONE REQUEST / NO LIVE CONNECTION",
+                "style": {
+                  "color": "#90a2af",
+                  "fontSize": 9.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "requestTrace/v1",
+          "accent": "#66c6c7",
+          "detail": "standard",
+          "tone": "success"
+        }
+      },
+      "caption": "REQUEST / SNAPSHOT\nGET  /api/orders  200 OK  148 ms\nAUTH  QUERY  SERIALIZE\n12 ms  106 ms  30 ms\nID  req_demo_0042\nONE REQUEST / NO LIVE CONNECTION"
+    },
+    {
+      "id": "serviceReady",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "service",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "state",
+          "line": 1,
+          "run": 2
+        },
+        {
+          "id": "endpoint",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "envLabel",
+          "line": 3,
+          "run": 0
+        },
+        {
+          "id": "runtimeLabel",
+          "line": 3,
+          "run": 2
+        },
+        {
+          "id": "regionLabel",
+          "line": 3,
+          "run": 4
+        },
+        {
+          "id": "environment",
+          "line": 4,
+          "run": 0
+        },
+        {
+          "id": "runtime",
+          "line": 4,
+          "run": 2
+        },
+        {
+          "id": "region",
+          "line": 4,
+          "run": 4
+        },
+        {
+          "id": "footer",
+          "line": 5,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Service Passport",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#1a222a",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "SERVICE / PASSPORT",
+                "style": {
+                  "color": "#8a9eaa",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Atlas API",
+                "style": {
+                  "color": "#f0f5f5",
+                  "fontSize": 33.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "READY",
+                "style": {
+                  "color": "#9de9c8",
+                  "fontSize": 11.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "http://localhost:3000",
+                "style": {
+                  "color": "#5fced1",
+                  "fontSize": 16.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "ENVIRONMENT",
+                "style": {
+                  "color": "#8a9eaa",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "RUNTIME",
+                "style": {
+                  "color": "#8a9eaa",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "REGION",
+                "style": {
+                  "color": "#8a9eaa",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "development",
+                "style": {
+                  "color": "#e2eaed",
+                  "fontSize": 17.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "Node 24",
+                "style": {
+                  "color": "#e2eaed",
+                  "fontSize": 17.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "local",
+                "style": {
+                  "color": "#e2eaed",
+                  "fontSize": 17.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "STARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP",
+                "style": {
+                  "color": "#8a9eaa",
+                  "fontSize": 9.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 1.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "serviceReady/v1",
+          "accent": "#72cbd0",
+          "detail": "standard"
+        }
+      },
+      "caption": "SERVICE / PASSPORT\nAtlas API  READY\nhttp://localhost:3000\nENVIRONMENT  RUNTIME  REGION\ndevelopment  Node 24  local\nSTARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP"
+    },
+    {
+      "id": "commandCard",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "step",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "title",
+          "line": 1,
+          "run": 2
+        },
+        {
+          "id": "instruction",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "command",
+          "line": 3,
+          "run": 0
+        },
+        {
+          "id": "safety",
+          "line": 4,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Command Card",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#1c242a",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "NEXT / ACTION",
+                "style": {
+                  "color": "#8fa1a8",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "01",
+                "style": {
+                  "color": "#657780",
+                  "fontSize": 38.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "Run the test suite",
+                "style": {
+                  "color": "#eff3f4",
+                  "fontSize": 29.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Run from the project root.",
+                "style": {
+                  "color": "#aab9c1",
+                  "fontSize": 14.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "pnpm test",
+                "style": {
+                  "color": "#dce7e9",
+                  "fontSize": 27.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Command shown, never executed.",
+                "style": {
+                  "color": "#95a8b1",
+                  "fontSize": 11.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "commandCard/v1",
+          "accent": "#67c3c8",
+          "detail": "standard"
+        }
+      },
+      "caption": "NEXT / ACTION\n01  Run the test suite\nRun from the project root.\npnpm test\nCommand shown, never executed."
+    },
+    {
+      "id": "releaseBulletin",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "version",
+          "line": 0,
+          "run": 2
+        },
+        {
+          "id": "headline",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "change0",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "change1",
+          "line": 3,
+          "run": 0
+        },
+        {
+          "id": "channel",
+          "line": 4,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 4,
+          "run": 2
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Release Bulletin",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#eeeee4",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "ATLAS / RELEASE NOTES",
+                "style": {
+                  "color": "#64665b",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "v2.4.0",
+                "style": {
+                  "color": "#3b665d",
+                  "fontSize": 12.0,
+                  "fontWeight": 700,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "A quieter kind of fast.",
+                "style": {
+                  "color": "#26302b",
+                  "fontSize": 36.0,
+                  "fontWeight": 700,
+                  "fontFamily": "serif",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Smaller payloads.",
+                "style": {
+                  "color": "#34443b",
+                  "fontSize": 17.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Clearer diagnostics.",
+                "style": {
+                  "color": "#34443b",
+                  "fontSize": 17.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Preview channel",
+                "style": {
+                  "color": "#587068",
+                  "fontSize": 12.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              },
+              {
+                "text": "  ",
+                "style": {
+                  "color": "#000000",
+                  "fontSize": 8,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0
+                },
+                "effects": []
+              },
+              {
+                "text": "TWO CHANGES. ONE CLEAR MESSAGE.",
+                "style": {
+                  "color": "#65736b",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "releaseBulletin/v1",
+          "accent": "#3c8574",
+          "detail": "standard"
+        }
+      },
+      "caption": "ATLAS / RELEASE NOTES  v2.4.0\nA quieter kind of fast.\nSmaller payloads.\nClearer diagnostics.\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE."
+    },
+    {
+      "id": "blueprint",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "title",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "subtitle",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 3,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Blueprint",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#132b35",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "ENGINEERING / EDITION 01",
+                "style": {
+                  "color": "#a5c1cc",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 1.5
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "BUILT TO LAST",
+                "style": {
+                  "color": "#e0eff2",
+                  "fontSize": 37.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "An interface worth understanding.",
+                "style": {
+                  "color": "#9bbac6",
+                  "fontSize": 14.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "PRECISION OVER NOISE",
+                "style": {
+                  "color": "#87abb9",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "blueprint/v1",
+          "accent": "#82c6cc",
+          "detail": "standard"
+        }
+      },
+      "caption": "ENGINEERING / EDITION 01\nBUILT TO LAST\nAn interface worth understanding.\nPRECISION OVER NOISE"
+    },
+    {
+      "id": "contourMap",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "title",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "subtitle",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 3,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Contour Map",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#162923",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "FIELD NOTES / 007",
+                "style": {
+                  "color": "#96aca8",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "FIND YOUR SIGNAL",
+                "style": {
+                  "color": "#edf1ea",
+                  "fontSize": 32.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Less noise. More direction.",
+                "style": {
+                  "color": "#a6bcb6",
+                  "fontSize": 16.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "CONTOUR STUDY",
+                "style": {
+                  "color": "#86aaa2",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "contourMap/v1",
+          "accent": "#69b7a3",
+          "detail": "standard"
+        }
+      },
+      "caption": "FIELD NOTES / 007\nFIND YOUR SIGNAL\nLess noise. More direction.\nCONTOUR STUDY"
+    },
+    {
+      "id": "letterpress",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "title",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "subtitle",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 3,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Letterpress",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#e8e7dc",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "STUDIO / CONSOLE EDITION",
+                "style": {
+                  "color": "#78786f",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Make it matter.",
+                "style": {
+                  "color": "#464842",
+                  "fontSize": 58.0,
+                  "fontWeight": 700,
+                  "fontFamily": "serif",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Thoughtful tools. Everyday work.",
+                "style": {
+                  "color": "#74776c",
+                  "fontSize": 16.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "LESS, BUT CONSIDERED.",
+                "style": {
+                  "color": "#70776e",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "letterpress/v1",
+          "accent": "#43877b",
+          "detail": "standard"
+        }
+      },
+      "caption": "STUDIO / CONSOLE EDITION\nMake it matter.\nThoughtful tools. Everyday work.\nLESS, BUT CONSIDERED."
+    },
+    {
+      "id": "signalHalftone",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "title",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "title2",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "subtitle",
+          "line": 3,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 4,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Signal Halftone",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#ede8d8",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "TWO INKS / ONE IDEA",
+                "style": {
+                  "color": "#777566",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 1.5
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "MAKE SOME",
+                "style": {
+                  "color": "#293931",
+                  "fontSize": 41.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "SIGNAL",
+                "style": {
+                  "color": "#293931",
+                  "fontSize": 41.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Small tools. Clear intent.",
+                "style": {
+                  "color": "#626b5d",
+                  "fontSize": 14.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "PRINT STUDY 04",
+                "style": {
+                  "color": "#737566",
+                  "fontSize": 9.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "signalHalftone/v1",
+          "accent": "#ae563b",
+          "detail": "standard"
+        }
+      },
+      "caption": "TWO INKS / ONE IDEA\nMAKE SOME\nSIGNAL\nSmall tools. Clear intent.\nPRINT STUDY 04"
+    },
+    {
+      "id": "orbital",
+      "slots": [
+        {
+          "id": "eyebrow",
+          "line": 0,
+          "run": 0
+        },
+        {
+          "id": "title",
+          "line": 1,
+          "run": 0
+        },
+        {
+          "id": "subtitle",
+          "line": 2,
+          "run": 0
+        },
+        {
+          "id": "footer",
+          "line": 3,
+          "run": 0
+        }
+      ],
+      "scene": {
+        "schemaVersion": 1,
+        "label": "Orbital",
+        "surface": {
+          "width": 720,
+          "height": 240,
+          "background": "#141e28",
+          "padding": 0,
+          "borderRadius": 12
+        },
+        "lines": [
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "MISSION / CONSOLE 01",
+                "style": {
+                  "color": "#92a1aa",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 1.7
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "STAY CURIOUS",
+                "style": {
+                  "color": "#edf3f3",
+                  "fontSize": 36.0,
+                  "fontWeight": 700,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "Build something worth discovering.",
+                "style": {
+                  "color": "#a5b7c1",
+                  "fontSize": 14.0,
+                  "fontWeight": 400,
+                  "fontFamily": "sans",
+                  "letterSpacing": 0.0
+                },
+                "effects": []
+              }
+            ]
+          },
+          {
+            "align": "left",
+            "runs": [
+              {
+                "text": "IDEAS IN ORBIT",
+                "style": {
+                  "color": "#90aab3",
+                  "fontSize": 10.0,
+                  "fontWeight": 400,
+                  "fontFamily": "mono",
+                  "letterSpacing": 2.0
+                },
+                "effects": []
+              }
+            ]
+          }
+        ],
+        "motion": {
+          "durationMs": 5000,
+          "finish": "freeze"
+        },
+        "presentation": {
+          "kind": "presetCard",
+          "profile": "orbital/v1",
+          "accent": "#68c9c7",
+          "detail": "standard"
+        }
+      },
+      "caption": "MISSION / CONSOLE 01\nSTAY CURIOUS\nBuild something worth discovering.\nIDEAS IN ORBIT"
+    }
+  ]
+}
