@@ -39,6 +39,7 @@ jobs:
           pnpm run lint
           pnpm run typecheck
           pnpm run test
+          pnpm run test:release
       - name: Inspect tarballs and bundled consumers
         run: |
           pnpm run check:packages

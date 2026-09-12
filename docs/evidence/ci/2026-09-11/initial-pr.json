@@ -1,0 +1,118 @@
+{
+  "recordedAt": "2026-09-11T17:37:43.756839+00:00",
+  "stage": "CI",
+  "status": "verified",
+  "owner": "ConsoleFX maintainer",
+  "obligation": "Validate the exact approved source snapshot in GitHub CI and reconcile its downloadable package bytes with the locally qualified candidate.",
+  "source": {
+    "repository": "servrox/console-fx",
+    "pullRequest": "https://github.com/servrox/console-fx/pull/1",
+    "branch": "feat/console-fx-mvp",
+    "approvedSnapshotSha256": "89b267022e830c751316ac58ce75f4211373e483e8dc75671bee6dfad0ddea4c",
+    "approvedFiles": 184,
+    "headCommit": "736afaf55402846a053e86549282a3acdba1dab7",
+    "testedMergeCommit": "e355400e11d619945d3ec62d4189876129d3c73f",
+    "treeSha": "2f6b8cdd13899f7dc73c268a758009d1b20567e1",
+    "identityCheck": "GitHub git-commit API returned this same tree for the approved head and tested pull-request merge commit; all approved files match the isolated source worktree."
+  },
+  "run": {
+    "id": 34627406177,
+    "url": "https://github.com/servrox/console-fx/actions/runs/34627406177",
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "createdAt": "2026-09-11T17:23:29Z",
+    "updatedAt": "2026-09-11T17:25:09Z"
+  },
+  "environment": {
+    "host": "GitHub-hosted ubuntu-24.04",
+    "os": "Ubuntu 24.04.5 LTS",
+    "runner": "2.337.0",
+    "imageVersion": "20260907.300.1",
+    "node": "24.20.0",
+    "pnpm": "12.3.4",
+    "lockSha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497",
+    "workflow": ".github/workflows/validate.yml",
+    "workflowSha256": "bd56650746a5eebcfd9fe570098f3a8dab83b2f56f463699799f5719b036ec4b",
+    "harness": "Build and package scripts, Vitest, production Playwright studio and isolated consumer fixtures at the tested source tree."
+  },
+  "checks": {
+    "build": "passed",
+    "format": "passed",
+    "lint": "passed",
+    "types": "passed",
+    "unitTests": 101,
+    "studioJourneys": 16,
+    "packedNextBrowserJourneys": 1,
+    "packageInspection": "passed",
+    "isolatedConsumers": [
+      "javascript",
+      "typescript",
+      "react-ssr-lifecycle",
+      "next-production-build",
+      "next-browser-lifecycle"
+    ],
+    "browserBundles": [
+      {
+        "renderer": "css",
+        "gzipBytes": 7201,
+        "budgetBytes": 10240
+      },
+      {
+        "renderer": "svg",
+        "gzipBytes": 7201,
+        "budgetBytes": 25600
+      }
+    ]
+  },
+  "artifact": {
+    "id": 10275231131,
+    "name": "console-fx-candidate-e355400e11d619945d3ec62d4189876129d3c73f",
+    "sizeBytes": 1514603,
+    "digestReportedByGitHub": "sha256:374ca8d734af0e627b05ef9b09a152d1c19cae5aef088b22af18ddb05386fafd",
+    "downloadedContentsVerified": true,
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.1.0",
+        "sha256": "5740c25432bf5e88abf6c0b65560383a6daeeb27694a59c85432b680c20350e1"
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.1.0",
+        "sha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a"
+      }
+    ],
+    "tarballsMatchQualifiedLocalBytes": true,
+    "studio": {
+      "filesVerified": 36,
+      "fingerprint": "c9b0235c1fa5cbbe03ad7ccc70b76ef5f40187adb7aa82b4ed67feef70163f20",
+      "configSha256": "39b04273d410cd08078640208b40503368c719ef9ff098a3e5b3558d90a122f6",
+      "protectedPreviewFingerprint": "0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1",
+      "sameBytesAsProtectedPreview": false,
+      "deployment": "not deployed",
+      "note": "CI produced a separate static build with different build-ID paths, page payloads and CSP hashes. The protected preview continues to serve the separately qualified 0bea5491 artifact."
+    }
+  },
+  "localEvidence": {
+    "directory": ".artifacts/ci/34627406177/",
+    "logSha256": "1975d739ec7c477983b7f13e01f2dbb8b03e52cd84e4c1bcd299244326ceef7c",
+    "receiptHashes": {
+      ".artifacts/packages/candidate.json": "fbfb8d12f3272309056bd3f97b33b50f747d6cc0c7252dda6b6f11d7316976a6",
+      ".artifacts/packages/consumers.json": "32b35d61d33c8ac4368d3f6ecab661e7ca9198b3d090309dafb8053c20bf0134",
+      ".artifacts/packages/bundles.json": "fc4f598767413eefa18212262f8b1c49b64ae113c90bf3a3e884a680c11cc18f",
+      ".artifacts/deployment/candidate.json": "78663edfc46239e6a8dee23f03a2e82ea33c4cd81673015197f4bbacee38a4c0"
+    }
+  },
+  "limitations": [
+    "This pull-request run covers source commit 736afaf and its identical-tree merge commit, not the later local release workflow, Bun fixture or evidence addendum.",
+    "The release verifier requires a successful main run; this pull-request run does not satisfy that publishing prerequisite.",
+    "CI browser checks are separate from actual Windows DevTools, native zoom and representative screen-reader observations.",
+    "No npm publication, trusted-publisher setup, public promotion or registry consumer installation is proved.",
+    "GitHub artifacts have a 14-day retention setting; receipts retain identity and results after those downloadable files expire."
+  ],
+  "invalidators": [
+    "Changes to package source, package manifests, lockfile, build or consumer/test inputs invalidate the affected CI contract.",
+    "A new final source commit requires its own CI result; material studio changes require their owning browser and hosted observations."
+  ]
+}

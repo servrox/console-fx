@@ -1,0 +1,186 @@
+import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
+import {
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import test from "node:test";
+import {
+  verifyReleaseArtifacts,
+  verifyValidationRun,
+} from "../scripts/verify-release.mjs";
+
+const commit = "a".repeat(40);
+const run = {
+  id: 123,
+  repository: { full_name: "servrox/console-fx" },
+  path: ".github/workflows/validate.yml",
+  head_sha: commit,
+  head_branch: "main",
+  event: "push",
+  status: "completed",
+  conclusion: "success",
+};
+const artifact = {
+  id: 456,
+  name: `console-fx-candidate-${commit}`,
+  expired: false,
+  workflow_run: { id: run.id, head_sha: commit },
+};
+const listing = { total_count: 1, artifacts: [artifact] };
+
+test("release selection binds a successful main run to its exact artifact", () => {
+  assert.equal(verifyValidationRun(run, listing, commit), artifact.id);
+  for (const changed of [
+    { head_sha: "b".repeat(40) },
+    { head_branch: "feature" },
+    { event: "pull_request" },
+    { path: ".github/workflows/unrelated.yml" },
+    { repository: { full_name: "someone/console-fx" } },
+    { status: "in_progress" },
+    { conclusion: "failure" },
+  ])
+    assert.throws(() =>
+      verifyValidationRun({ ...run, ...changed }, listing, commit),
+    );
+});
+
+test("missing, expired, ambiguous and foreign artifacts cannot publish", () => {
+  for (const artifacts of [
+    [],
+    [{ ...artifact, expired: true }],
+    [artifact, artifact],
+    [{ ...artifact, workflow_run: { id: 999, head_sha: commit } }],
+    [{ ...artifact, workflow_run: { id: run.id, head_sha: "b".repeat(40) } }],
+  ])
+    assert.throws(() =>
+      verifyValidationRun(
+        run,
+        { total_count: artifacts.length, artifacts },
+        commit,
+      ),
+    );
+  assert.throws(() =>
+    verifyValidationRun(run, { ...listing, total_count: 101 }, commit),
+  );
+});
+
+function fixture(t) {
+  const sourceRoot = mkdtempSync(join(tmpdir(), "console-fx-release-test-"));
+  t.after(() => rmSync(sourceRoot, { recursive: true, force: true }));
+  const artifactsDirectory = join(sourceRoot, "artifacts");
+  mkdirSync(artifactsDirectory);
+  const hash = (path) =>
+    createHash("sha256").update(readFileSync(path)).digest("hex");
+  writeFileSync(join(sourceRoot, "pnpm-lock.yaml"), "locked candidate\n");
+  const packages = ["console-fx", "console-fx-react"].map((directory) => {
+    const manifest = {
+      name: `@servrox/${directory}`,
+      version: "0.1.0",
+      repository: { url: "git+https://github.com/servrox/console-fx.git" },
+      publishConfig: { access: "public" },
+    };
+    const location = join(sourceRoot, "packages", directory);
+    mkdirSync(join(location, "package"), { recursive: true });
+    writeFileSync(join(location, "package.json"), JSON.stringify(manifest));
+    writeFileSync(
+      join(location, "package/package.json"),
+      JSON.stringify(manifest),
+    );
+    const tarball = join(artifactsDirectory, `servrox-${directory}-0.1.0.tgz`);
+    execFileSync("tar", ["-czf", tarball, "package"], { cwd: location });
+    return {
+      name: manifest.name,
+      directory,
+      version: manifest.version,
+      tarball,
+      sha256: hash(tarball),
+    };
+  });
+  const candidate = {
+    packages,
+    lockSha256: hash(join(sourceRoot, "pnpm-lock.yaml")),
+  };
+  const save = () =>
+    writeFileSync(
+      join(artifactsDirectory, "candidate.json"),
+      JSON.stringify(candidate),
+    );
+  save();
+  return {
+    options: {
+      sourceRoot,
+      artifactsDirectory,
+      expectedHashes: packages.map((p) => p.sha256),
+      tag: "latest",
+    },
+    candidate,
+    save,
+  };
+}
+
+test("reviewed tarballs are resolved from the download directory", (t) => {
+  const f = fixture(t);
+  for (const item of f.candidate.packages)
+    item.tarball = `/original-runner/${item.tarball.split("/").at(-1)}`;
+  f.save();
+  const result = verifyReleaseArtifacts(f.options);
+  assert.deepEqual(
+    result.map((p) => p.name),
+    ["@servrox/console-fx", "@servrox/console-fx-react"],
+  );
+  assert(
+    result.every((p) =>
+      p.tarball.startsWith(f.options.artifactsDirectory + "/"),
+    ),
+  );
+});
+
+test("an approved receipt cannot hide modified tarball bytes", (t) => {
+  const f = fixture(t);
+  writeFileSync(f.candidate.packages[0].tarball, "modified artifact");
+  assert.throws(() => verifyReleaseArtifacts(f.options), /Tarball differs/);
+});
+
+test("a forged receipt hash cannot substitute a different approved candidate", (t) => {
+  const f = fixture(t);
+  f.candidate.packages[0].sha256 = "0".repeat(64);
+  f.save();
+  assert.throws(() => verifyReleaseArtifacts(f.options), /Receipt differs/);
+});
+
+test("source, version and filename drift stop publication", (t) => {
+  const f = fixture(t);
+  f.candidate.packages[0].version = "0.2.0";
+  f.save();
+  assert.throws(() => verifyReleaseArtifacts(f.options), /version differs/);
+  f.candidate.packages[0].version = "0.1.0";
+  f.candidate.packages[0].tarball = "../../outside.tgz";
+  f.save();
+  assert.throws(() => verifyReleaseArtifacts(f.options), /filename/);
+  writeFileSync(
+    join(f.options.sourceRoot, "pnpm-lock.yaml"),
+    "different dependency input\n",
+  );
+  assert.throws(() => verifyReleaseArtifacts(f.options), /lockfile differs/);
+});
+
+test("publication requires explicit valid hashes and a supported tag", (t) => {
+  const f = fixture(t);
+  assert.throws(() =>
+    verifyReleaseArtifacts({
+      ...f.options,
+      expectedHashes: [undefined, undefined],
+    }),
+  );
+  assert.throws(
+    () => verifyReleaseArtifacts({ ...f.options, tag: "--registry=elsewhere" }),
+    /tag/,
+  );
+});

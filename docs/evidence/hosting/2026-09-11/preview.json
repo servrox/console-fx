@@ -1,0 +1,468 @@
+{
+  "recordedAt": "2026-09-11T16:49:47.005Z",
+  "deploymentId": "dpl_4g7hUC5pNBh7bnGbTGNrTrRThmGB",
+  "projectId": "prj_1l26eTv5TAxawo3B7gvcBXl4l5CN",
+  "scope": "servroxs-projects",
+  "url": "https://console-h1txxfsea-servroxs-projects.vercel.app",
+  "target": "preview",
+  "readyState": "READY",
+  "protection": "Vercel Authentication on all URLs",
+  "artifactFingerprint": "0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1",
+  "configSha256": "946cf1d3f80fd9fa20a1bd6b88cf45ffabc6d70d2381dc21f61924093007454e",
+  "sourceCommit": "736afaf55402846a053e86549282a3acdba1dab7",
+  "browser": "Managed Playwright Chromium 147.0.7727.15",
+  "browserScope": "Hosted application checks; native Windows Chrome/Edge qualification is separately recorded.",
+  "files": [
+    {
+      "path": "__next.__PAGE__.txt",
+      "status": 200,
+      "bytes": 4625,
+      "sha256": "774732712cd7c203198b4be2f043c202121c16ca50575d0ce4f7f5c317adcfef",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "__next._full.txt",
+      "status": 200,
+      "bytes": 5127,
+      "sha256": "7843bb0a003f7711d5ed81fd5ac211807ab8adf5d6e5b364fac0ed815d3a4068",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "__next._tree.txt",
+      "status": 200,
+      "bytes": 249,
+      "sha256": "c4ff9bc81fabc6cb297b300b6db2aed608ac73f05e4d6bff88faa256314ff305",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/02mk7y00m5cgy.css",
+      "status": 200,
+      "bytes": 15686,
+      "sha256": "02708953d89454cdf6f016c92322180ce90dc80245195ca77e70085f5a0395f6",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "text/css; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+      "status": 200,
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/0mqkl1lqlm755.js",
+      "status": 200,
+      "bytes": 29046,
+      "sha256": "1525f7377c736f0e6722f7ba72f2416b79769dab8f316aa745be94dcfcde6ec9",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/1fcs3a6dg17ff.js",
+      "status": 200,
+      "bytes": 23138,
+      "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/2ek8anm3get_b.js",
+      "status": 200,
+      "bytes": 14381,
+      "sha256": "5214391e464719678b58ce910f17bc459f4af4185070ba578cd37238fd01bbce",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/2zhovdbc7mlei.js",
+      "status": 200,
+      "bytes": 50588,
+      "sha256": "b136354634999ee2cad404d782268f10a38dad79f677d15ce947d28986be1da2",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/3_gvevdc4w3iw.js",
+      "status": 200,
+      "bytes": 165219,
+      "sha256": "e77202c256bb93be88dda196598950f0cc3a9e7e4da24525c134485f878faa8f",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/3b14-d3pzxicm.js",
+      "status": 200,
+      "bytes": 229149,
+      "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/3uhrbazk7ka33.js",
+      "status": 200,
+      "bytes": 5364,
+      "sha256": "27ee0c1b754cb3505933a7662cc35dbfe11b455935631a0eb990ba4ecba99166",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/chunks/turbopack-2wwt1m04ithaq.js",
+      "status": 200,
+      "bytes": 9720,
+      "sha256": "b69e8d3cc40eec1794a70923af0c5588c14b3cd4ed8ca9c0315d26db06103fd6",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/Dp9VXzCAKXRIsX3PPbAXs/_buildManifest.js",
+      "status": 200,
+      "bytes": 219,
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/Dp9VXzCAKXRIsX3PPbAXs/_clientMiddlewareManifest.js",
+      "status": 200,
+      "bytes": 96,
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_next/static/Dp9VXzCAKXRIsX3PPbAXs/_ssgManifest.js",
+      "status": 200,
+      "bytes": 80,
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00",
+      "matches": true,
+      "cacheControl": "public, max-age=31536000, immutable",
+      "contentType": "application/javascript; charset=utf-8"
+    },
+    {
+      "path": "_not-found/__next._full.txt",
+      "status": 200,
+      "bytes": 6432,
+      "sha256": "64c365a2a5d1714590b9f51a95b572a940dad3b1bbd8a76d3bb757ca8bc26441",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "_not-found/__next._not-found.__PAGE__.txt",
+      "status": 200,
+      "bytes": 5527,
+      "sha256": "749295e51772ca0fb65fd3b2a61dafe54664c79c73f47414a66f97a16eaa0ea4",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "_not-found/__next._tree.txt",
+      "status": 200,
+      "bytes": 327,
+      "sha256": "c9044b2e9ff18265371e137aff0b2b49034fc2ccade99e27c51213cd8b3aeb5d",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "_not-found/index.html",
+      "status": 200,
+      "bytes": 10255,
+      "sha256": "9e362343c6a2d02cf78a46b6ce144e8e7868362f63228a4d2511c49ed2993938",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "_not-found/index.txt",
+      "status": 200,
+      "bytes": 6432,
+      "sha256": "64c365a2a5d1714590b9f51a95b572a940dad3b1bbd8a76d3bb757ca8bc26441",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "404/index.html",
+      "status": 200,
+      "bytes": 10255,
+      "sha256": "9e362343c6a2d02cf78a46b6ce144e8e7868362f63228a4d2511c49ed2993938",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "404.html",
+      "status": 200,
+      "bytes": 10255,
+      "sha256": "9e362343c6a2d02cf78a46b6ce144e8e7868362f63228a4d2511c49ed2993938",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "docs/__next._full.txt",
+      "status": 200,
+      "bytes": 10927,
+      "sha256": "6ec6c45d694240ba1cb3e299332c78cebd85b704a80b67e44556a69b3488e9af",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "docs/__next._tree.txt",
+      "status": 200,
+      "bytes": 320,
+      "sha256": "82ed56acb74823e13b67d23b0d15e3306bf890ad3e46a98426ba71ae161e2e60",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "docs/__next.docs.__PAGE__.txt",
+      "status": 200,
+      "bytes": 10115,
+      "sha256": "2bfc201838c0f6c8ec496a8d619bc68e8ef0aff4a608557b17c0a38c21639604",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "docs/index.html",
+      "status": 200,
+      "bytes": 18884,
+      "sha256": "f7757536851fa234c1e136a2f312238f998ce3ad0c45dfb2c805cb60c20e95e2",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "docs/index.txt",
+      "status": 200,
+      "bytes": 10927,
+      "sha256": "6ec6c45d694240ba1cb3e299332c78cebd85b704a80b67e44556a69b3488e9af",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 30193,
+      "sha256": "02ec3ed3313da966e243e1aeb42ad1bebe709d2546ccb00bed2093612a289cd3",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "index.txt",
+      "status": 200,
+      "bytes": 5127,
+      "sha256": "7843bb0a003f7711d5ed81fd5ac211807ab8adf5d6e5b364fac0ed815d3a4068",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "licenses.txt",
+      "status": 200,
+      "bytes": 198890,
+      "sha256": "9989eacae27319ee7793aed2f1ffe8d341f094a7ac9c319196f6d1b655ef8c52",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "studio/__next._full.txt",
+      "status": 200,
+      "bytes": 5574,
+      "sha256": "db8e4829ef11bd159d396316f27d5900f65b0c40240578bf515a8884b488467a",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "studio/__next._tree.txt",
+      "status": 200,
+      "bytes": 322,
+      "sha256": "c945802ba1e9bb267720cf22aa499ff37bc15625e7a3fcbccf7ef8b8c19699ca",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "studio/__next.studio.__PAGE__.txt",
+      "status": 200,
+      "bytes": 4843,
+      "sha256": "a55133cf2808f7797d41c0106227052d016b9bf5fa533f8d88d53a80f04c0d85",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    },
+    {
+      "path": "studio/index.html",
+      "status": 200,
+      "bytes": 17505,
+      "sha256": "d1db3de72e5a1c41f594cea13fcc20fc3085629d22dd652be17e4f82d29e81ec",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "path": "studio/index.txt",
+      "status": 200,
+      "bytes": 5574,
+      "sha256": "db8e4829ef11bd159d396316f27d5900f65b0c40240578bf515a8884b488467a",
+      "matches": true,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "contentType": "text/plain; charset=utf-8"
+    }
+  ],
+  "headers": {
+    "path": "/",
+    "status": 200,
+    "location": null,
+    "csp": "default-src 'self'; script-src 'self' 'sha256-5Mu9/XVI6iTRULrDAbmTw6R4V3SK+ZOMF/+ypXCNMjs=' 'sha256-75yY7gQPmH8hVZZm8diabTRT3ItsGW1+cFPL/N2iRNU=' 'sha256-GqnYdEyBjMQIFabWOge45v+LDJ3tHY4q23pI5tz8dbo=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-gv+psqBG0OP2K6hDVrx+kAOklivbqOOw6eDJ+RFqvJc='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'",
+    "nosniff": "nosniff",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "robots": "noindex"
+  },
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    },
+    {
+      "path": "/studio",
+      "status": 308,
+      "location": "/studio/",
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    },
+    {
+      "path": "/studio/",
+      "status": 200,
+      "location": null,
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    },
+    {
+      "path": "/docs",
+      "status": 308,
+      "location": "/docs/",
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    },
+    {
+      "path": "/docs/",
+      "status": 200,
+      "location": null,
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    },
+    {
+      "path": "/missing-console-fx-route",
+      "status": 404,
+      "location": null,
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    },
+    {
+      "path": "/licenses.txt",
+      "status": 200,
+      "location": null,
+      "nosniff": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin",
+      "robots": "noindex"
+    }
+  ],
+  "journeys": [
+    {
+      "loadedPreset": "neon",
+      "text": "Hosted 100% %c %s 👩🏽‍💻",
+      "renderer": "svg",
+      "svgLoaded": true,
+      "silentEditing": true,
+      "explicitEmissions": 1,
+      "clipboardExact": true,
+      "exportFilename": "console-fx-scene.json",
+      "exportedSchemaVersion": 1,
+      "exportedKeys": [
+        "schemaVersion",
+        "label",
+        "surface",
+        "lines",
+        "motion"
+      ],
+      "pageErrors": [],
+      "requestOrigins": [
+        "https://console-h1txxfsea-servroxs-projects.vercel.app"
+      ],
+      "cspViolations": []
+    },
+    {
+      "invalidImportPreserved": true,
+      "validImport": true,
+      "undoRedo": true,
+      "reset": {
+        "initialFocus": "Keep current scene",
+        "focusContained": true,
+        "focusReturned": true,
+        "cancelPreserved": true
+      },
+      "draftReload": true,
+      "clientNavigation": true,
+      "silentRecovery": true,
+      "cspViolations": []
+    },
+    {
+      "confirmedReset": true,
+      "resetClearedHistory": true,
+      "repeatedClearPreservedWork": true,
+      "laterEditResumedSaving": true,
+      "clipboardDenialRetainedOutput": true,
+      "corruptStoragePreserved": true,
+      "clearDraftRecovered": true,
+      "mobile": {
+        "width": 390,
+        "documentWidth": 390
+      },
+      "cspViolations": []
+    }
+  ],
+  "limitations": [
+    "Representative screen-reader/browser evidence and remote CI remain pending.",
+    "Browser fallback /favicon.ico returns 404; no application exceptions or CSP violations occurred.",
+    "The first upload was unexpectedly classified as production; see containment receipt. Every assigned URL now requires authentication.",
+    "This preview has not been approved for public production promotion."
+  ]
+}

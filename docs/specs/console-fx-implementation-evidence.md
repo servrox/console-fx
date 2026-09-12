@@ -126,7 +126,10 @@ preserving prior/concurrent work. Package and deployment recovery follow ADR-001
   reopen, identical output, narrow consoles and offscreen return were observed
   in both browsers. Additional generated default/system-reduce samples pass in both native
   browsers. All four motion-family moving frames and all twenty style/plain wave
-  frames were also visually inspected without content clipping in those samples. No full qualification claim is made yet.
+frames were also visually inspected without content clipping in those samples.
+  The subsequent [scope audit](../evidence/devtools/2026-09-11/release-review.json)
+  reconciles all selected native rows and current compiler inputs. These results
+  qualify the recorded browser/fixture scope; full public release remains pending.
 - Native CSS paint containment clipped glow/shadow edges. Padding was added for
   neon, RGB split and extrusion; the corrected Chrome gallery has been observed.
   The badge indicator also received a dark outline after a cyan-on-cyan visibility
@@ -138,11 +141,13 @@ preserving prior/concurrent work. Package and deployment recovery follow ADR-001
 - `.github/workflows/validate.yml` pins official Actions commits and installs the
   locked toolchain, builds, validates, packs, measures and tests isolated consumers
   and the studio. It uploads the exact candidate/evidence and has read-only repository
-  permissions. It has not run on GitHub. Changesets is configured for public packages,
+  permissions. Its first GitHub run passed for the approved source snapshot, as
+  recorded below. Changesets is configured for public packages,
   `main`, patch internal-dependency updates and no automatic commits. No publishing
-  or deployment workflow is enabled.
+  or deployment workflow has run. A later local update prepares the manual OIDC
+  workflow described below.
 
-## Vercel preparation and unresolved authority
+## Protected hosted verification and release authority
 
 The user selected Vercel and requested creating or using a ConsoleFX project.
 Read-only inspection found no existing ConsoleFX project in either available
@@ -155,34 +160,110 @@ allowances for the actual inline scripts, allows only self/data image resources
 and controlled inline styles, and requires ownership of any output it replaces.
 The current artifact has 36 static files, five inline script hashes and a 480-byte
 CSP. Browser tests verified hydration, SVG images, and client navigation with the
-prepared CSP. This is local header behavior, not hosted Vercel routing evidence.
+prepared CSP. The later hosted observations below verify the deployed headers
+and routing separately.
 
 Automatic approval review initially rejected project creation under an inferred
 personal scope. The user subsequently explicitly approved creating `console-fx`
 in **servrox’s projects**. Creation succeeded and was read back from Vercel:
 project `prj_1l26eTv5TAxawo3B7gvcBXl4l5CN`, account
 `team_ZMyECTz65A2Bi8v8vYOavwsM` (`servroxs-projects`). The workspace is linked;
-local credentials and `.vercel` state are ignored. Vercel authentication protection
-is enabled with `all_except_custom_domains`; there are no deployments or domains.
-No protection setting was changed.
-An inspected dry run selects only the prepared static output (36 files plus
-  routing config and an empty Next build-ID directory); credentials/source/evidence
-  are excluded. The file/config manifest fingerprint is
-  `0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1`.
-  Automatic approval review rejected the subsequent protected-preview upload because
-  project creation approval did not cover deployment. Explicit approval for that
-  concrete preview artifact has been requested; no deployment exists.
+local credentials and `.vercel` state are ignored. The inspected upload selects
+only 36 static files, routing config and an empty Next build-ID directory;
+credentials, source and evidence are excluded. Its file/config manifest fingerprint
+is `0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1`.
 
-Deployment protection, exact hosted URLs, remote runtime/CSP checks, promotion and
-rollback remain separate steps after the target and candidate gates are resolved.
+The user explicitly approved the protected-preview upload after the earlier
+automatic approval rejection. Vercel nevertheless classified the first
+`--target preview` upload as production and exposed `console-fx.vercel.app`.
+The project was paused after discovery and 503 responses were verified. Vercel
+Authentication was strengthened from `all_except_custom_domains` to `all`, read
+back, and the project resumed. All assigned and deployment URLs then redirected
+unauthenticated requests to Vercel sign-in. No public-launch approval was inferred.
+The [containment receipt](../evidence/hosting/2026-09-11/first-upload-containment.json)
+records the unexpected target, recovery and observation limits. An intervening
+preview was blocked because the project was paused and could not build.
+
+The replacement [protected preview](https://console-h1txxfsea-servroxs-projects.vercel.app)
+is `dpl_4g7hUC5pNBh7bnGbTGNrTrRThmGB`, target `preview`, state `READY`.
+The [hosted receipt](../evidence/hosting/2026-09-11/preview.json) verifies all 36 file
+hashes against the approved artifact, the prepared CSP and security headers,
+redirects, 404 behavior, immutable assets and complete license delivery. Managed
+Playwright Chromium 147.0.7727.15 passed the preset/edit/SVG/copy/export/import/history
+journey, reset/focus, draft recovery, client navigation and 390-pixel mobile reflow.
+There were no application exceptions, CSP violations or unexpected external app
+requests in the sampled journey. The browser's default `/favicon.ico` request
+returns 404. These are hosted application checks; the recorded native Windows
+Chrome/Edge qualification remains separate. Public promotion is still pending.
+
+The user also approved publishing source snapshot
+`89b267022e830c751316ac58ce75f4211373e483e8dc75671bee6dfad0ddea4c` on a feature
+branch and opening a draft PR. Its 184 files are committed in the isolated
+`.worktrees/console-fx-mvp` worktree as
+`736afaf55402846a053e86549282a3acdba1dab7` on `feat/console-fx-mvp`. After an HTTPS
+OAuth scope rejection, the existing Linux SSH connection pushed the exact commit
+successfully. No credential or OAuth scope change was needed for that push.
+[PR #1](https://github.com/servrox/console-fx/pull/1) merged on 2026-09-12 as
+`347e7cea6196f9995e7c25b3ee1a5e209e24b02c`; the original
+[PR CI run 34627406177](https://github.com/servrox/console-fx/actions/runs/34627406177)
+passed. The original index hash was identical before and after the isolated commit
+and push. Authored files pass whitespace checks; verbatim upstream license-notice
+whitespace is preserved. Later evidence and release-workflow additions remain
+outside the approved source commit.
+
+The [initial CI receipt](../evidence/ci/2026-09-11/initial-pr.json) identifies the
+Ubuntu 24.04.5 runner, Node 24.20.0, pnpm 12.3.4, lockfile, workflow, artifact and
+observed results. The tested pull-request merge commit has the same tree as the
+approved head. Build, formatting, lint, types, 101 unit tests, 16 production studio
+journeys, package inspection, bundle budgets and five isolated consumer checks
+passed. Both downloaded package tarballs match the locally qualified hashes.
+The CI static studio build has fingerprint `c9b0235c1fa5cbbe03ad7ccc70b76ef5f40187adb7aa82b4ed67feef70163f20`,
+with different build-ID paths, page payloads and CSP hashes from the qualified
+`0bea5491…` protected preview. It was not deployed. This run covers the approved
+snapshot, not the subsequent local addendum or the publishing workflow's required
+successful `main` run.
+
+The [merged-main CI receipt](../evidence/ci/2026-09-12/main.json) records successful
+run `34684403898` on merge commit `347e7cea6196f9995e7c25b3ee1a5e209e24b02c`.
+Its tree is identical to the approved source. All validation and consumer checks
+passed again, and both downloaded package hashes match the qualified local bytes.
+Its separate static studio build has fingerprint
+`9532970b2144e0c166eeda4f36adf1a7f31fc661d0fe77dee663dc0dc8d269b3` and was not deployed.
+The prepared release verifier accepted the real main-run/artifact metadata and
+those downloaded packages in a local verification-only check. The publishing
+workflow and later addendum remain outside this merged source and CI run.
 
 The initial npm authentication failure was resolved through a user-requested
 interactive WSL login. On 2026-09-11, `npm whoami` returned `servrox1337`, and the
 organization membership endpoint confirmed that account as an owner of `servrox`.
 Both approved package names returned 404 to the authenticated client. No package
 was published or reserved. [npm’s current trust prerequisites](https://docs.npmjs.com/cli/v11/commands/npm-trust/)
-require an existing package and account 2FA; the first-publication bootstrap and
+require an existing package and account 2FA. The account's `auth-and-writes` 2FA
+mode was verified; the first-publication bootstrap and
 subsequent GitHub OIDC configuration remain explicit release steps.
+
+## Additional release preparation
+
+The separate Bun requirement now has an [isolated packed-consumer receipt](../evidence/packages/2026-09-11/bun-smoke.json).
+Nix-managed Bun 1.4.2 and Node 24.20.0 both pass the shared public-entry fixture.
+Bun rejects a private subpath with `ERR_MODULE_NOT_FOUND`; the original fixture
+expected Node's `ERR_PACKAGE_PATH_NOT_EXPORTED`. The fixture now checks the actual
+runtime's code, preserving the required rejection. Package bytes did not change.
+
+The [manual OIDC publishing workflow](../../.github/workflows/publish.yml) and
+[verification-only helper](../../scripts/verify-release.mjs) are prepared locally
+under ADR-0008/0010, outside the earlier approved commit. They bind publication to
+successful `main` validation, one identified artifact, the source lockfile/versions
+and independently approved tarball hashes. Seven focused tests reject altered
+bytes, forged receipts, source/filename drift, failed or foreign CI and expired or
+ambiguous artifacts. The actual approved tarballs pass the helper. Changed JS lint
+and formatting pass; the final workflows pass Nix-managed actionlint 1.7.12.
+Read-only preflight completes before protected-environment approval; publishing
+then rechecks the downloaded bytes and alone receives OIDC permission.
+npm's trust/bootstrap requirements and GitHub artifact fields
+were checked against current primary documentation and read-only API observations.
+The [publishing guide](../publishing.md) records the still-unperformed environment,
+trust configuration, OIDC execution and registry-install gates.
 
 ## Evidence status
 
@@ -190,12 +271,13 @@ subsequent GitHub OIDC configuration remain explicit release steps.
 | --- | --- | --- |
 | Environment, instructions, ADRs, manifests and source inspection | source/static | Verified bootstrap baseline; ADR-0001 through ADR-0011 govern the implementation |
 | Core/compiler/exporter and resource-limit tests | local | Implemented; 101-test suite and full type checks passed |
-| Studio/React/Next and accessibility | local | Production browser journeys and automated scans passed; manual screen-reader/native zoom review remains |
-| Actual Windows 11 Chrome/Edge qualification | local | Initial required families/motions observed; full matrix, sampled visual review, copying/lifecycle and static policies observed; final release review pending |
+| Studio/React/Next and accessibility | local | Production browser journeys, automated scans and sampled native 200%/400% zoom passed; representative screen-reader/browser review remains |
+| Actual Windows 11 Chrome/Edge qualification | local | Required families/motions, full selected matrix, sampled visual review, copying/lifecycle and static policies observed; final source/static scope audit reconciled all selected rows |
 | Package contents and isolated consumers | local | Current exact tarballs and fresh isolated consumers pass |
-| CI | CI | Workflow written; no remote run |
+| CI | CI | PR run 34627406177 and main run 34684403898 passed for identical approved trees; downloaded package hashes match; later addendum CI remains pending |
 | Published npm packages | publication/install | Pending gates and publication |
-| Public studio | deployed/production | Vercel selected; local artifact/CSP prepared; personal project created and linked; launch gates pending |
+| Protected studio | deployed/preview | Exact approved artifact is READY; hosted routes, hashes, headers and critical journeys passed |
+| Public studio | deployed/production | Unexpected first production upload contained; all URLs require authentication; public launch gates pending |
 
 The original spec, handover, Accepted decision files and exploratory script remain at their captured
 hashes. The root README, mockup status notes and derived ADR index are intentionally updated for the implemented candidate,
@@ -222,6 +304,7 @@ bytes. Do not represent the current raw index hash as identical to the initial h
 
 The [release ledger](../releasing.md) maps all 24 acceptance criteria, candidate
 hashes, authority and recovery. The [accessibility checklist](../accessibility.md)
-records the remaining manual gate; 320 CSS-pixel reflow passes on all three routes,
-while attempted native zoom automation did not change the measured scale and is
-not a pass. This is a working implementation receipt, not a completed launch receipt.
+records the remaining screen-reader gate. The original 320 CSS-pixel reflow and
+later [native 200%/400% zoom observations](../evidence/accessibility/2026-09-11/native-zoom.json)
+are separately recorded; failed early zoom attempts are excluded from passing
+evidence. This is a working implementation receipt, not a completed launch receipt.

@@ -1,0 +1,79 @@
+{
+  "reviewedAt": "2026-09-11T17:52:17.238002+00:00",
+  "stage": "source/static",
+  "status": "verified",
+  "owner": "ConsoleFX implementation agent",
+  "governingAdrs": [
+    "ADR-0006",
+    "ADR-0009",
+    "ADR-0010"
+  ],
+  "obligation": "Final review of the recorded native Windows DevTools scope for AC-16 and AC-19, with motion and literal-output evidence supporting AC-05, AC-07 and AC-08.",
+  "sourceCommit": "736afaf55402846a053e86549282a3acdba1dab7",
+  "compilerSha256": "c87f8b4b980ea5801a6cd5022131ff3c7d90bf537b5f2b0f26aaa5e68ddc45a1",
+  "currentFixtureRecompilation": {
+    "fixtures": 67,
+    "compiledOutputs": "exact match",
+    "staticOutputs": "exact match",
+    "generatedCode": "exact match"
+  },
+  "nativeEvidence": {
+    "directory": "docs/evidence/devtools/2026-09-11/",
+    "stage": "local",
+    "windows": "Windows 11 25H2 build 26220.9223",
+    "mainArchiveSha256": "881f9022514127dc88c1c94eb515c14c7eeda367fc132cf344ba2c5c4ae1d107",
+    "mainFilesVerified": 617,
+    "policyArchiveSha256": "0a040ad992dd27119d083d2f49174a6cdc6822c5999372ce806c30306eba8eae",
+    "policyFilesVerified": 10,
+    "selectedOldPayloadsReconciled": 134
+  },
+  "stableFeedCheck": {
+    "checkedAt": "2026-09-11T17:48:58.350349+00:00",
+    "sources": {
+      "chrome": "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json",
+      "edge": "https://edgeupdates.microsoft.com/api/products?view=enterprise"
+    },
+    "chrome": {
+      "channel": "Stable",
+      "version": "153.0.8010.36",
+      "revision": "1681091"
+    },
+    "chromeFeedTimestamp": "2026-09-11T08:27:08.849Z",
+    "edge": {
+      "ProductVersion": "153.0.4234.32",
+      "Platform": "Windows",
+      "Architecture": "x64",
+      "PublishedTime": "2026-09-11T00:28:00"
+    }
+  },
+  "checks": {
+    "matrixRows": 150,
+    "renderingRows": 134,
+    "lifecycleRows": 16,
+    "exactTerminalMappings": 100,
+    "uniqueReviewedTerminalFrames": 53,
+    "movingAndSettledCases": 90,
+    "staticImageCases": 32,
+    "finishRasterNoiseOnlyCases": 3,
+    "staticMotionPolicyCases": 4,
+    "earliestTerminalCaptureMs": 5628,
+    "latestTerminalCaptureMs": 5942,
+    "latestAfterCaptureMs": 7250
+  },
+  "visualReviewReuse": "The earlier recorded visual inspection of 53 terminal bitmaps, eight standalone moving-family samples and twenty moving-wave combination samples is reused. Terminal mappings were rechecked by exact decoded pixels. No new visual observation or browser execution is claimed.",
+  "scopeDecision": "Every required effect family, both metallic variants, all four motions and every advertised style/plain plus optional-motion combination have selected current-input observations in both recorded browsers. No missing or failed selected row remains for the recorded native gallery/combination scope.",
+  "limits": [
+    "Qualification covers the recorded Windows/browser versions, light DevTools theme, native 100% console zoom and fixture settings, not arbitrary browsers/themes/scenes.",
+    "Native frames sample visible change and settled terminal images after the configured animation duration. They do not measure the exact final animation millisecond or promise an emission-to-start deadline. Generated motion bounds and lifecycle behavior remain as documented.",
+    "Narrow 424-pixel consoles scroll the 600-pixel image; the caption preserves complete readable text. Cached identical images need not restart.",
+    "The matrix remaining-status string predates its README motion-policy and sampled visual addenda; those later archive/visual observations were included in this review. Representative web screen-reader evidence remains pending.",
+    "This source/static audit reconciles existing native observations. It is not new CI, accessibility conformance, npm publication or public deployment evidence.",
+    "Stable-channel currency is a dated external observation; a material browser/compiler/fixture change requires affected qualification before promotion."
+  ],
+  "frozenAddendumUnchanged": "0f5b8f8e3c01c84213c7a51f03a28cc73d7dab168ce0eaf142ce46580a23d1ef",
+  "nextGates": [
+    "Approve the already prepared addendum commit/push and obtain its CI result.",
+    "Receive representative screen-reader/browser results.",
+    "Complete separately authorized publication, registry consumer checks and public studio promotion."
+  ]
+}

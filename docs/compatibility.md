@@ -17,6 +17,17 @@ as JSON or plain text; rich compilation reports `unsupported-combination`.
 Descriptor metadata describes implemented renderer capabilities. It does not
 replace this browser evidence.
 
+## Runtime consumption
+
+The isolated packed JavaScript fixture passes under Node 24.20.0 and the existing
+Nix-managed Bun 1.4.2 runtime. The [Bun receipt](evidence/packages/2026-09-11/bun-smoke.json)
+records public entry imports, validation, immutable descriptors, compilation,
+one explicit emission and code generation. Both runtimes reject a private package
+subpath: Node reports `ERR_PACKAGE_PATH_NOT_EXPORTED`, while this Bun build reports
+`ERR_MODULE_NOT_FOUND`. The shared fixture checks that recorded difference.
+No library implementation changed. This is Bun runtime consumption of tarballs
+installed by pnpm, not Bun installation/build-tool or terminal-renderer qualification.
+
 ## Recorded Windows observations
 
 Observed on 2026-09-11, Windows 11 25H2 build 26220.9223, native DevTools at 100%
@@ -71,8 +82,11 @@ combinations were visually inspected without content clipping in those samples.
 The production studio's Play and Replay controls both produced changing frames and
 the same useful finished frame in a dedicated Chrome page check. The exact SVG URI
 was retained; CSS previews remain labeled approximate. These page observations do
-not replace native DevTools evidence. Manual web accessibility and remote CI/hosted
-checks remain launch gates.
+not replace native DevTools evidence. Representative screen-reader/browser review
+remains a launch gate. [Merged-main source CI](evidence/ci/2026-09-12/main.json)
+passed; the later local release update still needs its own CI result. The separate
+[protected hosted checks](evidence/hosting/2026-09-11/preview.json) passed against the
+approved studio artifact.
 
 Motion defaults to static. Browser helpers resolve system preference at explicit
 emission and retain static output for reduced, unknown or unavailable preference.
