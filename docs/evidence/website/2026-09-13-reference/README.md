@@ -70,9 +70,34 @@ observations identify their individual capture checkpoints. Recompilation of all
 
 The first PR CI run exposed a shared gallery CSS-class identity that made old
 gallery selectors open the new collection. Separate identities fix the collision;
-the existing tests are preserved. Final CI/hosted status is pending at this
-local-evidence checkpoint. No new npm package has been published: the core fixes
+the existing tests are preserved. No new npm package has been published: the core fixes
 have a pending patch changeset, while published 0.1.0 bytes remain unchanged.
+
+## CI and protected preview
+
+[CI run 34771557998](https://github.com/servrox/console-fx/actions/runs/34771557998)
+passed on `4d4457386f0e56a73e4e2dd132c791a8e9da5adc`: source/package gates,
+312 unit tests, 29 release checks, all 86 studio browser journeys, and packed
+consumers including three Next browser journeys. This later checkpoint supersedes
+the failed initial gallery run. Subsequent changes in this receipt are documentation
+only; final merge checks and production identity are recorded on
+[PR #21](https://github.com/servrox/console-fx/pull/21).
+
+The [hosted preview receipt](hosted-preview.json) records the same Git revision in
+`servroxs-projects/console-fx`, deployment `dpl_C7ghnv2Ef2AfWjWH6FXSrRwqnZtx`.
+Sixteen journey groups passed on native Edge, including all fourteen gallery
+previews and exact recipe exports/Undo at 1440 and 390 px, both motion controls,
+the existing Useful examples, import recovery, reset cancellation, saved drafts,
+font measurements, documentation and the 44.5-second captioned usage video.
+Forty served assets/HTML documents were fingerprinted and checked against the
+prepared security headers. No page errors, failed requests or CSP violations
+were observed. This is a Git rebuild, with served-byte evidence separate from
+the local/CI artifacts; it is not a claim of identical build output across hosts.
+
+[Temporary access was revoked](preview-protection.json) after the checks.
+Anonymous preview access redirects to Vercel Authentication. Production promotion
+and post-merge main CI remain later observations at this checkpoint; the existing
+GitHub connection deploys authorized merges on `main`.
 
 The [full-spec audit](../../../specs/mvp-completion-audit.md) still has three
 unobserved external checks: developer sessions, physical laptop/phone performance

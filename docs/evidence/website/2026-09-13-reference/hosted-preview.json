@@ -1,0 +1,209 @@
+{
+  "at": "2026-09-13T17:28:21.793Z",
+  "stage": "external/third-party",
+  "status": "verified",
+  "owner": "ConsoleFX reference examples verification",
+  "fingerprintScope": "served HTML, RSC, linked scripts/styles, notices and media; not an independently downloaded complete remote artifact",
+  "deploymentId": "dpl_C7ghnv2Ef2AfWjWH6FXSrRwqnZtx",
+  "artifactFingerprint": "ef49dcd6759057218a3c6d285c21f6c7747855883c0cfb62b7be2568429b42b6",
+  "sourceCommit": "4d4457386f0e56a73e4e2dd132c791a8e9da5adc",
+  "harnessSha256": "d2e24bcec871b93c8e599c0cd0798fe3b8fe26b521c7c0eba75aee9559f92985",
+  "deployment": "dpl_C7ghnv2Ef2AfWjWH6FXSrRwqnZtx",
+  "url": "https://console-hfg60mqun-servroxs-projects.vercel.app",
+  "target": "authenticated staging",
+  "browser": "153.0.4234.32",
+  "files": [
+    {
+      "route": "/404.html",
+      "sha256": "ae3e64b4f082e4b37546b7c4d3529d69f050e29fd048f2e9a3fa87362547502c"
+    },
+    {
+      "route": "/404/index.html",
+      "sha256": "ae3e64b4f082e4b37546b7c4d3529d69f050e29fd048f2e9a3fa87362547502c"
+    },
+    {
+      "route": "/__next.__PAGE__.txt",
+      "sha256": "40485da98447ae580f3cca179f2735b46cf8e6ffd5654bae77567a542d14146f"
+    },
+    {
+      "route": "/__next._full.txt",
+      "sha256": "44ee13a417b3e9295c0c22cfb262c25cec0f7cb33875ccc8b035c6a7da9b14a8"
+    },
+    {
+      "route": "/__next._tree.txt",
+      "sha256": "bbe6a2e6d0c2e55404e0d8172d749530a6dd5c688a4dd08962ef3adab8088159"
+    },
+    {
+      "route": "/_next/static/chunks/06kth-ic-q7fy.css",
+      "sha256": "a20a0d1555a64d26839fc9b07f9b7f3907baf27a6a8a0c040ee52a2eb2c061dd"
+    },
+    {
+      "route": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "route": "/_next/static/chunks/0zltwbvmbhwat.js",
+      "sha256": "b8511d36e7e100623103289b3ae098356cf584b9f7f7ad1a71c80749e9654813"
+    },
+    {
+      "route": "/_next/static/chunks/1-joj-n_wgxk1.js",
+      "sha256": "fcab24d45f0e71c85c57ef0b8eeddbddbf4a5905603f5a41c7854dff9dcf6fa0"
+    },
+    {
+      "route": "/_next/static/chunks/1fcs3a6dg17ff.js",
+      "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02"
+    },
+    {
+      "route": "/_next/static/chunks/1fzwra92gfb1q.js",
+      "sha256": "11bfc73683c55683f16059dc5bf316ffe73b68d23731cbe816b0136e75f8231c"
+    },
+    {
+      "route": "/_next/static/chunks/1h-5c5xxj0s0c.js",
+      "sha256": "878ec83d5f92fbae5545c4f8fc9b78aad7bf92c20a0a07d9b4645ffc6bca8b87"
+    },
+    {
+      "route": "/_next/static/chunks/1i9x4_u5qt4cn.js",
+      "sha256": "d42886c230c4ddd705d827a90c722f2d28815c049b4d6c66a91d0474b1297dcf"
+    },
+    {
+      "route": "/_next/static/chunks/1o-lfwcn7xn6g.js",
+      "sha256": "d97c4c7f6069150ac5336de60ad9f5d7d9aa1545cffff41ffb4cea01d6d55ca7"
+    },
+    {
+      "route": "/_next/static/chunks/34wtcgq-g6wqh.js",
+      "sha256": "deccdd0d1f285f2eddb6bed69bc4fedb837a0aa7559bfd99242de6d6dc8aaf04"
+    },
+    {
+      "route": "/_next/static/chunks/3a0v84u8wd57i.js",
+      "sha256": "cd907018e32bfb6dbf036dcd9e2c60942e24c10814846cc12e720e6b74e7495d"
+    },
+    {
+      "route": "/_next/static/chunks/3b14-d3pzxicm.js",
+      "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec"
+    },
+    {
+      "route": "/_next/static/chunks/turbopack-1n1xv2tik9f0t.js",
+      "sha256": "834f1e5451a6f2a1cbc132044180e365ed1c42a486c89b7fca26827ed8778713"
+    },
+    {
+      "route": "/_not-found/__next._full.txt",
+      "sha256": "b33e2351ef89dd5d519e8f273b53c23ad0cf25e681205691265ae79d9529ee73"
+    },
+    {
+      "route": "/_not-found/__next._not-found.__PAGE__.txt",
+      "sha256": "2cb32aa02184dec184ed474a95088b8578736a9c311ced68d2da6e6525e0ca14"
+    },
+    {
+      "route": "/_not-found/__next._tree.txt",
+      "sha256": "1939501999d900f14ca19c58c495da4974b2fb3c6d01ea3695f559ca5f9f6259"
+    },
+    {
+      "route": "/_not-found/index.html",
+      "sha256": "ae3e64b4f082e4b37546b7c4d3529d69f050e29fd048f2e9a3fa87362547502c"
+    },
+    {
+      "route": "/_not-found/index.txt",
+      "sha256": "b33e2351ef89dd5d519e8f273b53c23ad0cf25e681205691265ae79d9529ee73"
+    },
+    {
+      "route": "/docs/__next._full.txt",
+      "sha256": "de7388474ceb38e79941ea2ce311c6da2ffd46669aeab6662d80f593e17baece"
+    },
+    {
+      "route": "/docs/__next._tree.txt",
+      "sha256": "ee8b10bf9dbd1e36a82e3085134096ac940f53c28f3571bda506a9c63a55e4f8"
+    },
+    {
+      "route": "/docs/__next.docs.__PAGE__.txt",
+      "sha256": "e0cb8a246c3b555666802650ddad1203d44e5f76410b4614f92d30f52dd822c0"
+    },
+    {
+      "route": "/docs/index.html",
+      "sha256": "0817edaf725c50215132bed260dca669fcfd37c2cbf11616209ce1d0af05f925"
+    },
+    {
+      "route": "/docs/index.txt",
+      "sha256": "de7388474ceb38e79941ea2ce311c6da2ffd46669aeab6662d80f593e17baece"
+    },
+    {
+      "route": "/index.html",
+      "sha256": "c18ba137e955f4297631a4002c4d42daada0311ef079407a8f317fe9927ad8a1"
+    },
+    {
+      "route": "/index.txt",
+      "sha256": "44ee13a417b3e9295c0c22cfb262c25cec0f7cb33875ccc8b035c6a7da9b14a8"
+    },
+    {
+      "route": "/licenses.txt",
+      "sha256": "9989eacae27319ee7793aed2f1ffe8d341f094a7ac9c319196f6d1b655ef8c52"
+    },
+    {
+      "route": "/media/console-fx-usage-poster.webp",
+      "sha256": "77523abe325da3fd1c5b10e615c692594798b8bbbb04e98b67c7b6841269716e"
+    },
+    {
+      "route": "/media/console-fx-usage.mp4",
+      "sha256": "766e30acd6fa061a35f7444e99c4440c928789a697090c1541fa029b3f3043cb"
+    },
+    {
+      "route": "/media/console-fx-usage.vtt",
+      "sha256": "f0329a43538fe4bc08aee05b0df26066cb8e633aafef36f24b8ad7eb38899478"
+    },
+    {
+      "route": "/media/console-fx-usage.webm",
+      "sha256": "7816b714939407d59d081964be7db289e7cba216f51da4af4b7ee5e5c70beb42"
+    },
+    {
+      "route": "/studio/__next._full.txt",
+      "sha256": "2050454e6c9cf9fb32b717d65bfa4cf6fdabe1267d8bb0ba0292948f145b128a"
+    },
+    {
+      "route": "/studio/__next._tree.txt",
+      "sha256": "152a8616899cb455100024973ed0259a343220335085b13811c570f891c3bf24"
+    },
+    {
+      "route": "/studio/__next.studio.__PAGE__.txt",
+      "sha256": "530da01fa0c8394a5f49cc97276808d3b16f9a911b0ca4f72f961553e66843aa"
+    },
+    {
+      "route": "/studio/index.html",
+      "sha256": "fd73c37b297e26e139bf0699d2a11db2999dfb8cc439abf51f227bf1a6ee9ace"
+    },
+    {
+      "route": "/studio/index.txt",
+      "sha256": "2050454e6c9cf9fb32b717d65bfa4cf6fdabe1267d8bb0ba0292948f145b128a"
+    }
+  ],
+  "protectedSources": [],
+  "securityHeadersMatch": true,
+  "routes": true,
+  "video": {
+    "duration": 44.5,
+    "width": 1440,
+    "height": 960,
+    "cues": 9,
+    "mode": "showing"
+  },
+  "journeys": [
+    "landing edit/copy/test once",
+    "video playback/captions/transcript",
+    "invalid import preserves draft",
+    "valid import/undo",
+    "reset cancellation/focus return",
+    "draft reload",
+    "complete clipboard export",
+    "font worker measurements",
+    "docs core and React installation commands",
+    "390px reflow",
+    "distinct Useful previews and plain text",
+    "Useful editor transfer/export/undo",
+    "Useful hero choices",
+    "14 reference gallery previews at desktop/mobile widths",
+    "14 reference recipes edit/export/undo at both widths",
+    "both reference motion controls preserve static export"
+  ],
+  "cspCoverage": "All exercised documents collected before navigation or reload",
+  "cspViolations": [],
+  "pageErrors": [],
+  "failedRequests": []
+}

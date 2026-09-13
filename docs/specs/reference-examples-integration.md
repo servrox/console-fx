@@ -105,8 +105,10 @@ records 56 static cases, four finite-motion cases and four container-caption
 cases on Windows 11, Chrome 153.0.8010.36 and Edge 153.0.4234.32. All static crops
 and motion frames received visual inspection; representative full Console frames
 confirm caption behavior. Current compilation/export matches every captured
-fixture byte for byte. CI and hosted observations remain separate and are added
-to that receipt after verification.
+fixture byte for byte. The same receipt separately records successful GitHub CI
+(86 studio journeys plus the package/source gates) and sixteen hosted-preview
+journey groups. Temporary preview access was revoked afterward. Final merge and
+production observations are recorded on [PR #21](https://github.com/servrox/console-fx/pull/21).
 
 The [full-spec audit](mvp-completion-audit.md) still tracks the unobserved
 five-developer sessions, physical laptop/phone performance and Safari journeys.
