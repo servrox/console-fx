@@ -32,6 +32,11 @@ import { sameDocument, recipeOf } from "./document";
 import { ConfirmDialog } from "./confirm-dialog";
 import { useDocumentSession } from "./use-document-session";
 import { rendererForLoadedScene } from "./renderer";
+import {
+  REFERENCE_EXAMPLES,
+  referenceRecipe,
+} from "../examples/reference-examples";
+import { ReferenceGallery } from "../examples/reference-gallery";
 import { CardFields } from "./card-fields";
 import { FitInspector } from "./fit-inspector";
 import { useLocalMeasurements } from "./use-local-measurements";
@@ -441,6 +446,16 @@ export function Studio({
         )}
       </details>
 
+      {!integrated && (
+        <ReferenceGallery
+          disabled={!ready || !!pendingShared}
+          onSelect={(recipe) => {
+            dispatch({ type: "load", document: recipe });
+            setNotice(null);
+          }}
+        />
+      )}
+
       <section
         className="studio-shell"
         id={integrated ? "editor-workspace" : "playground"}
@@ -499,9 +514,18 @@ export function Studio({
                 Start from a preset
                 <select
                   value=""
-                  onChange={(event) =>
-                    selectPreset(event.target.value as PresetId)
-                  }
+                  onChange={(event) => {
+                    const example = REFERENCE_EXAMPLES.find(
+                      (item) => `example:${item.id}` === event.target.value,
+                    );
+                    if (example) {
+                      dispatch({
+                        type: "load",
+                        document: referenceRecipe(example.id),
+                      });
+                      setNotice(null);
+                    } else selectPreset(event.target.value as PresetId);
+                  }}
                 >
                   <option value="" disabled>
                     Choose a preset
@@ -517,6 +541,13 @@ export function Studio({
                       )}
                     </optgroup>
                   ))}
+                  <optgroup label="Output examples">
+                    {REFERENCE_EXAMPLES.map((item) => (
+                      <option key={item.id} value={`example:${item.id}`}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </optgroup>
                 </select>
               </label>
               <label>

@@ -52,6 +52,7 @@ describe("fitting text boundary recovery", () => {
           scene,
           {
             ...options,
+            motion: "reduce",
             unsupported,
             layout: {
               ...layout,

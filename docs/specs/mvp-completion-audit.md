@@ -10,6 +10,13 @@ waiver is inferred from publication approval. The active goal remains open.
 
 ## Source and release identity
 
+The subsequent [reference-example integration and fresh source audit](reference-examples-integration.md)
+adds all fourteen concepts from the two original mockups and corrects three
+compiler findings (hard fitting limits, container caption placement and
+SVG-unrepresentable text). Its source/local, CI, native and hosted evidence must
+be read separately from the earlier release checkpoint below. The published npm
+0.1.0 bytes are not changed by a source or website update.
+
 The implementation baseline is `50e63c11f48912bfe2e66686c43fbba8eb12f2c3`.
 The September 13 application checkpoint includes the Git deployment repair in
 [PR #17](https://github.com/servrox/console-fx/pull/17), production domain repair in

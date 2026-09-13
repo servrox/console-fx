@@ -9,16 +9,23 @@ import { resolve, join, dirname } from "node:path";
 import { pathToFileURL } from "node:url";
 import { chromium, expect } from "@playwright/test";
 
-const [port, name, destination] = process.argv.slice(2);
+const [port, name, destination, collection = "useful"] = process.argv.slice(2);
 assert(/^\d+$/.test(port ?? "") && /^(chrome|edge)$/.test(name ?? ""));
+assert(["useful", "reference", "reference-motion"].includes(collection));
+const moving = collection === "reference-motion";
 assert(destination, "Supply a new evidence directory");
 const directory = resolve(destination);
 await mkdir(dirname(directory), { recursive: true });
 await mkdir(directory);
 const root = process.cwd();
-const { EXAMPLES, exampleRecipe } = await import(
-  pathToFileURL(join(root, "apps/studio/src/features/landing/examples.ts"))
-);
+const examplesPath = collection.startsWith("reference")
+  ? "apps/studio/src/features/examples/reference-examples.ts"
+  : "apps/studio/src/features/landing/examples.ts";
+const catalog = await import(pathToFileURL(join(root, examplesPath)));
+const examples = collection.startsWith("reference")
+  ? catalog.REFERENCE_EXAMPLES.filter((example) => !moving || example.motion)
+  : catalog.EXAMPLES.filter((example) => example.category === "useful");
+const exampleRecipe = catalog.referenceRecipe ?? catalog.exampleRecipe;
 const { compileConsole } = await import(
   pathToFileURL(join(root, "packages/console-fx/dist/browser/index.js"))
 );
@@ -26,14 +33,16 @@ const { exportConsoleLog } = await import(
   pathToFileURL(join(root, "packages/console-fx/dist/codegen/index.js"))
 );
 const sha = (content) => createHash("sha256").update(content).digest("hex");
-const fixtures = EXAMPLES.filter(
-  (example) => example.category === "useful",
-).map(({ id }) => {
+const fixtures = examples.map(({ id }) => {
   const recipe = exampleRecipe(id);
-  const output = compileConsole(recipe.scene, recipe.options);
+  if (moving) recipe.options.motion = "system";
+  const output = compileConsole(recipe.scene, {
+    ...recipe.options,
+    motion: moving ? "allow" : "reduce",
+  });
   const code = exportConsoleLog(recipe.scene, recipe.options).code;
   assert.equal(output.preview.kind, "svg");
-  assert.equal(output.animated, false);
+  assert.equal(output.animated, moving);
   return { id, recipe, output, code, codeSha256: sha(code) };
 });
 assert(fixtures.length > 0);
@@ -55,7 +64,8 @@ const report = {
   observedAt: new Date().toISOString(),
   stage: "local",
   status: "in_progress",
-  obligation: "WVS-17: exact featured Useful snippets in native DevTools",
+  obligation: `Exact ${collection} examples in native DevTools`,
+  collection,
   sourceCommit: execFileSync("git", ["rev-parse", "HEAD"], {
     encoding: "utf8",
   }).trim(),
@@ -63,13 +73,13 @@ const report = {
   browser: null,
   fixturesSha256: sha(fixtureBytes),
   harnessSha256: sha(await readFile(new URL(import.meta.url))),
-  examplesSha256: sha(
-    await readFile("apps/studio/src/features/landing/examples.ts"),
-  ),
+  examplesSha256: sha(await readFile(examplesPath)),
   lockfileSha256: sha(await readFile("pnpm-lock.yaml")),
   cases: [],
   limits: [
-    "Static featured samples only; existing profile lifecycle qualification remains separate",
+    moving
+      ? "Two finite motion samples in dark theme; full profile lifecycle qualification remains separate"
+      : "Static samples only; motion and profile lifecycle qualification remain separate",
     "Native appearance requires inspection of the captured Console surfaces",
     "No physical-device, Safari or participant evidence",
   ],
@@ -82,7 +92,7 @@ const save = () =>
 const server = createServer((_request, response) => {
   response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
   response.end(
-    "<!doctype html><title>ConsoleFX Useful qualification</title><h1>Owned native Console fixture</h1><p>No page image or script is loaded.</p>",
+    "<!doctype html><title>ConsoleFX example qualification</title><h1>Owned native Console fixture</h1><p>No page image or script is loaded.</p>",
   );
 });
 await new Promise((done, reject) => {
@@ -114,6 +124,7 @@ try {
     viewport: { width: 1100, height: 800 },
   });
   const fixture = await context.newPage();
+  if (moving) await fixture.emulateMedia({ reducedMotion: "no-preference" });
   await fixture.goto(`http://127.0.0.1:${server.address().port}/`);
   const fixtureSession = await context.newCDPSession(fixture);
   const { targetInfo } = await fixtureSession.send("Target.getTargetInfo");
@@ -191,7 +202,7 @@ try {
   fixture.on("console", (event) => {
     if (event.type() === "log") events.push(event);
   });
-  for (const theme of ["Dark", "Light"]) {
+  for (const theme of moving ? ["Dark"] : ["Dark", "Light"]) {
     await settingsTheme({ label: theme });
     for (const entry of fixtures) {
       await native.getByRole("button", { name: /Clear console/ }).click();
@@ -201,6 +212,7 @@ try {
       });
       const before = events.length;
       await prompt.fill(entry.code);
+      const started = Date.now();
       await prompt.press("Enter");
       await expect.poll(() => events.length).toBe(before + 1);
       const actualArgs = await Promise.all(
@@ -217,7 +229,11 @@ try {
       await expect(message).toContainText(entry.output.text);
       const carrier = message.locator('span[style*="background"]');
       const bounds = await carrier.boundingBox();
-      assert(bounds && bounds.width >= 720 && bounds.height >= 240);
+      assert(
+        bounds &&
+          bounds.width >= entry.output.preview.width &&
+          bounds.height >= entry.output.preview.height,
+      );
       const environment = await native.evaluate(() => ({
         viewport: [window.innerWidth, window.innerHeight],
         devicePixelRatio: window.devicePixelRatio,
@@ -234,6 +250,34 @@ try {
       );
       const prefix = `${entry.id}-${theme.toLowerCase()}`;
       await native.bringToFront();
+      let motionFrames;
+      if (moving) {
+        motionFrames = [];
+        for (const elapsed of [0, 900, 5200, 6000]) {
+          await new Promise((done) =>
+            setTimeout(done, Math.max(0, started + elapsed - Date.now())),
+          );
+          const file = `${prefix}-motion-${elapsed}.png`;
+          const bytes = await carrier.screenshot({
+            path: join(directory, file),
+          });
+          motionFrames.push({
+            file,
+            elapsedMs: Date.now() - started,
+            sha256: sha(bytes),
+          });
+        }
+        assert.notEqual(
+          motionFrames[0].sha256,
+          motionFrames[1].sha256,
+          "Native motion must change pixels",
+        );
+        assert.equal(
+          motionFrames[2].sha256,
+          motionFrames[3].sha256,
+          "Native image must settle after its finite duration",
+        );
+      }
       await carrier.screenshot({
         path: join(directory, `${prefix}-plate.png`),
       });
@@ -245,6 +289,13 @@ try {
         theme,
         codeSha256: entry.codeSha256,
         consoleCalls: events.length - before,
+        ...(motionFrames
+          ? {
+              motionFrames,
+              nativeMotionChanged: true,
+              nativeMotionSettled: true,
+            }
+          : {}),
         argumentsEqual: true,
         completeCaption: true,
         visibleText: await message.textContent(),
@@ -262,7 +313,7 @@ try {
       });
       await save();
       console.log(
-        `${name} ${entry.id} ${theme}: one call, exact arguments, complete caption, unclipped 720x240 image`,
+        `${name} ${entry.id} ${theme}: one call, exact arguments, complete caption, unclipped ${entry.output.preview.width}x${entry.output.preview.height} image`,
       );
     }
   }

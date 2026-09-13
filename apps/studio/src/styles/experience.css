@@ -424,6 +424,11 @@ button.example-card:hover:not(:disabled) {
 .full-preset-gallery .gallery-section {
   margin: 24px 0 0;
 }
+.reference-gallery-content > p {
+  margin: 20px 0;
+  color: var(--muted);
+  max-width: 65ch;
+}
 .studio-heading h1 {
   font-size: 1.85rem;
 }
