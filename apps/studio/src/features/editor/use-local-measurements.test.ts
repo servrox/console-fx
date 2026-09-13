@@ -42,9 +42,11 @@ class DeferredWorker {
         descent: 4,
       })),
     };
-    this.onmessage?.({
-      data: { ok: true, value, diagnostics: [] },
-    } as MessageEvent<ValidationResult<MeasurementSnapshot>>);
+    this.onmessage?.(
+      new MessageEvent<ValidationResult<MeasurementSnapshot>>("message", {
+        data: { ok: true, value, diagnostics: [] },
+      }),
+    );
   }
 }
 
