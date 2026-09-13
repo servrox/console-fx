@@ -17,6 +17,14 @@ protocols. No local tarball override or copied authentication configuration was 
 The exact first-release version was exempted from the dependency-age delay;
 installation lifecycle scripts remained disabled.
 
+The receipt identifies the reviewed source revision, executed fixture and verifier,
+commands, generated configuration and lockfile fingerprints, Node/pnpm versions,
+and NixOS WSL environment. Its later recheck used the preserved installation and
+frozen lock, confirmed unchanged inputs, fetched the same approved registry bytes,
+and passed both the lock verifier and JavaScript fixture again. The original fresh
+installation time remains recorded separately. Reuse requires matching material
+inputs and no newer contradictory result.
+
 That observation reproduced a release-check defect: `lock.includes("file:")`
 matched pnpm's ordinary `excludeLinksFromLockfile: false` setting. The corrected
 verifier recognizes dependency-protocol values and still rejects `file:`/`link:`
