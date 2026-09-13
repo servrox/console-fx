@@ -3,6 +3,7 @@ import { neon } from "@servrox/console-fx/presets";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
 import {
   contextExample,
+  coreInstallCommand,
   sdkExample,
   summaryExample,
   packageExample,
@@ -69,12 +70,16 @@ export default function Documentation() {
         <h2>Compose with TypeScript</h2>
         <p>
           Use the core package when values change or a design is shared across
-          your codebase. These examples use public imports only. Package
-          publication is pending;{" "}
-          <a href="https://github.com/servrox/console-fx/blob/main/README.md#run-the-studio-locally">
-            use the source workspace
-          </a>{" "}
-          until a registry release is verified.
+          your codebase. These examples use public imports only. Install the
+          verified 0.1.0 preview release from npm under the <code>next</code>{" "}
+          tag:
+        </p>
+        <pre tabIndex={0}>
+          <code>{coreInstallCommand}</code>
+        </pre>
+        <p>
+          The core has no runtime dependencies. React adapter publication is
+          still pending; its examples below use the source workspace.
         </p>
         <pre tabIndex={0}>
           <code>{packageExample}</code>
@@ -144,6 +149,13 @@ export default function Documentation() {
       </section>
       <section id="react">
         <h2>Use the React adapter</h2>
+        <p>
+          Adapter publication is pending. To try this example now, use the{" "}
+          <a href="https://github.com/servrox/console-fx/blob/main/README.md#run-the-studio-locally">
+            source workspace
+          </a>
+          .
+        </p>
         <p>
           The hook returns an explicit logging action. Rendering and server
           rendering stay silent. <code>ConsolePreview</code> uses the same
@@ -318,8 +330,9 @@ export default function Documentation() {
       <section>
         <h2>Project status and license</h2>
         <p>
-          The core, React adapter and studio use MIT. Public npm publication is
-          pending. Standalone exports work without a package dependency. See the{" "}
+          The core, React adapter and studio use MIT. Core 0.1.0 is published
+          under <code>next</code>; React adapter publication is pending.
+          Standalone exports work without a package dependency. See the{" "}
           <a href="https://github.com/servrox/console-fx">
             source and release evidence
           </a>{" "}

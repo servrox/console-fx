@@ -1,0 +1,20 @@
+{
+  "at": "2026-09-13T02:50:33.072Z",
+  "stage": "publication/install",
+  "name": "@servrox/console-fx",
+  "version": "0.1.0",
+  "sha256": "61672e00d7a57829085d71836ede22bbc99cfb8350b067bd3f2c17ced5886592",
+  "integrity": "sha512-m1kWeM8W+MrEsrRTvdUIFSQ3w5EZsfeRPciqONKgnR8Pk9n+z4JtJcimBrn5aNXgbZub9VvTMycJTApQ3LWY/Q==",
+  "localOverrides": false,
+  "existingJavaScriptConsumer": "passed",
+  "registryLockVerification": "passed",
+  "scope": "Core only; React and full registry consumers remain pending.",
+  "distTagsObserved": {
+    "next": "0.1.0",
+    "latest": "0.1.0"
+  },
+  "toolchain": {
+    "node": "24.20.0",
+    "pnpm": "12.3.4"
+  }
+}

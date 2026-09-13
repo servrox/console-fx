@@ -2,8 +2,8 @@
 
 Current website status: the [architecture/video deployment](evidence/hosting/2026-09-13-video/README.md)
 is READY and promoted; making the production domains public remains pending.
-The core package has been published; the React package and registry-consumer
-verification remain pending. The dated ledgers below retain their original scope.
+The [core registry installation](evidence/packages/2026-09-13-core/README.md)
+is verified; the React package and complete registry-consumer matrix remain pending. The dated ledgers below retain their original scope.
 
 The first MVP candidate was implemented under ADR-0001 through ADR-0011.
 Accepted ADR-0013 now supersedes ADR-0011: missing screen-reader observations are

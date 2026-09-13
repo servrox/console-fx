@@ -4,9 +4,17 @@
 
 A TypeScript library and visual studio for designing expressive browser-console messages and exporting a single, self-contained `console.log(...)`.
 
-> **Status: implemented release candidate, under qualification.** Core, React adapter, integrated Next.js studio and consumer examples are implemented. npm publication and public launch remain pending. See the [implementation receipt](docs/specs/console-fx-implementation-evidence.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
+> **Status: core 0.1.0 published under `next`.** The core passed a registry-only installation check. React adapter publication is pending, and the deployed studio still requires Vercel sign-in. See the [release ledger](docs/releasing.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
 
 [Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Mockup collection](docs/mockups/README.md)
+
+## Install the core preview release
+
+```sh
+pnpm add @servrox/console-fx@next
+```
+
+The published 0.1.0 core matches the reviewed artifact and has no runtime dependencies. React examples currently require the source workspace while the adapter's publication is completed. Standalone exports need no installation.
 
 ## Run the studio locally
 
@@ -123,7 +131,7 @@ These are editable design mockups. Their buttons, fields, sliders, and exports a
 
 | Deliverable | Name / location | Status |
 | --- | --- | --- |
-| TypeScript core | `@servrox/console-fx` | Implemented; publication pending |
+| TypeScript core | `@servrox/console-fx` | Published 0.1.0 under `next`; registry install verified |
 | React adapter | `@servrox/console-fx-react` | Implemented; publication pending |
 | Integrated Next.js studio | `apps/studio` | Implemented; launch checks pending |
 | Next.js integration | `examples/next-app` | Isolated production consumer tested; no separate runtime package |
