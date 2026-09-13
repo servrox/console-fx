@@ -10,6 +10,8 @@ export const test = base.extend<
   { nativeArtifactsDir: string | undefined }
 >({
   nativeArtifactsDir: [
+    // Playwright parses destructured fixture dependencies; this worker has none.
+    // eslint-disable-next-line no-empty-pattern
     async ({}, use) => {
       const directory = process.env.CONSOLE_FX_CDP_PORT
         ? await mkdtemp(join(tmpdir(), "console-fx-native-artifacts-"))
