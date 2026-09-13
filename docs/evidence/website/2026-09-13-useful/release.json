@@ -1,0 +1,101 @@
+{
+  "at": "2026-09-13T09:43:32.807828+00:00",
+  "task": "Distinct Useful homepage messages",
+  "status": "implemented, merged, CI-passed and verified live",
+  "pr": 19,
+  "source": "1ef9e376ba16660b8fa34610c6f4a1af646925dd",
+  "main": "30fc38613277acabbe3ccec922bc4fc37c395642",
+  "tree": "578d9c39b258a7a305639651bc2557de72c55fee",
+  "mainTreeMatchesPassingPr": true,
+  "preview": {
+    "id": "dpl_2YabNrozVFiCLGLkYBMYLZMcjYwA",
+    "url": "console-h3mpc70ul-servroxs-projects.vercel.app",
+    "readyState": "READY",
+    "target": null,
+    "source": "cli",
+    "gitSource": {
+      "type": "github",
+      "repoId": 1365496055,
+      "ref": "fix/console-fx-useful-examples",
+      "sha": "1ef9e376ba16660b8fa34610c6f4a1af646925dd"
+    },
+    "meta": {
+      "githubCommitSha": "1ef9e376ba16660b8fa34610c6f4a1af646925dd",
+      "githubCommitRef": "fix/console-fx-useful-examples"
+    }
+  },
+  "production": {
+    "id": "dpl_29n1fHmSUmitbxUJ9CtfKFtQMBAd",
+    "url": "console-8e3kmbu96-servroxs-projects.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "source": "git",
+    "meta": {
+      "githubCommitSha": "30fc38613277acabbe3ccec922bc4fc37c395642",
+      "githubCommitRef": "main"
+    }
+  },
+  "publicVerification": {
+    "harnessSha256": "65ee13301da6644028c69f36413b4a8e663a158585a823774a62bd8f8dd1c931",
+    "servedSampleFingerprint": "1c56bb1c0e68515b97e2bff36b8d27732fc60919e5406f8d913a7142cdf1934e",
+    "scope": "served HTML, RSC, linked scripts/styles, notices and media; not an independently downloaded complete remote artifact",
+    "journeys": [
+      "landing edit/copy/test once",
+      "video playback/captions/transcript",
+      "invalid import preserves draft",
+      "valid import/undo",
+      "reset cancellation/focus return",
+      "draft reload",
+      "complete clipboard export",
+      "font worker measurements",
+      "docs core and React installation commands",
+      "390px reflow",
+      "distinct Useful previews and plain text",
+      "Useful editor transfer/export/undo",
+      "Useful hero choices"
+    ],
+    "errors": [],
+    "csp": []
+  },
+  "routing": {
+    "at": "2026-09-13T09:41:51.181Z",
+    "results": [
+      {
+        "host": "console-fx-servroxs-projects.vercel.app",
+        "deploymentId": "dpl_29n1fHmSUmitbxUJ9CtfKFtQMBAd",
+        "status": 200
+      },
+      {
+        "host": "console-fx-git-main-servroxs-projects.vercel.app",
+        "deploymentId": "dpl_29n1fHmSUmitbxUJ9CtfKFtQMBAd",
+        "status": 200
+      },
+      {
+        "host": "console-fx.vercel.app",
+        "deploymentId": "dpl_29n1fHmSUmitbxUJ9CtfKFtQMBAd",
+        "status": 200
+      },
+      {
+        "host": "console-8e3kmbu96-servroxs-projects.vercel.app",
+        "status": 302,
+        "redirectHost": "vercel.com"
+      },
+      {
+        "host": "console-h3mpc70ul-servroxs-projects.vercel.app",
+        "status": 302,
+        "redirectHost": "vercel.com"
+      }
+    ]
+  },
+  "temporaryPreviewLink": "revoked",
+  "ci": {
+    "pr": 34749665604,
+    "prStatus": "passed",
+    "main": 34749938206,
+    "mainStatus": "passed"
+  },
+  "limits": [
+    "Physical phone, Safari and participant studies remain separate requirements",
+    "Sample fingerprint does not identify every remote build output file"
+  ]
+}

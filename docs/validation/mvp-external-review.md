@@ -17,11 +17,25 @@ physical-device or Safari evidence.
 Use [public ConsoleFX](https://console-fx-servroxs-projects.vercel.app), its
 [/studio/](https://console-fx-servroxs-projects.vercel.app/studio/) and
 [/docs/](https://console-fx-servroxs-projects.vercel.app/docs/) routes.
-The tested production artifact is
-`227a1e0e2dcf45d66fe9a52fcdd35b77cc12f8bdefe032fb7d29236b4fab5b22`, deployment
-`dpl_D4D4s3vQDqEGWom52kzZascti5rb`. Its [receipt](../evidence/hosting/2026-09-13-public/final-release.json)
-records exact public bytes. Recheck that identity before collecting results if
-production has changed; record the actual artifact used.
+The September 13 application checkpoint is main
+`30fc38613277acabbe3ccec922bc4fc37c395642`, production
+`dpl_29n1fHmSUmitbxUJ9CtfKFtQMBAd`. Its
+[receipt](../evidence/website/2026-09-13-useful/release.json) identifies the tested
+Git build and sampled served bytes. The sample fingerprint is not a complete
+remote artifact hash. Main pushes now rebuild and advance the public domains,
+including documentation-only pushes; do not assume the checkpoint is still live.
+
+Before **and after** each session, the maintainer should record the public URL,
+UTC time, its actual immutable Vercel deployment ID/URL, source commit and READY
+state from the project's Production deployment/domain records. Ask operators
+to record their session times and routes; they need no Vercel account access.
+Use those times to reconcile their results with the hosted deployment records.
+Record any known build-input changes from the checkpoint. If deployment identity
+changes during a session, separate and recheck affected tasks against an
+identified build; do not combine their results into one artifact pass. Preserve
+preview/deployment URL authentication and keep any test-share credentials out of
+results. Use deployment ID plus source SHA in the Artifact columns below; record
+an additional artifact hash only when the complete artifact is actually available.
 
 Use a fresh, dedicated browser profile/session and synthetic messages. The
 [valid import](mvp-external/valid-scene.json) contains literal percent tokens and
