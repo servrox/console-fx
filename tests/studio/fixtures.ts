@@ -52,6 +52,10 @@ export const test = base.extend<
                 "Windows CDP downloads require a named WSL distribution",
               );
             const { targetInfo } = await session.send("Target.getTargetInfo");
+            if (!targetInfo.browserContextId)
+              throw new Error(
+                "Native downloads require an owned browser context",
+              );
             // Chrome writes through WSL's share; Playwright reads the same owned
             // files through Linux. The unmodified Linux path cancels downloads.
             // Keep this browser session alive through the test. A page session

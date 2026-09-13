@@ -164,7 +164,7 @@ describe("standalone code generation", () => {
       }
       const allowed = compileConsole(scene, { ...options, motion: "allow" });
       expect(exported.diagnostics).toEqual(
-        expect.arrayContaining(allowed.diagnostics),
+        expect.arrayContaining([...allowed.diagnostics]),
       );
       if (fallback) {
         expect(allowed.renderer).toBe("text");

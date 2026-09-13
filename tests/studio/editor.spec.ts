@@ -54,9 +54,9 @@ test("structural additions advance selection only after a valid undoable edit", 
   for (const [name, addedText] of [
     ["+ Line", "Another line"],
     ["+ Text run", " New text"],
-  ]) {
+  ] as const) {
     await page.getByRole("button", { name, exact: true }).click();
-    await expect(text).toHaveValue(addedText!);
+    await expect(text).toHaveValue(addedText);
     await expect(redo).toBeDisabled();
     await undo.click();
     await expect(source).toHaveValue(baseline);
