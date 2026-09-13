@@ -338,13 +338,14 @@ export function Studio({
   const setSystemMotion = (enabled: boolean) =>
     updateSettings({ ...settings, motion: enabled ? "system" : "reduce" });
 
-  function commit(candidate: unknown) {
+  function commit(candidate: unknown, nextSelection?: typeof selection) {
     const result = parseScene(candidate);
     if (!result.ok) {
       setNotice({ kind: "error", message: result.diagnostics[0]!.message });
       return;
     }
     dispatch({ type: "replace", scene: result.value });
+    if (nextSelection) setSelection(nextSelection);
     setNotice(null);
   }
   function patchRun(patch: Record<string, unknown>) {
@@ -391,26 +392,30 @@ export function Studio({
   }
   function addLine() {
     if (scene.lines.length >= LIMITS.lines || runCount >= LIMITS.runs) return;
-    commit({
-      ...scene,
-      lines: [...scene.lines, { runs: [{ text: "Another line" }] }],
-    });
-    setSelection({ line: scene.lines.length, run: 0 });
+    commit(
+      {
+        ...scene,
+        lines: [...scene.lines, { runs: [{ text: "Another line" }] }],
+      },
+      { line: scene.lines.length, run: 0 },
+    );
   }
   function addRun() {
     if (!line) {
       addLine();
       return;
     }
-    commit({
-      ...scene,
-      lines: scene.lines.map((item, index) =>
-        index === lineIndex
-          ? { ...item, runs: [...item.runs, { text: " New text" }] }
-          : item,
-      ),
-    });
-    setSelection({ line: lineIndex, run: line.runs.length });
+    commit(
+      {
+        ...scene,
+        lines: scene.lines.map((item, index) =>
+          index === lineIndex
+            ? { ...item, runs: [...item.runs, { text: " New text" }] }
+            : item,
+        ),
+      },
+      { line: lineIndex, run: line.runs.length },
+    );
   }
 
   return (

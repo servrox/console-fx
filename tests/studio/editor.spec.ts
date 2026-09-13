@@ -8,6 +8,62 @@ import { test, expect } from "./fixtures";
 
 const draftKey = "console-fx:scene:v1";
 
+test("structural additions advance selection only after a valid undoable edit", async ({
+  page,
+}) => {
+  await page.goto("/studio/");
+  const text = page.getByRole("textbox", { name: "Message text", exact: true });
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  const redo = page.getByRole("button", { name: "Redo", exact: true });
+  await text.fill("Before import");
+  const atLimit = {
+    ...neon(),
+    label: "",
+    lines: [
+      { runs: [{ text: "a".repeat(1998) }, { text: "b" }] },
+      { runs: [{ text: "c" }] },
+    ],
+  };
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "at-limit.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(atLimit)),
+  });
+  await expect(text).toHaveValue(atLimit.lines[0]!.runs[0]!.text);
+  await page
+    .getByRole("combobox", { name: "Format", exact: true })
+    .selectOption("json");
+  const source = page.getByLabel("Generated code", { exact: true });
+  const imported = await source.inputValue();
+  for (const name of ["+ Line", "+ Text run"]) {
+    await page.getByRole("button", { name, exact: true }).click();
+    await expect(page.locator(".editor-status")).toContainText("2,000");
+    await expect(text).toHaveValue(atLimit.lines[0]!.runs[0]!.text);
+    await expect(
+      page.getByRole("button", { name: "Line 1", exact: true }),
+    ).toHaveAttribute("aria-pressed", "true");
+    await expect(source).toHaveValue(imported);
+    await expect(redo).toBeDisabled();
+  }
+  await undo.click();
+  await expect(text).toHaveValue("Before import");
+  await redo.click();
+  await expect(source).toHaveValue(imported);
+  await undo.click();
+  const baseline = await source.inputValue();
+  for (const [name, addedText] of [
+    ["+ Line", "Another line"],
+    ["+ Text run", " New text"],
+  ]) {
+    await page.getByRole("button", { name, exact: true }).click();
+    await expect(text).toHaveValue(addedText!);
+    await expect(redo).toBeDisabled();
+    await undo.click();
+    await expect(source).toHaveValue(baseline);
+    await expect(text).toHaveValue("Before import");
+  }
+});
+
 test("explicit rich renderer selection updates an imported target in one undoable step", async ({
   page,
 }) => {
