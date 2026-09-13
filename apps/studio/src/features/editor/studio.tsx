@@ -1289,7 +1289,7 @@ export function Studio({
                     setNotice({
                       kind: "error",
                       message:
-                        "Download failed. Choose Editable JSON above and copy it.",
+                        "Download failed. Choose Scene JSON (content only) above and copy it.",
                     });
                   }
                 }}
