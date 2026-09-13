@@ -37,7 +37,7 @@ it("retains valid Plain output when editing past rich limits during a reveal", (
     .querySelector(".comparison-result img")
     ?.getAttribute("src");
   expect(previous).toBeTruthy();
-  fireEvent.click(screen.getByRole("button", { name: "Plain", exact: true }));
+  fireEvent.click(screen.getByRole("button", { name: "Plain" }));
   const decoration = view.container.querySelector(".reveal-decoration")!;
   expect(decoration).not.toBeNull();
   const text = "A".repeat(60);
