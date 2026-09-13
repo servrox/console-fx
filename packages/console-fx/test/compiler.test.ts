@@ -136,6 +136,52 @@ describe("compilation and emission", () => {
 
 describe("generated SVG boundary", () => {
   const dom = new JSDOM();
+  it.each(["\uFFFE", "\uFFFF"])(
+    "rejects XML-unrepresentable text with explicit lossless fallback: %s",
+    (character) => {
+      for (const inLabel of [false, true]) {
+        const scene = defineScene({
+          ...neon({ text: inLabel ? "Visible" : `Before${character}after %s` }),
+          label: inLabel ? character : "Valid label",
+        });
+        const options = { target: "chromium", renderer: "svg" } as const;
+        expect(() => compileConsole(scene, options)).toThrowError(
+          expect.objectContaining({
+            diagnostics: [
+              expect.objectContaining({
+                code: "unsupported-svg-text",
+                severity: "error",
+                path: inLabel ? ["label"] : ["lines", 0, "runs", 0, "text"],
+              }),
+            ],
+          }),
+        );
+        const text = scene.lines[0]!.runs[0]!.text;
+        const fallback = compileConsole(scene, {
+          ...options,
+          unsupported: "fallback",
+        });
+        expect(fallback.renderer).toBe("text");
+        expect(fallback.args).toEqual([text]);
+        expect(
+          compileConsole(scene, { ...options, renderer: "css" }).text,
+        ).toBe(text);
+      }
+      const replacement = compileConsole(neon({ text: "\uFFFD" }), {
+        target: "chromium",
+        renderer: "svg",
+      });
+      if (replacement.preview.kind !== "svg") throw new Error("SVG expected");
+      const xml = decodeURIComponent(
+        replacement.preview.imageUri.split(",")[1]!,
+      );
+      expect(
+        new dom.window.DOMParser()
+          .parseFromString(xml, "image/svg+xml")
+          .querySelector("parsererror"),
+      ).toBeNull();
+    },
+  );
   const allowed = new Set([
     "svg",
     "defs",

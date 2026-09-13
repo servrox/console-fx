@@ -13,6 +13,7 @@ import type { LayoutReport, OutputSizingReport } from "../model/layout.js";
 import { textDirection } from "../layout/metrics.js";
 
 import { escapeXml, svgNumber } from "./svg-values.js";
+import { fail } from "../validation/index.js";
 export { escapeXml } from "./svg-values.js";
 function dataUri(svg: string): string {
   return `data:image/svg+xml,${encodeURIComponent(svg).replace(/[!'()*]/g, (character) => `%${character.charCodeAt(0).toString(16).toUpperCase()}`)}`;
@@ -67,6 +68,20 @@ export function renderSvg(
   allowMotion: boolean,
   plan?: SvgLayoutPlan,
 ): SvgResult {
+  // XML 1.0 cannot represent these two code points, even as character references.
+  // Keep SceneV1/CSS/text compatibility and reject only this rich representation.
+  const checkText = (value: string, path: readonly (string | number)[]) => {
+    if (/[\uFFFE\uFFFF]/u.test(value))
+      fail(
+        "unsupported-svg-text",
+        "This text contains a character that SVG cannot represent. Choose text output or explicit fallback.",
+        path,
+      );
+  };
+  checkText(scene.label, ["label"]);
+  for (const [li, line] of scene.lines.entries())
+    for (const [ri, run] of line.runs.entries())
+      checkText(run.text, ["lines", li, "runs", ri, "text"]);
   // Fitted geometry must retain the precision used for paint/readability checks.
   const number = plan ? String : svgNumber;
   scene = plan?.scene ?? scene;
