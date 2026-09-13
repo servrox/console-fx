@@ -277,7 +277,18 @@ export function compileScene(
     output = renderSvg(scene, configuration.motion === "allow", configuration);
   } catch (error) {
     if (error instanceof SceneValidationError) {
-      if (configuration.unsupported === "error")
+      if (
+        configuration.unsupported === "error" ||
+        error.diagnostics.some(
+          ({ code }) =>
+            ![
+              "layout-overflow",
+              "unsupported-layout",
+              "below-readable-size",
+              "unsupported-svg-text",
+            ].includes(code),
+        )
+      )
         throw new ConsoleCompileError(error.diagnostics);
       diagnostics.push(
         ...error.diagnostics.map((d): Diagnostic => ({

@@ -35,6 +35,67 @@ const layout: LayoutRequest = {
 const options: CompileOptions = { target: "chromium", renderer: "svg", layout };
 
 describe("fitting text boundary recovery", () => {
+  it.each(["error", "fallback"] as const)(
+    "keeps resource and invalid-sizing failures fatal under %s policy",
+    (unsupported) => {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "",
+        surface: { padding: 0 },
+        lines: [
+          { runs: [{ text: "界".repeat(1900), style: { fontSize: 96 } }] },
+        ],
+      });
+      const sink = vi.fn();
+      expect(() =>
+        emitConsole(
+          scene,
+          {
+            ...options,
+            unsupported,
+            layout: {
+              ...layout,
+              width: 80,
+              maxHeight: 40,
+              overflow: "shrink",
+              minFontSize: 8,
+            },
+          },
+          sink,
+        ),
+      ).toThrowError(
+        expect.objectContaining({
+          diagnostics: expect.arrayContaining([
+            expect.objectContaining({
+              code: "resource-limit",
+              severity: "error",
+            }),
+          ]),
+        }),
+      );
+      expect(sink).not.toHaveBeenCalled();
+      expect(() =>
+        compileConsole(
+          { ...scene, surface: { width: 80, height: 400 }, lines: [] },
+          {
+            target: "chromium",
+            renderer: "svg",
+            unsupported,
+            sizing: { mode: "fixed", width: 160 },
+          },
+        ),
+      ).toThrowError(
+        expect.objectContaining({
+          diagnostics: expect.arrayContaining([
+            expect.objectContaining({
+              code: "invalid-options",
+              severity: "error",
+            }),
+          ]),
+        }),
+      );
+    },
+  );
   const fit = {
     ...options,
     layout: { ...layout, width: 70, overflow: "wrap" as const },
