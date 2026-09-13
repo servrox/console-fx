@@ -427,6 +427,19 @@ describe("explicit fitting contracts", () => {
     expect(dynamic.layout?.resolvedDisplayHeight).toBeNull();
     expect(dynamic.layout?.displayReadability).toBe("unknown");
     expect(dynamic.args[1]).toContain("min(180px, 48%)");
+    expect(dynamic.args[0]).toBe("%c %c\n%s%c");
+    expect(dynamic.args.slice(2)).toEqual(["", dynamic.text, ""]);
+    expect(fixed.args[0]).toBe("%c %c%s%c");
+    const calls: unknown[][] = [];
+    new Function(
+      "console",
+      exportConsoleLog(scene, {
+        ...options,
+        sizing: { mode: "container-experimental", maxWidth: 360 },
+        motion: "reduce",
+      }).code,
+    )({ log: (...args: unknown[]) => calls.push(args) });
+    expect(calls).toEqual([dynamic.args]);
     expect(dynamic.diagnostics.map((d) => d.code)).toContain(
       "experimental-container-sizing",
     );

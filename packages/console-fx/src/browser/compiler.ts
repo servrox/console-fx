@@ -322,7 +322,9 @@ export function compileScene(
   const width = output.width ?? scene.surface.width;
   const height = output.height ?? scene.surface.height;
   const args: ConsoleArgs = [
-    "%c %c%s%c",
+    configuration.sizing?.mode === "container-experimental"
+      ? "%c %c\n%s%c"
+      : "%c %c%s%c",
     `font-size:0;line-height:0;padding:${output.carrierPadding ?? `${height / 2}px ${width / 2}px`};background:url("${output.imageUri}") center/contain no-repeat`,
     "",
     literalPercent(text),
