@@ -21,6 +21,10 @@ The maintainer requested GitHub-connected automatic deployments on `main` on
 project is `servroxs-projects/console-fx`, repository `servrox/console-fx`, production
 branch `main`. Configure Vercel's Root Directory as the repository root (empty),
 Framework Preset as Other, and Node.js as `24.x`.
+Set the non-secret project environment variable `ENABLE_EXPERIMENTAL_COREPACK=1`
+for Production and Preview. This makes nested `pnpm` commands use the pinned
+manager too; invoking only the outer command through Corepack leaves Vercel's
+default pnpm on the nested command path and fails the version check.
 
 The root [vercel.json](../vercel.json) owns the install/build commands and enables
 automatic deployments only for `main`. Corepack uses the repository's pinned pnpm
