@@ -2,8 +2,8 @@
 
 Current website status: the [architecture/video deployment](evidence/hosting/2026-09-13-video/README.md)
 is READY and promoted; making the production domains public remains pending.
-The core package has been published; the React package and registry-consumer
-verification remain pending. The dated ledgers below retain their original scope.
+The [core registry installation](evidence/packages/2026-09-13-core/README.md)
+is verified; the React package and complete registry-consumer matrix remain pending. The dated ledgers below retain their original scope.
 
 The first MVP candidate was implemented under ADR-0001 through ADR-0011.
 Accepted ADR-0013 now supersedes ADR-0011: missing screen-reader observations are
@@ -12,7 +12,8 @@ reduced-motion checks remain. Cinematic presets follow Accepted ADR-0012 and hav
 a separate [candidate ledger](specs/cinematic-metal-presets-evidence.md); the dated
 artifacts below do not qualify that new implementation.
 Earlier MVP candidates passed protected hosted verification and merged `main`
-CI within the dated scopes below; publication and public promotion remain pending. The approved spec
+CI within the dated scopes below; those observations did not establish publication
+or public access. The approved spec
 requires all 24 acceptance criteria before the full launch; local checks alone do
 not authorize publication or establish CI or production success.
 
@@ -29,9 +30,11 @@ The maintainer later explicitly approved the PR #10 core `61672e00…`, React
 `eefa4f0b…`, and studio `298aaa32…` packet for npm `next` and an authenticated
 preview. That approval selects those preserved bytes, not a replacement build.
 The studio upload is READY and its [hosted verification passed](evidence/hosting/2026-09-13/README.md).
-Both npm names remain absent after authentication/publication failures; the same
-receipt records recovery without changing the approved tarballs. Public production
-promotion remains separate. Optional Vercel preview Toolbar injection was disabled
+That September 13 receipt recorded both npm names as absent after authentication
+and publication failures. Later that day, the core publication and registry-only
+installation were verified in the [core receipt](evidence/packages/2026-09-13-core/README.md).
+React publication remains pending. The newer architecture/video deployment is
+promoted, while public production access remains pending. Optional Vercel preview Toolbar injection was disabled
 for this project after a served-runtime hash/CSP conflict; authentication stays on
 all URLs.
 

@@ -1,0 +1,115 @@
+{
+  "at": "2026-09-13T03:14:21.693652+00:00",
+  "stage": "publication/install",
+  "name": "@servrox/console-fx",
+  "version": "0.1.0",
+  "sha256": "61672e00d7a57829085d71836ede22bbc99cfb8350b067bd3f2c17ced5886592",
+  "integrity": "sha512-m1kWeM8W+MrEsrRTvdUIFSQ3w5EZsfeRPciqONKgnR8Pk9n+z4JtJcimBrn5aNXgbZub9VvTMycJTApQ3LWY/Q==",
+  "localOverrides": false,
+  "existingJavaScriptConsumer": "passed",
+  "registryLockVerification": "passed",
+  "scope": "Core only; React and full registry consumers remain pending.",
+  "distTagsObserved": {
+    "next": "0.1.0",
+    "latest": "0.1.0"
+  },
+  "toolchain": {
+    "node": "v24.20.0",
+    "pnpm": "12.3.4"
+  },
+  "originalObservationAt": "2026-09-13T02:50:33.072Z",
+  "status": "verified",
+  "owner": "ConsoleFX release verification",
+  "obligation": "Install the approved core version from public npm without local overrides and execute its existing JavaScript consumer.",
+  "sourceCommit": "d707636b1c7a7e7fba66955b89de17f4fe10477f",
+  "commands": [
+    {
+      "workingDirectory": "isolated-consumer",
+      "argv": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile",
+        "--ignore-scripts"
+      ],
+      "exitCode": 0
+    },
+    {
+      "workingDirectory": "isolated-consumer",
+      "argv": [
+        "node",
+        "--input-type=module",
+        "-",
+        "<repository>/scripts/verify-release.mjs",
+        "sha512-m1kWeM8W+MrEsrRTvdUIFSQ3w5EZsfeRPciqONKgnR8Pk9n+z4JtJcimBrn5aNXgbZub9VvTMycJTApQ3LWY/Q=="
+      ],
+      "exitCode": 0,
+      "stdin": "import { readFileSync } from \"node:fs\";\nimport { pathToFileURL } from \"node:url\";\nconst { verifyRegistryConsumerLock } = await import(pathToFileURL(process.argv[2]).href);\nverifyRegistryConsumerLock(readFileSync(\"pnpm-lock.yaml\", \"utf8\"), [{ integrity: process.argv[3] }]);\nconsole.log(\"Registry integrity and local-protocol checks passed\");\n",
+      "stdinSha256": "c8f588062ed26ec3787909a1e32b507bf89594e370fbd0625bc2f4b37a069449"
+    },
+    {
+      "workingDirectory": "isolated-consumer",
+      "argv": [
+        "node",
+        "check.mjs"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "fixture": {
+    "path": "examples/vanilla/check.mjs",
+    "installedAs": "check.mjs",
+    "sha256": "e0136eb29f3e80608780207ab1e2b96607437413bd57e3f64b8b4069c95076b4"
+  },
+  "harness": [
+    {
+      "path": "scripts/verify-release.mjs",
+      "sha256": "421b5020a648f11da14a68bf6e1ea93173d954cb59f7c4ce460af7f842b9f34c"
+    }
+  ],
+  "configuration": [
+    {
+      "path": "package.json",
+      "sha256": "c103bed2e19a74cdac7605a0e29ab0ee146e36d286794e9de172eaaddf88c258",
+      "content": "{\"name\": \"console-fx-core-registry-verification\", \"private\": true, \"type\": \"module\", \"packageManager\": \"pnpm@12.3.4\", \"dependencies\": {\"@servrox/console-fx\": \"0.1.0\"}}\n"
+    },
+    {
+      "path": ".npmrc",
+      "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1",
+      "content": "registry=https://registry.npmjs.org/\n@servrox:registry=https://registry.npmjs.org/\n"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "56b8bd5e8abb0ac7d1b890b851cc8f5f694429bd25328c0db0ea102e9f071f05",
+      "content": "minimumReleaseAge: 1440\nminimumReleaseAgeStrict: true\nminimumReleaseAgeExclude:\n  - \"@servrox/console-fx@0.1.0\"\n"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "6f5e83f4b09bf6b323f67b26d85890153e2c4e9cbcf8efdcf97a8afeed3779f3"
+    }
+  ],
+  "environment": {
+    "platform": "Linux",
+    "architecture": "x86_64",
+    "kernel": "6.18.40.1-microsoft-standard-WSL2",
+    "distribution": "NixOS",
+    "wslDistribution": "nixos",
+    "installation": "isolated temporary Linux directory outside the workspace"
+  },
+  "coveredContracts": [
+    "public entrypoints and private-subpath rejection",
+    "scene and render-recipe round trips",
+    "literal text and exact console emission",
+    "cinematic profiles and card presentations",
+    "content fitting",
+    "registry integrity and absence of local package protocols"
+  ],
+  "limitations": [
+    "Core JavaScript only; React and the full JS/TS/React/Next registry consumer matrix remain pending.",
+    "This recheck reused the preserved isolated install and its frozen lock; the original observation was a fresh installation.",
+    "Registry metadata is an observation at the recorded time, not a permanent availability guarantee."
+  ],
+  "invalidators": [
+    "Changes to package bytes, fixture, verifier, configuration, lockfile, toolchain or governed contracts.",
+    "New contradictory registry metadata or installation results."
+  ]
+}

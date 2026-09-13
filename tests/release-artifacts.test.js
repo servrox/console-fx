@@ -15,6 +15,7 @@ import { join } from "node:path";
 import test from "node:test";
 import {
   verifyReleaseArtifacts,
+  verifyRegistryConsumerLock,
   verifyRegistryMetadata,
   verifyValidationRun,
 } from "../scripts/verify-release.mjs";
@@ -38,6 +39,54 @@ const artifact = {
   workflow_run: { id: run.id, head_sha: commit },
 };
 const listing = { total_count: 1, artifacts: [artifact] };
+
+const registryLock = `lockfileVersion: '9.0'
+settings:
+  excludeLinksFromLockfile: false
+importers:
+  .:
+    dependencies:
+      file:
+        specifier: 0.1.0
+        version: 0.1.0
+packages:
+  '@servrox/console-fx@0.1.0':
+    resolution: {integrity: sha512-approved}
+`;
+const registryPackages = [{ integrity: "sha512-approved" }];
+
+test("registry locks accept pnpm settings and registry package names containing file", () => {
+  assert.doesNotThrow(() =>
+    verifyRegistryConsumerLock(registryLock, registryPackages),
+  );
+});
+
+for (const protocol of ["file", "link"]) {
+  test(`registry locks still reject ${protocol} dependency resolutions`, () => {
+    assert.throws(
+      () =>
+        verifyRegistryConsumerLock(
+          registryLock.replace(
+            "version: 0.1.0",
+            `version: ${protocol}:../local`,
+          ),
+          registryPackages,
+        ),
+      /must not resolve local/,
+    );
+  });
+}
+
+test("registry locks still require the verified package integrity", () => {
+  assert.throws(
+    () =>
+      verifyRegistryConsumerLock(
+        registryLock.replace("sha512-approved", "sha512-different"),
+        registryPackages,
+      ),
+    /missing the verified registry integrity/,
+  );
+});
 
 test("release selection binds a successful main run to its exact artifact", () => {
   assert.equal(verifyValidationRun(run, listing, commit), artifact.id);

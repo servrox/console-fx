@@ -512,7 +512,10 @@ test("static HTML and narrow layouts keep the explanation and actions usable", a
     "Your app supplies the facts",
   );
   await expect(staticPage.locator("#use-in-your-app")).toContainText(
-    "Package publication pending",
+    "Core 0.1.0 is available under next",
+  );
+  await expect(staticPage.locator("#use-in-your-app")).toContainText(
+    "React adapter publication is pending",
   );
   await staticPage.screenshot({
     path: `${artifact}/UX-01-no-js-${test.info().project.name}.png`,

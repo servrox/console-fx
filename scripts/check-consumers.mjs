@@ -10,7 +10,10 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { resolve, relative } from "node:path";
-import { verifyRegistryMetadata } from "./verify-release.mjs";
+import {
+  verifyRegistryConsumerLock,
+  verifyRegistryMetadata,
+} from "./verify-release.mjs";
 import {
   artifacts,
   hash,
@@ -141,17 +144,7 @@ const environmentFiles = [
   return { path: relative(artifacts, path), sha256: hash(path) };
 });
 const consumerLock = readFileSync(resolve(consumer, "pnpm-lock.yaml"), "utf8");
-if (registryMode) {
-  assert(
-    !consumerLock.includes("file:") && !consumerLock.includes("link:"),
-    "Registry consumers must not resolve local packages",
-  );
-  for (const item of published)
-    assert(
-      consumerLock.includes(item.integrity),
-      "Consumer lock is missing the verified registry integrity",
-    );
-}
+if (registryMode) verifyRegistryConsumerLock(consumerLock, published);
 console.log(
   run(process.execPath, ["checks/vanilla/check.mjs"], consumer).trim(),
 );
