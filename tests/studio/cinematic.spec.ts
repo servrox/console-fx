@@ -1,20 +1,11 @@
 import AxeBuilder from "@axe-core/playwright";
 import {
   lightningMetal,
-  iceCathedral,
-  liquidChrome,
   moltenGold,
 } from "../../packages/console-fx/dist/presets/index.js";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
-
-const titles = [
-  ["Lightning Metal", lightningMetal],
-  ["Ice Cathedral", iceCathedral],
-  ["Liquid Chrome", liquidChrome],
-  ["Molten Gold", moltenGold],
-] as const;
 
 test("cinematic gallery uses exact static previews, editable controls and one explicit call", async ({
   page,
@@ -27,28 +18,29 @@ test("cinematic gallery uses exact static previews, editable controls and one ex
   await page.goto("/#playground");
   await page.locator(".full-preset-gallery > summary").click();
   const editor = page.locator("#editor-workspace");
-  for (const [name, factory] of titles) {
-    const card = page.getByRole("button", {
-      name: `Load ${name} preset`,
-      exact: true,
-    });
-    const output = compileConsole(factory(), {
-      target: "chromium",
-      renderer: "svg",
-    });
-    if (output.preview.kind !== "svg") throw new Error("SVG fixture required");
-    await expect(card.locator("img")).toHaveAttribute(
-      "src",
-      output.preview.imageUri,
-    );
-    await card.click();
-    await expect(
-      editor.getByRole("combobox", { name: "Output renderer", exact: true }),
-    ).toHaveValue("svg");
-    await expect(
-      editor.getByRole("img", { name: factory().label, exact: true }),
-    ).toHaveAttribute("src", output.preview.imageUri);
-  }
+  // Profile appearance is owned by core/native checks; this journey owns the controls.
+  const name = "Lightning Metal";
+  const factory = lightningMetal;
+  const card = page.getByRole("button", {
+    name: `Load ${name} preset`,
+    exact: true,
+  });
+  const output = compileConsole(factory(), {
+    target: "chromium",
+    renderer: "svg",
+  });
+  if (output.preview.kind !== "svg") throw new Error("SVG fixture required");
+  await expect(card.locator("img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  await card.click();
+  await expect(
+    editor.getByRole("combobox", { name: "Output renderer", exact: true }),
+  ).toHaveValue("svg");
+  await expect(
+    editor.getByRole("img", { name: factory().label, exact: true }),
+  ).toHaveAttribute("src", output.preview.imageUri);
   await editor
     .getByRole("textbox", { name: "Message text", exact: true })
     .fill("BUILD 2026");

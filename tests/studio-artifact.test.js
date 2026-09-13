@@ -12,13 +12,13 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import test from "node:test";
+import { onTestFinished, test } from "vitest";
 import { prepareStudioArtifact } from "../scripts/studio-artifact.mjs";
 
 const hash = (value) => createHash("sha256").update(value).digest("hex");
-function fixture(t) {
+function fixture() {
   const root = mkdtempSync(join(tmpdir(), "console-fx-artifact-test-"));
-  t.after(() => rmSync(root, { recursive: true, force: true }));
+  onTestFinished(() => rmSync(root, { recursive: true, force: true }));
   const source = join(root, "apps/studio/out");
   mkdirSync(join(source, "studio"), { recursive: true });
   writeFileSync(
@@ -45,8 +45,8 @@ function saved(f) {
   ].map((path) => readFileSync(path, "utf8"));
 }
 
-test("preparation produces the exact static files, security headers and routes without deployment", (t) => {
-  const f = fixture(t);
+test("preparation produces the exact static files, security headers and routes without deployment", () => {
+  const f = fixture();
   const { receipt, recoveryDirectory } = f.prepare();
   assert.equal(recoveryDirectory, null);
   assert.equal(receipt.deployment, "not deployed");
@@ -83,8 +83,8 @@ test("preparation produces the exact static files, security headers and routes w
   );
 });
 
-test("replacement retains the complete previous candidate and both receipts for recovery", (t) => {
-  const f = fixture(t);
+test("replacement retains the complete previous candidate and both receipts for recovery", () => {
+  const f = fixture();
   f.prepare();
   const before = saved(f);
   writeFileSync(join(f.source, "index.html"), "<h1>Replacement</h1>");
@@ -110,8 +110,8 @@ test("replacement retains the complete previous candidate and both receipts for 
   );
 });
 
-test("an unowned output and its files are never replaced", (t) => {
-  const f = fixture(t);
+test("an unowned output and its files are never replaced", () => {
+  const f = fixture();
   mkdirSync(f.output, { recursive: true });
   writeFileSync(join(f.output, "valuable"), "keep this");
   assert.throws(f.prepare, /unowned/);
@@ -126,8 +126,8 @@ for (const change of [
   "candidate receipt",
   "symlink",
 ]) {
-  test(`changed ${change} is preserved instead of trusting an ownership marker`, (t) => {
-    const f = fixture(t);
+  test(`changed ${change} is preserved instead of trusting an ownership marker`, () => {
+    const f = fixture();
     f.prepare();
     const target = join(f.output, "static/index.html");
     if (change === "content") writeFileSync(target, "concurrent edit");
@@ -154,8 +154,8 @@ for (const change of [
   });
 }
 
-test("a staging failure preserves the previous candidate and permits a later retry", (t) => {
-  const f = fixture(t);
+test("a staging failure preserves the previous candidate and permits a later retry", () => {
+  const f = fixture();
   f.prepare();
   const before = saved(f);
   writeFileSync(
@@ -171,8 +171,8 @@ test("a staging failure preserves the previous candidate and permits a later ret
   assert.doesNotThrow(f.prepare);
 });
 
-test("receipt replacement failure rolls back output and ownership bytes already replaced", (t) => {
-  const f = fixture(t);
+test("receipt replacement failure rolls back output and ownership bytes already replaced", () => {
+  const f = fixture();
   f.prepare();
   const before = saved(f);
   writeFileSync(join(f.source, "index.html"), "<h1>Must roll back</h1>");
@@ -187,8 +187,8 @@ test("receipt replacement failure rolls back output and ownership bytes already 
   assert.doesNotThrow(f.prepare);
 });
 
-test("a concurrent or interrupted preparation lock is preserved", (t) => {
-  const f = fixture(t);
+test("a concurrent or interrupted preparation lock is preserved", () => {
+  const f = fixture();
   const lock = join(f.root, ".vercel/console-fx-preparation.lock");
   mkdirSync(lock, { recursive: true });
   writeFileSync(join(lock, "recovery.json"), "existing recovery");
@@ -199,8 +199,8 @@ test("a concurrent or interrupted preparation lock is preserved", (t) => {
   );
 });
 
-test("legacy file-only receipts are verified and retained while new receipts cover directories", (t) => {
-  const f = fixture(t);
+test("legacy file-only receipts are verified and retained while new receipts cover directories", () => {
+  const f = fixture();
   const old = f.prepare().receipt;
   delete old.directories;
   const text = JSON.stringify(old, null, 2) + "\n";

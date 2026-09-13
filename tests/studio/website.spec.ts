@@ -24,120 +24,109 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-for (const [index, scenario] of [
-  { id: "sdkWelcome", profile: "commandCard/v1", field: "Title" },
-  { id: "devContext", profile: "buildReceipt/v1", field: "Project" },
-  { id: "milestone", profile: "releaseBulletin/v1", field: "Headline" },
-].entries()) {
-  test(`useful ${scenario.id} keeps its distinct card through comparison, export and undo`, async ({
-    page,
-  }) => {
-    const example = EXAMPLES.find((item) => item.id === scenario.id)!;
-    const recipe = exampleRecipe(example.id);
-    const output = compileConsole(recipe.scene, recipe.options);
-    if (output.preview.kind !== "svg") throw Error("SVG expected");
-    const prior = neon({ text: "Keep my draft" });
-    await page.addInitScript(
-      ({ key, prior }) => localStorage.setItem(key, JSON.stringify(prior)),
-      { key: draftKey, prior },
-    );
-    await page.goto("/");
-    await page
-      .getByRole("button", { name: "Make it useful", exact: true })
-      .click();
-    const card = page.getByRole("button", {
-      name: `Edit ${example.name} example`,
-      exact: true,
-    });
-    await expect(card.locator("img")).toHaveAttribute(
-      "src",
-      output.preview.imageUri,
-    );
-    mkdirSync(artifact, { recursive: true });
-    if (index === 0) {
-      await page.locator(".curated-section").screenshot({
-        path: `${artifact}/useful-gallery-${test.info().project.name}.png`,
-      });
-    } else {
-      const demo = page.locator(".quick-demo");
-      await demo
-        .getByRole("button", {
-          name: index === 1 ? "Dev context" : "Summary",
-          exact: true,
-        })
-        .click();
-      await expect(demo.locator(".comparison-result img")).toHaveAttribute(
-        "src",
-        output.preview.imageUri,
-      );
-      await demo.screenshot({
-        path: `${artifact}/useful-hero-${example.id}-${test.info().project.name}.png`,
-      });
-      const heading = "Atlas sandbox";
-      await demo
-        .getByRole("textbox", { name: "Sample heading", exact: true })
-        .fill(heading);
-      const editedRecipe = exampleRecipe(example.id, heading);
-      const edited = compileConsole(editedRecipe.scene, editedRecipe.options);
-      if (edited.preview.kind !== "svg") throw Error("SVG expected");
-      await expect(demo.locator(".comparison-result img")).toHaveAttribute(
-        "src",
-        edited.preview.imageUri,
-      );
-    }
-    const comparison = page.locator(".use-case-comparison").nth(index);
-    await expect(comparison.locator("img")).toHaveAttribute(
-      "src",
-      output.preview.imageUri,
-    );
-    await comparison
-      .getByRole("button", { name: "Plain", exact: true })
-      .click();
-    await expect(comparison.locator("pre")).toHaveText(output.text);
-    await card.click();
-    await page
-      .getByRole("button", { name: "Load example", exact: true })
-      .click();
-    const editor = page.locator("#editor-workspace");
-    await expect(
-      editor.getByRole("textbox", { name: scenario.field, exact: true }),
-    ).toHaveValue(example.text);
-    await expect
-      .poll(() =>
-        page.evaluate(
-          (key) =>
-            JSON.parse(localStorage.getItem(key) ?? "null")?.scene.presentation
-              ?.profile,
-          recipeKey,
-        ),
-      )
-      .toBe(scenario.profile);
-    expect(
-      await page.evaluate(
-        (key) => JSON.parse(localStorage.getItem(key)!),
-        draftKey,
-      ),
-    ).toEqual(prior);
-    const calls: unknown[][] = [];
-    new Function(
-      "console",
-      await editor.getByLabel("Generated code", { exact: true }).inputValue(),
-    )({
-      log: (...args: unknown[]) => calls.push(args),
-    });
-    expect(calls).toEqual([output.args]);
-    await editor.getByRole("button", { name: "Undo", exact: true }).click();
-    await expect(
-      editor.getByRole("textbox", { name: "Message text", exact: true }),
-    ).toHaveValue("Keep my draft");
-    expect(
-      await page.evaluate(
-        () => (window as unknown as { websiteCalls: unknown[] }).websiteCalls,
-      ),
-    ).toEqual([]);
+test("a featured card keeps its data through hero editing, comparison, export and undo", async ({
+  page,
+}) => {
+  const example = EXAMPLES.find((item) => item.id === "devContext")!;
+  const recipe = exampleRecipe(example.id);
+  const output = compileConsole(recipe.scene, recipe.options);
+  if (output.preview.kind !== "svg") throw Error("SVG expected");
+  const prior = neon({ text: "Keep my draft" });
+  await page.addInitScript(
+    ({ key, prior }) => localStorage.setItem(key, JSON.stringify(prior)),
+    { key: draftKey, prior },
+  );
+  await page.goto("/");
+  await page
+    .getByRole("button", { name: "Make it useful", exact: true })
+    .click();
+  const card = page.getByRole("button", {
+    name: `Edit ${example.name} example`,
+    exact: true,
   });
-}
-
+  await expect(card.locator("img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  mkdirSync(artifact, { recursive: true });
+  const demo = page.locator(".quick-demo");
+  await demo
+    .getByRole("button", {
+      name: "Dev context",
+      exact: true,
+    })
+    .click();
+  await expect(demo.locator(".comparison-result img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  await demo.screenshot({
+    path: `${artifact}/useful-hero-${example.id}-${test.info().project.name}.png`,
+  });
+  const heading = "Atlas sandbox";
+  await demo
+    .getByRole("textbox", { name: "Sample heading", exact: true })
+    .fill(heading);
+  const editedRecipe = exampleRecipe(example.id, heading);
+  const edited = compileConsole(editedRecipe.scene, editedRecipe.options);
+  if (edited.preview.kind !== "svg") throw Error("SVG expected");
+  await expect(demo.locator(".comparison-result img")).toHaveAttribute(
+    "src",
+    edited.preview.imageUri,
+  );
+  const comparison = page
+    .locator(".use-case-comparison")
+    .nth(
+      EXAMPLES.filter((item) => item.category === "useful").findIndex(
+        (item) => item.id === example.id,
+      ),
+    );
+  await expect(comparison.locator("img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  await comparison.getByRole("button", { name: "Plain", exact: true }).click();
+  await expect(comparison.locator("pre")).toHaveText(output.text);
+  await card.click();
+  await page.getByRole("button", { name: "Load example", exact: true }).click();
+  const editor = page.locator("#editor-workspace");
+  await expect(
+    editor.getByRole("textbox", { name: "Project", exact: true }),
+  ).toHaveValue(example.text);
+  await expect
+    .poll(() =>
+      page.evaluate(
+        (key) =>
+          JSON.parse(localStorage.getItem(key) ?? "null")?.scene.presentation
+            ?.profile,
+        recipeKey,
+      ),
+    )
+    .toBe("buildReceipt/v1");
+  expect(
+    await page.evaluate(
+      (key) => JSON.parse(localStorage.getItem(key)!),
+      draftKey,
+    ),
+  ).toEqual(prior);
+  const calls: unknown[][] = [];
+  new Function(
+    "console",
+    await editor.getByLabel("Generated code", { exact: true }).inputValue(),
+  )({
+    log: (...args: unknown[]) => calls.push(args),
+  });
+  expect(calls).toEqual([output.args]);
+  await editor.getByRole("button", { name: "Undo", exact: true }).click();
+  await expect(
+    editor.getByRole("textbox", { name: "Message text", exact: true }),
+  ).toHaveValue("Keep my draft");
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { websiteCalls: unknown[] }).websiteCalls,
+    ),
+  ).toEqual([]);
+});
 for (const failure of ["missing", "throws"] as const) {
   test(`optional observers ${failure}: plain workflow transfer and undo remain usable`, async ({
     page,

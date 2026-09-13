@@ -8,7 +8,11 @@ describe("authored website examples", () => {
   it("keeps the same facts and order in plain/styled previews and one-call exports", () => {
     for (const example of EXAMPLES) {
       const recipe = exampleRecipe(example.id);
-      expect(parseRenderRecipe(recipe).ok).toBe(true);
+      expect(parseRenderRecipe(JSON.parse(JSON.stringify(recipe)))).toEqual({
+        ok: true,
+        value: recipe,
+        diagnostics: [],
+      });
       const styled = compileConsole(recipe.scene, recipe.options);
       const plain = compileConsole(recipe.scene, {
         ...recipe.options,
@@ -24,6 +28,19 @@ describe("authored website examples", () => {
         expect(calls).toEqual([compileConsole(recipe.scene, options).args]);
       }
     }
+  });
+  it("gives each useful job its own named-field presentation", () => {
+    expect(
+      Object.fromEntries(
+        EXAMPLES.filter(({ category }) => category === "useful").map(
+          ({ id }) => [id, exampleRecipe(id).scene.presentation?.profile],
+        ),
+      ),
+    ).toEqual({
+      sdkWelcome: "commandCard/v1",
+      devContext: "buildReceipt/v1",
+      milestone: "releaseBulletin/v1",
+    });
   });
   it("preserves literal percent and Unicode input and rejects unsafe control text", () => {
     const text = "100% %c %s 👩🏽‍💻 Café";

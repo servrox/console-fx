@@ -7,6 +7,11 @@ Both approved 0.1.0 packages are published under `next` and passed the complete
 [registry-consumer matrix](evidence/packages/2026-09-13/README.md). The dated
 ledgers below retain their original scope and remaining observation limits.
 
+The [0.1.1 package preparation](specs/patch-release-preparation.md) records the
+corrective core release and React dependency update. These candidate bytes are
+not published; source/CI, exact release authority and registry verification are
+separate steps. The pending workbench redesign is also outside the shipped MVP.
+
 The [completion audit](specs/mvp-completion-audit.md) records the final promoted
 artifact and the remaining requirements. Full-spec completion is still pending
 the five-developer study, integrated-GPU laptop and physical-mobile performance
