@@ -32,7 +32,7 @@ jobs:
       - name: Install locked dependencies without lifecycle scripts
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Build the candidate
-        run: pnpm run build
+        run: pnpm run build:vercel
       - name: Validate source and behavioral contracts
         run: |
           pnpm run format:check
@@ -47,9 +47,7 @@ jobs:
       - name: Install the CI browser
         run: pnpm exec playwright install --with-deps chromium
       - name: Test the production studio with its prepared CSP
-        run: |
-          pnpm run prepare:vercel
-          pnpm run test:studio
+        run: pnpm run test:studio
       - name: Install and test the packed JS, TS, React and Next consumers
         run: pnpm run test:consumers
       - name: Preserve candidate and test evidence
