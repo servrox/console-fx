@@ -11,23 +11,34 @@ waiver is inferred from publication approval. The active goal remains open.
 ## Source and release identity
 
 The implementation baseline is `50e63c11f48912bfe2e66686c43fbba8eb12f2c3`.
-Reviewed source `9423f7eb0269d7d428799fedf82d5f3977392e99` merged through
-[PR #15](https://github.com/servrox/console-fx/pull/15) as
-`2cbfce32a94722b0e31438fe04ee919264b39947`. The
-[main validation run](https://github.com/servrox/console-fx/actions/runs/34744613518)
+The September 13 application checkpoint includes the Git deployment repair in
+[PR #17](https://github.com/servrox/console-fx/pull/17), production domain repair in
+[PR #18](https://github.com/servrox/console-fx/pull/18), and distinct Useful examples
+in [PR #19](https://github.com/servrox/console-fx/pull/19). Reviewed source
+`1ef9e376ba16660b8fa34610c6f4a1af646925dd` merged as
+`30fc38613277acabbe3ccec922bc4fc37c395642`, with the same tree as its passing PR.
+The [main validation run](https://github.com/servrox/console-fx/actions/runs/34749938206)
 completed every required step: locked installation, production build, formatting,
 lint, types, units, release/artifact guards, tarball/bundle inspection, prepared-CSP
 studio tests and isolated JS/TS/React/Next consumers. The
 [workflow](../../.github/workflows/validate.yml) establishes each check's scope;
 CI is not native DevTools or physical-device evidence.
 
-The [final public release](../evidence/hosting/2026-09-13-public/final-release.json)
-promoted exact studio artifact `227a1e0e…`, built at `8793cae` with application/build
-inputs matching the reviewed source. Both production domains serve its verified
-landing, docs, studio and video bytes. The same artifact passed protected and
-public browser journeys. Previews/immutable deployment URLs retain Vercel
-Authentication. A staging alias assignment was corrected and recorded separately.
-The later documentation reconciliation does not rebuild or replace that artifact.
+The [Useful correction release receipt](../evidence/website/2026-09-13-useful/release.json)
+records Git-triggered production `dpl_29n1fHmSUmitbxUJ9CtfKFtQMBAd` for that main
+commit. All three production domains followed it. Thirteen journeys passed on
+the protected source preview and public production, including the three new
+Useful samples, editing/export/Undo, routes, video and recovery. Forty sampled
+served files were fingerprinted; this is not an independently downloaded complete
+remote artifact. Previews and immutable deployment URLs retained Vercel
+Authentication, and the temporary preview share was revoked.
+
+The [earlier manual release](../evidence/hosting/2026-09-13-public/final-release.json)
+of artifact `227a1e0e…` remains historical evidence. Automatic main deployments now
+rebuild the site, including documentation-only pushes. The checkpoint above
+identifies a tested application release, not a permanently pinned public URL.
+Record the actual deployment and source before and after each external session
+using the [packet's identity procedure](../validation/mvp-external-review.md#target-and-inputs).
 
 Both `@servrox/console-fx` and `@servrox/console-fx-react` 0.1.0 are
 [published and registry-tested](../evidence/packages/2026-09-13/README.md) under
@@ -68,7 +79,7 @@ observations are reused only for their identified outputs and environments.
 | AC-16: qualified combinations/lifecycle | The native matrix and later cinematic/card/fitting ledgers identify browser/OS, theme, zoom, width, clipping, copy and lifecycle cases. Complete captions remain readable where a fixed image scrolls. |
 | AC-17: bounded work | Validation/codegen/fitting tests cover structure/text/surface/effect limits, UTF-8 output budgets, hostile accessors/prototypes and explicit impossible-layout failures before unbounded generation. |
 | AC-18: accessibility baseline | Automated axe, keyboard/focus, clipboard/storage failures, reduced motion, 320–1440 px layout and sampled native 200/400% zoom evidence pass in recorded environments. Narrator/NVDA remains unobserved and nonblocking under ADR-0013; no universal conformance claim is made. |
-| AC-19: required gallery | Native Windows Chrome/Edge evidence covers badge, neon, RGB split, extrusion, holographic, gold, chrome, CRT and rainbow, plus glow pulse, gradient drift, wave and indicator. Current Stable feeds still match those recorded browser builds. |
+| AC-19: required gallery | Native Windows Chrome/Edge evidence covers badge, neon, RGB split, extrusion, holographic, gold, chrome, CRT and rainbow, plus glow pulse, gradient drift, wave and indicator. The native receipts record the browser builds and dated Stable-feed checks; they are not an evergreen latest-version claim. |
 | AC-20: public descriptors | Validation tests check immutable descriptor/default consistency; `features/editor/studio.tsx` obtains controls through public `getEffectDescriptors`. No public registration/private renderer import is added. |
 | AC-21: typed data/bytes | Validation/type tests require diagnostics without partial scenes; compiler tests compare literal CSS segments/exact SVG URI and UTF-8 counts, including multibyte text and full standalone-source bounds. |
 | AC-22: explicit renderer/defaults | Default output is literal static text. Compiler/codegen matrices cover supported requests, explicit unsupported/fallback choices and invalid input. No user-agent detection is implied. |
@@ -78,8 +89,9 @@ observations are reused only for their identified outputs and environments.
 Evidence owners: [base implementation](console-fx-implementation-evidence.md),
 [native matrix and original observations](../evidence/devtools/2026-09-11/README.md),
 [architecture validation](../evidence/architecture/2026-09-13/README.md),
-[registry pair](../evidence/packages/2026-09-13/README.md) and
-[final hosted verification](../evidence/hosting/2026-09-13-public/README.md).
+[registry pair](../evidence/packages/2026-09-13/README.md),
+[original public verification](../evidence/hosting/2026-09-13-public/README.md) and
+[Useful correction release](../evidence/website/2026-09-13-useful/README.md#release-checkpoint).
 The archive readback checked 617 base native files, 10 motion-policy files,
 116 architecture files and 76 improvement files against their recorded hashes.
 This is source/evidence integrity verification, not new native observations.
@@ -91,7 +103,7 @@ This is source/evidence integrity verification, not new native observations.
 | Cinematic criteria 1–14; commit `3c42e12` | Four approved static designs, factories, safe ordinary scenes, controls, fallback/export and framework integration are implemented. [Criterion reconciliation](cinematic-metal-presets-evidence.md#acceptance-criteria-reconciliation), source tests and exact Windows Chrome/Edge captures cover the required dimensions/copy/lifecycle. ADR-0012/0013 are Accepted. |
 | UAP-01–15 | All ten Useful/Artful designs, fields/captions, factories, closed presentations, compatibility, strict/fallback bounds, editor and package paths are implemented. [Card evidence](useful-artful-presets-evidence.md) distinguishes individual approved references from real DevTools observations. ADR-0014 and all ten designs are approved. |
 | FIT-01–15 | Explicit fitting/sizing, optional measurement, saved recipes and ten approved compact designs are integrated. [Fitting matrix](responsive-fitting-implementation-evidence.md#final-verification--2026-09-12) records dimensions/confidence, Unicode, impossible layouts, old-reader rejection and native contexts. Container sizing remains explicitly experimental. ADR-0015 and compact references are approved. |
-| WVS-01–17 | Hero/examples/workflows, public-API recipes, deliberate adoption/copy choices, no-JS explanation, recovery, reflow and featured native output are implemented and checked. [Value evidence](website-value-implementation-evidence.md) and the later published-pair/current-site receipts supply the distinct proof stages. |
+| WVS-01–17 | Hero/examples/workflows, public-API recipes, deliberate adoption/copy choices, no-JS explanation, recovery, reflow and featured native output are implemented and checked. [Value evidence](website-value-implementation-evidence.md) covers the original scenes; [Useful follow-up](../evidence/website/2026-09-13-useful/README.md#exact-featured-snippets-in-native-devtools) records the three replacement snippets in actual Chrome/Edge, separately from page and hosted checks. |
 | WVS-18 | **Incomplete:** no five-developer task/consent/timing/result/copy-decision receipt exists. The proposed composite 4/5-in-90-seconds target is not a fabricated pass. Conduct the study and the effects comparison using the prepared packet. |
 | UXR-01–11, UXR-14–16 | Static content, exact output, bounded reveal, semantic cards, scene/copy safety, quiet studio, motion policy, source isolation and cleanup are supported by [experience evidence](website-experience-implementation-evidence.md), tests and UX-01–09 captures. Safari website behavior remains unobserved under the separate required browser-validation scope. |
 | UXR-12 / device and browser validation | **Incomplete:** existing before/after/effects-off traces meet recorded desktop lab budgets; no integrated-GPU laptop/physical-phone traces or Safari journeys exist. Later Firefox evidence closes Firefox only. |
@@ -100,7 +112,7 @@ This is source/evidence integrity verification, not new native observations.
 | At least six separate architecture passes | [Passes 1–6](architecture-improvements.md) have separate implementation commits `7e40cfd`, `2f7eced`, `81549b5`, `732c890`, `823830c`, `9d854af`, with separately fixed review follow-ups. No public boundary/Accepted ADR was changed implicitly. |
 | Review and fix until no findings | Independent Standards/Spec reviews found no additional implementation defect. This completion audit found stale current-status documentation, now reconciled, and the three explicit external validation gaps above. Those gaps remain open. |
 | Website usage video | [Recording/source evidence](usage-video-evidence.md) plus final public playback verifies a 44.5-second real walkthrough, MP4/WebM, poster, nine caption cues, transcript, native controls, no autoplay and no audio. |
-| Review/merge PRs; launch at chosen Vercel project | Implementation PRs through #15 are merged and main CI passed. The approved personal `servroxs-projects/console-fx` serves the final public artifact; npm bytes, registry installs, staging recovery, public routes and protected previews each have separate receipts. This later documentation correction follows the same PR/CI process. |
+| Review/merge PRs; launch at chosen Vercel project | PRs through #19 are merged and the application checkpoint's main CI passed. The approved personal `servroxs-projects/console-fx` automatically builds main and updates all three production domains; npm bytes, registry installs, staging recovery, public routes and protected previews each have separate receipts. Later evidence-only changes follow the same PR/CI process. |
 
 The independent secondary audit verified 960 members across cinematic review-fix,
 card, fitting and website archives. Current TypeScript was bundled in memory and
@@ -114,9 +126,10 @@ and unchanged renderer code provide the separate failure-path evidence.
 
 ## Remaining work and interpretation
 
-Arrange five consenting developers (at least two unfamiliar), an integrated-GPU
-laptop, and a physical phone plus real Safari access. An iPhone can cover phone
-and Safari rows together. Execute the packet, retain actual observations, resolve
+The maintainer has offered to arrange five consenting developers (at least two
+unfamiliar), an integrated-GPU laptop, and a physical phone plus real Safari
+access. Results have not been supplied. An iPhone can cover phone and Safari rows
+together. Execute the packet, retain actual observations, resolve
 findings and recheck affected behavior before marking the full goal complete.
 Public access stays as explicitly approved; it is not proof of these observations.
 The earlier public launch proceeded without this additional validation, and this

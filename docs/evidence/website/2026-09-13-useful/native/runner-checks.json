@@ -1,0 +1,88 @@
+{
+  "stage": "source/static",
+  "status": "verified",
+  "observedAt": "2026-09-13T10:13:21.536Z",
+  "obligation": "A failed native-capture cleanup step must not skip remaining resources or lose the primary failure",
+  "runnerSha256": "30a07aac1942161a400911858ae3def0f7126a01f0d5acd809008b4114d45f7f",
+  "probeSha256": "33b0787e66eb59d41873f165efca63fcad5d8ecaf6ce097502744295bccc0937",
+  "command": "node docs/evidence/website/2026-09-13-useful/native/cleanup-check.mjs",
+  "node": "v24.20.0",
+  "cases": [
+    {
+      "failed": [],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "theme"
+      ],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "target"
+      ],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "context"
+      ],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "observer"
+      ],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "browser"
+      ],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "server"
+      ],
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [],
+      "primary": true,
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "context",
+        "observer",
+        "browser"
+      ],
+      "primary": true,
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    },
+    {
+      "failed": [
+        "context",
+        "save"
+      ],
+      "primary": true,
+      "status": "verified",
+      "attemptedAllOwnedResources": true
+    }
+  ],
+  "limits": [
+    "Failure injection into the actual cleanup block with fake browser resources and a real loopback HTTP server; not a new browser observation",
+    "The archive preserves the earlier executed harness and native capture hashes"
+  ]
+}
