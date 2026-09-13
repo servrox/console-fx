@@ -8,6 +8,20 @@ import { readCandidate } from "./package-candidate.mjs";
 const repository = "servrox/console-fx";
 const root = fileURLToPath(new URL("..", import.meta.url));
 
+export function verifyRegistryConsumerLock(lock, packages) {
+  // Match protocol values, not pnpm keys such as excludeLinksFromLockfile
+  // or a registry dependency named "file".
+  assert(
+    !/\b(?:file|link):(?=\S)/.test(lock),
+    "Registry consumers must not resolve local packages",
+  );
+  for (const item of packages)
+    assert(
+      lock.includes(item.integrity),
+      "Consumer lock is missing the verified registry integrity",
+    );
+}
+
 export function verifyRegistryMetadata(metadata, candidate) {
   assert.equal(metadata.name, candidate.name, "Wrong registry package");
   assert.equal(metadata.version, candidate.version, "Wrong registry version");
