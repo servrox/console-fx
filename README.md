@@ -40,7 +40,7 @@ emitConsole(neon({ text: "100% your message" }), {
 });
 ```
 
-The [core guide](packages/console-fx/README.md), [React guide](packages/console-fx-react/README.md), and [tested consumer examples](examples/README.md) cover public APIs and Next.js integration. Package names above are workspace imports until publication completes. ConsoleFX is [MIT licensed](LICENSE); the studio includes generated third-party notices.
+The [core guide](packages/console-fx/README.md), [React guide](packages/console-fx-react/README.md), and [tested consumer examples](examples/README.md) cover public APIs and Next.js integration. ConsoleFX is [MIT licensed](LICENSE); the studio includes generated third-party notices.
 
 ## Cinematic Metal presets
 
