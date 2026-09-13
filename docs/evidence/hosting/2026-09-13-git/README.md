@@ -18,9 +18,10 @@ Node.js is 24.x, and `ENABLE_EXPERIMENTAL_COREPACK=1` applies to Preview/Product
 - **Protected Git-source preview:** deployment
   [`dpl_EMZwN97eqhK3LoPJhnfeH35oFWLX`](https://vercel.com/servroxs-projects/console-fx/EMZwN97eqhK3LoPJhnfeH35oFWLX)
   built commit `f72ad7a7976c23c6868117873fd2d496ff70f1d6` with pnpm 12.3.4.
-  Ten hosted workflows, generated headers/routes, 40 sampled served-file hashes,
-  notices/video integrity, captions, and 390 px reflow passed in native Chrome
-  153.0.8010.36, with no CSP/page/request errors. Its temporary test share was revoked.
+  Ten hosted workflows, generated headers/routes, notices/video integrity,
+  captions, and 390 px reflow passed in native Chrome 153.0.8010.36, with no
+  CSP/page/request errors. Hashes of 40 sampled served files were recorded.
+  Its temporary test share was revoked.
 - **Git trigger:** the main merge automatically created
   [`dpl_7fH5cp4xLojPqePFfUzp1x66woT3`](https://vercel.com/servroxs-projects/console-fx/7fH5cp4xLojPqePFfUzp1x66woT3)
   with `source: git`, `target: production`, and `readyState: READY`.
@@ -35,9 +36,10 @@ project domains with no preview-branch binding, so they follow Production:
 - `console-fx-servroxs-projects.vercel.app`
 - `console-fx-git-main-servroxs-projects.vercel.app`
 
-The subsequent main push validates that persistent domain configuration. Its exact
-deployment and public browser checks are recorded with the follow-up PR and in
-the local `.artifacts/deployment/git-main/` receipts. Deployment protection remains
+At this pre-merge checkpoint, validation of a subsequent main push and its public
+browser workflows is **pending/not run**. Final results will be recorded with
+[PR #18](https://github.com/servrox/console-fx/pull/18) and in the local
+`.artifacts/deployment/git-main/` receipts. Deployment protection remains
 `prod_deployment_urls_and_all_previews`; production domains are public and previews
 and individual deployment URLs require Vercel Authentication. The prior verified
 deployment remains the rollback point described in the [release guide](../../../releasing.md).
