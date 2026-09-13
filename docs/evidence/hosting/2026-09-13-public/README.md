@@ -1,5 +1,50 @@
 # Public production observation
 
+## Final package-pair website — September 13, 2026
+
+The [final release receipt](final-release.json) identifies promoted artifact
+`227a1e0e2dcf45d66fe9a52fcdd35b77cc12f8bdefe032fb7d29236b4fab5b22`, deployment
+`dpl_D4D4s3vQDqEGWom52kzZascti5rb`. Build inputs come from `8793cae`; reviewed
+source `9423f7e` merged in [PR #15](https://github.com/servrox/console-fx/pull/15)
+as `2cbfce32`. Later source changes in that sequence were documentation only.
+[Main CI](https://github.com/servrox/console-fx/actions/runs/34744613518) passed.
+Both approved packages are published under `next`; the
+[registry receipt](../../packages/2026-09-13/README.md) identifies their exact bytes.
+
+The [protected check](final-protected.json) passed before final promotion; the
+[public check](final-public.json) passed afterward against the same artifact.
+Each verifies 49 static HTTP hashes plus the protected source map through separate
+authenticated file-API evidence, security headers/routes, ten critical journeys,
+the 44.5-second video and nine caption cues. The [executed harness](final-harness.mjs)
+collects CSP events before each exercised navigation/reload, including the first
+studio document. Both results have zero observed CSP violations, page errors and
+failed requests. The receipt records its original command, input hashes and
+environment; the archived script retains its original relative input paths.
+No private access values or response bodies are archived. The temporary share
+used for the protected check was revoked.
+
+[Unauthenticated routing](final-routing.json) verifies 200 responses and final
+landing/docs/studio/video hashes on both public domains. The immutable deployment
+and existing preview return 302 to Vercel sign-in. The
+[protection readback](final-protection.json) retains
+`prod_deployment_urls_and_all_previews`. The
+[official Stable feed check](final-stable-builds.json) confirms the existing
+Windows Chrome 153.0.8010.36 and Edge 153.0.4234.32 qualification builds remain
+current at the recorded time; this is not new DevTools rendering evidence.
+
+Staging deviation: Vercel assigned the canonical alias despite `--skip-domain`.
+Live hashes established the early assignment. The preceding verified artifact's
+alias was restored, the new protected check completed, and the final artifact was
+then explicitly promoted and both public aliases synchronized. Authentication
+scope remained unchanged. Do not describe staging as isolated throughout.
+
+The [completion audit](../../../specs/mvp-completion-audit.md) retains three
+required external observations: developer study, physical-device performance and
+Safari behavior. Publication/public access does not prove or waive them.
+Screen-reader review remains nonblocking under ADR-0013.
+
+## Earlier public-access change — preserved historical evidence
+
 The maintainer explicitly approved “Approve public production; keep previews
 protected” on September 13, 2026. Vercel Authentication changed from all URLs to
 `prod_deployment_urls_and_all_previews`; the [readback](protection.json) records

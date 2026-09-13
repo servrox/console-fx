@@ -1,0 +1,244 @@
+{
+  "at": "2026-09-13T07:27:00.389Z",
+  "stage": "deployed/production",
+  "status": "verified",
+  "owner": "ConsoleFX release verification",
+  "artifactFingerprint": "227a1e0e2dcf45d66fe9a52fcdd35b77cc12f8bdefe032fb7d29236b4fab5b22",
+  "sourceCommit": "8793cae6086216496c6f6362b5d4a2c0994d0777",
+  "harnessSha256": "83dcbda58c7349f2adbfe2e6319bc8636f842eae431e57485b026d204ce0ee85",
+  "deployment": "dpl_D4D4s3vQDqEGWom52kzZascti5rb",
+  "url": "https://console-fx-servroxs-projects.vercel.app",
+  "target": "public production",
+  "browser": "153.0.8010.36",
+  "files": [
+    {
+      "route": "/404/index.html",
+      "sha256": "08038e1744db43080862f92fbe2c23d1447c78ed46c9a4ceff2e851c6c41c1fd"
+    },
+    {
+      "route": "/404.html",
+      "sha256": "08038e1744db43080862f92fbe2c23d1447c78ed46c9a4ceff2e851c6c41c1fd"
+    },
+    {
+      "route": "/__next.__PAGE__.txt",
+      "sha256": "3a5dcb76fe0d36c733bb6baf0ceaf06a72cb0861d0ef95c263d610e3de90400a"
+    },
+    {
+      "route": "/__next._full.txt",
+      "sha256": "500d8c3064fa0938f4377b84afaaeed7206d1899bcc56e65258741a6ed88fecb"
+    },
+    {
+      "route": "/__next._tree.txt",
+      "sha256": "406d8f08d548b5e13843b0439de99932671c0301cab30a30b93c87206973d748"
+    },
+    {
+      "route": "/_next/static/QXPvLOuxFfE87i-XbrccY/_buildManifest.js",
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+    },
+    {
+      "route": "/_next/static/QXPvLOuxFfE87i-XbrccY/_clientMiddlewareManifest.js",
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+    },
+    {
+      "route": "/_next/static/QXPvLOuxFfE87i-XbrccY/_ssgManifest.js",
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+    },
+    {
+      "route": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+    },
+    {
+      "route": "/_next/static/chunks/0jrl7h383b0b6.js",
+      "sha256": "f37c58f8943b2c24ddb6f69b5b85919e7275803a02f0bac3055e552ce2555353"
+    },
+    {
+      "route": "/_next/static/chunks/0p5s2h9bfiflw.js",
+      "sha256": "7a349d3ffa1c56b519eacab0414401b7bc3aa9b9fe5ea2ad43921ae00c956fb3"
+    },
+    {
+      "route": "/_next/static/chunks/0x-osl9n90jer.js",
+      "sha256": "73c3a778a7bb40d2ea700707bc447fc9e382596bb614499229ed5bf20c0a22a5"
+    },
+    {
+      "route": "/_next/static/chunks/0zltwbvmbhwat.js",
+      "sha256": "b8511d36e7e100623103289b3ae098356cf584b9f7f7ad1a71c80749e9654813"
+    },
+    {
+      "route": "/_next/static/chunks/16s0uw0hks7th.css",
+      "sha256": "83a503693f86ca226bbff569b269192752483c1861b8936721caf84722e8f0b7"
+    },
+    {
+      "route": "/_next/static/chunks/1fcs3a6dg17ff.js",
+      "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02"
+    },
+    {
+      "route": "/_next/static/chunks/1i9x4_u5qt4cn.js",
+      "sha256": "d42886c230c4ddd705d827a90c722f2d28815c049b4d6c66a91d0474b1297dcf"
+    },
+    {
+      "route": "/_next/static/chunks/1o-lfwcn7xn6g.js",
+      "sha256": "d97c4c7f6069150ac5336de60ad9f5d7d9aa1545cffff41ffb4cea01d6d55ca7"
+    },
+    {
+      "route": "/_next/static/chunks/2ek8anm3get_b.js",
+      "sha256": "5214391e464719678b58ce910f17bc459f4af4185070ba578cd37238fd01bbce"
+    },
+    {
+      "route": "/_next/static/chunks/2n7rlj8fgteq6.js",
+      "sha256": "e81d3ce52db10e28e1fd0806ae349433c165559929c30dcdfd99c7e7c88105f0"
+    },
+    {
+      "route": "/_next/static/chunks/3a0v84u8wd57i.js",
+      "sha256": "cd907018e32bfb6dbf036dcd9e2c60942e24c10814846cc12e720e6b74e7495d"
+    },
+    {
+      "route": "/_next/static/chunks/3b14-d3pzxicm.js",
+      "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec"
+    },
+    {
+      "route": "/_next/static/chunks/3ikey2qbqo11p.js",
+      "sha256": "c7819a714c8a610cfd1b2b8b140809dfc0752dc64fccd3bf76a3d8a87c1c7c46"
+    },
+    {
+      "route": "/_next/static/chunks/42b22wcopmxrm.js",
+      "sha256": "81cca73f4bf0a002d9449631f3cd2adc111ff9724ce1e73588fc92eea3e1337b"
+    },
+    {
+      "route": "/_next/static/chunks/turbopack-1ehwk0y54f_rm.js",
+      "sha256": "83ed936d8f9031d90b9b8c8ac79bea2e093e4cbf2fc1bb593c79af1a56d47233"
+    },
+    {
+      "route": "/_next/static/chunks/turbopack-1n1xv2tik9f0t.js",
+      "sha256": "834f1e5451a6f2a1cbc132044180e365ed1c42a486c89b7fca26827ed8778713"
+    },
+    {
+      "route": "/_next/static/chunks/turbopack-worker-2ru9m5gbh1na6.js",
+      "sha256": "861da5809b4f43b053fab88fe560f16efe31827655a06502ada9274a742852de"
+    },
+    {
+      "route": "/_next/static/media/measure.worker.1y5_0p3_ohu0_.ts",
+      "sha256": "5542ec129c598dee1ed21f76b03ffaf84a246b900ca8fc4b149ba47268eb7906"
+    },
+    {
+      "route": "/_not-found/__next._full.txt",
+      "sha256": "0950e26883d31cc427a476482c8dcfb76e4997d92154dbf4c1e2c7538e04597b"
+    },
+    {
+      "route": "/_not-found/__next._not-found.__PAGE__.txt",
+      "sha256": "f794553e48636b3638d00c9e383dd2e446c30f8e6cd1a75bde84f5a7ed20d4d0"
+    },
+    {
+      "route": "/_not-found/__next._tree.txt",
+      "sha256": "f5e86b7a1160dc7bf5e1a19549a73da99c61fe0f990c1e99fc597c375a4565f4"
+    },
+    {
+      "route": "/_not-found/index.html",
+      "sha256": "08038e1744db43080862f92fbe2c23d1447c78ed46c9a4ceff2e851c6c41c1fd"
+    },
+    {
+      "route": "/_not-found/index.txt",
+      "sha256": "0950e26883d31cc427a476482c8dcfb76e4997d92154dbf4c1e2c7538e04597b"
+    },
+    {
+      "route": "/docs/__next._full.txt",
+      "sha256": "222b5e445dca26bd1dba5ee8df8db6286d5cb61b52f7e382ee76db27d6cf0b0d"
+    },
+    {
+      "route": "/docs/__next._tree.txt",
+      "sha256": "66cbce2c7346ed1d396e82a8120c52fd9be62c6d6e9a3a586a0b96edb2580160"
+    },
+    {
+      "route": "/docs/__next.docs.__PAGE__.txt",
+      "sha256": "13c853bdac11d74c3aef9ec07e3c5642ac8c59fc93454484a4cc63b9a7c33164"
+    },
+    {
+      "route": "/docs/index.html",
+      "sha256": "8d6ac4b47251a12f32894a3fbaea6c1e35f07e0b3e3e96317d9953a3d272479c"
+    },
+    {
+      "route": "/docs/index.txt",
+      "sha256": "222b5e445dca26bd1dba5ee8df8db6286d5cb61b52f7e382ee76db27d6cf0b0d"
+    },
+    {
+      "route": "/index.html",
+      "sha256": "fe13695d0d37611a14c3064da99a65a781d52312fb9931d535ac4f0135cb88a6"
+    },
+    {
+      "route": "/index.txt",
+      "sha256": "500d8c3064fa0938f4377b84afaaeed7206d1899bcc56e65258741a6ed88fecb"
+    },
+    {
+      "route": "/licenses.txt",
+      "sha256": "9989eacae27319ee7793aed2f1ffe8d341f094a7ac9c319196f6d1b655ef8c52"
+    },
+    {
+      "route": "/media/console-fx-usage-poster.webp",
+      "sha256": "77523abe325da3fd1c5b10e615c692594798b8bbbb04e98b67c7b6841269716e"
+    },
+    {
+      "route": "/media/console-fx-usage.mp4",
+      "sha256": "766e30acd6fa061a35f7444e99c4440c928789a697090c1541fa029b3f3043cb"
+    },
+    {
+      "route": "/media/console-fx-usage.vtt",
+      "sha256": "f0329a43538fe4bc08aee05b0df26066cb8e633aafef36f24b8ad7eb38899478"
+    },
+    {
+      "route": "/media/console-fx-usage.webm",
+      "sha256": "7816b714939407d59d081964be7db289e7cba216f51da4af4b7ee5e5c70beb42"
+    },
+    {
+      "route": "/studio/__next._full.txt",
+      "sha256": "090bbc424347f0ac99d8f52c97924b571e8ad9b32c9d6d8fc54e7b8a277c96e3"
+    },
+    {
+      "route": "/studio/__next._tree.txt",
+      "sha256": "c36b10c687e9ab3646dd898b18f183c5272c770c990d8b8f6f08685e94e4fc50"
+    },
+    {
+      "route": "/studio/__next.studio.__PAGE__.txt",
+      "sha256": "1a2d939dcb8da823ebdf6dfb655eeae1a5e990898e8b190cb47759d655c97d7e"
+    },
+    {
+      "route": "/studio/index.html",
+      "sha256": "23633f2b6c51aaf13b64f0a9ddc0e2106b4ddfda16925d055e4096ad883f4023"
+    },
+    {
+      "route": "/studio/index.txt",
+      "sha256": "090bbc424347f0ac99d8f52c97924b571e8ad9b32c9d6d8fc54e7b8a277c96e3"
+    }
+  ],
+  "protectedSources": [
+    {
+      "route": "/_next/static/chunks/2z3sh82dl8glu.js.map",
+      "status": 403,
+      "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95",
+      "verification": "authenticated Vercel file API"
+    }
+  ],
+  "securityHeadersMatch": true,
+  "routes": true,
+  "video": {
+    "duration": 44.5,
+    "width": 1440,
+    "height": 960,
+    "cues": 9,
+    "mode": "showing"
+  },
+  "journeys": [
+    "landing edit/copy/test once",
+    "video playback/captions/transcript",
+    "invalid import preserves draft",
+    "valid import/undo",
+    "reset cancellation/focus return",
+    "draft reload",
+    "complete clipboard export",
+    "font worker measurements",
+    "docs core and React installation commands",
+    "390px reflow"
+  ],
+  "cspCoverage": "All exercised documents collected before navigation or reload",
+  "cspViolations": [],
+  "pageErrors": [],
+  "failedRequests": []
+}

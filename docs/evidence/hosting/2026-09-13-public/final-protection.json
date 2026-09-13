@@ -1,0 +1,21 @@
+{
+  "at": "2026-09-13T07:32:15.789Z",
+  "status": "verified",
+  "authority": "User: Approve public production; keep previews protected",
+  "projectId": "prj_1l26eTv5TAxawo3B7gvcBXl4l5CN",
+  "projectName": "console-fx",
+  "passwordProtection": {
+    "enabled": false,
+    "deploymentType": null
+  },
+  "ssoProtection": {
+    "enabled": true,
+    "deploymentType": "prod_deployment_urls_and_all_previews"
+  },
+  "trustedIps": {
+    "enabled": false,
+    "deploymentType": null,
+    "addresses": [],
+    "protectionMode": null
+  }
+}

@@ -1,8 +1,11 @@
-# ConsoleFX compatibility candidate
+# ConsoleFX compatibility
 
-The implementation is under release qualification. npm publication and public
-studio launch are pending. These are observations for exact local fixtures and
-recorded browser builds, not a guarantee for every browser version or scene.
+Both approved 0.1.0 packages are published under `next`, and the
+[studio is public](https://console-fx-servroxs-projects.vercel.app). The
+[completion audit](specs/mvp-completion-audit.md) separates verified implementation
+and release evidence from the remaining developer-study, physical-device and
+Safari observations. These are observations for exact fixtures and recorded
+browser builds, not a guarantee for every browser version or scene.
 
 | Profile | Behavior |
 | --- | --- |

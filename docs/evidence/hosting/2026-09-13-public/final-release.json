@@ -1,0 +1,69 @@
+{
+  "at": "2026-09-13T07:49:37.507889+00:00",
+  "scope": "Production artifact promotion and public verification; full-spec completion remains pending external observations.",
+  "buildSource": "8793cae6086216496c6f6362b5d4a2c0994d0777",
+  "reviewedSource": "9423f7eb0269d7d428799fedf82d5f3977392e99",
+  "mergedSource": "2cbfce32a94722b0e31438fe04ee919264b39947",
+  "pr": "https://github.com/servrox/console-fx/pull/15",
+  "mainCi": "https://github.com/servrox/console-fx/actions/runs/34744613518",
+  "artifact": "227a1e0e2dcf45d66fe9a52fcdd35b77cc12f8bdefe032fb7d29236b4fab5b22",
+  "deployment": "dpl_D4D4s3vQDqEGWom52kzZascti5rb",
+  "publicUrls": [
+    "https://console-fx-servroxs-projects.vercel.app",
+    "https://console-fx-git-main-servroxs-projects.vercel.app"
+  ],
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.1.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx/-/console-fx-0.1.0.tgz",
+      "sha256": "61672e00d7a57829085d71836ede22bbc99cfb8350b067bd3f2c17ced5886592",
+      "integrity": "sha512-m1kWeM8W+MrEsrRTvdUIFSQ3w5EZsfeRPciqONKgnR8Pk9n+z4JtJcimBrn5aNXgbZub9VvTMycJTApQ3LWY/Q=="
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.1.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx-react/-/console-fx-react-0.1.0.tgz",
+      "sha256": "eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c",
+      "integrity": "sha512-rcXuFETzlzd5jvflKr+tl+SovgFCGhkKdFADygXX7SoWRaqUVeKRDsGnjt+KvLTlX6kee3KDVnSUxAOXe352zw=="
+    }
+  ],
+  "browser": {
+    "os": "Windows 11 Pro Insider Preview 10.0.26220",
+    "chrome": "153.0.8010.36",
+    "driver": "NixOS WSL2; Node24.20.0; Playwright1.63.0"
+  },
+  "harness": {
+    "archived": "final-harness.mjs",
+    "sha256": "83dcbda58c7349f2adbfe2e6319bc8636f842eae431e57485b026d204ce0ee85",
+    "originalCommand": "CONSOLE_FX_PUBLIC_CHECK=1 node .artifacts/deployment/public-package-pair/verify-hosted.mjs",
+    "originalWorkingDirectory": "repository root",
+    "inputs": {
+      "artifact.json": "fe8cebb9f50d5f2d74f474bae835e85aba26c1f811564f7c7a4c985c8a9aab3e",
+      "deployment-readback.json": "e1e8ffa0aab84aeddc914edb8f7b5790a4fee038974c930af66ff47c9c11aa10",
+      "candidate/.vercel/output/config.json": "3f32054a581fe35dd23dd646e7cb72119dcb83bb521b6568d30c8bd566ed16a2",
+      "source-map-content.json": "c7866159d2402336555e098ba08013a31aaa82ed8cdc77059b063a3e558d12c4"
+    },
+    "inputNotes": "Exact executed source archived; run from its original .artifacts location with preserved inputs after building packages. Public mode does not use access-private.json. The source-map byte check reuses separately authenticated Vercel file API evidence. No private access values or API response bodies are included."
+  },
+  "stagingDeviation": {
+    "observation": "Vercel assigned the canonical production alias during --skip-domain staging.",
+    "resolution": "Restored the preceding verified alias, completed protected verification, then explicitly promoted the final artifact and synchronized both public aliases."
+  },
+  "ssoProtection": "prod_deployment_urls_and_all_previews",
+  "temporaryPrivateShareRevoked": true,
+  "remainingRequiredObservations": [
+    "Five developer formative sessions with effects comparison",
+    "Integrated-GPU laptop and physical mobile performance traces",
+    "Safari website behavior"
+  ],
+  "nonblockingFollowUp": "Narrator/NVDA under ADR-0013",
+  "receipts": {
+    "final-public.json": "839c13b716d8f73c9e7b36984cda0ad1f2234159425d06f183cc364dc00bd68e",
+    "final-protected.json": "54921b89ea00e08e0957ac9d3b3b68cede8a10e195b589a80da8cc33217a0565",
+    "final-routing.json": "83708c33d4f3d8452e008c78fb9bc3672f4cfba2470213386ca5b4054170e81a",
+    "final-protection.json": "18286054953bb9a0c465f1785231252bf6dfe6ce9b27c5b3e5b63708d3109ad8",
+    "final-stable-builds.json": "c880a5ac37fa099c06aa52efa3470665362fc07cf11b7c804be84140ceff28ae",
+    "final-harness.mjs": "83dcbda58c7349f2adbfe2e6319bc8636f842eae431e57485b026d204ce0ee85"
+  }
+}

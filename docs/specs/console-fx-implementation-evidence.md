@@ -1,5 +1,13 @@
 # ConsoleFX implementation and launch evidence
 
+Current completion audit (2026-09-13): the [requirement matrix](mvp-completion-audit.md)
+links the implemented base and extension contracts, six architecture passes,
+published package pair, final public website/video and their distinct evidence.
+The remaining five-developer study, physical-device performance and Safari checks
+are required external validation, not completed results or an inferred waiver.
+The [prepared validation packet](../validation/mvp-external-review.md) covers them.
+The dated observations below retain their original source and release scope.
+
 Latest improvement addendum (2026-09-12): the [complete improvement list](launch-improvements.md)
 and [verification receipt](../evidence/improvements/2026-09-12/README.md) cover eleven
 implemented recovery, fitting, Unicode and release-verification corrections. They
