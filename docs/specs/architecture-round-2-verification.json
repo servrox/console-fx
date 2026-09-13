@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-13T21:30:44.906417+00:00",
+  "sourceCommit": "365ae367cfd31ce485cb87657fefab13553260d3",
+  "baseCommit": "0dfd7c0684191c4a547e154c2d1b97b5c0764ef9",
+  "risk": "high",
+  "cadence": "Focused completed-pass milestones followed by one final aggregate; localized failed build/probe setup corrections rerun only their owning step.",
+  "governingAdrs": [
+    "ADR-0002",
+    "ADR-0004",
+    "ADR-0005",
+    "ADR-0007",
+    "ADR-0009",
+    "ADR-0010",
+    "ADR-0013",
+    "ADR-0015"
+  ],
+  "environment": {
+    "development": "NixOS WSL2, distribution nixos, native Linux worktree",
+    "node": "v24.20.0",
+    "pnpm": "12.3.4",
+    "python": "3.14.7",
+    "vitest": "4.1.11",
+    "playwright": "1.63.0",
+    "next": "16.3.4",
+    "react": "19.3.0",
+    "browser": "Chrome/153.0.8010.36",
+    "os": {
+      "caption": "Microsoft Windows 11 Pro Insider Preview",
+      "build": "26220",
+      "version": "10.0.26220"
+    },
+    "browserMode": "Headless Chrome for Testing via CDP; separate task profile; framework-wide native tracing disabled and owned fixture trace retained on failure."
+  },
+  "inputs": {
+    "package.json": "c2e0865e33653fa9ad3ccb3d054641a7dbb0cdc769b5994becbfc820566b57db",
+    "pnpm-lock.yaml": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4",
+    "pnpm-workspace.yaml": "eec1b3a64ecde9ee93e0c02c62d3d13904b30223295b29d5c9ea21d7e162e16c",
+    "vitest.config.ts": "cab7550b62bb892ee4cbe85f78e5075068c3779cbbe2e56907e56b56af944163",
+    "playwright.config.ts": "df01bd297223476df5de3b45fc7b6ffcac57f82a8b875efe96401025e5bc6187",
+    "playwright.consumers.config.ts": "ebba28c580d446cecb9339c63f5867d114ddd07835762be3edfc3be7633598e1",
+    "tests/studio/fixtures.ts": "f63c52cab90776940507084edfe74b3cd50a20a2d2590a16e461d2569eae497f",
+    "tests/native-browser-diagnostics.ts": "4b9be2128b722395915952a99b5b3925d151f6a5fb6b4fb04cdc3fc4b42c3bad",
+    "scripts/serve-studio.py": "4ec4ae3c9842550442ca6c3941b9070793a631f96bd6ea23310dfd426e59cbfa",
+    "tests/studio/editor.spec.ts": "82116d9edb8f51430167ce935a90112f60b4ba0cf38facaf9c7480110e47d0c6",
+    "tests/studio/fitting.spec.ts": "cb8f33d308c3c3818e1ceefb3354ef05d5d36e97a0259eb7032fabd2a66ac648",
+    "tests/studio/website.spec.ts": "632f1529277d62109d32945c7761a39ddba83c022d4bc549e0b2e056131d2df9",
+    "apps/studio/src/features/landing/quick-demo.test.tsx": "ef8078a89082fbd2c273bed2c33530767c4c0973cf8063fdfe2dc2e3ec7a5a4b",
+    "packages/console-fx/test/fitting.test.ts": "82b4d3cdc01dd220861cd927f9ab4985d5868a842f3b9c28ccf553c6d90a7ae2"
+  },
+  "artifacts": {
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.1.1",
+        "sha256": "551d80936ecbe5441712268d5153a34b36897e1d498f58f0b4561a584b8a3622"
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.1.1",
+        "sha256": "f0bcd68d78886a11b013826a5f6394058cca33ebed0baac71a3f81b57b779aed"
+      }
+    ],
+    "preparedStudio": {
+      "files": 50,
+      "fileInventorySha256": "ebf5337132b77d83fd5592f9430d59bb9a571b1071176532c86ba043b51a5fcb",
+      "configSha256": "54f59e9021870e38e77dc4b9b5a9c9df398d214d97e1b8ac0a0376ccdf791d84",
+      "globalCspBytes": 480,
+      "inlineScriptHashes": 5
+    }
+  },
+  "observations": [
+    {
+      "stage": "source/static",
+      "obligation": "source gates",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "pnpm run format:check && pnpm run lint && pnpm run typecheck",
+      "status": "verified",
+      "result": "Formatting, lint and TypeScript passed.",
+      "observedAt": "2026-09-13T21:18:35.343391+00:00",
+      "localLog": ".artifacts/architecture-round-2/final-source.log",
+      "logSha256": "36e9a4d207bc634b8467db004858e21432337bdfbe0fe846b683a448b9fb0187"
+    },
+    {
+      "stage": "local",
+      "obligation": "compiled artifact",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "pnpm run build:vercel; after the localized test-type repair: pnpm --filter @servrox/console-fx-studio run build && pnpm run prepare:vercel",
+      "status": "verified",
+      "result": "Packages built in the initial aggregate; studio build and preparation passed after its test-query type correction.",
+      "observedAt": "2026-09-13T21:17:23.077424+00:00",
+      "localLog": ".artifacts/architecture-round-2/final-prepare.log",
+      "logSha256": "96b05eca19f0f4a66d2c2a36c361974b5f4a263fe534cf2aa5874901e90c56da"
+    },
+    {
+      "stage": "local",
+      "obligation": "unit and release contracts",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "pnpm test",
+      "status": "verified",
+      "result": "345 passed across 22 files.",
+      "observedAt": "2026-09-13T21:18:32.929299+00:00",
+      "localLog": ".artifacts/architecture-round-2/final-vitest.log",
+      "logSha256": "1382345b33f6f46925977a2cd90a2ba9dd8cf28e2c166a1661a45fe9086d6333"
+    },
+    {
+      "stage": "local",
+      "obligation": "package and bundle inspection",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "pnpm run check:packages && pnpm run check:bundle-size",
+      "status": "verified",
+      "result": "Both packages passed; CSS/complete-CSS/SVG gzip sizes 9754/25573/25572 bytes are within the 10240/25600/25600 limits.",
+      "observedAt": "2026-09-13T21:18:29.039133+00:00",
+      "localLog": ".artifacts/architecture-round-2/final-packages.log",
+      "logSha256": "13f3a3daf95605d6649ef5d01135ecc6f451d4e37440e871b0bf8bfa1e1ea273"
+    },
+    {
+      "stage": "local",
+      "obligation": "studio interaction contracts",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "CONSOLE_FX_CDP_PORT=9451 CONSOLE_FX_STUDIO_PORT=4187 pnpm run test:studio",
+      "status": "verified",
+      "result": "86 passed; includes CSP hydration/worker checks, Play failure recovery, animation cleanup and no-JavaScript cases.",
+      "observedAt": "2026-09-13T21:22:20.376568+00:00",
+      "localLog": ".artifacts/architecture-round-2/final-studio.log",
+      "logSha256": "ddbce00a6af7a7b800627824f7d7eee88933174490d408e5abbf43a2cce420f2"
+    },
+    {
+      "stage": "publication/install",
+      "obligation": "isolated packed consumers",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "CONSOLE_FX_CDP_PORT=9451 pnpm run test:consumers",
+      "status": "verified",
+      "result": "Packed JS, TS, React, website recipes and Next build passed; three browser journeys passed. Local tarball installs only; no registry publication.",
+      "observedAt": "2026-09-13T21:23:17.246889+00:00",
+      "localLog": ".artifacts/architecture-round-2/final-consumers.log",
+      "logSha256": "ed1818d7a12ec39644a9d199c95966d2d889cdaed10c379092c9bc427b59ff38"
+    },
+    {
+      "stage": "local",
+      "obligation": "native failure diagnostics",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "365ae367cfd31ce485cb87657fefab13553260d3",
+      "command": "CONSOLE_FX_CDP_PORT=9451 CONSOLE_FX_STUDIO_PORT=4189 pnpm exec playwright test --config .artifacts/architecture-round-2/trace-probe.config.ts",
+      "status": "verified",
+      "result": "Expected deliberate exit 1 after the static heading assertion; retained trace, four DOM snapshots and five loopback requests. No unrelated requests/screencast frames; zero test pages after teardown.",
+      "observedAt": "2026-09-13T21:24:36.522124+00:00",
+      "localLog": ".artifacts/architecture-round-2/native-trace-probe-final.log",
+      "logSha256": "95eba7fa3d8b43821a1fbcea12dbb5d855c8e9000ff90af6a9aec4ddf54194f9"
+    }
+  ],
+  "nativeProbe": {
+    "config": "import { defineConfig } from \"@playwright/test\";\nimport config from \"../../playwright.config\";\nimport { fileURLToPath } from \"node:url\";\nexport default defineConfig({\n  ...config,\n  testDir: \"./trace-probe\",\n  webServer: { ...config.webServer, cwd: fileURLToPath(new URL(\"../../\", import.meta.url)) },\n  projects: [{ name: \"native-diagnostics\" }],\n  reporter: \"list\",\n  outputDir: \"./trace-probe-results\",\n  use: {\n    ...config.use,\n    javaScriptEnabled: false,\n    viewport: { width: 390, height: 844 },\n  },\n});\n",
+    "test": "import { test, expect } from \"../../../tests/studio/fixtures\";\ntest(\"owned static-page failure retains its native trace\", async ({ page }) => {\n  await page.goto(\"/\");\n  await expect(page.getByRole(\"heading\", { level: 1 })).toHaveText(\n    \"Make your console worth opening.\",\n  );\n  throw new Error(\"Intentional native diagnostics probe\");\n});\n",
+    "configSha256": "8140f957240622c797298120ec79aea35f19af06d710328f759c025dad221f2c",
+    "testSha256": "aac0fec0651775cb5d5670200b56fb2308fd413ade47206b8ca6aab37db9c7c4",
+    "expectedExitCode": 1,
+    "traceSha256": "8bb37ea110be39e6d71befdcb913536fb2ac61a6b00874a4e390a94dc5b78a0a",
+    "reproduction": "Save config at .artifacts/architecture-round-2/trace-probe.config.ts and test at .artifacts/architecture-round-2/trace-probe/trace.spec.ts. Use an isolated compatible Chromium CDP listener and prepared studio. The test intentionally throws after the verified static heading; inspect retained trace and verify fixture teardown. Ports are local configuration, not service contracts."
+  },
+  "coveredContracts": [
+    "Exact preview policy checked before rendering; failed motion preserves editing, source and recipe.",
+    "Hard invalid display sizing cannot become a successful fallback; measurement preflight stays useful.",
+    "Outgoing decoration retains committed content when current Plain input exceeds rich limits.",
+    "Every studio request gets the prepared global response headers.",
+    "Static no-JavaScript checks inherit fixture tracing and teardown.",
+    "Pure compilation, explicit single emission, package interfaces, local draft recovery and existing renderer defaults remain."
+  ],
+  "limitations": [
+    "No new actual DevTools/current-stable OS qualification, physical device/Safari study or participant results.",
+    "Local server does not emulate Vercel routing, caching, deployment protection or CDN.",
+    "CI, npm publication and production outcomes are separate post-commit evidence.",
+    "Logs and traces are local; only this sanitized receipt is committed."
+  ],
+  "invalidators": [
+    "Changed source, fixture, harness, package/lockfile bytes, generated artifact/configuration or governing contract invalidate the affected observation.",
+    "Browser/OS/toolchain changes require reconciliation before reusing runtime observations.",
+    "A newer contradictory result invalidates the affected pass. Hosted access/alias state must be refreshed at the exact deployment; local success does not establish it."
+  ],
+  "recovery": {
+    "separateFindingCommits": true,
+    "protectedOriginalRootFiles": 205,
+    "protectedWorktreeHeadsAndIndexes": 4,
+    "testPagesRemaining": 0,
+    "ownedBrowserProcessesRemaining": 0,
+    "ownedBrowserListenersRemaining": 0,
+    "profileRetained": true
+  }
+}

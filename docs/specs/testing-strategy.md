@@ -68,6 +68,9 @@ implementation milestone; do not test each animation style or timing value.
 
 ### Prepared-artifact browser checks
 
+The [second architecture round](architecture-round-2.md) records the findings,
+separate fixes and candidate evidence for this ownership cleanup.
+
 - Studio Playwright runs use [the local server](../../scripts/serve-studio.py)
   to serve `.vercel/output/static` and its generated global response headers.
   Run `pnpm run build:vercel` first; missing or incompatible preparation fails
