@@ -208,6 +208,7 @@ saveReceipt(registryMode ? "registry-consumers.json" : "consumers.json", {
       "playwright.consumers.config.ts",
       "tests/consumers/next.spec.ts",
       "tests/studio/fixtures.ts",
+      "tests/native-browser-diagnostics.ts",
     ].map((path) => ({ path, sha256: hash(resolve(root, path)) })),
   },
   checks: [

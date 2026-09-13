@@ -1,4 +1,5 @@
 import { defineConfig } from "@playwright/test";
+import { nativeBrowserDiagnostics } from "./tests/native-browser-diagnostics";
 
 const directory = process.env.CONSOLE_FX_CONSUMER_DIR;
 if (!directory || !/^\/[-\w./]+$/.test(directory))
@@ -8,7 +9,11 @@ export default defineConfig({
   workers: 1,
   retries: 0,
   reporter: "list",
-  use: { baseURL: "http://127.0.0.1:4177", trace: "retain-on-failure" },
+  use: {
+    baseURL: "http://127.0.0.1:4177",
+    trace: "retain-on-failure",
+    ...nativeBrowserDiagnostics,
+  },
   webServer: {
     command: `python3 -u -m http.server 4177 --bind 127.0.0.1 --directory '${directory}/out'`,
     wait: { stdout: /Serving HTTP on 127\.0\.0\.1 port 4177/ },
