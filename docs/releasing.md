@@ -1,9 +1,11 @@
 # Release candidate and promotion gates
 
-Current website status: the [architecture/video deployment](evidence/hosting/2026-09-13-video/README.md)
-is READY and promoted; making the production domains public remains pending.
-The [core registry installation](evidence/packages/2026-09-13-core/README.md)
-is verified; the React package and complete registry-consumer matrix remain pending. The dated ledgers below retain their original scope.
+The [studio is publicly available](https://console-fx-servroxs-projects.vercel.app).
+[Public production checks](evidence/hosting/2026-09-13-public/README.md) verify
+the website and usage video; previews and individual deployment URLs remain protected.
+Both approved 0.1.0 packages are published under `next` and passed the complete
+[registry-consumer matrix](evidence/packages/2026-09-13/README.md). The dated
+ledgers below retain their original scope and remaining observation limits.
 
 The first MVP candidate was implemented under ADR-0001 through ADR-0011.
 Accepted ADR-0013 now supersedes ADR-0011: missing screen-reader observations are
@@ -33,10 +35,12 @@ The studio upload is READY and its [hosted verification passed](evidence/hosting
 That September 13 receipt recorded both npm names as absent after authentication
 and publication failures. Later that day, the core publication and registry-only
 installation were verified in the [core receipt](evidence/packages/2026-09-13-core/README.md).
-React publication remains pending. The newer architecture/video deployment is
-promoted, while public production access remains pending. Optional Vercel preview Toolbar injection was disabled
-for this project after a served-runtime hash/CSP conflict; authentication stays on
-all URLs.
+The subsequent [pair verification](evidence/packages/2026-09-13/README.md)
+confirms both approved publications and the complete registry-consumer matrix.
+The maintainer then explicitly approved public production domains with previews
+and individual deployment URLs protected; the [public observation](evidence/hosting/2026-09-13-public/README.md)
+records that boundary. Optional Vercel preview Toolbar injection remains disabled
+after the earlier served-runtime hash/CSP conflict.
 
 The [prior improvement receipt](specs/launch-improvements.md) records completed
 Firefox observations. Missing physical mobile, integrated-GPU laptop, Safari and

@@ -42,8 +42,8 @@ export function LandingPage() {
                 <li>Typed scenes</li>
               </ul>
               <p className="fine-print">
-                Core 0.1.0 is available on npm under <code>next</code>.
-                Standalone export works without installation.
+                Core and React 0.1.0 are available on npm under{" "}
+                <code>next</code>. Standalone export works without installation.
               </p>
             </div>
             <QuickDemo />
@@ -148,8 +148,7 @@ export function LandingPage() {
                   React adapter and Next.js recipes.
                 </p>
                 <p className="publication-note">
-                  Core 0.1.0 is available under <code>next</code>. React adapter
-                  publication is pending.
+                  Both packages are available at 0.1.0 under <code>next</code>.
                 </p>
                 <Link className="button" href="/docs/#integration">
                   Read the integration guide

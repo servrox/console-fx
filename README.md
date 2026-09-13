@@ -4,7 +4,7 @@
 
 A TypeScript library and visual studio for designing expressive browser-console messages and exporting a single, self-contained `console.log(...)`.
 
-> **Status: core 0.1.0 published under `next`.** The core passed a registry-only installation check. React adapter publication is pending, and the deployed studio still requires Vercel sign-in. See the [release ledger](docs/releasing.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
+> **Status: core and React 0.1.0 published under `next`.** Both packages passed the registry-only consumer matrix, and the [studio is live](https://console-fx-servroxs-projects.vercel.app). See the [release ledger](docs/releasing.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
 
 [Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Mockup collection](docs/mockups/README.md)
 
@@ -14,7 +14,7 @@ A TypeScript library and visual studio for designing expressive browser-console 
 pnpm add @servrox/console-fx@next
 ```
 
-The published 0.1.0 core matches the reviewed artifact and has no runtime dependencies. React examples currently require the source workspace while the adapter's publication is completed. Standalone exports need no installation.
+The published 0.1.0 core matches the reviewed artifact and has no runtime dependencies. React apps can also run `pnpm add @servrox/console-fx-react@next`. Standalone exports need no installation.
 
 ## Run the studio locally
 
@@ -132,8 +132,8 @@ These are editable design mockups. Their buttons, fields, sliders, and exports a
 | Deliverable | Name / location | Status |
 | --- | --- | --- |
 | TypeScript core | `@servrox/console-fx` | Published 0.1.0 under `next`; registry install verified |
-| React adapter | `@servrox/console-fx-react` | Implemented; publication pending |
-| Integrated Next.js studio | `apps/studio` | Implemented; launch checks pending |
+| React adapter | `@servrox/console-fx-react` | Published 0.1.0 under `next`; registry consumers verified |
+| Integrated Next.js studio | `apps/studio` | Public production and usage video verified |
 | Next.js integration | `examples/next-app` | Isolated production consumer tested; no separate runtime package |
 
 Compilation prints nothing. Explicit emission makes one console call. The core has no runtime dependencies. See the [specification](docs/specs/console-fx-spec.md) for the authoritative scope and release gates. The illustrations below and above retain their original design-prototype status.

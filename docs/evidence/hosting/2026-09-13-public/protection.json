@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-13T06:48:01.279200+00:00",
+  "stage": "deployed/production",
+  "status": "verified",
+  "owner": "ConsoleFX release verification",
+  "authority": "Maintainer: Approve public production; keep previews protected",
+  "setting": "ssoProtection.deploymentType",
+  "before": "all",
+  "after": "prod_deployment_urls_and_all_previews",
+  "productionDomains": [
+    {
+      "url": "https://console-fx-servroxs-projects.vercel.app",
+      "status": 200
+    },
+    {
+      "url": "https://console-fx-git-main-servroxs-projects.vercel.app",
+      "status": 200
+    }
+  ],
+  "individualDeployment": {
+    "url": "https://console-fp1jhiogu-servroxs-projects.vercel.app",
+    "status": 302,
+    "redirectHost": "vercel.com"
+  },
+  "passwordProtectionChanged": false,
+  "trustedIpsChanged": false,
+  "limitations": [
+    "This records the observed artifact and protection state; later changes require their own readback."
+  ]
+}
