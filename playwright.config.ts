@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import { nativeBrowserDiagnostics } from "./tests/native-browser-diagnostics";
 
 const browserName = process.env.CONSOLE_FX_TEST_BROWSER ?? "chromium";
 if (
@@ -11,10 +12,6 @@ if (
   );
 if (process.env.CONSOLE_FX_CDP_PORT && browserName !== "chromium")
   throw new Error("Native CDP requires CONSOLE_FX_TEST_BROWSER=chromium");
-// Playwright 1.63 can fall back to an imported context for its error prompt's
-// ARIA snapshot. The owned trace below supplies native-run page diagnostics.
-if (process.env.CONSOLE_FX_CDP_PORT)
-  process.env.PLAYWRIGHT_NO_COPY_PROMPT = "1";
 const port = Number(process.env.CONSOLE_FX_STUDIO_PORT ?? 4175);
 if (!Number.isInteger(port) || port < 1024 || port > 65535)
   throw new Error("Invalid studio test port");
@@ -29,10 +26,9 @@ export default defineConfig({
   use: {
     browserName,
     baseURL: `http://127.0.0.1:${port}`,
-    // Native CDP imports existing contexts. The fixture records only its owned
-    // context without native screencasts, which can stall screenshot RAF checks.
-    trace: process.env.CONSOLE_FX_CDP_PORT ? "off" : "retain-on-failure",
-    screenshot: process.env.CONSOLE_FX_CDP_PORT ? "off" : "only-on-failure",
+    trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+    ...nativeBrowserDiagnostics,
   },
   projects: [
     {
