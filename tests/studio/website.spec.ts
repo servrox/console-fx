@@ -512,10 +512,7 @@ test("static HTML and narrow layouts keep the explanation and actions usable", a
     "Your app supplies the facts",
   );
   await expect(staticPage.locator("#use-in-your-app")).toContainText(
-    "Core 0.1.0 is available under next",
-  );
-  await expect(staticPage.locator("#use-in-your-app")).toContainText(
-    "React adapter publication is pending",
+    "Both packages are available at 0.1.0 under next",
   );
   await staticPage.screenshot({
     path: `${artifact}/UX-01-no-js-${test.info().project.name}.png`,
@@ -523,6 +520,10 @@ test("static HTML and narrow layouts keep the explanation and actions usable", a
   writeFileSync(
     `${artifact}/static-${test.info().project.name}.html`,
     await staticPage.content(),
+  );
+  await staticPage.goto(new URL("/docs/", page.url()).href);
+  await expect(staticPage.locator("#react pre code").first()).toHaveText(
+    "pnpm add @servrox/console-fx@next @servrox/console-fx-react@next",
   );
   await context.close();
 });

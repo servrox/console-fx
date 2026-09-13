@@ -77,8 +77,8 @@ export default function Documentation() {
           <code>pnpm add @servrox/console-fx@next</code>
         </pre>
         <p>
-          The core has no runtime dependencies. React adapter publication is
-          still pending; its examples below use the source workspace.
+          The core has no runtime dependencies. The React adapter is available
+          as a separate package.
         </p>
         <pre tabIndex={0}>
           <code>{packageExample}</code>
@@ -148,13 +148,12 @@ export default function Documentation() {
       </section>
       <section id="react">
         <h2>Use the React adapter</h2>
-        <p>
-          Adapter publication is pending. To try this example now, use the{" "}
-          <a href="https://github.com/servrox/console-fx/blob/main/README.md#run-the-studio-locally">
-            source workspace
-          </a>
-          .
-        </p>
+        <p>Install the adapter alongside the core package:</p>
+        <pre tabIndex={0}>
+          <code>
+            pnpm add @servrox/console-fx@next @servrox/console-fx-react@next
+          </code>
+        </pre>
         <p>
           The hook returns an explicit logging action. Rendering and server
           rendering stay silent. <code>ConsolePreview</code> uses the same
@@ -329,9 +328,9 @@ export default function Documentation() {
       <section>
         <h2>Project status and license</h2>
         <p>
-          The core, React adapter and studio use MIT. Core 0.1.0 is published
-          under <code>next</code>; React adapter publication is pending.
-          Standalone exports work without a package dependency. See the{" "}
+          The core, React adapter and studio use MIT. Both packages are
+          published at 0.1.0 under <code>next</code>. Standalone exports work
+          without a package dependency. See the{" "}
           <a href="https://github.com/servrox/console-fx">
             source and release evidence
           </a>{" "}

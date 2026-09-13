@@ -1,0 +1,182 @@
+{
+  "at": "2026-09-13T06:43:22.923Z",
+  "stage": "publication/install",
+  "status": "verified",
+  "owner": "ConsoleFX release verification",
+  "obligation": "Both approved npm packages must install by exact version without local overrides and pass every supported consumer fixture",
+  "sourceCommit": "aa9c2696613ea78b86b7593661e88330c1173952",
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.1.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx/-/console-fx-0.1.0.tgz",
+      "sha256": "61672e00d7a57829085d71836ede22bbc99cfb8350b067bd3f2c17ced5886592",
+      "integrity": "sha512-m1kWeM8W+MrEsrRTvdUIFSQ3w5EZsfeRPciqONKgnR8Pk9n+z4JtJcimBrn5aNXgbZub9VvTMycJTApQ3LWY/Q=="
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.1.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx-react/-/console-fx-react-0.1.0.tgz",
+      "sha256": "eefa4f0b88114927efb52ad7eae1d4b3ef569e32685ad0c60db2b6939cb2483c",
+      "integrity": "sha512-rcXuFETzlzd5jvflKr+tl+SovgFCGhkKdFADygXX7SoWRaqUVeKRDsGnjt+KvLTlX6kee3KDVnSUxAOXe352zw=="
+    }
+  ],
+  "candidateLockSha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497",
+  "command": "CONSOLE_FX_PACKAGE_ARTIFACTS=<approved-ci-artifacts> CONSOLE_FX_CDP_PORT=9348 pnpm test:registry-consumers",
+  "approvedCandidateCiRun": "https://github.com/servrox/console-fx/actions/runs/34716690235",
+  "environment": {
+    "node": "v24.20.0",
+    "pnpm": "12.3.4",
+    "platform": "linux",
+    "architecture": "x64",
+    "files": [
+      {
+        "path": "registry-consumer-environment/pnpm-lock.yaml",
+        "sha256": "f82dff300e3eb1fe10aca6ae1c952e2a4ba016c3bb20bf18e68eda5cebeb153c"
+      },
+      {
+        "path": "registry-consumer-environment/pnpm-workspace.yaml",
+        "sha256": "794ed020aa157612c4f973c0b978ee2e64b2608f1e5962dc913116fd005cd6ef"
+      },
+      {
+        "path": "registry-consumer-environment/package.json",
+        "sha256": "0344bf274a9ff87f9a2fd07c164dc2d3ce133aa471c39f0f289ea0c7ce874106"
+      },
+      {
+        "path": "registry-consumer-environment/.npmrc",
+        "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1"
+      }
+    ],
+    "fixtureFiles": [
+      {
+        "path": ".npmrc",
+        "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1"
+      },
+      {
+        "path": "checks/react/check.mjs",
+        "sha256": "edd2608da044d8c75d4732550df9cf137e40f8a820ec9c307197fd35e24b7682"
+      },
+      {
+        "path": "checks/react/message.tsx",
+        "sha256": "5aff164b5c43ff49b5675b2334a3242d84b79762ebef8a8ac4e3cd8dca4cf1de"
+      },
+      {
+        "path": "checks/vanilla/check.mjs",
+        "sha256": "e0136eb29f3e80608780207ab1e2b96607437413bd57e3f64b8b4069c95076b4"
+      },
+      {
+        "path": "checks/vanilla/types.ts",
+        "sha256": "f904ae997a588f384a69cdfa78ae8ade3056c9dd09bb387c5f255a6efc5f45fc"
+      },
+      {
+        "path": "checks/website/check.mjs",
+        "sha256": "1a5c509cbff8ad61e8d05480d4905b6e770ed9f1f278e53c8d00220e8b6d417e"
+      },
+      {
+        "path": "checks/website/recipes.ts",
+        "sha256": "f9a259fc8935832794fb4f69c27245119530229a51ea578415ad42f4c60d4771"
+      },
+      {
+        "path": "next.config.mjs",
+        "sha256": "8bc51c8e3e3a68d01606458f34d7d53c747043abb9e286a502f4a3de496e2d9d"
+      },
+      {
+        "path": "package.json",
+        "sha256": "0344bf274a9ff87f9a2fd07c164dc2d3ce133aa471c39f0f289ea0c7ce874106"
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "sha256": "794ed020aa157612c4f973c0b978ee2e64b2608f1e5962dc913116fd005cd6ef"
+      },
+      {
+        "path": "src/app/cards.tsx",
+        "sha256": "bbba2c1fec3339978bf1abb5a0f307421bb80f8988db641e690f1d9fcfeef972"
+      },
+      {
+        "path": "src/app/fitting.tsx",
+        "sha256": "4634c204ac14aa3e903a4f2cc83d842fcc154346da2d59c617730aeefb309ed4"
+      },
+      {
+        "path": "src/app/layout.tsx",
+        "sha256": "697da41ac2a655a9b1ced5c94615feeb65c53cab4021baf356074b28fb4e641f"
+      },
+      {
+        "path": "src/app/message.tsx",
+        "sha256": "08c58f81f50575d378284c99dba3f1c0e905f19676e1f01cb7abef3300390bdd"
+      },
+      {
+        "path": "src/app/page.tsx",
+        "sha256": "ec91d4eb0f009899cf2c74636da712c9600ce1437373d26d317b4e2cc6bf43f1"
+      },
+      {
+        "path": "src/instrumentation-client.ts",
+        "sha256": "cf8c268d3bcc2aa669dc0f4853871a76ba3b400403e1b6475a396781df5a6ed3"
+      },
+      {
+        "path": "tsconfig.json",
+        "sha256": "7d47fb1d57397cac8ca8068d9944b18434217ef8735b3024ffed5e8d054c0812"
+      }
+    ],
+    "harness": [
+      {
+        "path": "scripts/check-consumers.mjs",
+        "sha256": "b3bdd89bb18097fbc8b62ba99846990195c03921ee2a5c3e14e7ecf0b119f978"
+      },
+      {
+        "path": "scripts/package-candidate.mjs",
+        "sha256": "12fc69e4db1b2a0c94a4aec6bdde899353f4612ff9bdbeae9f5bb4e50f29a73b"
+      },
+      {
+        "path": "scripts/verify-release.mjs",
+        "sha256": "c2be5566772acc5b33a25582fa14375666545bebac0516bb8ac785a54b46d33a"
+      },
+      {
+        "path": "playwright.consumers.config.ts",
+        "sha256": "ebba28c580d446cecb9339c63f5867d114ddd07835762be3edfc3be7633598e1"
+      },
+      {
+        "path": "tests/consumers/next.spec.ts",
+        "sha256": "f1437845b4e3962790a4c46cff951b263ebf46b85739e6b64cac19bfd2a2f578"
+      },
+      {
+        "path": "tests/studio/fixtures.ts",
+        "sha256": "f63c52cab90776940507084edfe74b3cd50a20a2d2590a16e461d2569eae497f"
+      },
+      {
+        "path": "tests/native-browser-diagnostics.ts",
+        "sha256": "4b9be2128b722395915952a99b5b3925d151f6a5fb6b4fb04cdc3fc4b42c3bad"
+      }
+    ],
+    "npm": "12.0.2",
+    "os": "NixOS in WSL2 (nixos)",
+    "browser": {
+      "name": "Microsoft Edge",
+      "version": "Edg/153.0.4234.32",
+      "nativeOS": {
+        "Caption": "Microsoft Windows 11 Pro Insider Preview",
+        "Version": "10.0.26220",
+        "BuildNumber": "26220"
+      },
+      "capturedAt": "2026-09-13T06:54:59.987389+00:00",
+      "connection": "CDP 9348, new owned contexts"
+    }
+  },
+  "checks": [
+    "javascript",
+    "typescript",
+    "react-ssr-lifecycle",
+    "next-production-build",
+    "next-browser-lifecycle",
+    "displayed-website-recipes"
+  ],
+  "localOverrides": false,
+  "lifecycleScripts": false,
+  "limitations": [
+    "Native Edge consumer checks are separate from Chrome/Edge DevTools renderer qualification.",
+    "Registry metadata and availability are observations at the recorded time."
+  ],
+  "invalidators": [
+    "Changed package bytes, fixture/harness/configuration/lock/toolchain or supported consumer contracts.",
+    "A newer contradictory registry or consumer result."
+  ]
+}
