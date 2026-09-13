@@ -10,8 +10,19 @@ import type {
   LayoutRequest,
   MeasurementSnapshot,
   CompiledConsole,
+  CompileOptions,
 } from "@servrox/console-fx";
 import { usePreviewWidth } from "./use-preview-width";
+
+function attemptPreview(scene: SceneV1, options: CompileOptions) {
+  try {
+    return { ok: true as const, output: compileConsole(scene, options) };
+  } catch (error) {
+    if (error instanceof ConsoleCompileError)
+      return { ok: false as const, diagnostics: error.diagnostics };
+    throw error;
+  }
+}
 
 function image(output: CompiledConsole, overlay: boolean) {
   if (output.preview.kind !== "svg") return <pre>{output.text}</pre>;
@@ -186,54 +197,38 @@ export function FitInspector({
   const { width, unavailable } = usePreviewWidth(boundary);
   const simulation = useMemo(() => {
     if (width === null) return null;
-    try {
-      return {
-        ok: true as const,
-        output: compileConsole(scene, {
-          target: "chromium",
-          renderer: "svg",
-          motion: "reduce",
-          layout: { ...policy, width },
-          sizing: { mode: "fixed", width },
-          ...(measurement.snapshot
-            ? {
-                measurements: measurement.snapshot,
-                measurementEnvironment: measurement.snapshot.environment,
-              }
-            : {}),
-        }),
-      };
-    } catch (error) {
-      if (error instanceof ConsoleCompileError)
-        return { ok: false as const, diagnostics: error.diagnostics };
-      throw error;
-    }
+    return attemptPreview(scene, {
+      target: "chromium",
+      renderer: "svg",
+      motion: "reduce",
+      layout: { ...policy, width },
+      sizing: { mode: "fixed", width },
+      ...(measurement.snapshot
+        ? {
+            measurements: measurement.snapshot,
+            measurementEnvironment: measurement.snapshot.environment,
+          }
+        : {}),
+    });
   }, [scene, policy, width, measurement.snapshot]);
   const motionFit = useMemo(() => {
     if (width === null || options.motion !== "system") return null;
-    try {
-      compileConsole(scene, {
-        target: "chromium",
-        renderer: "svg",
-        motion: "allow",
-        layout: { ...policy, width },
-        sizing:
-          mode === "fixed"
-            ? { mode, width: outputWidth }
-            : { mode, maxWidth: outputWidth, fillFraction },
-        ...(measurement.snapshot
-          ? {
-              measurements: measurement.snapshot,
-              measurementEnvironment: measurement.snapshot.environment,
-            }
-          : {}),
-      });
-      return { ok: true as const };
-    } catch (error) {
-      if (error instanceof ConsoleCompileError)
-        return { ok: false as const, diagnostics: error.diagnostics };
-      throw error;
-    }
+    return attemptPreview(scene, {
+      target: "chromium",
+      renderer: "svg",
+      motion: "allow",
+      layout: { ...policy, width },
+      sizing:
+        mode === "fixed"
+          ? { mode, width: outputWidth }
+          : { mode, maxWidth: outputWidth, fillFraction },
+      ...(measurement.snapshot
+        ? {
+            measurements: measurement.snapshot,
+            measurementEnvironment: measurement.snapshot.environment,
+          }
+        : {}),
+    });
   }, [
     scene,
     policy,
@@ -248,7 +243,7 @@ export function FitInspector({
     () =>
       width === null
         ? null
-        : compileConsole(scene, {
+        : attemptPreview(scene, {
             target: "chromium",
             renderer: "svg",
             motion: "reduce",
@@ -421,7 +416,12 @@ export function FitInspector({
       )}
       <details>
         <summary>Reference: original SVG without fitting</summary>
-        {reference && image(reference, false)}
+        {reference &&
+          (reference.ok ? (
+            image(reference.output, false)
+          ) : (
+            <p className="preview-error">{reference.diagnostics[0]?.message}</p>
+          ))}
         <p className="fine-print">
           This uses the unchanged scene surface. Page images do not prove
           DevTools appearance.
