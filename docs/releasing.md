@@ -14,6 +14,43 @@ recordings, and Safari website checks. Public-access approval did not supply or
 waive those observations. The [validation packet](validation/mvp-external-review.md)
 is ready for the required participants and devices.
 
+## Automatic Vercel deployments
+
+The maintainer requested GitHub-connected automatic deployments on `main` on
+2026-09-13. This replaces the earlier manual-only Git setting. The connected
+project is `servroxs-projects/console-fx`, repository `servrox/console-fx`, production
+branch `main`. Configure Vercel's Root Directory as the repository root (empty),
+Framework Preset as Other, and Node.js as `24.x`.
+
+The root [vercel.json](../vercel.json) owns the install/build commands and enables
+automatic deployments only for `main`. Corepack uses the repository's pinned pnpm
+version; installation uses the frozen lockfile with lifecycle scripts disabled.
+`pnpm run build:vercel` builds both public workspace packages before the studio,
+then prepares `.vercel/output` with the existing static files, hash-based CSP,
+security headers, redirects and 404 routing. Leave Output Directory at its default:
+Vercel consumes the generated Build Output API configuration. Do not deploy raw
+`apps/studio/out` or use the Next.js framework preset in this workflow.
+Provider references: [Git branch configuration](https://vercel.com/docs/project-configuration/git-configuration),
+[Build Output API](https://vercel.com/docs/build-output-api), and
+[Corepack configuration](https://vercel.com/docs/builds/configure-a-build#corepack).
+
+GitHub CI runs the same build entrypoint and its existing validation suite. Review
+and wait for PR CI before merging; Vercel independently builds and automatically
+assigns production domains when the `main` build succeeds. Vercel does not wait
+for the separate GitHub `main` CI run. Source-revision CI and hosted runtime checks
+remain separate evidence. Explicit Git-source previews can qualify deployment
+changes before merge; all previews and individual deployment URLs retain Vercel
+Authentication, while production domains remain public.
+
+If a deployment regresses, roll back to the prior verified production deployment
+in Vercel and verify both production aliases. Then revert/fix the source on `main`
+before the next automatic deployment. To pause future Git deployments, set
+`git.deploymentEnabled` to `false`; this leaves the current deployment running.
+The previously verified production deployment `dpl_D4D4s3vQDqEGWom52kzZascti5rb`
+is the recovery point for this configuration change. ADR-0004, ADR-0007, ADR-0008,
+ADR-0009 and ADR-0010 govern package build order, static delivery, toolchain,
+verification and reversible deployment. No npm publication is part of this path.
+
 The first MVP candidate was implemented under ADR-0001 through ADR-0011.
 Accepted ADR-0013 now supersedes ADR-0011: missing screen-reader observations are
 a nonblocking follow-up. Required automated, keyboard/focus, zoom/reflow and
@@ -88,10 +125,11 @@ must be rechecked immediately before publication. The tested packages and prepar
 studio have not been published or deployed. The earlier approval for studio artifact
 `0bea5491…` does not approve this newer upload.
 
-Current Vercel preflight confirms `servroxs-projects/console-fx`, configured root
+At this historical checkpoint, Vercel preflight confirmed
+`servroxs-projects/console-fx`, configured root
 `apps/studio`, with authentication covering all URLs. Two recent Git-triggered
 production attempts failed; neither is the reviewed upload. The project-root
-[Git deployment setting](../apps/studio/vercel.json) disables automatic deployments
+Git deployment setting disabled automatic deployments
 in accordance with the explicit artifact/promotion boundary. Manual prepared-output
 upload remains available after exact-artifact approval; hosted checks precede any
 production promotion. Keep authentication on all URLs until public launch is approved.
