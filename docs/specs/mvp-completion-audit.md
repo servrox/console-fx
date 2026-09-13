@@ -30,6 +30,12 @@ The [third architecture round](architecture-round-3.md) records subsequent
 editor recovery and renderer-selection corrections. Its candidate and evidence
 stages remain separate from the merged checkpoint above.
 
+The [fourth architecture round](architecture-round-4.md) continues from that
+local candidate with editing, recovery, codegen and card-diagnostic corrections.
+Its source checkpoint `5bf1628` produces core 0.1.1 `f9957ef7…`; React 0.1.1
+remains `f0bcd68d…`. Its receipt identifies the complete hashes and local verification;
+neither round is claimed as merged or deployed by this audit.
+
 The earlier [reference-example integration and source audit](reference-examples-integration.md)
 adds all fourteen concepts from the two original mockups and corrects three
 compiler findings (hard fitting limits, container caption placement and
