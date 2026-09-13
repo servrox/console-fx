@@ -26,6 +26,14 @@ for Production and Preview. This makes nested `pnpm` commands use the pinned
 manager too; invoking only the outer command through Corepack leaves Vercel's
 default pnpm on the nested command path and fails the version check.
 
+Keep `console-fx-servroxs-projects.vercel.app` and
+`console-fx-git-main-servroxs-projects.vercel.app` registered under the project's
+Domains settings with the Production environment. The existing
+`console-fx.vercel.app` domain is also retained. Earlier manual alias assignments
+left the two public URLs on an older release after a successful Git deployment;
+project domain records make them follow production automatically. See the
+[Git deployment receipt](evidence/hosting/2026-09-13-git/README.md).
+
 The root [vercel.json](../vercel.json) owns the install/build commands and enables
 automatic deployments only for `main`. Corepack uses the repository's pinned pnpm
 version; installation uses the frozen lockfile with lifecycle scripts disabled.
