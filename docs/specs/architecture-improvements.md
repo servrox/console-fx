@@ -73,3 +73,9 @@ The subsequent request for repeated review produced zero remaining architecture
 findings after the recorded corrections. The separately requested
 [usage video](usage-video-evidence.md) received its own Standards/Spec review;
 both recorder cleanup findings were corrected and re-reviewed to zero findings.
+Native browser verification also exposed screenshot stalls and imported-context
+diagnostic capture. A separate harness fix retains traces only for the test-owned
+context, disables native screencasting and suppresses the imported-page fallback.
+Repeated affected journeys and all 74 final Chrome cases pass without relaxing
+application behavior, assertions or timeouts. The diagnostic failure probe verifies
+that useful owned trace evidence remains available.
