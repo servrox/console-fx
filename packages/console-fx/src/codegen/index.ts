@@ -33,25 +33,26 @@ export function exportConsoleLog(
     throw error;
   }
   const staticOutput = compileConsole(scene, { ...options, motion: "reduce" });
-  let code = `console.log(${argumentsSource(staticOutput.args)});`;
+  const staticArguments = argumentsSource(staticOutput.args);
+  let code = `console.log(${staticArguments});`;
   const diagnostics: Diagnostic[] = [...staticOutput.diagnostics];
   if (options.motion === "system") {
-    const animatedOutput = compileConsole(scene, {
+    const allowedOutput = compileConsole(scene, {
       ...options,
       motion: "allow",
     });
-    if (animatedOutput.animated) {
-      code = `console.log(...(${motionGuardSource()} ? [${argumentsSource(animatedOutput.args)}] : [${argumentsSource(staticOutput.args)}]));`;
-      for (const entry of animatedOutput.diagnostics)
-        if (
-          !diagnostics.some(
-            (existing) =>
-              existing.code === entry.code &&
-              JSON.stringify(existing.path) === JSON.stringify(entry.path),
-          )
+    const allowedArguments = argumentsSource(allowedOutput.args);
+    if (allowedArguments !== staticArguments)
+      code = `console.log(...(${motionGuardSource()} ? [${allowedArguments}] : [${staticArguments}]));`;
+    for (const entry of allowedOutput.diagnostics)
+      if (
+        !diagnostics.some(
+          (existing) =>
+            existing.code === entry.code &&
+            JSON.stringify(existing.path) === JSON.stringify(entry.path),
         )
-          diagnostics.push(entry);
-    }
+      )
+        diagnostics.push(entry);
   }
   const byteLength = utf8ByteLength(code);
   if (byteLength > LIMITS.snippetBytes)

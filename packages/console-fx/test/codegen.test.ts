@@ -99,26 +99,86 @@ describe("standalone code generation", () => {
         .text,
     ).not.toBe("%ctail");
   });
-  it("selects static, absent, and animated branches with exactly one log and direct parity", () => {
-    const scene = rainbow({ motion: "gradientDrift" });
-    const options = { target: "chromium", renderer: "svg" } as const;
-    const exported = exportConsoleLog(scene, { ...options, motion: "system" });
-    for (const matches of [true, false, undefined]) {
-      expect(execute(exported.code, matches)).toEqual([
-        [
-          ...compileConsole(scene, {
-            ...options,
-            motion: matches ? "allow" : "reduce",
-          }).args,
+  it.each([
+    {
+      name: "animated SVG",
+      scene: rainbow({ motion: "gradientDrift" }),
+      options: { target: "chromium", renderer: "svg" },
+      fallback: false,
+    },
+    {
+      name: "CSS motion fallback",
+      scene: neon({ motion: "wave" }),
+      options: { target: "chromium", renderer: "css", unsupported: "fallback" },
+      fallback: true,
+    },
+    {
+      name: "fitted SVG motion fallback",
+      scene: defineScene({
+        schemaVersion: 1,
+        label: "Bounded wave",
+        surface: { padding: 0 },
+        lines: [
+          {
+            runs: [
+              {
+                text: "A",
+                style: { fontSize: 20 },
+                effects: [{ kind: "wave", amplitude: 10 }],
+              },
+            ],
+          },
         ],
-      ]);
-    }
-    expect(exported.byteLength).toBe(utf8ByteLength(exported.code));
-    expect(exported.byteLength).toBeGreaterThan(
-      exportConsoleLog(scene, options).byteLength,
-    );
-    expect(exported.code.match(/console\.log\(/g)).toHaveLength(1);
-  });
+      }),
+      options: {
+        target: "chromium",
+        renderer: "svg",
+        unsupported: "fallback",
+        layout: {
+          algorithm: "fit/v1",
+          width: 100,
+          maxHeight: 40,
+          overflow: "error",
+          minFontSize: 12,
+          variant: "standard",
+        },
+      },
+      fallback: true,
+    },
+  ] as const)(
+    "selects $name branches with exactly one log and direct parity",
+    ({ scene, options, fallback }) => {
+      const exported = exportConsoleLog(scene, {
+        ...options,
+        motion: "system",
+      });
+      for (const matches of [true, false, undefined]) {
+        expect(execute(exported.code, matches)).toEqual([
+          [
+            ...compileConsole(scene, {
+              ...options,
+              motion: matches ? "allow" : "reduce",
+            }).args,
+          ],
+        ]);
+      }
+      const allowed = compileConsole(scene, { ...options, motion: "allow" });
+      expect(exported.diagnostics).toEqual(
+        expect.arrayContaining(allowed.diagnostics),
+      );
+      if (fallback) {
+        expect(allowed.renderer).toBe("text");
+        expect(exported.diagnostics).toContainEqual(
+          expect.objectContaining({ code: "renderer-fallback" }),
+        );
+      }
+      expect(exported.byteLength).toBe(utf8ByteLength(exported.code));
+      expect(exported.byteLength).toBeGreaterThan(
+        exportConsoleLog(scene, options).byteLength,
+      );
+      expect(exported.code.match(/console\.log\(/g)).toHaveLength(1);
+    },
+  );
   it("uses literal-only text by default, even for percent specifiers", () => {
     const output = exportConsoleLog(neon({ text: "%c %% %s" }));
     expect(execute(output.code)).toEqual([["%c %% %s"]]);
