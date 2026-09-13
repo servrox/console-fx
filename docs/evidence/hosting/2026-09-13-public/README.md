@@ -28,3 +28,12 @@ the separate registry-pair receipt supports its following documentation update.
 Keep later artifact/readback evidence distinct. Screen-reader follow-up remains
 nonblocking under ADR-0013; other unobserved environments retain their recorded
 limits. Governing decisions: ADR-0006, ADR-0007, ADR-0009, ADR-0010 and ADR-0013.
+
+The [exact executed harness](verify-hosted.mjs), command, input fingerprints and
+Node/Playwright toolchain are identified in the receipt. It was run from the
+repository root after placing that script beside the preserved artifact inputs
+at `.artifacts/deployment/package-availability-final/`. Public mode skips its
+optional protected-access branch; the source contains no credentials or access
+links. The native host was Windows 11 Pro Insider Preview 10.0.26220, with Chrome
+153.0.8010.36, driven from NixOS WSL2. This environment is recorded independently
+from the artifact and the later source-only documentation update.

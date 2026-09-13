@@ -148,7 +148,18 @@
       }
     ],
     "npm": "12.0.2",
-    "os": "NixOS in WSL2 (nixos)"
+    "os": "NixOS in WSL2 (nixos)",
+    "browser": {
+      "name": "Microsoft Edge",
+      "version": "Edg/153.0.4234.32",
+      "nativeOS": {
+        "Caption": "Microsoft Windows 11 Pro Insider Preview",
+        "Version": "10.0.26220",
+        "BuildNumber": "26220"
+      },
+      "capturedAt": "2026-09-13T06:54:59.987389+00:00",
+      "connection": "CDP 9348, new owned contexts"
+    }
   },
   "checks": [
     "javascript",

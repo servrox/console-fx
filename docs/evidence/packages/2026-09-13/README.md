@@ -29,3 +29,8 @@ registry installation subsequently succeeded. This receipt supersedes the
 separate DevTools qualification or other recorded observation limits.
 
 Governing decisions: ADR-0004, ADR-0008, ADR-0009 and ADR-0010.
+
+The native browser journeys used Microsoft Edge 153.0.4234.32 on Windows 11 Pro
+Insider Preview 10.0.26220, driven from NixOS WSL2. The receipt separates this
+Windows browser environment from the Linux installation/build runner and records
+when that environment inventory was reconciled.

@@ -239,5 +239,54 @@
   ],
   "cspViolations": [],
   "pageErrors": [],
-  "failedRequests": []
+  "failedRequests": [],
+  "harness": {
+    "path": "docs/evidence/hosting/2026-09-13-public/verify-hosted.mjs",
+    "sha256": "85fc7d14d64f4ed8b33977b58cfa95b796702d32a95c0638d8b03d06ec48d9ca",
+    "executedAs": ".artifacts/deployment/package-availability-final/verify-hosted.mjs",
+    "workingDirectory": "repository root",
+    "command": "CONSOLE_FX_PUBLIC_CHECK=1 node .artifacts/deployment/package-availability-final/verify-hosted.mjs"
+  },
+  "environment": {
+    "capturedAt": "2026-09-13T06:54:59.987389+00:00",
+    "runner": {
+      "distribution": "NixOS",
+      "wslDistribution": "nixos",
+      "node": "v24.20.0",
+      "npm": "12.0.2",
+      "pnpm": "12.3.4",
+      "playwright": "1.63.0"
+    },
+    "browser": "Chrome/153.0.8010.36",
+    "nativeOS": {
+      "Caption": "Microsoft Windows 11 Pro Insider Preview",
+      "Version": "10.0.26220",
+      "BuildNumber": "26220"
+    },
+    "context": "New native Chrome context via CDP; no token, bypass or existing browser storage"
+  },
+  "inputs": [
+    {
+      "path": "artifact.json",
+      "sha256": "d43c8e5fe0f35505cd05c77b94b508efcd515e2a01e6687a4c04a1cd6f0c39dd"
+    },
+    {
+      "path": "deployment-readback.json",
+      "sha256": "0d069c5bb0bd65602bb674546069084cfabd12826b93a9b598a916d726c2a3f3"
+    },
+    {
+      "path": "candidate/.vercel/output/config.json",
+      "sha256": "cf22ed7124e10bccc847a8b3de562fa503c826ee7c160233ec697ebe5aa3988e"
+    },
+    {
+      "path": "source-map-content.json",
+      "sha256": "c7866159d2402336555e098ba08013a31aaa82ed8cdc77059b063a3e558d12c4"
+    }
+  ],
+  "lockSha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497",
+  "limitations": [
+    "The protected source-map byte check requires authorized Vercel file API access.",
+    "This browser observation is from the recorded Windows 11 Pro Insider Preview host.",
+    "Later artifact, harness, environment or protection changes invalidate affected evidence."
+  ]
 }
