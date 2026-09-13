@@ -10,16 +10,9 @@ test("prepared deployment CSP permits hydration, exact SVG previews and client n
   page,
 }) => {
   const config = JSON.parse(readFileSync(".vercel/output/config.json", "utf8"));
-  const csp = config.routes[0].headers["Content-Security-Policy"] as string;
+  const headers = config.routes[0].headers as Record<string, string>;
+  const csp = headers["Content-Security-Policy"];
   expect(csp).not.toContain("script-src 'self' 'unsafe-inline'");
-  await page.route("**/*", async (route) => {
-    if (route.request().resourceType() !== "document") return route.continue();
-    const response = await route.fetch();
-    await route.fulfill({
-      response,
-      headers: { ...response.headers(), "content-security-policy": csp },
-    });
-  });
   await page.addInitScript(() => {
     const probe = window as unknown as { cspViolations: string[] };
     probe.cspViolations = [];
@@ -27,7 +20,9 @@ test("prepared deployment CSP permits hydration, exact SVG previews and client n
       probe.cspViolations.push(event.violatedDirective),
     );
   });
-  await page.goto("/studio/");
+  const response = await page.goto("/studio/");
+  for (const [name, value] of Object.entries(headers))
+    expect(response?.headers()[name.toLowerCase()]).toBe(value);
   await page
     .getByRole("textbox", { name: "Message text", exact: true })
     .fill("CSP preview");

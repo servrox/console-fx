@@ -1,4 +1,3 @@
-import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 import {
   defineScene,
@@ -311,19 +310,6 @@ test("simulation is silent and transient; applied fitting persists as an exact e
 test("explicit local measurement runs under deployment CSP and preview matches precompiled export", async ({
   page,
 }) => {
-  const config = JSON.parse(readFileSync(".vercel/output/config.json", "utf8"));
-  await page.route("**/*", async (route) => {
-    if (route.request().resourceType() !== "document") return route.continue();
-    const response = await route.fetch();
-    await route.fulfill({
-      response,
-      headers: {
-        ...response.headers(),
-        "content-security-policy":
-          config.routes[0].headers["Content-Security-Policy"],
-      },
-    });
-  });
   await page.addInitScript(() => {
     const probe = window as unknown as { fittingCsp: string[] };
     probe.fittingCsp = [];
