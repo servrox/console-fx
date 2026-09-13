@@ -52,7 +52,7 @@ export class DraftStore {
       return {
         kind: "error",
         message:
-          "Local storage is unavailable. Keep editing and export JSON. You can retry storage later.",
+          "Local storage is unavailable. Keep editing; use Export recipe JSON to preserve scene and settings. You can retry storage later.",
       };
     }
   }
@@ -88,7 +88,7 @@ export class DraftStore {
         this.notify({
           kind: "error",
           message:
-            "The local draft could not be saved. Your work is still here. Export JSON or retry saving.",
+            "The local draft could not be saved. Your work is still here. Use Export recipe JSON to preserve scene and settings, or retry saving.",
         });
       }
     };

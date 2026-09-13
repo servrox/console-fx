@@ -244,7 +244,10 @@ describe("draft ownership and write ordering", () => {
     store.queue(scene, 1);
     vi.runAllTimers();
     expect(notify).toHaveBeenLastCalledWith(
-      expect.objectContaining({ kind: "error" }),
+      expect.objectContaining({
+        kind: "error",
+        message: expect.stringContaining("Export recipe JSON"),
+      }),
     );
     store.queue(scene, 1, true);
     vi.runAllTimers();
@@ -263,7 +266,12 @@ describe("draft ownership and write ordering", () => {
     const store = new DraftStore(() => {
       throw new Error("disabled");
     }, vi.fn());
-    expect(store.read().kind).toBe("error");
+    expect(store.read()).toEqual(
+      expect.objectContaining({
+        kind: "error",
+        message: expect.stringContaining("Export recipe JSON"),
+      }),
+    );
     expect(store.clear(0)).toBe(false);
   });
 });
@@ -399,7 +407,7 @@ describe("recipe history and recoverable draft conversion", () => {
   });
   it("preserves a valid recipe on failed writes or partial clear and supports explicit recovery", () => {
     vi.useFakeTimers();
-    const { values, storage, store } = storageFixture();
+    const { values, storage, notify, store } = storageFixture();
     const original = JSON.stringify(fittedRecipe("stored"));
     values.set(RECIPE_DRAFT_KEY, original);
     store.read();
@@ -408,6 +416,12 @@ describe("recipe history and recoverable draft conversion", () => {
     });
     store.queue(fittedRecipe("current"), 1);
     vi.runAllTimers();
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        kind: "error",
+        message: expect.stringContaining("Export recipe JSON"),
+      }),
+    );
     expect(values.get(RECIPE_DRAFT_KEY)).toBe(original);
     storage.removeItem
       .mockImplementationOnce(() => {})
