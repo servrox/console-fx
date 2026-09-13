@@ -66,6 +66,27 @@ owners: copy success/failure, keyboard tabs, reduced-motion behavior and
 cleanup. Add only the newly introduced interaction obligations at their
 implementation milestone; do not test each animation style or timing value.
 
+### Prepared-artifact browser checks
+
+The [second architecture round](architecture-round-2.md) records the findings,
+separate fixes and candidate evidence for this ownership cleanup.
+
+- Studio Playwright runs use [the local server](../../scripts/serve-studio.py)
+  to serve `.vercel/output/static` and its generated global response headers.
+  Run `pnpm run build:vercel` first; missing or incompatible preparation fails
+  startup instead of silently dropping the security policy.
+- Every studio context receives those headers, including JavaScript-disabled
+  pages, workers and assets. The hydration journey checks the actual HTTP
+  headers; hydration and font-measurement journeys retain CSP-violation checks.
+- The two per-test CSP interceptions are removed. Policy belongs to the server
+  interface, so new journeys inherit it without copying setup.
+- The JavaScript-disabled journey uses the shared page fixture with a scoped
+  browser option. Its trace retention and context cleanup follow the same owner
+  as other journeys, including failures during native CDP runs.
+- Packed Next consumers retain their own server and generic browser fixture.
+  Vercel routing, redirects, caching, deployment protection and CDN behavior
+  remain separate hosted checks; this server does not emulate them.
+
 ## 4. Use Vitest 4 where it fits
 
 - **Vitest 4.1.11** is pinned in the existing pnpm workspace and lockfile.

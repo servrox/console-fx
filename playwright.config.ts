@@ -53,10 +53,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `python3 -u -m http.server ${port} --bind 127.0.0.1 --directory apps/studio/out`,
+    command: `python3 -u scripts/serve-studio.py ${port}`,
     // Wait for our process to bind. An unopened-port HTTP probe can stall in WSL,
     // and reusing an unrelated server would not validate this build.
-    wait: { stdout: /Serving HTTP on 127\.0\.0\.1 port \d+/ },
+    wait: { stdout: /Serving prepared studio on http:\/\/127\.0\.0\.1:\d+/ },
     timeout: 15_000,
     gracefulShutdown: { signal: "SIGTERM", timeout: 500 },
   },

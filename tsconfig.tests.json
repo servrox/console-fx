@@ -13,6 +13,7 @@
     "packages/**/test/**/*.ts",
     "packages/**/test/**/*.tsx",
     "apps/**/*.test.ts",
+    "apps/**/*.test.tsx",
     "tests/**/*.ts"
   ],
   "exclude": ["**/node_modules/**", "**/dist/**", "**/.next/**", "**/out/**"]

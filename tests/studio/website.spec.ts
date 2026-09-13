@@ -567,9 +567,8 @@ test("page effects are transient, bounded, cancelable and absent from exports", 
   ).toEqual([]);
 });
 
-test("static HTML and narrow layouts keep the explanation and actions usable", async ({
+test("narrow layouts keep the explanation and actions usable", async ({
   page,
-  browser,
 }) => {
   test.setTimeout(90_000);
   mkdirSync(artifact, { recursive: true });
@@ -596,40 +595,45 @@ test("static HTML and narrow layouts keep the explanation and actions usable", a
     ).violations;
     expect(violations).toEqual([]);
   }
-  const context = await browser.newContext({
+});
+
+test.describe("without JavaScript", () => {
+  test.use({
     javaScriptEnabled: false,
     viewport: { width: 390, height: 844 },
   });
-  const staticPage = await context.newPage();
-  await staticPage.goto(new URL("/", page.url()).href);
-  await expect(staticPage.getByRole("heading", { level: 1 })).toHaveText(
-    "Make your console worth opening.",
-  );
-  await expect(staticPage.locator(".comparison-result")).toContainText(
-    "Hello, developer.",
-  );
-  await expect(
-    staticPage.getByText(
-      "Enable JavaScript to edit, copy or test this example.",
-      { exact: false },
-    ),
-  ).toBeVisible();
-  await expect(staticPage.locator("#use-cases")).toContainText(
-    "Your app supplies the facts",
-  );
-  await expect(staticPage.locator("#use-in-your-app")).toContainText(
-    "Both packages are available at 0.1.0 under next",
-  );
-  await staticPage.screenshot({
-    path: `${artifact}/UX-01-no-js-${test.info().project.name}.png`,
+  test("static HTML keeps the explanation and recipes available", async ({
+    page,
+  }) => {
+    mkdirSync(artifact, { recursive: true });
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "Make your console worth opening.",
+    );
+    await expect(page.locator(".comparison-result")).toContainText(
+      "Hello, developer.",
+    );
+    await expect(
+      page.getByText("Enable JavaScript to edit, copy or test this example.", {
+        exact: false,
+      }),
+    ).toBeVisible();
+    await expect(page.locator("#use-cases")).toContainText(
+      "Your app supplies the facts",
+    );
+    await expect(page.locator("#use-in-your-app")).toContainText(
+      "Both packages are available at 0.1.0 under next",
+    );
+    await page.screenshot({
+      path: `${artifact}/UX-01-no-js-${test.info().project.name}.png`,
+    });
+    writeFileSync(
+      `${artifact}/static-${test.info().project.name}.html`,
+      await page.content(),
+    );
+    await page.goto("/docs/");
+    await expect(page.locator("#react pre code").first()).toHaveText(
+      "pnpm add @servrox/console-fx@next @servrox/console-fx-react@next",
+    );
   });
-  writeFileSync(
-    `${artifact}/static-${test.info().project.name}.html`,
-    await staticPage.content(),
-  );
-  await staticPage.goto(new URL("/docs/", page.url()).href);
-  await expect(staticPage.locator("#react pre code").first()).toHaveText(
-    "pnpm add @servrox/console-fx@next @servrox/console-fx-react@next",
-  );
-  await context.close();
 });

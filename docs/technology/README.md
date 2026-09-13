@@ -54,7 +54,7 @@ graphics or animation library.
 | NixOS inside WSL2                  | Distribution `nixos`; host-managed packages                   | Canonical Linux development environment; project worktrees stay on the Linux filesystem |
 | Git                                | NixOS-managed; no repository version pin                      | Source control and release snapshots                                                    |
 | Corepack                           | Build-host tool; no repository version pin                    | Invokes the pinned pnpm in the Vercel install/build commands                            |
-| Python                             | Host-managed; no repository version pin                       | Local static preview server used by browser validation                                  |
+| Python                             | Host-managed; no repository version pin                       | [Local browser-test server](../../scripts/serve-studio.py), using only the standard library, serves the prepared artifact and its generated global headers |
 | FFmpeg                             | **8.1.2 in the dated recording receipt**                      | Encodes the actual studio walkthrough into MP4, WebM and its poster                     |
 | Bun                                | **1.4.2 in the dated consumer receipt**                       | Additional package-consumption check; pnpm remains the workspace manager                |
 | `tar`                              | Host-managed                                                  | Package extraction and artifact validation                                              |

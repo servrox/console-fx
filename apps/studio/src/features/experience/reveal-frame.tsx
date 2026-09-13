@@ -16,21 +16,24 @@ export function RevealFrame({
   const enabled = usePageEffects();
   const frame = useRef<HTMLDivElement>(null);
   const ready = useRef(false);
-  const previous = useRef(selection);
+  const content = selection === "plain" ? plain : styled;
+  const previous = useRef({ selection, content });
   const [wipe, setWipe] = useState<{
-    from: "plain" | "styled";
+    content: ReactNode;
     id: number;
   } | null>(null);
   useEffect(() => {
-    if (previous.current !== selection) {
+    if (previous.current.selection !== selection) {
       setWipe(
         enabled && ready.current
-          ? { from: previous.current, id: performance.now() }
+          ? { content: previous.current.content, id: performance.now() }
           : null,
       );
-      previous.current = selection;
     } else if (!enabled) setWipe(null);
-  }, [selection, enabled]);
+    // Decoration retains the last committed content, never a previous choice
+    // reinterpreted with newly edited (and potentially incompatible) input.
+    previous.current = { selection, content };
+  }, [selection, content, enabled]);
   useEffect(() => {
     const observer = observeIntersection(frame.current, (entries) => {
       if (entries.some((entry) => !entry.isIntersecting)) setWipe(null);
@@ -43,9 +46,7 @@ export function RevealFrame({
   }, []);
   return (
     <div className="reveal-frame" ref={frame}>
-      <div className="comparison-result">
-        {selection === "plain" ? plain : styled}
-      </div>
+      <div className="comparison-result">{content}</div>
       {enabled && wipe && (
         <div
           key={wipe.id}
@@ -54,7 +55,7 @@ export function RevealFrame({
           inert
           onAnimationEnd={() => setWipe(null)}
         >
-          {wipe.from === "plain" ? plain : styled}
+          {wipe.content}
         </div>
       )}
     </div>

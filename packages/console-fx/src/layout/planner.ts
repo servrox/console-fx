@@ -557,11 +557,8 @@ export function planSvgLayout(
     );
   const width = displayScale === null ? null : request.width * displayScale,
     height = displayScale === null ? null : selected.height * displayScale;
-  if (height !== null && height > LIMITS.svgHeight)
-    fitFailure(
-      "below-readable-size",
-      "Proportional display height exceeds 400 pixels.",
-    );
+  // Output sizing owns the hard display-height limit. Preflight must still
+  // collect font data that can replace these estimated content bounds.
   const report: LayoutReport = {
     algorithm: "fit/v1",
     profile,

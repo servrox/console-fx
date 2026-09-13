@@ -42,7 +42,7 @@ const sourceString = (value: unknown) =>
     .replaceAll("\u2028", "\\u2028")
     .replaceAll("\u2029", "\\u2029");
 
-/** Pure export preparation; saved recipes never capture temporary font measurements. */
+/** Pure output preparation; saved recipes never capture temporary font measurements. */
 export function prepareExport(
   { scene, options: settings }: EditorSnapshot,
   measurements?: MeasurementSnapshot,
@@ -53,14 +53,28 @@ export function prepareExport(
       ? { measurements, measurementEnvironment: measurements.environment }
       : {}),
   };
-  const compilation = (() => {
+  function renderPreview(motion: "allow" | "reduce") {
+    const previewOptions = { ...options, motion };
     try {
       return {
         ok: true as const,
-        output: compileConsole(scene, {
-          ...options,
-          motion: "reduce",
-        }),
+        options: previewOptions,
+        output: compileConsole(scene, previewOptions),
+      };
+    } catch (error) {
+      if (error instanceof ConsoleCompileError)
+        return { ok: false as const, diagnostics: error.diagnostics };
+      throw error;
+    }
+  }
+  const staticPreview = renderPreview("reduce");
+  let animatedPreview: ReturnType<typeof renderPreview> | undefined;
+  const compilation = (() => {
+    try {
+      if (!staticPreview.ok) return staticPreview;
+      return {
+        ok: true as const,
+        output: staticPreview.output,
         exported: exportConsoleLog(scene, options),
       };
     } catch (error) {
@@ -101,5 +115,14 @@ export function prepareExport(
       return `"use client";\n\n${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { ConsoleBanner } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport default function StartupBanner() {\n  return <ConsoleBanner scene={scene} enabled options={${optionsCode}} />;\n}`;
     return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { useConsoleScene } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport function PrintMessage() {\n  const { log } = useConsoleScene(scene, ${optionsCode});\n  return <button onClick={log}>Print message</button>;\n}`;
   }
-  return { options, compilation, diagnostics, source };
+  return {
+    options,
+    compilation,
+    diagnostics,
+    source,
+    preview: (playing = false) =>
+      playing && options.renderer === "svg"
+        ? (animatedPreview ??= renderPreview("allow"))
+        : staticPreview,
+  };
 }
