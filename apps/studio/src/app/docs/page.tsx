@@ -3,7 +3,6 @@ import { neon } from "@servrox/console-fx/presets";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
 import {
   contextExample,
-  coreInstallCommand,
   sdkExample,
   summaryExample,
   packageExample,
@@ -75,7 +74,7 @@ export default function Documentation() {
           tag:
         </p>
         <pre tabIndex={0}>
-          <code>{coreInstallCommand}</code>
+          <code>pnpm add @servrox/console-fx@next</code>
         </pre>
         <p>
           The core has no runtime dependencies. React adapter publication is

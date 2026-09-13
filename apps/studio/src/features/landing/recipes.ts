@@ -1,5 +1,3 @@
-export const coreInstallCommand = "pnpm add @servrox/console-fx@next";
-
 // These complete source strings are also compiled and executed by the example checks.
 export const packageExample = `import { badge } from "@servrox/console-fx/presets";
 import { compileConsole } from "@servrox/console-fx/browser";
