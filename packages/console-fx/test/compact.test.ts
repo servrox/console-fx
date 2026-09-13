@@ -288,11 +288,18 @@ describe("accepted compact card layouts", () => {
       expect.objectContaining({ code: "presentation-letterbox" }),
     );
   });
-  it("reports estimated fitting confidence when no font measurements are supplied", () => {
-    const output = compileConsole(
-      createPresetExample("buildReceipt"),
-      settings,
-    );
+  it("reports estimated confidence when small card slots lack measurements", () => {
+    const scene = createPresetExample("letterpress");
+    const options = measure(scene);
+    const output = compileConsole(scene, {
+      ...options,
+      measurements: {
+        ...options.measurements!,
+        records: options.measurements!.records.filter(
+          ({ request }) => request.style.fontSize > 12,
+        ),
+      },
+    });
     expect(output.layout!.measurementQuality).toBe("estimated");
     expect(output.diagnostics).toContainEqual(
       expect.objectContaining({ code: "unverified-font-metrics" }),
