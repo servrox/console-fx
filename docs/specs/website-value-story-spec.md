@@ -92,6 +92,8 @@ Each card includes a compiler-generated static preview, purpose sentence, render
 | `chromeTitle` | `Keep building.` | Current `chrome` preset. Do not name this Liquid Chrome or imply the cinematic proposal exists. |
 | `quietEditorial` | `Made with care.` / `A small detail for developers.` | Existing serif text styles, plain/quiet CSS. No Letterpress/card renderer claim. |
 
+**Implemented follow-up, 2026-09-13:** The table above records the initial pre-card examples. After the maintainer reported that the Useful messages looked alike, their homepage recipes were connected to the implemented, approved Command Card (`sdkWelcome`), Build Receipt (`devContext`) and Release Bulletin (`milestone`) profiles. Their sample headings and purposes remain; the card fields add explicit fictional context. The gallery, workflows, hero choices and editor transfer consume those same recipes. See the [correction and visual evidence](../evidence/website/2026-09-13-useful/README.md). No profile algorithm, public API or emission policy changes.
+
 The example module materializes valid scene data. Keep typography and dimensions conservative for these specific fixtures; inspect output rather than inventing a general fitting guarantee. Future designs belong in an optional, separate **Design concepts** section with a **View proposal** link, not an enabled “Try” button.
 
 ### 3.3 Practical use cases, before the large editor

@@ -36,7 +36,12 @@ export function UseCaseComparison({ id }: { readonly id: ExampleId }) {
         </button>
         <span>Sample data</span>
       </div>
-      <div className="use-case-preview">
+      <div
+        className="use-case-preview"
+        data-presentation={
+          !plain && recipe.scene.presentation ? "card" : undefined
+        }
+      >
         <ConsolePreview scene={selected.scene} options={selected.options} />
       </div>
       <button
