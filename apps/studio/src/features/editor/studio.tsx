@@ -1,16 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import {
-  memo,
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useReducer,
-  useRef,
-  useState,
-} from "react";
-import type { ChangeEvent } from "react";
+import { memo, useCallback, useEffect, useId, useMemo, useState } from "react";
 import {
   getEffectDescriptors,
   LIMITS,
@@ -25,12 +15,7 @@ import type {
   SceneV1,
   RenderRecipeV1,
 } from "@servrox/console-fx";
-import {
-  compileConsole,
-  ConsoleCompileError,
-  resolveMotion,
-} from "@servrox/console-fx/browser";
-import { exportConsoleLog } from "@servrox/console-fx/codegen";
+import { resolveMotion } from "@servrox/console-fx/browser";
 import {
   neon,
   PRESETS,
@@ -39,28 +24,24 @@ import {
 import type { PresetId } from "@servrox/console-fx/presets";
 import { ConsolePreview, useConsoleScene } from "@servrox/console-fx-react";
 import {
-  decodeDocument,
-  decodeShare,
   encodeShare,
   isRecipe,
   type SavedDocument,
 } from "../persistence/documents";
-import { DraftStore } from "../persistence/draft";
-import type { DraftStatus } from "../persistence/draft";
-import {
-  documentReducer,
-  initialDocument,
-  sameDocument,
-  savedDocument,
-  recipeOf,
-  type DocumentAction,
-} from "./document";
+import { sameDocument, recipeOf } from "./document";
 import { ConfirmDialog } from "./confirm-dialog";
+import { useDocumentSession } from "./use-document-session";
 import { rendererForLoadedScene } from "./renderer";
 import { CardFields } from "./card-fields";
 import { FitInspector } from "./fit-inspector";
 import { useLocalMeasurements } from "./use-local-measurements";
 import { cardDescriptor, editCardParameter } from "./presentation";
+import { useClipboardCopy } from "../export/use-clipboard-copy";
+import {
+  prepareExport,
+  formats,
+  type ExportFormat,
+} from "../export/prepare-export";
 
 const descriptors = getEffectDescriptors();
 const initialScene = neon({ text: "Hello, developer." });
@@ -81,42 +62,6 @@ const PresetSample = memo(function PresetSample({
     />
   );
 });
-type Notice = {
-  readonly kind: "success" | "error" | "info";
-  readonly message: string;
-};
-type ExportFormat =
-  "javascript" | "typescript" | "react" | "next" | "json" | "recipe";
-const formats = {
-  javascript: {
-    copy: "Copy console.log",
-    description: "Self-contained JavaScript. No imports. One console.log.",
-  },
-  typescript: {
-    copy: "Copy TypeScript example",
-    description: "A complete example using the core package.",
-  },
-  react: {
-    copy: "Copy React example",
-    description: "An explicit button action using the core and React adapter.",
-  },
-  next: {
-    copy: "Copy Next.js example",
-    description: "A client component using the core and React adapter.",
-  },
-  json: {
-    copy: "Copy scene JSON",
-    description:
-      "Content only. Render settings are excluded; use Recipe JSON to retain them.",
-  },
-  recipe: {
-    copy: "Copy recipe JSON",
-    description:
-      "Scene plus explicit render settings. Local font measurements are excluded.",
-  },
-} as const;
-const sourceString = (value: unknown) =>
-  JSON.stringify(value, null, 2).replaceAll("<", "\\u003c");
 
 function download(scene: SavedDocument) {
   const url = URL.createObjectURL(
@@ -248,158 +193,61 @@ export function Studio({
   readonly onTransferDone?: (restoreFocus?: boolean) => void;
   readonly onSharedDecisionChange?: (pending: boolean) => void;
 }) {
-  const importSequence = useRef(0);
-  const [document, dispatchDocument] = useReducer(
-    documentReducer,
-    initialScene,
-    initialDocument,
-  );
-  const dispatch = useCallback((action: DocumentAction) => {
-    // A completed read belongs only to the document/action that requested it.
-    importSequence.current++;
-    dispatchDocument(action);
-  }, []);
-  const [ready, setReady] = useState(false);
   const [selection, setSelection] = useState({ line: 0, run: 0 });
-  const [notice, setNotice] = useState<Notice | null>(null);
-  const [draftStatus, setDraftStatus] = useState<DraftStatus | null>(null);
-  const [storageIssue, setStorageIssue] = useState(false);
-  const [copying, setCopying] = useState(false);
-  const copyPending = useRef(false);
-  const [failedCopy, setFailedCopy] = useState<{
-    text: string;
-    label: string;
-  } | null>(null);
-  const [pendingShared, setPendingShared] = useState<SavedDocument | null>(
-    null,
-  );
-  const [confirmReset, setConfirmReset] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const onTransition = useCallback((resetSelection: boolean) => {
+    setPlaying(false);
+    if (resetSelection) setSelection({ line: 0, run: 0 });
+  }, []);
+  const session = useDocumentSession(initialScene, {
+    transfer,
+    onTransferDone,
+    onSharedDecisionChange,
+    onTransition,
+  });
+  const {
+    document,
+    persisted,
+    ready,
+    dispatch,
+    notice,
+    setNotice,
+    draftStatus,
+    storageIssue,
+    pendingShared,
+    pendingExample,
+    confirmReset,
+  } = session;
+  const { copy, copying, failedCopy } = useClipboardCopy(({ kind, label }) => {
+    setNotice(
+      kind === "copying"
+        ? { kind: "info", message: `Copying ${label}…` }
+        : kind === "copied"
+          ? { kind: "success", message: `${label} copied.` }
+          : {
+              kind: "error",
+              message:
+                "Clipboard access failed. Select the captured text below and copy it manually, or retry.",
+            },
+    );
+  });
   const router = useRouter();
   const [galleryOpen, setGalleryOpen] = useState(false);
   const Heading = focused ? "h1" : "h2";
   const PanelHeading = focused ? "h2" : "h3";
   const [previewTheme, setPreviewTheme] = useState("dark");
-  const [playing, setPlaying] = useState(false);
   const [previewInstance, setPreviewInstance] = useState(0);
   const [format, setFormat] = useState<ExportFormat>("javascript");
-  const [store] = useState(
-    () =>
-      new DraftStore(
-        () => window.localStorage,
-        (status) => {
-          setDraftStatus(status);
-          setStorageIssue(status.kind === "error");
-        },
-      ),
-  );
-  const initialized = useRef(false);
-  const releaseShared = useRef<(() => void) | null>(null);
   const scene = document.scene;
   const settings = document.options;
   const measurement = useLocalMeasurements(scene, settings);
-  const options = useMemo(
-    () => ({
-      ...settings,
-      ...(measurement.snapshot
-        ? {
-            measurements: measurement.snapshot,
-            measurementEnvironment: measurement.snapshot.environment,
-          }
-        : {}),
-    }),
-    [settings, measurement.snapshot],
+  const prepared = useMemo(
+    () => prepareExport({ scene, options: settings }, measurement.snapshot),
+    [scene, settings, measurement.snapshot],
   );
+  const { options, compilation, diagnostics } = prepared;
   const renderer = settings.renderer ?? "css";
   const systemMotion = options.motion === "system";
-  const persisted = useMemo(() => savedDocument(document), [document]);
-  const pendingExample =
-    ready && !pendingShared && transfer && !sameDocument(persisted, transfer)
-      ? transfer
-      : null;
-
-  useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
-    const draft = store.read();
-    setStorageIssue(draft.kind === "error");
-    let baseline = draft.kind === "valid" ? draft.document : initialScene;
-    let shared: SavedDocument | null = null;
-    let startupNotice: Notice | null =
-      draft.kind === "valid"
-        ? { kind: "success", message: "Your local draft was resumed." }
-        : draft.kind === "error"
-          ? { kind: "error", message: draft.message }
-          : null;
-    if (window.location.hash.startsWith("#scene=")) {
-      const result = decodeShare(window.location.hash);
-      if (!result.ok)
-        startupNotice = {
-          kind: "error",
-          message: result.diagnostics[0]!.message,
-        };
-      else if (
-        draft.kind === "valid" &&
-        !sameDocument(baseline, result.value)
-      ) {
-        shared = result.value;
-        releaseShared.current = store.hold();
-      } else if (draft.kind !== "valid") {
-        baseline = result.value;
-        startupNotice = {
-          kind: "success",
-          message: "Shared scene loaded. It has not been printed.",
-        };
-      }
-    }
-    dispatch({ type: "initialize", document: baseline });
-    // Storage and fragments are intentionally read after hydration. The initial
-    // server/client render is identical, and no default draft is ever persisted.
-    setPendingShared(shared);
-    setNotice(startupNotice);
-    setReady(true);
-  }, [store, dispatch]);
-  useEffect(
-    () => () => {
-      importSequence.current++;
-    },
-    [],
-  );
-  useEffect(() => {
-    if (!ready) return;
-    const receiveShare = () => {
-      if (!window.location.hash.startsWith("#scene=")) return;
-      const result = decodeShare(window.location.hash);
-      if (!result.ok) {
-        setNotice({ kind: "error", message: result.diagnostics[0]!.message });
-      } else if (!sameDocument(persisted, result.value)) {
-        importSequence.current++;
-        if (!releaseShared.current) {
-          store.flush();
-          releaseShared.current = store.hold();
-        }
-        setPendingShared(result.value);
-        setPlaying(false);
-      }
-    };
-    window.addEventListener("hashchange", receiveShare);
-    return () => window.removeEventListener("hashchange", receiveShare);
-  }, [ready, persisted, store]);
-  useEffect(() => {
-    if (ready) store.queue(persisted, document.revision);
-  }, [persisted, document.revision, ready, store]);
-  useEffect(() => {
-    const flush = () => store.flush();
-    const hidden = () => {
-      if (window.document.visibilityState === "hidden") flush();
-    };
-    window.addEventListener("pagehide", flush);
-    window.document.addEventListener("visibilitychange", hidden);
-    return () => {
-      window.removeEventListener("pagehide", flush);
-      window.document.removeEventListener("visibilitychange", hidden);
-      flush();
-    };
-  }, [store]);
   useEffect(() => {
     if (!playing) return;
     let query: MediaQueryList;
@@ -415,63 +263,8 @@ export function Studio({
     return () => query.removeEventListener("change", changed);
   }, [playing]);
 
-  useEffect(() => {
-    onSharedDecisionChange?.(!!pendingShared);
-    return () => onSharedDecisionChange?.(false);
-  }, [pendingShared, onSharedDecisionChange]);
-  useEffect(() => {
-    if (!transfer || !ready) return;
-    importSequence.current++;
-    if (pendingShared) {
-      onTransferDone?.();
-      return;
-    }
-    if (sameDocument(persisted, transfer)) onTransferDone?.();
-  }, [transfer, ready, pendingShared, persisted, onTransferDone]);
-
   const { log } = useConsoleScene(scene, options);
-  const compilation = useMemo(() => {
-    try {
-      return {
-        ok: true as const,
-        output: compileConsole(scene, {
-          ...options,
-          motion: "reduce",
-        }),
-        exported: exportConsoleLog(scene, options),
-      };
-    } catch (error) {
-      if (error instanceof ConsoleCompileError)
-        return { ok: false as const, diagnostics: error.diagnostics };
-      throw error;
-    }
-  }, [scene, options]);
-  const diagnostics = compilation.ok
-    ? [
-        ...compilation.output.diagnostics,
-        ...compilation.exported.diagnostics,
-      ].filter(
-        (entry, index, all) =>
-          all.findIndex((other) => other.code === entry.code) === index,
-      )
-    : compilation.diagnostics;
-  const source = useMemo(() => {
-    if (format === "json") return JSON.stringify(scene, null, 2);
-    if (format === "recipe")
-      return JSON.stringify(recipeOf({ scene, options: settings }), null, 2);
-    if (format === "javascript")
-      return compilation.ok ? compilation.exported.code : "";
-    const measurementNote = measurement.snapshot
-      ? "// Fixed local-font metrics are included as data, not measured at runtime.\n// Recipient fonts can differ; remeasure explicitly or omit metrics after edits.\n"
-      : "";
-    const sceneCode = sourceString(scene);
-    const optionsCode = sourceString(options);
-    if (format === "typescript")
-      return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { emitConsole } from "@servrox/console-fx/browser";\n\nconst scene = defineScene(${sceneCode});\nemitConsole(scene, ${optionsCode});`;
-    if (format === "next")
-      return `"use client";\n\n${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { ConsoleBanner } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport default function StartupBanner() {\n  return <ConsoleBanner scene={scene} enabled options={${optionsCode}} />;\n}`;
-    return `${measurementNote}import { defineScene } from "@servrox/console-fx";\nimport { useConsoleScene } from "@servrox/console-fx-react";\n\nconst scene = defineScene(${sceneCode});\n\nexport function PrintMessage() {\n  const { log } = useConsoleScene(scene, ${optionsCode});\n  return <button onClick={log}>Print message</button>;\n}`;
-  }, [scene, format, options, settings, measurement.snapshot, compilation]);
+  const source = useMemo(() => prepared.source(format), [prepared, format]);
   const lineIndex = Math.max(
     0,
     Math.min(selection.line, scene.lines.length - 1),
@@ -524,7 +317,6 @@ export function Studio({
     }
     if (sameDocument(recipeOf(document), result.value)) return;
     dispatch({ type: "settings", options: result.value.options });
-    setPlaying(false);
     setNotice({
       kind: "info",
       message:
@@ -543,7 +335,6 @@ export function Studio({
       return;
     }
     dispatch({ type: "replace", scene: result.value });
-    setPlaying(false);
     setNotice(null);
   }
   function patchRun(patch: Record<string, unknown>) {
@@ -563,82 +354,7 @@ export function Studio({
   }
   function selectPreset(id: PresetId) {
     dispatch({ type: "load", document: createPresetExample(id) });
-    setSelection({ line: 0, run: 0 });
-    setPlaying(false);
     setNotice(null);
-  }
-  async function copy(text: string, label: string) {
-    if (copyPending.current) return;
-    copyPending.current = true;
-    setCopying(true);
-    setNotice({ kind: "info", message: `Copying ${label}…` });
-    try {
-      await navigator.clipboard.writeText(text);
-      setFailedCopy(null);
-      setNotice({ kind: "success", message: `${label} copied.` });
-    } catch {
-      setFailedCopy({ text, label });
-      setNotice({
-        kind: "error",
-        message:
-          "Clipboard access failed. Select the captured text below and copy it manually, or retry.",
-      });
-    } finally {
-      copyPending.current = false;
-      setCopying(false);
-    }
-  }
-  async function importFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    event.target.value = "";
-    if (!file) return;
-    const sequence = ++importSequence.current;
-    if (file.size > LIMITS.inputBytes) {
-      setNotice({
-        kind: "error",
-        message: "That file exceeds 64 KiB. Your current work is unchanged.",
-      });
-      return;
-    }
-    try {
-      const source = await file.text();
-      if (sequence !== importSequence.current) return;
-      const result = decodeDocument(source);
-      if (!result.ok) {
-        setNotice({
-          kind: "error",
-          message: `${result.diagnostics[0]!.message} Your current work is unchanged.`,
-        });
-        return;
-      }
-      dispatch({ type: "load", document: result.value });
-      setSelection({ line: 0, run: 0 });
-      setPlaying(false);
-      setNotice({
-        kind: "success",
-        message:
-          "Document imported. Undo restores your previous scene and render settings.",
-      });
-    } catch {
-      if (sequence !== importSequence.current) return;
-      setNotice({
-        kind: "error",
-        message: "The file could not be read. Your current work is unchanged.",
-      });
-    }
-  }
-  function retryStorage() {
-    const result = store.read();
-    setStorageIssue(result.kind === "error");
-    if (result.kind === "error")
-      setNotice({ kind: "error", message: result.message });
-    else {
-      store.queue(persisted, document.revision, true);
-      setNotice({
-        kind: "info",
-        message: "Storage is available. Your current scene has been preserved.",
-      });
-    }
   }
   function playPreview() {
     if (resolveMotion() !== "allow") {
@@ -744,30 +460,21 @@ export function Studio({
             <button
               type="button"
               disabled={!ready || !!pendingShared || !document.past.length}
-              onClick={() => {
-                dispatch({ type: "undo" });
-                setPlaying(false);
-              }}
+              onClick={() => dispatch({ type: "undo" })}
             >
               Undo
             </button>
             <button
               type="button"
               disabled={!ready || !!pendingShared || !document.future.length}
-              onClick={() => {
-                dispatch({ type: "redo" });
-                setPlaying(false);
-              }}
+              onClick={() => dispatch({ type: "redo" })}
             >
               Redo
             </button>
             <button
               type="button"
               disabled={!ready || !!pendingShared}
-              onClick={() => {
-                importSequence.current++;
-                setConfirmReset(true);
-              }}
+              onClick={session.requestReset}
             >
               Reset
             </button>
@@ -1010,10 +717,9 @@ export function Studio({
                 Output renderer
                 <select
                   value={renderer}
-                  onChange={(event) => {
-                    setRenderer(event.target.value as Renderer);
-                    setPlaying(false);
-                  }}
+                  onChange={(event) =>
+                    setRenderer(event.target.value as Renderer)
+                  }
                 >
                   <option value="css">CSS text · Chromium</option>
                   <option value="svg">SVG image · Chromium</option>
@@ -1023,10 +729,7 @@ export function Studio({
               {recommendedRenderer !== renderer && (
                 <button
                   type="button"
-                  onClick={() => {
-                    setRenderer(recommendedRenderer);
-                    setPlaying(false);
-                  }}
+                  onClick={() => setRenderer(recommendedRenderer)}
                 >
                   Use SVG renderer
                 </button>
@@ -1038,7 +741,7 @@ export function Studio({
               >
                 {diagnostics.map((diagnostic) => (
                   <p
-                    key={diagnostic.code}
+                    key={JSON.stringify(diagnostic)}
                     className={
                       diagnostic.severity === "error" ? "error-text" : ""
                     }
@@ -1519,7 +1222,11 @@ export function Studio({
                 <input
                   type="file"
                   accept=".json,application/json"
-                  onChange={(event) => void importFile(event)}
+                  onChange={(event) => {
+                    const file = event.target.files?.[0];
+                    event.target.value = "";
+                    void session.importFile(file);
+                  }}
                 />
               </label>
               <button
@@ -1602,7 +1309,7 @@ export function Studio({
             <button
               type="button"
               className="text-button"
-              onClick={() => store.clear(document.revision)}
+              onClick={session.clearDraft}
             >
               Clear local draft
             </button>
@@ -1635,7 +1342,7 @@ export function Studio({
           <button
             type="button"
             disabled={!!pendingShared}
-            onClick={retryStorage}
+            onClick={session.retryStorage}
           >
             Retry local storage
           </button>
@@ -1651,24 +1358,8 @@ export function Studio({
           title="Load the shared scene?"
           description="Loading this shared scene replaces your current document as one undoable change. Keep your current scene to continue where you left off."
           confirmLabel="Load shared scene"
-          onCancel={() => {
-            releaseShared.current?.();
-            releaseShared.current = null;
-            setPendingShared(null);
-            setNotice({ kind: "info", message: "Kept your current scene." });
-          }}
-          onConfirm={() => {
-            releaseShared.current?.();
-            releaseShared.current = null;
-            dispatch({ type: "load", document: pendingShared });
-            setPendingShared(null);
-            setPlaying(false);
-            setNotice({
-              kind: "success",
-              message:
-                "Shared scene loaded. Undo restores your previous scene.",
-            });
-          }}
+          onCancel={() => session.settleShared(false)}
+          onConfirm={() => session.settleShared(true)}
         />
       )}
       {pendingExample && !pendingShared && (
@@ -1676,21 +1367,8 @@ export function Studio({
           title="Edit this example in the playground?"
           description="This replaces your current scene and render settings as one undoable change. Your previous work remains in Undo."
           confirmLabel="Load example"
-          onCancel={() => {
-            onTransferDone?.(true);
-            setNotice({ kind: "info", message: "Kept your current scene." });
-          }}
-          onConfirm={() => {
-            dispatch({ type: "load", document: pendingExample });
-            setSelection({ line: 0, run: 0 });
-            setPlaying(false);
-            onTransferDone?.();
-            setNotice({
-              kind: "success",
-              message:
-                "Example loaded with its render settings. Undo restores your previous work.",
-            });
-          }}
+          onCancel={() => session.settleExample(false)}
+          onConfirm={() => session.settleExample(true)}
         />
       )}
       {confirmReset && (
@@ -1698,19 +1376,8 @@ export function Studio({
           title="Start a fresh message?"
           description="This discards the current scene and its undo history. The existing local draft stays stored; use Clear local draft to remove it. Autosave resumes only after your next edit."
           confirmLabel="Reset scene"
-          onCancel={() => setConfirmReset(false)}
-          onConfirm={() => {
-            store.protectThrough(document.revision + 1);
-            dispatch({ type: "reset" });
-            setSelection({ line: 0, run: 0 });
-            setConfirmReset(false);
-            setPlaying(false);
-            setNotice({
-              kind: "info",
-              message:
-                "Started a fresh message. The stored draft has not been deleted.",
-            });
-          }}
+          onCancel={() => session.settleReset(false)}
+          onConfirm={() => session.settleReset(true)}
         />
       )}
     </div>

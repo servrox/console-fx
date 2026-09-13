@@ -5,6 +5,34 @@ import { test as base, expect } from "@playwright/test";
 export const test = base.extend<{
   clipboard: { readText: () => Promise<string> };
 }>({
+  context: async ({ context }, use, testInfo) => {
+    if (!process.env.CONSOLE_FX_CDP_PORT) {
+      await use(context);
+      return;
+    }
+    // Framework tracing visits every context imported over CDP, including tabs
+    // this test does not own. Preserve action/DOM diagnostics for this context
+    // only; native screencasts can starve screenshot stability checks of frames.
+    await context.tracing.start({
+      screenshots: false,
+      snapshots: true,
+      sources: true,
+    });
+    try {
+      await use(context);
+    } finally {
+      const path =
+        testInfo.status !== testInfo.expectedStatus
+          ? testInfo.outputPath("trace.zip")
+          : undefined;
+      await context.tracing.stop(path ? { path } : undefined);
+      if (path)
+        await testInfo.attach("trace", {
+          path,
+          contentType: "application/zip",
+        });
+    }
+  },
   clipboard: async ({ page, context, browserName }, use) => {
     if (browserName === "chromium") {
       await context.grantPermissions(["clipboard-read", "clipboard-write"]);

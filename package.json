@@ -16,7 +16,7 @@
     "lint": "eslint packages apps tests scripts",
     "format:check": "prettier --check package.json pnpm-workspace.yaml 'tsconfig*.json' '*config.{mjs,ts}' 'packages/**/*.{ts,tsx,json,md}' 'apps/**/*.{ts,tsx,json,css}' 'scripts/**/*.mjs' 'tests/**/*.{ts,js,html}' 'examples/{next-app,react,vanilla,website}/**/*.{ts,tsx,mjs,json}' '.changeset/*.{json,md}' '.github/workflows/*.yml'",
     "test": "vitest run",
-    "test:release": "node --test tests/release-artifacts.test.js",
+    "test:release": "node --test tests/release-artifacts.test.js tests/studio-artifact.test.js",
     "test:codegen": "vitest run packages/console-fx/test/codegen.test.ts",
     "test:studio": "playwright test",
     "test:consumers": "node scripts/check-consumers.mjs",

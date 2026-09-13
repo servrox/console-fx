@@ -1,0 +1,28 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.499
+Make a browser-console message. Start with the live example.
+
+00:00:03.499 --> 00:00:08.585
+Write your message. Editing stays silent.
+
+00:00:08.585 --> 00:00:16.057
+Choose a style, then compare the same words as plain text.
+
+00:00:16.057 --> 00:00:20.376
+Open DevTools → Console. Test in console prints one entry.
+
+00:00:20.376 --> 00:00:27.635
+Copy the complete console.log. It runs without installing ConsoleFX.
+
+00:00:27.635 --> 00:00:28.576
+Need more control? Take the same scene into the playground.
+
+00:00:28.576 --> 00:00:35.061
+Confirm Load example. Your previous scene remains in Undo.
+
+00:00:35.061 --> 00:00:38.309
+Keep editing, with undo and a draft saved in this browser.
+
+00:00:38.309 --> 00:00:44.148
+Your complete export is ready to paste into your own code.

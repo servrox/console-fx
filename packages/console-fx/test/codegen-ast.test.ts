@@ -85,3 +85,15 @@ it("allows only one log statement, literal data, and the documented read-only me
     }
   }
 });
+
+it.each([
+  'console.log((async () => { try { return globalThis.matchMedia("(prefers-reduced-motion: no-preference)").matches; } catch { return false; } })());',
+  "console.log(((matches) => { try { return matches; } catch { return false; } })(true));",
+  'console.log((() => { try { return fetch("https://example.invalid"); } catch { return false; } })());',
+  'console.log((() => { try { return globalThis.matchMedia("(prefers-reduced-motion: no-preference)").matches; } catch { console.log("extra"); return false; } })());',
+])(
+  "rejects helper functions and extra capabilities in standalone source: %s",
+  (source) => {
+    expect(() => assertSourceGrammar(source)).toThrow();
+  },
+);

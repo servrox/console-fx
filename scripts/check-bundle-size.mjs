@@ -5,19 +5,17 @@ import { tmpdir } from "node:os";
 import { resolve } from "node:path";
 import { gzipSync } from "node:zlib";
 import {
-  artifacts,
-  hash,
   readJson,
+  readCandidate,
   root,
   run,
   saveReceipt,
 } from "./package-candidate.mjs";
 
-const candidate = readJson(resolve(artifacts, "candidate.json"));
+const candidate = readCandidate();
 const core = candidate.packages.find(
   (item) => item.name === "@servrox/console-fx",
 );
-assert.equal(core.sha256, hash(core.tarball));
 const consumer = mkdtempSync(resolve(tmpdir(), "console-fx-bundle-"));
 writeFileSync(
   resolve(consumer, "package.json"),

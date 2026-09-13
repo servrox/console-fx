@@ -1,16 +1,12 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { execFileSync } from "node:child_process";
-import { appendFileSync, lstatSync, readFileSync, realpathSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
+import { appendFileSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { readCandidate } from "./package-candidate.mjs";
 
 const repository = "servrox/console-fx";
 const root = fileURLToPath(new URL("..", import.meta.url));
-const packageDirectories = ["console-fx", "console-fx-react"];
-const sha256 = (path) =>
-  createHash("sha256").update(readFileSync(path)).digest("hex");
-const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
 export function verifyRegistryMetadata(metadata, candidate) {
   assert.equal(metadata.name, candidate.name, "Wrong registry package");
@@ -90,82 +86,18 @@ export function verifyReleaseArtifacts({
     ["latest", "next"].includes(tag),
     "Choose the reviewed latest or next tag",
   );
-  const candidate = readJson(join(artifactsDirectory, "candidate.json"));
-  assert.equal(
-    candidate.lockSha256,
-    sha256(join(sourceRoot, "pnpm-lock.yaml")),
-    "Candidate lockfile differs from the checked-out source",
-  );
-  assert.equal(
-    candidate.packages.length,
-    2,
-    "Expected both ConsoleFX packages",
-  );
-  return packageDirectories.map((directory, index) => {
-    const name = `@servrox/${directory}`;
+  const candidate = readCandidate({ artifactsDirectory, sourceRoot });
+  return candidate.packages.map(({ name, version, tarball, sha256 }, index) => {
     const expected = expectedHashes[index];
     assert.match(
       expected,
       /^[a-f0-9]{64}$/,
       `A reviewed SHA-256 is required for ${name}`,
     );
-    const source = readJson(
-      join(sourceRoot, "packages", directory, "package.json"),
-    );
-    assert.equal(source.name, name);
-    assert.match(source.version, /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/);
+    assert.equal(sha256, expected, "Receipt differs from the reviewed hash");
     if (tag === "latest")
-      assert(
-        !source.version.includes("-"),
-        "A prerelease cannot use the stable tag",
-      );
-    const matches = candidate.packages.filter((item) => item.name === name);
-    assert.equal(matches.length, 1, `Expected exactly one ${name} candidate`);
-    const item = matches[0];
-    assert.equal(
-      item.version,
-      source.version,
-      "Candidate version differs from source",
-    );
-    assert.equal(item.directory, directory);
-    const filename = `servrox-${directory}-${source.version}.tgz`;
-    assert.equal(
-      basename(item.tarball),
-      filename,
-      "Unexpected tarball filename",
-    );
-    // Receipts contain the build runner's absolute path. Resolve only the known
-    // downloaded filename; never follow that recorded path on the release runner.
-    const tarball = resolve(artifactsDirectory, filename);
-    assert(lstatSync(tarball).isFile(), "The candidate must be a regular file");
-    assert.equal(
-      realpathSync(tarball),
-      join(realpathSync(artifactsDirectory), filename),
-    );
-    assert.equal(
-      item.sha256,
-      expected,
-      "Receipt differs from the reviewed hash",
-    );
-    assert.equal(
-      sha256(tarball),
-      expected,
-      "Tarball differs from the reviewed hash",
-    );
-    const packed = JSON.parse(
-      execFileSync("tar", ["-xOzf", tarball, "package/package.json"], {
-        encoding: "utf8",
-        maxBuffer: 1024 * 1024,
-      }),
-    );
-    assert.equal(packed.name, name);
-    assert.equal(packed.version, source.version);
-    assert.equal(
-      packed.repository?.url,
-      `git+https://github.com/${repository}.git`,
-    );
-    assert.equal(packed.publishConfig?.access, "public");
-    return { name, version: source.version, tarball, sha256: expected, tag };
+      assert(!version.includes("-"), "A prerelease cannot use the stable tag");
+    return { name, version, tarball, sha256, tag };
   });
 }
 

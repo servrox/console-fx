@@ -44,6 +44,16 @@ contains only public registry URLs; user authentication configuration is never
 copied. Registry results use `registry-consumers.json` and
 `registry-consumer-environment/`, separate from the local-tarball evidence.
 
+Consumer, bundle-size and release checks share the candidate reader in
+`scripts/package-candidate.mjs`. It validates both package identities, source
+versions, lockfile, regular tarball files, bytes and packed metadata before use.
+Recorded runner paths are provenance; local tarballs resolve beside the receipt.
+To recheck a downloaded candidate without rewriting its receipt, set
+`CONSOLE_FX_PACKAGE_ARTIFACTS=/absolute/path/to/extracted/.artifacts/packages`
+for `test:consumers`, `test:registry-consumers` or `check:bundle-size`. Result
+receipts still go to this checkout's `.artifacts/packages`. Release verification
+continues to require the separately reviewed hashes and distribution tag.
+
 ## Configure OIDC after bootstrap
 
 The following account changes still require their exact-target approval. On

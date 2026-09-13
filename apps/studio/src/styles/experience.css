@@ -220,11 +220,38 @@
   font-size: 0.83rem;
 }
 .curated-section,
+.usage-video-section,
 .use-cases,
 .adoption-section,
 .native-comparison,
 .trust-section {
   margin-bottom: 80px;
+}
+.usage-video {
+  margin: 0;
+}
+.usage-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  background: var(--inset);
+  border: 1px solid var(--control-border);
+  border-radius: 14px;
+}
+.usage-video figcaption {
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.usage-transcript {
+  margin: 16px 0;
+}
+.usage-transcript li {
+  max-width: 72ch;
+  margin: 12px 0;
+  line-height: 1.6;
 }
 .curated-section > .fine-print {
   margin-top: 20px;
@@ -628,6 +655,7 @@ button.example-card:hover:not(:disabled) {
     display: block;
   }
   .curated-section,
+  .usage-video-section,
   .use-cases,
   .adoption-section,
   .native-comparison,

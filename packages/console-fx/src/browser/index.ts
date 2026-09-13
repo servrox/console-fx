@@ -14,6 +14,8 @@ export { measureTextBatch } from "./measure.js";
 export { prepareTextMeasurements } from "./preflight.js";
 import { record, SceneValidationError } from "../validation/index.js";
 import { ConsoleCompileError } from "./compiler.js";
+import { resolveMotion } from "./motion.js";
+export { resolveMotion } from "./motion.js";
 export { ConsoleCompileError } from "./compiler.js";
 export type {
   CompileOptions,
@@ -53,17 +55,6 @@ export function compileCssConsole(
 export type BrowserOptions = Omit<CompileOptions, "motion"> & {
   readonly motion?: "system" | "reduce";
 };
-export function resolveMotion(): "allow" | "reduce" {
-  try {
-    return typeof globalThis.matchMedia === "function" &&
-      globalThis.matchMedia("(prefers-reduced-motion: no-preference)")
-        .matches === true
-      ? "allow"
-      : "reduce";
-  } catch {
-    return "reduce";
-  }
-}
 export function emitConsole(
   input: SceneInputV1,
   options: BrowserOptions = {},
