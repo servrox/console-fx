@@ -115,8 +115,12 @@ corrective version or an approved tag rollback for released defects; do not rely
 on unpublishing. Reverify registry contents and consumer installs after recovery.
 
 Local checks: `pnpm run test:release` covers altered package bytes, forged receipts,
-source/filename drift and invalid CI/artifact metadata. The verification-only
-`node scripts/verify-release.mjs artifacts` command also passed against both current
-approved tarballs. These checks neither establish remote CI nor exercise npm OIDC.
+source/filename drift and invalid CI/artifact metadata. Run the verification-only
+`node scripts/verify-release.mjs artifacts` command against each selected
+candidate using its explicitly reviewed hashes. The
+[dated pair receipt](evidence/packages/2026-09-13/README.md) retains the approved
+0.1.0 publication and registry observations; it does not validate or approve
+later 0.1.1 candidates. Local verifier checks neither establish remote CI nor
+exercise npm OIDC.
 The final workflows also pass Nix-managed actionlint 1.7.12. The GitHub API metadata
 shape was checked with API version `2026-03-10` against an official Actions artifact.
