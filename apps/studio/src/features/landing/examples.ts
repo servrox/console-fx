@@ -1,6 +1,13 @@
 import { defineScene } from "@servrox/console-fx";
 import type { RenderRecipeV1, SceneV1 } from "@servrox/console-fx";
-import { neon, rgbSplit, chrome } from "@servrox/console-fx/presets";
+import {
+  neon,
+  rgbSplit,
+  chrome,
+  commandCard,
+  buildReceipt,
+  releaseBulletin,
+} from "@servrox/console-fx/presets";
 
 export const EXAMPLES = [
   {
@@ -16,7 +23,7 @@ export const EXAMPLES = [
     name: "Welcome to the SDK",
     category: "useful",
     text: "Atlas SDK",
-    purpose: "Put a mode and a useful next step beside your welcome.",
+    purpose: "A welcome with a clear next step in a command card.",
     sample: true,
   },
   {
@@ -24,7 +31,7 @@ export const EXAMPLES = [
     name: "Know your build",
     category: "useful",
     text: "atlas-web",
-    purpose: "Keep the project, environment and revision together.",
+    purpose: "A build receipt with its revision, checks and environment.",
     sample: true,
   },
   {
@@ -32,7 +39,7 @@ export const EXAMPLES = [
     name: "Mark a milestone",
     category: "useful",
     text: "Build complete",
-    purpose: "Summarize one completed moment with supplied facts.",
+    purpose: "An editorial bulletin for a release and its highlights.",
     sample: true,
   },
   {
@@ -82,33 +89,47 @@ export function exampleRecipe(
         })),
       })),
     });
+  } else if (id === "sdkWelcome") {
+    scene = commandCard({
+      step: "01",
+      title: text,
+      instruction: "Sandbox mode · See the SDK guide",
+      command: "await atlas.connect()",
+      safety: "Command shown, never executed.",
+    });
+  } else if (id === "devContext") {
+    scene = buildReceipt({
+      project: text,
+      outcome: "PASSED",
+      revision: "a1b2c3d",
+      duration: "2.34 s",
+      checks: "48 / 48",
+      environment: "preview",
+    });
+  } else if (id === "milestone") {
+    scene = releaseBulletin({
+      product: "ATLAS",
+      version: "v2.4.0",
+      headline: text,
+      changes: ["48 checks passed", "Ready for review"],
+      channel: "Preview channel",
+    });
   } else {
-    const lines =
-      id === "sdkWelcome"
-        ? [text, "Sandbox mode", "See the SDK guide"]
-        : id === "devContext"
-          ? [text, "preview", "Revision a1b2c3d"]
-          : id === "milestone"
-            ? [text, "48 checks passed", "Ready for review"]
-            : [text, "A small detail for developers."];
     scene = defineScene({
       schemaVersion: 1,
       label: EXAMPLES.find((example) => example.id === id)!.name,
       surface: { width: 520, height: 166, padding: 24, background: "#0c1117" },
-      lines: lines.map((value, index) => ({
+      lines: [text, "A small detail for developers."].map((value, index) => ({
         runs: [
           {
             text: value,
             style: {
               fontSize: index === 0 ? 25 : 14,
               fontWeight: index === 0 ? 700 : 400,
-              fontFamily: id === "quietEditorial" ? "serif" : "mono",
+              fontFamily: "serif",
               color: index === 0 ? "#e8f3f5" : "#b9cbd2",
             },
-            effects:
-              index === 1 && id !== "quietEditorial"
-                ? [{ kind: "badge", color: "#bdf4ee" }]
-                : [],
+            effects: [],
           },
         ],
       })),

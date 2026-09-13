@@ -54,7 +54,12 @@ export function ExampleGallery() {
                 session.transfer(recipe);
               }}
             >
-              <span className="example-preview">
+              <span
+                className="example-preview"
+                data-presentation={
+                  recipe.scene.presentation ? "card" : undefined
+                }
+              >
                 <ConsolePreview scene={recipe.scene} options={recipe.options} />
               </span>
               <span className="example-caption">

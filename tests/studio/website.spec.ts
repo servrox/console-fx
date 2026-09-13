@@ -2,7 +2,10 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 import { neon } from "../../packages/console-fx/dist/presets/index.js";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
-import { exampleRecipe } from "../../apps/studio/src/features/landing/examples";
+import {
+  EXAMPLES,
+  exampleRecipe,
+} from "../../apps/studio/src/features/landing/examples";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
 
@@ -20,6 +23,120 @@ test.beforeEach(async ({ page }) => {
     };
   });
 });
+
+for (const [index, scenario] of [
+  { id: "sdkWelcome", profile: "commandCard/v1", field: "Title" },
+  { id: "devContext", profile: "buildReceipt/v1", field: "Project" },
+  { id: "milestone", profile: "releaseBulletin/v1", field: "Headline" },
+].entries()) {
+  test(`useful ${scenario.id} keeps its distinct card through comparison, export and undo`, async ({
+    page,
+  }) => {
+    const example = EXAMPLES.find((item) => item.id === scenario.id)!;
+    const recipe = exampleRecipe(example.id);
+    const output = compileConsole(recipe.scene, recipe.options);
+    if (output.preview.kind !== "svg") throw Error("SVG expected");
+    const prior = neon({ text: "Keep my draft" });
+    await page.addInitScript(
+      ({ key, prior }) => localStorage.setItem(key, JSON.stringify(prior)),
+      { key: draftKey, prior },
+    );
+    await page.goto("/");
+    await page
+      .getByRole("button", { name: "Make it useful", exact: true })
+      .click();
+    const card = page.getByRole("button", {
+      name: `Edit ${example.name} example`,
+      exact: true,
+    });
+    await expect(card.locator("img")).toHaveAttribute(
+      "src",
+      output.preview.imageUri,
+    );
+    mkdirSync(artifact, { recursive: true });
+    if (index === 0) {
+      await page.locator(".curated-section").screenshot({
+        path: `${artifact}/useful-gallery-${test.info().project.name}.png`,
+      });
+    } else {
+      const demo = page.locator(".quick-demo");
+      await demo
+        .getByRole("button", {
+          name: index === 1 ? "Dev context" : "Summary",
+          exact: true,
+        })
+        .click();
+      await expect(demo.locator(".comparison-result img")).toHaveAttribute(
+        "src",
+        output.preview.imageUri,
+      );
+      await demo.screenshot({
+        path: `${artifact}/useful-hero-${example.id}-${test.info().project.name}.png`,
+      });
+      const heading = "Atlas sandbox";
+      await demo
+        .getByRole("textbox", { name: "Sample heading", exact: true })
+        .fill(heading);
+      const editedRecipe = exampleRecipe(example.id, heading);
+      const edited = compileConsole(editedRecipe.scene, editedRecipe.options);
+      if (edited.preview.kind !== "svg") throw Error("SVG expected");
+      await expect(demo.locator(".comparison-result img")).toHaveAttribute(
+        "src",
+        edited.preview.imageUri,
+      );
+    }
+    const comparison = page.locator(".use-case-comparison").nth(index);
+    await expect(comparison.locator("img")).toHaveAttribute(
+      "src",
+      output.preview.imageUri,
+    );
+    await comparison
+      .getByRole("button", { name: "Plain", exact: true })
+      .click();
+    await expect(comparison.locator("pre")).toHaveText(output.text);
+    await card.click();
+    await page
+      .getByRole("button", { name: "Load example", exact: true })
+      .click();
+    const editor = page.locator("#editor-workspace");
+    await expect(
+      editor.getByRole("textbox", { name: scenario.field, exact: true }),
+    ).toHaveValue(example.text);
+    await expect
+      .poll(() =>
+        page.evaluate(
+          (key) =>
+            JSON.parse(localStorage.getItem(key) ?? "null")?.scene.presentation
+              ?.profile,
+          recipeKey,
+        ),
+      )
+      .toBe(scenario.profile);
+    expect(
+      await page.evaluate(
+        (key) => JSON.parse(localStorage.getItem(key)!),
+        draftKey,
+      ),
+    ).toEqual(prior);
+    const calls: unknown[][] = [];
+    new Function(
+      "console",
+      await editor.getByLabel("Generated code", { exact: true }).inputValue(),
+    )({
+      log: (...args: unknown[]) => calls.push(args),
+    });
+    expect(calls).toEqual([output.args]);
+    await editor.getByRole("button", { name: "Undo", exact: true }).click();
+    await expect(
+      editor.getByRole("textbox", { name: "Message text", exact: true }),
+    ).toHaveValue("Keep my draft");
+    expect(
+      await page.evaluate(
+        () => (window as unknown as { websiteCalls: unknown[] }).websiteCalls,
+      ),
+    ).toEqual([]);
+  });
+}
 
 for (const failure of ["missing", "throws"] as const) {
   test(`optional observers ${failure}: plain workflow transfer and undo remain usable`, async ({
@@ -294,7 +411,7 @@ test("shared-scene decisions have priority over landing transfers", async ({
     .getByRole("button", { name: "Load shared scene", exact: true })
     .click();
   await expect(
-    page.getByRole("textbox", { name: "Message text", exact: true }),
+    page.getByRole("textbox", { name: "Project", exact: true }),
   ).toHaveValue("atlas-web");
   await expect(
     page
