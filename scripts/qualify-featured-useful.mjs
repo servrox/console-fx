@@ -11,7 +11,9 @@ import { chromium, expect } from "@playwright/test";
 
 const [port, name, destination, collection = "useful"] = process.argv.slice(2);
 assert(/^\d+$/.test(port ?? "") && /^(chrome|edge)$/.test(name ?? ""));
-assert(["useful", "reference", "reference-motion"].includes(collection));
+assert(
+  ["useful", "reference", "reference-motion", "container"].includes(collection),
+);
 const moving = collection === "reference-motion";
 assert(destination, "Supply a new evidence directory");
 const directory = resolve(destination);
@@ -24,7 +26,11 @@ const examplesPath = collection.startsWith("reference")
 const catalog = await import(pathToFileURL(join(root, examplesPath)));
 const examples = collection.startsWith("reference")
   ? catalog.REFERENCE_EXAMPLES.filter((example) => !moving || example.motion)
-  : catalog.EXAMPLES.filter((example) => example.category === "useful");
+  : catalog.EXAMPLES.filter((example) =>
+      collection === "container"
+        ? example.id === "devContext"
+        : example.category === "useful",
+    );
 const exampleRecipe = catalog.referenceRecipe ?? catalog.exampleRecipe;
 const { compileConsole } = await import(
   pathToFileURL(join(root, "packages/console-fx/dist/browser/index.js"))
@@ -36,6 +42,8 @@ const sha = (content) => createHash("sha256").update(content).digest("hex");
 const fixtures = examples.map(({ id }) => {
   const recipe = exampleRecipe(id);
   if (moving) recipe.options.motion = "system";
+  if (collection === "container")
+    recipe.options.sizing = { mode: "container-experimental", maxWidth: 360 };
   const output = compileConsole(recipe.scene, {
     ...recipe.options,
     motion: moving ? "allow" : "reduce",
@@ -234,6 +242,29 @@ try {
           bounds.width >= entry.output.preview.width &&
           bounds.height >= entry.output.preview.height,
       );
+      let captionBounds;
+      if (collection === "container") {
+        captionBounds = await message.evaluate((element, firstLine) => {
+          const walker = document.createTreeWalker(
+            element,
+            window.NodeFilter.SHOW_TEXT,
+          );
+          let node;
+          while ((node = walker.nextNode())) {
+            const index = node.textContent.indexOf(firstLine);
+            if (index < 0) continue;
+            const range = document.createRange();
+            range.setStart(node, index);
+            range.setEnd(node, index + firstLine.length);
+            return range.getBoundingClientRect().toJSON();
+          }
+          return null;
+        }, entry.output.text.split("\n")[0]);
+        assert(
+          captionBounds && captionBounds.y >= bounds.y + bounds.height - 1,
+          "Caption must follow the carrier without overlap",
+        );
+      }
       const environment = await native.evaluate(() => ({
         viewport: [window.innerWidth, window.innerHeight],
         devicePixelRatio: window.devicePixelRatio,
@@ -298,6 +329,7 @@ try {
           : {}),
         argumentsEqual: true,
         completeCaption: true,
+        ...(captionBounds ? { captionBounds, captionFollowsImage: true } : {}),
         visibleText: await message.textContent(),
         imageBounds: bounds,
         environment,

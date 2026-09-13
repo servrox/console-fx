@@ -17,7 +17,7 @@ export function ReferenceGallery({
   const [selected, setSelected] = useState<ReferenceExampleId | null>(null);
   return (
     <details
-      className="reference-gallery full-preset-gallery"
+      className="reference-gallery"
       onToggle={(event) => setOpen(event.currentTarget.open)}
     >
       <summary>Browse {REFERENCE_EXAMPLES.length} output examples</summary>

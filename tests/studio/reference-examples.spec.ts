@@ -63,6 +63,11 @@ test("the complete gallery transfers the exact dolphin, keeps it static and copi
   await expect(gallery.locator(".example-card")).toHaveCount(
     REFERENCE_EXAMPLES.length,
   );
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth + 1,
+    ),
+  ).toBe(true);
   for (const { id, name } of REFERENCE_EXAMPLES) {
     const output = compileConsole(
       referenceRecipe(id).scene,
@@ -140,4 +145,47 @@ test("the complete gallery transfers the exact dolphin, keeps it static and copi
   await expect(
     editor.getByRole("textbox", { name: "Message text", exact: true }),
   ).toHaveValue(recipe.scene.lines[0]!.runs[0]!.text);
+});
+
+test("motion previews play and return to the exact static image without changing exports", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/studio/");
+  for (const id of ["animatedSvg", "animatedDolphin"] as const) {
+    await page
+      .getByRole("combobox", { name: "Start from a preset", exact: true })
+      .selectOption(`example:${id}`);
+    const recipe = referenceRecipe(id);
+    const still = compileConsole(recipe.scene, recipe.options);
+    const moving = compileConsole(recipe.scene, {
+      ...recipe.options,
+      motion: "allow",
+    });
+    if (still.preview.kind !== "svg" || moving.preview.kind !== "svg")
+      throw new Error("SVG expected");
+    const code = await page
+      .getByLabel("Generated code", { exact: true })
+      .inputValue();
+    await page.getByRole("button", { name: "Play", exact: true }).click();
+    await expect(page.locator(".preview-content img")).toHaveAttribute(
+      "src",
+      moving.preview.imageUri,
+    );
+    await page
+      .getByRole("button", { name: "Show static", exact: true })
+      .click();
+    await expect(page.locator(".preview-content img")).toHaveAttribute(
+      "src",
+      still.preview.imageUri,
+    );
+    await expect(
+      page.getByLabel("Generated code", { exact: true }),
+    ).toHaveValue(code);
+  }
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
+    ),
+  ).toEqual([]);
 });

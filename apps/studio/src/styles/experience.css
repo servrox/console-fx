@@ -414,10 +414,12 @@ button.example-card:hover:not(:disabled) {
 .integrated-editor .studio-shell {
   margin-bottom: 0;
 }
-.full-preset-gallery {
+.full-preset-gallery,
+.reference-gallery {
   padding: 20px 0;
 }
-.full-preset-gallery > summary {
+.full-preset-gallery > summary,
+.reference-gallery > summary {
   cursor: pointer;
   font-weight: 700;
 }

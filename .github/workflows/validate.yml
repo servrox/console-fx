@@ -66,5 +66,6 @@ jobs:
             test-results/
             playwright-report/
 
-# Native Windows 11 DevTools and manual accessibility observations remain
-# separate promotion gates. This workflow neither publishes nor deploys.
+# Native Windows 11 DevTools qualification remains separate from CI.
+# Screen-reader review is nonblocking under ADR-0013.
+# This workflow neither publishes nor deploys.
