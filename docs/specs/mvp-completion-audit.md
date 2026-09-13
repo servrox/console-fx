@@ -12,6 +12,15 @@ waiver is inferred from publication approval. The active goal remains open.
 
 ## Source and release identity
 
+The latest package/test checkpoint is
+`e2fdc128a13b3ac0c2965edbfd73868ed3f112ba`, which merged
+[PR #22](https://github.com/servrox/console-fx/pull/22). Its
+[main CI](https://github.com/servrox/console-fx/actions/runs/34778964221) passed
+342 Vitest cases, 82 studio browser checks and three packed-consumer journeys.
+The CI tarball hashes match the locally reviewed 0.1.1 pair in the
+[release preparation](patch-release-preparation.md). This establishes versioned
+source and CI evidence; 0.1.1 publication and registry consumers remain pending.
+
 The subsequent [reference-example integration and fresh source audit](reference-examples-integration.md)
 adds all fourteen concepts from the two original mockups and corrects three
 compiler findings (hard fitting limits, container caption placement and
@@ -61,6 +70,27 @@ corrections are outside that historical parity comparison and are recorded in
 the [0.1.1 changelog](../../packages/console-fx/CHANGELOG.md#011). Source and
 published consumers have separate evidence. OIDC configuration/execution remains future automation;
 the approved first publication used npm's interactive bootstrap.
+
+## Later workbench request: implementation pending
+
+- The [proposal](workbench-proposal.md) defines six developer-job categories,
+  a short cinematic landing, a persistent sidebar workbench, output/code
+  interactions and automatic sizing for new examples. Its contract has twelve
+  acceptance criteria; the existing page does not implement them.
+- ADR-0016 and ADR-0017 remain **Proposed**. The requested review precedes
+  product implementation. The automatic creation default needs the narrow
+  successor to ADR-0015's existing sizing intent before it can change.
+- The [test strategy](testing-strategy.md) and maintenance are merged in
+  PR #22 with the CI results above. The [preparation receipt](workbench-preparation-evidence.md)
+  preserves the earlier local checks and separate documentation integration.
+- [amicro adaptations](workbench-interactions.md) are selected and documented;
+  they are not installed or shipped. The separate
+  [technology section](../technology/README.md) documents the current stack and
+  complete dependency-version inventory.
+
+The matrices below retain evidence for the previously implemented specification.
+They do not count proposed workbench behavior as complete or qualify newly
+requested layouts/default combinations through older screenshots.
 
 ## Base specification: all 24 acceptance criteria
 

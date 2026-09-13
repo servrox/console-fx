@@ -6,7 +6,7 @@ A TypeScript library and visual studio for designing expressive browser-console 
 
 > **Status: core and React 0.1.0 published under `next`.** Both packages passed the registry-only consumer matrix, and the [studio is live](https://console-fx-servroxs-projects.vercel.app). See the [release ledger](docs/releasing.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
 
-[Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Mockup collection](docs/mockups/README.md)
+[Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Technology & dependencies](docs/technology/README.md) · [Mockup collection](docs/mockups/README.md)
 
 ## Install the core preview release
 
