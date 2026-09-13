@@ -637,18 +637,20 @@ export function Studio({
                     </button>
                   </div>
                   {run && (
-                    <>
-                      <label>
-                        Message text
-                        <textarea
-                          rows={4}
-                          value={run.text}
-                          onChange={(event) =>
-                            patchRun({ text: event.target.value })
-                          }
-                        />
-                      </label>
-                      <div className="button-row compact">
+                    <label>
+                      Message text
+                      <textarea
+                        rows={4}
+                        value={run.text}
+                        onChange={(event) =>
+                          patchRun({ text: event.target.value })
+                        }
+                      />
+                    </label>
+                  )}
+                  {line && (
+                    <div className="button-row compact">
+                      {run && (
                         <button
                           type="button"
                           onClick={() =>
@@ -669,21 +671,21 @@ export function Studio({
                         >
                           Remove run
                         </button>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            commit({
-                              ...scene,
-                              lines: scene.lines.filter(
-                                (_, index) => index !== lineIndex,
-                              ),
-                            })
-                          }
-                        >
-                          Remove line
-                        </button>
-                      </div>
-                    </>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          commit({
+                            ...scene,
+                            lines: scene.lines.filter(
+                              (_, index) => index !== lineIndex,
+                            ),
+                          })
+                        }
+                      >
+                        Remove line
+                      </button>
+                    </div>
                   )}
                 </>
               )}

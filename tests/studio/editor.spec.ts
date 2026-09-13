@@ -64,6 +64,57 @@ test("structural additions advance selection only after a valid undoable edit", 
   }
 });
 
+test("empty lines remain removable and structural deletion stays undoable", async ({
+  page,
+}) => {
+  await page.goto("/studio/");
+  const text = page.getByRole("textbox", { name: "Message text", exact: true });
+  const removeRun = page.getByRole("button", {
+    name: "Remove run",
+    exact: true,
+  });
+  const removeLine = page.getByRole("button", {
+    name: "Remove line",
+    exact: true,
+  });
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  const redo = page.getByRole("button", { name: "Redo", exact: true });
+  const lines = page.locator(".line-list .line-label");
+  await expect(text).toHaveValue("Hello, developer.");
+  await removeRun.click();
+  await expect(text).toHaveCount(0);
+  await expect(removeRun).toHaveCount(0);
+  await removeLine.click();
+  await expect(lines).toHaveCount(0);
+  await expect(removeLine).toHaveCount(0);
+  await undo.click();
+  await expect(lines).toHaveCount(1);
+  await expect(removeLine).toBeVisible();
+  await expect(text).toHaveCount(0);
+  await undo.click();
+  await expect(text).toHaveValue("Hello, developer.");
+  await redo.click();
+  await expect(text).toHaveCount(0);
+  await redo.click();
+  await expect(lines).toHaveCount(0);
+  for (const runs of [[], [{ runs: [] }]]) {
+    await page.locator('input[type="file"]').setInputFiles({
+      name: "empty.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify({ ...neon(), lines: runs })),
+    });
+    await expect(lines).toHaveCount(runs.length);
+    if (runs.length) {
+      await removeLine.click();
+      await expect(lines).toHaveCount(0);
+    }
+    await page.getByRole("button", { name: "+ Text run", exact: true }).click();
+    await expect(text).toHaveValue("Another line");
+    await undo.click();
+    await expect(lines).toHaveCount(0);
+  }
+});
+
 test("explicit rich renderer selection updates an imported target in one undoable step", async ({
   page,
 }) => {
