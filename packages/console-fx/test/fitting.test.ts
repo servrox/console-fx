@@ -35,6 +35,68 @@ const layout: LayoutRequest = {
 const options: CompileOptions = { target: "chromium", renderer: "svg", layout };
 
 describe("fitting text boundary recovery", () => {
+  it.each(["error", "fallback"] as const)(
+    "keeps resource and invalid-sizing failures fatal under %s policy",
+    (unsupported) => {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "",
+        surface: { padding: 0 },
+        lines: [
+          { runs: [{ text: "界".repeat(1900), style: { fontSize: 96 } }] },
+        ],
+      });
+      const sink = vi.fn();
+      expect(() =>
+        emitConsole(
+          scene,
+          {
+            ...options,
+            motion: "reduce",
+            unsupported,
+            layout: {
+              ...layout,
+              width: 80,
+              maxHeight: 40,
+              overflow: "shrink",
+              minFontSize: 8,
+            },
+          },
+          sink,
+        ),
+      ).toThrowError(
+        expect.objectContaining({
+          diagnostics: expect.arrayContaining([
+            expect.objectContaining({
+              code: "resource-limit",
+              severity: "error",
+            }),
+          ]),
+        }),
+      );
+      expect(sink).not.toHaveBeenCalled();
+      expect(() =>
+        compileConsole(
+          { ...scene, surface: { width: 80, height: 400 }, lines: [] },
+          {
+            target: "chromium",
+            renderer: "svg",
+            unsupported,
+            sizing: { mode: "fixed", width: 160 },
+          },
+        ),
+      ).toThrowError(
+        expect.objectContaining({
+          diagnostics: expect.arrayContaining([
+            expect.objectContaining({
+              code: "invalid-options",
+              severity: "error",
+            }),
+          ]),
+        }),
+      );
+    },
+  );
   const fit = {
     ...options,
     layout: { ...layout, width: 70, overflow: "wrap" as const },
@@ -366,6 +428,19 @@ describe("explicit fitting contracts", () => {
     expect(dynamic.layout?.resolvedDisplayHeight).toBeNull();
     expect(dynamic.layout?.displayReadability).toBe("unknown");
     expect(dynamic.args[1]).toContain("min(180px, 48%)");
+    expect(dynamic.args[0]).toBe("%c %c\n%s%c");
+    expect(dynamic.args.slice(2)).toEqual(["", dynamic.text, ""]);
+    expect(fixed.args[0]).toBe("%c %c%s%c");
+    const calls: unknown[][] = [];
+    new Function(
+      "console",
+      exportConsoleLog(scene, {
+        ...options,
+        sizing: { mode: "container-experimental", maxWidth: 360 },
+        motion: "reduce",
+      }).code,
+    )({ log: (...args: unknown[]) => calls.push(args) });
+    expect(calls).toEqual([dynamic.args]);
     expect(dynamic.diagnostics.map((d) => d.code)).toContain(
       "experimental-container-sizing",
     );

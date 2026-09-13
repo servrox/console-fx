@@ -98,7 +98,7 @@ export function renderWithLayout(
     )
       fail(
         "below-readable-size",
-        "Fixed display sizing would violate the default readable font floor. Choose a larger width, explicit fitting or plain text.",
+        "Text is too small. Enlarge output or use plain text.",
         ["sizing"],
       );
   }

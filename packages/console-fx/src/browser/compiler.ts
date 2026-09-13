@@ -93,6 +93,18 @@ export function diagnoseRichScene(
     );
   for (const [lineIndex, line] of scene.lines.entries())
     for (const [runIndex, run] of line.runs.entries()) {
+      // XML 1.0 cannot encode these characters. Labels are not SVG markup;
+      // only rendered runs need this capability check. CSS/text stay lossless.
+      if (configuration.renderer === "svg" && /[\uFFFE\uFFFF]/u.test(run.text))
+        unsupported.push(
+          problem("unsupported-svg-text", "SVG cannot encode this text.", [
+            "lines",
+            lineIndex,
+            "runs",
+            runIndex,
+            "text",
+          ]),
+        );
       if (
         run.effects.filter(
           (effect) => effectDescriptor(effect.kind)!.motion === "static",
@@ -220,6 +232,22 @@ export function compileScene(
       preview: { kind: "text", text },
       diagnostics,
     });
+  const fallback = (failures: readonly Diagnostic[]) => {
+    diagnostics.push(
+      ...failures.map((entry): Diagnostic => ({
+        ...entry,
+        severity: "warning",
+      })),
+      {
+        ...problem(
+          "renderer-fallback",
+          `${configuration.renderer} output fell back to static text.`,
+        ),
+        severity: "warning",
+      },
+    );
+    return plain();
+  };
   if (configuration.renderer === "text") {
     diagnostics.push({
       code: "plain-text",
@@ -236,19 +264,7 @@ export function compileScene(
   if (unsupported.length) {
     if (configuration.unsupported === "error")
       throw new ConsoleCompileError(unsupported);
-    diagnostics.push(
-      ...unsupported.map((entry): Diagnostic => ({
-        ...entry,
-        severity: "warning",
-      })),
-      {
-        code: "renderer-fallback",
-        severity: "warning",
-        path: [],
-        message: `${configuration.renderer} output fell back to static text.`,
-      },
-    );
-    return plain();
+    return fallback(unsupported);
   }
   if (configuration.renderer === "css") {
     const output = renderCss(scene);
@@ -277,22 +293,19 @@ export function compileScene(
     output = renderSvg(scene, configuration.motion === "allow", configuration);
   } catch (error) {
     if (error instanceof SceneValidationError) {
-      if (configuration.unsupported === "error")
+      if (
+        configuration.unsupported === "error" ||
+        error.diagnostics.some(
+          ({ code }) =>
+            ![
+              "layout-overflow",
+              "unsupported-layout",
+              "below-readable-size",
+            ].includes(code),
+        )
+      )
         throw new ConsoleCompileError(error.diagnostics);
-      diagnostics.push(
-        ...error.diagnostics.map((d): Diagnostic => ({
-          ...d,
-          severity: "warning",
-        })),
-        {
-          ...problem(
-            "renderer-fallback",
-            "Requested layout fell back to complete static text.",
-          ),
-          severity: "warning",
-        },
-      );
-      return plain();
+      return fallback(error.diagnostics);
     }
     if (error instanceof RangeError)
       throw new ConsoleCompileError([
@@ -311,7 +324,9 @@ export function compileScene(
   const width = output.width ?? scene.surface.width;
   const height = output.height ?? scene.surface.height;
   const args: ConsoleArgs = [
-    "%c %c%s%c",
+    configuration.sizing?.mode === "container-experimental"
+      ? "%c %c\n%s%c"
+      : "%c %c%s%c",
     `font-size:0;line-height:0;padding:${output.carrierPadding ?? `${height / 2}px ${width / 2}px`};background:url("${output.imageUri}") center/contain no-repeat`,
     "",
     literalPercent(text),

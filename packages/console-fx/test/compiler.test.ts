@@ -136,6 +136,61 @@ describe("compilation and emission", () => {
 
 describe("generated SVG boundary", () => {
   const dom = new JSDOM();
+  it.each(["\uFFFE", "\uFFFF"])(
+    "rejects XML-unrepresentable text with explicit lossless fallback: %s",
+    (character) => {
+      for (const renderer of ["svg", "css"] as const) {
+        const scene = defineScene({
+          ...neon({ text: `Before${character}after %s` }),
+          label: "Valid label",
+        });
+        const options = { target: "chromium", renderer } as const;
+        if (renderer === "css") {
+          expect(compileConsole(scene, options).text).toBe(
+            scene.lines[0]!.runs[0]!.text,
+          );
+          continue;
+        }
+        expect(() => compileConsole(scene, options)).toThrowError(
+          expect.objectContaining({
+            diagnostics: [
+              expect.objectContaining({
+                code: "unsupported-svg-text",
+                severity: "error",
+                path: ["lines", 0, "runs", 0, "text"],
+              }),
+            ],
+          }),
+        );
+        const text = scene.lines[0]!.runs[0]!.text;
+        const fallback = compileConsole(scene, {
+          ...options,
+          unsupported: "fallback",
+        });
+        expect(fallback.renderer).toBe("text");
+        expect(fallback.args).toEqual([text]);
+        expect(
+          compileConsole(scene, { ...options, renderer: "css" }).text,
+        ).toBe(text);
+      }
+      const replacement = compileConsole(
+        { ...neon({ text: "\uFFFD" }), label: character },
+        {
+          target: "chromium",
+          renderer: "svg",
+        },
+      );
+      if (replacement.preview.kind !== "svg") throw new Error("SVG expected");
+      const xml = decodeURIComponent(
+        replacement.preview.imageUri.split(",")[1]!,
+      );
+      expect(
+        new dom.window.DOMParser()
+          .parseFromString(xml, "image/svg+xml")
+          .querySelector("parsererror"),
+      ).toBeNull();
+    },
+  );
   const allowed = new Set([
     "svg",
     "defs",

@@ -414,15 +414,22 @@ button.example-card:hover:not(:disabled) {
 .integrated-editor .studio-shell {
   margin-bottom: 0;
 }
-.full-preset-gallery {
+.full-preset-gallery,
+.reference-gallery {
   padding: 20px 0;
 }
-.full-preset-gallery > summary {
+.full-preset-gallery > summary,
+.reference-gallery > summary {
   cursor: pointer;
   font-weight: 700;
 }
 .full-preset-gallery .gallery-section {
   margin: 24px 0 0;
+}
+.reference-gallery-content > p {
+  margin: 20px 0;
+  color: var(--muted);
+  max-width: 65ch;
 }
 .studio-heading h1 {
   font-size: 1.85rem;

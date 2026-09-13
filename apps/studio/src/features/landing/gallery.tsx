@@ -5,6 +5,7 @@ import { EXAMPLES, exampleRecipe } from "./examples";
 import type { ExampleId } from "./examples";
 import { useTransferSession } from "./session";
 import { ExampleCard } from "./example-card";
+import { ReferenceGallery } from "../examples/reference-gallery";
 
 export function ExampleGallery() {
   const [filter, setFilter] = useState("all");
@@ -82,6 +83,10 @@ export function ExampleGallery() {
         presets, including the cinematic and card collections, in the
         playground.
       </p>
+      <ReferenceGallery
+        onSelect={session.transfer}
+        disabled={session.blocked}
+      />
     </section>
   );
 }

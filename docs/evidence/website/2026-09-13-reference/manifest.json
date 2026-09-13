@@ -1,0 +1,786 @@
+{
+  "archive": "native-evidence.tar.gz",
+  "archiveSha256": "671aae672cef3316d6cd776af0720682ba297483064fdd8c10278513dbed8668",
+  "files": [
+    {
+      "path": "native-chrome/animatedDolphin-dark-console.png",
+      "bytes": 113231,
+      "sha256": "c8af4e3a7180da727d71df093b37d3481eaa2dcb91bc1582b58f3b0bc00a6878"
+    },
+    {
+      "path": "native-chrome/animatedDolphin-dark-plate.png",
+      "bytes": 4545,
+      "sha256": "55d09c179e066039793ab81e3e23663df65eddf4748bdd753e80e005d7109628"
+    },
+    {
+      "path": "native-chrome/animatedDolphin-light-console.png",
+      "bytes": 112331,
+      "sha256": "ce8cf6385867e7890d7f8fc708c7ddc12bc6740e203b0dbc2f943722f78b7c34"
+    },
+    {
+      "path": "native-chrome/animatedDolphin-light-plate.png",
+      "bytes": 4634,
+      "sha256": "143dec81dbf18741d763e26bd6863b7ee7512c6eb06f11541450b45fb6dd444a"
+    },
+    {
+      "path": "native-chrome/animatedSvg-dark-console.png",
+      "bytes": 97649,
+      "sha256": "9b67151288a6b00ed724bc007223a0f6716b9adfdbc71603902946459e1810d9"
+    },
+    {
+      "path": "native-chrome/animatedSvg-dark-plate.png",
+      "bytes": 13911,
+      "sha256": "e9cab3ba8ec3b4bde765648936da95f820ea0aedfd9cb77e37dccf9c1f3ac2a9"
+    },
+    {
+      "path": "native-chrome/animatedSvg-light-console.png",
+      "bytes": 97309,
+      "sha256": "abcd0d0df6fb203bc14f2541cbf610a2286253dcb330d90706fb7c3665076d80"
+    },
+    {
+      "path": "native-chrome/animatedSvg-light-plate.png",
+      "bytes": 13996,
+      "sha256": "b034dc740380474a6e95ac3464ae9c3b2009e9d4f36755a41608513b710d35e7"
+    },
+    {
+      "path": "native-chrome/asciiLogo-dark-console.png",
+      "bytes": 140425,
+      "sha256": "72855e717b5dc17ecaa4d6afd09c64927011af8af20f1024a5bd1601d1fa4752"
+    },
+    {
+      "path": "native-chrome/asciiLogo-dark-plate.png",
+      "bytes": 19893,
+      "sha256": "29d3631cfc159932dc8a19a3e5ae57824d16574f51d9940b9f8684d007672738"
+    },
+    {
+      "path": "native-chrome/asciiLogo-light-console.png",
+      "bytes": 139967,
+      "sha256": "3bb9b9b0a2a94f8df30728fe953a56dccd19fb5e9376b2999714dab7da61bd9d"
+    },
+    {
+      "path": "native-chrome/asciiLogo-light-plate.png",
+      "bytes": 20003,
+      "sha256": "6e1305a4f359169bd3cc14a800121aaa1d76fe09524ec57e8eff9963dcac486c"
+    },
+    {
+      "path": "native-chrome/asciiSignature-dark-console.png",
+      "bytes": 58690,
+      "sha256": "750dcf65c1e0be9ff41c58524941d3b93f7d459420969ca3bd96c620600015b5"
+    },
+    {
+      "path": "native-chrome/asciiSignature-dark-plate.png",
+      "bytes": 5523,
+      "sha256": "0ad9b133b71ad1804db1b91ab480511ba05d7bc820267c3e1594999f643b6c04"
+    },
+    {
+      "path": "native-chrome/asciiSignature-light-console.png",
+      "bytes": 57845,
+      "sha256": "2a050f07bc1703cec424fd676861cef482785b1d5506177a0486bb6193d8337f"
+    },
+    {
+      "path": "native-chrome/asciiSignature-light-plate.png",
+      "bytes": 5584,
+      "sha256": "c29d47b008cdecfa1ef8d4e49146cd4d2db118f1357aacd8d791b26b8181a978"
+    },
+    {
+      "path": "native-chrome/badgesAndLabels-dark-console.png",
+      "bytes": 103536,
+      "sha256": "8e3504c6464f9de211a9971431072583b86a78d2ae2d72ff5b3b921e2baf0bc6"
+    },
+    {
+      "path": "native-chrome/badgesAndLabels-dark-plate.png",
+      "bytes": 6862,
+      "sha256": "d430d2db0ebc019352511831d61f97133278c735bdfe880197b3dcb14fe8d0dd"
+    },
+    {
+      "path": "native-chrome/badgesAndLabels-light-console.png",
+      "bytes": 102743,
+      "sha256": "b0e37fd7a16f8805588f0d459ca267f8ae787d021242aab266e522efed66a0b4"
+    },
+    {
+      "path": "native-chrome/badgesAndLabels-light-plate.png",
+      "bytes": 6910,
+      "sha256": "76f967b9d5f32bc12a46afdc5a9f90bd0d69ba06dcd0fcbfeca5f3ab708db936"
+    },
+    {
+      "path": "native-chrome/boxedMessage-dark-console.png",
+      "bytes": 100711,
+      "sha256": "1b0b2c3668af561b00ae0d3aeb4aad9b3d547d6d8e316f06cdccc607d9f7e646"
+    },
+    {
+      "path": "native-chrome/boxedMessage-dark-plate.png",
+      "bytes": 9005,
+      "sha256": "0e508982f828d5cf5fb15de0d80e75bf1e4ef5d104cb3b769f1be4fee17c9d19"
+    },
+    {
+      "path": "native-chrome/boxedMessage-light-console.png",
+      "bytes": 100260,
+      "sha256": "27066a44a26b3003f3304b28fe6bb1bef0e3319abcb85ef3f87707d2c988f2bd"
+    },
+    {
+      "path": "native-chrome/boxedMessage-light-plate.png",
+      "bytes": 9059,
+      "sha256": "f7f0f43d65c639a5b2a3201380c7a25d7aab320710524daf68750b97450dd9fc"
+    },
+    {
+      "path": "native-chrome/customBrand-dark-console.png",
+      "bytes": 86512,
+      "sha256": "4efefe7333e1c81b781a32b2f6053c7d554651f6043015f292f2f722ceae0157"
+    },
+    {
+      "path": "native-chrome/customBrand-dark-plate.png",
+      "bytes": 11367,
+      "sha256": "b608449194b00bd807001c7b0a30592926ccda55bf8d1c0b71b5b6dc0da53a50"
+    },
+    {
+      "path": "native-chrome/customBrand-light-console.png",
+      "bytes": 86131,
+      "sha256": "6199a3b29b917b122389eaa63f4b0d204c2ee229fb8854bf4ba89f7ee4e403a1"
+    },
+    {
+      "path": "native-chrome/customBrand-light-plate.png",
+      "bytes": 11433,
+      "sha256": "6c3ba9c6a3863acde28a143c62af25a2472291af56875195f83a43409b55906e"
+    },
+    {
+      "path": "native-chrome/errorMessage-dark-console.png",
+      "bytes": 92542,
+      "sha256": "b71c301dd1cfae37c69ad5208f798e039747fc0888fdf5fcdc866f28933d39e9"
+    },
+    {
+      "path": "native-chrome/errorMessage-dark-plate.png",
+      "bytes": 10570,
+      "sha256": "cfb90983e111b06101fb436139f8bfdc0a6591be866788b33bd426b1e85cc0e7"
+    },
+    {
+      "path": "native-chrome/errorMessage-light-console.png",
+      "bytes": 91845,
+      "sha256": "5c0b1d0383026996a3fff5feccd984b7ef35ab1471b5ded1fa7f1d006eb226c1"
+    },
+    {
+      "path": "native-chrome/errorMessage-light-plate.png",
+      "bytes": 10619,
+      "sha256": "b611cfa3b20165be796d120fb3ce190ee893b319d0da81095315cd49bc2e8783"
+    },
+    {
+      "path": "native-chrome/fixtures.json",
+      "bytes": 136303,
+      "sha256": "2b5419a35f6f0ee1e93cda33998849851d26423d0eaa06acdd28e767ed833d7a"
+    },
+    {
+      "path": "native-chrome/gradientText-dark-console.png",
+      "bytes": 83845,
+      "sha256": "0d75751a8c7722cbdedcb5af9e0c405e9776d99ea5b771122a0eec67d89c6683"
+    },
+    {
+      "path": "native-chrome/gradientText-dark-plate.png",
+      "bytes": 10657,
+      "sha256": "bc8b7dfc84021390ccc8e4d06ad7aaf2ae691dfc2f5bab2dff33e6a5bb252102"
+    },
+    {
+      "path": "native-chrome/gradientText-light-console.png",
+      "bytes": 83450,
+      "sha256": "c369e36ccc4f3284fdb721bf31af3740d1a1ebcd8581a3f2e46a1ce34494b03e"
+    },
+    {
+      "path": "native-chrome/gradientText-light-plate.png",
+      "bytes": 10727,
+      "sha256": "0825034b46686d5572a9eb6328177716b1b1fed837b54991d197af159d1a385e"
+    },
+    {
+      "path": "native-chrome/multilineLayout-dark-console.png",
+      "bytes": 86037,
+      "sha256": "a7d3f0ae20625bb8a3a3797d19de3dd50e645b65874fc84b23f4a352e5e33d98"
+    },
+    {
+      "path": "native-chrome/multilineLayout-dark-plate.png",
+      "bytes": 14152,
+      "sha256": "d888ea5474a0c1ae315ac97e0a457d0e518368b29fe74da15412b9660b9b6c70"
+    },
+    {
+      "path": "native-chrome/multilineLayout-light-console.png",
+      "bytes": 85623,
+      "sha256": "9c43e1a03f886b4e2023a2298f159b41c4d25366b75ad351bb9b941dd00a204e"
+    },
+    {
+      "path": "native-chrome/multilineLayout-light-plate.png",
+      "bytes": 14199,
+      "sha256": "230c2c09717dcaffe67c76969b57b9d55226f8b767cce6e86c7f04e8274cfb9b"
+    },
+    {
+      "path": "native-chrome/neonText-dark-console.png",
+      "bytes": 78487,
+      "sha256": "971c60bd2dc1272749724091a87b82055630a1cf0bc0d019157bc63e79dbe2b3"
+    },
+    {
+      "path": "native-chrome/neonText-dark-plate.png",
+      "bytes": 15584,
+      "sha256": "ae48be3ac2201daff4320bec438e0d97b987ed81b32011edc852c983fc6704ab"
+    },
+    {
+      "path": "native-chrome/neonText-light-console.png",
+      "bytes": 77565,
+      "sha256": "5750eb8e35943197eb9673cfb6fa526064e5a7ecfa9bd9e1dfed2cb837139a84"
+    },
+    {
+      "path": "native-chrome/neonText-light-plate.png",
+      "bytes": 15713,
+      "sha256": "6d9f23a078b2e966771e3b24baf3aa20e4708bb804c4ddb13ccd818a09eec544"
+    },
+    {
+      "path": "native-chrome/observations.json",
+      "bytes": 30850,
+      "sha256": "6264d7b643ea270bda0df7079be66cc148f4a26299549f6fc738efe365ee9bf5"
+    },
+    {
+      "path": "native-chrome/successMessage-dark-console.png",
+      "bytes": 92301,
+      "sha256": "7af89ce157bae87a784fc8df89f07bd4171cc9efe748cb4dd4088e5520982119"
+    },
+    {
+      "path": "native-chrome/successMessage-dark-plate.png",
+      "bytes": 10276,
+      "sha256": "474ace6544d44789ef87c351f7793b8755b8b182d05a47788becf66ed11cd993"
+    },
+    {
+      "path": "native-chrome/successMessage-light-console.png",
+      "bytes": 91466,
+      "sha256": "dad1c75fff1991e04a306a5a15b5afb9e39d7b26a35cd11dc7840232877194e5"
+    },
+    {
+      "path": "native-chrome/successMessage-light-plate.png",
+      "bytes": 10318,
+      "sha256": "2290d26680e0023b58fda2cc5c42205a3b65cfe28bfc864a2150d16c687334ec"
+    },
+    {
+      "path": "native-chrome/tabularLayout-dark-console.png",
+      "bytes": 111415,
+      "sha256": "7d0532d38b6263cb55bdca306013815c90788f134d4972213b11ffd3f97eb9a3"
+    },
+    {
+      "path": "native-chrome/tabularLayout-dark-plate.png",
+      "bytes": 15934,
+      "sha256": "73d1de07db8b04d57d6b35cbed8f43b86af9763428c328d2c2cd4775f67279ad"
+    },
+    {
+      "path": "native-chrome/tabularLayout-light-console.png",
+      "bytes": 110855,
+      "sha256": "d78d64bf0b9ab5dfccf880b7c8fde11ec351ab957953f54c50caf3ff4c2407b5"
+    },
+    {
+      "path": "native-chrome/tabularLayout-light-plate.png",
+      "bytes": 15975,
+      "sha256": "02f16228587c0dfb0919d76f0eeb5ac580205d955d44f49b2a67c991b19467aa"
+    },
+    {
+      "path": "native-chrome/warningMessage-dark-console.png",
+      "bytes": 93846,
+      "sha256": "1d5edeac77c24b7345cc19dab2e3300ce9be19fe6d1f0c9f1ea1e346de67091a"
+    },
+    {
+      "path": "native-chrome/warningMessage-dark-plate.png",
+      "bytes": 11304,
+      "sha256": "6ffcb087fbcebf39120b6d51a873aae4b5e6f388beb5f4a4aef8ecac592c369b"
+    },
+    {
+      "path": "native-chrome/warningMessage-light-console.png",
+      "bytes": 93377,
+      "sha256": "76596765e710197c4f4b2bb7bf2e158216c3e0ba75faa2748e63ce988ef5f1dd"
+    },
+    {
+      "path": "native-chrome/warningMessage-light-plate.png",
+      "bytes": 11386,
+      "sha256": "07b65766002596f7ded0eee4587c7a4c963c2a905c7174b283963fd07fc11fba"
+    },
+    {
+      "path": "native-edge-automation/animatedDolphin-dark-console.png",
+      "bytes": 120810,
+      "sha256": "021d2765526b765147c4e633a32ab42005733950aa2eb8def6214553cdc441a9"
+    },
+    {
+      "path": "native-edge-automation/animatedDolphin-dark-plate.png",
+      "bytes": 4521,
+      "sha256": "afbd4f4d4c3a8a1f8419d0782d56047cba1f414b1db758859d418b575566d443"
+    },
+    {
+      "path": "native-edge-automation/animatedDolphin-light-console.png",
+      "bytes": 122119,
+      "sha256": "57a64d8f6c65f3ce4b46e56ff971ba7983838ce90ad7bd6c778a527f70e22371"
+    },
+    {
+      "path": "native-edge-automation/animatedDolphin-light-plate.png",
+      "bytes": 4667,
+      "sha256": "bac110ab8b47a18ebaf20dfbf633bd8ea0000d69dd306e5b97775827c798dbe2"
+    },
+    {
+      "path": "native-edge-automation/animatedSvg-dark-console.png",
+      "bytes": 104022,
+      "sha256": "b63f806962b7d1b9138a8a2ee9d19419582e049c3c352e75db1872f9921e0619"
+    },
+    {
+      "path": "native-edge-automation/animatedSvg-dark-plate.png",
+      "bytes": 13905,
+      "sha256": "297ef473b27250d2587d4038ce3c7a0c3d3a7af212a9d0fd517960fd154b7c62"
+    },
+    {
+      "path": "native-edge-automation/animatedSvg-light-console.png",
+      "bytes": 104411,
+      "sha256": "8ced1d2fb4e8ae4264c503c6a590800defa269b753fb944a6fda6f7d5b9aa7f1"
+    },
+    {
+      "path": "native-edge-automation/animatedSvg-light-plate.png",
+      "bytes": 14031,
+      "sha256": "ad17d71a9f60652e6d21a85e47e47757eb3ef4044f4ae50c65c243f134a59326"
+    },
+    {
+      "path": "native-edge-automation/asciiLogo-dark-console.png",
+      "bytes": 151748,
+      "sha256": "db1e3c8311c8d2dfc1be21929dc5cddc55de6295314d72975483cdadc002385c"
+    },
+    {
+      "path": "native-edge-automation/asciiLogo-dark-plate.png",
+      "bytes": 19876,
+      "sha256": "b9966c21fdf33d58e85c97868547406c4f47697678a6b9efcc29461eb69b7e9d"
+    },
+    {
+      "path": "native-edge-automation/asciiLogo-light-console.png",
+      "bytes": 152435,
+      "sha256": "31ed6f1e97be2e01c125360e3aff38df9bf123046118122f1554e7e3d744f68d"
+    },
+    {
+      "path": "native-edge-automation/asciiLogo-light-plate.png",
+      "bytes": 20028,
+      "sha256": "a2987d4d5b0f9110780206efc96b15bbec7b2496eaa90eb5445fcf43edca4898"
+    },
+    {
+      "path": "native-edge-automation/asciiSignature-dark-console.png",
+      "bytes": 60550,
+      "sha256": "572f924752708887c64d92682fe22b6c1ff849e518e76a29caefa5783c42afb3"
+    },
+    {
+      "path": "native-edge-automation/asciiSignature-dark-plate.png",
+      "bytes": 5518,
+      "sha256": "16312cc7f4518d8e942757ff7e7f01ea3afcdcac121ec7875a972dbc5559f024"
+    },
+    {
+      "path": "native-edge-automation/asciiSignature-light-console.png",
+      "bytes": 60411,
+      "sha256": "5cd3c373ea8261d5bca2951d330c5338585a2bb226dee30adcd43f6b442b77f0"
+    },
+    {
+      "path": "native-edge-automation/asciiSignature-light-plate.png",
+      "bytes": 5642,
+      "sha256": "432aad9503a08baa785336d9580ec9f42662d07b12bdb99d0c5a2b79caeaf4bb"
+    },
+    {
+      "path": "native-edge-automation/badgesAndLabels-dark-console.png",
+      "bytes": 112395,
+      "sha256": "301c0cc73ebb0c99e7268025f54c9b56210e2a3c40bfccd44ea231cc7811ae6d"
+    },
+    {
+      "path": "native-edge-automation/badgesAndLabels-dark-plate.png",
+      "bytes": 6867,
+      "sha256": "e8fdd067726b909d92e01b09c491eaa3a97865fdc9f673ec80adf5801315e44c"
+    },
+    {
+      "path": "native-edge-automation/badgesAndLabels-light-console.png",
+      "bytes": 112526,
+      "sha256": "ecebad886bdaf57897017650443b9c98c7a10ead856a91853f448b7496a4f3a1"
+    },
+    {
+      "path": "native-edge-automation/badgesAndLabels-light-plate.png",
+      "bytes": 6978,
+      "sha256": "c9d08e87d8f9346eb3a3876e3ecd1f8662879c5289c319f82cd98e6151e64308"
+    },
+    {
+      "path": "native-edge-automation/boxedMessage-dark-console.png",
+      "bytes": 108593,
+      "sha256": "4fe665535ba365ba843b8e3eb05123b4992655b8337fe4d754ad0edf4ff03a80"
+    },
+    {
+      "path": "native-edge-automation/boxedMessage-dark-plate.png",
+      "bytes": 8985,
+      "sha256": "be9ed1f9fd7bfc9fc3cc7e274d2cabcb6040ef10cecf72c7ba3117f34d2363cb"
+    },
+    {
+      "path": "native-edge-automation/boxedMessage-light-console.png",
+      "bytes": 108893,
+      "sha256": "ec60a24ebd349f09a9be85fec2f87fbb4af96224b34accf6e86f1518d80a6a87"
+    },
+    {
+      "path": "native-edge-automation/boxedMessage-light-plate.png",
+      "bytes": 9098,
+      "sha256": "4d7844f91bee43613b0e6a29da1c1181fd65738b783aaa44a1d3e7b46496e2fc"
+    },
+    {
+      "path": "native-edge-automation/customBrand-dark-console.png",
+      "bytes": 91150,
+      "sha256": "befec7eec7dcdc2934b82d73d9e31df916a351b9e6ac3c74566b3f63333bee04"
+    },
+    {
+      "path": "native-edge-automation/customBrand-dark-plate.png",
+      "bytes": 11340,
+      "sha256": "a42adaec3bc733b8478b7b06c3a82696bfedec0abd0ba12d16734ffed19b94f7"
+    },
+    {
+      "path": "native-edge-automation/customBrand-light-console.png",
+      "bytes": 91013,
+      "sha256": "f02225eb5b07400377f2e2dd66258cca8df1f2a685c583c1da992324c6615132"
+    },
+    {
+      "path": "native-edge-automation/customBrand-light-plate.png",
+      "bytes": 11460,
+      "sha256": "028f93fdb991db6d7c47e68e747a92838ec8a006da6e53f0799ae9beade60909"
+    },
+    {
+      "path": "native-edge-automation/errorMessage-dark-console.png",
+      "bytes": 98238,
+      "sha256": "132ca19dc5fe072fedc331f45a93b93769cf09e26e5bbf8352f45a883d788ddb"
+    },
+    {
+      "path": "native-edge-automation/errorMessage-dark-plate.png",
+      "bytes": 10568,
+      "sha256": "13a679461d0661838ab521be08a7582ed5acaa68377820398147db625805ab73"
+    },
+    {
+      "path": "native-edge-automation/errorMessage-light-console.png",
+      "bytes": 98139,
+      "sha256": "5e33521a641f3f50286182f33643d52ccdf067db3332e3515befbb21761fdc45"
+    },
+    {
+      "path": "native-edge-automation/errorMessage-light-plate.png",
+      "bytes": 10693,
+      "sha256": "e6cc1857cd44c3b5ed56bc607e0e7f15baf9da0c62f7e935a2de871ec80ce741"
+    },
+    {
+      "path": "native-edge-automation/fixtures.json",
+      "bytes": 136303,
+      "sha256": "2b5419a35f6f0ee1e93cda33998849851d26423d0eaa06acdd28e767ed833d7a"
+    },
+    {
+      "path": "native-edge-automation/gradientText-dark-console.png",
+      "bytes": 87996,
+      "sha256": "4f81937c62f8090b20a71cff8f0db297f8277486891ce6c970bdfcc111744355"
+    },
+    {
+      "path": "native-edge-automation/gradientText-dark-plate.png",
+      "bytes": 10644,
+      "sha256": "12d9130ed117724b2c770230240291c60271f67aa755003503ccf30b9cc227e2"
+    },
+    {
+      "path": "native-edge-automation/gradientText-light-console.png",
+      "bytes": 88557,
+      "sha256": "926c93b684f4c19df193f73f1be6231e46b50cf0031704bf4f0163bac0f7fb16"
+    },
+    {
+      "path": "native-edge-automation/gradientText-light-plate.png",
+      "bytes": 10755,
+      "sha256": "e06e9b21d95aaad12fa680d0aa655038253921c64a7e5aa648c71f5a93c01c44"
+    },
+    {
+      "path": "native-edge-automation/multilineLayout-dark-console.png",
+      "bytes": 90084,
+      "sha256": "71202773d786c35e438ac143acb50030940f1372abe69872695e15300f0dd811"
+    },
+    {
+      "path": "native-edge-automation/multilineLayout-dark-plate.png",
+      "bytes": 14144,
+      "sha256": "c2c0514c553ff0e3e898da7ab65cf5b342efecc59d0fa978bd0e0c622de713ea"
+    },
+    {
+      "path": "native-edge-automation/multilineLayout-light-console.png",
+      "bytes": 90212,
+      "sha256": "86b306345656d3e69f7d0385e98f143647758e9a77cc964ded55ad56b752599c"
+    },
+    {
+      "path": "native-edge-automation/multilineLayout-light-plate.png",
+      "bytes": 14248,
+      "sha256": "6c60757d71733c88825c79b16e8766ea5847a135bae102bc99cefce65da7bc6b"
+    },
+    {
+      "path": "native-edge-automation/neonText-dark-console.png",
+      "bytes": 81137,
+      "sha256": "6b4bebcb58dfd371739e3d57008d08dbed00fc8d867b08ee767dcf12969f293a"
+    },
+    {
+      "path": "native-edge-automation/neonText-dark-plate.png",
+      "bytes": 15578,
+      "sha256": "15d590e4904c903134e6610e460fad57de99c363a6a0aa8a6e25dd701ac5344d"
+    },
+    {
+      "path": "native-edge-automation/neonText-light-console.png",
+      "bytes": 80883,
+      "sha256": "ccb31067e2508a125aec261d17e5c4beb6323cf609005d225f5b77aca7977577"
+    },
+    {
+      "path": "native-edge-automation/neonText-light-plate.png",
+      "bytes": 15743,
+      "sha256": "271f6177e02b073677f0b8a2a9257bedecf1c3643f4da9dc0ebf509ecc6f5465"
+    },
+    {
+      "path": "native-edge-automation/observations.json",
+      "bytes": 31252,
+      "sha256": "61191b38529306dd615aaa7fe1ec0598cbeada36e12d58e3640944a691fe6309"
+    },
+    {
+      "path": "native-edge-automation/successMessage-dark-console.png",
+      "bytes": 98054,
+      "sha256": "a73bb25634c3cfcc502aeb047e471730d150274252d3191a43b321b4a3310a13"
+    },
+    {
+      "path": "native-edge-automation/successMessage-dark-plate.png",
+      "bytes": 10300,
+      "sha256": "5fc3a8571e3c8d5adbf30db736d0b2f2918d3dd8b1977dcfe06ff4a22b5d81e0"
+    },
+    {
+      "path": "native-edge-automation/successMessage-light-console.png",
+      "bytes": 97675,
+      "sha256": "32e054874006b6ea956eb93b736fb477a1c13ecfe3bfb193199c4e5de223b4ce"
+    },
+    {
+      "path": "native-edge-automation/successMessage-light-plate.png",
+      "bytes": 10424,
+      "sha256": "0702087263a5f5aca9eacd321c77592a10b6b417e7078db936aac871d73c679a"
+    },
+    {
+      "path": "native-edge-automation/tabularLayout-dark-console.png",
+      "bytes": 119920,
+      "sha256": "2c676493ab9a35de9bd6ca7a4c073fb4f4428183c9ff766777eb01b8a7f1b160"
+    },
+    {
+      "path": "native-edge-automation/tabularLayout-dark-plate.png",
+      "bytes": 15856,
+      "sha256": "8275d5de7245c287187cb9da1acc38370ff918d0b453c3739f862e948b5102ca"
+    },
+    {
+      "path": "native-edge-automation/tabularLayout-light-console.png",
+      "bytes": 119784,
+      "sha256": "59ac0ff2d9e2bc3f9765cfc6225c46fa2d392c3b39c4637494cb295f3157b6af"
+    },
+    {
+      "path": "native-edge-automation/tabularLayout-light-plate.png",
+      "bytes": 15947,
+      "sha256": "9b878d17c821020f91f4282da7da32254e96f0af0ac9a6c6da661833652b8cd1"
+    },
+    {
+      "path": "native-edge-automation/warningMessage-dark-console.png",
+      "bytes": 99650,
+      "sha256": "42217563c874c2b7f46ddfa6ecfee406994fbf797cc3e05b5300455fd6f6df00"
+    },
+    {
+      "path": "native-edge-automation/warningMessage-dark-plate.png",
+      "bytes": 11366,
+      "sha256": "9fa32d6e50ea5400b0f7e6f0626d225d2fba1ef77ee41de8ef2c0af8c8368290"
+    },
+    {
+      "path": "native-edge-automation/warningMessage-light-console.png",
+      "bytes": 99578,
+      "sha256": "63a056ec2b12bda12494a1e6d6b1b9d582b10df5b35c615f0499ea77f726a75f"
+    },
+    {
+      "path": "native-edge-automation/warningMessage-light-plate.png",
+      "bytes": 11479,
+      "sha256": "7033caf204a49f79aac4e27d5788219e9339b2fe59860708e6168145e1489050"
+    },
+    {
+      "path": "motion-chrome-9414/animatedDolphin-dark-console.png",
+      "bytes": 126600,
+      "sha256": "342dba1ed8fdf8070c4ab0efa9bbf1cace7d773f5e85a6a22242dde709826a12"
+    },
+    {
+      "path": "motion-chrome-9414/animatedDolphin-dark-motion-0.png",
+      "bytes": 4545,
+      "sha256": "0c2184632399d19b37aa7999cc1a63a91f778ba1eadce6ece2d210aa94267f7e"
+    },
+    {
+      "path": "motion-chrome-9414/animatedDolphin-dark-motion-5200.png",
+      "bytes": 4541,
+      "sha256": "dff00fe0d80e42e6b938ccc2067deb55cdd95e76854023575fd10b4e06946215"
+    },
+    {
+      "path": "motion-chrome-9414/animatedDolphin-dark-motion-6000.png",
+      "bytes": 4541,
+      "sha256": "dff00fe0d80e42e6b938ccc2067deb55cdd95e76854023575fd10b4e06946215"
+    },
+    {
+      "path": "motion-chrome-9414/animatedDolphin-dark-motion-900.png",
+      "bytes": 4545,
+      "sha256": "55d09c179e066039793ab81e3e23663df65eddf4748bdd753e80e005d7109628"
+    },
+    {
+      "path": "motion-chrome-9414/animatedDolphin-dark-plate.png",
+      "bytes": 4541,
+      "sha256": "dff00fe0d80e42e6b938ccc2067deb55cdd95e76854023575fd10b4e06946215"
+    },
+    {
+      "path": "motion-chrome-9414/animatedSvg-dark-console.png",
+      "bytes": 185763,
+      "sha256": "f5a347e9267175569e795f2cfafd46c5760c2544489d4cf70fb445c5f0d269cb"
+    },
+    {
+      "path": "motion-chrome-9414/animatedSvg-dark-motion-0.png",
+      "bytes": 13910,
+      "sha256": "99a4ca5466bbef8dafe460db4bb80554a1244b7477acb7f5c6c6613af45a0a5e"
+    },
+    {
+      "path": "motion-chrome-9414/animatedSvg-dark-motion-5200.png",
+      "bytes": 13940,
+      "sha256": "917959cf4ab3355a413675455cb4643e991ba5fecf151a25684b50d5d8ab4107"
+    },
+    {
+      "path": "motion-chrome-9414/animatedSvg-dark-motion-6000.png",
+      "bytes": 13940,
+      "sha256": "917959cf4ab3355a413675455cb4643e991ba5fecf151a25684b50d5d8ab4107"
+    },
+    {
+      "path": "motion-chrome-9414/animatedSvg-dark-motion-900.png",
+      "bytes": 13955,
+      "sha256": "214dbe58641baea2cad47a62ca1b12295d24d8ec992c4d38fb1e8e1b0ea8aabf"
+    },
+    {
+      "path": "motion-chrome-9414/animatedSvg-dark-plate.png",
+      "bytes": 13940,
+      "sha256": "917959cf4ab3355a413675455cb4643e991ba5fecf151a25684b50d5d8ab4107"
+    },
+    {
+      "path": "motion-chrome-9414/fixtures.json",
+      "bytes": 37364,
+      "sha256": "9efd8689ba10d7be800f3d708e320a450e014dde5368887c92bc35fa68fb3fe8"
+    },
+    {
+      "path": "motion-chrome-9414/observations.json",
+      "bytes": 5311,
+      "sha256": "70776cac80a4915bdf798f2d7b38536cb4962552ac9206d2e8a71f33dc900686"
+    },
+    {
+      "path": "motion-edge-automation/animatedDolphin-dark-console.png",
+      "bytes": 148818,
+      "sha256": "258853236134d51969a3fbd453a1dba26ba0d9f5a3ae4c7ec36dc768f620e4f0"
+    },
+    {
+      "path": "motion-edge-automation/animatedDolphin-dark-motion-0.png",
+      "bytes": 4525,
+      "sha256": "23bc60a54c6dc0a6d178d7aac9cfa4674d8349b19ac7ba0a855e87f6b1b5f0c2"
+    },
+    {
+      "path": "motion-edge-automation/animatedDolphin-dark-motion-5200.png",
+      "bytes": 4518,
+      "sha256": "16d36554f5d2b5012139a8275a0130d5820857b1f8ed8c0e12fbb3e37f158277"
+    },
+    {
+      "path": "motion-edge-automation/animatedDolphin-dark-motion-6000.png",
+      "bytes": 4518,
+      "sha256": "16d36554f5d2b5012139a8275a0130d5820857b1f8ed8c0e12fbb3e37f158277"
+    },
+    {
+      "path": "motion-edge-automation/animatedDolphin-dark-motion-900.png",
+      "bytes": 4521,
+      "sha256": "434c020c017abb17e0da912966e3059ba9886bc0c4565221fdb08d1c04d787fb"
+    },
+    {
+      "path": "motion-edge-automation/animatedDolphin-dark-plate.png",
+      "bytes": 4518,
+      "sha256": "16d36554f5d2b5012139a8275a0130d5820857b1f8ed8c0e12fbb3e37f158277"
+    },
+    {
+      "path": "motion-edge-automation/animatedSvg-dark-console.png",
+      "bytes": 186892,
+      "sha256": "bd7dcd14f6ef78e64ec623884091d6e1a69a6f8b0b2765cca80287daf0de0b31"
+    },
+    {
+      "path": "motion-edge-automation/animatedSvg-dark-motion-0.png",
+      "bytes": 13910,
+      "sha256": "5c1b78ff68f0d1537bb945b53ae90d7f30092327e910419a204c061e859c6008"
+    },
+    {
+      "path": "motion-edge-automation/animatedSvg-dark-motion-5200.png",
+      "bytes": 13942,
+      "sha256": "795e413c97fdcd2b31f1195ec373c9aabbc8e12f4c03abd719743f85391fce38"
+    },
+    {
+      "path": "motion-edge-automation/animatedSvg-dark-motion-6000.png",
+      "bytes": 13942,
+      "sha256": "795e413c97fdcd2b31f1195ec373c9aabbc8e12f4c03abd719743f85391fce38"
+    },
+    {
+      "path": "motion-edge-automation/animatedSvg-dark-motion-900.png",
+      "bytes": 13933,
+      "sha256": "1fb4484c492594a8dd27ff39ab9bae6c151d611a7d9e6f77ffd6ff86a803cb13"
+    },
+    {
+      "path": "motion-edge-automation/animatedSvg-dark-plate.png",
+      "bytes": 13942,
+      "sha256": "795e413c97fdcd2b31f1195ec373c9aabbc8e12f4c03abd719743f85391fce38"
+    },
+    {
+      "path": "motion-edge-automation/fixtures.json",
+      "bytes": 37364,
+      "sha256": "9efd8689ba10d7be800f3d708e320a450e014dde5368887c92bc35fa68fb3fe8"
+    },
+    {
+      "path": "motion-edge-automation/observations.json",
+      "bytes": 5378,
+      "sha256": "7e80931a9526c815b54617d071e94bd2176ff6879d9903b9f1762961914a7a95"
+    },
+    {
+      "path": "container-edge/devContext-dark-console.png",
+      "bytes": 222491,
+      "sha256": "e5c6f1c2a8a7eeb35efd07aeaeddece649967bf6b11873e71449839087dc8076"
+    },
+    {
+      "path": "container-edge/devContext-dark-plate.png",
+      "bytes": 6098,
+      "sha256": "f272de7c8c441b79ef637475db27c60cd74100721f9baba15a37f7e4eb98e57b"
+    },
+    {
+      "path": "container-edge/devContext-light-console.png",
+      "bytes": 224167,
+      "sha256": "0d75b692424f8edc0293b2b33afa11d6447d9681d0bc227f752c530878a0a64b"
+    },
+    {
+      "path": "container-edge/devContext-light-plate.png",
+      "bytes": 6116,
+      "sha256": "cb762868d49eb537da0f082fec2812a1c2f157c08f226f606120564d040310b4"
+    },
+    {
+      "path": "container-edge/fixtures.json",
+      "bytes": 31093,
+      "sha256": "1c256013ef96134a59a05a97dd8a50a52971e42cf257ecaca0bc06f9bdacb8d0"
+    },
+    {
+      "path": "container-edge/observations.json",
+      "bytes": 3930,
+      "sha256": "c9525814cadb218cdaad30a382f521d5b69f9d0f940905a17a63a1e5aea3ba02"
+    },
+    {
+      "path": "container-chrome-automation/devContext-dark-console.png",
+      "bytes": 215754,
+      "sha256": "4ab0f2769fc20ee314c115e361ab620d7745f3826f387919896790f161e9b381"
+    },
+    {
+      "path": "container-chrome-automation/devContext-dark-plate.png",
+      "bytes": 6102,
+      "sha256": "fe98347ccde913a59063895e7bece488fec07943d9dc3cc8bf52c55080032014"
+    },
+    {
+      "path": "container-chrome-automation/devContext-light-console.png",
+      "bytes": 215866,
+      "sha256": "c4491499770e28dbccb407676559b922a15c391ac586bfc9e6da579d5bb4ce53"
+    },
+    {
+      "path": "container-chrome-automation/devContext-light-plate.png",
+      "bytes": 6112,
+      "sha256": "7c9a22dbe117e38e3191154b0cf2fa104fb93c610d96d30dcbc57e7e179e2795"
+    },
+    {
+      "path": "container-chrome-automation/fixtures.json",
+      "bytes": 31093,
+      "sha256": "1c256013ef96134a59a05a97dd8a50a52971e42cf257ecaca0bc06f9bdacb8d0"
+    },
+    {
+      "path": "container-chrome-automation/observations.json",
+      "bytes": 3892,
+      "sha256": "c14f04c03e272fc3a14f7eaf61d650cc620ff3cdf100256573bf391a7f5f7d85"
+    }
+  ]
+}

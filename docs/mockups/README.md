@@ -22,6 +22,13 @@ Keep the combined page hierarchy: hero and primary action, output-example galler
 
 ## Assets
 
+All twelve output-gallery concepts, plus the combined reference's ASCII logo
+and dolphin, now have editable implementations. Open **Browse 14 output examples**
+on the landing page or the **Output examples** group in the studio's preset
+selector. The [coverage and validation receipt](../specs/reference-examples-integration.md)
+maps each reference to its ordinary scene data and records the adaptations and
+evidence boundaries. The original assets below remain design references.
+
 | Source | Size | Purpose |
 | --- | --- | --- |
 | [landing-playground-combined.avif](landing-playground-combined.avif) | 1200 × 900 | Current combined landing page, output gallery, and playground; optimized raster |
