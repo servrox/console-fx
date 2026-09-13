@@ -18,8 +18,12 @@ was performed by this protection change.
 A new native Chrome context without a token or bypass verified 49 HTTP static
 file hashes, a protected source-map hash through the authenticated file API,
 security headers, routes, ten critical journeys, the 44.5-second usage video and
-nine caption cues. There were no application errors, failed requests or CSP
-violations. The journeys cover copying, single emission, invalid import recovery,
+nine caption cues. No application errors or failed requests were observed.
+Collected CSP buffers were empty, but the historical harness discarded the first
+studio document buffer at reload. Its import, Undo and reset actions therefore
+lack CSP event coverage in this receipt. A subsequent verification must collect
+that buffer before reload; the original harness remains unchanged.
+The journeys cover copying, single emission, invalid import recovery,
 valid import/Undo, reset cancellation/focus return, draft reload and font workers.
 
 This is a dated public-runtime observation of the identified artifact. The

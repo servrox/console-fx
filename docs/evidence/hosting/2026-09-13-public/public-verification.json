@@ -287,6 +287,12 @@
   "limitations": [
     "The protected source-map byte check requires authorized Vercel file API access.",
     "This browser observation is from the recorded Windows 11 Pro Insider Preview host.",
-    "Later artifact, harness, environment or protection changes invalidate affected evidence."
-  ]
+    "Later artifact, harness, environment or protection changes invalidate affected evidence.",
+    "The empty CSP result excludes first-studio-document events before reload; it does not certify that part of the historical journey."
+  ],
+  "cspCollectionCoverage": {
+    "observed": "Landing and the studio document after reload; documentation and narrow-layout visits.",
+    "notObserved": "The first studio document containing import, Undo and reset checks was replaced before its CSP event buffer was collected.",
+    "correction": "Collect that first document buffer before reload in subsequent verification; the historical harness is preserved unchanged."
+  }
 }
