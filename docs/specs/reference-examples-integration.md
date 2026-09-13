@@ -63,7 +63,8 @@ compiler gaps. They were corrected and tested individually:
 SVG capability validation shares the existing run traversal. Fallback warning
 construction is shared, and diagnostic wording is concise. The original package
 budgets remain binding; no threshold was increased. The package correction is
-recorded in a [patch changeset](../../.changeset/fitting-failures-svg-text.md).
+recorded in the [core 0.1.1 changelog](../../packages/console-fx/CHANGELOG.md#011)
+after consuming its patch changeset during release preparation.
 The already published 0.1.0 package bytes are unchanged by these source edits;
 publishing a corrected package is a separate release operation. All new example
 recipes use the existing public API and can be copied as standalone output.

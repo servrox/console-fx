@@ -1,8 +1,10 @@
 # MVP implementation and release completion audit
 
-Audited September 13, 2026. **Implementation and the authorized public release
-are delivered. Full-spec completion remains pending three external validation
-items:** five-developer formative sessions, performance recordings on an actual
+Audited September 13, 2026. **The existing MVP release is delivered; the full
+active goal is not complete.** The later workbench request awaits review and
+implementation. The [corrected 0.1.1 packages](patch-release-preparation.md) are
+prepared separately and not yet published. Three external validation items also
+remain: five-developer formative sessions, performance recordings on an actual
 integrated-GPU laptop and physical phone, and Safari website observations. The
 [prepared packet](../validation/mvp-external-review.md) provides tasks, fixtures,
 measurement conditions and result templates. No participant/device result or
@@ -54,9 +56,10 @@ is the approved PR #10 candidate; the later architecture core is `1eb78826…`.
 They are distinct package bytes. The later source extracts motion ownership;
 the archived comparison verifies 411 identical output/export/preflight results
 across 187 fixtures. This is bounded behavioral parity, not byte identity or a
-claim that the newer core tarball was published. Current package source is
-unchanged since that comparison; both source and published consumers have their
-own passing evidence. OIDC configuration/execution remains future automation;
+claim that the newer core tarball was published. The subsequent three compiler
+corrections are outside that historical parity comparison and are recorded in
+the [0.1.1 changelog](../../packages/console-fx/CHANGELOG.md#011). Source and
+published consumers have separate evidence. OIDC configuration/execution remains future automation;
 the approved first publication used npm's interactive bootstrap.
 
 ## Base specification: all 24 acceptance criteria
