@@ -317,7 +317,14 @@ test("imports validate before replacement, preserve failure state, and undo/redo
   ).toBeVisible();
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export JSON", exact: true }).click();
-  expect((await download).suggestedFilename()).toBe("console-fx-scene.json");
+  const file = await download;
+  expect(file.suggestedFilename()).toBe("console-fx-scene.json");
+  const chunks: Buffer[] = [];
+  for await (const chunk of await file.createReadStream())
+    chunks.push(Buffer.from(chunk));
+  expect(JSON.parse(Buffer.concat(chunks).toString("utf8"))).toEqual(
+    rainbow({ text: "Imported scene" }),
+  );
 });
 
 test("valid drafts resume without writes and conflicting shared scenes confirm", async ({

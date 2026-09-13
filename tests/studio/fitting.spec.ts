@@ -46,13 +46,11 @@ test("oversized recipe sharing offers a download that preserves render intent", 
   if (!parsed.ok) throw new Error("Invalid oversized recipe fixture");
   const document = parsed.value;
   await page.goto("/studio/");
-  await page
-    .locator('input[type="file"]')
-    .setInputFiles({
-      name: "large-recipe.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(JSON.stringify(document)),
-    });
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "large-recipe.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(document)),
+  });
   await page
     .getByRole("button", { name: "Copy share link", exact: true })
     .click();
