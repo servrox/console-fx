@@ -1344,7 +1344,7 @@ export function Studio({
                     if (!result.ok)
                       setNotice({
                         kind: "error",
-                        message: `${result.diagnostics[0]!.message} Export Recipe JSON and import it in the full studio instead.`,
+                        message: `${result.diagnostics[0]!.message} Import the downloaded file in the full studio.`,
                       });
                     else router.push(`/studio/${result.value}`);
                   }}

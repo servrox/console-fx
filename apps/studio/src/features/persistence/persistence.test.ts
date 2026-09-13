@@ -48,17 +48,29 @@ describe("validated editor documents", () => {
   ])("rejects malformed or oversized shared input: %s", (fragment) => {
     expect(decodeShare(fragment).ok).toBe(false);
   });
-  it("offers JSON rather than truncating a share link over its byte budget", () => {
-    const scene = defineScene({
-      schemaVersion: 1,
-      label: "large",
-      lines: [{ runs: [{ text: "😀".repeat(1900) }] }],
-    });
-    const link = encodeShare(scene);
-    expect(link.ok).toBe(false);
-    expect(link.diagnostics[0]?.code).toBe("share-too-large");
-    expect(decodeDocument(JSON.stringify(scene)).ok).toBe(true);
-  });
+  it.each(["scene", "recipe"])(
+    "offers a faithful %s export when a share link exceeds its byte budget",
+    (kind) => {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "large",
+        lines: [{ runs: [{ text: "😀".repeat(1900) }] }],
+      });
+      const document =
+        kind === "scene" ? scene : recipeOf(initialDocument(scene));
+      const link = encodeShare(document);
+      expect(link.ok).toBe(false);
+      expect(link.diagnostics[0]?.code).toBe("share-too-large");
+      expect(link.diagnostics[0]?.message).toContain(
+        kind === "scene" ? "Export JSON" : "Export recipe JSON",
+      );
+      expect(decodeDocument(JSON.stringify(document))).toEqual({
+        ok: true,
+        value: document,
+        diagnostics: [],
+      });
+    },
+  );
   it("applies a successful import as one undoable replacement and clears the redo branch", () => {
     const first = neon({ text: "first" });
     const imported = rainbow({ text: "imported" });

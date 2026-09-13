@@ -8,11 +8,72 @@ import {
   neon,
   createPresetExample,
 } from "../../packages/console-fx/dist/presets/index.js";
-import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
+import {
+  decodeDocument,
+  encodeShare,
+} from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
 
 const rawKey = "console-fx:scene:v1";
 const recipeKey = "console-fx:recipe:v1";
+
+test("oversized recipe sharing offers a download that preserves render intent", async ({
+  page,
+}) => {
+  const parsed = parseRenderRecipe({
+    kind: "consoleFxRenderRecipe",
+    recipeVersion: 1,
+    scene: defineScene({
+      schemaVersion: 1,
+      label: "Large recipe",
+      lines: [{ runs: [{ text: "😀".repeat(1900) }] }],
+    }),
+    options: {
+      target: "chromium",
+      renderer: "svg",
+      unsupported: "fallback",
+      layout: {
+        algorithm: "fit/v1",
+        width: 360,
+        maxHeight: 200,
+        minFontSize: 12,
+        overflow: "error",
+        variant: "standard",
+      },
+      sizing: { mode: "fixed", width: 480 },
+    },
+  });
+  if (!parsed.ok) throw new Error("Invalid oversized recipe fixture");
+  const document = parsed.value;
+  await page.goto("/studio/");
+  await page
+    .locator('input[type="file"]')
+    .setInputFiles({
+      name: "large-recipe.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(document)),
+    });
+  await page
+    .getByRole("button", { name: "Copy share link", exact: true })
+    .click();
+  await expect(page.locator(".editor-status")).toContainText(
+    "Export recipe JSON",
+  );
+  const downloaded = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Export recipe JSON", exact: true })
+    .click();
+  const file = await downloaded;
+  expect(file.suggestedFilename()).toBe("console-fx-recipe.json");
+  const stream = await file.createReadStream();
+  const chunks: Buffer[] = [];
+  for await (const chunk of stream) chunks.push(Buffer.from(chunk));
+  expect(decodeDocument(Buffer.concat(chunks).toString("utf8"))).toEqual({
+    ok: true,
+    value: document,
+    diagnostics: [],
+  });
+});
 
 test("failed playback retains the static preview, editable text and JSON recovery", async ({
   page,
