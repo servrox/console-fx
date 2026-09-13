@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-13T00:07:13.415Z",
+  "project": "prj_1l26eTv5TAxawo3B7gvcBXl4l5CN",
+  "name": "console-fx",
+  "account": "team_ZMyECTz65A2Bi8v8vYOavwsM",
+  "root": "apps/studio",
+  "previewFeedback": false,
+  "authentication": {
+    "deploymentType": "all"
+  },
+  "rollbackPreviewFeedback": null
+}
