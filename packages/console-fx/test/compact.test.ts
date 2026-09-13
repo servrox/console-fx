@@ -211,6 +211,9 @@ describe("accepted compact card layouts", () => {
       const before = JSON.stringify(scene);
       const options = measure(scene);
       const output = compileConsole(scene, options);
+      expect(output.diagnostics).not.toContainEqual(
+        expect.objectContaining({ code: "presentation-letterbox" }),
+      );
       expect(output.layout).toMatchObject({
         profile: `${reference.id}/compact/v1`,
         variant: "compact",
@@ -264,6 +267,16 @@ describe("accepted compact card layouts", () => {
       );
     },
   );
+  it("reports actual spare space around a compact card", () => {
+    const scene = createPresetExample("buildReceipt");
+    const options = measure(scene, {
+      ...settings,
+      layout: { ...settings.layout!, width: 480 },
+    });
+    expect(compileConsole(scene, options).diagnostics).toContainEqual(
+      expect.objectContaining({ code: "presentation-letterbox" }),
+    );
+  });
   it.each(references.presets)(
     "uses $id's threshold and rejects unreadable 280 px scaling",
     ({ id, compactBelow }) => {

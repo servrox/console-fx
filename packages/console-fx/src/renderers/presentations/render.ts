@@ -10,17 +10,16 @@ import { rect, line, path, circle } from "./shapes.js";
 export function renderPresentation(
   scene: SceneV1,
   plan?: SvgLayoutPlan,
-): string {
+): { svg: string; letterboxed: boolean } {
   const n = plan ? String : svgNumber;
   const presentation = scene.presentation!;
   const descriptor = presentationDescriptor(presentation.profile)!;
   const { width, height, padding, background, borderRadius } = scene.surface;
   const cardWidth = plan?.cardLayout?.width ?? 720;
   const cardHeight = plan?.cardLayout?.height ?? 240;
-  const scale = Math.min(
-    (width - 2 * padding) / cardWidth,
-    (height - 2 * padding) / cardHeight,
-  );
+  const scaleX = (width - 2 * padding) / cardWidth;
+  const scaleY = (height - 2 * padding) / cardHeight;
+  const scale = Math.min(scaleX, scaleY);
   const accent = presentation.accent;
   const detailed = presentation.detail === "standard";
   const status = descriptor.status;
@@ -243,5 +242,8 @@ export function renderPresentation(
       );
     })
     .join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${rect(0, 0, width, height, background, borderRadius)}<g transform="translate(${n((width - cardWidth * scale) / 2)} ${n((height - cardHeight * scale) / 2)}) scale(${n(scale)})">${art}${texts}</g></svg>`;
+  return {
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">${rect(0, 0, width, height, background, borderRadius)}<g transform="translate(${n((width - cardWidth * scale) / 2)} ${n((height - cardHeight * scale) / 2)}) scale(${n(scale)})">${art}${texts}</g></svg>`,
+    letterboxed: Math.abs(scaleX - scaleY) > 1e-9,
+  };
 }
