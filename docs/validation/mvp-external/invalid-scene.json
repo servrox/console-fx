@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 99,
+  "label": "Imported 100% %c %s 👩🏽‍💻",
+  "surface": {
+    "width": 600,
+    "height": 180,
+    "background": "#0c1117",
+    "padding": 34,
+    "borderRadius": 16
+  },
+  "lines": [
+    {
+      "align": "center",
+      "runs": [
+        {
+          "text": "Imported 100% %c %s 👩🏽‍💻",
+          "style": {
+            "color": "#e8f3f5",
+            "fontSize": 42,
+            "fontWeight": 700,
+            "fontFamily": "mono",
+            "letterSpacing": 0
+          },
+          "effects": [
+            {
+              "kind": "neon",
+              "color": "#22d3ee",
+              "intensity": 0.7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "motion": {
+    "durationMs": 4800,
+    "finish": "freeze"
+  }
+}

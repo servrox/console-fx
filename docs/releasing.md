@@ -7,6 +7,13 @@ Both approved 0.1.0 packages are published under `next` and passed the complete
 [registry-consumer matrix](evidence/packages/2026-09-13/README.md). The dated
 ledgers below retain their original scope and remaining observation limits.
 
+The [completion audit](specs/mvp-completion-audit.md) records the final promoted
+artifact and the remaining requirements. Full-spec completion is still pending
+the five-developer study, integrated-GPU laptop and physical-mobile performance
+recordings, and Safari website checks. Public-access approval did not supply or
+waive those observations. The [validation packet](validation/mvp-external-review.md)
+is ready for the required participants and devices.
+
 The first MVP candidate was implemented under ADR-0001 through ADR-0011.
 Accepted ADR-0013 now supersedes ADR-0011: missing screen-reader observations are
 a nonblocking follow-up. Required automated, keyboard/focus, zoom/reflow and

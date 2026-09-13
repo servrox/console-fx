@@ -8,13 +8,19 @@ reusing a successful check for an older source snapshot.
 
 ## First-publication bootstrap
 
+Bootstrap completed on September 13, 2026: both approved 0.1.0 packages are
+published under `next`, and their exact registry bytes and isolated consumers
+passed the [pair verification](evidence/packages/2026-09-13/README.md). Do not
+repeat publication of these versions. The initial bootstrap procedure below is
+retained for context; OIDC configuration and execution remain separate future work.
+
 Complete the required [release ledger](releasing.md) gates, including real CI,
 and obtain approval for the exact packages, versions,
 tarball hashes and distribution tag. The qualified studio preview does not grant
 package publication authority. Representative screen-reader review is a
 nonblocking follow-up under ADR-0013; its missing evidence is not a publication gate.
 
-Both npm package names were absent at the last authenticated check. npm's
+Both npm package names were absent at the initial bootstrap check. npm's
 [trust prerequisites](https://docs.npmjs.com/cli/v11/commands/npm-trust/)
 require an existing package, write access and account 2FA. Bootstrap the real
 reviewed packages through an explicitly approved interactive npm publication;

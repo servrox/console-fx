@@ -1,0 +1,63 @@
+{
+  "at": "2026-09-13T07:30:52.198Z",
+  "status": "verified",
+  "artifactFingerprint": "227a1e0e2dcf45d66fe9a52fcdd35b77cc12f8bdefe032fb7d29236b4fab5b22",
+  "deployment": "dpl_D4D4s3vQDqEGWom52kzZascti5rb",
+  "requestCredentials": "none",
+  "checks": [
+    {
+      "url": "https://console-fx-servroxs-projects.vercel.app",
+      "status": 200,
+      "sha256": "fe13695d0d37611a14c3064da99a65a781d52312fb9931d535ac4f0135cb88a6",
+      "routes": [
+        {
+          "path": "/docs/index.html",
+          "status": 200,
+          "sha256": "8d6ac4b47251a12f32894a3fbaea6c1e35f07e0b3e3e96317d9953a3d272479c"
+        },
+        {
+          "path": "/studio/index.html",
+          "status": 200,
+          "sha256": "23633f2b6c51aaf13b64f0a9ddc0e2106b4ddfda16925d055e4096ad883f4023"
+        },
+        {
+          "path": "/media/console-fx-usage.mp4",
+          "status": 200,
+          "sha256": "766e30acd6fa061a35f7444e99c4440c928789a697090c1541fa029b3f3043cb"
+        }
+      ]
+    },
+    {
+      "url": "https://console-fx-git-main-servroxs-projects.vercel.app",
+      "status": 200,
+      "sha256": "fe13695d0d37611a14c3064da99a65a781d52312fb9931d535ac4f0135cb88a6",
+      "routes": [
+        {
+          "path": "/docs/index.html",
+          "status": 200,
+          "sha256": "8d6ac4b47251a12f32894a3fbaea6c1e35f07e0b3e3e96317d9953a3d272479c"
+        },
+        {
+          "path": "/studio/index.html",
+          "status": 200,
+          "sha256": "23633f2b6c51aaf13b64f0a9ddc0e2106b4ddfda16925d055e4096ad883f4023"
+        },
+        {
+          "path": "/media/console-fx-usage.mp4",
+          "status": 200,
+          "sha256": "766e30acd6fa061a35f7444e99c4440c928789a697090c1541fa029b3f3043cb"
+        }
+      ]
+    },
+    {
+      "url": "https://console-b72md8ye6-servroxs-projects.vercel.app",
+      "status": 302,
+      "redirectHost": "vercel.com"
+    },
+    {
+      "url": "https://console-d4hj55d43-servroxs-projects.vercel.app",
+      "status": 302,
+      "redirectHost": "vercel.com"
+    }
+  ]
+}
