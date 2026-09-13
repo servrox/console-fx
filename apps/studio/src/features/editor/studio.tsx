@@ -251,6 +251,7 @@ export function Studio({
     [scene, settings, measurement.snapshot],
   );
   const { options, compilation, diagnostics } = prepared;
+  const preview = prepared.preview(playing);
   const renderer = settings.renderer ?? "css";
   const systemMotion = options.motion === "system";
   useEffect(() => {
@@ -368,6 +369,16 @@ export function Studio({
         kind: "info",
         message:
           "This browser requests reduced motion. The preview stays static.",
+      });
+      return;
+    }
+    const requested = prepared.preview(true);
+    if (!requested.ok) {
+      setPlaying(false);
+      setNotice({
+        kind: "error",
+        message:
+          requested.diagnostics[0]?.message ?? "This preview cannot play.",
       });
       return;
     }
@@ -700,19 +711,15 @@ export function Studio({
                   </span>
                 </div>
                 <div className="preview-content">
-                  {compilation.ok ? (
+                  {preview.ok ? (
                     <ConsolePreview
                       key={previewInstance}
                       scene={scene}
-                      options={{
-                        ...options,
-                        motion:
-                          playing && renderer === "svg" ? "allow" : "reduce",
-                      }}
+                      options={preview.options}
                     />
                   ) : (
                     <p className="preview-error">
-                      {compilation.diagnostics[0]?.message ??
+                      {preview.diagnostics[0]?.message ??
                         "Choose a supported renderer."}
                     </p>
                   )}
@@ -725,9 +732,7 @@ export function Studio({
                 <div className="button-row compact">
                   <button
                     type="button"
-                    disabled={
-                      !hasMotion || renderer !== "svg" || !compilation.ok
-                    }
+                    disabled={!hasMotion || renderer !== "svg" || !preview.ok}
                     onClick={playPreview}
                   >
                     {playing ? "Replay" : "Play"}

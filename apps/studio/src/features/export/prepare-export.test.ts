@@ -12,6 +12,63 @@ const snapshot = {
 } as const;
 
 describe("studio export preparation", () => {
+  it.each(["reduce", "system"] as const)(
+    "keeps static preview and recovery when playback overflows under saved %s motion",
+    (motion) => {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "Bounded wave",
+        surface: { padding: 0 },
+        lines: [
+          {
+            runs: [
+              {
+                text: "A",
+                style: { fontSize: 20 },
+                effects: [{ kind: "wave", amplitude: 10 }],
+              },
+            ],
+          },
+        ],
+      });
+      const options = {
+        target: "chromium",
+        renderer: "svg",
+        motion,
+        layout: {
+          algorithm: "fit/v1",
+          width: 100,
+          maxHeight: 40,
+          overflow: "error",
+          minFontSize: 12,
+          variant: "standard",
+        },
+      } as const;
+      const log = vi.spyOn(console, "log");
+      const prepared = prepareExport({ scene, options });
+      const source = prepared.source("javascript");
+      const staticPreview = prepared.preview();
+      expect(staticPreview.ok).toBe(true);
+      if (!staticPreview.ok) throw new Error("Expected a valid static preview");
+      expect(staticPreview.options.motion).toBe("reduce");
+      expect(staticPreview.output.animated).toBe(false);
+      expect(prepared.compilation.ok).toBe(motion === "reduce");
+      const playback = prepared.preview(true);
+      expect(playback.ok).toBe(false);
+      if (playback.ok) throw new Error("Expected an animated envelope failure");
+      expect(playback.diagnostics.map(({ code }) => code)).toContain(
+        "layout-overflow",
+      );
+      expect(prepared.preview().ok).toBe(true);
+      expect(prepared.source("javascript")).toBe(source);
+      expect(JSON.parse(prepared.source("recipe"))).toMatchObject({
+        scene,
+        options,
+      });
+      expect(log).not.toHaveBeenCalled();
+    },
+  );
+
   it("prepares silently and emits the exact compiler arguments through standalone source", () => {
     const log = vi.spyOn(console, "log");
     const prepared = prepareExport(snapshot);

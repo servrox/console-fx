@@ -1,6 +1,9 @@
 import { readFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
-import { parseRenderRecipe } from "../../packages/console-fx/dist/index.js";
+import {
+  defineScene,
+  parseRenderRecipe,
+} from "../../packages/console-fx/dist/index.js";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
 import {
   neon,
@@ -11,6 +14,83 @@ import { test, expect } from "./fixtures";
 
 const rawKey = "console-fx:scene:v1";
 const recipeKey = "console-fx:recipe:v1";
+
+test("failed playback retains the static preview, editable text and JSON recovery", async ({
+  page,
+}) => {
+  const scene = defineScene({
+    schemaVersion: 1,
+    label: "Bounded wave",
+    surface: { padding: 0 },
+    lines: [
+      {
+        runs: [
+          {
+            text: "A",
+            style: { fontSize: 20 },
+            effects: [{ kind: "wave", amplitude: 10 }],
+          },
+        ],
+      },
+    ],
+  });
+  const document = {
+    kind: "consoleFxRenderRecipe",
+    recipeVersion: 1,
+    scene,
+    options: {
+      target: "chromium",
+      renderer: "svg",
+      motion: "reduce",
+      layout: {
+        algorithm: "fit/v1",
+        width: 100,
+        maxHeight: 40,
+        overflow: "error",
+        minFontSize: 12,
+        variant: "standard",
+      },
+    },
+  };
+  await page.addInitScript(
+    ({ key, document }) => localStorage.setItem(key, JSON.stringify(document)),
+    { key: recipeKey, document },
+  );
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  const errors: string[] = [];
+  const calls: string[] = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  page.on("console", (event) => {
+    if (event.type() === "log") calls.push(event.text());
+  });
+  await page.goto("/studio/");
+  const message = page.getByRole("textbox", {
+    name: "Message text",
+    exact: true,
+  });
+  await expect(message).toHaveValue("A");
+  const preview = page.locator(".preview-content img");
+  const uri = await preview.getAttribute("src");
+  expect(uri).toBeTruthy();
+  const source = page.getByLabel("Generated code", { exact: true });
+  const exported = await source.inputValue();
+  await page.getByRole("button", { name: "Play", exact: true }).click();
+  await expect(page.locator(".editor-status .error-text")).toBeVisible();
+  await expect(preview).toHaveAttribute("src", uri!);
+  await expect(source).toHaveValue(exported);
+  await expect(
+    page.getByRole("button", { name: "Show static", exact: true }),
+  ).toBeDisabled();
+  await message.fill("B");
+  await page
+    .getByRole("combobox", { name: "Format", exact: true })
+    .selectOption("recipe");
+  const recovered = JSON.parse(await source.inputValue());
+  expect(recovered.scene.lines[0].runs[0].text).toBe("B");
+  expect(recovered.options).toMatchObject(document.options);
+  expect(errors).toEqual([]);
+  expect(calls).toEqual([]);
+});
 
 test("compact cards keep full fields, exact measured exports and recoverable recipes", async ({
   page,
