@@ -330,7 +330,11 @@ export function Studio({
     });
   }
   const setRenderer = (renderer: Renderer) =>
-    updateSettings({ ...settings, renderer });
+    updateSettings({
+      ...settings,
+      renderer,
+      ...(renderer === "text" ? {} : { target: "chromium" }),
+    });
   const setSystemMotion = (enabled: boolean) =>
     updateSettings({ ...settings, motion: enabled ? "system" : "reduce" });
 

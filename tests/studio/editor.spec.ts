@@ -1,10 +1,82 @@
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
+import { parseRenderRecipe } from "../../packages/console-fx/dist/index.js";
+import { exportConsoleLog } from "../../packages/console-fx/dist/codegen/index.js";
 import { neon, rainbow } from "../../packages/console-fx/dist/presets/index.js";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
 
 const draftKey = "console-fx:scene:v1";
+
+test("explicit rich renderer selection updates an imported target in one undoable step", async ({
+  page,
+}) => {
+  const logs: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "log") logs.push(message.text());
+  });
+  await page.goto("/studio/");
+  const renderer = page.getByRole("combobox", {
+    name: "Output renderer",
+    exact: true,
+  });
+  const format = page.getByRole("combobox", { name: "Format", exact: true });
+  const source = page.getByLabel("Generated code", { exact: true });
+  for (const fixture of [
+    { renderer: "svg", options: { target: "node", renderer: "text" } },
+    { renderer: "css", options: { unsupported: "fallback" } },
+  ] as const) {
+    const parsed = parseRenderRecipe({
+      kind: "consoleFxRenderRecipe",
+      recipeVersion: 1,
+      scene: neon({ text: `Imported ${fixture.renderer} message` }),
+      options: fixture.options,
+    });
+    if (!parsed.ok) throw new Error("Invalid imported recipe fixture");
+    const imported = parsed.value;
+    await page.locator('input[type="file"]').setInputFiles({
+      name: "recipe.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(imported)),
+    });
+    await format.selectOption("recipe");
+    await renderer.selectOption("text");
+    expect(JSON.parse(await source.inputValue())).toEqual(imported);
+    await renderer.selectOption(fixture.renderer);
+    const selected = {
+      ...imported,
+      options: {
+        ...imported.options,
+        renderer: fixture.renderer,
+        target: "chromium",
+      },
+    } as const;
+    expect(JSON.parse(await source.inputValue())).toEqual(selected);
+    if (fixture.renderer === "svg")
+      await expect(
+        page.getByRole("img", { name: "Imported svg message", exact: true }),
+      ).toBeVisible();
+    else
+      await expect(
+        page.getByText("Approximate browser preview", { exact: true }),
+      ).toBeVisible();
+    await format.selectOption("javascript");
+    await expect(source).toHaveValue(
+      exportConsoleLog(selected.scene, selected.options).code,
+    );
+    await format.selectOption("recipe");
+    await page.getByRole("button", { name: "Undo", exact: true }).click();
+    expect(JSON.parse(await source.inputValue())).toEqual(imported);
+    await page.getByRole("button", { name: "Redo", exact: true }).click();
+    expect(JSON.parse(await source.inputValue())).toEqual(selected);
+    await renderer.selectOption("text");
+    expect(JSON.parse(await source.inputValue())).toEqual({
+      ...selected,
+      options: { ...selected.options, renderer: "text" },
+    });
+  }
+  expect(logs).toEqual([]);
+});
 
 test("prepared deployment CSP permits hydration, exact SVG previews and client navigation", async ({
   page,
