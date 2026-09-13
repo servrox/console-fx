@@ -75,26 +75,46 @@ describe("fitting text boundary recovery", () => {
         }),
       );
       expect(sink).not.toHaveBeenCalled();
-      expect(() =>
-        compileConsole(
-          { ...scene, surface: { width: 80, height: 400 }, lines: [] },
-          {
-            target: "chromium",
-            renderer: "svg",
-            unsupported,
-            sizing: { mode: "fixed", width: 160 },
-          },
-        ),
-      ).toThrowError(
-        expect.objectContaining({
-          diagnostics: expect.arrayContaining([
-            expect.objectContaining({
-              code: "invalid-options",
-              severity: "error",
-            }),
-          ]),
-        }),
-      );
+      const sized = defineScene({
+        schemaVersion: 1,
+        label: "Display-height limit",
+        surface: { width: 100, height: 40, padding: 0 },
+        lines: [{ runs: [{ text: "A", style: { fontSize: 20 } }] }],
+      });
+      for (const fitting of [
+        undefined,
+        { ...layout, width: 100, maxHeight: 40, overflow: "error" as const },
+      ]) {
+        const settings = {
+          target: "chromium",
+          renderer: "svg",
+          motion: "reduce",
+          unsupported,
+          sizing: { mode: "fixed", width: 1200 },
+          ...(fitting ? { layout: fitting } : {}),
+        } satisfies CompileOptions;
+        expect(() => emitConsole(sized, settings, sink)).toThrowError(
+          expect.objectContaining({
+            diagnostics: expect.arrayContaining([
+              expect.objectContaining({
+                code: "invalid-options",
+                severity: "error",
+                path: ["sizing"],
+              }),
+            ]),
+          }),
+        );
+        expect(sink).not.toHaveBeenCalled();
+        if (fitting) {
+          const preflight = prepareTextMeasurements(sized, {
+            ...settings,
+            measurementEnvironment: "test-fonts-v1",
+          });
+          expect(preflight.ok).toBe(true);
+          if (!preflight.ok) throw new Error("Expected measurement preflight");
+          expect(preflight.value.length).toBeGreaterThan(0);
+        }
+      }
     },
   );
   const fit = {
