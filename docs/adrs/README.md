@@ -27,6 +27,13 @@ The maintainer also explicitly answered “Approve ADR-0015” on 2026-09-12 for
 | ADR-0013 | [Keep screen-reader review as nonblocking follow-up](0013-keep-screen-reader-review-as-nonblocking-follow-up.md) | Accepted | Accessibility and release readiness; supersedes ADR-0011 | None |
 | ADR-0014 | [Use closed preset presentations](0014-use-closed-preset-presentations.md) | Accepted | Useful/artful cards, shared presentation data, slot schemas and comparison baselines | None |
 | ADR-0015 | [Separate content fit from output sizing](0015-separate-content-fit-from-output-sizing.md) | Accepted | Fitting, measurements, sizing, recipes and compact layout qualification | None |
+| ADR-0016 | [Organize discovery around an example catalogue](0016-organize-discovery-around-an-example-catalogue.md) | Proposed | Separate landing/workbench, category navigation, capability resolution | None |
+| ADR-0017 | [Default new workbench examples to automatic SVG sizing](0017-default-new-workbench-examples-to-automatic-svg-sizing.md) | Proposed | New-example defaults; proposed narrow successor to ADR-0015 | None |
+
+ADR-0016 and ADR-0017 are pending maintainer review. ADR-0015 remains binding;
+its proposed narrow successor does not take effect before acceptance. See the
+[workbench proposal](../specs/workbench-proposal.md) for the category map and
+explicit specification conflicts.
 
 ## Status and acceptance
 

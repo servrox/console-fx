@@ -1,0 +1,2071 @@
+{
+  "schemaVersion": 1,
+  "scope": "All package/version keys in all YAML documents of the root pnpm-lock.yaml; includes development and optional platform packages, not a deployed bundle inventory.",
+  "extraction": {
+    "packageId": "The exact key from the document packages mapping.",
+    "platformConstraints": "cpu, os and libc are copied when present; absence means the lock entry declares no such constraint.",
+    "dependencyMetadata": "Use the canonical lockfile for dependency edges, peer contexts, integrity hashes and optional snapshot flags.",
+    "excludedGraphs": "Archived consumer lockfiles under docs/evidence; temporary consumer installs; dependencies vendored inside Next.js (covered by its generated notices)."
+  },
+  "sourceSha256": {
+    "pnpm-lock.yaml": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4",
+    "pnpm-workspace.yaml": "eec1b3a64ecde9ee93e0c02c62d3d13904b30223295b29d5c9ea21d7e162e16c",
+    "package.json": "c2e0865e33653fa9ad3ccb3d054641a7dbb0cdc769b5994becbfc820566b57db",
+    "apps/studio/package.json": "0295bb05b6ac181ab16a3837a2716efbc15b16e351c4a583e73c1175b95e5f34",
+    "packages/console-fx/package.json": "40176eaa3492cb9c3122a3492cca31f519fef8deff899bacf64d54532e0e0a2d",
+    "packages/console-fx-react/package.json": "4a5dee51769be67fc696439ec66878b4953ee39d36379fe568171fbcf67bd542",
+    "examples/next-app/package.json": "67ce804a2432f9a876cc9c427617741c422aaadcd5ac52a3c37fdaa02ddfd709"
+  },
+  "counts": {
+    "directThirdPartyPackageNames": 22,
+    "lockedPackageVersionEntries": 583,
+    "workspacePackageVersionEntries": 574,
+    "packageManagerPackageVersionEntries": 9
+  },
+  "graphs": [
+    {
+      "kind": "package-manager",
+      "yamlDocumentIndex": 0,
+      "importers": ["."],
+      "packageCount": 9,
+      "platformConstrainedPackageCount": 8,
+      "packages": [
+        {
+          "id": "@pnpm/exe.darwin-arm64@12.3.4",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@pnpm/exe.darwin-x64@12.3.4",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@pnpm/exe.linux-arm64-musl@12.3.4",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@pnpm/exe.linux-arm64@12.3.4",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@pnpm/exe.linux-x64-musl@12.3.4",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@pnpm/exe.linux-x64@12.3.4",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@pnpm/exe.win32-arm64@12.3.4",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@pnpm/exe.win32-x64@12.3.4",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "pnpm@12.3.4"
+        }
+      ]
+    },
+    {
+      "kind": "workspace",
+      "yamlDocumentIndex": 1,
+      "importers": [
+        ".",
+        "apps/studio",
+        "packages/console-fx",
+        "packages/console-fx-react"
+      ],
+      "packageCount": 574,
+      "platformConstrainedPackageCount": 108,
+      "packages": [
+        {
+          "id": "@asamuzakjp/css-color@6.0.7"
+        },
+        {
+          "id": "@asamuzakjp/dom-selector@8.3.2"
+        },
+        {
+          "id": "@axe-core/playwright@4.13.0"
+        },
+        {
+          "id": "@babel/code-frame@7.29.7"
+        },
+        {
+          "id": "@babel/compat-data@7.29.7"
+        },
+        {
+          "id": "@babel/core@7.29.7"
+        },
+        {
+          "id": "@babel/generator@7.29.8"
+        },
+        {
+          "id": "@babel/helper-compilation-targets@7.29.7"
+        },
+        {
+          "id": "@babel/helper-globals@7.29.7"
+        },
+        {
+          "id": "@babel/helper-module-imports@7.29.7"
+        },
+        {
+          "id": "@babel/helper-module-transforms@7.29.7"
+        },
+        {
+          "id": "@babel/helper-string-parser@7.29.7"
+        },
+        {
+          "id": "@babel/helper-validator-identifier@7.29.7"
+        },
+        {
+          "id": "@babel/helper-validator-option@7.29.7"
+        },
+        {
+          "id": "@babel/helpers@7.29.7"
+        },
+        {
+          "id": "@babel/parser@7.29.8"
+        },
+        {
+          "id": "@babel/runtime@7.29.7"
+        },
+        {
+          "id": "@babel/template@7.29.7"
+        },
+        {
+          "id": "@babel/traverse@7.29.8"
+        },
+        {
+          "id": "@babel/types@7.29.8"
+        },
+        {
+          "id": "@bramus/specificity@2.4.2"
+        },
+        {
+          "id": "@changesets/apply-release-plan@8.1.0"
+        },
+        {
+          "id": "@changesets/assemble-release-plan@7.0.0"
+        },
+        {
+          "id": "@changesets/changelog-git@1.0.0"
+        },
+        {
+          "id": "@changesets/cli@3.0.2"
+        },
+        {
+          "id": "@changesets/config@4.0.0"
+        },
+        {
+          "id": "@changesets/errors@1.0.0"
+        },
+        {
+          "id": "@changesets/format@0.1.2"
+        },
+        {
+          "id": "@changesets/get-dependents-graph@3.0.0"
+        },
+        {
+          "id": "@changesets/git@4.0.1"
+        },
+        {
+          "id": "@changesets/parse@1.0.0"
+        },
+        {
+          "id": "@changesets/pre@3.0.0"
+        },
+        {
+          "id": "@changesets/read@1.0.1"
+        },
+        {
+          "id": "@changesets/should-skip-package@1.0.0"
+        },
+        {
+          "id": "@changesets/types@7.0.0"
+        },
+        {
+          "id": "@changesets/write@1.0.1"
+        },
+        {
+          "id": "@clack/core@1.5.0"
+        },
+        {
+          "id": "@clack/prompts@1.8.0"
+        },
+        {
+          "id": "@csstools/color-helpers@6.1.1"
+        },
+        {
+          "id": "@csstools/css-calc@3.3.0"
+        },
+        {
+          "id": "@csstools/css-color-parser@4.2.2"
+        },
+        {
+          "id": "@csstools/css-parser-algorithms@4.0.0"
+        },
+        {
+          "id": "@csstools/css-syntax-patches-for-csstree@1.1.12"
+        },
+        {
+          "id": "@csstools/css-tokenizer@4.0.0"
+        },
+        {
+          "id": "@emnapi/core@1.10.0"
+        },
+        {
+          "id": "@emnapi/runtime@1.10.0"
+        },
+        {
+          "id": "@emnapi/runtime@1.11.3"
+        },
+        {
+          "id": "@emnapi/wasi-threads@1.2.1"
+        },
+        {
+          "id": "@esbuild/aix-ppc64@0.28.2",
+          "cpu": ["ppc64"],
+          "os": ["aix"]
+        },
+        {
+          "id": "@esbuild/android-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["android"]
+        },
+        {
+          "id": "@esbuild/android-arm@0.28.2",
+          "cpu": ["arm"],
+          "os": ["android"]
+        },
+        {
+          "id": "@esbuild/android-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["android"]
+        },
+        {
+          "id": "@esbuild/darwin-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@esbuild/darwin-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@esbuild/freebsd-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["freebsd"]
+        },
+        {
+          "id": "@esbuild/freebsd-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["freebsd"]
+        },
+        {
+          "id": "@esbuild/linux-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-arm@0.28.2",
+          "cpu": ["arm"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-ia32@0.28.2",
+          "cpu": ["ia32"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-loong64@0.28.2",
+          "cpu": ["loong64"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-mips64el@0.28.2",
+          "cpu": ["mips64el"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-ppc64@0.28.2",
+          "cpu": ["ppc64"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-riscv64@0.28.2",
+          "cpu": ["riscv64"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-s390x@0.28.2",
+          "cpu": ["s390x"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/linux-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@esbuild/netbsd-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["netbsd"]
+        },
+        {
+          "id": "@esbuild/netbsd-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["netbsd"]
+        },
+        {
+          "id": "@esbuild/openbsd-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["openbsd"]
+        },
+        {
+          "id": "@esbuild/openbsd-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["openbsd"]
+        },
+        {
+          "id": "@esbuild/openharmony-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["openharmony"]
+        },
+        {
+          "id": "@esbuild/sunos-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["sunos"]
+        },
+        {
+          "id": "@esbuild/win32-arm64@0.28.2",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@esbuild/win32-ia32@0.28.2",
+          "cpu": ["ia32"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@esbuild/win32-x64@0.28.2",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@eslint-community/eslint-utils@4.10.1"
+        },
+        {
+          "id": "@eslint-community/eslint-utils@4.9.1"
+        },
+        {
+          "id": "@eslint-community/regexpp@4.12.2"
+        },
+        {
+          "id": "@eslint/config-array@0.21.2"
+        },
+        {
+          "id": "@eslint/config-helpers@0.4.2"
+        },
+        {
+          "id": "@eslint/core@0.17.0"
+        },
+        {
+          "id": "@eslint/eslintrc@3.3.7"
+        },
+        {
+          "id": "@eslint/js@9.39.5"
+        },
+        {
+          "id": "@eslint/object-schema@2.1.7"
+        },
+        {
+          "id": "@eslint/plugin-kit@0.4.1"
+        },
+        {
+          "id": "@exodus/bytes@1.15.1"
+        },
+        {
+          "id": "@humanfs/core@0.19.2"
+        },
+        {
+          "id": "@humanfs/node@0.16.8"
+        },
+        {
+          "id": "@humanfs/types@0.15.0"
+        },
+        {
+          "id": "@humanwhocodes/module-importer@1.0.1"
+        },
+        {
+          "id": "@humanwhocodes/retry@0.4.3"
+        },
+        {
+          "id": "@img/colour@1.1.0"
+        },
+        {
+          "id": "@img/sharp-darwin-arm64@0.35.4",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@img/sharp-darwin-x64@0.35.4",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@img/sharp-freebsd-wasm32@0.35.4",
+          "os": ["freebsd"]
+        },
+        {
+          "id": "@img/sharp-libvips-darwin-arm64@1.3.3",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@img/sharp-libvips-darwin-x64@1.3.3",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@img/sharp-libvips-linux-arm64@1.3.3",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-libvips-linux-arm@1.3.3",
+          "cpu": ["arm"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-libvips-linux-ppc64@1.3.3",
+          "cpu": ["ppc64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-libvips-linux-riscv64@1.3.3",
+          "cpu": ["riscv64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-libvips-linux-s390x@1.3.3",
+          "cpu": ["s390x"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-libvips-linux-x64@1.3.3",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-libvips-linuxmusl-arm64@1.3.3",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@img/sharp-libvips-linuxmusl-x64@1.3.3",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@img/sharp-linux-arm64@0.35.4",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-linux-arm@0.35.4",
+          "cpu": ["arm"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-linux-ppc64@0.35.4",
+          "cpu": ["ppc64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-linux-riscv64@0.35.4",
+          "cpu": ["riscv64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-linux-s390x@0.35.4",
+          "cpu": ["s390x"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-linux-x64@0.35.4",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@img/sharp-linuxmusl-arm64@0.35.4",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@img/sharp-linuxmusl-x64@0.35.4",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@img/sharp-wasm32@0.35.4"
+        },
+        {
+          "id": "@img/sharp-webcontainers-wasm32@0.35.4",
+          "cpu": ["wasm32"]
+        },
+        {
+          "id": "@img/sharp-win32-arm64@0.35.4",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@img/sharp-win32-ia32@0.35.4",
+          "cpu": ["ia32"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@img/sharp-win32-x64@0.35.4",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@jridgewell/gen-mapping@0.3.13"
+        },
+        {
+          "id": "@jridgewell/remapping@2.3.5"
+        },
+        {
+          "id": "@jridgewell/resolve-uri@3.1.2"
+        },
+        {
+          "id": "@jridgewell/sourcemap-codec@1.6.0"
+        },
+        {
+          "id": "@jridgewell/trace-mapping@0.3.31"
+        },
+        {
+          "id": "@manypkg/find-root@3.1.0"
+        },
+        {
+          "id": "@manypkg/get-packages@3.1.0"
+        },
+        {
+          "id": "@manypkg/tools@2.1.2"
+        },
+        {
+          "id": "@napi-rs/wasm-runtime@1.2.3"
+        },
+        {
+          "id": "@next/env@16.3.4"
+        },
+        {
+          "id": "@next/eslint-plugin-next@16.3.4"
+        },
+        {
+          "id": "@next/swc-darwin-arm64@16.3.4",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@next/swc-darwin-x64@16.3.4",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@next/swc-linux-arm64-gnu@16.3.4",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@next/swc-linux-arm64-musl@16.3.4",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@next/swc-linux-x64-gnu@16.3.4",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@next/swc-linux-x64-musl@16.3.4",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@next/swc-win32-arm64-msvc@16.3.4",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@next/swc-win32-x64-msvc@16.3.4",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@nodelib/fs.scandir@2.1.5"
+        },
+        {
+          "id": "@nodelib/fs.stat@2.0.5"
+        },
+        {
+          "id": "@nodelib/fs.walk@1.2.8"
+        },
+        {
+          "id": "@nolyfill/is-core-module@1.0.39"
+        },
+        {
+          "id": "@oxc-project/types@0.149.0"
+        },
+        {
+          "id": "@playwright/test@1.63.0"
+        },
+        {
+          "id": "@pnpm/deps.graph-sequencer@1100.0.1"
+        },
+        {
+          "id": "@rolldown/binding-android-arm-eabi@1.2.8",
+          "cpu": ["arm"],
+          "os": ["android"]
+        },
+        {
+          "id": "@rolldown/binding-android-arm64@1.2.8",
+          "cpu": ["arm64"],
+          "os": ["android"]
+        },
+        {
+          "id": "@rolldown/binding-darwin-arm64@1.2.8",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@rolldown/binding-darwin-x64@1.2.8",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@rolldown/binding-freebsd-x64@1.2.8",
+          "cpu": ["x64"],
+          "os": ["freebsd"]
+        },
+        {
+          "id": "@rolldown/binding-linux-arm-gnueabihf@1.2.8",
+          "cpu": ["arm"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@rolldown/binding-linux-arm64-gnu@1.2.8",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@rolldown/binding-linux-arm64-musl@1.2.8",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@rolldown/binding-linux-ppc64-gnu@1.2.8",
+          "cpu": ["ppc64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@rolldown/binding-linux-s390x-gnu@1.2.8",
+          "cpu": ["s390x"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@rolldown/binding-linux-x64-gnu@1.2.8",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@rolldown/binding-linux-x64-musl@1.2.8",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@rolldown/binding-openharmony-arm64@1.2.8",
+          "cpu": ["arm64"],
+          "os": ["openharmony"]
+        },
+        {
+          "id": "@rolldown/binding-win32-arm64-msvc@1.2.8",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@rolldown/binding-win32-x64-msvc@1.2.8",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@rolldown/pluginutils@1.0.1"
+        },
+        {
+          "id": "@rtsao/scc@1.1.0"
+        },
+        {
+          "id": "@standard-schema/spec@1.1.0"
+        },
+        {
+          "id": "@swc/helpers@0.5.23"
+        },
+        {
+          "id": "@testing-library/dom@10.4.1"
+        },
+        {
+          "id": "@testing-library/react@16.3.3"
+        },
+        {
+          "id": "@tybys/wasm-util@0.10.3"
+        },
+        {
+          "id": "@types/aria-query@5.0.4"
+        },
+        {
+          "id": "@types/chai@5.2.3"
+        },
+        {
+          "id": "@types/deep-eql@4.0.2"
+        },
+        {
+          "id": "@types/estree@1.0.9"
+        },
+        {
+          "id": "@types/jsdom@30.0.0"
+        },
+        {
+          "id": "@types/json-schema@7.0.15"
+        },
+        {
+          "id": "@types/json5@0.0.29"
+        },
+        {
+          "id": "@types/node@24.13.4"
+        },
+        {
+          "id": "@types/react-dom@19.3.0"
+        },
+        {
+          "id": "@types/react@19.3.0"
+        },
+        {
+          "id": "@types/tough-cookie@4.0.5"
+        },
+        {
+          "id": "@typescript-eslint/eslint-plugin@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/parser@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/project-service@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/scope-manager@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/tsconfig-utils@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/type-utils@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/types@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/typescript-estree@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/utils@8.70.0"
+        },
+        {
+          "id": "@typescript-eslint/visitor-keys@8.70.0"
+        },
+        {
+          "id": "@unrs/resolver-binding-android-arm-eabi@1.12.2",
+          "cpu": ["arm"],
+          "os": ["android"]
+        },
+        {
+          "id": "@unrs/resolver-binding-android-arm64@1.12.2",
+          "cpu": ["arm64"],
+          "os": ["android"]
+        },
+        {
+          "id": "@unrs/resolver-binding-darwin-arm64@1.12.2",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@unrs/resolver-binding-darwin-x64@1.12.2",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "@unrs/resolver-binding-freebsd-x64@1.12.2",
+          "cpu": ["x64"],
+          "os": ["freebsd"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-arm-gnueabihf@1.12.2",
+          "cpu": ["arm"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-arm-musleabihf@1.12.2",
+          "cpu": ["arm"],
+          "os": ["linux"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-arm64-gnu@1.12.2",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-arm64-musl@1.12.2",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-loong64-gnu@1.12.2",
+          "cpu": ["loong64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-loong64-musl@1.12.2",
+          "cpu": ["loong64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-ppc64-gnu@1.12.2",
+          "cpu": ["ppc64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-riscv64-gnu@1.12.2",
+          "cpu": ["riscv64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-riscv64-musl@1.12.2",
+          "cpu": ["riscv64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-s390x-gnu@1.12.2",
+          "cpu": ["s390x"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-x64-gnu@1.12.2",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "@unrs/resolver-binding-linux-x64-musl@1.12.2",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "@unrs/resolver-binding-openharmony-arm64@1.12.2",
+          "cpu": ["arm64"],
+          "os": ["openharmony"]
+        },
+        {
+          "id": "@unrs/resolver-binding-wasm32-wasi@1.12.2",
+          "cpu": ["wasm32"]
+        },
+        {
+          "id": "@unrs/resolver-binding-win32-arm64-msvc@1.12.2",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@unrs/resolver-binding-win32-ia32-msvc@1.12.2",
+          "cpu": ["ia32"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@unrs/resolver-binding-win32-x64-msvc@1.12.2",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "@vitest/expect@4.1.11"
+        },
+        {
+          "id": "@vitest/mocker@4.1.11"
+        },
+        {
+          "id": "@vitest/pretty-format@4.1.11"
+        },
+        {
+          "id": "@vitest/runner@4.1.11"
+        },
+        {
+          "id": "@vitest/snapshot@4.1.11"
+        },
+        {
+          "id": "@vitest/spy@4.1.11"
+        },
+        {
+          "id": "@vitest/utils@4.1.11"
+        },
+        {
+          "id": "acorn-jsx@5.3.2"
+        },
+        {
+          "id": "acorn@8.18.0"
+        },
+        {
+          "id": "ajv@6.15.0"
+        },
+        {
+          "id": "ansi-regex@5.0.1"
+        },
+        {
+          "id": "ansi-styles@4.3.0"
+        },
+        {
+          "id": "ansi-styles@5.2.0"
+        },
+        {
+          "id": "argparse@2.0.1"
+        },
+        {
+          "id": "aria-query@5.3.0"
+        },
+        {
+          "id": "aria-query@5.3.2"
+        },
+        {
+          "id": "array-buffer-byte-length@1.0.2"
+        },
+        {
+          "id": "array-includes@3.2.0"
+        },
+        {
+          "id": "array.prototype.findlast@1.2.5"
+        },
+        {
+          "id": "array.prototype.findlastindex@1.2.6"
+        },
+        {
+          "id": "array.prototype.flat@1.3.3"
+        },
+        {
+          "id": "array.prototype.flatmap@1.3.3"
+        },
+        {
+          "id": "array.prototype.tosorted@1.1.4"
+        },
+        {
+          "id": "arraybuffer.prototype.slice@1.0.4"
+        },
+        {
+          "id": "assertion-error@2.0.1"
+        },
+        {
+          "id": "ast-types-flow@0.0.8"
+        },
+        {
+          "id": "async-function@1.0.0"
+        },
+        {
+          "id": "available-typed-arrays@1.0.7"
+        },
+        {
+          "id": "axe-core@4.13.0"
+        },
+        {
+          "id": "axobject-query@4.1.0"
+        },
+        {
+          "id": "balanced-match@1.0.2"
+        },
+        {
+          "id": "balanced-match@4.0.4"
+        },
+        {
+          "id": "baseline-browser-mapping@2.11.21"
+        },
+        {
+          "id": "bidi-js@1.1.0"
+        },
+        {
+          "id": "brace-expansion@1.1.18"
+        },
+        {
+          "id": "brace-expansion@5.0.9"
+        },
+        {
+          "id": "braces@3.0.3"
+        },
+        {
+          "id": "browserslist@4.28.9"
+        },
+        {
+          "id": "cac@7.0.0"
+        },
+        {
+          "id": "call-bind-apply-helpers@1.0.2"
+        },
+        {
+          "id": "call-bind@1.0.9"
+        },
+        {
+          "id": "call-bound@1.0.4"
+        },
+        {
+          "id": "callsites@3.1.0"
+        },
+        {
+          "id": "caniuse-lite@1.0.30001810"
+        },
+        {
+          "id": "chai@6.2.2"
+        },
+        {
+          "id": "chalk@4.1.2"
+        },
+        {
+          "id": "client-only@0.0.1"
+        },
+        {
+          "id": "color-convert@2.0.1"
+        },
+        {
+          "id": "color-name@1.1.4"
+        },
+        {
+          "id": "concat-map@0.0.1"
+        },
+        {
+          "id": "convert-source-map@2.0.0"
+        },
+        {
+          "id": "cross-spawn@7.0.6"
+        },
+        {
+          "id": "css-tree@3.2.1"
+        },
+        {
+          "id": "csstype@3.2.3"
+        },
+        {
+          "id": "damerau-levenshtein@1.0.8"
+        },
+        {
+          "id": "data-urls@7.0.0"
+        },
+        {
+          "id": "data-view-buffer@1.0.2"
+        },
+        {
+          "id": "data-view-byte-length@1.0.2"
+        },
+        {
+          "id": "data-view-byte-offset@1.0.1"
+        },
+        {
+          "id": "debug@3.2.7"
+        },
+        {
+          "id": "debug@4.4.3"
+        },
+        {
+          "id": "decimal.js@10.6.0"
+        },
+        {
+          "id": "deep-is@0.1.4"
+        },
+        {
+          "id": "define-data-property@1.1.4"
+        },
+        {
+          "id": "define-properties@1.2.1"
+        },
+        {
+          "id": "dequal@2.0.3"
+        },
+        {
+          "id": "detect-libc@2.1.2"
+        },
+        {
+          "id": "doctrine@2.1.0"
+        },
+        {
+          "id": "dom-accessibility-api@0.5.16"
+        },
+        {
+          "id": "dunder-proto@1.0.1"
+        },
+        {
+          "id": "electron-to-chromium@1.5.426"
+        },
+        {
+          "id": "emoji-regex@9.2.2"
+        },
+        {
+          "id": "entities@8.1.0"
+        },
+        {
+          "id": "es-abstract-get@1.0.0"
+        },
+        {
+          "id": "es-abstract@1.24.2"
+        },
+        {
+          "id": "es-define-property@1.0.1"
+        },
+        {
+          "id": "es-errors@1.3.0"
+        },
+        {
+          "id": "es-iterator-helpers@1.4.0"
+        },
+        {
+          "id": "es-module-lexer@2.3.2"
+        },
+        {
+          "id": "es-object-atoms@1.1.2"
+        },
+        {
+          "id": "es-set-tostringtag@2.1.0"
+        },
+        {
+          "id": "es-shim-unscopables@1.1.0"
+        },
+        {
+          "id": "es-to-primitive@1.3.4"
+        },
+        {
+          "id": "esbuild@0.28.2"
+        },
+        {
+          "id": "escalade@3.2.0"
+        },
+        {
+          "id": "escape-string-regexp@4.0.0"
+        },
+        {
+          "id": "eslint-config-next@16.3.4"
+        },
+        {
+          "id": "eslint-import-resolver-node@0.3.10"
+        },
+        {
+          "id": "eslint-import-resolver-typescript@3.10.1"
+        },
+        {
+          "id": "eslint-module-utils@2.14.0"
+        },
+        {
+          "id": "eslint-plugin-import@2.32.0"
+        },
+        {
+          "id": "eslint-plugin-jsx-a11y@6.10.2"
+        },
+        {
+          "id": "eslint-plugin-react-hooks@7.1.1"
+        },
+        {
+          "id": "eslint-plugin-react@7.37.5"
+        },
+        {
+          "id": "eslint-scope@8.4.0"
+        },
+        {
+          "id": "eslint-visitor-keys@3.4.3"
+        },
+        {
+          "id": "eslint-visitor-keys@4.2.1"
+        },
+        {
+          "id": "eslint-visitor-keys@5.0.1"
+        },
+        {
+          "id": "eslint@9.39.5"
+        },
+        {
+          "id": "espree@10.4.0"
+        },
+        {
+          "id": "esquery@1.7.0"
+        },
+        {
+          "id": "esrecurse@4.3.0"
+        },
+        {
+          "id": "estraverse@5.3.0"
+        },
+        {
+          "id": "estree-walker@3.0.3"
+        },
+        {
+          "id": "esutils@2.0.3"
+        },
+        {
+          "id": "expect-type@1.4.0"
+        },
+        {
+          "id": "fast-deep-equal@3.1.3"
+        },
+        {
+          "id": "fast-glob@3.3.1"
+        },
+        {
+          "id": "fast-json-stable-stringify@2.1.0"
+        },
+        {
+          "id": "fast-levenshtein@2.0.6"
+        },
+        {
+          "id": "fast-string-truncated-width@3.0.3"
+        },
+        {
+          "id": "fast-string-width@3.0.2"
+        },
+        {
+          "id": "fast-wrap-ansi@0.2.2"
+        },
+        {
+          "id": "fastq@1.20.3"
+        },
+        {
+          "id": "fdir@6.5.0"
+        },
+        {
+          "id": "file-entry-cache@8.0.0"
+        },
+        {
+          "id": "fill-range@7.1.1"
+        },
+        {
+          "id": "find-up@5.0.0"
+        },
+        {
+          "id": "flat-cache@4.0.1"
+        },
+        {
+          "id": "flatted@3.4.4"
+        },
+        {
+          "id": "for-each@0.3.5"
+        },
+        {
+          "id": "fsevents@2.3.3",
+          "os": ["darwin"]
+        },
+        {
+          "id": "function-bind@1.1.2"
+        },
+        {
+          "id": "function.prototype.name@1.2.0"
+        },
+        {
+          "id": "functions-have-names@1.2.3"
+        },
+        {
+          "id": "generator-function@2.0.1"
+        },
+        {
+          "id": "gensync@1.0.0-beta.2"
+        },
+        {
+          "id": "get-intrinsic@1.3.0"
+        },
+        {
+          "id": "get-proto@1.0.1"
+        },
+        {
+          "id": "get-symbol-description@1.1.0"
+        },
+        {
+          "id": "get-tsconfig@4.14.3"
+        },
+        {
+          "id": "glob-parent@5.1.2"
+        },
+        {
+          "id": "glob-parent@6.0.2"
+        },
+        {
+          "id": "globals@14.0.0"
+        },
+        {
+          "id": "globals@16.4.0"
+        },
+        {
+          "id": "globalthis@1.0.4"
+        },
+        {
+          "id": "gopd@1.2.0"
+        },
+        {
+          "id": "has-bigints@1.1.0"
+        },
+        {
+          "id": "has-flag@4.0.0"
+        },
+        {
+          "id": "has-property-descriptors@1.0.2"
+        },
+        {
+          "id": "has-proto@1.2.0"
+        },
+        {
+          "id": "has-symbols@1.1.0"
+        },
+        {
+          "id": "has-tostringtag@1.0.2"
+        },
+        {
+          "id": "hasown@2.0.4"
+        },
+        {
+          "id": "hermes-estree@0.25.1"
+        },
+        {
+          "id": "hermes-parser@0.25.1"
+        },
+        {
+          "id": "html-encoding-sniffer@6.0.0"
+        },
+        {
+          "id": "human-id@4.2.1"
+        },
+        {
+          "id": "ignore@5.3.2"
+        },
+        {
+          "id": "ignore@7.0.9"
+        },
+        {
+          "id": "import-fresh@3.3.1"
+        },
+        {
+          "id": "import-meta-resolve@4.2.0"
+        },
+        {
+          "id": "imurmurhash@0.1.4"
+        },
+        {
+          "id": "internal-slot@1.1.0"
+        },
+        {
+          "id": "is-array-buffer@3.0.5"
+        },
+        {
+          "id": "is-async-function@2.1.1"
+        },
+        {
+          "id": "is-bigint@1.1.0"
+        },
+        {
+          "id": "is-boolean-object@1.2.2"
+        },
+        {
+          "id": "is-bun-module@2.0.0"
+        },
+        {
+          "id": "is-callable@1.2.7"
+        },
+        {
+          "id": "is-core-module@2.16.2"
+        },
+        {
+          "id": "is-data-view@1.0.2"
+        },
+        {
+          "id": "is-date-object@1.1.0"
+        },
+        {
+          "id": "is-document.all@1.0.0"
+        },
+        {
+          "id": "is-extglob@2.1.1"
+        },
+        {
+          "id": "is-finalizationregistry@1.1.1"
+        },
+        {
+          "id": "is-generator-function@1.1.2"
+        },
+        {
+          "id": "is-glob@4.0.3"
+        },
+        {
+          "id": "is-map@2.0.3"
+        },
+        {
+          "id": "is-negative-zero@2.0.3"
+        },
+        {
+          "id": "is-number-object@1.1.1"
+        },
+        {
+          "id": "is-number@7.0.0"
+        },
+        {
+          "id": "is-potential-custom-element-name@1.0.1"
+        },
+        {
+          "id": "is-regex@1.2.1"
+        },
+        {
+          "id": "is-set@2.0.3"
+        },
+        {
+          "id": "is-shared-array-buffer@1.0.4"
+        },
+        {
+          "id": "is-string@1.1.1"
+        },
+        {
+          "id": "is-symbol@1.1.1"
+        },
+        {
+          "id": "is-typed-array@1.1.15"
+        },
+        {
+          "id": "is-weakmap@2.0.2"
+        },
+        {
+          "id": "is-weakref@1.1.1"
+        },
+        {
+          "id": "is-weakset@2.0.4"
+        },
+        {
+          "id": "isarray@2.0.5"
+        },
+        {
+          "id": "isexe@2.0.0"
+        },
+        {
+          "id": "iterator.prototype@1.1.5"
+        },
+        {
+          "id": "jju@1.4.0"
+        },
+        {
+          "id": "js-tokens@4.0.0"
+        },
+        {
+          "id": "js-yaml@4.3.2"
+        },
+        {
+          "id": "jsdom@30.0.1"
+        },
+        {
+          "id": "jsesc@3.1.0"
+        },
+        {
+          "id": "json-buffer@3.0.1"
+        },
+        {
+          "id": "json-schema-traverse@0.4.1"
+        },
+        {
+          "id": "json-stable-stringify-without-jsonify@1.0.1"
+        },
+        {
+          "id": "json5@1.0.2"
+        },
+        {
+          "id": "json5@2.2.3"
+        },
+        {
+          "id": "jsonc-parser@3.3.1"
+        },
+        {
+          "id": "jsx-ast-utils@3.3.5"
+        },
+        {
+          "id": "keyv@4.5.4"
+        },
+        {
+          "id": "language-subtag-registry@0.3.23"
+        },
+        {
+          "id": "language-tags@1.0.9"
+        },
+        {
+          "id": "launch-editor@2.14.1"
+        },
+        {
+          "id": "levn@0.4.1"
+        },
+        {
+          "id": "lightningcss-android-arm64@1.33.0",
+          "cpu": ["arm64"],
+          "os": ["android"]
+        },
+        {
+          "id": "lightningcss-darwin-arm64@1.33.0",
+          "cpu": ["arm64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "lightningcss-darwin-x64@1.33.0",
+          "cpu": ["x64"],
+          "os": ["darwin"]
+        },
+        {
+          "id": "lightningcss-freebsd-x64@1.33.0",
+          "cpu": ["x64"],
+          "os": ["freebsd"]
+        },
+        {
+          "id": "lightningcss-linux-arm-gnueabihf@1.33.0",
+          "cpu": ["arm"],
+          "os": ["linux"]
+        },
+        {
+          "id": "lightningcss-linux-arm64-gnu@1.33.0",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "lightningcss-linux-arm64-musl@1.33.0",
+          "cpu": ["arm64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "lightningcss-linux-x64-gnu@1.33.0",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["glibc"]
+        },
+        {
+          "id": "lightningcss-linux-x64-musl@1.33.0",
+          "cpu": ["x64"],
+          "os": ["linux"],
+          "libc": ["musl"]
+        },
+        {
+          "id": "lightningcss-win32-arm64-msvc@1.33.0",
+          "cpu": ["arm64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "lightningcss-win32-x64-msvc@1.33.0",
+          "cpu": ["x64"],
+          "os": ["win32"]
+        },
+        {
+          "id": "lightningcss@1.33.0"
+        },
+        {
+          "id": "locate-path@6.0.0"
+        },
+        {
+          "id": "lodash.merge@4.6.2"
+        },
+        {
+          "id": "loose-envify@1.4.0"
+        },
+        {
+          "id": "lru-cache@11.5.2"
+        },
+        {
+          "id": "lru-cache@5.1.1"
+        },
+        {
+          "id": "lz-string@1.5.0"
+        },
+        {
+          "id": "magic-string@0.30.21"
+        },
+        {
+          "id": "math-intrinsics@1.1.0"
+        },
+        {
+          "id": "mdn-data@2.27.1"
+        },
+        {
+          "id": "merge2@1.4.1"
+        },
+        {
+          "id": "micromatch@4.0.8"
+        },
+        {
+          "id": "minimatch@10.2.6"
+        },
+        {
+          "id": "minimatch@3.1.5"
+        },
+        {
+          "id": "minimist@1.2.8"
+        },
+        {
+          "id": "ms@2.1.3"
+        },
+        {
+          "id": "nanoid@3.3.18"
+        },
+        {
+          "id": "napi-postinstall@0.3.4"
+        },
+        {
+          "id": "natural-compare@1.4.0"
+        },
+        {
+          "id": "next@16.3.4"
+        },
+        {
+          "id": "node-exports-info@1.6.2"
+        },
+        {
+          "id": "node-releases@2.0.55"
+        },
+        {
+          "id": "object-assign@4.1.1"
+        },
+        {
+          "id": "object-inspect@1.13.4"
+        },
+        {
+          "id": "object-keys@1.1.1"
+        },
+        {
+          "id": "object.assign@4.1.7"
+        },
+        {
+          "id": "object.entries@1.1.9"
+        },
+        {
+          "id": "object.fromentries@2.0.8"
+        },
+        {
+          "id": "object.groupby@1.0.3"
+        },
+        {
+          "id": "object.values@1.2.1"
+        },
+        {
+          "id": "obug@2.2.1"
+        },
+        {
+          "id": "optionator@0.9.4"
+        },
+        {
+          "id": "own-keys@1.0.2"
+        },
+        {
+          "id": "p-limit@3.1.0"
+        },
+        {
+          "id": "p-locate@5.0.0"
+        },
+        {
+          "id": "package-manager-detector@1.8.0"
+        },
+        {
+          "id": "parent-module@1.0.1"
+        },
+        {
+          "id": "parse5@8.0.1"
+        },
+        {
+          "id": "path-exists@4.0.0"
+        },
+        {
+          "id": "path-key@3.1.1"
+        },
+        {
+          "id": "path-parse@1.0.7"
+        },
+        {
+          "id": "pathe@2.0.3"
+        },
+        {
+          "id": "picocolors@1.1.1"
+        },
+        {
+          "id": "picomatch@2.3.2"
+        },
+        {
+          "id": "picomatch@4.0.7"
+        },
+        {
+          "id": "playwright-core@1.63.0"
+        },
+        {
+          "id": "playwright@1.63.0"
+        },
+        {
+          "id": "possible-typed-array-names@1.1.0"
+        },
+        {
+          "id": "postcss@8.5.23"
+        },
+        {
+          "id": "postcss@8.5.28"
+        },
+        {
+          "id": "prelude-ls@1.2.1"
+        },
+        {
+          "id": "prettier@3.9.6"
+        },
+        {
+          "id": "pretty-format@27.5.1"
+        },
+        {
+          "id": "prop-types@15.8.1"
+        },
+        {
+          "id": "punycode@2.3.1"
+        },
+        {
+          "id": "queue-microtask@1.2.3"
+        },
+        {
+          "id": "react-dom@19.3.0"
+        },
+        {
+          "id": "react-is@16.13.1"
+        },
+        {
+          "id": "react-is@17.0.2"
+        },
+        {
+          "id": "react@19.3.0"
+        },
+        {
+          "id": "reflect.getprototypeof@1.0.10"
+        },
+        {
+          "id": "regexp.prototype.flags@1.5.4"
+        },
+        {
+          "id": "require-from-string@2.0.2"
+        },
+        {
+          "id": "resolve-from@4.0.0"
+        },
+        {
+          "id": "resolve-pkg-maps@1.0.0"
+        },
+        {
+          "id": "resolve@2.0.0-next.7"
+        },
+        {
+          "id": "reusify@1.1.0"
+        },
+        {
+          "id": "rolldown@1.2.8"
+        },
+        {
+          "id": "run-parallel@1.2.0"
+        },
+        {
+          "id": "safe-array-concat@1.1.4"
+        },
+        {
+          "id": "safe-push-apply@1.0.0"
+        },
+        {
+          "id": "safe-regex-test@1.1.0"
+        },
+        {
+          "id": "saxes@6.0.0"
+        },
+        {
+          "id": "scheduler@0.28.0"
+        },
+        {
+          "id": "semver@6.3.1"
+        },
+        {
+          "id": "semver@7.8.5"
+        },
+        {
+          "id": "set-function-length@1.2.2"
+        },
+        {
+          "id": "set-function-name@2.0.2"
+        },
+        {
+          "id": "set-proto@1.0.0"
+        },
+        {
+          "id": "sharp@0.35.4"
+        },
+        {
+          "id": "shebang-command@2.0.0"
+        },
+        {
+          "id": "shebang-regex@3.0.0"
+        },
+        {
+          "id": "shell-quote@1.10.0"
+        },
+        {
+          "id": "side-channel-list@1.0.1"
+        },
+        {
+          "id": "side-channel-map@1.0.1"
+        },
+        {
+          "id": "side-channel-weakmap@1.0.2"
+        },
+        {
+          "id": "side-channel@1.1.1"
+        },
+        {
+          "id": "siginfo@2.0.0"
+        },
+        {
+          "id": "sisteransi@1.0.5"
+        },
+        {
+          "id": "source-map-js@1.2.1"
+        },
+        {
+          "id": "stable-hash@0.0.5"
+        },
+        {
+          "id": "stackback@0.0.2"
+        },
+        {
+          "id": "std-env@4.2.0"
+        },
+        {
+          "id": "stop-iteration-iterator@1.1.0"
+        },
+        {
+          "id": "string.prototype.includes@2.0.1"
+        },
+        {
+          "id": "string.prototype.matchall@4.1.0"
+        },
+        {
+          "id": "string.prototype.repeat@1.0.0"
+        },
+        {
+          "id": "string.prototype.trim@1.2.11"
+        },
+        {
+          "id": "string.prototype.trimend@1.0.10"
+        },
+        {
+          "id": "string.prototype.trimstart@1.0.8"
+        },
+        {
+          "id": "strip-bom@3.0.0"
+        },
+        {
+          "id": "strip-json-comments@3.1.1"
+        },
+        {
+          "id": "styled-jsx@5.1.6"
+        },
+        {
+          "id": "supports-color@7.2.0"
+        },
+        {
+          "id": "supports-preserve-symlinks-flag@1.0.0"
+        },
+        {
+          "id": "symbol-tree@3.2.4"
+        },
+        {
+          "id": "tinybench@2.9.0"
+        },
+        {
+          "id": "tinyexec@1.3.1"
+        },
+        {
+          "id": "tinyglobby@0.2.17"
+        },
+        {
+          "id": "tinyrainbow@3.1.1"
+        },
+        {
+          "id": "tldts-core@7.4.12"
+        },
+        {
+          "id": "tldts@7.4.12"
+        },
+        {
+          "id": "to-regex-range@5.0.1"
+        },
+        {
+          "id": "tough-cookie@6.0.2"
+        },
+        {
+          "id": "tr46@6.0.0"
+        },
+        {
+          "id": "ts-api-utils@2.5.0"
+        },
+        {
+          "id": "tsconfig-paths@3.15.0"
+        },
+        {
+          "id": "tslib@2.8.1"
+        },
+        {
+          "id": "type-check@0.4.0"
+        },
+        {
+          "id": "typed-array-buffer@1.0.3"
+        },
+        {
+          "id": "typed-array-byte-length@1.0.3"
+        },
+        {
+          "id": "typed-array-byte-offset@1.0.4"
+        },
+        {
+          "id": "typed-array-length@1.0.8"
+        },
+        {
+          "id": "typescript-eslint@8.70.0"
+        },
+        {
+          "id": "typescript@6.0.3"
+        },
+        {
+          "id": "unbox-primitive@1.1.0"
+        },
+        {
+          "id": "undici-types@7.18.2"
+        },
+        {
+          "id": "undici-types@8.10.2"
+        },
+        {
+          "id": "undici@8.10.2"
+        },
+        {
+          "id": "unrs-resolver@1.12.2"
+        },
+        {
+          "id": "update-browserslist-db@1.3.2"
+        },
+        {
+          "id": "uri-js@4.4.1"
+        },
+        {
+          "id": "vite@8.3.0"
+        },
+        {
+          "id": "vitest@4.1.11"
+        },
+        {
+          "id": "w3c-xmlserializer@5.0.0"
+        },
+        {
+          "id": "webidl-conversions@8.0.1"
+        },
+        {
+          "id": "whatwg-mimetype@5.0.0"
+        },
+        {
+          "id": "whatwg-url@16.0.1"
+        },
+        {
+          "id": "whatwg-url@17.1.1"
+        },
+        {
+          "id": "which-boxed-primitive@1.1.1"
+        },
+        {
+          "id": "which-builtin-type@1.2.1"
+        },
+        {
+          "id": "which-collection@1.0.2"
+        },
+        {
+          "id": "which-typed-array@1.1.22"
+        },
+        {
+          "id": "which@2.0.2"
+        },
+        {
+          "id": "why-is-node-running@2.3.0"
+        },
+        {
+          "id": "word-wrap@1.2.5"
+        },
+        {
+          "id": "xml-name-validator@5.0.0"
+        },
+        {
+          "id": "xmlchars@2.2.0"
+        },
+        {
+          "id": "yallist@3.1.1"
+        },
+        {
+          "id": "yaml@2.9.0"
+        },
+        {
+          "id": "yocto-queue@0.1.0"
+        },
+        {
+          "id": "zod-validation-error@4.0.2"
+        },
+        {
+          "id": "zod@4.6.1"
+        }
+      ]
+    }
+  ]
+}
