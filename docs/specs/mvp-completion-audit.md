@@ -26,6 +26,10 @@ and is historical evidence for that prior candidate. Neither its checks nor
 earlier publication approval transfer to changed bytes. Exact release approval,
 0.1.1 publication and registry consumers remain separate pending steps.
 
+The [third architecture round](architecture-round-3.md) records subsequent
+editor recovery and renderer-selection corrections. Its candidate and evidence
+stages remain separate from the merged checkpoint above.
+
 The earlier [reference-example integration and source audit](reference-examples-integration.md)
 adds all fourteen concepts from the two original mockups and corrects three
 compiler findings (hard fitting limits, container caption placement and
