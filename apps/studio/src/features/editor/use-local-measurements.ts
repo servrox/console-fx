@@ -28,6 +28,7 @@ export function useLocalMeasurements(
     job.current.worker.terminate();
     clearTimeout(job.current.timer);
     job.current = null;
+    setState((previous) => (previous?.pending ? null : previous));
   }
   useEffect(() => cancel, [key]);
   function measure() {
