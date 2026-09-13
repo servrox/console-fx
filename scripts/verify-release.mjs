@@ -23,6 +23,15 @@ export function verifyRegistryConsumerLock(lock, packages) {
 }
 
 export function verifyRegistryMetadata(metadata, candidate) {
+  // npm view --json can wrap a single exact version in an array.
+  if (Array.isArray(metadata)) {
+    assert.equal(metadata.length, 1, "Expected exactly one registry version");
+    metadata = metadata[0];
+  }
+  assert(
+    metadata && typeof metadata === "object" && !Array.isArray(metadata),
+    "Expected a registry metadata object",
+  );
   assert.equal(metadata.name, candidate.name, "Wrong registry package");
   assert.equal(metadata.version, candidate.version, "Wrong registry version");
   const bytes = readFileSync(candidate.tarball);

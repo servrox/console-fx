@@ -191,13 +191,17 @@ test("registry consumers bind exact names, versions, bytes and the public regist
         "https://registry.npmjs.org/@servrox/console-fx/-/console-fx-0.1.0.tgz",
     },
   };
-  assert.deepEqual(verifyRegistryMetadata(metadata, item), {
+  const verified = {
     name: item.name,
     version: item.version,
     tarball: metadata.dist.tarball,
     integrity,
     sha256: item.sha256,
-  });
+  };
+  assert.deepEqual(verifyRegistryMetadata(metadata, item), verified);
+  assert.deepEqual(verifyRegistryMetadata([metadata], item), verified);
+  for (const invalid of [[], [metadata, metadata], null, [null], [[metadata]]])
+    assert.throws(() => verifyRegistryMetadata(invalid, item));
   for (const changed of [
     { name: "@someone/console-fx" },
     { version: "0.2.0" },
@@ -208,10 +212,11 @@ test("registry consumers bind exact names, versions, bytes and the public regist
       "file:///tmp/package.tgz",
       "https://user:password@registry.npmjs.org/package.tgz",
     ].map((tarball) => ({ dist: { ...metadata.dist, tarball } })),
-  ])
-    assert.throws(() =>
-      verifyRegistryMetadata({ ...metadata, ...changed }, item),
-    );
+  ]) {
+    const invalid = { ...metadata, ...changed };
+    assert.throws(() => verifyRegistryMetadata(invalid, item));
+    assert.throws(() => verifyRegistryMetadata([invalid], item));
+  }
   writeFileSync(item.tarball, "changed after packing");
   assert.throws(
     () => verifyRegistryMetadata(metadata, item),
