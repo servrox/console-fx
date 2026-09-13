@@ -95,6 +95,13 @@ describe("closed presentation contract", () => {
     expect(output.diagnostics).toContainEqual(
       expect.objectContaining({ code: "presentation-letterbox" }),
     );
+    expect(output.diagnostics).toContainEqual(
+      expect.objectContaining({
+        code: "platform-font-variation",
+        path: ["presentation"],
+        message: expect.stringContaining("estimates"),
+      }),
+    );
     for (const title of [
       "H".repeat(14),
       "I".repeat(24),

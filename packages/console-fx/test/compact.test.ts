@@ -211,6 +211,17 @@ describe("accepted compact card layouts", () => {
       const before = JSON.stringify(scene);
       const options = measure(scene);
       const output = compileConsole(scene, options);
+      expect(output.layout!.measurementQuality).toBe("measured-local-font");
+      expect(
+        output.diagnostics.filter(
+          ({ code }) => code === "platform-font-variation",
+        ),
+      ).toEqual([
+        expect.objectContaining({
+          path: ["layout"],
+          message: expect.stringContaining("Recipient fonts"),
+        }),
+      ]);
       expect(output.diagnostics).not.toContainEqual(
         expect.objectContaining({ code: "presentation-letterbox" }),
       );
@@ -275,6 +286,16 @@ describe("accepted compact card layouts", () => {
     });
     expect(compileConsole(scene, options).diagnostics).toContainEqual(
       expect.objectContaining({ code: "presentation-letterbox" }),
+    );
+  });
+  it("reports estimated fitting confidence when no font measurements are supplied", () => {
+    const output = compileConsole(
+      createPresetExample("buildReceipt"),
+      settings,
+    );
+    expect(output.layout!.measurementQuality).toBe("estimated");
+    expect(output.diagnostics).toContainEqual(
+      expect.objectContaining({ code: "unverified-font-metrics" }),
     );
   });
   it.each(references.presets)(
