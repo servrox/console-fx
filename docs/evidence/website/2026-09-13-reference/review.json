@@ -1,0 +1,100 @@
+{
+  "reviewedAt": "2026-09-13T17:21:09.175330+00:00",
+  "stage": "local",
+  "result": "pass for recorded examples and environments",
+  "visualInspection": {
+    "staticPlates": 56,
+    "motionFrames": 16,
+    "representativeFullConsoles": [
+      "container-chrome-automation/devContext-light-console.png",
+      "container-edge/devContext-dark-console.png",
+      "native-chrome/animatedDolphin-light-console.png",
+      "native-edge-automation/tabularLayout-dark-console.png"
+    ],
+    "galleryWidths": [
+      "desktop",
+      "mobile"
+    ],
+    "issues": [],
+    "limitations": [
+      "Fixed caption first line may sit beside image; container caption follows image",
+      "Text rules are an editable adaptation of the graphical box",
+      "No physical device, Safari or participant observations"
+    ]
+  },
+  "parity": {
+    "checkedAt": "2026-09-13T17:17:58.043Z",
+    "reports": [
+      {
+        "directory": "native-chrome",
+        "fixtures": 14,
+        "cases": 28,
+        "browser": "Chrome/153.0.8010.36",
+        "outputParity": true,
+        "imageHashes": true
+      },
+      {
+        "directory": "native-edge-automation",
+        "fixtures": 14,
+        "cases": 28,
+        "browser": "Edg/153.0.4234.32",
+        "outputParity": true,
+        "imageHashes": true
+      },
+      {
+        "directory": "motion-chrome-9414",
+        "fixtures": 2,
+        "cases": 2,
+        "browser": "Chrome/153.0.8010.36",
+        "outputParity": true,
+        "imageHashes": true
+      },
+      {
+        "directory": "motion-edge-automation",
+        "fixtures": 2,
+        "cases": 2,
+        "browser": "Edg/153.0.4234.32",
+        "outputParity": true,
+        "imageHashes": true
+      },
+      {
+        "directory": "container-edge",
+        "fixtures": 1,
+        "cases": 2,
+        "browser": "Edg/153.0.4234.32",
+        "outputParity": true,
+        "imageHashes": true
+      },
+      {
+        "directory": "container-chrome-automation",
+        "fixtures": 1,
+        "cases": 2,
+        "browser": "Chrome/153.0.8010.36",
+        "outputParity": true,
+        "imageHashes": true
+      }
+    ]
+  },
+  "catalogSha256": "7eee3daac8fb16e7ee9c8b58814ada3be1b37b6bfbd48bbf8f29fad7378ec06d",
+  "lockfileSha256": "a9aeac3691f826646112a9e7ba3ecc45e0fac8e5d0c3a90a0c46bda7a13c0497",
+  "harnessSha256AtReview": "411cd7564ef7fa98dd1cbbf2f8abc2974e242aa735e509b9e7929e2068b27cf4",
+  "browserJourneys": {
+    "chrome24": {
+      "startTime": "2026-09-13T16:34:58.607Z",
+      "duration": 50576.533,
+      "expected": 24,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "edge32": {
+      "startTime": "2026-09-13T17:12:34.818Z",
+      "duration": 61659.227,
+      "expected": 32,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "archiveSha256": "671aae672cef3316d6cd776af0720682ba297483064fdd8c10278513dbed8668"
+}

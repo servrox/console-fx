@@ -79,21 +79,34 @@ Local checks completed: production build/prepared CSP; formatting, lint and
 types; 312 unit tests; 29 release/artifact checks; tarball inspection; and the
 unchanged bundle gates (CSS 9,754 gzip bytes, complete compiler 25,596 / 25,600).
 Twenty-four Chrome website journeys cover the new collection and existing page
-at desktop/mobile widths. Exact preview URI, complete generated arguments,
+at desktop/mobile widths. A later 32-case Edge run also covers existing card,
+cinematic and editor journeys, gallery reflow and both motion controls. Exact
+preview URI, complete generated arguments,
 clipboard contents, no implicit emission, one Test emission, Undo and recipe
 recovery are checked. The new unit cases parse every SVG and verify both finite
 motion/static alternatives. Initial failures exposed test setup/typing issues
 and package-size growth; these were corrected before the successful checks.
+Packed JavaScript, TypeScript, React and Next consumers, including three native
+Chrome consumer journeys, pass. Spec and Standards reviews have no remaining
+actionable findings. CI's first run found a shared gallery-class collision in
+six existing browser cases; the collections now have separate class names and
+the unchanged existing journeys pass in the later Edge run.
 
 Native observation tooling is
 [qualify-featured-useful.mjs](../../scripts/qualify-featured-useful.mjs): the
-optional fourth argument selects `reference` or `reference-motion`. It preserves
+optional fourth argument selects `reference`, `reference-motion` or `container`.
+It preserves
 owned-target cleanup and records browser/OS, theme, dimensions, exact arguments,
 captions, source hashes and screenshots. Motion captures compare early frames
 and settled frames after the finite duration. Browser startup failures and older
 installed-build observations are distinct from the final qualification evidence.
-Final native review, CI and hosted observations are recorded in the accompanying
-evidence receipt when completed; local success alone does not establish them.
+The [native evidence receipt](../evidence/website/2026-09-13-reference/README.md)
+records 56 static cases, four finite-motion cases and four container-caption
+cases on Windows 11, Chrome 153.0.8010.36 and Edge 153.0.4234.32. All static crops
+and motion frames received visual inspection; representative full Console frames
+confirm caption behavior. Current compilation/export matches every captured
+fixture byte for byte. CI and hosted observations remain separate and are added
+to that receipt after verification.
 
 The [full-spec audit](mvp-completion-audit.md) still tracks the unobserved
 five-developer sessions, physical laptop/phone performance and Safari journeys.
