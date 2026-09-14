@@ -249,122 +249,127 @@ function recipe(
   return result.value;
 }
 
-test("simulation is silent and transient; applied fitting persists as an exact export recipe", async ({
-  page,
-}) => {
-  await page.addInitScript(() => {
-    const probe = window as unknown as { fittingObservers: number };
-    probe.fittingObservers = 0;
-    const Original = window.ResizeObserver;
-    window.ResizeObserver = class extends Original {
-      private owned = false;
-      override observe(target: Element, options?: ResizeObserverOptions) {
-        if (target.matches(".fit-boundary") && !this.owned) {
-          this.owned = true;
-          probe.fittingObservers++;
+const legacyTest = test.extend({ legacyDraft: true });
+
+legacyTest(
+  "simulation is silent and transient; applied fitting persists as an exact export recipe",
+  async ({ page }) => {
+    await page.addInitScript(() => {
+      const probe = window as unknown as { fittingObservers: number };
+      probe.fittingObservers = 0;
+      const Original = window.ResizeObserver;
+      window.ResizeObserver = class extends Original {
+        private owned = false;
+        override observe(target: Element, options?: ResizeObserverOptions) {
+          if (target.matches(".fit-boundary") && !this.owned) {
+            this.owned = true;
+            probe.fittingObservers++;
+          }
+          super.observe(target, options);
         }
-        super.observe(target, options);
-      }
-      override disconnect() {
-        if (this.owned) {
-          this.owned = false;
-          probe.fittingObservers--;
+        override disconnect() {
+          if (this.owned) {
+            this.owned = false;
+            probe.fittingObservers--;
+          }
+          super.disconnect();
         }
-        super.disconnect();
-      }
-    };
-  });
-  const calls: string[] = [];
-  page.on("console", (event) => {
-    if (event.type() === "log") calls.push(event.text());
-  });
-  await page.goto("/studio/");
-  await page
-    .getByRole("textbox", { name: "Message text", exact: true })
-    .fill("A chosen width");
-  await expect
-    .poll(() => page.evaluate((key) => localStorage.getItem(key), rawKey))
-    .toContain("A chosen width");
-  const raw = await page.evaluate((key) => localStorage.getItem(key), rawKey);
-  const source = page.getByLabel("Generated code", { exact: true });
-  const before = await source.inputValue();
-  await page.locator(".fit-section > summary").click();
-  const inspector = page.locator(".fit-inspector");
-  const minimum = inspector.getByRole("spinbutton", {
-    name: "Minimum type size (CSS px)",
-    exact: true,
-  });
-  await minimum.fill("");
-  await minimum.pressSequentially("20");
-  await expect(minimum).toHaveValue("20");
-  await minimum.fill("12");
-  for (const width of [280, 360, 480, 720, 960]) {
-    await inspector
-      .getByRole("button", { name: `${width}px`, exact: true })
-      .click();
-    await expect(inspector).toContainText(`Simulation: ${width}px content box`);
-    await expect(source).toHaveValue(before);
-  }
-  expect(calls).toHaveLength(0);
-  expect(
-    await page.evaluate((key) => localStorage.getItem(key), recipeKey),
-  ).toBeNull();
-  await inspector.getByRole("button", { name: "360px", exact: true }).click();
-  await inspector
-    .getByRole("button", { name: "Use this width for export", exact: true })
-    .click();
-  await expect(
-    page.getByRole("combobox", { name: "Output renderer", exact: true }),
-  ).toHaveValue("svg");
-  await expect
-    .poll(() => page.evaluate((key) => localStorage.getItem(key), recipeKey))
-    .toContain('"algorithm":"fit/v1"');
-  const saved = JSON.parse(
-    (await page.evaluate((key) => localStorage.getItem(key), recipeKey))!,
-  );
-  expect(saved.options.layout.width).toBe(360);
-  expect(await page.evaluate((key) => localStorage.getItem(key), rawKey)).toBe(
-    raw,
-  );
-  const output = compileConsole(saved.scene, saved.options);
-  if (output.preview.kind !== "svg") throw Error("SVG expected");
-  await expect(page.locator(".preview-content img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  const exported: unknown[][] = [];
-  new Function("console", await source.inputValue())({
-    log: (...args: unknown[]) => exported.push(args),
-  });
-  expect(exported).toEqual([[...output.args]]);
-  await page
-    .getByRole("button", { name: "Test in console", exact: true })
-    .click();
-  expect(calls).toHaveLength(1);
-  await page.reload();
-  await expect(page.locator(".preview-content img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  await page
-    .getByRole("combobox", { name: "Format", exact: true })
-    .selectOption("recipe");
-  expect(JSON.parse(await source.inputValue())).toEqual(saved);
-  expect(calls).toHaveLength(1);
-  await page.getByRole("link", { name: "Docs", exact: true }).click();
-  await expect(
-    page.getByRole("heading", {
-      name: "Use ConsoleFX in your app.",
+      };
+    });
+    const calls: string[] = [];
+    page.on("console", (event) => {
+      if (event.type() === "log") calls.push(event.text());
+    });
+    await page.goto("/studio/");
+    await page
+      .getByRole("textbox", { name: "Message text", exact: true })
+      .fill("A chosen width");
+    await expect
+      .poll(() => page.evaluate((key) => localStorage.getItem(key), rawKey))
+      .toContain("A chosen width");
+    const raw = await page.evaluate((key) => localStorage.getItem(key), rawKey);
+    const source = page.getByLabel("Generated code", { exact: true });
+    const before = await source.inputValue();
+    await page.locator(".fit-section > summary").click();
+    const inspector = page.locator(".fit-inspector");
+    const minimum = inspector.getByRole("spinbutton", {
+      name: "Minimum type size (CSS px)",
       exact: true,
-    }),
-  ).toBeVisible();
-  expect(
-    await page.evaluate(
-      () =>
-        (window as unknown as { fittingObservers: number }).fittingObservers,
-    ),
-  ).toBe(0);
-});
+    });
+    await minimum.fill("");
+    await minimum.pressSequentially("20");
+    await expect(minimum).toHaveValue("20");
+    await minimum.fill("12");
+    for (const width of [280, 360, 480, 720, 960]) {
+      await inspector
+        .getByRole("button", { name: `${width}px`, exact: true })
+        .click();
+      await expect(inspector).toContainText(
+        `Simulation: ${width}px content box`,
+      );
+      await expect(source).toHaveValue(before);
+    }
+    expect(calls).toHaveLength(0);
+    expect(
+      await page.evaluate((key) => localStorage.getItem(key), recipeKey),
+    ).toBeNull();
+    await inspector.getByRole("button", { name: "360px", exact: true }).click();
+    await inspector
+      .getByRole("button", { name: "Use this width for export", exact: true })
+      .click();
+    await expect(
+      page.getByRole("combobox", { name: "Output renderer", exact: true }),
+    ).toHaveValue("svg");
+    await expect
+      .poll(() => page.evaluate((key) => localStorage.getItem(key), recipeKey))
+      .toContain('"algorithm":"fit/v1"');
+    const saved = JSON.parse(
+      (await page.evaluate((key) => localStorage.getItem(key), recipeKey))!,
+    );
+    expect(saved.options.layout.width).toBe(360);
+    expect(
+      await page.evaluate((key) => localStorage.getItem(key), rawKey),
+    ).toBe(raw);
+    const output = compileConsole(saved.scene, saved.options);
+    if (output.preview.kind !== "svg") throw Error("SVG expected");
+    await expect(page.locator(".preview-content img")).toHaveAttribute(
+      "src",
+      output.preview.imageUri,
+    );
+    const exported: unknown[][] = [];
+    new Function("console", await source.inputValue())({
+      log: (...args: unknown[]) => exported.push(args),
+    });
+    expect(exported).toEqual([[...output.args]]);
+    await page
+      .getByRole("button", { name: "Test in console", exact: true })
+      .click();
+    expect(calls).toHaveLength(1);
+    await page.reload();
+    await expect(page.locator(".preview-content img")).toHaveAttribute(
+      "src",
+      output.preview.imageUri,
+    );
+    await page
+      .getByRole("combobox", { name: "Format", exact: true })
+      .selectOption("recipe");
+    expect(JSON.parse(await source.inputValue())).toEqual(saved);
+    expect(calls).toHaveLength(1);
+    await page.getByRole("link", { name: "Docs", exact: true }).click();
+    await expect(
+      page.getByRole("heading", {
+        name: "Use ConsoleFX in your app.",
+        exact: true,
+      }),
+    ).toBeVisible();
+    expect(
+      await page.evaluate(
+        () =>
+          (window as unknown as { fittingObservers: number }).fittingObservers,
+      ),
+    ).toBe(0);
+  },
+);
 
 test("explicit local measurement runs under deployment CSP and preview matches precompiled export", async ({
   page,
@@ -454,61 +459,76 @@ test("explicit local measurement runs under deployment CSP and preview matches p
   );
 });
 
-test("recipe imports, shared-setting conflicts and undo retain render intent", async ({
-  page,
-}) => {
-  await page.goto("/studio/");
-  const input = page.locator('input[type="file"]');
-  const text = page.getByRole("textbox", { name: "Message text", exact: true });
-  await text.fill("My prior scene");
-  await input.setInputFiles({
-    name: "recipe.json",
-    mimeType: "application/json",
-    buffer: Buffer.from(JSON.stringify(recipe("Imported fit"))),
-  });
-  await expect(text).toHaveValue("Imported fit");
-  await page.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect(text).toHaveValue("My prior scene");
-  await expect(
-    page.getByRole("combobox", { name: "Output renderer", exact: true }),
-  ).toHaveValue("css");
-  await page.getByRole("button", { name: "Redo", exact: true }).click();
-  await page
-    .getByRole("combobox", { name: "Format", exact: true })
-    .selectOption("recipe");
-  const source = page.getByLabel("Generated code", { exact: true });
-  expect(JSON.parse(await source.inputValue())).toEqual(recipe("Imported fit"));
-  await input.setInputFiles({
-    name: "future.json",
-    mimeType: "application/json",
-    buffer: Buffer.from(JSON.stringify({ ...recipe(), recipeVersion: 9 })),
-  });
-  expect(JSON.parse(await source.inputValue())).toEqual(recipe("Imported fit"));
-  const shared = encodeShare(recipe("Imported fit", 480));
-  if (!shared.ok) throw Error("share fixture failed");
-  await page.evaluate((hash) => {
-    location.hash = hash;
-  }, shared.value);
-  await expect(page.getByRole("dialog")).toBeVisible();
-  await page
-    .getByRole("button", { name: "Load shared scene", exact: true })
-    .click();
-  expect(JSON.parse(await source.inputValue())).toEqual(
-    recipe("Imported fit", 480),
-  );
-  await page.getByRole("button", { name: "Undo", exact: true }).click();
-  expect(JSON.parse(await source.inputValue())).toEqual(recipe("Imported fit"));
-  await page
-    .getByRole("button", { name: "Clear local draft", exact: true })
-    .click();
-  expect(
-    await page.evaluate(
-      ([raw, fit]) => [localStorage.getItem(raw!), localStorage.getItem(fit!)],
-      [rawKey, recipeKey],
-    ),
-  ).toEqual([null, null]);
-  expect(JSON.parse(await source.inputValue())).toEqual(recipe("Imported fit"));
-});
+legacyTest(
+  "recipe imports, shared-setting conflicts and undo retain render intent",
+  async ({ page }) => {
+    await page.goto("/studio/");
+    const input = page.locator('input[type="file"]');
+    const text = page.getByRole("textbox", {
+      name: "Message text",
+      exact: true,
+    });
+    await text.fill("My prior scene");
+    await input.setInputFiles({
+      name: "recipe.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(recipe("Imported fit"))),
+    });
+    await expect(text).toHaveValue("Imported fit");
+    await page.getByRole("button", { name: "Undo", exact: true }).click();
+    await expect(text).toHaveValue("My prior scene");
+    await expect(
+      page.getByRole("combobox", { name: "Output renderer", exact: true }),
+    ).toHaveValue("css");
+    await page.getByRole("button", { name: "Redo", exact: true }).click();
+    await page
+      .getByRole("combobox", { name: "Format", exact: true })
+      .selectOption("recipe");
+    const source = page.getByLabel("Generated code", { exact: true });
+    expect(JSON.parse(await source.inputValue())).toEqual(
+      recipe("Imported fit"),
+    );
+    await input.setInputFiles({
+      name: "future.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify({ ...recipe(), recipeVersion: 9 })),
+    });
+    expect(JSON.parse(await source.inputValue())).toEqual(
+      recipe("Imported fit"),
+    );
+    const shared = encodeShare(recipe("Imported fit", 480));
+    if (!shared.ok) throw Error("share fixture failed");
+    await page.evaluate((hash) => {
+      location.hash = hash;
+    }, shared.value);
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await page
+      .getByRole("button", { name: "Load shared scene", exact: true })
+      .click();
+    expect(JSON.parse(await source.inputValue())).toEqual(
+      recipe("Imported fit", 480),
+    );
+    await page.getByRole("button", { name: "Undo", exact: true }).click();
+    expect(JSON.parse(await source.inputValue())).toEqual(
+      recipe("Imported fit"),
+    );
+    await page
+      .getByRole("button", { name: "Clear local draft", exact: true })
+      .click();
+    expect(
+      await page.evaluate(
+        ([raw, fit]) => [
+          localStorage.getItem(raw!),
+          localStorage.getItem(fit!),
+        ],
+        [rawKey, recipeKey],
+      ),
+    ).toEqual([null, null]);
+    expect(JSON.parse(await source.inputValue())).toEqual(
+      recipe("Imported fit"),
+    );
+  },
+);
 
 test("applying a layout width preserves imported container sizing", async ({
   page,

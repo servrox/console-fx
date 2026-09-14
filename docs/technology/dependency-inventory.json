@@ -12,9 +12,9 @@
     "pnpm-workspace.yaml": "eec1b3a64ecde9ee93e0c02c62d3d13904b30223295b29d5c9ea21d7e162e16c",
     "package.json": "c2e0865e33653fa9ad3ccb3d054641a7dbb0cdc769b5994becbfc820566b57db",
     "apps/studio/package.json": "0295bb05b6ac181ab16a3837a2716efbc15b16e351c4a583e73c1175b95e5f34",
-    "packages/console-fx/package.json": "40176eaa3492cb9c3122a3492cca31f519fef8deff899bacf64d54532e0e0a2d",
-    "packages/console-fx-react/package.json": "4a5dee51769be67fc696439ec66878b4953ee39d36379fe568171fbcf67bd542",
-    "examples/next-app/package.json": "67ce804a2432f9a876cc9c427617741c422aaadcd5ac52a3c37fdaa02ddfd709"
+    "packages/console-fx/package.json": "be8efd2b8f4c7557d04ec3002869fa163621c24e83769bd72d734693e39d0bd3",
+    "packages/console-fx-react/package.json": "f8a0312fe2c3cee9b869f9da411526583bb8907d90f8746f6abfae73393c6a89",
+    "examples/next-app/package.json": "b62c326f6691bf8d8a5ff00e856206bbeeca89eb412642e8d5bc267bc99946c3"
   },
   "counts": {
     "directThirdPartyPackageNames": 22,

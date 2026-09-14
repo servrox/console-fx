@@ -1,0 +1,17 @@
+{
+  "source": "9f8cca0",
+  "result": {
+    "ok": false,
+    "diagnostics": [
+      {
+        "code": "invalid-options",
+        "severity": "error",
+        "message": "Choose a documented fitting option.",
+        "path": [
+          "layout",
+          "algorithm"
+        ]
+      }
+    ]
+  }
+}

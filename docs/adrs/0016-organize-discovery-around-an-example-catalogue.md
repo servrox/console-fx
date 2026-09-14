@@ -1,12 +1,12 @@
 # ADR-0016: Organize discovery around an example catalogue
 
-Status: Proposed
+Status: Accepted
 Date: 2026-09-13
 Owner: ConsoleFX maintainer
 Applies when: Website page ownership, example discovery, category routing or editor capability resolution changes.
 Supersedes: None
 Superseded by: None
-Approval: Pending review of this concrete record and its linked proposal. The maintainer requested design documents before product implementation; test cleanup is separately authorized.
+Approval: The maintainer explicitly approved ADR-0016/0017 on 2026-09-14 and instructed: "finish 1. and 2. now!" This accepts the linked workbench contract and authorizes its implementation and updated package publication.
 
 ## Context
 
@@ -15,7 +15,7 @@ integration guidance. Its three inventories contain 43 entries, including
 variants of the same developer job. Separate category lists and ad hoc feature
 flags would make new examples expensive to integrate and easy to misrepresent.
 
-## Proposed decision
+## Decision
 
 - Use six job categories: Brand & signatures; Debugging & diagnostics; Runtime
   & environment; Builds & releases; Guides & onboarding; Easter eggs &
@@ -43,7 +43,7 @@ hero interaction and acceptance matrix are in the
 The maintainer subsequently requested amicro. The
 [selected source adaptations](../specs/workbench-interactions.md) cover app UI
 feedback and transitions within the same ownership boundary. This selects a
-source direction; it does not accept this still-Proposed architectural record.
+source direction; acceptance was subsequently recorded above.
 
 ## Alternatives considered
 
@@ -56,7 +56,7 @@ source direction; it does not accept this still-Proposed architectural record.
 
 ## Consequences and existing intent
 
-On acceptance, replace the integrated-landing requirement in base spec
+On acceptance (recorded 2026-09-14), replace the integrated-landing requirement in base spec
 §7.1/7.2 and AC-10, and the affected website narrative requirements. Retain
 their usable editing, complete examples, truthful output, accessibility and
 recovery obligations. A short landing still introduces every category.
@@ -66,7 +66,7 @@ and persistence boundaries. ADR-0012/0014 keep cinematic/card profiles static.
 Future motion support must follow those decisions' successor process.
 
 Automatic creation defaults are a separate decision in
-[Proposed ADR-0017](0017-default-new-workbench-examples-to-automatic-svg-sizing.md).
+[Accepted ADR-0017](0017-default-new-workbench-examples-to-automatic-svg-sizing.md).
 Accepting this record alone does not approve that default change.
 
 ## Validation

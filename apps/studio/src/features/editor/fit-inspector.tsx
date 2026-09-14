@@ -12,6 +12,7 @@ import type {
   CompiledConsole,
   CompileOptions,
 } from "@servrox/console-fx";
+import type { CapabilityState } from "../examples/capabilities";
 import { usePreviewWidth } from "./use-preview-width";
 
 function attemptPreview(scene: SceneV1, options: CompileOptions) {
@@ -123,6 +124,8 @@ function NumberControl({
 export function FitInspector({
   scene,
   options,
+  fitting,
+  sizing,
   onApply,
   measurement,
   onMeasure,
@@ -130,6 +133,8 @@ export function FitInspector({
 }: {
   readonly scene: SceneV1;
   readonly options: RenderRecipeV1["options"];
+  readonly fitting: CapabilityState;
+  readonly sizing: CapabilityState;
   readonly onApply: (options: RenderRecipeV1["options"]) => void;
   readonly measurement: {
     readonly snapshot?: MeasurementSnapshot | undefined;
@@ -139,11 +144,13 @@ export function FitInspector({
   readonly onMeasure: () => void;
   readonly onClearMeasurements: () => void;
 }) {
+  const fittingEditable = fitting.status !== "unavailable";
+  const sizingEditable = sizing.status !== "unavailable";
   const [requestedWidth, setRequestedWidth] = useState(
     options.layout?.width ?? 360,
   );
   const [policy, setPolicy] = useState<Omit<LayoutRequest, "width">>(() => ({
-    algorithm: "fit/v1",
+    algorithm: options.layout?.algorithm ?? "fit/v1",
     maxHeight: options.layout?.maxHeight ?? 400,
     variant: options.layout?.variant ?? "standard",
     overflow: options.layout?.overflow ?? "wrap-then-shrink",
@@ -173,7 +180,7 @@ export function FitInspector({
     setPreviousFitting(fittingKey);
     setRequestedWidth(options.layout?.width ?? 360);
     setPolicy({
-      algorithm: "fit/v1",
+      algorithm: options.layout?.algorithm ?? "fit/v1",
       maxHeight: options.layout?.maxHeight ?? 400,
       variant: options.layout?.variant ?? "standard",
       overflow: options.layout?.overflow ?? "wrap-then-shrink",
@@ -274,7 +281,14 @@ export function FitInspector({
           </button>
         ))}
       </div>
-      <div className="fit-controls">
+      {fitting.status === "unavailable" && (
+        <p className="fine-print">{fitting.reason}</p>
+      )}
+      <fieldset
+        className="fit-controls capability-fields"
+        disabled={!fittingEditable}
+      >
+        <legend className="sr-only">Content fitting settings</legend>
         <label>
           Layout variant
           <select
@@ -304,7 +318,11 @@ export function FitInspector({
           >
             <option value="error">Report overflow</option>
             <option value="wrap">Wrap at legal breaks</option>
-            <option value="shrink">Shrink uniformly</option>
+            <option value="shrink">
+              {policy.algorithm === "fit/v2"
+                ? "Shrink to readable floors"
+                : "Shrink uniformly"}
+            </option>
             <option value="wrap-then-shrink">Wrap, then shrink</option>
           </select>
         </label>
@@ -322,7 +340,7 @@ export function FitInspector({
           max={400}
           onChange={(maxHeight) => setPolicy({ ...policy, maxHeight })}
         />
-      </div>
+      </fieldset>
       <p className="fine-print">
         Simulation:{" "}
         {width === null
@@ -427,7 +445,14 @@ export function FitInspector({
           DevTools appearance.
         </p>
       </details>
-      <div className="fit-controls">
+      {sizing.status === "unavailable" && (
+        <p className="fine-print">{sizing.reason}</p>
+      )}
+      <fieldset
+        className="fit-controls capability-fields"
+        disabled={!sizingEditable}
+      >
+        <legend className="sr-only">Output sizing settings</legend>
         <label>
           Export carrier
           <select
@@ -460,7 +485,7 @@ export function FitInspector({
             onChange={setFillFraction}
           />
         )}
-      </div>
+      </fieldset>
       <p className="fine-print">
         {mode === "fixed" && width
           ? `Requested display scale: ${Math.round((outputWidth / width) * 100)}%. The compiler checks readable floors at that known size.`
@@ -469,30 +494,38 @@ export function FitInspector({
       <div className="button-row">
         <button
           type="button"
-          disabled={width === null}
+          disabled={width === null || (!fittingEditable && !sizingEditable)}
           onClick={() => {
-            if (width !== null)
-              onApply({
-                ...options,
-                target: "chromium",
-                renderer: "svg",
-                layout: { ...policy, width },
-                sizing:
-                  mode === "fixed"
-                    ? { mode, width: outputWidth }
-                    : { mode, maxWidth: outputWidth, fillFraction },
-              });
+            if (width === null) return;
+            const next: RenderRecipeV1["options"] = {
+              ...options,
+              target: "chromium",
+              renderer: "svg",
+              ...(fittingEditable ? { layout: { ...policy, width } } : {}),
+              ...(sizingEditable
+                ? {
+                    sizing:
+                      mode === "fixed"
+                        ? { mode, width: outputWidth }
+                        : { mode, maxWidth: outputWidth, fillFraction },
+                  }
+                : {}),
+            };
+            onApply(next);
           }}
         >
           Use this width for export
         </button>
         <button
           type="button"
-          disabled={!options.layout && !options.sizing}
+          disabled={
+            !(fittingEditable && options.layout) &&
+            !(sizingEditable && options.sizing)
+          }
           onClick={() => {
             const next = { ...options };
-            delete next.layout;
-            delete next.sizing;
+            if (fittingEditable) delete next.layout;
+            if (sizingEditable) delete next.sizing;
             onApply(next);
           }}
         >
@@ -501,7 +534,10 @@ export function FitInspector({
         <button
           type="button"
           disabled={
-            measurement.pending || !options.layout || options.renderer !== "svg"
+            !fittingEditable ||
+            measurement.pending ||
+            !options.layout ||
+            options.renderer !== "svg"
           }
           onClick={onMeasure}
         >

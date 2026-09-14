@@ -1,7 +1,15 @@
 import { test, expect } from "../studio/fixtures";
-import { getPresentationDescriptors } from "../../packages/console-fx/dist/index.js";
-import { createPresetExample } from "../../packages/console-fx/dist/presets/index.js";
-import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+
+const consumerDirectory = process.env.CONSOLE_FX_CONSUMER_DIR;
+if (!consumerDirectory)
+  throw new Error("Use the prepared installed consumer directory.");
+// The copied ESM oracle resolves only the installed candidate's public exports.
+const { getPresentationDescriptors, createPresetExample, compileConsole } =
+  await import(
+    pathToFileURL(resolve(consumerDirectory, "checks/oracle.mjs")).href
+  );
 
 test("all packed card previews preserve the exact compiler URI and explicit hook output", async ({
   page,

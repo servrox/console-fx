@@ -59,6 +59,10 @@ if (registryMode) {
 const consumer = mkdtempSync(resolve(tmpdir(), "console-fx-consumer-"));
 cpSync(resolve(root, "examples/next-app"), consumer, { recursive: true });
 mkdirSync(resolve(consumer, "checks"));
+cpSync(
+  resolve(root, "examples/next-app/oracle.mjs"),
+  resolve(consumer, "checks/oracle.mjs"),
+);
 cpSync(resolve(root, "examples/vanilla"), resolve(consumer, "checks/vanilla"), {
   recursive: true,
 });

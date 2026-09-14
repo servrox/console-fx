@@ -1,6 +1,7 @@
 import { neon } from "../../packages/console-fx/dist/presets/index.js";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
+test.use({ legacyDraft: true });
 
 const textName = { name: "Message text", exact: true };
 
@@ -312,7 +313,18 @@ for (const outcome of ["resolve", "reject"] as const) {
     await text.fill("Preserved during every decision");
     const shared = encodeShare(neon({ text: "Conflicting shared scene" }));
     if (!shared.ok) throw Error("Invalid fixture");
-    for (const [index, decision] of ["shared", "example", "reset"].entries()) {
+    for (const [index, decision] of [
+      "shared",
+      "example",
+      "reset",
+      "renderer",
+    ].entries()) {
+      if (decision === "renderer") {
+        await page.locator(".fit-section > summary").click();
+        await page
+          .getByRole("button", { name: "Enable automatic sizing", exact: true })
+          .click();
+      }
       await page.locator('input[type="file"]').setInputFiles({
         name: "delayed.json",
         mimeType: "application/json",
@@ -324,9 +336,12 @@ for (const outcome of ["resolve", "reject"] as const) {
         }, shared.value);
       else if (decision === "example")
         await page
-          .locator(".quick-demo")
-          .getByRole("button", { name: "Edit in playground", exact: true })
-          .click();
+          .getByRole("combobox", { name: "Start from a preset", exact: true })
+          .selectOption("preset:lightningMetal");
+      else if (decision === "renderer")
+        await page
+          .getByRole("combobox", { name: "Output renderer", exact: true })
+          .selectOption("css");
       else
         await page.getByRole("button", { name: "Reset", exact: true }).click();
       await expect(page.getByRole("dialog")).toBeVisible();

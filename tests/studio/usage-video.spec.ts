@@ -12,7 +12,7 @@ test("usage video loads on request, plays with captions and has a text alternati
   page.on("console", (entry) => {
     if (entry.type() === "log") entries.push(entry.text());
   });
-  await page.goto("/");
+  await page.goto("/docs/");
   const video = page.getByLabel("ConsoleFX usage walkthrough", { exact: true });
   await expect(video).toBeVisible();
   expect(mediaRequests).toEqual([]);

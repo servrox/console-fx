@@ -43,7 +43,11 @@ export function normalizeLayout(input: unknown): LayoutRequest {
     ["layout"],
   );
   return deepFreeze({
-    algorithm: choice(d.algorithm, ["fit/v1"], ["layout", "algorithm"]),
+    algorithm: choice(
+      d.algorithm,
+      ["fit/v1", "fit/v2"],
+      ["layout", "algorithm"],
+    ),
     width: fitNumber(d.width, 1, LIMITS.svgWidth, ["layout", "width"]),
     maxHeight: fitNumber(d.maxHeight, 1, LIMITS.svgHeight, [
       "layout",
@@ -176,7 +180,11 @@ export function normalizeMeasurementRequest(
       "italic",
     ]);
   const r = {
-    algorithm: choice(d.algorithm, ["fit/v1"], ["measurement", "algorithm"]),
+    algorithm: choice(
+      d.algorithm,
+      ["fit/v1", "fit/v2"],
+      ["measurement", "algorithm"],
+    ),
     profile,
     text: run.text,
     style: { ...run.style, fontSize },

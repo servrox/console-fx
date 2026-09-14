@@ -1,11 +1,8 @@
-import type {
-  CardPresetId,
-  PresentationDescriptor,
-  PresentationSlot,
-} from "../model/types.js";
+import type { RuntimePresentation, RuntimeSlot } from "./catalog.js";
+import type { CardPresetId } from "../model/types.js";
 import type { LayoutRequest } from "../model/layout.js";
 
-export type CardFitSlot = Omit<PresentationSlot, "anchor"> & {
+export type CardFitSlot = Omit<RuntimeSlot, "anchor"> & {
   readonly anchor: "start" | "middle" | "end";
   readonly safeTop?: number;
 };
@@ -180,7 +177,7 @@ const compact: Readonly<
   },
 };
 export function cardFitLayout(
-  descriptor: PresentationDescriptor,
+  descriptor: RuntimePresentation,
   request: LayoutRequest,
 ): CardFitLayout {
   const variant = compact[descriptor.id];

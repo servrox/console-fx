@@ -1,6 +1,6 @@
 {
   "name": "@servrox/console-fx",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Compose one expressive browser-console message. Compile silently, export anywhere.",
   "type": "module",
   "license": "MIT",

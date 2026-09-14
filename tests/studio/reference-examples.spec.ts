@@ -1,20 +1,12 @@
-import { mkdirSync } from "node:fs";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
-import {
-  REFERENCE_EXAMPLES,
-  referenceRecipe,
-} from "../../apps/studio/src/features/examples/reference-examples";
+import { resolveExample } from "../../apps/studio/src/features/examples/catalogue";
 import { test, expect } from "./fixtures";
-
-test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => {
-    const probe = window as unknown as { referenceCalls: unknown[][] };
-    probe.referenceCalls = [];
-    console.log = (...args) => probe.referenceCalls.push(args);
-  });
-});
-
-test("a reference selection exports exact data and undoes as one step", async ({
+const get = (id: string) => {
+  const result = resolveExample({ exampleId: `reference:${id}` });
+  if (!result.ok) throw Error(result.message);
+  return result.recipe;
+};
+test("catalogue selection exports complete data and undoes as one step", async ({
   page,
 }) => {
   await page.goto("/studio/");
@@ -22,17 +14,20 @@ test("a reference selection exports exact data and undoes as one step", async ({
     name: "Message text",
     exact: true,
   });
-  await message.fill("Keep this draft %s");
+  await message.fill("KEEP THIS DRAFT");
   const picker = page.getByRole("combobox", {
     name: "Start from a preset",
     exact: true,
   });
-  // Every recipe is checked in Vitest; one ordinary scene proves this UI path.
-  const id = "multilineLayout";
-  await picker.selectOption(`example:${id}`);
-  const recipe = referenceRecipe(id);
-  const output = compileConsole(recipe.scene, recipe.options);
-  if (output.preview.kind !== "svg") throw new Error("SVG expected");
+  await expect(picker.locator("option")).toHaveCount(44);
+  await picker.selectOption("reference:multilineLayout");
+  await page.getByRole("button", { name: "Load example", exact: true }).click();
+  const recipe = get("multilineLayout");
+  const output = compileConsole(recipe.scene, {
+    ...recipe.options,
+    motion: "reduce",
+  });
+  if (output.preview.kind !== "svg") throw Error("SVG expected");
   await expect(page.locator(".preview-content img")).toHaveAttribute(
     "src",
     output.preview.imageUri,
@@ -44,128 +39,48 @@ test("a reference selection exports exact data and undoes as one step", async ({
   )({ log: (...args: unknown[]) => calls.push(args) });
   expect(calls).toEqual([output.args]);
   await page.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect(message).toHaveValue("Keep this draft %s");
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
-    ),
-  ).toEqual([]);
+  await expect(message).toHaveValue("KEEP THIS DRAFT");
 });
-
-test("the complete gallery transfers the exact dolphin, keeps it static and copies without logging", async ({
+test("search finds the full dolphin; static export, deliberate playback and draft recovery share one recipe", async ({
   page,
   clipboard,
 }) => {
-  await page.goto("/");
-  const gallery = page.locator(".reference-gallery");
-  await expect(gallery.locator("img")).toHaveCount(0);
-  await gallery.locator("summary").click();
-  await expect(gallery.locator(".example-card")).toHaveCount(
-    REFERENCE_EXAMPLES.length,
-  );
-  await expect(gallery.locator("img")).toHaveCount(REFERENCE_EXAMPLES.length);
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth + 1,
-    ),
-  ).toBe(true);
-  await expect(
-    gallery.getByRole("button", { name: /^Edit .+ example$/ }),
-  ).toHaveText(REFERENCE_EXAMPLES.map(({ name }) => new RegExp(name)));
-  await expect
-    .poll(() =>
-      gallery
-        .locator("img")
-        .evaluateAll((images) =>
-          images.every(
-            (image) =>
-              (image as HTMLImageElement).complete &&
-              (image as HTMLImageElement).naturalWidth > 0,
-          ),
-        ),
-    )
-    .toBe(true);
-  mkdirSync(".artifacts/reference-examples", { recursive: true });
-  await gallery.screenshot({
-    path: `.artifacts/reference-examples/gallery-${test.info().project.name}.png`,
-  });
-  const dolphin = gallery.getByRole("button", {
-    name: "Edit Animated dolphin example",
-    exact: true,
-  });
-  const recipe = referenceRecipe("animatedDolphin");
-  const output = compileConsole(recipe.scene, recipe.options);
-  if (output.preview.kind !== "svg") throw new Error("SVG expected");
-  await expect(dolphin.locator("img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  await dolphin.click();
-  const confirm = page.getByRole("button", {
-    name: "Load example",
-    exact: true,
-  });
-  await confirm.click();
-  const editor = page.locator("#editor-workspace");
-  await expect(
-    editor.getByRole("textbox", { name: "Message text", exact: true }),
-  ).toHaveValue(recipe.scene.lines[0]!.runs[0]!.text);
-  const code = await editor
-    .getByLabel("Generated code", { exact: true })
-    .inputValue();
-  await editor
-    .getByRole("button", { name: "Copy console.log", exact: true })
-    .click();
-  expect(await clipboard.readText()).toBe(code);
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
-    ),
-  ).toEqual([]);
-  await editor
-    .getByRole("button", { name: "Test in console", exact: true })
-    .click();
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
-    ),
-  ).toEqual([output.args]);
-  await expect
-    .poll(() =>
-      page.evaluate(() =>
-        JSON.parse(localStorage.getItem("console-fx:recipe:v1") ?? "null"),
-      ),
-    )
-    .toEqual(recipe);
-  await page.reload();
-  await page.locator("#playground").scrollIntoViewIfNeeded();
-  await expect(
-    editor.getByRole("textbox", { name: "Message text", exact: true }),
-  ).toHaveValue(recipe.scene.lines[0]!.runs[0]!.text);
-});
-
-test("motion previews play and return to the exact static image without changing exports", async ({
-  page,
-}) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.addInitScript(() => {
+    (window as unknown as { calls: unknown[][] }).calls = [];
+    console.log = (...args) =>
+      (window as unknown as { calls: unknown[][] }).calls.push(args);
+  });
   await page.goto("/studio/");
-  const id = REFERENCE_EXAMPLES.find(
-    (example) => "motion" in example && example.motion,
-  )!.id;
   await page
-    .getByRole("combobox", { name: "Start from a preset", exact: true })
-    .selectOption(`example:${id}`);
-  const recipe = referenceRecipe(id);
-  const still = compileConsole(recipe.scene, recipe.options);
+    .getByRole("searchbox", { name: "Search examples", exact: true })
+    .fill("dolphin");
+  const catalogue = page.getByRole("complementary", {
+    name: "Example catalogue",
+  });
+  await catalogue.getByRole("button", { name: /^Animated dolphin/ }).click();
+  await page.getByRole("button", { name: "Load example", exact: true }).click();
+  const recipe = get("animatedDolphin");
+  const still = compileConsole(recipe.scene, {
+    ...recipe.options,
+    motion: "reduce",
+  });
   const moving = compileConsole(recipe.scene, {
     ...recipe.options,
     motion: "allow",
   });
   if (still.preview.kind !== "svg" || moving.preview.kind !== "svg")
-    throw new Error("SVG expected");
-  const code = await page
-    .getByLabel("Generated code", { exact: true })
-    .inputValue();
+    throw Error("SVG expected");
+  await expect(page.locator(".preview-content img")).toHaveAttribute(
+    "src",
+    still.preview.imageUri,
+  );
+  const source = page.getByLabel("Generated code", { exact: true });
+  const code = await source.inputValue();
+  await page
+    .getByRole("button", { name: "Copy console.log", exact: true })
+    .click();
+  expect(await clipboard.readText()).toBe(code);
   await page.getByRole("button", { name: "Play", exact: true }).click();
   await expect(page.locator(".preview-content img")).toHaveAttribute(
     "src",
@@ -176,12 +91,29 @@ test("motion previews play and return to the exact static image without changing
     "src",
     still.preview.imageUri,
   );
-  await expect(page.getByLabel("Generated code", { exact: true })).toHaveValue(
-    code,
-  );
+  await expect(source).toHaveValue(code);
   expect(
     await page.evaluate(
-      () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
+      () => (window as unknown as { calls: unknown[][] }).calls,
     ),
   ).toEqual([]);
+  await page
+    .getByRole("button", { name: "Test in console", exact: true })
+    .click();
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { calls: unknown[][] }).calls,
+    ),
+  ).toEqual([still.args]);
+  await expect
+    .poll(() =>
+      page.evaluate(() =>
+        JSON.parse(localStorage.getItem("console-fx:recipe:v1") ?? "null"),
+      ),
+    )
+    .toEqual(recipe);
+  await page.reload();
+  await expect(
+    page.getByRole("textbox", { name: "Message text", exact: true }),
+  ).toHaveValue(recipe.scene.lines[0]!.runs[0]!.text);
 });

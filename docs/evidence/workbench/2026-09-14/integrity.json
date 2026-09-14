@@ -1,0 +1,141 @@
+{
+  "createdAt": "2026-09-14",
+  "scope": "Selected owned ConsoleFX evidence only; no credentials or unrelated tabs",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "56f41eb33fd23cb93eac2634f7c800dc63a76d1561ffbddb7b2e7883796adbbc",
+      "bytes": 4799
+    },
+    {
+      "path": "build-final.log",
+      "sha256": "1feced77fc32511e04fd69fb8655dcf3f16b02f5c9cd0b2b2bcd46f69a9274f1",
+      "bytes": 1206
+    },
+    {
+      "path": "bundles.log",
+      "sha256": "d431067d08fcc4e0b646587f0243852bd13d5c81744ffdde210ccbb6b1f783e0",
+      "bytes": 340
+    },
+    {
+      "path": "candidate.json",
+      "sha256": "60c4c2fb391d120cd6391f5ae33e85bb5cf32735548832e38e7a77094d570417",
+      "bytes": 8408
+    },
+    {
+      "path": "chrome-native.json",
+      "sha256": "07c8e47b367e805f10b0a6ccb31222f87c4b5362aff97a30f78a241f4f136e02",
+      "bytes": 39170
+    },
+    {
+      "path": "chrome-resizing.json",
+      "sha256": "8775822630ee3bb9b1a955a979e929ea77e8d4d14382b8b2ff4792f6dc3e4f56",
+      "bytes": 43722
+    },
+    {
+      "path": "chrome-workbench-preset-buildReceipt-native.png",
+      "sha256": "a6139fbe995bed9098811e0056d18b981017f5df6c4a97388ff620c6e01d20a7",
+      "bytes": 17936
+    },
+    {
+      "path": "chrome-workbench-preset-lightningMetal-native.png",
+      "sha256": "7271d96e8cc0c13bcd108f6a577744ea20c22a7358a6e9bb871cb7314d9f436e",
+      "bytes": 21725
+    },
+    {
+      "path": "consumers-final.log",
+      "sha256": "1fbae250aa861839036ca0b31c253dabcee5c39618078522fb7933fc1c9e377e",
+      "bytes": 909
+    },
+    {
+      "path": "discovery-390.png",
+      "sha256": "dbfc51fa49dc62dd0c1c09c1f88b1b09f22dbaa22fb2583f1250bb99cbdbbc1a",
+      "bytes": 52958
+    },
+    {
+      "path": "edge-native.json",
+      "sha256": "291d55c1ae60fce216587f7b25f638c298734028eeb678a7e697f108528149d6",
+      "bytes": 39198
+    },
+    {
+      "path": "edge-resizing.json",
+      "sha256": "a83a151d5a5efb575c3b0b8c501e7a01a2686afc9ba7723b2ff50a1bbaa4e1f7",
+      "bytes": 43731
+    },
+    {
+      "path": "edge-workbench-preset-buildReceipt-native.png",
+      "sha256": "59c2b501ad1d88197df49f104160665390ba5fdffd2ab5719e931e5a3fa20263",
+      "bytes": 19363
+    },
+    {
+      "path": "edge-workbench-preset-lightningMetal-native.png",
+      "sha256": "fa77d267e5b14a703993372962cecc4921df7c8be43e7bfad0f2135cac9bc026",
+      "bytes": 28071
+    },
+    {
+      "path": "format-check-final.log",
+      "sha256": "0bb41b8bf0e9b71c22a0fc8fd69342811e9ebaa88a331685cfd3c09830f34304",
+      "bytes": 392
+    },
+    {
+      "path": "hero-1440.png",
+      "sha256": "0997535d652eef25ec0e874ee64b8e0773f6972d422cbdaa4f840f9e3b6ab864",
+      "bytes": 111727
+    },
+    {
+      "path": "lint-final.log",
+      "sha256": "ee16f0c73a2cce3c9067ee07832af01534b111a97ec6e8ea47b793abc93e4d16",
+      "bytes": 37
+    },
+    {
+      "path": "native-byte-parity.json",
+      "sha256": "5264e25c03358950e32118c59d3e5488d2f68073be45d53d817928b17ad081e7",
+      "bytes": 329
+    },
+    {
+      "path": "old-reader-v2-rejection.json",
+      "sha256": "ac5a633df3f33a2636d5aa8e98ec303371f598aea454f765ee360bcbaa8da25b",
+      "bytes": 296
+    },
+    {
+      "path": "packages.log",
+      "sha256": "c58cd5723950732a63ada7826da2cd9c5eccb6766a3d226c1bb32944edfa3e4a",
+      "bytes": 244
+    },
+    {
+      "path": "recording.json",
+      "sha256": "53a31a7c139950110f3caa38c1333677cefeb7178c5bf996907cf45f57bb6e28",
+      "bytes": 1308
+    },
+    {
+      "path": "studio-result.txt",
+      "sha256": "ef24a6fe86008f8b272597371ee40b16148d2cf2adc439b114cfcdbd581f9ff9",
+      "bytes": 104
+    },
+    {
+      "path": "typecheck-final.log",
+      "sha256": "e8a5f8d2989c4b44e4b5d8cad1b06bfd251300828840f1f704ebc8656c1effc7",
+      "bytes": 166
+    },
+    {
+      "path": "usage.vtt",
+      "sha256": "13c99d789053198067595f76f00714d6a3511aa871a0149c59ab593ca638456b",
+      "bytes": 801
+    },
+    {
+      "path": "vitest-final.log",
+      "sha256": "2c086655f0c28bdbc7a9527693ad67c34e2caa9de3c9305c84b00e69da55a794",
+      "bytes": 275
+    },
+    {
+      "path": "workbench-1440.png",
+      "sha256": "5809e3d52feb9b3ac323d0dc9fb79191ffe3cb21b425b86ea6e8fa326a078044",
+      "bytes": 261941
+    },
+    {
+      "path": "workbench-390.png",
+      "sha256": "871cf3f601a9bb9b80fb5f0e51b09d09d87a62f9c4da0446a61abebe0393f756",
+      "bytes": 145738
+    }
+  ]
+}

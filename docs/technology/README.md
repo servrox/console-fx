@@ -2,8 +2,7 @@
 
 **Start here to see what ConsoleFX uses, why it is needed and where it belongs.**
 
-Source snapshot: **2026-09-13**, following the merged Vitest 4 maintenance and
-0.1.1 package preparation in PR #22.
+Source snapshot: **2026-09-14**, with the workbench and 0.2.0 package candidate.
 Versions describe this checkout; release and deployment status belongs in the
 [release ledger](../releasing.md).
 
@@ -15,8 +14,7 @@ Versions describe this checkout; release and deployment status belongs in the
   entries** — 574 workspace entries and 9 package-manager entries.
 - [Testing strategy](../specs/testing-strategy.md): which tool owns each check and
   when to run it.
-- [Selected UI sources](#selected-ui-sources): amicro and Aceternity, pending
-  product integration.
+- [UI sources](amicro.md): implemented amicro adaptations and Aceternity interaction references.
 
 ## What runs where
 
@@ -101,8 +99,8 @@ publication and production observations belong in the release ledger.
 
 | Source                                                                                                                                                                    | Intended use                                                                                      | Integration status                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [amicro](https://amicro.vercel.app/)                                                                                                                                      | Directional CTA, truthful copy/check feedback, selected-tab treatment and small panel transitions | **Selected; not installed or shipped.** Adapt the chosen source with existing React/CSS and retain its MIT notice. |
-| [Aceternity Compare](https://ui.aceternity.com/components/compare), [Tabs](https://ui.aceternity.com/components/tabs) and [sidebar](https://ui.aceternity.com/components) | Output/code reveal, hero use-case tabs and category discovery                                     | **Interaction references; not installed.** The workbench proposal defines the accessible adaptations.              |
+| [amicro](https://amicro.vercel.app/)                                                                                                                                      | Directional CTA, truthful copy/check feedback, selected-tab treatment and small panel transitions | **Adapted in app source.** Existing React/CSS; upstream MIT notice retained. |
+| [Aceternity Compare](https://ui.aceternity.com/components/compare), [Tabs](https://ui.aceternity.com/components/tabs) and [sidebar](https://ui.aceternity.com/components) | Output/code reveal, hero use-case tabs and category discovery                                     | **Interaction references; no package dependency.** Native range, semantic tabs and app-owned sidebar implemented.              |
 
 The [amicro integration contract](../specs/workbench-interactions.md) pins source
 revision `86b55340bfb939b8e93bb53aa46ba017c3449f1c` and documents deliberate changes
@@ -110,8 +108,7 @@ to demo behavior. No Motion, Framer Motion, Tailwind or icon package has been
 selected as a new ConsoleFX dependency. Upstream demo dependencies are not
 automatically dependencies of an adapted interaction.
 
-The [workbench proposal](../specs/workbench-proposal.md) and Proposed
-ADR-0016/0017 retain their existing review checkpoint.
+Accepted ADR-0016/0017 govern the workbench. Accepted ADR-0018 adds the explicit `fit/v2` algorithm without changing v1. Implementation is distinct from publication and hosted evidence.
 
 ## Inventory and licenses
 
@@ -131,7 +128,7 @@ ADR-0016/0017 retain their existing review checkpoint.
   dated isolated installs. They are not the active workspace dependency graph;
   see [consumer validation](../../scripts/check-consumers.mjs).
 
-For future copied UI source, retain a checked-in upstream notice and extend the
+The [amicro MIT notice](amicro-license.txt) is checked in and included by the
 notice generator. Hand-editing generated `apps/studio/public/licenses.txt` would
 be overwritten by the next build. ConsoleFX's own source is [MIT](../../LICENSE).
 

@@ -108,7 +108,9 @@ const report = {
       document.querySelector(".console-view")?.getBoundingClientRect().width ??
       null,
   })),
-  os: "Windows 11 25H2 build 26220.9223 (host preflight)",
+  os:
+    process.env.CONSOLE_FX_WINDOWS_BUILD ??
+    "Windows build not recorded by this run",
   evidenceKind:
     "Actual native DevTools Console; raw frame hashes are not a motion verdict. Run review-devtools-frames and inspect the images before qualification.",
   cases: [],

@@ -13,6 +13,8 @@ implementation_authorized: true
 
 # Website: demonstrate the result and the reason to adopt
 
+> **Accepted successor (2026-09-14):** [ADR-0016](../adrs/0016-organize-discovery-around-an-example-catalogue.md) moves full discovery/editing to Studio and integration/video to Docs. [ADR-0017](../adrs/0017-default-new-workbench-examples-to-automatic-svg-sizing.md) enables explicit fitting and experimental automatic SVG sizing for new catalogue examples only. These narrow changes supersede conflicting integrated-landing/opt-in creation wording below; saved/imported work, core defaults and all other obligations remain binding.
+
 ## 1. Outcome, review status, and scope
 
 Turn the integrated landing page into a clear journey from creative interest to a useful developer example and a deliberate adoption choice. Preserve ConsoleFX's identity as a small browser-console presentation library, not an observability platform.

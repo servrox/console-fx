@@ -5,6 +5,7 @@ import { exportConsoleLog } from "../../packages/console-fx/dist/codegen/index.j
 import { neon, rainbow } from "../../packages/console-fx/dist/presets/index.js";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
+test.use({ legacyDraft: true });
 
 const draftKey = "console-fx:scene:v1";
 
@@ -222,7 +223,7 @@ test("prepared deployment CSP permits hydration, exact SVG previews and client n
       exact: true,
     }),
   ).toBeVisible();
-  await page.getByRole("link", { name: "Playground", exact: true }).click();
+  await page.getByRole("link", { name: "Workbench", exact: true }).click();
   await expect(
     page.getByRole("textbox", { name: "Message text", exact: true }),
   ).toHaveValue("CSP preview");
@@ -241,14 +242,8 @@ test("gallery, editing, one explicit emission and complete clipboard export", as
     if (message.type() === "log") logs.push(message.text());
   });
   await page.goto("/#playground");
-  await page.locator(".full-preset-gallery > summary").click();
+  await expect(page).toHaveURL(/\/studio\//);
   const editor = page.locator("#editor-workspace");
-  await expect(
-    page.getByRole("button", { name: "Load Neon preset", exact: true }),
-  ).toBeEnabled();
-  await page
-    .getByRole("button", { name: "Load Neon preset", exact: true })
-    .click();
   await editor
     .getByRole("textbox", { name: "Message text", exact: true })
     .fill("100% %c %s 👩🏽‍💻");
@@ -365,7 +360,7 @@ test("valid drafts resume without writes and conflicting shared scenes confirm",
   await expect(
     page.getByRole("textbox", { name: "Message text", exact: true }),
   ).toHaveValue("Local draft");
-  await page.reload();
+  await page.goto(`/studio/${fragment.value}`);
   await page
     .getByRole("button", { name: "Load shared scene", exact: true })
     .click();
@@ -504,27 +499,4 @@ test("reduced motion, labelled controls, keyboard focus, reflow and automated ac
     path: `.artifacts/studio-${testInfo.project.name}.png`,
     fullPage: true,
   });
-});
-
-test("landing and documentation have no automated critical accessibility violations", async ({
-  page,
-}) => {
-  for (const path of ["/", "/docs/"]) {
-    await page.goto(path);
-    if (path === "/")
-      await expect(
-        page
-          .locator(".quick-demo")
-          .getByRole("button", { name: "Test in console", exact: true }),
-      ).toBeEnabled();
-    const results = await new AxeBuilder({ page })
-      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
-      .analyze();
-    expect(results.violations).toEqual([]);
-    expect(
-      await page.evaluate(
-        () => document.documentElement.scrollWidth <= window.innerWidth + 1,
-      ),
-    ).toBe(true);
-  }
 });

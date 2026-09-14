@@ -1,3 +1,4 @@
+import { UsageVideo } from "../../features/landing/usage-video";
 import Link from "next/link";
 import { neon } from "@servrox/console-fx/presets";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
@@ -44,9 +45,10 @@ export default function Documentation() {
         <a href="#next">Next.js</a>
         <a href="#fitting">Fitting and recipes</a>
       </nav>
-      <Link className="button primary" href="/#try-message">
-        Try a message
+      <Link className="button primary" href="/studio/">
+        Open workbench
       </Link>
+      <UsageVideo />
       <section id="standalone">
         <h2>Use a fixed message without installing</h2>
         <p>

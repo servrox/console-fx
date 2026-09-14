@@ -36,36 +36,40 @@ export function UsageVideo() {
           <a href="/media/console-fx-usage.mp4">Download the walkthrough</a>
         </video>
         <figcaption id="usage-video-description">
-          Recorded in Chrome on 12 September 2026; release status shown reflects
-          that date. No audio; captions explain each step. The page preview is
-          approximate. Use DevTools to inspect the printed result.
+          Recorded in Chromium on 14 September 2026. No audio; captions explain
+          each step. The page preview is approximate. Use DevTools to inspect
+          the printed result.
         </figcaption>
       </figure>
       <details className="usage-transcript">
         <summary>Read the walkthrough</summary>
         <ol>
-          <li>Write your message in the live example. Editing stays silent.</li>
-          <li>Choose a style and compare Styled with Plain.</li>
+          <li>
+            Choose a use case and compare its output with the complete recipe.
+          </li>
+          <li>
+            Select Edit this example. Write your message; editing stays silent.
+          </li>
           <li>
             Open your browser’s DevTools Console. Select Test in console to
             print one entry.
           </li>
           <li>
             Select Copy console.log. The complete JavaScript runs without
-            installing ConsoleFX. Expand Complete standalone source to inspect
-            it.
+            installing ConsoleFX. Inspect it under Generated code.
           </li>
           <li>
-            Select Edit in playground, then Load example. Your previous scene
-            remains available in Undo.
+            Browse all examples, filter by style and search for Build Receipt.
+            Select it, then Load example. Your previous scene remains available
+            in Undo.
           </li>
           <li>
-            Keep editing in the playground and copy the updated export. Drafts
+            Supply your own project details and copy the updated export. Drafts
             stay in this browser; editing and copying never print a message.
           </li>
         </ol>
       </details>
-      <a className="button" href="#try-message">
+      <a className="button" href="/studio/">
         Try it yourself
       </a>
     </section>

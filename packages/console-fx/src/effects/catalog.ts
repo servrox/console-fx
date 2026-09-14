@@ -1,29 +1,27 @@
 import type { EffectDescriptor, EffectKind } from "../model/types.js";
 import { deepFreeze } from "../model/limits.js";
 
+type RuntimeEffect = Omit<EffectDescriptor, "displayName" | "scopes">;
+
 // Every built-in is run-scoped. Keep shared capability fields in one place.
 function descriptor(
   kind: EffectKind,
-  displayName: string,
   family: string,
   parameters: EffectDescriptor["parameters"],
   css: boolean,
   motion: EffectDescriptor["motion"],
-): EffectDescriptor {
+): RuntimeEffect {
   return {
     kind,
-    displayName,
     family,
-    scopes: ["run"],
     parameters,
     renderers: css ? ["css", "svg"] : ["svg"],
     motion,
   };
 }
-const descriptors: readonly EffectDescriptor[] = deepFreeze([
+const runtime: readonly RuntimeEffect[] = deepFreeze([
   descriptor(
     "badge",
-    "Badge",
     "background",
     { color: { type: "color", default: "#22d3ee" } },
     true,
@@ -31,7 +29,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "neon",
-    "Neon",
     "glow",
     {
       color: { type: "color", default: "#22d3ee" },
@@ -42,7 +39,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "rgbSplit",
-    "RGB split",
     "shadow",
     { offset: { type: "number", default: 3, min: 1, max: 8, step: 1 } },
     true,
@@ -50,7 +46,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "extruded",
-    "Extruded text",
     "shadow",
     {
       depth: { type: "number", default: 6, min: 1, max: 12, step: 1 },
@@ -61,7 +56,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "holographic",
-    "Holographic",
     "fill",
     { intensity: { type: "number", default: 0.7, min: 0, max: 1, step: 0.1 } },
     false,
@@ -69,7 +63,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "metallic",
-    "Gold / chrome",
     "fill",
     { variant: { type: "enum", default: "gold", values: ["gold", "chrome"] } },
     false,
@@ -77,7 +70,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "cinematicMetal",
-    "Cinematic Metal",
     "fill",
     {
       profile: {
@@ -100,7 +92,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "crt",
-    "CRT",
     "fill",
     { intensity: { type: "number", default: 0.6, min: 0, max: 1, step: 0.1 } },
     false,
@@ -108,7 +99,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "rainbow",
-    "Rainbow",
     "fill",
     {
       saturation: {
@@ -124,7 +114,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "glowPulse",
-    "Glow pulse",
     "motion",
     {
       periodMs: {
@@ -147,7 +136,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "gradientDrift",
-    "Gradient drift",
     "motion",
     {
       periodMs: {
@@ -164,7 +152,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "wave",
-    "Gentle wave",
     "motion",
     {
       amplitude: { type: "number", default: 5, min: 1, max: 10, step: 1 },
@@ -181,7 +168,6 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
   ),
   descriptor(
     "indicator",
-    "Decorative moving indicator",
     "motion",
     {
       color: { type: "color", default: "#22d3ee" },
@@ -197,11 +183,37 @@ const descriptors: readonly EffectDescriptor[] = deepFreeze([
     "decorative",
   ),
 ]);
+const names: Readonly<Record<EffectKind, string>> = {
+  badge: "Badge",
+  neon: "Neon",
+  rgbSplit: "RGB split",
+  extruded: "Extruded text",
+  holographic: "Holographic",
+  metallic: "Gold / chrome",
+  cinematicMetal: "Cinematic Metal",
+  crt: "CRT",
+  rainbow: "Rainbow",
+  glowPulse: "Glow pulse",
+  gradientDrift: "Gradient drift",
+  wave: "Gentle wave",
+  indicator: "Decorative moving indicator",
+};
+let descriptors: readonly EffectDescriptor[] | undefined;
 export function getEffectDescriptors(): readonly EffectDescriptor[] {
-  return descriptors;
+  return (descriptors ??= deepFreeze(
+    runtime.map(({ kind, family, parameters, renderers, motion }) => ({
+      kind,
+      displayName: names[kind],
+      family,
+      scopes: ["run"],
+      parameters,
+      renderers,
+      motion,
+    })),
+  ));
 }
-export function effectDescriptor(kind: string): EffectDescriptor | undefined {
-  return descriptors.find((descriptor) => descriptor.kind === kind);
+export function effectDescriptor(kind: string): RuntimeEffect | undefined {
+  return runtime.find((descriptor) => descriptor.kind === kind);
 }
 export const EFFECT_ORDER: readonly EffectKind[] = [
   "badge",

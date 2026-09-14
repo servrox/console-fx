@@ -89,7 +89,7 @@ describe("document session transitions", () => {
       if (transition === "reset decision")
         act(() => hook.result.current.requestReset());
       if (transition === "example decision")
-        hook.rerender({ transfer: incoming });
+        act(() => hook.result.current.beginReplacement());
       if (transition === "shared decision") {
         const share = encodeShare(incoming);
         if (!share.ok) throw new Error("Fixture must fit a shared URL");

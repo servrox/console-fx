@@ -26,9 +26,8 @@ export default function RootLayout({
               console-<span>fx</span>
             </Link>
             <nav aria-label="Main navigation">
-              <Link href="/#presets">Examples</Link>
-              <Link href="/#use-cases">Use cases</Link>
-              <Link href="/#playground">Playground</Link>
+              <Link href="/studio/">Workbench</Link>
+              <Link href="/#categories">Use cases</Link>
               <Link href="/docs/">Docs</Link>
             </nav>
             <a

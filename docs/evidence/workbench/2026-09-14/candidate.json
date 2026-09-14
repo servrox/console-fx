@@ -1,0 +1,231 @@
+{
+  "createdAt": "2026-09-14T09:00:00.994Z",
+  "stage": "local",
+  "status": "verified",
+  "base": "9f8cca0a5534c5b6cf503098463a0ee56beae288",
+  "lockSha256": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4",
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.2.0",
+      "sha256": "8ff381db98d4e40ae3660610c4500487ec377bb927051cc4cedd173e33413043"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.2.0",
+      "sha256": "8e513ab2d4d480a6d9edb0f80df598d7dd07e36e2ae2a01ee3c0ea43441fde10"
+    }
+  ],
+  "studio": {
+    "manifestSha256": "ef5640a95bd618f86ad2c30a775ce9e788b506e89a9f409d633766e4e571dc02",
+    "configSha256": "59dd2b3f1c2598c7bcab1cb20eec57ce88580fe39af5c9882b30c842947259d6",
+    "files": [
+      {
+        "path": "__next.__PAGE__.txt",
+        "sha256": "8a6bf0be2b745cc43b7d0a34e664fc56d234f9d9142a5485a49a377ea67e5d5e"
+      },
+      {
+        "path": "__next._full.txt",
+        "sha256": "bcbbddf977a08201c5c472ae88fa7bc8df7602d2eb339530ea09d703e87def27"
+      },
+      {
+        "path": "__next._tree.txt",
+        "sha256": "dc0105ebac8f320806d5c0c9976410a7da38426cf2e4aa2dad2e1777331e1fbe"
+      },
+      {
+        "path": "_next/static/chunks/049gh7uz6mo-i.js",
+        "sha256": "d33d4cd12405ac9432aee21dbe48aa26bf23dc4d8efa20e7375d4f0a7099151e"
+      },
+      {
+        "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+        "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683"
+      },
+      {
+        "path": "_next/static/chunks/0mqkl1lqlm755.js",
+        "sha256": "1525f7377c736f0e6722f7ba72f2416b79769dab8f316aa745be94dcfcde6ec9"
+      },
+      {
+        "path": "_next/static/chunks/0pumovf0d44av.js",
+        "sha256": "73662e8fbc5a25652b18b657c9455fd04a96893c5d9b183e2abbbd0109b1112e"
+      },
+      {
+        "path": "_next/static/chunks/0yt73i1yydrc8.js",
+        "sha256": "9ba71ff2b18410ddb339993bcf22f9ee0ed10b347fdb973dda016889d4d22fa0"
+      },
+      {
+        "path": "_next/static/chunks/1fcs3a6dg17ff.js",
+        "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02"
+      },
+      {
+        "path": "_next/static/chunks/1n2m-j0-8tzt3.js",
+        "sha256": "f2e2ea3f1ca7ed7e91c24eb3c0c080bf2762787f619b610b89c034ae01fd5559"
+      },
+      {
+        "path": "_next/static/chunks/1za0hwerxn_lo.css",
+        "sha256": "3171cb808949960f59013908361b91f3bb82505ee4f187aaedd5cc193d5f786e"
+      },
+      {
+        "path": "_next/static/chunks/2-86-d6f0r97n.js",
+        "sha256": "e461bab32abdc5b0e909a88196185118dbf471a4786a831749b44833fb453a35"
+      },
+      {
+        "path": "_next/static/chunks/2ek8anm3get_b.js",
+        "sha256": "5214391e464719678b58ce910f17bc459f4af4185070ba578cd37238fd01bbce"
+      },
+      {
+        "path": "_next/static/chunks/2z3sh82dl8glu.js.map",
+        "sha256": "a8ae20908e3aa88a005bf3b5cadedd7f1107cf28a6e4db9da80280fe9f54de95"
+      },
+      {
+        "path": "_next/static/chunks/3_gvevdc4w3iw.js",
+        "sha256": "e77202c256bb93be88dda196598950f0cc3a9e7e4da24525c134485f878faa8f"
+      },
+      {
+        "path": "_next/static/chunks/3b14-d3pzxicm.js",
+        "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec"
+      },
+      {
+        "path": "_next/static/chunks/3uhrbazk7ka33.js",
+        "sha256": "27ee0c1b754cb3505933a7662cc35dbfe11b455935631a0eb990ba4ecba99166"
+      },
+      {
+        "path": "_next/static/chunks/turbopack-2wwt1m04ithaq.js",
+        "sha256": "b69e8d3cc40eec1794a70923af0c5588c14b3cd4ed8ca9c0315d26db06103fd6"
+      },
+      {
+        "path": "_next/static/chunks/turbopack-2xo-75uiki39v.js",
+        "sha256": "b65d81e66530b2a37ef1e6de535c52a231048fc6ad5ff2fca1d5b4917310c6b1"
+      },
+      {
+        "path": "_next/static/chunks/turbopack-worker-2ru9m5gbh1na6.js",
+        "sha256": "861da5809b4f43b053fab88fe560f16efe31827655a06502ada9274a742852de"
+      },
+      {
+        "path": "_next/static/media/measure.worker.1y5_0p3_ohu0_.ts",
+        "sha256": "5542ec129c598dee1ed21f76b03ffaf84a246b900ca8fc4b149ba47268eb7906"
+      },
+      {
+        "path": "_next/static/zqhiUurTnCJPq9CWIpOMR/_buildManifest.js",
+        "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea"
+      },
+      {
+        "path": "_next/static/zqhiUurTnCJPq9CWIpOMR/_clientMiddlewareManifest.js",
+        "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a"
+      },
+      {
+        "path": "_next/static/zqhiUurTnCJPq9CWIpOMR/_ssgManifest.js",
+        "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00"
+      },
+      {
+        "path": "_not-found/__next._full.txt",
+        "sha256": "b177f84ad3ef436a0ada41e46376359ab799dcb1a8fe80d2627f7e7d65eb4149"
+      },
+      {
+        "path": "_not-found/__next._not-found.__PAGE__.txt",
+        "sha256": "ac156b8fcda0fb6421265d5bb0fb0d6b52e8811913709f1b541901710f112ccc"
+      },
+      {
+        "path": "_not-found/__next._tree.txt",
+        "sha256": "7a48b2ab3605670e5f19909e1309959e9182379372cf9d352abd75c08f799b58"
+      },
+      {
+        "path": "_not-found/index.html",
+        "sha256": "b36959b68125eabb99409a51ed542b8e7e1d67c370472e34bc45ec9931125623"
+      },
+      {
+        "path": "_not-found/index.txt",
+        "sha256": "b177f84ad3ef436a0ada41e46376359ab799dcb1a8fe80d2627f7e7d65eb4149"
+      },
+      {
+        "path": "404.html",
+        "sha256": "b36959b68125eabb99409a51ed542b8e7e1d67c370472e34bc45ec9931125623"
+      },
+      {
+        "path": "404/index.html",
+        "sha256": "b36959b68125eabb99409a51ed542b8e7e1d67c370472e34bc45ec9931125623"
+      },
+      {
+        "path": "docs/__next._full.txt",
+        "sha256": "c77d993e282c641a4b101fa9e8918d3ea6a3278e9131958ac4b49d3805afb08b"
+      },
+      {
+        "path": "docs/__next._tree.txt",
+        "sha256": "d51aa0e48d73e6b9cc0b83ceda0e119e4848ebf610ff29b0bc003d24f861925a"
+      },
+      {
+        "path": "docs/__next.docs.__PAGE__.txt",
+        "sha256": "0876621e82cf5c64cc50a256dc706c38ffe7b1c5a864fdc15233c9d239d3bd39"
+      },
+      {
+        "path": "docs/index.html",
+        "sha256": "96598c7f36e48b7016e0a25d14cdd1373ce07d35554a3361987bc3f3edc4e257"
+      },
+      {
+        "path": "docs/index.txt",
+        "sha256": "c77d993e282c641a4b101fa9e8918d3ea6a3278e9131958ac4b49d3805afb08b"
+      },
+      {
+        "path": "index.html",
+        "sha256": "b49140542f67f4073ef2846ba6fcd01e7a8e88070e954827ed08eb9a2c2b772b"
+      },
+      {
+        "path": "index.txt",
+        "sha256": "bcbbddf977a08201c5c472ae88fa7bc8df7602d2eb339530ea09d703e87def27"
+      },
+      {
+        "path": "licenses.txt",
+        "sha256": "e0f8edece34f55b5ac3be5da0b8e19a8f36d7698bca9785a21582feba0a8fcef"
+      },
+      {
+        "path": "media/console-fx-usage-poster.webp",
+        "sha256": "83245b5d7c1600b1d5fc5f64a4bbc85f4f771b8c69dcde19f51b9052776d2fbe"
+      },
+      {
+        "path": "media/console-fx-usage.mp4",
+        "sha256": "99033f93376490e0a49d08a46bee3e03135fb44cb7c003b48f1a8a7d6be921a3"
+      },
+      {
+        "path": "media/console-fx-usage.vtt",
+        "sha256": "13c99d789053198067595f76f00714d6a3511aa871a0149c59ab593ca638456b"
+      },
+      {
+        "path": "media/console-fx-usage.webm",
+        "sha256": "d63941ca4f3cb11d8b501ceb98a83c0def8906ee9894936365993b7d154dbed7"
+      },
+      {
+        "path": "studio/__next._full.txt",
+        "sha256": "711fd5fd7b2d8ee32317e4a7f603036945894b745b35f6ae975c291dd150d088"
+      },
+      {
+        "path": "studio/__next._tree.txt",
+        "sha256": "8b0406632b562675cdf7b1b33eab362aa4ad9cb5b377df7e907e9b774f311120"
+      },
+      {
+        "path": "studio/__next.studio.__PAGE__.txt",
+        "sha256": "05321cebe5960e974c7f2558d9a316ca3f2fee2cd1bccbe9fbd2a7be893386cd"
+      },
+      {
+        "path": "studio/index.html",
+        "sha256": "e241cfac0f19d740b8b103d35cbad25bc04eab5ceba0759761ddbd763639e242"
+      },
+      {
+        "path": "studio/index.txt",
+        "sha256": "711fd5fd7b2d8ee32317e4a7f603036945894b745b35f6ae975c291dd150d088"
+      }
+    ]
+  },
+  "checks": {
+    "vitest": 413,
+    "studio": 51,
+    "packedNext": 3,
+    "bundlesGzip": {
+      "minimalCss": 9065,
+      "completeCss": 25552,
+      "svg": 25554
+    }
+  },
+  "limitations": [
+    "Not CI, npm publication or public hosting proof.",
+    "Physical devices, participants and real Safari remain unobserved."
+  ]
+}

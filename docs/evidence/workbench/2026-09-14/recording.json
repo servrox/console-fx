@@ -1,0 +1,47 @@
+{
+  "at": "2026-09-14T08:35:15.122Z",
+  "browser": "153.0.8010.12",
+  "origin": "http://127.0.0.1:48761",
+  "viewport": {
+    "width": 1440,
+    "height": 960
+  },
+  "duration": 44.686479969,
+  "frameCount": 413,
+  "consoleEntries": 1,
+  "clipboardVerified": true,
+  "cues": [
+    {
+      "at": 0.00014691999999990913,
+      "text": "Choose a use case. The preview and complete recipe describe the same output."
+    },
+    {
+      "at": 10.535607906000001,
+      "text": "Open the example in the workbench. Editing stays silent."
+    },
+    {
+      "at": 16.894740753999997,
+      "text": "Open DevTools → Console. Test in console prints exactly one entry."
+    },
+    {
+      "at": 21.421663842999997,
+      "text": "Copy complete JavaScript. It runs without installing ConsoleFX."
+    },
+    {
+      "at": 25.452028363999997,
+      "text": "Browse by purpose or style. Every example uses the same editor."
+    },
+    {
+      "at": 29.039781834,
+      "text": "Confirm the replacement. Your previous work remains in Undo."
+    },
+    {
+      "at": 36.111380968,
+      "text": "Supply your own facts. Named fields keep the card's layout intact."
+    },
+    {
+      "at": 40.165614864999995,
+      "text": "Copy the updated output. Drafts stay in this browser; editing and copying stay silent."
+    }
+  ]
+}

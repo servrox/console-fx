@@ -2,12 +2,13 @@
 
 **Start with the six categories below. They are the foundation of this proposal.**
 
-Status: **Proposed — review before product implementation.**
+Status: **Approved for implementation — 2026-09-14.**
 Date: 2026-09-13. Reading time: about four minutes.
 
 The test strategy and cleanup are a separate prerequisite, now merged in
-[PR #22](https://github.com/servrox/console-fx/pull/22). This document proposes
-the next product structure; it does not describe the live site.
+[PR #22](https://github.com/servrox/console-fx/pull/22). This document records the approved
+product structure. The [implementation receipt](workbench-implementation-evidence.md)
+tracks source, verification and the live release separately.
 
 The separate [technology and dependency section](../technology/README.md)
 documents the current stack and selected UI sources, including amicro.
@@ -135,10 +136,10 @@ errors and the exact changes needed for each extension.
 **Recommended default: automatic sizing ON for every newly opened catalogue
 example, including cinematic and card examples.**
 
-| Layer | Proposed behavior |
+| Layer | Accepted behavior |
 | --- | --- |
 | Website layout | Always adapts to the available page space. No feature flag. |
-| Content fitting | Every new example receives an explicit `fit/v1` request with readable limits. Approved compact card layouts are eligible. |
+| Content fitting | Every new example receives an explicit `fit/v2` request with readable limits. Approved compact card layouts are eligible. |
 | Console output | New workbench examples start in SVG with the existing `container-experimental` carrier enabled and a complete native-text caption. |
 | Existing work | Imported recipes and resumed drafts keep their saved settings. Offer an explicit conversion; do not silently change exports. |
 
@@ -156,7 +157,7 @@ example, including cinematic and card examples.**
 
 This deliberately changes the **app's creation default**, not the public
 compiler's defaults. The current contract makes container sizing opt-in;
-[Proposed ADR-0017](../adrs/0017-default-new-workbench-examples-to-automatic-svg-sizing.md)
+[Accepted ADR-0017](../adrs/0017-default-new-workbench-examples-to-automatic-svg-sizing.md)
 records the narrow change for review. It does not graduate experimental output
 or promise responsive console reflow.
 
@@ -175,6 +176,7 @@ or promise responsive console reflow.
    separately.
 
 **Next review:** accept the category map and page/capability contract in
-[Proposed ADR-0016](../adrs/0016-organize-discovery-around-an-example-catalogue.md),
-and the new-example sizing default in Proposed ADR-0017. Product UI work waits
-for that review, as requested.
+[Accepted ADR-0016](../adrs/0016-organize-discovery-around-an-example-catalogue.md),
+and the new-example sizing default in Accepted ADR-0017. Both records were approved on 2026-09-14; implementation is authorized.
+
+Accepted [ADR-0018](../adrs/0018-add-versioned-floor-preserving-fitting.md) selects v2 for new examples. Existing v1 recipes and measured compact paths remain unchanged. Full card artwork is used initially so its smallest authored fields reach the 12 px floor; compact fitting remains an explicit choice. No safe cell or readable floor is relaxed to force a fit.

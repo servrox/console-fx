@@ -190,7 +190,7 @@ const parsed = parseRenderRecipe({
     renderer: "svg",
     motion: "reduce",
     layout: {
-      algorithm: "fit/v1",
+      algorithm: "fit/v2",
       width: 360,
       maxHeight: 400,
       variant: "standard",
@@ -251,3 +251,9 @@ Imports create no logs, timers, requests or page changes. The core has no runtim
 dependencies and does not include React, Next.js, or studio assets.
 
 MIT © 2026 ConsoleFX contributors.
+
+### Fitting algorithm compatibility
+
+`fit/v2` (0.2.0, available under `next`) keeps small fields at their readable floor while larger text shrinks. Card paint stays within the original cells and artwork exclusions; content is never truncated. At most 16 whole-document candidates and 512 shaping requests are considered. Estimation cache data is bounded to 512 KiB; optional measurement batches and input snapshots retain their 64 KiB limit.
+
+Existing `fit/v1` calls, recipes, measurement identities, failures and fallbacks retain their behavior. Choose the algorithm explicitly; old package readers reject v2. `LayoutReport.contentScale` records the candidate scale, while each fragment records its actual font size after floors and card scaling. No width is guessed and no fonts are measured implicitly. Unknown container display width retains the readability warning and full native caption.

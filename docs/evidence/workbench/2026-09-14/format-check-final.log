@@ -1,0 +1,3 @@
+$ prettier --check package.json vercel.json pnpm-workspace.yaml 'tsconfig*.json' '*config.{mjs,ts}' 'packages/**/*.{ts,tsx,json,md}' 'apps/**/*.{ts,tsx,json,css}' 'scripts/**/*.mjs' 'tests/**/*.{ts,js,html}' 'examples/{next-app,react,vanilla,website}/**/*.{ts,tsx,mjs,json}' '.changeset/*.{json,md}' '.github/workflows/*.yml'
+Checking formatting...
+All matched files use Prettier code style!

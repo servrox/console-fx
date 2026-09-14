@@ -6,8 +6,13 @@ import { resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { chromium, expect } from "@playwright/test";
 
-const port = Number(process.env.CONSOLE_FX_CDP_PORT ?? 9344);
-assert(Number.isInteger(port) && port >= 1024 && port <= 65535);
+const port = process.env.CONSOLE_FX_CDP_PORT
+  ? Number(process.env.CONSOLE_FX_CDP_PORT)
+  : undefined;
+assert(
+  port === undefined ||
+    (Number.isInteger(port) && port >= 1024 && port <= 65535),
+);
 const origin = new URL(
   process.env.CONSOLE_FX_VIDEO_ORIGIN ?? "http://127.0.0.1:4210",
 );
@@ -20,7 +25,9 @@ const directory = resolve(
   new Date().toISOString().replaceAll(":", "-"),
 );
 await mkdir(directory, { recursive: true });
-const browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`);
+const browser = port
+  ? await chromium.connectOverCDP(`http://127.0.0.1:${port}`)
+  : await chromium.launch();
 const consoleEntries = [];
 const pause = (ms) => new Promise((done) => setTimeout(done, ms));
 const cues = [];
@@ -41,10 +48,11 @@ try {
     if (message.type() === "log") consoleEntries.push(message.text());
   });
   await page.goto(origin.href);
-  const demo = page.locator(".quick-demo");
+  const hero = page.getByRole("region", { name: "Explore console use cases" });
   await expect(
-    demo.getByRole("button", { name: "Copy console.log", exact: true }),
+    hero.getByRole("button", { name: "Copy recipe", exact: true }),
   ).toBeEnabled();
+  await hero.scrollIntoViewIfNeeded();
   await page.screenshot({ path: `${directory}/poster.png` });
   const cdp = await context.newCDPSession(page);
   recording = true;
@@ -73,79 +81,78 @@ try {
     await pause(450);
     await locator.click();
   };
-  cue("Make a browser-console message. Start with the live example.");
-  await pause(3500);
-  cue("Write your message. Editing stays silent.");
-  const input = demo.getByRole("textbox", { name: "Your message" });
-  await click(input);
-  await input.fill("");
-  await input.pressSequentially("Hello from ConsoleFX!", { delay: 95 });
-  await pause(2100);
-  cue("Choose a style, then compare the same words as plain text.");
-  await demo.getByRole("combobox").selectOption("rgbSplit");
-  await pause(2200);
-  await click(demo.getByRole("button", { name: "Plain", exact: true }));
-  await pause(1800);
-  await click(demo.getByRole("button", { name: "Styled", exact: true }));
-  await pause(1800);
-  assert.equal(consoleEntries.length, 0);
-  cue("Open DevTools → Console. Test in console prints one entry.");
-  await click(
-    demo.getByRole("button", { name: "Test in console", exact: true }),
+  cue(
+    "Choose a use case. The preview and complete recipe describe the same output.",
   );
-  await expect(demo.getByRole("status")).toContainText("Printed one message");
-  assert.equal(consoleEntries.length, 1);
-  await pause(3500);
-  cue("Copy the complete console.log. It runs without installing ConsoleFX.");
-  await click(
-    demo.getByRole("button", { name: "Copy console.log", exact: true }),
-  );
-  await expect(demo.getByRole("status")).toContainText("Copied console.log");
-  await pause(2200);
-  await click(demo.locator("summary"));
-  await demo.getByLabel("Demo JavaScript").scrollIntoViewIfNeeded();
-  const source = await demo.getByLabel("Demo JavaScript").inputValue();
-  assert.equal(
-    await page.evaluate(() => navigator.clipboard.readText()),
-    source,
-  );
-  await pause(3200);
-  cue("Need more control? Take the same scene into the playground.");
-  await click(demo.getByRole("button", { name: "Edit in playground" }));
-  await expect(
-    page.getByRole("dialog", { name: "Edit this example in the playground?" }),
-  ).toBeVisible();
-  cue("Confirm Load example. Your previous scene remains in Undo.");
-  await pause(2300);
-  await click(page.getByRole("button", { name: "Load example", exact: true }));
+  await pause(4000);
+  await click(hero.getByRole("button", { name: "Show code", exact: true }));
+  await pause(3000);
+  await click(hero.getByRole("button", { name: "Show output", exact: true }));
+  await pause(2500);
+  cue("Open the example in the workbench. Editing stays silent.");
+  await click(hero.getByRole("link", { name: /Edit this example/ }));
   const editor = page.locator("#editor-workspace");
-  await expect(
-    editor.getByRole("textbox", { name: "Message text", exact: true }),
-  ).toHaveValue("Hello from ConsoleFX!");
-  await editor.scrollIntoViewIfNeeded();
-  await pause(3200);
-  cue("Keep editing, with undo and a draft saved in this browser.");
   const message = editor.getByRole("textbox", {
     name: "Message text",
     exact: true,
   });
+  await expect(message).toBeVisible();
   await click(message);
-  await message.fill("Ready for your next idea.");
-  await pause(2500);
-  cue("Your complete export is ready to paste into your own code.");
+  await message.fill("");
+  await message.pressSequentially("HELLO DEVELOPER", { delay: 110 });
+  await pause(3500);
+  assert.equal(consoleEntries.length, 0);
+  cue("Open DevTools → Console. Test in console prints exactly one entry.");
   await click(
-    editor.getByRole("button", { name: "Copy console.log", exact: true }),
+    editor.getByRole("button", { name: "Test in console", exact: true }),
   );
+  await expect(editor.locator(".editor-status")).toContainText(
+    "One entry sent",
+  );
+  assert.equal(consoleEntries.length, 1);
+  await pause(4000);
+  cue("Copy complete JavaScript. It runs without installing ConsoleFX.");
+  const copy = editor.getByRole("button", {
+    name: "Copy console.log",
+    exact: true,
+  });
+  await click(copy);
   const generated = editor.getByLabel("Generated code", { exact: true });
   await generated.scrollIntoViewIfNeeded();
   await expect
     .poll(() => page.evaluate(() => navigator.clipboard.readText()))
     .toBe(await generated.inputValue());
-  assert.equal(
-    consoleEntries.length,
-    1,
-    "Copying and editing must stay silent",
+  await pause(3500);
+  cue("Browse by purpose or style. Every example uses the same editor.");
+  const sidebar = page.getByRole("complementary", {
+    name: "Example catalogue",
+  });
+  await click(sidebar.getByRole("button", { name: /^All examples/ }));
+  await sidebar
+    .getByRole("combobox", { name: "Visual style", exact: true })
+    .selectOption("card");
+  await sidebar
+    .getByRole("searchbox", { name: "Search examples" })
+    .fill("build receipt");
+  await pause(2500);
+  await click(sidebar.getByRole("button", { name: /^Build Receipt/ }));
+  cue("Confirm the replacement. Your previous work remains in Undo.");
+  await pause(3000);
+  await click(page.getByRole("button", { name: "Load example", exact: true }));
+  const project = editor.getByRole("textbox", { name: "Project", exact: true });
+  await expect(project).toBeVisible();
+  await project.fill("my-web-app");
+  await pause(3500);
+  cue("Supply your own facts. Named fields keep the card's layout intact.");
+  await pause(3500);
+  await click(copy);
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toBe(await generated.inputValue());
+  cue(
+    "Copy the updated output. Drafts stay in this browser; editing and copying stay silent.",
   );
+  assert.equal(consoleEntries.length, 1);
   await pause(4500);
   recording = false;
   await capture;
@@ -186,6 +193,8 @@ try {
   try {
     await context?.close();
   } finally {
-    await browser.close();
+    if (!port) await browser.close();
   }
 }
+
+if (port) process.exit(0);

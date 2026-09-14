@@ -1,0 +1,9 @@
+$ vitest run
+
+ RUN  v4.1.11 /home/servrox/dev/console-fx/.worktrees/console-fx-workbench-20260914
+
+
+ Test Files  26 passed (26)
+      Tests  413 passed (413)
+   Start at  08:56:49
+   Duration  1.38s (transform 6.42s, setup 0ms, import 14.30s, tests 4.11s, environment 3.54s)

@@ -116,7 +116,15 @@ The maintainer explicitly answered “Approve ADR-0015” for [ADR-0015](0015-se
 app-owned example catalogue and separate landing/workbench pages.
 [ADR-0017](0017-default-new-workbench-examples-to-automatic-svg-sizing.md)
 proposes a narrow ADR-0015 successor for new workbench example defaults.
-Both remain **Proposed** pending review of the concrete records. No provider
+At that checkpoint both remained **Proposed** pending review of the concrete records. No provider
 adoption or accepted historical decision changed. Test maintenance is separately
 authorized under ADR-0008/0009; later observations belong in the
 [workbench preparation receipt](../specs/workbench-preparation-evidence.md).
+
+## Workbench acceptance — 2026-09-14
+
+The maintainer explicitly stated "ADR-0016/0017 are approved by now. finish 1. and 2. now!" Both concrete records are now Accepted. ADR-0017 narrowly succeeds ADR-0015 for new catalogue example defaults; public compiler and saved-document behavior remain unchanged. The task authorizes workbench implementation and updated package publication. Acceptance supplies no runtime observation; subsequent results belong in the workbench implementation receipt.
+
+## Fitting integration finding — 2026-09-14
+
+The first all-example default matrix exposed unmeasured fitting failures in 14 of 43 entries. [ADR-0018](0018-add-versioned-floor-preserving-fitting.md) records the versioned correction. The maintainer subsequently answered "Approve ADR-0018 and 0.2.0 next" on 2026-09-14. It is Accepted, authorizing fit/v2 implementation and both packages at 0.2.0 under next. Existing v1 behavior remains binding; checks and publication must be recorded separately.

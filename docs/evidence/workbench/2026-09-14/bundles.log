@@ -1,0 +1,5 @@
+$ node scripts/check-bundle-size.mjs
+css: 9,065 gzip bytes / 10,240 budget; no React, Next, codegen or presets
+complete-css: 25,552 gzip bytes / 25,600 budget; no React, Next, codegen or presets
+svg: 25,554 gzip bytes / 25,600 budget; no React, Next, codegen or presets
+Root data APIs contain no renderer, glyph, preset or exporter modules

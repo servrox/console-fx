@@ -1,7 +1,9 @@
 import type { ExportOptions, SceneV1, TextStyle, Diagnostic } from "./types.js";
 
+export type LayoutAlgorithm = "fit/v1" | "fit/v2";
+
 export interface LayoutRequest {
-  readonly algorithm: "fit/v1";
+  readonly algorithm: LayoutAlgorithm;
   readonly width: number;
   readonly maxHeight: number;
   readonly variant: "standard" | "compact" | "auto";
@@ -26,7 +28,7 @@ export interface PaintBounds {
 /** Text is shaped as a complete fragment. The key is validated against every field. */
 export interface TextMeasurementRequest {
   readonly key: string;
-  readonly algorithm: "fit/v1";
+  readonly algorithm: LayoutAlgorithm;
   readonly profile: string;
   readonly text: string;
   readonly style: TextStyle;
@@ -62,7 +64,7 @@ export interface LayoutFragment {
   readonly quality: MeasurementQuality;
 }
 export interface LayoutReport {
-  readonly algorithm: "fit/v1";
+  readonly algorithm: LayoutAlgorithm;
   readonly profile: string;
   readonly variant: "standard" | "compact";
   readonly artboard: { readonly width: number; readonly height: number };
@@ -75,6 +77,7 @@ export interface LayoutReport {
     readonly ink: PaintBounds;
   }[];
   readonly visualRows: number;
+  /** Candidate scale; fit/v2 clamps each field separately at its readable floor. */
   readonly contentScale: number;
   readonly displayScale: number | null;
   readonly resolvedDisplayWidth: number | null;

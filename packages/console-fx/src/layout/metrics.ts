@@ -1,4 +1,5 @@
 import type {
+  LayoutAlgorithm,
   MeasurementSnapshot,
   MeasurementQuality,
   TextMeasurement,
@@ -9,6 +10,7 @@ import { LIMITS, utf8ByteLength } from "../model/limits.js";
 import { measurementKey } from "../validation/layout.js";
 import { fail } from "../validation/index.js";
 import { estimatedTextWidth } from "../renderers/presentations/layout.js";
+import type { FlowRun } from "./wrap.js";
 
 export type FontMetric = Omit<TextMeasurement, "request"> & {
   readonly quality: MeasurementQuality;
@@ -25,13 +27,15 @@ export class MetricResolver {
   readonly requests = new Map<string, TextMeasurementRequest>();
   readonly available: ReadonlyMap<string, TextMeasurement>;
   protected bytes: number;
+  private readonly candidate = new Set<string>();
   declare readonly suggest?: (
-    alternatives: Iterable<TextRun>,
+    tokens: readonly (readonly FlowRun[])[],
     profile?: string,
   ) => void;
   constructor(
     readonly environment: string,
-    readonly snapshot?: MeasurementSnapshot,
+    snapshot?: MeasurementSnapshot,
+    readonly algorithm: LayoutAlgorithm = "fit/v1",
   ) {
     this.bytes = utf8ByteLength(
       JSON.stringify({
@@ -52,13 +56,40 @@ export class MetricResolver {
       this.bytes += utf8ByteLength(JSON.stringify(record)) + 1;
     }
   }
+  beginCandidate(): void {
+    this.candidate.clear();
+  }
+  /** V2 keeps estimation work separate from a serializable explicit font batch.
+   * Current candidate first, then prior sizes; reserve the complete metric envelope.
+   * A partial batch remains explicitly estimated on the next compile.
+   */
+  measurementBatch(
+    includeAvailable = false,
+  ): readonly TextMeasurementRequest[] {
+    const missing = (request: TextMeasurementRequest) =>
+      includeAvailable || !this.available.has(request.key);
+    if (this.algorithm === "fit/v1")
+      return [...this.requests.values()].filter(missing);
+    const keys = new Set([...this.candidate, ...this.requests.keys()]);
+    const batch: TextMeasurementRequest[] = [];
+    let bytes = utf8ByteLength(this.environment) + 128;
+    for (const key of keys) {
+      const request = this.requests.get(key)!;
+      if (request.algorithm !== this.algorithm || !missing(request)) continue;
+      const reserved = utf8ByteLength(JSON.stringify(request)) + 256;
+      if (bytes + reserved > LIMITS.inputBytes) continue;
+      bytes += reserved;
+      batch.push(request);
+    }
+    return batch;
+  }
   protected request(
     run: TextRun,
     profile: string,
     italic = false,
   ): TextMeasurementRequest {
     const data = {
-      algorithm: "fit/v1" as const,
+      algorithm: this.algorithm,
       profile,
       text: run.text,
       style: run.style,
@@ -84,13 +115,16 @@ export class MetricResolver {
       // Reserve the bounded numeric metric fields and record envelope so an
       // explicitly measured batch can itself satisfy the snapshot byte limit.
       const bytes = utf8ByteLength(JSON.stringify(request)) + 256;
-      if (this.requests.size >= 512 || this.bytes + bytes > LIMITS.inputBytes)
+      const limit =
+        this.algorithm === "fit/v2" ? 512 * 1024 : LIMITS.inputBytes;
+      if (this.requests.size >= 512 || this.bytes + bytes > limit)
         fail("resource-limit", "Fitting exceeds its measurement budget.", [
           "layout",
         ]);
       this.bytes += bytes;
       this.requests.set(key, request);
     }
+    this.candidate.add(key);
     const measured = this.available.get(key);
     if (measured)
       return {
@@ -101,13 +135,13 @@ export class MetricResolver {
     const advance =
       estimatedTextWidth(run.text, run.style) +
       Math.max(0, run.style.letterSpacing);
-    const overhang = run.text ? run.style.fontSize * (italic ? 0.35 : 0.12) : 0;
+    const overhang = run.style.fontSize * (italic ? 0.35 : 0.12);
     return {
       advance,
       inkLeft: overhang,
       inkRight: advance + overhang,
-      ascent: run.text ? run.style.fontSize * 1.3 : 0,
-      descent: run.text ? run.style.fontSize * 0.4 : 0,
+      ascent: run.style.fontSize * 1.3,
+      descent: run.style.fontSize * 0.4,
       quality: "estimated",
       direction: request.direction,
     };

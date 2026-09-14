@@ -1,639 +1,201 @@
-import { mkdirSync, writeFileSync } from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
-import { neon } from "../../packages/console-fx/dist/presets/index.js";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
+import { neon } from "../../packages/console-fx/dist/presets/index.js";
 import {
-  EXAMPLES,
-  exampleRecipe,
-} from "../../apps/studio/src/features/landing/examples";
-import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
+  CATEGORIES,
+  resolveExample,
+} from "../../apps/studio/src/features/examples/catalogue";
+import { prepareExport } from "../../apps/studio/src/features/export/prepare-export";
 import { test, expect } from "./fixtures";
 
-const draftKey = "console-fx:scene:v1";
-const recipeKey = "console-fx:recipe:v1";
-const artifact = ".artifacts/website/states";
-test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => {
-    const probe = window as unknown as { websiteCalls: unknown[][] };
-    probe.websiteCalls = [];
-    const log = console.log;
-    console.log = (...args) => {
-      probe.websiteCalls.push(args);
-      log(...args);
-    };
-  });
-});
-
-test("a featured card keeps its data through hero editing, comparison, export and undo", async ({
-  page,
-}) => {
-  const example = EXAMPLES.find((item) => item.id === "devContext")!;
-  const recipe = exampleRecipe(example.id);
-  const output = compileConsole(recipe.scene, recipe.options);
-  if (output.preview.kind !== "svg") throw Error("SVG expected");
-  const prior = neon({ text: "Keep my draft" });
-  await page.addInitScript(
-    ({ key, prior }) => localStorage.setItem(key, JSON.stringify(prior)),
-    { key: draftKey, prior },
-  );
-  await page.goto("/");
-  await page
-    .getByRole("button", { name: "Make it useful", exact: true })
-    .click();
-  const card = page.getByRole("button", {
-    name: `Edit ${example.name} example`,
-    exact: true,
-  });
-  await expect(card.locator("img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  mkdirSync(artifact, { recursive: true });
-  const demo = page.locator(".quick-demo");
-  await demo
-    .getByRole("button", {
-      name: "Dev context",
-      exact: true,
-    })
-    .click();
-  await expect(demo.locator(".comparison-result img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  await demo.screenshot({
-    path: `${artifact}/useful-hero-${example.id}-${test.info().project.name}.png`,
-  });
-  const heading = "Atlas sandbox";
-  await demo
-    .getByRole("textbox", { name: "Sample heading", exact: true })
-    .fill(heading);
-  const editedRecipe = exampleRecipe(example.id, heading);
-  const edited = compileConsole(editedRecipe.scene, editedRecipe.options);
-  if (edited.preview.kind !== "svg") throw Error("SVG expected");
-  await expect(demo.locator(".comparison-result img")).toHaveAttribute(
-    "src",
-    edited.preview.imageUri,
-  );
-  const comparison = page
-    .locator(".use-case-comparison")
-    .nth(
-      EXAMPLES.filter((item) => item.category === "useful").findIndex(
-        (item) => item.id === example.id,
-      ),
-    );
-  await expect(comparison.locator("img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  await comparison.getByRole("button", { name: "Plain", exact: true }).click();
-  await expect(comparison.locator("pre")).toHaveText(output.text);
-  await card.click();
-  await page.getByRole("button", { name: "Load example", exact: true }).click();
-  const editor = page.locator("#editor-workspace");
-  await expect(
-    editor.getByRole("textbox", { name: "Project", exact: true }),
-  ).toHaveValue(example.text);
-  await expect
-    .poll(() =>
-      page.evaluate(
-        (key) =>
-          JSON.parse(localStorage.getItem(key) ?? "null")?.scene.presentation
-            ?.profile,
-        recipeKey,
-      ),
-    )
-    .toBe("buildReceipt/v1");
-  expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!),
-      draftKey,
-    ),
-  ).toEqual(prior);
-  const calls: unknown[][] = [];
-  new Function(
-    "console",
-    await editor.getByLabel("Generated code", { exact: true }).inputValue(),
-  )({
-    log: (...args: unknown[]) => calls.push(args),
-  });
-  expect(calls).toEqual([output.args]);
-  await editor.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect(
-    editor.getByRole("textbox", { name: "Message text", exact: true }),
-  ).toHaveValue("Keep my draft");
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { websiteCalls: unknown[] }).websiteCalls,
-    ),
-  ).toEqual([]);
-});
-for (const failure of ["missing", "throws"] as const) {
-  test(`optional observers ${failure}: plain workflow transfer and undo remain usable`, async ({
-    page,
-  }) => {
-    const prior = neon({ text: "Preserve my earlier work" });
-    await page.addInitScript(
-      ({ prior, key, failure }) => {
-        localStorage.setItem(key, JSON.stringify(prior));
-        const NativeObserver = window.IntersectionObserver;
-        // Fault the application's optional observers. Next's pinned router
-        // constructs its prefetch observer during module evaluation, before
-        // application recovery can run; preserve that separate dependency.
-        Object.defineProperty(window, "IntersectionObserver", {
-          configurable: true,
-          value:
-            failure === "missing"
-              ? undefined
-              : class extends NativeObserver {
-                  constructor(
-                    callback: IntersectionObserverCallback,
-                    options?: IntersectionObserverInit,
-                  ) {
-                    if (options?.rootMargin === "200px") {
-                      super(callback, options);
-                      return;
-                    }
-                    const probe = window as unknown as {
-                      optionalObserverFailures?: number;
-                    };
-                    probe.optionalObserverFailures =
-                      (probe.optionalObserverFailures ?? 0) + 1;
-                    throw new Error("Optional observer unavailable");
-                  }
-                },
-        });
-      },
-      { prior, key: draftKey, failure },
-    );
-    const errors: string[] = [];
-    page.on("pageerror", (error) => errors.push(error.message));
-    await page.goto("/");
-    await expect(page.locator(".example-card")).toHaveCount(6);
-    const workflow = page.locator(".use-case-comparison").first();
-    await workflow.getByRole("button", { name: "Plain", exact: true }).click();
-    await workflow
-      .getByRole("button", { name: "Edit this example", exact: true })
-      .click();
-    await page
-      .getByRole("button", { name: "Load example", exact: true })
-      .click();
-    const editor = page.locator("#editor-workspace");
-    await expect(editor).toBeVisible();
-    await expect(
-      editor.getByRole("combobox", { name: "Output renderer", exact: true }),
-    ).toHaveValue("text");
-    await editor.getByRole("button", { name: "Undo", exact: true }).click();
-    await expect(
-      editor.getByRole("textbox", { name: "Message text", exact: true }),
-    ).toHaveValue("Preserve my earlier work");
-    expect(errors).toEqual([]);
-    if (failure === "throws")
-      expect(
-        await page.evaluate(
-          () =>
-            (window as unknown as { optionalObserverFailures: number })
-              .optionalObserverFailures,
-        ),
-      ).toBeGreaterThan(0);
-    expect(
-      await page.evaluate(
-        () =>
-          (window as unknown as { websiteCalls: unknown[] }).websiteCalls
-            .length,
-      ),
-    ).toBe(0);
-  });
-}
-
-test("hero edits, comparisons and copying use one scene and print only on request", async ({
+const get = (id: string) => {
+  const result = resolveExample({ exampleId: id });
+  if (!result.ok) throw Error(result.message);
+  return result.recipe;
+};
+test("cinematic hero pairs exact static output and complete copyable code without changing drafts", async ({
   page,
   clipboard,
 }) => {
+  const prior = neon({ text: "Keep my draft" });
+  await page.addInitScript(
+    (scene) =>
+      localStorage.setItem("console-fx:scene:v1", JSON.stringify(scene)),
+    prior,
+  );
+  const logs: string[] = [];
+  page.on("console", (entry) => {
+    if (entry.type() === "log") logs.push(entry.text());
+  });
   await page.goto("/");
-  const demo = page.locator(".quick-demo");
-  const text = demo.getByRole("textbox", { name: "Your message", exact: true });
-  await text.fill("100% %c %s 👩🏽‍💻");
-  await demo
-    .getByRole("combobox", { name: "Style", exact: true })
-    .selectOption("chrome");
-  const recipe = exampleRecipe("signature", "100% %c %s 👩🏽‍💻", "chrome");
-  const output = compileConsole(recipe.scene, recipe.options);
+  const hero = page.getByRole("region", { name: "Explore console use cases" });
+  await expect(hero.getByRole("tab")).toHaveCount(6);
+  await expect(hero.getByLabel("Cinematic design")).toHaveValue(
+    "preset:lightningMetal",
+  );
+  await expect(page.locator("#editor-workspace")).toHaveCount(0);
+  await expect(page.locator("video")).toHaveCount(0);
+  await hero.getByRole("button", { name: "Show output", exact: true }).click();
+  const recipe = get("preset:lightningMetal");
+  const output = compileConsole(recipe.scene, {
+    ...recipe.options,
+    motion: "reduce",
+  });
   if (output.preview.kind !== "svg") throw Error("SVG expected");
-  await expect(demo.locator(".comparison-result img")).toHaveAttribute(
+  await expect(hero.locator(".complete-output img")).toHaveAttribute(
     "src",
     output.preview.imageUri,
   );
-  await demo
-    .getByRole("button", { name: "Copy console.log", exact: true })
-    .click();
-  const copy = await clipboard.readText();
-  const calls: unknown[][] = [];
-  new Function("console", copy)({
-    log: (...args: unknown[]) => calls.push(args),
-  });
-  expect(calls).toEqual([output.args]);
-  await expect(demo.getByRole("status")).toContainText("Copied console.log");
-  mkdirSync(artifact, { recursive: true });
-  await demo.screenshot({
-    path: `${artifact}/UX-07-${test.info().project.name}.png`,
-  });
-  await demo.getByRole("button", { name: "Plain", exact: true }).click();
-  await expect(demo.locator(".comparison-result pre")).toHaveText(output.text);
-  await demo.getByRole("button", { name: "Styled", exact: true }).click();
-  await page
-    .getByRole("button", { name: "Make it useful", exact: true })
-    .click();
-  await expect(page.locator(".example-card")).toHaveCount(3);
-  await page.getByRole("button", { name: "All", exact: true }).click();
-  await expect(page.locator(".example-card")).toHaveCount(6);
+  await hero.getByLabel("Cinematic design").selectOption("preset:moltenGold");
+  await hero.getByRole("button", { name: "Show code", exact: true }).click();
+  const source = prepareExport(get("preset:moltenGold")).source("typescript");
+  await expect(hero.getByLabel("Complete package recipe")).toHaveText(source);
+  const copy = hero.getByRole("button", { name: "Copy recipe", exact: true });
+  await copy.hover();
+  await expect(hero.locator(".copy-status")).not.toContainText("copied");
+  await copy.click();
+  expect(await clipboard.readText()).toBe(source);
+  await expect(hero.locator(".copy-status")).toContainText("Recipe copied");
+  expect(logs).toEqual([]);
+  expect(
+    await page.evaluate(() =>
+      JSON.parse(localStorage.getItem("console-fx:scene:v1")!),
+    ),
+  ).toEqual(prior);
+});
+test("use-case tabs and reveal work with keyboard and complete narrow panels", async ({
+  page,
+}, info) => {
+  await page.goto("/");
+  const hero = page.getByRole("region", { name: "Explore console use cases" });
+  const first = hero.getByRole("tab").first();
+  await first.focus();
+  await page.keyboard.press("End");
+  await expect(hero.getByRole("tab").last()).toBeFocused();
+  await expect(hero.getByRole("tab").last()).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await page.keyboard.press("Home");
+  await expect(first).toBeFocused();
+  if (info.project.name === "desktop") {
+    await hero.getByRole("button", { name: "Compare", exact: true }).click();
+    const slider = hero.getByRole("slider", { name: "Reveal output and code" });
+    await slider.focus();
+    await page.keyboard.press("ArrowLeft");
+    await expect(slider).toHaveValue("61");
+    const bounds = await slider.boundingBox();
+    if (!bounds) throw Error("slider missing");
+    await page.mouse.click(
+      bounds.x + bounds.width * 0.8,
+      bounds.y + bounds.height / 2,
+    );
+    expect(Number(await slider.inputValue())).toBeGreaterThan(70);
+  } else await expect(hero.getByRole("slider")).toBeHidden();
+  await hero.getByRole("button", { name: "Show code", exact: true }).click();
+  await expect(hero.getByLabel("Complete package recipe")).toBeVisible();
+  await hero.getByRole("button", { name: "Show output", exact: true }).click();
+  await expect(hero.locator(".complete-output img")).toBeVisible();
   expect(
     await page.evaluate(
-      () => (window as unknown as { websiteCalls: unknown[][] }).websiteCalls,
+      () => document.documentElement.scrollWidth <= innerWidth + 1,
     ),
-  ).toEqual([]);
-  await demo
-    .getByRole("button", { name: "Test in console", exact: true })
-    .click();
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { websiteCalls: unknown[][] }).websiteCalls,
-    ),
-  ).toEqual([output.args]);
-  await page.evaluate(() =>
+  ).toBe(true);
+});
+test("blocked hero copying retains the exact attempted recipe across tab changes", async ({
+  page,
+}) => {
+  await page.addInitScript(() =>
     Object.defineProperty(navigator, "clipboard", {
       configurable: true,
-      value: { writeText: () => Promise.reject(Error("denied")) },
+      value: {
+        writeText: async () => {
+          throw Error("denied");
+        },
+      },
     }),
   );
-  await demo
-    .getByRole("button", { name: "Copy console.log", exact: true })
+  await page.goto("/");
+  await page.getByRole("button", { name: "Copy recipe", exact: true }).click();
+  const recovery = page.getByLabel("Recipe from the blocked copy attempt");
+  const expected = prepareExport(get("preset:lightningMetal")).source(
+    "typescript",
+  );
+  await expect(recovery).toHaveValue(expected);
+  await page
+    .getByRole("tab", { name: CATEGORIES[1]!.name, exact: true })
     .click();
-  await expect(demo.getByRole("status")).toContainText("Copy was blocked");
+  await expect(recovery).toHaveValue(expected);
   await expect(
-    demo.getByRole("textbox", {
-      name: "Source from the blocked copy attempt",
-      exact: true,
-    }),
-  ).toHaveValue(copy);
-  await demo.screenshot({
-    path: `${artifact}/UX-08-${test.info().project.name}.png`,
-  });
-  // Native keyboard insertion can consume Escape (notably in Firefox). Supply
-  // the exact untrusted value to exercise the application's validation in each engine.
-  await text.evaluate((input: HTMLInputElement) => {
-    Object.getOwnPropertyDescriptor(
-      HTMLInputElement.prototype,
-      "value",
-    )!.set!.call(input, "bad\u001b[31m");
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-  });
-  await expect(text).toHaveValue("bad\u001b[31m");
-  await expect(
-    demo.getByRole("button", { name: "Test in console", exact: true }),
-  ).toBeDisabled();
-  await expect(
-    demo.getByRole("button", { name: "Copy console.log", exact: true }),
-  ).toBeDisabled();
+    page.getByRole("button", { name: "Copy recipe", exact: true }),
+  ).toBeEnabled();
+});
+test("effects off and reduced motion preserve usable content and static recipes", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  await page.getByRole("button", { name: "Turn off", exact: true }).click();
+  await expect(page.locator("[data-page-effects]")).toHaveAttribute(
+    "data-page-effects",
+    "off",
+  );
+  await page.getByRole("tab").last().click();
+  await page.getByRole("button", { name: "Show code", exact: true }).click();
+  const code = await page.getByLabel("Complete package recipe").textContent();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.getByRole("button", { name: "Turn on", exact: true }).click();
+  await expect(page.locator("[data-page-effects]")).toHaveAttribute(
+    "data-page-effects",
+    "off",
+  );
+  await expect(page.getByLabel("Complete package recipe")).toHaveText(code!);
   expect(
     await page.evaluate(
       () =>
-        (window as unknown as { websiteCalls: unknown[][] }).websiteCalls
+        document.getAnimations().filter((a) => a.playState === "running")
           .length,
     ),
-  ).toBe(1);
-});
-
-test("example transfers preserve a draft, cancellation, renderer, undo and full-studio sharing", async ({
-  page,
-}) => {
-  const previous = neon({ text: "My prior work" });
-  await page.addInitScript(
-    ({ key, scene }) => localStorage.setItem(key, JSON.stringify(scene)),
-    { key: draftKey, scene: previous },
-  );
-  await page.goto("/");
-  const demo = page.locator(".quick-demo");
-  await demo
-    .getByRole("textbox", { name: "Your message", exact: true })
-    .fill("New %s signature");
-  await demo
-    .getByRole("combobox", { name: "Style", exact: true })
-    .selectOption("chrome");
-  expect(
-    await page.evaluate(
-      (key) => JSON.parse(localStorage.getItem(key)!),
-      draftKey,
-    ),
-  ).toEqual(previous);
-  expect(
-    await page.evaluate((key) => localStorage.getItem(key), recipeKey),
-  ).toBeNull();
-  const transfer = demo.getByRole("button", {
-    name: "Edit in playground",
-    exact: true,
-  });
-  await transfer.click();
-  await expect(
-    page.getByRole("dialog", { name: "Edit this example in the playground?" }),
-  ).toBeVisible();
-  const editor = page.locator("#editor-workspace");
-  const text = editor.getByRole("textbox", {
-    name: "Message text",
-    exact: true,
-  });
-  await expect(text).toHaveValue("My prior work");
-  await page
-    .getByRole("button", { name: "Keep current scene", exact: true })
-    .click();
-  await expect(transfer).toBeFocused();
-  await expect(text).toHaveValue("My prior work");
-  await transfer.click();
-  await page.getByRole("button", { name: "Load example", exact: true }).click();
-  await expect(text).toHaveValue("New %s signature");
-  await expect(
-    editor.getByRole("combobox", { name: "Output renderer", exact: true }),
-  ).toHaveValue("svg");
-  await editor.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect(text).toHaveValue("My prior work");
-  await expect(
-    editor.getByRole("combobox", { name: "Output renderer", exact: true }),
-  ).toHaveValue("css");
-  await editor.getByRole("button", { name: "Redo", exact: true }).click();
-  await editor
-    .getByRole("button", { name: "Open full studio", exact: true })
-    .click();
-  await expect(page).toHaveURL(/\/studio\/#scene=/);
-  await expect(
-    page.getByRole("textbox", { name: "Message text", exact: true }),
-  ).toHaveValue("New %s signature");
-  await expect(
-    page.getByRole("combobox", { name: "Output renderer", exact: true }),
-  ).toHaveValue("svg");
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { websiteCalls: unknown[][] }).websiteCalls,
-    ),
-  ).toEqual([]);
-  await expect(page.locator(".landing-experience")).toHaveCount(0);
-});
-
-test("shared-scene decisions have priority over landing transfers", async ({
-  page,
-}) => {
-  const previous = neon({ text: "Local draft" });
-  await page.addInitScript(
-    ({ key, scene }) => localStorage.setItem(key, JSON.stringify(scene)),
-    { key: draftKey, scene: previous },
-  );
-  const share = encodeShare(exampleRecipe("devContext"));
-  if (!share.ok) throw Error("Share fixture invalid");
-  await page.goto(`/${share.value}`);
-  await expect(
-    page.getByRole("dialog", { name: "Load the shared scene?" }),
-  ).toBeVisible();
-  await expect(
-    page
-      .locator(".quick-demo")
-      .getByRole("button", { name: "Edit in playground", exact: true }),
-  ).toBeDisabled();
-  await page
-    .getByRole("button", { name: "Load shared scene", exact: true })
-    .click();
-  await expect(
-    page.getByRole("textbox", { name: "Project", exact: true }),
-  ).toHaveValue("atlas-web");
-  await expect(
-    page
-      .locator(".quick-demo")
-      .getByRole("textbox", { name: "Your message", exact: true }),
-  ).toHaveValue("Hello, developer.");
-  await page.getByRole("button", { name: "Undo", exact: true }).click();
-  await expect(
-    page.getByRole("textbox", { name: "Message text", exact: true }),
-  ).toHaveValue("Local draft");
-});
-
-test("page effects are transient, bounded, cancelable and absent from exports", async ({
-  page,
-}) => {
-  await page.addInitScript(() => {
-    const probe = window as unknown as {
-      effectFrames: number;
-      pendingFrames: Set<number>;
-      ownedObservers: number;
-    };
-    probe.effectFrames = 0;
-    probe.pendingFrames = new Set();
-    probe.ownedObservers = 0;
-    const request = window.requestAnimationFrame;
-    const cancel = window.cancelAnimationFrame;
-    window.requestAnimationFrame = (callback) => {
-      probe.effectFrames++;
-      const id = request.call(window, (time) => {
-        probe.pendingFrames.delete(id);
-        callback(time);
-      });
-      probe.pendingFrames.add(id);
-      return id;
-    };
-    window.cancelAnimationFrame = (id) => {
-      probe.pendingFrames.delete(id);
-      cancel.call(window, id);
-    };
-    const Observer = window.IntersectionObserver;
-    window.IntersectionObserver = class extends Observer {
-      private owned = false;
-      override observe(target: Element) {
-        if (
-          !this.owned &&
-          target.matches(".example-card-surface, .landing-workbench")
-        ) {
-          this.owned = true;
-          probe.ownedObservers++;
-        }
-        super.observe(target);
-      }
-      override disconnect() {
-        if (this.owned) {
-          this.owned = false;
-          probe.ownedObservers--;
-        }
-        super.disconnect();
-      }
-    };
-  });
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/");
-  const demo = page.locator(".quick-demo");
-  await expect(page.locator(".landing-experience")).toHaveAttribute(
-    "data-page-effects",
-    "off",
-  );
-  await demo.locator(".demo-source > summary").click();
-  const original = await demo
-    .getByRole("textbox", { name: "Demo JavaScript", exact: true })
-    .inputValue();
-  await demo.getByRole("button", { name: "Plain", exact: true }).click();
-  await expect(page.locator(".reveal-decoration")).toHaveCount(0);
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await expect(page.locator(".landing-experience")).toHaveAttribute(
-    "data-page-effects",
-    "on",
-  );
-  await demo.getByRole("button", { name: "Styled", exact: true }).focus();
-  await demo.screenshot({
-    path: `${artifact}/UX-02-${test.info().project.name}.png`,
-  });
-  await page.keyboard.press("Enter");
-  await expect(
-    demo.getByRole("button", { name: "Styled", exact: true }),
-  ).toHaveAttribute("aria-pressed", "true");
-  await expect(page.locator(".reveal-decoration")).toHaveCount(0, {
-    timeout: 750,
-  });
-  expect(
-    await demo
-      .getByRole("textbox", { name: "Demo JavaScript", exact: true })
-      .inputValue(),
-  ).toBe(original);
-  for (let i = 0; i < 8; i++)
-    await demo
-      .getByRole("button", { name: i % 2 ? "Styled" : "Plain", exact: true })
-      .click();
-  await page.getByRole("button", { name: "Turn off", exact: true }).click();
-  await expect(page.locator(".reveal-decoration")).toHaveCount(0);
-  expect(
-    await demo
-      .getByRole("textbox", { name: "Demo JavaScript", exact: true })
-      .inputValue(),
-  ).toBe(original);
-  await demo.screenshot({
-    path: `${artifact}/UX-09-${test.info().project.name}.png`,
-  });
-  await page.getByRole("button", { name: "Turn on", exact: true }).click();
-  const card = page.locator(".example-card").first();
-  await card.scrollIntoViewIfNeeded();
-  const bounds = await card.boundingBox();
-  if (!bounds) throw Error("Missing card bounds");
-  await page.mouse.move(bounds.x + 40, bounds.y + 40);
-  const targetAfter = await card.boundingBox();
-  expect(targetAfter?.x).toBe(bounds.x);
-  expect(targetAfter?.y).toBe(bounds.y);
-  await card.screenshot({
-    path: `${artifact}/UX-04-${test.info().project.name}.png`,
-  });
-  await page.mouse.move(1, 1);
-  await page.waitForTimeout(500);
-  const idle = await page.evaluate(
-    () => (window as unknown as { effectFrames: number }).effectFrames,
-  );
-  await page.waitForTimeout(600);
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { effectFrames: number }).effectFrames,
-    ),
-  ).toBe(idle);
-  expect(
-    await page.evaluate(
-      () =>
-        (window as unknown as { pendingFrames: Set<number> }).pendingFrames
-          .size,
-    ),
   ).toBe(0);
-  await page.evaluate(() => {
-    Object.defineProperty(document, "visibilityState", {
-      configurable: true,
-      get: () => "hidden",
-    });
-    document.dispatchEvent(new Event("visibilitychange"));
-  });
-  await expect(page.locator(".landing-experience")).toHaveAttribute(
-    "data-page-effects",
-    "off",
-  );
-  await page.getByRole("link", { name: "Docs", exact: true }).click();
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Use ConsoleFX in your app.",
-  );
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { ownedObservers: number }).ownedObservers,
-    ),
-  ).toBe(0);
-  expect(
-    await page.evaluate(
-      () => (window as unknown as { websiteCalls: unknown[][] }).websiteCalls,
-    ),
-  ).toEqual([]);
 });
-
-test("narrow layouts keep the explanation and actions usable", async ({
+test("landing and Docs keep complete navigation, notices and accessible content", async ({
   page,
 }) => {
-  test.setTimeout(90_000);
-  mkdirSync(artifact, { recursive: true });
-  for (const width of [320, 360, 390, 768, 1280, 1440]) {
-    await page.setViewportSize({ width, height: 1000 });
-    await page.goto("/");
+  for (const path of ["/", "/docs/"]) {
+    await page.goto(path);
     await expect(
       page
-        .locator(".quick-demo")
-        .getByRole("button", { name: "Copy console.log", exact: true }),
-    ).toBeEnabled();
+        .getByRole("navigation", { name: "Main navigation" })
+        .getByRole("link", { name: "Workbench", exact: true }),
+    ).toHaveAttribute("href", "/studio/");
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+      .analyze();
+    expect(results.violations).toEqual([]);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth + 1,
       ),
     ).toBe(true);
-    await page.screenshot({
-      path: `${artifact}/UX-01-${width}-${test.info().project.name}.png`,
-    });
-    const violations = (
-      await new AxeBuilder({ page })
-        .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
-        .analyze()
-    ).violations;
-    expect(violations).toEqual([]);
   }
+  const notices = await page.request.get("/licenses.txt");
+  expect(await notices.text()).toContain("SYED  SUBHAN UDDIN");
 });
-
 test.describe("without JavaScript", () => {
-  test.use({
-    javaScriptEnabled: false,
-    viewport: { width: 390, height: 844 },
-  });
-  test("static HTML keeps the explanation and recipes available", async ({
+  test.use({ javaScriptEnabled: false });
+  test("product explanation, default output, categories and Docs remain available", async ({
     page,
   }) => {
-    mkdirSync(artifact, { recursive: true });
     await page.goto("/");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      "Make your console worth opening.",
-    );
-    await expect(page.locator(".comparison-result")).toContainText(
-      "Hello, developer.",
-    );
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    await expect(page.locator(".complete-output img")).toBeVisible();
+    await expect(page.locator(".category-links a")).toHaveCount(6);
     await expect(
-      page.getByText("Enable JavaScript to edit, copy or test this example.", {
-        exact: false,
-      }),
-    ).toBeVisible();
-    await expect(page.locator("#use-cases")).toContainText(
-      "Your app supplies the facts",
-    );
-    await expect(page.locator("#use-in-your-app")).toContainText(
-      "Both packages are available at 0.1.0 under next",
-    );
-    await page.screenshot({
-      path: `${artifact}/UX-01-no-js-${test.info().project.name}.png`,
-    });
-    writeFileSync(
-      `${artifact}/static-${test.info().project.name}.html`,
-      await page.content(),
-    );
-    await page.goto("/docs/");
-    await expect(page.locator("#react pre code").first()).toHaveText(
-      "pnpm add @servrox/console-fx@next @servrox/console-fx-react@next",
-    );
+      page.getByRole("button", { name: "Copy recipe", exact: true }),
+    ).toBeDisabled();
+    await page
+      .getByRole("link", { name: "Integration guide", exact: true })
+      .click();
+    await expect(page.locator(".docs-page")).toBeVisible();
   });
 });

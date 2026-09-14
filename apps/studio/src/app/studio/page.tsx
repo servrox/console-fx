@@ -1,8 +1,11 @@
+import { PageEffects } from "../../features/experience/page-effects";
 import { Studio } from "../../features/editor/studio";
 export default function StudioPage() {
   return (
     <main id="main">
-      <Studio focused />
+      <PageEffects>
+        <Studio />
+      </PageEffects>
     </main>
   );
 }

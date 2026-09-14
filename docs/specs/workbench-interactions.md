@@ -5,8 +5,7 @@ console output as the main visual attraction.**
 
 Status: selected source direction, 2026-09-13. The maintainer explicitly requested
 [amicro](https://amicro.vercel.app/) after reviewing the workbench proposal.
-This extends that proposal; product UI implementation still awaits its existing
-review checkpoint. No additional approval is needed merely to select amicro.
+This extends that proposal; product UI implementation is authorized by the 2026-09-14 acceptance. No additional approval is needed merely to select amicro.
 
 ## 1. Use these four adaptations
 
@@ -63,7 +62,7 @@ behavior to replace, not an application contract to import.
 
 The [pinned package manifest](https://github.com/Subhan-code/Amicro--Micro-transitions-/blob/86b55340bfb939b8e93bb53aa46ba017c3449f1c/package.json)
 and [MIT license](https://github.com/Subhan-code/Amicro--Micro-transitions-/blob/86b55340bfb939b8e93bb53aa46ba017c3449f1c/LICENSE)
-were inspected. This document does not install or ship upstream source.
+were inspected. The source-derived adaptations and notice are now implemented; see [UI source ownership](../technology/amicro.md).
 
 ## 4. Use a restrained motion policy
 
@@ -96,9 +95,7 @@ editor workflow. A loader is appropriate only for an actual pending operation.
    a renderer/output contract changes.
 
 Use the [existing milestone testing strategy](testing-strategy.md), not one
-test per animation or timing constant. The completed test-cleanup results are
-unchanged by this documentation update; adapted components are not yet tested
-or implemented.
+test per animation or timing constant. The earlier test-cleanup results remain historical. New interaction and browser results belong in the workbench implementation receipt.
 
 ## Pinned sources
 

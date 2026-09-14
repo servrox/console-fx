@@ -2,7 +2,7 @@
 
 **One catalogue for discovery. One recipe for editing, preview and export.**
 
-Status: Proposed, 2026-09-13. Read the
+Status: Approved for implementation, 2026-09-14. Read the
 [short proposal](workbench-proposal.md) first. This is the implementation
 companion, not a new public package API.
 
@@ -22,7 +22,7 @@ their own compiler, storage layer or conditional preset implementations.
 
 ## 2. Model only what has a current caller
 
-Proposed internal shape; names may be refined without changing these rules:
+Approved internal shape; names may be refined without changing these rules:
 
 ```ts
 type ExampleDefinition = {
@@ -125,7 +125,7 @@ creation defaults in the sample recipe where needed.
 | Typography | Supported text styles | Only exposed profile parameters; no arbitrary font substitution | Owned by presentation; explain Detach before free styling |
 | Effects | Compatible effect descriptors | Closed profile controls | Closed presentation; arbitrary effects unavailable |
 | Motion | Only compatible effects/renderers; experimental status retained | Unavailable under ADR-0012 | Unavailable under ADR-0014 |
-| Content fitting | Explicit `fit/v1` request | Bounded glyph/paint fitting | Approved standard/compact layouts |
+| Content fitting | Explicit `fit/v2` request | Bounded glyph/paint fitting | Approved standard/compact layouts |
 | Output sizing | SVG carrier support determines availability | SVG carrier support determines availability | SVG carrier support determines availability |
 
 Motion support does not mean motion is playing. Preview Play is transient;
@@ -142,12 +142,12 @@ flag cannot redefine `cinematic/v1` or a closed card's contract.
 New catalogue entries open with automatic sizing enabled. Internally this is
 an existing recipe, not a new `responsive: true` compiler flag:
 
-| Setting | Proposed creation rule |
+| Setting | Creation rule |
 | --- | --- |
 | Renderer/target | `svg` / `chromium` for new workbench examples |
-| Layout | `fit/v1`; authored export width, bounded maximum height, `variant: "auto"`, and a readable minimum font size |
+| Layout | `fit/v2`; explicit bounded export width (960 px cards, at least 1080 px ordinary flow, authored cinematic width), bounded maximum height, `variant: "auto"`, and a readable minimum font size |
 | Overflow | Preserve all content. Use an existing supported fitting policy per profile; impossible requests remain visible errors. |
-| Carrier | `container-experimental`, bounded by the authored export width, complete native-text caption |
+| Carrier | `container-experimental`, bounded by the chosen export width, complete native-text caption |
 | Motion | Static export by default; explicit preview/export activation where supported |
 
 - Central defaults cover ordinary scenes. Profile-specific fitting values
@@ -252,7 +252,7 @@ The catalogue/compiler dependencies are in-process. Storage already has a
 local-substitutable boundary. Actual DevTools is external evidence. None of
 these calls needs an invented service interface or a remote catalogue backend.
 
-## 8. Acceptance checks after approval
+## 8. Acceptance checks
 
 | ID | Observable result | Proof owner |
 | --- | --- | --- |
@@ -278,11 +278,13 @@ evidence. The screen-reader follow-up stays nonblocking under ADR-0013.
 
 | Existing intent | Proposed change | Decision |
 | --- | --- | --- |
-| Base spec §7.1/7.2 and AC-10 require an integrated landing/editor flow | Separate short landing and persistent `/studio/` workbench | Proposed ADR-0016; update affected website/spec requirements on acceptance |
-| Existing website specs put galleries/workbench/integration in the landing narrative | Move full discovery to Studio and integration/video to Docs | Proposed ADR-0016; retain truthful value/copy/recovery requirements |
-| ADR-0015 and fitting spec §7 make container sizing explicit opt-in | Default it on only for new workbench examples, retain experimental status and saved explicit choices | Proposed ADR-0017; narrow successor on acceptance |
+| Base spec §7.1/7.2 and AC-10 require an integrated landing/editor flow | Separate short landing and persistent `/studio/` workbench | Accepted ADR-0016; affected website/spec requirements reconciled |
+| Existing website specs put galleries/workbench/integration in the landing narrative | Move full discovery to Studio and integration/video to Docs | Accepted ADR-0016; retain truthful value/copy/recovery requirements |
+| ADR-0015 and fitting spec §7 make container sizing explicit opt-in | Default it on only for new workbench examples, retain experimental status and saved explicit choices | Accepted ADR-0017; narrow successor for new-example creation |
 | ADR-0012/0014 define static closed profiles | Keep them static; metadata cannot add motion | No intent change in this proposal |
 
-The two new ADRs are **Proposed**, not Accepted. Existing accepted bodies remain
-unchanged. No new scene/recipe version, package boundary, font service,
+ADR-0016 and ADR-0017 are **Accepted** as of 2026-09-14. ADR-0015 carries a
+reciprocal narrow successor note. No new scene/recipe version, package boundary, font service,
 measurement side effect or logging behavior is proposed.
+
+Accepted [ADR-0018](../adrs/0018-add-versioned-floor-preserving-fitting.md) selects v2 for new examples. Existing v1 recipes and measured compact paths remain unchanged. Full card artwork is used initially so its smallest authored fields reach the 12 px floor; compact fitting remains an explicit choice. No safe cell or readable floor is relaxed to force a fit.
