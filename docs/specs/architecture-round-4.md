@@ -1,5 +1,9 @@
 # ConsoleFX: fourth round of six architecture passes
 
+> Historical candidate receipt. Later approval and delivery of ADR-0016/0017/0018
+> are recorded in the [workbench implementation/release receipt](workbench-implementation-evidence.md).
+> Proposed/pending statements below describe this earlier checkpoint.
+
 **Six new walks found eight issues. Final verification found a test-adapter issue
 and an evidence-provenance gap. Each has a separate fix.**
 

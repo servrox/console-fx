@@ -1,16 +1,28 @@
 # MVP implementation and release completion audit
 
-Audited September 13, 2026. **The existing MVP release is delivered; the full
-active goal is not complete.** The later workbench request awaits review and
-implementation. The [corrected 0.1.1 packages](patch-release-preparation.md) are
-prepared separately and not yet published. Three external validation items also
-remain: five-developer formative sessions, performance recordings on an actual
+Updated September 14, 2026. **The approved workbench and all 43 examples are
+implemented and live.** [PR #26](https://github.com/servrox/console-fx/pull/26)
+merged after source review, local/native qualification and protected hosted
+checks. Accepted ADR-0016/0017/0018 govern the new pages and additive `fit/v2`.
+The approved 0.2.0 release includes the earlier 0.1.1 fixes; no intermediate
+0.1.1 publication is planned. Both 0.2.0 packages are published under `next`,
+with passing registry-only consumers. Exact package, main CI and public hosting
+identities are separate in the [current release receipt](../evidence/workbench/2026-09-14-release/README.md).
+Full-spec validation still has three external observation gaps:
+five-developer formative sessions, performance recordings on an actual
 integrated-GPU laptop and physical phone, and Safari website observations. The
 [prepared packet](../validation/mvp-external-review.md) provides tasks, fixtures,
 measurement conditions and result templates. No participant/device result or
-waiver is inferred from publication approval. The active goal remains open.
+waiver is inferred from publication approval.
 
 ## Source and release identity
+
+The current application checkpoint is merge `40fc81efa5e0579cf04476390b7324231db119fc`
+from PR #26, with passing [main CI](https://github.com/servrox/console-fx/actions/runs/34828493536)
+and Git-connected public deployment. Its [implementation receipt](workbench-implementation-evidence.md)
+maps the workbench criteria and preserves the separate native, package and hosted
+proof boundaries. The following September 13 checkpoints retain their historical
+scope; their pending 0.1.1 packets are superseded by approved 0.2.0.
 
 The merged checkpoint verified for this audit on September 13, 2026 is
 `77c6e3d830702089a2039a6132eaff717585c1a2`, from

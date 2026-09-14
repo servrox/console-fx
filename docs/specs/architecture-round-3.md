@@ -1,5 +1,9 @@
 # ConsoleFX: third round of six architecture passes
 
+> Historical candidate receipt. Later approval and delivery of ADR-0016/0017/0018
+> are recorded in the [workbench implementation/release receipt](workbench-implementation-evidence.md).
+> Proposed/pending statements below describe this earlier checkpoint.
+
 **Six new passes found four issues. Each issue has a separate fix.**
 
 Requested on September 13, 2026 using `improve-codebase-architecture`.

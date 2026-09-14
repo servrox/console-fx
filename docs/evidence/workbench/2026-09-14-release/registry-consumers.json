@@ -1,0 +1,350 @@
+{
+  "createdAt": "2026-09-14T09:55:19.159Z",
+  "candidate": {
+    "createdAt": "2026-09-14T09:33:22.725Z",
+    "lockSha256": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4",
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.2.0",
+        "directory": "console-fx",
+        "tarball": "servrox-console-fx-0.2.0.tgz",
+        "sha256": "8ff381db98d4e40ae3660610c4500487ec377bb927051cc4cedd173e33413043",
+        "files": [
+          "package/CHANGELOG.md",
+          "package/LICENSE",
+          "package/README.md",
+          "package/dist/browser/compiler.d.ts",
+          "package/dist/browser/compiler.d.ts.map",
+          "package/dist/browser/compiler.js",
+          "package/dist/browser/compiler.js.map",
+          "package/dist/browser/index.d.ts",
+          "package/dist/browser/index.d.ts.map",
+          "package/dist/browser/index.js",
+          "package/dist/browser/index.js.map",
+          "package/dist/browser/measure.d.ts",
+          "package/dist/browser/measure.d.ts.map",
+          "package/dist/browser/measure.js",
+          "package/dist/browser/measure.js.map",
+          "package/dist/browser/motion.d.ts",
+          "package/dist/browser/motion.d.ts.map",
+          "package/dist/browser/motion.js",
+          "package/dist/browser/motion.js.map",
+          "package/dist/browser/preflight.d.ts",
+          "package/dist/browser/preflight.d.ts.map",
+          "package/dist/browser/preflight.js",
+          "package/dist/browser/preflight.js.map",
+          "package/dist/codegen/index.d.ts",
+          "package/dist/codegen/index.d.ts.map",
+          "package/dist/codegen/index.js",
+          "package/dist/codegen/index.js.map",
+          "package/dist/effects/catalog.d.ts",
+          "package/dist/effects/catalog.d.ts.map",
+          "package/dist/effects/catalog.js",
+          "package/dist/effects/catalog.js.map",
+          "package/dist/index.d.ts",
+          "package/dist/index.d.ts.map",
+          "package/dist/index.js",
+          "package/dist/index.js.map",
+          "package/dist/layout/bounds.d.ts",
+          "package/dist/layout/bounds.d.ts.map",
+          "package/dist/layout/bounds.js",
+          "package/dist/layout/bounds.js.map",
+          "package/dist/layout/metrics.d.ts",
+          "package/dist/layout/metrics.d.ts.map",
+          "package/dist/layout/metrics.js",
+          "package/dist/layout/metrics.js.map",
+          "package/dist/layout/planner.d.ts",
+          "package/dist/layout/planner.d.ts.map",
+          "package/dist/layout/planner.js",
+          "package/dist/layout/planner.js.map",
+          "package/dist/layout/render.d.ts",
+          "package/dist/layout/render.d.ts.map",
+          "package/dist/layout/render.js",
+          "package/dist/layout/render.js.map",
+          "package/dist/layout/wrap.d.ts",
+          "package/dist/layout/wrap.d.ts.map",
+          "package/dist/layout/wrap.js",
+          "package/dist/layout/wrap.js.map",
+          "package/dist/model/layout.d.ts",
+          "package/dist/model/layout.d.ts.map",
+          "package/dist/model/layout.js",
+          "package/dist/model/layout.js.map",
+          "package/dist/model/limits.d.ts",
+          "package/dist/model/limits.d.ts.map",
+          "package/dist/model/limits.js",
+          "package/dist/model/limits.js.map",
+          "package/dist/model/types.d.ts",
+          "package/dist/model/types.d.ts.map",
+          "package/dist/model/types.js",
+          "package/dist/model/types.js.map",
+          "package/dist/presentations/catalog.d.ts",
+          "package/dist/presentations/catalog.d.ts.map",
+          "package/dist/presentations/catalog.js",
+          "package/dist/presentations/catalog.js.map",
+          "package/dist/presentations/compact.d.ts",
+          "package/dist/presentations/compact.d.ts.map",
+          "package/dist/presentations/compact.js",
+          "package/dist/presentations/compact.js.map",
+          "package/dist/presentations/fonts.d.ts",
+          "package/dist/presentations/fonts.d.ts.map",
+          "package/dist/presentations/fonts.js",
+          "package/dist/presentations/fonts.js.map",
+          "package/dist/presentations/safe-cells.d.ts",
+          "package/dist/presentations/safe-cells.d.ts.map",
+          "package/dist/presentations/safe-cells.js",
+          "package/dist/presentations/safe-cells.js.map",
+          "package/dist/presets/cards.d.ts",
+          "package/dist/presets/cards.d.ts.map",
+          "package/dist/presets/cards.js",
+          "package/dist/presets/cards.js.map",
+          "package/dist/presets/index.d.ts",
+          "package/dist/presets/index.d.ts.map",
+          "package/dist/presets/index.js",
+          "package/dist/presets/index.js.map",
+          "package/dist/renderers/cinematic/glyphs.d.ts",
+          "package/dist/renderers/cinematic/glyphs.d.ts.map",
+          "package/dist/renderers/cinematic/glyphs.js",
+          "package/dist/renderers/cinematic/glyphs.js.map",
+          "package/dist/renderers/cinematic/layout.d.ts",
+          "package/dist/renderers/cinematic/layout.d.ts.map",
+          "package/dist/renderers/cinematic/layout.js",
+          "package/dist/renderers/cinematic/layout.js.map",
+          "package/dist/renderers/cinematic/profiles.d.ts",
+          "package/dist/renderers/cinematic/profiles.d.ts.map",
+          "package/dist/renderers/cinematic/profiles.js",
+          "package/dist/renderers/cinematic/profiles.js.map",
+          "package/dist/renderers/cinematic/render.d.ts",
+          "package/dist/renderers/cinematic/render.d.ts.map",
+          "package/dist/renderers/cinematic/render.js",
+          "package/dist/renderers/cinematic/render.js.map",
+          "package/dist/renderers/css.d.ts",
+          "package/dist/renderers/css.d.ts.map",
+          "package/dist/renderers/css.js",
+          "package/dist/renderers/css.js.map",
+          "package/dist/renderers/presentations/compact-art.d.ts",
+          "package/dist/renderers/presentations/compact-art.d.ts.map",
+          "package/dist/renderers/presentations/compact-art.js",
+          "package/dist/renderers/presentations/compact-art.js.map",
+          "package/dist/renderers/presentations/layout.d.ts",
+          "package/dist/renderers/presentations/layout.d.ts.map",
+          "package/dist/renderers/presentations/layout.js",
+          "package/dist/renderers/presentations/layout.js.map",
+          "package/dist/renderers/presentations/render.d.ts",
+          "package/dist/renderers/presentations/render.d.ts.map",
+          "package/dist/renderers/presentations/render.js",
+          "package/dist/renderers/presentations/render.js.map",
+          "package/dist/renderers/presentations/shapes.d.ts",
+          "package/dist/renderers/presentations/shapes.d.ts.map",
+          "package/dist/renderers/presentations/shapes.js",
+          "package/dist/renderers/presentations/shapes.js.map",
+          "package/dist/renderers/svg-values.d.ts",
+          "package/dist/renderers/svg-values.d.ts.map",
+          "package/dist/renderers/svg-values.js",
+          "package/dist/renderers/svg-values.js.map",
+          "package/dist/renderers/svg.d.ts",
+          "package/dist/renderers/svg.d.ts.map",
+          "package/dist/renderers/svg.js",
+          "package/dist/renderers/svg.js.map",
+          "package/dist/validation/index.d.ts",
+          "package/dist/validation/index.d.ts.map",
+          "package/dist/validation/index.js",
+          "package/dist/validation/index.js.map",
+          "package/dist/validation/layout.d.ts",
+          "package/dist/validation/layout.d.ts.map",
+          "package/dist/validation/layout.js",
+          "package/dist/validation/layout.js.map",
+          "package/dist/validation/options.d.ts",
+          "package/dist/validation/options.d.ts.map",
+          "package/dist/validation/options.js",
+          "package/dist/validation/options.js.map",
+          "package/dist/validation/recipe.d.ts",
+          "package/dist/validation/recipe.d.ts.map",
+          "package/dist/validation/recipe.js",
+          "package/dist/validation/recipe.js.map",
+          "package/dist/validation/render-options.d.ts",
+          "package/dist/validation/render-options.d.ts.map",
+          "package/dist/validation/render-options.js",
+          "package/dist/validation/render-options.js.map",
+          "package/package.json"
+        ]
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.2.0",
+        "directory": "console-fx-react",
+        "tarball": "servrox-console-fx-react-0.2.0.tgz",
+        "sha256": "8e513ab2d4d480a6d9edb0f80df598d7dd07e36e2ae2a01ee3c0ea43441fde10",
+        "files": [
+          "package/CHANGELOG.md",
+          "package/LICENSE",
+          "package/README.md",
+          "package/dist/index.d.ts",
+          "package/dist/index.d.ts.map",
+          "package/dist/index.js",
+          "package/dist/index.js.map",
+          "package/package.json"
+        ]
+      }
+    ]
+  },
+  "consumer": "isolated temporary Linux directory; registry name/version installation",
+  "mode": "registry",
+  "published": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.2.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx/-/console-fx-0.2.0.tgz",
+      "sha256": "8ff381db98d4e40ae3660610c4500487ec377bb927051cc4cedd173e33413043",
+      "integrity": "sha512-X8yGma+j4+4wcqxZTkddcy8LQspCIdRfX6wQsl6BRkfZxeYAcaqmVCkm5O1LzLhaNmqa/plAORDH32biQNzEyw=="
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.2.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx-react/-/console-fx-react-0.2.0.tgz",
+      "sha256": "8e513ab2d4d480a6d9edb0f80df598d7dd07e36e2ae2a01ee3c0ea43441fde10",
+      "integrity": "sha512-AOLeIQLpBI3Ni8gjX7wNqTuKuWwSc5P3k1ysuvIdokguXru4HhPtY0zm5jm1phm7kqgOWKNBIq2cfd7qBO9L5Q=="
+    }
+  ],
+  "environment": {
+    "node": "v24.20.0",
+    "pnpm": "12.3.4",
+    "platform": "linux",
+    "architecture": "x64",
+    "files": [
+      {
+        "path": "registry-consumer-environment/pnpm-lock.yaml",
+        "sha256": "9b51ebed3ca84d03e8498f2071e47da7dc35b5412bf44747bb1aab89f093c1d5"
+      },
+      {
+        "path": "registry-consumer-environment/pnpm-workspace.yaml",
+        "sha256": "dd91623a59f0e77fafbe2db1204f06cc0542b8829a0cef78ef9df94b61a38fc6"
+      },
+      {
+        "path": "registry-consumer-environment/package.json",
+        "sha256": "7a84bea39841c9810c770aa617117ec261f2724205777cb0ca63a3c4164196e4"
+      },
+      {
+        "path": "registry-consumer-environment/.npmrc",
+        "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1"
+      }
+    ],
+    "fixtureFiles": [
+      {
+        "path": ".npmrc",
+        "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1"
+      },
+      {
+        "path": "checks/oracle.mjs",
+        "sha256": "abd9cbb2d35e333f1b221677af3ce946d38e530b1d48392ef170dfd86539a663"
+      },
+      {
+        "path": "checks/react/check.mjs",
+        "sha256": "edd2608da044d8c75d4732550df9cf137e40f8a820ec9c307197fd35e24b7682"
+      },
+      {
+        "path": "checks/react/message.tsx",
+        "sha256": "5aff164b5c43ff49b5675b2334a3242d84b79762ebef8a8ac4e3cd8dca4cf1de"
+      },
+      {
+        "path": "checks/vanilla/check.mjs",
+        "sha256": "e0136eb29f3e80608780207ab1e2b96607437413bd57e3f64b8b4069c95076b4"
+      },
+      {
+        "path": "checks/vanilla/types.ts",
+        "sha256": "f904ae997a588f384a69cdfa78ae8ade3056c9dd09bb387c5f255a6efc5f45fc"
+      },
+      {
+        "path": "checks/website/check.mjs",
+        "sha256": "1a5c509cbff8ad61e8d05480d4905b6e770ed9f1f278e53c8d00220e8b6d417e"
+      },
+      {
+        "path": "checks/website/recipes.ts",
+        "sha256": "f9a259fc8935832794fb4f69c27245119530229a51ea578415ad42f4c60d4771"
+      },
+      {
+        "path": "next.config.mjs",
+        "sha256": "8bc51c8e3e3a68d01606458f34d7d53c747043abb9e286a502f4a3de496e2d9d"
+      },
+      {
+        "path": "oracle.mjs",
+        "sha256": "abd9cbb2d35e333f1b221677af3ce946d38e530b1d48392ef170dfd86539a663"
+      },
+      {
+        "path": "package.json",
+        "sha256": "7a84bea39841c9810c770aa617117ec261f2724205777cb0ca63a3c4164196e4"
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "sha256": "dd91623a59f0e77fafbe2db1204f06cc0542b8829a0cef78ef9df94b61a38fc6"
+      },
+      {
+        "path": "src/app/cards.tsx",
+        "sha256": "bbba2c1fec3339978bf1abb5a0f307421bb80f8988db641e690f1d9fcfeef972"
+      },
+      {
+        "path": "src/app/fitting.tsx",
+        "sha256": "4634c204ac14aa3e903a4f2cc83d842fcc154346da2d59c617730aeefb309ed4"
+      },
+      {
+        "path": "src/app/layout.tsx",
+        "sha256": "697da41ac2a655a9b1ced5c94615feeb65c53cab4021baf356074b28fb4e641f"
+      },
+      {
+        "path": "src/app/message.tsx",
+        "sha256": "08c58f81f50575d378284c99dba3f1c0e905f19676e1f01cb7abef3300390bdd"
+      },
+      {
+        "path": "src/app/page.tsx",
+        "sha256": "ec91d4eb0f009899cf2c74636da712c9600ce1437373d26d317b4e2cc6bf43f1"
+      },
+      {
+        "path": "src/instrumentation-client.ts",
+        "sha256": "cf8c268d3bcc2aa669dc0f4853871a76ba3b400403e1b6475a396781df5a6ed3"
+      },
+      {
+        "path": "tsconfig.json",
+        "sha256": "7d47fb1d57397cac8ca8068d9944b18434217ef8735b3024ffed5e8d054c0812"
+      }
+    ],
+    "harness": [
+      {
+        "path": "scripts/check-consumers.mjs",
+        "sha256": "d9f18310e67f077d431d47e22f99b98e5ce7bc2f347dcb6a1807243d40cf6281"
+      },
+      {
+        "path": "scripts/package-candidate.mjs",
+        "sha256": "12fc69e4db1b2a0c94a4aec6bdde899353f4612ff9bdbeae9f5bb4e50f29a73b"
+      },
+      {
+        "path": "scripts/verify-release.mjs",
+        "sha256": "c2be5566772acc5b33a25582fa14375666545bebac0516bb8ac785a54b46d33a"
+      },
+      {
+        "path": "playwright.consumers.config.ts",
+        "sha256": "ebba28c580d446cecb9339c63f5867d114ddd07835762be3edfc3be7633598e1"
+      },
+      {
+        "path": "tests/consumers/next.spec.ts",
+        "sha256": "3993ffe490bc36927787a3d99b098f529740d30e7975276e040f6ee04528bd21"
+      },
+      {
+        "path": "tests/studio/fixtures.ts",
+        "sha256": "cf49fb02a96ed0e466580fcfb2a33df48b2c57b0a851230948fa1be01f00e3c0"
+      },
+      {
+        "path": "tests/native-browser-diagnostics.ts",
+        "sha256": "4b9be2128b722395915952a99b5b3925d151f6a5fb6b4fb04cdc3fc4b42c3bad"
+      }
+    ]
+  },
+  "checks": [
+    "javascript",
+    "typescript",
+    "react-ssr-lifecycle",
+    "next-production-build",
+    "next-browser-lifecycle",
+    "displayed-website-recipes"
+  ],
+  "sourceCommit": "40fc81efa5e0579cf04476390b7324231db119fc"
+}

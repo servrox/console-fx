@@ -1,0 +1,11 @@
+strictPeerDependencies: true
+engineStrict: true
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+allowBuilds:
+  esbuild: false
+  sharp: false
+  unrs-resolver: false
+minimumReleaseAgeExclude:
+  - "@servrox/console-fx@0.2.0"
+  - "@servrox/console-fx-react@0.2.0"

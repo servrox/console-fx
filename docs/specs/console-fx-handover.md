@@ -1,11 +1,11 @@
 # ConsoleFX — implementation handover for servrox/console-fx
 
-> **Pending product proposal (2026-09-13):** the
-> [workbench proposal](workbench-proposal.md) covers a separate short landing,
-> category sidebar, shared capability model and new-example sizing defaults.
-> Its ADR-0016/0017 remain Proposed. Existing accepted requirements apply until
-> review; product UI implementation has not started. The
-> [testing strategy](testing-strategy.md) is separately authorized maintenance.
+> **Accepted workbench successor (2026-09-14):** ADR-0016/0017/0018 govern the
+> separate landing, catalogue sidebar, shared capabilities and new-example
+> automatic sizing with `fit/v2`. The pages and all 43 examples are implemented
+> and live; see the [implementation receipt](workbench-implementation-evidence.md)
+> and [release evidence](../evidence/workbench/2026-09-14-release/README.md).
+> The [testing strategy](testing-strategy.md) governs milestone verification.
 
 **Persistence status: saved.** This handover and the [approved implementation specification](console-fx-spec.md) record the approved review checkpoint and save-only revisions. That original save changed documentation only. Later authorized implementation is recorded in the [base evidence](console-fx-implementation-evidence.md) and [cinematic feature evidence](cinematic-metal-presets-evidence.md); this historical execution prompt does not replace the current task or its evidence. Commit, npm publication and studio deployment remain separately authorized actions.
 
@@ -24,9 +24,10 @@ the nixos WSL distribution, a native Linux repository/worktree path, and
 Nix-owned tools. Inspect current manifests, scripts, Git state, and concurrent
 work. Preserve unrelated files and the Git index.
 
-ADR-0001 through ADR-0010, ADR-0012 and ADR-0013 are Accepted. ADR-0012 governs
-the separate cinematic extension; ADR-0013 supersedes ADR-0011. No additional
-ADR is required for the approved specification. Report a conflict and the required maintainer decision
+ADR-0001 through ADR-0010 and ADR-0012 through ADR-0018 are Accepted.
+ADR-0013 supersedes ADR-0011; ADR-0017/0018 narrowly succeed the fitting
+creation defaults while retaining fit/v1. No additional ADR is required for
+the approved contracts. Report a conflict and the required maintainer decision
 before implementing anything that would change Accepted intent. Do not rewrite
 Accepted records or accept a new proposal implicitly.
 

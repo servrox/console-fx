@@ -99,14 +99,18 @@ flowchart LR
 | Packed installation | JS, TypeScript, React SSR/lifecycle, displayed website recipes, Next build/SSR and **three Next browser journeys passed** against installed 0.2.0 tarballs. The oracle resolves public exports from that installation. |
 | Package size | Minimal CSS **9,065 / 10,240** gzip bytes; complete CSS **25,552 / 25,600**; SVG **25,554 / 25,600**. No framework/codegen/preset leakage. Headroom for the complete compiler is small and remains enforced. |
 | Native Windows Console | All 43 new defaults passed actual Chrome for Testing Stable 153.0.8010.36 and Edge Stable 152.0.4191.77 on Windows 11 25H2 build 26220.9223. One call, exact arguments, full captions and native captures; inspect the native receipt for resizing observations. |
-| CI | Pending source push; record the exact PR/main run before claiming CI success. |
-| Publication/install | Pending 0.2.0 publication and registry readback. Authenticated npm preflight succeeded as the scope owner. Local tarballs are not published packages. |
-| Deployed/production | Pending this implementation's Git-connected deployment and public verification. The pre-task production deployment is an earlier site. |
+| CI | [PR #26](https://github.com/servrox/console-fx/pull/26) and [merged-main run 34828493536](https://github.com/servrox/console-fx/actions/runs/34828493536) passed. Merge `40fc81e` has the reviewed tree; downloaded main tarballs match both qualified hashes. |
+| Publication/install | Both 0.2.0 packages are published under `next`; `latest` remains 0.1.0. Exact registry SHA-256/SHA-512, adapter dependency/React peer and fresh registry-only JS/TS/React/Next consumers passed, including three Next browser journeys. |
+| Deployed/production | Git-triggered production `dpl_2HmdMPEhjX2wfT13gu27F3DZ5dTi` serves merge `40fc81e` on all three public aliases. Protected and public desktop/narrow journeys, exact copies, recovery, video, CSP and 21 served asset hashes passed. Previews/immutable URLs retain authentication; temporary preview access was revoked. |
 
 The [evidence index](../evidence/workbench/2026-09-14/README.md) records exact
 artifact hashes, browser metadata and local proof paths. Toolchain: Linux/NixOS
 WSL2, Node 24.20.0, pnpm 12.3.4, TypeScript 6.0.3, Next 16.3.4,
 Playwright 1.63.0 and local Chromium 153.0.8010.12.
+
+The [release receipt](../evidence/workbench/2026-09-14-release/README.md) records
+the separate CI, package and hosting identities. Automatic production builds
+are tied to Git revisions; the live domain is not a permanently frozen artifact.
 
 ## Remaining external observations
 

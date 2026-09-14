@@ -4,7 +4,7 @@
 
 A TypeScript library and visual studio for designing expressive browser-console messages and exporting a single, self-contained `console.log(...)`.
 
-> **Status: core and React 0.1.0 published under `next`.** Both packages passed the registry-only consumer matrix, and the [studio is live](https://console-fx-servroxs-projects.vercel.app). See the [release ledger](docs/releasing.md) and [browser compatibility record](docs/compatibility.md) for the boundaries of the available evidence.
+> **Status: core and React 0.2.0 published under `next`.** Both packages passed the registry-only consumer matrix. The [live workbench](https://console-fx.vercel.app/studio/) includes all 43 examples with automatic sizing, and [Docs](https://console-fx.vercel.app/docs/) includes the updated usage video. See the [release receipt](docs/evidence/workbench/2026-09-14-release/README.md) and [browser compatibility record](docs/compatibility.md) for the evidence limits. `latest` remains 0.1.0.
 
 [Implementation specification](docs/specs/console-fx-spec.md) · [Implementation handover](docs/specs/console-fx-handover.md) · [Technology & dependencies](docs/technology/README.md) · [Mockup collection](docs/mockups/README.md)
 
@@ -14,7 +14,7 @@ A TypeScript library and visual studio for designing expressive browser-console 
 pnpm add @servrox/console-fx@next
 ```
 
-The published 0.1.0 core matches the reviewed artifact and has no runtime dependencies. React apps can also run `pnpm add @servrox/console-fx-react@next`. Standalone exports need no installation.
+The published 0.2.0 core matches the reviewed artifact and has no runtime dependencies. React apps can also run `pnpm add @servrox/console-fx-react@next`. Standalone exports need no installation.
 
 ## Run the studio locally
 
@@ -131,8 +131,8 @@ These are editable design mockups. Their buttons, fields, sliders, and exports a
 
 | Deliverable | Name / location | Status |
 | --- | --- | --- |
-| TypeScript core | `@servrox/console-fx` | Published 0.1.0 under `next`; registry install verified |
-| React adapter | `@servrox/console-fx-react` | Published 0.1.0 under `next`; registry consumers verified |
+| TypeScript core | `@servrox/console-fx` | Published 0.2.0 under `next`; registry install verified |
+| React adapter | `@servrox/console-fx-react` | Published 0.2.0 under `next`; registry consumers verified |
 | Integrated Next.js studio | `apps/studio` | Public production and usage video verified |
 | Next.js integration | `examples/next-app` | Isolated production consumer tested; no separate runtime package |
 
