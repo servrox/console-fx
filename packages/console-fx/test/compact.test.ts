@@ -288,10 +288,10 @@ describe("accepted compact card layouts", () => {
       expect.objectContaining({ code: "presentation-letterbox" }),
     );
   });
-  it("reports estimated confidence when small card slots lack measurements", () => {
+  it("retains both confidence warnings when card measurements are incomplete", () => {
     const scene = createPresetExample("letterpress");
     const options = measure(scene);
-    const output = compileConsole(scene, {
+    const partial = {
       ...options,
       measurements: {
         ...options.measurements!,
@@ -299,11 +299,22 @@ describe("accepted compact card layouts", () => {
           ({ request }) => request.style.fontSize > 12,
         ),
       },
-    });
+    };
+    const output = compileConsole(scene, partial);
     expect(output.layout!.measurementQuality).toBe("estimated");
-    expect(output.diagnostics).toContainEqual(
-      expect.objectContaining({ code: "unverified-font-metrics" }),
+    expect(output.layout!.fragments.map(({ quality }) => quality)).toEqual(
+      expect.arrayContaining(["estimated", "measured-local-font"]),
     );
+    for (const diagnostics of [
+      output.diagnostics,
+      exportConsoleLog(scene, partial).diagnostics,
+    ])
+      expect(diagnostics.map(({ code }) => code)).toEqual(
+        expect.arrayContaining([
+          "unverified-font-metrics",
+          "platform-font-variation",
+        ]),
+      );
   });
   it.each(references.presets)(
     "uses $id's threshold and rejects unreadable 280 px scaling",

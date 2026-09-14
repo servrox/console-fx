@@ -538,7 +538,11 @@ export function planSvgLayout(
         "Font bounds are estimated. Measure these fragments explicitly for this environment.",
       ),
     );
-  if (measuredQuality === "measured-local-font")
+  if (
+    selected.fragments.some(
+      (fragment) => fragment.quality === "measured-local-font",
+    )
+  )
     diagnostics.push(
       issue(
         "platform-font-variation",
