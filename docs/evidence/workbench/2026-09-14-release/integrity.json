@@ -1,0 +1,80 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3443,
+      "sha256": "60a8d1f19e6e7a9a9717f299446355ec79c9508c292d61939f9f7b783ace3333"
+    },
+    {
+      "path": "ci-main.json",
+      "bytes": 937,
+      "sha256": "2cd86785b20148e9c2f378e0678cfb8cfd4e49b6e56877f8ff4de0d3574ee016"
+    },
+    {
+      "path": "ci-pr.json",
+      "bytes": 803,
+      "sha256": "5cfead8b1e3a18444debb250d41ce7f5ce464fdc981bbb13c5de5d2432e6042d"
+    },
+    {
+      "path": "deployment.json",
+      "bytes": 1190,
+      "sha256": "89124d2a1f4e02584ceaa98deb6512fc2cea3a47e93a96f90d6d6ea9cf2bf385"
+    },
+    {
+      "path": "domains.json",
+      "bytes": 666,
+      "sha256": "418cc1f70cbb6980f2134fe9076182d13b60ab3c833570112c26847cd56b1cba"
+    },
+    {
+      "path": "preservation.json",
+      "bytes": 148,
+      "sha256": "3f991cd457271553df6a82eeaa867771490dbbe35b3f85af68f181876c4d2449"
+    },
+    {
+      "path": "preview-revocation.json",
+      "bytes": 88,
+      "sha256": "74b04f245f83855886f81d340495f6e5a757d4fa6746199913595a08d4437eeb"
+    },
+    {
+      "path": "protected-preview.json",
+      "bytes": 7146,
+      "sha256": "630ffcfa98d7c78aa3461140b6fe5266bbc828cac042c6d308fdcb672a0098cc"
+    },
+    {
+      "path": "public-production.json",
+      "bytes": 7185,
+      "sha256": "e3b7867ae4af345d58ff7d99037df2d7f4d6a526997418119747e3e842875d2e"
+    },
+    {
+      "path": "registry-consumer-environment/.npmrc",
+      "bytes": 83,
+      "sha256": "d1fd6ae4dd6677dfd3808b7ad71074ce0b622e120b325a571bf61169521e86d1"
+    },
+    {
+      "path": "registry-consumer-environment/package.json",
+      "bytes": 528,
+      "sha256": "7a84bea39841c9810c770aa617117ec261f2724205777cb0ca63a3c4164196e4"
+    },
+    {
+      "path": "registry-consumer-environment/pnpm-lock.yaml",
+      "bytes": 34773,
+      "sha256": "9b51ebed3ca84d03e8498f2071e47da7dc35b5412bf44747bb1aab89f093c1d5"
+    },
+    {
+      "path": "registry-consumer-environment/pnpm-workspace.yaml",
+      "bytes": 266,
+      "sha256": "dd91623a59f0e77fafbe2db1204f06cc0542b8829a0cef78ef9df94b61a38fc6"
+    },
+    {
+      "path": "registry-consumers.json",
+      "bytes": 14681,
+      "sha256": "3afe9b803c6a6c930e019255237f1c63cb41d9eabb790a808ae6b9c64d98cd15"
+    },
+    {
+      "path": "registry-pair.json",
+      "bytes": 1262,
+      "sha256": "0a15cc15a01cd128cf3030dfb10edd990665982e4c86dc7f9f67b136f3ff5440"
+    }
+  ]
+}

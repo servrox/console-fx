@@ -1,5 +1,12 @@
 # Publishing the reviewed packages
 
+Both packages' **0.2.0** release is published under `next`; `latest` remains
+0.1.0. [Registry verification](evidence/workbench/2026-09-14-release/README.md)
+confirms the approved merged-main CI bytes, adapter dependency and isolated
+JS/TS/React/Next consumers. Interactive npm browser verification completed for
+each package. OIDC setup below remains future work; this release did not change
+account protection or trusted-publisher settings.
+
 The manual [publishing workflow](../.github/workflows/publish.yml) and
 [artifact verifier](../scripts/verify-release.mjs) are merged under ADR-0008 and
 ADR-0010. Validation CI has run; the publishing workflow has not published a

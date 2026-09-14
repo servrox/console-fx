@@ -1,0 +1,188 @@
+{
+  "at": "2026-09-14T09:33:37.957Z",
+  "origin": "https://console-fx.vercel.app",
+  "browser": "153.0.8010.12",
+  "source": "540676ec45b8eb3be390a123d61006236714d785",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "inlineScriptHashes": [
+        "sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=",
+        "sha256-tJpqpBR0Nd7dwlZH3U7DBVEU/VRHjoLXdoBDKc3kpsA="
+      ],
+      "csp": "default-src 'self'; script-src 'self' 'sha256-6aF2Tg2+jlMelxrlT/xIVP4yPpfJNfiKJRMFR17tmUs=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-Owac2CvnNrdwhnmQ2uSZD7Fey35Vr88m9DD+4UQvLrM=' 'sha256-UhitgfggLYFbfNIrmqWGG9RXoPuNaBswMXoozScJSs0=' 'sha256-tJpqpBR0Nd7dwlZH3U7DBVEU/VRHjoLXdoBDKc3kpsA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+    },
+    {
+      "path": "/studio/",
+      "status": 200,
+      "inlineScriptHashes": [
+        "sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=",
+        "sha256-Owac2CvnNrdwhnmQ2uSZD7Fey35Vr88m9DD+4UQvLrM="
+      ],
+      "csp": "default-src 'self'; script-src 'self' 'sha256-6aF2Tg2+jlMelxrlT/xIVP4yPpfJNfiKJRMFR17tmUs=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-Owac2CvnNrdwhnmQ2uSZD7Fey35Vr88m9DD+4UQvLrM=' 'sha256-UhitgfggLYFbfNIrmqWGG9RXoPuNaBswMXoozScJSs0=' 'sha256-tJpqpBR0Nd7dwlZH3U7DBVEU/VRHjoLXdoBDKc3kpsA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+    },
+    {
+      "path": "/docs/",
+      "status": 200,
+      "inlineScriptHashes": [
+        "sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=",
+        "sha256-UhitgfggLYFbfNIrmqWGG9RXoPuNaBswMXoozScJSs0="
+      ],
+      "csp": "default-src 'self'; script-src 'self' 'sha256-6aF2Tg2+jlMelxrlT/xIVP4yPpfJNfiKJRMFR17tmUs=' 'sha256-OBTN3RiyCV4Bq7dFqZ5a2pAXjnCcCYeTJMO2I/LYKeo=' 'sha256-Owac2CvnNrdwhnmQ2uSZD7Fey35Vr88m9DD+4UQvLrM=' 'sha256-UhitgfggLYFbfNIrmqWGG9RXoPuNaBswMXoozScJSs0=' 'sha256-tJpqpBR0Nd7dwlZH3U7DBVEU/VRHjoLXdoBDKc3kpsA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+    }
+  ],
+  "assets": [
+    {
+      "path": "_next/static/chunks/049gh7uz6mo-i.js",
+      "sha256": "d33d4cd12405ac9432aee21dbe48aa26bf23dc4d8efa20e7375d4f0a7099151e",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/0cz1d0mv5g_q7.js",
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/0mqkl1lqlm755.js",
+      "sha256": "1525f7377c736f0e6722f7ba72f2416b79769dab8f316aa745be94dcfcde6ec9",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/0pumovf0d44av.js",
+      "sha256": "73662e8fbc5a25652b18b657c9455fd04a96893c5d9b183e2abbbd0109b1112e",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/0yt73i1yydrc8.js",
+      "sha256": "9ba71ff2b18410ddb339993bcf22f9ee0ed10b347fdb973dda016889d4d22fa0",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/1fcs3a6dg17ff.js",
+      "sha256": "d8ee3e9dd94edca51f6deb1e37b15e63744a2aeb8ac2bb7887553b0743684b02",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/1n2m-j0-8tzt3.js",
+      "sha256": "f2e2ea3f1ca7ed7e91c24eb3c0c080bf2762787f619b610b89c034ae01fd5559",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/1za0hwerxn_lo.css",
+      "sha256": "3171cb808949960f59013908361b91f3bb82505ee4f187aaedd5cc193d5f786e",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/2-86-d6f0r97n.js",
+      "sha256": "e461bab32abdc5b0e909a88196185118dbf471a4786a831749b44833fb453a35",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/2ek8anm3get_b.js",
+      "sha256": "5214391e464719678b58ce910f17bc459f4af4185070ba578cd37238fd01bbce",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/2z3sh82dl8glu.js.map",
+      "status": 403,
+      "note": "Vercel blocks this debug source map; executable asset comparison remains separate."
+    },
+    {
+      "path": "_next/static/chunks/3_gvevdc4w3iw.js",
+      "sha256": "e77202c256bb93be88dda196598950f0cc3a9e7e4da24525c134485f878faa8f",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/3b14-d3pzxicm.js",
+      "sha256": "676a46c3603ab237765d23cee7e24f7c4c9c30c4a85d0022d6a05b51240307ec",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/3uhrbazk7ka33.js",
+      "sha256": "27ee0c1b754cb3505933a7662cc35dbfe11b455935631a0eb990ba4ecba99166",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/turbopack-2wwt1m04ithaq.js",
+      "sha256": "b69e8d3cc40eec1794a70923af0c5588c14b3cd4ed8ca9c0315d26db06103fd6",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/turbopack-2xo-75uiki39v.js",
+      "sha256": "b65d81e66530b2a37ef1e6de535c52a231048fc6ad5ff2fca1d5b4917310c6b1",
+      "matchesPrCi": true
+    },
+    {
+      "path": "_next/static/chunks/turbopack-worker-2ru9m5gbh1na6.js",
+      "sha256": "861da5809b4f43b053fab88fe560f16efe31827655a06502ada9274a742852de",
+      "matchesPrCi": true
+    },
+    {
+      "path": "licenses.txt",
+      "sha256": "e0f8edece34f55b5ac3be5da0b8e19a8f36d7698bca9785a21582feba0a8fcef",
+      "matchesPrCi": true
+    },
+    {
+      "path": "media/console-fx-usage-poster.webp",
+      "sha256": "83245b5d7c1600b1d5fc5f64a4bbc85f4f771b8c69dcde19f51b9052776d2fbe",
+      "matchesPrCi": true
+    },
+    {
+      "path": "media/console-fx-usage.mp4",
+      "sha256": "99033f93376490e0a49d08a46bee3e03135fb44cb7c003b48f1a8a7d6be921a3",
+      "matchesPrCi": true
+    },
+    {
+      "path": "media/console-fx-usage.vtt",
+      "sha256": "13c99d789053198067595f76f00714d6a3511aa871a0149c59ab593ca638456b",
+      "matchesPrCi": true
+    },
+    {
+      "path": "media/console-fx-usage.webm",
+      "sha256": "d63941ca4f3cb11d8b501ceb98a83c0def8906ee9894936365993b7d154dbed7",
+      "matchesPrCi": true
+    }
+  ],
+  "journeys": [
+    {
+      "width": 1440,
+      "cinematicDesigns": 4,
+      "categories": 6,
+      "catalogueExamples": 43,
+      "exactCopies": true,
+      "entries": 1,
+      "importUndoRecovery": true,
+      "resetCancelFocus": true,
+      "draftReload": true,
+      "playback": {
+        "width": 1440,
+        "height": 960,
+        "duration": 44.75,
+        "captions": 8,
+        "mode": "showing"
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "cinematicDesigns": 4,
+      "categories": 6,
+      "catalogueExamples": 43,
+      "exactCopies": true,
+      "entries": 1,
+      "importUndoRecovery": true,
+      "resetCancelFocus": true,
+      "draftReload": true,
+      "playback": {
+        "width": 1440,
+        "height": 960,
+        "duration": 44.75,
+        "captions": 8,
+        "mode": "showing"
+      },
+      "errors": []
+    }
+  ],
+  "deployedCommit": "40fc81efa5e0579cf04476390b7324231db119fc"
+}

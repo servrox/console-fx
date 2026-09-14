@@ -1,22 +1,25 @@
 ---
 title: "ConsoleFX — TypeScript framework and visual console configurator"
-status: "approved specification revisions saved; implementation pending"
+status: "implemented; release evidence and external observation limits recorded separately"
 created: "2026-09-10"
-updated: "2026-09-11"
+updated: "2026-09-14"
 artifact_path: "docs/specs/console-fx-spec.md"
 mode: "deep"
 repository: "servrox/console-fx"
 package_names: ["@servrox/console-fx", "@servrox/console-fx-react"]
 npm_scope: "@servrox"
-npm_publish_access: "unverified; confirm before release"
-license: "MIT; asset and dependency rights checks pending"
-requested_scope: "save only the approved specification and implementation handover revisions"
+npm_publish_access: "verified; exact publication results recorded in release evidence"
+license: "MIT; release asset and dependency notices verified"
+requested_scope: "approved implementation and release; original save checkpoint retained below"
 ---
 
-> **Accepted workbench successor (2026-09-14):** ADR-0016/0017 and the
+> **Accepted workbench successor (2026-09-14):** ADR-0016/0017/0018 and the
 > [workbench contract](workbench-contract.md) now govern page ownership,
-> catalogue capabilities and new-example sizing. Existing rendering,
+> catalogue capabilities and new-example sizing with additive `fit/v2`. Existing rendering,
 > accessibility, import/draft and publication requirements remain binding.
+> The [implementation receipt](workbench-implementation-evidence.md) and
+> [release evidence](../evidence/workbench/2026-09-14-release/README.md) identify
+> the current source, packages and live site independently.
 
 # ConsoleFX
 ## Approved implementation specification

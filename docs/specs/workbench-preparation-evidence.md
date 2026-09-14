@@ -1,7 +1,9 @@
 # Workbench proposal and test-maintenance receipt
 
-**The proposal is ready for review. Test maintenance is merged; the proposed
-product UI is not implemented.**
+**Historical preparation checkpoint.** Its Proposed/pending statements below
+record the pre-approval stage. ADR-0016/0017/0018 were accepted on September 14;
+the [implemented workbench and release receipt](workbench-implementation-evidence.md)
+supersedes those statuses. Test maintenance was merged before UI implementation.
 
 The documentation now follows main checkpoint
 `e2fdc128a13b3ac0c2965edbfd73868ed3f112ba`, which merged

@@ -1,0 +1,37 @@
+{
+  "at": "2026-09-14T09:55:09.011Z",
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.2.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx/-/console-fx-0.2.0.tgz",
+      "sha256": "8ff381db98d4e40ae3660610c4500487ec377bb927051cc4cedd173e33413043",
+      "integrity": "sha512-X8yGma+j4+4wcqxZTkddcy8LQspCIdRfX6wQsl6BRkfZxeYAcaqmVCkm5O1LzLhaNmqa/plAORDH32biQNzEyw==",
+      "distTags": {
+        "next": "0.2.0",
+        "latest": "0.1.0"
+      },
+      "dependencies": {},
+      "peerDependencies": {},
+      "publishedAt": "2026-09-14T09:43:29.094Z"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.2.0",
+      "tarball": "https://registry.npmjs.org/@servrox/console-fx-react/-/console-fx-react-0.2.0.tgz",
+      "sha256": "8e513ab2d4d480a6d9edb0f80df598d7dd07e36e2ae2a01ee3c0ea43441fde10",
+      "integrity": "sha512-AOLeIQLpBI3Ni8gjX7wNqTuKuWwSc5P3k1ysuvIdokguXru4HhPtY0zm5jm1phm7kqgOWKNBIq2cfd7qBO9L5Q==",
+      "distTags": {
+        "next": "0.2.0",
+        "latest": "0.1.0"
+      },
+      "dependencies": {
+        "@servrox/console-fx": "^0.2.0"
+      },
+      "peerDependencies": {
+        "react": "^19.0.0"
+      },
+      "publishedAt": "2026-09-14T09:52:39.438Z"
+    }
+  ]
+}

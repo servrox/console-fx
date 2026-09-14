@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-14T09:35:41.719Z",
+  "rows": [
+    {
+      "host": "console-fx.vercel.app",
+      "status": 200,
+      "redirectHost": null
+    },
+    {
+      "host": "console-fx-servroxs-projects.vercel.app",
+      "status": 200,
+      "redirectHost": null
+    },
+    {
+      "host": "console-fx-git-main-servroxs-projects.vercel.app",
+      "status": 200,
+      "redirectHost": null
+    },
+    {
+      "host": "console-42kkc9684-servroxs-projects.vercel.app",
+      "status": 302,
+      "redirectHost": "vercel.com"
+    },
+    {
+      "host": "console-exxug8n3b-servroxs-projects.vercel.app",
+      "status": 302,
+      "redirectHost": "vercel.com"
+    }
+  ]
+}

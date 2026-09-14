@@ -1,0 +1,20 @@
+{
+  "id": 34826780463,
+  "html_url": "https://github.com/servrox/console-fx/actions/runs/34826780463",
+  "head_sha": "540676ec45b8eb3be390a123d61006236714d785",
+  "head_branch": "feat/console-fx-workbench-20260914",
+  "event": "pull_request",
+  "path": ".github/workflows/validate.yml",
+  "status": "completed",
+  "conclusion": "success",
+  "run_started_at": "2026-09-14T09:13:34Z",
+  "updated_at": "2026-09-14T09:16:03Z",
+  "artifact": {
+    "id": 10340880051,
+    "name": "console-fx-candidate-a2a70f3c19a4f7b2b98c81f9a1c7f567105e1e30",
+    "digest": "sha256:0c5dc8cb5addb601a3002259c1896b761ab74621f8fc6b7d4bdb08f556ebbfa6",
+    "size_in_bytes": 2896060,
+    "expired": false,
+    "note": "PR artifacts use the synthetic merge commit in their name; npm publication waits for verified main CI."
+  }
+}

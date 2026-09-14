@@ -1,0 +1,29 @@
+{
+  "at": "2026-09-14T09:36:30.276Z",
+  "commit": "40fc81efa5e0579cf04476390b7324231db119fc",
+  "run": 34828493536,
+  "url": "https://github.com/servrox/console-fx/actions/runs/34828493536",
+  "event": "push",
+  "conclusion": "success",
+  "artifact": {
+    "id": 10341316313,
+    "name": "console-fx-candidate-40fc81efa5e0579cf04476390b7324231db119fc",
+    "digest": "sha256:2ebbe5921c0696b49cc4b0a64f5d6f46963b9732aba9424fe9c6f7768c2063ab"
+  },
+  "packages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.2.0",
+      "tarball": "servrox-console-fx-0.2.0.tgz",
+      "sha256": "8ff381db98d4e40ae3660610c4500487ec377bb927051cc4cedd173e33413043",
+      "tag": "next"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.2.0",
+      "tarball": "servrox-console-fx-react-0.2.0.tgz",
+      "sha256": "8e513ab2d4d480a6d9edb0f80df598d7dd07e36e2ae2a01ee3c0ea43441fde10",
+      "tag": "next"
+    }
+  ]
+}

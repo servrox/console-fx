@@ -1,10 +1,12 @@
 # Release candidate and promotion gates
 
 The [studio is publicly available](https://console-fx-servroxs-projects.vercel.app).
-[Public production checks](evidence/hosting/2026-09-13-public/README.md) verify
-the website and usage video; previews and individual deployment URLs remain protected.
-Both approved 0.1.0 packages are published under `next` and passed the complete
-[registry-consumer matrix](evidence/packages/2026-09-13/README.md). The dated
+[Current production checks](evidence/workbench/2026-09-14-release/README.md) verify
+the separate landing, 43-example workbench and updated usage video; previews and
+individual deployment URLs remain protected. Both approved 0.2.0 packages are
+published under `next` and passed the complete
+[registry-consumer matrix](evidence/workbench/2026-09-14-release/registry-consumers.json).
+`latest` remains 0.1.0. The dated
 ledgers below retain their original scope and remaining observation limits.
 
 The [completion audit](specs/mvp-completion-audit.md#source-and-release-identity)

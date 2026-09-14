@@ -1,0 +1,42 @@
+{
+  "at": "2026-09-14T09:37:00.061Z",
+  "project": "servroxs-projects/console-fx",
+  "deployment": {
+    "id": "dpl_2HmdMPEhjX2wfT13gu27F3DZ5dTi",
+    "url": "console-42kkc9684-servroxs-projects.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "source": "git",
+    "aliases": [
+      "console-fx.vercel.app",
+      "console-fx-servroxs-projects.vercel.app",
+      "console-fx-git-main-servroxs-projects.vercel.app"
+    ],
+    "commit": "40fc81efa5e0579cf04476390b7324231db119fc",
+    "branch": "main"
+  },
+  "protection": {
+    "projectId": "prj_1l26eTv5TAxawo3B7gvcBXl4l5CN",
+    "projectName": "console-fx",
+    "passwordProtection": {
+      "enabled": false,
+      "deploymentType": null
+    },
+    "ssoProtection": {
+      "enabled": true,
+      "deploymentType": "prod_deployment_urls_and_all_previews"
+    },
+    "trustedIps": {
+      "enabled": false,
+      "deploymentType": null,
+      "addresses": [],
+      "protectionMode": null
+    }
+  },
+  "priorProduction": "dpl_GmycBoXCKV4pbesy7WuDy2d1vNJ4",
+  "preview": {
+    "id": "dpl_GqatsUprJ69tLLgijgvXJbhAffPE",
+    "commit": "540676ec45b8eb3be390a123d61006236714d785",
+    "temporaryAccess": "revoked"
+  }
+}
