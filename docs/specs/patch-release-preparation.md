@@ -1,6 +1,14 @@
 # ConsoleFX 0.1.1 release preparation
 
-**The corrected package pair is prepared locally. Version 0.1.1 is not published.**
+**Historical preparation of the first 0.1.1 candidate; these bytes are not a
+current release selection.**
+
+The later [second architecture round](architecture-round-2.md) changes the core
+archive with another fitting correction. Its
+[verification receipt](architecture-round-2-verification.json) identifies those
+bytes. Use the [completion audit](mvp-completion-audit.md#source-and-release-identity)
+for the dated merged checkpoint. The original observations below remain scoped
+to this earlier candidate; they do not approve or validate its replacement.
 
 Prepared: September 13, 2026. Owner: ConsoleFX corrective-release task.
 Input main: `4f9326934e86f0d2bd7dedc378c2baecce377c6d`.

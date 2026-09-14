@@ -48,17 +48,29 @@ describe("validated editor documents", () => {
   ])("rejects malformed or oversized shared input: %s", (fragment) => {
     expect(decodeShare(fragment).ok).toBe(false);
   });
-  it("offers JSON rather than truncating a share link over its byte budget", () => {
-    const scene = defineScene({
-      schemaVersion: 1,
-      label: "large",
-      lines: [{ runs: [{ text: "😀".repeat(1900) }] }],
-    });
-    const link = encodeShare(scene);
-    expect(link.ok).toBe(false);
-    expect(link.diagnostics[0]?.code).toBe("share-too-large");
-    expect(decodeDocument(JSON.stringify(scene)).ok).toBe(true);
-  });
+  it.each(["scene", "recipe"])(
+    "offers a faithful %s export when a share link exceeds its byte budget",
+    (kind) => {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "large",
+        lines: [{ runs: [{ text: "😀".repeat(1900) }] }],
+      });
+      const document =
+        kind === "scene" ? scene : recipeOf(initialDocument(scene));
+      const link = encodeShare(document);
+      expect(link.ok).toBe(false);
+      expect(link.diagnostics[0]?.code).toBe("share-too-large");
+      expect(link.diagnostics[0]?.message).toContain(
+        kind === "scene" ? "Export JSON" : "Export recipe JSON",
+      );
+      expect(decodeDocument(JSON.stringify(document))).toEqual({
+        ok: true,
+        value: document,
+        diagnostics: [],
+      });
+    },
+  );
   it("applies a successful import as one undoable replacement and clears the redo branch", () => {
     const first = neon({ text: "first" });
     const imported = rainbow({ text: "imported" });
@@ -232,7 +244,10 @@ describe("draft ownership and write ordering", () => {
     store.queue(scene, 1);
     vi.runAllTimers();
     expect(notify).toHaveBeenLastCalledWith(
-      expect.objectContaining({ kind: "error" }),
+      expect.objectContaining({
+        kind: "error",
+        message: expect.stringContaining("Export recipe JSON"),
+      }),
     );
     store.queue(scene, 1, true);
     vi.runAllTimers();
@@ -251,7 +266,12 @@ describe("draft ownership and write ordering", () => {
     const store = new DraftStore(() => {
       throw new Error("disabled");
     }, vi.fn());
-    expect(store.read().kind).toBe("error");
+    expect(store.read()).toEqual(
+      expect.objectContaining({
+        kind: "error",
+        message: expect.stringContaining("Export recipe JSON"),
+      }),
+    );
     expect(store.clear(0)).toBe(false);
   });
 });
@@ -387,7 +407,7 @@ describe("recipe history and recoverable draft conversion", () => {
   });
   it("preserves a valid recipe on failed writes or partial clear and supports explicit recovery", () => {
     vi.useFakeTimers();
-    const { values, storage, store } = storageFixture();
+    const { values, storage, notify, store } = storageFixture();
     const original = JSON.stringify(fittedRecipe("stored"));
     values.set(RECIPE_DRAFT_KEY, original);
     store.read();
@@ -396,6 +416,12 @@ describe("recipe history and recoverable draft conversion", () => {
     });
     store.queue(fittedRecipe("current"), 1);
     vi.runAllTimers();
+    expect(notify).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        kind: "error",
+        message: expect.stringContaining("Export recipe JSON"),
+      }),
+    );
     expect(values.get(RECIPE_DRAFT_KEY)).toBe(original);
     storage.removeItem
       .mockImplementationOnce(() => {})

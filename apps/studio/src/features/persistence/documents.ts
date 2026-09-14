@@ -51,7 +51,9 @@ export function encodeShare(document: SavedDocument): ValidationResult<string> {
   return utf8ByteLength(fragment) > LIMITS.shareBytes
     ? failure(
         "share-too-large",
-        "This scene is too large for a share link. Export JSON instead.",
+        isRecipe(document)
+          ? "This recipe is too large for a share link. Export recipe JSON instead."
+          : "This scene is too large for a share link. Export JSON instead.",
       )
     : { ok: true, value: fragment, diagnostics: [] };
 }

@@ -71,19 +71,21 @@ export function renderSvg(
   const number = plan ? String : svgNumber;
   scene = plan?.scene ?? scene;
   if (scene.presentation) {
-    const svg = renderPresentation(scene, plan);
+    const { svg, letterboxed } = renderPresentation(scene, plan);
     if ((svg.match(/<[a-z]/g)?.length ?? 0) > LIMITS.svgElements)
       throw new RangeError();
-    const { width, height, padding } = scene.surface;
-    const diagnostics: Diagnostic[] = [
-      {
-        code: "platform-font-variation",
-        severity: "info",
-        path: ["presentation"],
-        message: "Local fonts vary; slot widths use conservative estimates.",
-      },
-    ];
-    if (width - padding * 2 !== (height - padding * 2) * 3)
+    const diagnostics: Diagnostic[] = plan
+      ? []
+      : [
+          {
+            code: "platform-font-variation",
+            severity: "info",
+            path: ["presentation"],
+            message:
+              "Local fonts vary; slot widths use conservative estimates.",
+          },
+        ];
+    if (letterboxed)
       diagnostics.push({
         code: "presentation-letterbox",
         severity: "info",

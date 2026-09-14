@@ -7,13 +7,15 @@ Both approved 0.1.0 packages are published under `next` and passed the complete
 [registry-consumer matrix](evidence/packages/2026-09-13/README.md). The dated
 ledgers below retain their original scope and remaining observation limits.
 
-The [0.1.1 package preparation](specs/patch-release-preparation.md) records the
-corrective core release and React dependency update. These candidate bytes are
-not published; source/CI, exact release authority and registry verification are
-separate steps. The pending workbench redesign is also outside the shipped MVP.
+The [completion audit](specs/mvp-completion-audit.md#source-and-release-identity)
+owns navigation to the dated merged source and package checkpoints. The
+[first 0.1.1 preparation](specs/patch-release-preparation.md) records an earlier
+core archive; the second architecture round changes those bytes. Source/CI,
+exact release authority and registry verification remain separate steps. The
+pending workbench redesign is also outside the shipped MVP.
 
-The [completion audit](specs/mvp-completion-audit.md) records the final promoted
-artifact and the remaining requirements. Full-spec completion is still pending
+That audit retains promoted-artifact observations and the remaining requirements.
+Full-spec completion is still pending
 the five-developer study, integrated-GPU laptop and physical-mobile performance
 recordings, and Safari website checks. Public-access approval did not supply or
 waive those observations. The [validation packet](validation/mvp-external-review.md)
@@ -80,12 +82,13 @@ or public access. The approved spec
 requires all 24 acceptance criteria before the full launch; local checks alone do
 not authorize publication or establish CI or production success.
 
-## Current architecture candidate — 2026-09-12–13
+## Earlier architecture candidate — 2026-09-12–13
 
 The [architecture improvement receipt](specs/architecture-improvements-evidence.md)
-is the current status pointer for six review/fix passes starting at merged PR #10
-(`e80f1fc`). It replaces older candidate hashes for readiness decisions. Its source,
-local, package and CI observations are identified separately; the earlier approval
+records six review/fix passes starting at merged PR #10 (`e80f1fc`). It is
+historical evidence for that candidate; use the completion audit above for later
+checkpoints. Its source, local, package and CI observations are identified
+separately; the earlier approval
 for `0bea5491…` remains limited to that historical protected preview. The subsequent
 [usage walkthrough](specs/usage-video-evidence.md) belongs to this newer candidate.
 

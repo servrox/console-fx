@@ -211,6 +211,20 @@ describe("accepted compact card layouts", () => {
       const before = JSON.stringify(scene);
       const options = measure(scene);
       const output = compileConsole(scene, options);
+      expect(output.layout!.measurementQuality).toBe("measured-local-font");
+      expect(
+        output.diagnostics.filter(
+          ({ code }) => code === "platform-font-variation",
+        ),
+      ).toEqual([
+        expect.objectContaining({
+          path: ["layout"],
+          message: expect.stringContaining("Recipient fonts"),
+        }),
+      ]);
+      expect(output.diagnostics).not.toContainEqual(
+        expect.objectContaining({ code: "presentation-letterbox" }),
+      );
       expect(output.layout).toMatchObject({
         profile: `${reference.id}/compact/v1`,
         variant: "compact",
@@ -264,6 +278,44 @@ describe("accepted compact card layouts", () => {
       );
     },
   );
+  it("reports actual spare space around a compact card", () => {
+    const scene = createPresetExample("buildReceipt");
+    const options = measure(scene, {
+      ...settings,
+      layout: { ...settings.layout!, width: 480 },
+    });
+    expect(compileConsole(scene, options).diagnostics).toContainEqual(
+      expect.objectContaining({ code: "presentation-letterbox" }),
+    );
+  });
+  it("retains both confidence warnings when card measurements are incomplete", () => {
+    const scene = createPresetExample("letterpress");
+    const options = measure(scene);
+    const partial = {
+      ...options,
+      measurements: {
+        ...options.measurements!,
+        records: options.measurements!.records.filter(
+          ({ request }) => request.style.fontSize > 12,
+        ),
+      },
+    };
+    const output = compileConsole(scene, partial);
+    expect(output.layout!.measurementQuality).toBe("estimated");
+    expect(output.layout!.fragments.map(({ quality }) => quality)).toEqual(
+      expect.arrayContaining(["estimated", "measured-local-font"]),
+    );
+    for (const diagnostics of [
+      output.diagnostics,
+      exportConsoleLog(scene, { ...partial, motion: "reduce" }).diagnostics,
+    ])
+      expect(diagnostics.map(({ code }) => code)).toEqual(
+        expect.arrayContaining([
+          "unverified-font-metrics",
+          "platform-font-variation",
+        ]),
+      );
+  });
   it.each(references.presets)(
     "uses $id's threshold and rejects unreadable 280 px scaling",
     ({ id, compactBelow }) => {

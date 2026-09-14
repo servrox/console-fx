@@ -1,10 +1,189 @@
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
+import { parseRenderRecipe } from "../../packages/console-fx/dist/index.js";
+import { exportConsoleLog } from "../../packages/console-fx/dist/codegen/index.js";
 import { neon, rainbow } from "../../packages/console-fx/dist/presets/index.js";
 import { encodeShare } from "../../apps/studio/src/features/persistence/documents";
 import { test, expect } from "./fixtures";
 
 const draftKey = "console-fx:scene:v1";
+
+test("structural additions advance selection only after a valid undoable edit", async ({
+  page,
+}) => {
+  await page.goto("/studio/");
+  const text = page.getByRole("textbox", { name: "Message text", exact: true });
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  const redo = page.getByRole("button", { name: "Redo", exact: true });
+  await text.fill("Before import");
+  const atLimit = {
+    ...neon(),
+    label: "",
+    lines: [
+      { runs: [{ text: "a".repeat(1998) }, { text: "b" }] },
+      { runs: [{ text: "c" }] },
+    ],
+  };
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "at-limit.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(atLimit)),
+  });
+  await expect(text).toHaveValue(atLimit.lines[0]!.runs[0]!.text);
+  await page
+    .getByRole("combobox", { name: "Format", exact: true })
+    .selectOption("json");
+  const source = page.getByLabel("Generated code", { exact: true });
+  const imported = await source.inputValue();
+  for (const name of ["+ Line", "+ Text run"]) {
+    await page.getByRole("button", { name, exact: true }).click();
+    await expect(page.locator(".editor-status")).toContainText("2,000");
+    await expect(text).toHaveValue(atLimit.lines[0]!.runs[0]!.text);
+    await expect(
+      page.getByRole("button", { name: "Line 1", exact: true }),
+    ).toHaveAttribute("aria-pressed", "true");
+    await expect(source).toHaveValue(imported);
+    await expect(redo).toBeDisabled();
+  }
+  await undo.click();
+  await expect(text).toHaveValue("Before import");
+  await redo.click();
+  await expect(source).toHaveValue(imported);
+  await undo.click();
+  const baseline = await source.inputValue();
+  for (const [name, addedText] of [
+    ["+ Line", "Another line"],
+    ["+ Text run", " New text"],
+  ] as const) {
+    await page.getByRole("button", { name, exact: true }).click();
+    await expect(text).toHaveValue(addedText);
+    await expect(redo).toBeDisabled();
+    await undo.click();
+    await expect(source).toHaveValue(baseline);
+    await expect(text).toHaveValue("Before import");
+  }
+});
+
+test("empty lines remain removable and structural deletion stays undoable", async ({
+  page,
+}) => {
+  await page.goto("/studio/");
+  const text = page.getByRole("textbox", { name: "Message text", exact: true });
+  const removeRun = page.getByRole("button", {
+    name: "Remove run",
+    exact: true,
+  });
+  const removeLine = page.getByRole("button", {
+    name: "Remove line",
+    exact: true,
+  });
+  const undo = page.getByRole("button", { name: "Undo", exact: true });
+  const redo = page.getByRole("button", { name: "Redo", exact: true });
+  const lines = page.locator(".line-list .line-label");
+  await expect(text).toHaveValue("Hello, developer.");
+  await removeRun.click();
+  await expect(text).toHaveCount(0);
+  await expect(removeRun).toHaveCount(0);
+  await removeLine.click();
+  await expect(lines).toHaveCount(0);
+  await expect(removeLine).toHaveCount(0);
+  await undo.click();
+  await expect(lines).toHaveCount(1);
+  await expect(removeLine).toBeVisible();
+  await expect(text).toHaveCount(0);
+  await undo.click();
+  await expect(text).toHaveValue("Hello, developer.");
+  await redo.click();
+  await expect(text).toHaveCount(0);
+  await redo.click();
+  await expect(lines).toHaveCount(0);
+  for (const runs of [[], [{ runs: [] }]]) {
+    await page.locator('input[type="file"]').setInputFiles({
+      name: "empty.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify({ ...neon(), lines: runs })),
+    });
+    await expect(lines).toHaveCount(runs.length);
+    if (runs.length) {
+      await removeLine.click();
+      await expect(lines).toHaveCount(0);
+    }
+    await page.getByRole("button", { name: "+ Text run", exact: true }).click();
+    await expect(text).toHaveValue("Another line");
+    await undo.click();
+    await expect(lines).toHaveCount(0);
+  }
+});
+
+test("explicit rich renderer selection updates an imported target in one undoable step", async ({
+  page,
+}) => {
+  const logs: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "log") logs.push(message.text());
+  });
+  await page.goto("/studio/");
+  const renderer = page.getByRole("combobox", {
+    name: "Output renderer",
+    exact: true,
+  });
+  const format = page.getByRole("combobox", { name: "Format", exact: true });
+  const source = page.getByLabel("Generated code", { exact: true });
+  for (const fixture of [
+    { renderer: "svg", options: { target: "node", renderer: "text" } },
+    { renderer: "css", options: { unsupported: "fallback" } },
+  ] as const) {
+    const parsed = parseRenderRecipe({
+      kind: "consoleFxRenderRecipe",
+      recipeVersion: 1,
+      scene: neon({ text: `Imported ${fixture.renderer} message` }),
+      options: fixture.options,
+    });
+    if (!parsed.ok) throw new Error("Invalid imported recipe fixture");
+    const imported = parsed.value;
+    await page.locator('input[type="file"]').setInputFiles({
+      name: "recipe.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(imported)),
+    });
+    await format.selectOption("recipe");
+    await renderer.selectOption("text");
+    expect(JSON.parse(await source.inputValue())).toEqual(imported);
+    await renderer.selectOption(fixture.renderer);
+    const selected = {
+      ...imported,
+      options: {
+        ...imported.options,
+        renderer: fixture.renderer,
+        target: "chromium",
+      },
+    } as const;
+    expect(JSON.parse(await source.inputValue())).toEqual(selected);
+    if (fixture.renderer === "svg")
+      await expect(
+        page.getByRole("img", { name: "Imported svg message", exact: true }),
+      ).toBeVisible();
+    else
+      await expect(
+        page.getByText("Approximate browser preview", { exact: true }),
+      ).toBeVisible();
+    await format.selectOption("javascript");
+    await expect(source).toHaveValue(
+      exportConsoleLog(selected.scene, selected.options).code,
+    );
+    await format.selectOption("recipe");
+    await page.getByRole("button", { name: "Undo", exact: true }).click();
+    expect(JSON.parse(await source.inputValue())).toEqual(imported);
+    await page.getByRole("button", { name: "Redo", exact: true }).click();
+    expect(JSON.parse(await source.inputValue())).toEqual(selected);
+    await renderer.selectOption("text");
+    expect(JSON.parse(await source.inputValue())).toEqual({
+      ...selected,
+      options: { ...selected.options, renderer: "text" },
+    });
+  }
+  expect(logs).toEqual([]);
+});
 
 test("prepared deployment CSP permits hydration, exact SVG previews and client navigation", async ({
   page,
@@ -138,7 +317,14 @@ test("imports validate before replacement, preserve failure state, and undo/redo
   ).toBeVisible();
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export JSON", exact: true }).click();
-  expect((await download).suggestedFilename()).toBe("console-fx-scene.json");
+  const file = await download;
+  expect(file.suggestedFilename()).toBe("console-fx-scene.json");
+  const chunks: Buffer[] = [];
+  for await (const chunk of await file.createReadStream())
+    chunks.push(Buffer.from(chunk));
+  expect(JSON.parse(Buffer.concat(chunks).toString("utf8"))).toEqual(
+    rainbow({ text: "Imported scene" }),
+  );
 });
 
 test("valid drafts resume without writes and conflicting shared scenes confirm", async ({

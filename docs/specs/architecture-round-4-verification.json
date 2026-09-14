@@ -1,0 +1,1008 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-13T23:56:07.827334+00:00",
+  "baseCommit": "0799750c793107beab511b97495524f46b8c90a3",
+  "sourceCommit": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+  "sourceTree": "d9026a2c61056c7f5a85c6416785540762372e48",
+  "risk": "high",
+  "cadence": "Six bounded walks and separate finding commits; focused completed milestones, final aggregate, failure diagnosis and affected-gate rechecks.",
+  "governingAdrs": [
+    "ADR-0002",
+    "ADR-0003",
+    "ADR-0004",
+    "ADR-0005",
+    "ADR-0006",
+    "ADR-0007",
+    "ADR-0009",
+    "ADR-0010",
+    "ADR-0014",
+    "ADR-0015"
+  ],
+  "environment": {
+    "development": "NixOS WSL2, Linux, distribution nixos; native Linux worktree",
+    "node": "v24.20.0",
+    "pnpm": "12.3.4",
+    "python": "3.14.7",
+    "vitest": "4.1.11",
+    "playwright": "1.63.0",
+    "next": "16.3.4",
+    "react": "19.3.0",
+    "browser": "Chrome/153.0.8010.36",
+    "os": {
+      "caption": "Microsoft Windows 11 Pro Insider Preview",
+      "build": "26220",
+      "version": "10.0.26220"
+    },
+    "browserMode": "Owned headless Chrome for Testing over loopback CDP. Native download files are worker-owned Linux temporary files exposed through the WSL share. Not actual DevTools or current-stable qualification."
+  },
+  "inputs": {
+    ".changeset/accurate-card-diagnostics.md": "426216c024c401ab702664ecb95c65e33101cf6379f1d6fbafdd00bfbaf459dc",
+    ".changeset/consistent-system-motion-export.md": "6f005d7b43c9662582a35fb7b188c972af0213888616cf12a33e2556fe207c42",
+    "apps/studio/next.config.ts": "00727b7ce755d4e7c243fdb829016d4dbefdf7b42018f48ded349b9f99a05c7d",
+    "apps/studio/package.json": "0295bb05b6ac181ab16a3837a2716efbc15b16e351c4a583e73c1175b95e5f34",
+    "apps/studio/src/features/editor/studio.tsx": "b0ccc576fade1c1cabb35ea9a8d03c2a681b06a4c9d3243d49883d9b58618599",
+    "apps/studio/src/features/persistence/documents.ts": "a76a79e6afbc39e96c8b1d79931f647dfe6d759d1cccc5990c67a865a8d2c52e",
+    "apps/studio/src/features/persistence/draft.ts": "e0232651e2eb86377d52efe1f4d5b00696a719bc2856a0999abb92a0d97d8586",
+    "apps/studio/src/features/persistence/persistence.test.ts": "55e7603d57e99dba32aa2aa37c8d5c586307c76c140c3ddf7ddf04ebcd04276d",
+    "docs/specs/architecture-round-4.md": "f327abf6e0dd8eddd8a2f769453b34f3d239cf6dcc9269cc96d1563ff62b85ea",
+    "docs/specs/mvp-completion-audit.md": "a48bba86249da26d5ef3e3be2faebcaa6156bfc3488329cb663c85e1aabd3a01",
+    "docs/specs/testing-strategy.md": "f4323ad13d6268e9c872d417643daf31cf8bf8312c042543a2f619323420dfa6",
+    "package.json": "c2e0865e33653fa9ad3ccb3d054641a7dbb0cdc769b5994becbfc820566b57db",
+    "packages/console-fx-react/package.json": "4a5dee51769be67fc696439ec66878b4953ee39d36379fe568171fbcf67bd542",
+    "packages/console-fx/package.json": "40176eaa3492cb9c3122a3492cca31f519fef8deff899bacf64d54532e0e0a2d",
+    "packages/console-fx/src/codegen/index.ts": "93cd2907e1044a8a5db61ade9aad040b13be208e81e779138d31c4e6cfacc50e",
+    "packages/console-fx/src/renderers/presentations/render.ts": "043aa598a9edf86171e6ca3b4685b8b1dd1114e4db931caf8a98089a14c7d53c",
+    "packages/console-fx/src/renderers/svg.ts": "6824c84def58982009d9e40891c049faf9f7ee34a74f8087e2448a584ffb2e1c",
+    "packages/console-fx/test/card-presets.test.ts": "fb37bdfa0b537431eb49cf766f12ea21730a1a7c520bca36ca5c30a371a27d9b",
+    "packages/console-fx/test/codegen.test.ts": "c9185d0a925d64c6859477c2628fa88546e2846b6a1031279720c84019e080ac",
+    "packages/console-fx/test/compact.test.ts": "0a9a293edcbca6330dad4f5b78bc987da0a9f9eadf8a3d37d38e2a548334ef34",
+    "playwright.config.ts": "df01bd297223476df5de3b45fc7b6ffcac57f82a8b875efe96401025e5bc6187",
+    "playwright.consumers.config.ts": "ebba28c580d446cecb9339c63f5867d114ddd07835762be3edfc3be7633598e1",
+    "pnpm-lock.yaml": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4",
+    "pnpm-workspace.yaml": "eec1b3a64ecde9ee93e0c02c62d3d13904b30223295b29d5c9ea21d7e162e16c",
+    "scripts/check-bundle-size.mjs": "968fa82a3ce26ee8541f13c1a5cd13597b7606c3cf971592444b6783608c8c66",
+    "scripts/check-consumers.mjs": "b3bdd89bb18097fbc8b62ba99846990195c03921ee2a5c3e14e7ecf0b119f978",
+    "scripts/check-packages.mjs": "cf9725366874400e4b46d2ca8935f3fbfcc846a59eef7c17f909ad96aae375a0",
+    "scripts/package-candidate.mjs": "12fc69e4db1b2a0c94a4aec6bdde899353f4612ff9bdbeae9f5bb4e50f29a73b",
+    "scripts/prepare-vercel.mjs": "bf305602a2b0e6c62dd48ce0792ac0f196bb90d0ed347ce71d539d9c4c50e5d0",
+    "scripts/serve-studio.py": "4ec4ae3c9842550442ca6c3941b9070793a631f96bd6ea23310dfd426e59cbfa",
+    "tests/native-browser-diagnostics.ts": "4b9be2128b722395915952a99b5b3925d151f6a5fb6b4fb04cdc3fc4b42c3bad",
+    "tests/studio/editor.spec.ts": "0a07a81ca34e7e8a6246349436245ea885686d97435e943de4cb1bff1eea17c8",
+    "tests/studio/fitting.spec.ts": "11ad039fa7c7458e89583afe6245ca07707cb064bec910cf707d7744f112cfd0",
+    "tests/studio/fixtures.ts": "bf962031fe970bc5b295aa1f474096fc595c427fab0546682a7fb2146a9e93cd",
+    "tsconfig.tests.json": "737ff73c2f2d6ca04a46c7f875057f753925c09819917f13a3e66a7e3d01436c",
+    "vitest.config.ts": "cab7550b62bb892ee4cbe85f78e5075068c3779cbbe2e56907e56b56af944163"
+  },
+  "observations": [
+    {
+      "stage": "local",
+      "obligation": "milestone-1",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "3708f673d329996e206540c88124782e4a17b605",
+      "workingDiffSha256": "a9891da5dab1e982d85b9cd497c5c2ec67ec8a3c62a064fae6116f06025a485d",
+      "workingInputs": {
+        "packages/console-fx/src/codegen/index.ts": "93cd2907e1044a8a5db61ade9aad040b13be208e81e779138d31c4e6cfacc50e",
+        "packages/console-fx/test/codegen.test.ts": "c0b001f2e64ddee96900d71eed5568a7e5308c79a5d31416a3184587a6104334"
+      },
+      "command": "bash -e -c 'pnpm run build:packages; pnpm exec vitest run --project unit packages/console-fx/test/codegen.test.ts packages/console-fx/test/codegen-ast.test.ts apps/studio/src/features/persistence/persistence.test.ts'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:03:47.231843+00:00",
+      "observedAt": "2026-09-13T23:03:48.982378+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/milestone-1.log",
+      "logSha256": "b6ecc4b4e0e9248a7831afc5998df642b7181888449b8a6cbdc1a94c94bf4d03",
+      "result": "63 focused Vitest 4 export, AST and document contracts passed after the package build."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-contracts",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "bash -e -c 'pnpm test; pnpm run check:packages; pnpm run check:bundle-size'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:14:57.849083+00:00",
+      "observedAt": "2026-09-13T23:14:59.707083+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-contracts.log",
+      "logSha256": "9cefc9c8df6a1122dee5382326460b85352cf368cf8f81980d4a3bc2b2eba1be",
+      "result": "353 tests passed across 24 Vitest 4 files; both tarball and bundle checks passed."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-build",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "pnpm run build:vercel",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:16:24.309316+00:00",
+      "observedAt": "2026-09-13T23:16:31.661383+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-build.log",
+      "logSha256": "9e675071dfe56c589419d71b67e3ac98e56a1726e75b3ed7676c8d0ab82f869e",
+      "result": "Production studio build and prepared static artifact passed."
+    },
+    {
+      "stage": "local",
+      "obligation": "output-parity",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "node .artifacts/architecture-round-4/compare-card-output.mjs",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:17:54.708842+00:00",
+      "observedAt": "2026-09-13T23:17:54.810298+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/output-parity.log",
+      "logSha256": "8a598cc8bbe526c3303d87aff840d94821d89b55800985592bd059be3410906a",
+      "result": "All 23 original presets and 10 compact SVG argument arrays are byte-identical to the prior candidate."
+    },
+    {
+      "stage": "local",
+      "obligation": "output-parity-provenance",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "workingDiffSha256": "e20c23bec79e279a67366ed8eb9f48f5a7e0ead7f3bd4210f62c2bb0d32d46d5",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "a48bba86249da26d5ef3e3be2faebcaa6156bfc3488329cb663c85e1aabd3a01"
+      },
+      "command": "node .artifacts/architecture-round-4/compare-card-output.mjs",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:53:46.314598+00:00",
+      "observedAt": "2026-09-13T23:53:46.426810+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/output-parity-provenance.log",
+      "logSha256": "8a598cc8bbe526c3303d87aff840d94821d89b55800985592bd059be3410906a",
+      "result": "All 33 comparisons passed again with retained scene, options and output fingerprints; exact expanded compiler files match their tarballs."
+    },
+    {
+      "stage": "local",
+      "obligation": "download-session-recheck",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "790f5ee3b3cf7117b5a125b86e74a34b9a188c8f8c7d2f66014dbec3802739d4",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c",
+        "tests/studio/editor.spec.ts": "09f1c7c9d59b516480f15b694cbd7bd2d18ef6de2521396cbbec791ae302756f",
+        "tests/studio/fitting.spec.ts": "11ad039fa7c7458e89583afe6245ca07707cb064bec910cf707d7744f112cfd0",
+        "tests/studio/fixtures.ts": "aefaf341cb9ec9f07fc39396a011b9f6a8d0547b6df715dcc295bd45fe0ac46b"
+      },
+      "command": "pnpm run test:studio --project=desktop -g 'oversized recipe sharing|imports validate before replacement'",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "46933"
+      },
+      "startedAt": "2026-09-13T23:32:29.596902+00:00",
+      "observedAt": "2026-09-13T23:32:32.398298+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/download-session-recheck.log",
+      "logSha256": "ec46735d4bbdf252de3e0a091e59a4afd8d25e2d711b10496cdc8b88e75db34a",
+      "result": "Both actual scene and recipe download journeys passed exact downloaded-byte checks."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-studio-recheck",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "7e1e8baf160f835a49780ebd7bf0465afdd6fbfd",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "pnpm run test:studio",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "46979"
+      },
+      "startedAt": "2026-09-13T23:33:37.161535+00:00",
+      "observedAt": "2026-09-13T23:36:45.823111+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-studio-recheck.log",
+      "logSha256": "b124cbd4dc7ab9aa8212a61e1b754ee63076bc9a51af97de4529bd4ea5723f1e",
+      "result": "94 studio browser cases passed across desktop and narrow layouts."
+    },
+    {
+      "stage": "source/static",
+      "obligation": "final-source-passed",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "bash -e -c 'pnpm run format:check; pnpm run lint; pnpm run typecheck'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:42:24.116585+00:00",
+      "observedAt": "2026-09-13T23:42:31.911372+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-source-passed.log",
+      "logSha256": "36e9a4d207bc634b8467db004858e21432337bdfbe0fe846b683a448b9fb0187",
+      "result": "Formatting, lint and TypeScript checks passed on the final source candidate."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-vitest",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "pnpm test",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:42:33.569402+00:00",
+      "observedAt": "2026-09-13T23:42:35.256544+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-vitest.log",
+      "logSha256": "09cbdfe6d91df7572d51ea0875be5854d3791e152f58b510928540afeeada791",
+      "result": "353 tests passed across 24 Vitest 4 files on the final source candidate."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-consumers",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "cb84542e54c71d8502d8f5244daed36d912d4525",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "pnpm run test:consumers",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461"
+      },
+      "startedAt": "2026-09-13T23:38:51.545148+00:00",
+      "observedAt": "2026-09-13T23:39:02.988493+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-consumers.log",
+      "logSha256": "bf60703e6c58d646f76b2d8c65bf44f9bf6fe960e89fece41d14d84ac5b0743e",
+      "result": "Isolated JS/TS/React tarball consumers, Next production build and three packed browser journeys passed."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-studio-complete",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "pnpm run test:studio",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "46533"
+      },
+      "startedAt": "2026-09-13T23:46:20.069375+00:00",
+      "observedAt": "2026-09-13T23:48:17.417614+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-studio-complete.log",
+      "logSha256": "75fe3987bb87bf3cdad74f8b891357a281fec43b1e788b787c0bb31c6022714a",
+      "result": "94 studio browser cases passed across desktop and narrow layouts on the final source candidate."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-consumers-complete",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "pnpm run test:consumers",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461"
+      },
+      "startedAt": "2026-09-13T23:49:21.601674+00:00",
+      "observedAt": "2026-09-13T23:49:31.463916+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/architecture-round-4/final-consumers-complete.log",
+      "logSha256": "8615c34588eeb9443ab66cf2602eff3928ae9dd82b19cd9c11de6a88bb020285",
+      "result": "Isolated JS/TS/React tarball consumers, Next production build and three packed browser journeys passed on the final source candidate."
+    }
+  ],
+  "bespokeVerification": {
+    "receiptRunner": {
+      "localPath": ".artifacts/architecture-round-4/run-check.py",
+      "sha256": "a347e657d8aa0ab8622b5567d709fe7e1fb3cbadacc3c4411647a9d9bce088b2",
+      "source": "import datetime\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport shlex\nimport subprocess\nimport sys\n\nroot = Path.cwd()\nfolder = root / \".artifacts/architecture-round-4\"\nname, stage, *command = sys.argv[1:]\nif command and command[0] == \"--\":\n    command = command[1:]\nassert stage in {\"source/static\", \"local\", \"CI\", \"publication/install\", \"deployed/production\"}\nstarted = datetime.datetime.now(datetime.timezone.utc).isoformat()\nsource = subprocess.check_output([\"git\", \"rev-parse\", \"HEAD\"], text=True).strip()\ndiff = subprocess.check_output([\"git\", \"diff\", \"HEAD\", \"--binary\"])\ninputs = {path: hashlib.sha256((root / path).read_bytes()).hexdigest() for path in subprocess.check_output([\"git\", \"diff\", \"HEAD\", \"--name-only\"], text=True).splitlines() if (root / path).is_file()}\nlog = folder / (name + \".log\")\nwith log.open(\"wb\") as output:\n    result = subprocess.run(command, stdout=output, stderr=subprocess.STDOUT)\nreceipt = {\n    \"stage\": stage, \"obligation\": name,\n    \"owner\": \"ConsoleFX maintainer; executed by the primary repository agent\",\n    \"subject\": source, \"workingDiffSha256\": hashlib.sha256(diff).hexdigest(), \"workingInputs\": inputs, \"command\": shlex.join(command),\n    \"configuration\": {key: os.environ[key] for key in [\"CONSOLE_FX_CDP_PORT\", \"CONSOLE_FX_STUDIO_PORT\", \"CONSOLE_FX_TEST_BROWSER\"] if key in os.environ},\n    \"startedAt\": started, \"observedAt\": datetime.datetime.now(datetime.timezone.utc).isoformat(),\n    \"status\": \"verified\" if result.returncode == 0 else \"failed\", \"exitCode\": result.returncode,\n    \"localLog\": str(log.relative_to(root)), \"logSha256\": hashlib.sha256(log.read_bytes()).hexdigest(),\n}\n(folder / (name + \".json\")).write_text(json.dumps(receipt, indent=2) + \"\\n\")\nprint(json.dumps(receipt, indent=2))\nraise SystemExit(result.returncode)\n"
+    },
+    "svgArgumentParity": {
+      "stage": "local",
+      "status": "verified",
+      "owner": "Primary repository agent",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "observation": "output-parity-provenance",
+      "command": "node .artifacts/architecture-round-4/compare-card-output.mjs",
+      "observedAt": "2026-09-13T23:53:46.423Z",
+      "harness": {
+        "localPath": ".artifacts/architecture-round-4/compare-card-output.mjs",
+        "sha256": "e6c0541c84f7d452d7b6e0f0e7741fc44f4091010aa7ffc1af0330621b2e6e49",
+        "source": "import assert from 'node:assert/strict';\nimport { createHash } from 'node:crypto';\nimport { writeFileSync } from 'node:fs';\nimport * as before from '../../../console-fx-architecture-round-3/packages/console-fx/dist/browser/index.js';\nimport { compileConsole, prepareTextMeasurements } from '../../packages/console-fx/dist/browser/index.js';\nimport { getPresentationDescriptors } from '../../packages/console-fx/dist/index.js';\nimport { PRESETS, createPresetExample } from '../../packages/console-fx/dist/presets/index.js';\n\nconst observations = [];\nfunction compare(name, scene, options) {\n  const oldOutput = before.compileConsole(scene, options);\n  const newOutput = compileConsole(scene, options);\n  assert.deepEqual(newOutput.args, oldOutput.args, name);\n  observations.push({ name, sceneSha256: createHash('sha256').update(JSON.stringify(scene)).digest('hex'), optionsSha256: createHash('sha256').update(JSON.stringify(options)).digest('hex'), argsSha256: createHash('sha256').update(JSON.stringify(newOutput.args)).digest('hex') });\n}\nfor (const preset of PRESETS)\n  compare(preset.id, createPresetExample(preset.id), {target:'chromium',renderer:'svg',motion:'reduce'});\nfor (const descriptor of getPresentationDescriptors()) {\n  const scene = createPresetExample(descriptor.id);\n  const options = { target:'chromium',renderer:'svg',motion:'reduce',layout:{algorithm:'fit/v1',width:360,maxHeight:400,variant:'compact',overflow:'wrap-then-shrink',minFontSize:12},measurementEnvironment:'synthetic-compact-test/v1' };\n  const preflight = prepareTextMeasurements(scene, options);\n  assert(preflight.ok);\n  const measurements = { kind:'consoleFxMeasurements',measurementVersion:1,environment:options.measurementEnvironment,records:preflight.value.map(request=>({request,advance:request.text.length*request.style.fontSize*.5,inkLeft:0,inkRight:request.text.length*request.style.fontSize*.5,ascent:request.style.fontSize*.75,descent:request.style.fontSize*.15})) };\n  compare(`${descriptor.id}/compact`, scene, {...options, measurements});\n}\nwriteFileSync('.artifacts/architecture-round-4/output-parity-results.json', JSON.stringify({before:'0799750',observedAt:new Date().toISOString(),scope:'Compiled SVG arguments only; diagnostics intentionally differ',observations},null,2)+'\\n');\nconsole.log(`${observations.length} preset and compact SVG argument arrays are byte-identical to the prior candidate.`);\n"
+      },
+      "artifacts": [
+        {
+          "sourceCommit": "0799750c793107beab511b97495524f46b8c90a3",
+          "name": "@servrox/console-fx",
+          "version": "0.1.1",
+          "tarballSha256": "551d80936ecbe5441712268d5153a34b36897e1d498f58f0b4561a584b8a3622",
+          "verifiedExpandedJavaScriptFiles": 37,
+          "expandedJavaScriptInventorySha256": "91109570cab32e8337049cf7ae84b61b83dd0dee9de79261fd79fe3d4e3f04d5",
+          "lockfileSha256": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4"
+        },
+        {
+          "sourceCommit": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+          "name": "@servrox/console-fx",
+          "version": "0.1.1",
+          "tarballSha256": "f9957ef78ae1647f3437e00e28ebb883349ee970d133b232638026967c35ed0e",
+          "verifiedExpandedJavaScriptFiles": 37,
+          "expandedJavaScriptInventorySha256": "87501d50270031bf36eacbcc8c217d71e0e04e3cc4417643dcbe3a5303e2bf0a",
+          "lockfileSha256": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4"
+        }
+      ],
+      "fixtureMapping": {
+        "originals": "Each of the 23 PRESETS from the candidate tarball uses createPresetExample(preset.id), compiled by both exact compiler artifacts.",
+        "originalOptions": {
+          "target": "chromium",
+          "renderer": "svg",
+          "motion": "reduce"
+        },
+        "compact": "Each of the 10 getPresentationDescriptors() IDs uses createPresetExample(id), with candidate prepareTextMeasurements and the synthetic metrics formula in the retained harness.",
+        "compactOptions": {
+          "target": "chromium",
+          "renderer": "svg",
+          "motion": "reduce",
+          "layout": {
+            "algorithm": "fit/v1",
+            "width": 360,
+            "maxHeight": 400,
+            "variant": "compact",
+            "overflow": "wrap-then-shrink",
+            "minFontSize": 12
+          },
+          "measurementEnvironment": "synthetic-compact-test/v1"
+        },
+        "hashEncoding": "SHA-256 over UTF-8 JSON.stringify(scene/options/args); result-file fingerprint uses exact saved bytes."
+      },
+      "resultSha256": "0310235359c2b790ec5d3684fa57981efd8db683a1f8a347024b38d9f9cb6d17",
+      "results": [
+        {
+          "name": "badge",
+          "sceneSha256": "a5285baf45678a5bf8ae5425c1050b4d32931b5f7e6a16085ecf84b35c9cde5a",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "16bf5eeba0c9e50b77197952c57c60b116708f6e9a4c7187e3893b705faa4b7b"
+        },
+        {
+          "name": "neon",
+          "sceneSha256": "5a4e387c96bbcbd50fcfbe1775437779f24d25d2c9d60907357cc8882c8aef1e",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "8e433fa5e82ede6d65112e3749f8f9b5e6e63dc654fc15ce38606e152946a5dd"
+        },
+        {
+          "name": "rgbSplit",
+          "sceneSha256": "c2df11f37329da3878666bfc26939d3276684abc5d30a179057e157a2a89befe",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "813f5e07c91b0bf82bf2f24df5c66300a48c239338879b12d4a514b9dd806f22"
+        },
+        {
+          "name": "extruded",
+          "sceneSha256": "dc91419e0173990b7a9e029dddf22cde16fe6f0d8317694bbd8c3583e7eee6e4",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "6c9b275fcedf2afdd12514d507d4ff072583e6dbcd5673322e8be6e646b2bd28"
+        },
+        {
+          "name": "holographic",
+          "sceneSha256": "3a475124efe0604f4f716523b41422dbe57e0ef6fc9fb2595c587ac75b3e501d",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "0a55c2fb015d8b92204b7efc4a8588f1e9e9437e2a424dde29ec1196634ce15e"
+        },
+        {
+          "name": "gold",
+          "sceneSha256": "b0136f82714f3e3943d9bf7e2fdab6841e89beab857222336ae37557b83bd49c",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "2ff06045fa24c03f1bc371d8882c679fa84ce040e3595396031314c08d1479f1"
+        },
+        {
+          "name": "chrome",
+          "sceneSha256": "871bcbe2d9dd43c66b6e9fa797b9f648089ba32af5c12127a45bb51e7965bd39",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "eeb7686facf0da9089d0447964b24af88b96254c1e76bdc451d3b543141d01c5"
+        },
+        {
+          "name": "crt",
+          "sceneSha256": "af3ec60fa2d104a077828dd57c22acf1140dc335ae7050dfd0499203cb1e7269",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "f5f990990e444875e86cff893307f666a37798f73a6f8a72b8060567c0409507"
+        },
+        {
+          "name": "rainbow",
+          "sceneSha256": "2e8efe8d3f3a628ca788f74f49e17b5358090c54621bcc75215468da814065ec",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "60efdd2ccdc4e3e0982c71902f219d39e71e8f9b35334b9a866e2c730562b18f"
+        },
+        {
+          "name": "lightningMetal",
+          "sceneSha256": "762bcb70fb17b064c3833cef22cb272ba9943a4728377365a25503ce7c41af81",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "3690434cbca075a772ab9f141eaf1b475d10bcb37618446ed89143418f180cae"
+        },
+        {
+          "name": "iceCathedral",
+          "sceneSha256": "3b1306cf05729c4536ceb77d2e9c52183dc61d653a5168dcba1fbf8b0f48b4a4",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "37db0dd5398559f19dd5c1fd938e1728c0ddbcfe556b03c855e34539fb076c37"
+        },
+        {
+          "name": "liquidChrome",
+          "sceneSha256": "86701aeb826feb9217e8e3e2bb9db1c4983b496ddc9c94ab745a2b9ff9e5c57f",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "b95e3216b6d366990e896abb3b00201a756be3ddf0ad64beb300178b65da8160"
+        },
+        {
+          "name": "moltenGold",
+          "sceneSha256": "93ff9bb79c77514bf18800660171c8eb9cb168bca6e3c58eba32a571a9343ab0",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "69ac42b263b61472e35f53f9bf06e8330c51c0d5458682e78451a00168339d71"
+        },
+        {
+          "name": "buildReceipt",
+          "sceneSha256": "2598c9f981fe05ed6222d2f79de7f10fc9232ac413ce8f112d151fc85e881573",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "a31eedf4ef8dce4fb22347d80f871170c29f80cfcb490eef5d5797d1abaa43f6"
+        },
+        {
+          "name": "requestTrace",
+          "sceneSha256": "8cdd1c4d1f1a962b9760207519573cdc4350ead579794193d23f972b29f87a5d",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "579f102d94e4e82b9085d1e788063ad66e4f0191ebee061c7a8d02157337c543"
+        },
+        {
+          "name": "serviceReady",
+          "sceneSha256": "3f10d8eabea8d514c6b6cd1a0a8dcb899eeefff1e77990cfc48191c3aadb98e6",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "5908bcf1a62c8de3a84659e275f451eb5109ca4b7f5bcc5f720ca2c847941c0a"
+        },
+        {
+          "name": "commandCard",
+          "sceneSha256": "92ee39bc226792224302b903bd2e1152eeafdb46e451a975e74bdef69d335cf5",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "da18f0df62add0c6a520a4595564b5e2eecd00762dc36a4fbf3da9d0e7588102"
+        },
+        {
+          "name": "releaseBulletin",
+          "sceneSha256": "28c6c4b5f4b627cf5469a702879e890d671c103b49c68d25ff99a2995fb6fc19",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "1c87bf5af91cf71c04de882e1c4bada86ed75a29371a9e8fec254f0f2a62ae4a"
+        },
+        {
+          "name": "blueprint",
+          "sceneSha256": "7f7826c539468c4c03a9b489d168b1cb10ad56306c2b07f9d347f49b14bec792",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "721d49915b1d6d34b0e79ef3cb34c606c966e70e826158b934d4d69f2725268f"
+        },
+        {
+          "name": "contourMap",
+          "sceneSha256": "87c36ff6f1d0d1efa6c62a81879b4e3da0f4c2ab3e9047a8953a8c284ec00469",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "7173c5d5dbf2107df75167c027799172726c116dc15118ac6fdca2dc8f442433"
+        },
+        {
+          "name": "letterpress",
+          "sceneSha256": "fa85eeb4abb95215467d2c8cd6d8c9bc58d0505e567f8c2d60d31cfeb6e4dd4a",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "e902156405d162f946a3c93ad42466d38a1f23f2159eeef64f703c8b10b1725e"
+        },
+        {
+          "name": "signalHalftone",
+          "sceneSha256": "a7e4a3d02117017610cd60bf155303729c70e17da32418f8c7afeeaf9dba6046",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "8979aadb5615f750c239af0138bb3b00f917c7116919cbc97bac7c7f20671c1b"
+        },
+        {
+          "name": "orbital",
+          "sceneSha256": "73a8278cfd5c69584bcacb736fb68785676d62c794cdd86c4c4678bb3b068ceb",
+          "optionsSha256": "0219c62784f4b2b8ca358871c7d87e2aa6d90687311150a7e8ac897e50e8380f",
+          "argsSha256": "d07eb8743ef748f279f06536d0a59fcc961ea7e8e982fb935e5db01da6eef26c"
+        },
+        {
+          "name": "buildReceipt/compact",
+          "sceneSha256": "2598c9f981fe05ed6222d2f79de7f10fc9232ac413ce8f112d151fc85e881573",
+          "optionsSha256": "a9d691a62e9f5a1c76ed3e8a9aa33a79f078f6a7df463fb662c2e5e7f3a50f9b",
+          "argsSha256": "6de394f575a9240071fe05f24bed4db7131b099168035e83e931203a6ebfdcb4"
+        },
+        {
+          "name": "requestTrace/compact",
+          "sceneSha256": "8cdd1c4d1f1a962b9760207519573cdc4350ead579794193d23f972b29f87a5d",
+          "optionsSha256": "85dfe5f231edf94d954cddcc0261b418eb9ab2e899e30f881cdb8a307a6023fb",
+          "argsSha256": "3f1e113600cc223cf05dfa7dcfea9b89da121f99cf166a32b662cbaf919f28dc"
+        },
+        {
+          "name": "serviceReady/compact",
+          "sceneSha256": "3f10d8eabea8d514c6b6cd1a0a8dcb899eeefff1e77990cfc48191c3aadb98e6",
+          "optionsSha256": "9c92c1623f7a16e390f3b5305acb9bcc271482b5872847e1495c24158b5a9fb7",
+          "argsSha256": "7fe1559dce846eaf6b05fb0b91c1bab76670bb665ab37e0df892baa0023a86db"
+        },
+        {
+          "name": "commandCard/compact",
+          "sceneSha256": "92ee39bc226792224302b903bd2e1152eeafdb46e451a975e74bdef69d335cf5",
+          "optionsSha256": "ca3f053f2ee5ba06c319dd033fad281a261311a97e9a550a205991aaa4c1e6df",
+          "argsSha256": "0ce8a58fb85cbf254e39d93f2b1f55f9acea804e3d65ba7b83475cfca724d296"
+        },
+        {
+          "name": "releaseBulletin/compact",
+          "sceneSha256": "28c6c4b5f4b627cf5469a702879e890d671c103b49c68d25ff99a2995fb6fc19",
+          "optionsSha256": "4ceb86d953c93218f5c7fe052c59c8c954af9fe60a233308fde79fdd340ad4ce",
+          "argsSha256": "d7f9923254844cfc62c8eb6b9c1ca86a40b0a371e3ca2fcca7f5a58819c7bbec"
+        },
+        {
+          "name": "blueprint/compact",
+          "sceneSha256": "7f7826c539468c4c03a9b489d168b1cb10ad56306c2b07f9d347f49b14bec792",
+          "optionsSha256": "090b61b37ea2ccca580909dbf6c4e3891dd42928842a99d929935b1fc73410b4",
+          "argsSha256": "3e05b19af0286b7b07d66eb484a4c297e0f6e4df80433875aa19b3c98e6f6050"
+        },
+        {
+          "name": "contourMap/compact",
+          "sceneSha256": "87c36ff6f1d0d1efa6c62a81879b4e3da0f4c2ab3e9047a8953a8c284ec00469",
+          "optionsSha256": "fd9e610b889dd7b834c56a8aaed71f702fd3615fb0794bad85a8941ef2d04a6e",
+          "argsSha256": "2751fd1897be1179dbda62ef40eff80c53c13337b6abf6f074076c3f49a81950"
+        },
+        {
+          "name": "letterpress/compact",
+          "sceneSha256": "fa85eeb4abb95215467d2c8cd6d8c9bc58d0505e567f8c2d60d31cfeb6e4dd4a",
+          "optionsSha256": "6fab556785f35402bf97855ddbc0bde6596c8852e7388302118416c7d1f004c9",
+          "argsSha256": "267d9f0d76b713b512f38f4ea6b6ea54d9d2d373b917700ff2bf5460acf07cf3"
+        },
+        {
+          "name": "signalHalftone/compact",
+          "sceneSha256": "a7e4a3d02117017610cd60bf155303729c70e17da32418f8c7afeeaf9dba6046",
+          "optionsSha256": "4ffec2ecb98f627de27c9c96e6f6f497a5d07089802e9a747311c936615cc9b4",
+          "argsSha256": "42da6db21a87526272984db0e44746acd03a7b385a7755a1f32413cf43313b0d"
+        },
+        {
+          "name": "orbital/compact",
+          "sceneSha256": "73a8278cfd5c69584bcacb736fb68785676d62c794cdd86c4c4678bb3b068ceb",
+          "optionsSha256": "3cf3b4638151639f0ac3a9867286d651c5f5a529c0c9b712d53270204a9789d0",
+          "argsSha256": "e104c02942a4b29d0edfe3e1ae1459da30d4dbfdb7df0b86790529097b4c71a1"
+        }
+      ],
+      "limits": "Deterministic compiled argument equality only; excludes diagnostic text and actual DevTools/font rendering.",
+      "repair": "The first comparison and runner shared a result filename, losing the detailed result map. The evidence-only repair writes distinct result and command-receipt files, then reruns these 33 comparisons."
+    },
+    "nativeDownloadDiagnosis": [
+      {
+        "stage": "local",
+        "status": "verified",
+        "owner": "Primary repository agent",
+        "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+        "scenario": "Four controls: default Linux destination versus an owned Windows profile; each with immediate versus retained Blob URL. Observe Chrome completion/cancellation only; file bytes are not read by this probe.",
+        "command": "node .artifacts/architecture-round-4/probe-download.mjs",
+        "observedAt": "2026-09-13T23:23:05.948Z",
+        "harness": {
+          "localPath": ".artifacts/architecture-round-4/probe-download.mjs",
+          "sha256": "d374e4eda559e1047740be42030aa525377658117cee01a7bb1a67316bb94040",
+          "source": "import { chromium } from '@playwright/test';\nimport { writeFileSync, readFileSync } from 'node:fs';\nconst owner = JSON.parse(readFileSync('.artifacts/architecture-round-4/browser-owner.json','utf8'));\nconst browser = await chromium.connectOverCDP('http://127.0.0.1:9461');\nconst observations = [];\ntry {\n for (const destination of ['runner-default', 'owned-windows-profile']) {\n  const context = await browser.newContext({acceptDownloads:true});\n  try {\n   const page = await context.newPage();\n   const cdp = await context.newCDPSession(page);\n   if (destination === 'owned-windows-profile') {\n    const {targetInfo} = await cdp.send('Target.getTargetInfo');\n    await cdp.send('Browser.setDownloadBehavior',{behavior:'allowAndName',browserContextId:targetInfo.browserContextId,downloadPath:owner.profile,eventsEnabled:true});\n   }\n   for (const revoke of ['immediate','retained']) {\n    const download = page.waitForEvent('download');\n    await page.evaluate(revoke => {\n      const url=URL.createObjectURL(new Blob(['{\"probe\":\"owned sample\"}'],{type:'application/json'}));\n      const anchor=document.createElement('a');anchor.href=url;anchor.download='console-fx-probe.json';anchor.click();\n      if(revoke==='immediate') URL.revokeObjectURL(url);\n    },revoke);\n    const file=await download;\n    const failure=await file.failure();\n    observations.push({destination,revoke,failure,filename:file.suggestedFilename(), ...(failure===null ? {artifactPath:await file.path()} : {})});\n   }\n  } finally { await context.close(); }\n }\n} finally { await browser.close(); }\nwriteFileSync('.artifacts/architecture-round-4/download-probe.json', JSON.stringify({observedAt:new Date().toISOString(),observations},null,2)+'\\n');\nconsole.log(JSON.stringify(observations,null,2));\n"
+        },
+        "originalResultSha256": "bd678c7a873dd5d6f423903837a0ad58128c849c457feebdc762caca5f70317b",
+        "configuration": {
+          "browserOwnerRecordSha256": "581b4261058621673aa809c6e34733e3c510eb45a733b1ee9a96c7254be8e300",
+          "browser": "Chrome/153.0.8010.36",
+          "mode": "owned headless Windows Chrome over loopback CDP",
+          "port": 9461,
+          "wslDistribution": "nixos",
+          "acceptDownloads": true,
+          "fixture": "{\"probe\":\"owned sample\"}",
+          "filename": "console-fx-probe.json",
+          "contentType": "application/json"
+        },
+        "result": {
+          "observations": [
+            {
+              "destination": "runner-default",
+              "revoke": "immediate",
+              "failure": "canceled",
+              "filename": "console-fx-probe.json"
+            },
+            {
+              "destination": "runner-default",
+              "revoke": "retained",
+              "failure": "canceled",
+              "filename": "console-fx-probe.json"
+            },
+            {
+              "destination": "owned-windows-profile",
+              "revoke": "immediate",
+              "failure": null,
+              "filename": "console-fx-probe.json"
+            },
+            {
+              "destination": "owned-windows-profile",
+              "revoke": "retained",
+              "failure": null,
+              "filename": "console-fx-probe.json"
+            }
+          ]
+        },
+        "limits": "One synthetic Blob download; does not independently establish full application behavior. Temporary paths and browser session identifiers are omitted from the sanitized result."
+      },
+      {
+        "stage": "local",
+        "status": "verified",
+        "owner": "Primary repository agent",
+        "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+        "scenario": "Expose one owned Linux temporary directory through the WSL share, keep the setup page open and stream exact downloaded JSON bytes through Linux.",
+        "command": "node .artifacts/architecture-round-4/probe-download-bridge.mjs",
+        "observedAt": "2026-09-13T23:24:43.054Z",
+        "harness": {
+          "localPath": ".artifacts/architecture-round-4/probe-download-bridge.mjs",
+          "sha256": "5ef71ad7ffc58ae88b65d8a0cc7aecc9d203a7ebe0378cf86196dbc283d40bca",
+          "source": "import { chromium } from '@playwright/test';\nimport { mkdtempSync, writeFileSync } from 'node:fs';\nimport { tmpdir } from 'node:os';\nimport { join } from 'node:path';\nimport assert from 'node:assert/strict';\nconst artifactsDir = mkdtempSync(join(tmpdir(), 'console-fx-native-download-'));\nconst windowsPath = `\\\\\\\\wsl.localhost\\\\nixos${artifactsDir.replaceAll('/', '\\\\')}`;\nconst browser = await chromium.connectOverCDP('http://127.0.0.1:9461',{artifactsDir});\ntry {\n const context = await browser.newContext({acceptDownloads:true});\n try {\n  const page = await context.newPage();\n  const cdp = await context.newCDPSession(page);\n  const {targetInfo} = await cdp.send('Target.getTargetInfo');\n  await cdp.send('Browser.setDownloadBehavior',{behavior:'allowAndName',browserContextId:targetInfo.browserContextId,downloadPath:windowsPath,eventsEnabled:true});\n  const pending=page.waitForEvent('download');\n  await page.evaluate(()=>{const url=URL.createObjectURL(new Blob(['{\"probe\":\"owned sample\"}'],{type:'application/json'})); const anchor=document.createElement('a');anchor.href=url;anchor.download='console-fx-probe.json';anchor.click();URL.revokeObjectURL(url);});\n  const file=await pending;\n  const failure=await file.failure();\n  assert.equal(failure,null);\n  let contents='';for await(const chunk of await file.createReadStream())contents+=chunk.toString();\n  assert.equal(contents,'{\"probe\":\"owned sample\"}');\n  const receipt={observedAt:new Date().toISOString(),artifactsDir,windowsPath,failure,filename:file.suggestedFilename(),contents};\n  writeFileSync('.artifacts/architecture-round-4/download-bridge-probe.json',JSON.stringify(receipt,null,2)+'\\n');\n  console.log(JSON.stringify(receipt,null,2));\n }finally{await context.close();}\n}finally{await browser.close();}\n"
+        },
+        "originalResultSha256": "c802d4bd2eed2e350384f29002250a563079ebba91454f452fade127215d0509",
+        "configuration": {
+          "browserOwnerRecordSha256": "581b4261058621673aa809c6e34733e3c510eb45a733b1ee9a96c7254be8e300",
+          "browser": "Chrome/153.0.8010.36",
+          "mode": "owned headless Windows Chrome over loopback CDP",
+          "port": 9461,
+          "wslDistribution": "nixos",
+          "acceptDownloads": true,
+          "fixture": "{\"probe\":\"owned sample\"}",
+          "filename": "console-fx-probe.json",
+          "contentType": "application/json"
+        },
+        "result": {
+          "filename": "console-fx-probe.json",
+          "failure": null,
+          "contents": "{\"probe\":\"owned sample\"}"
+        },
+        "limits": "One synthetic Blob download; does not independently establish full application behavior. Temporary paths and browser session identifiers are omitted from the sanitized result."
+      },
+      {
+        "stage": "local",
+        "status": "verified",
+        "owner": "Primary repository agent",
+        "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+        "scenario": "Repeat the shared-directory download with a browser-owned CDP session after closing the temporary setup page; stream exact downloaded JSON bytes through Linux.",
+        "command": "node .artifacts/architecture-round-4/probe-download-session.mjs",
+        "observedAt": "2026-09-13T23:31:55.781Z",
+        "harness": {
+          "localPath": ".artifacts/architecture-round-4/probe-download-session.mjs",
+          "sha256": "a57fff17112a8f42a3dad6a23b00987496517a37884d1118277e8b63ec0307ae",
+          "source": "import { chromium } from '@playwright/test';\nimport { mkdtempSync, writeFileSync } from 'node:fs';\nimport { tmpdir } from 'node:os';\nimport { join } from 'node:path';\nimport assert from 'node:assert/strict';\nconst artifactsDir = mkdtempSync(join(tmpdir(), 'console-fx-native-download-'));\nconst windowsPath = `\\\\\\\\wsl.localhost\\\\nixos${artifactsDir.replaceAll('/', '\\\\')}`;\nconst browser = await chromium.connectOverCDP('http://127.0.0.1:9461',{artifactsDir});\ntry {\n const context = await browser.newContext({acceptDownloads:true});\n try {\n  const page = await context.newPage();\n  const cdp = await context.newCDPSession(page);\n  const rootSession = await browser.newBrowserCDPSession();\n  const {targetInfo} = await cdp.send('Target.getTargetInfo');\n  await rootSession.send('Browser.setDownloadBehavior',{behavior:'allowAndName',browserContextId:targetInfo.browserContextId,downloadPath:windowsPath,eventsEnabled:true});\n  await page.close();\n  const downloadPage = await context.newPage();\n  const pending=downloadPage.waitForEvent('download');\n  await downloadPage.evaluate(()=>{const url=URL.createObjectURL(new Blob(['{\"probe\":\"owned sample\"}'],{type:'application/json'})); const anchor=document.createElement('a');anchor.href=url;anchor.download='console-fx-probe.json';anchor.click();URL.revokeObjectURL(url);});\n  const file=await pending;\n  const failure=await file.failure();\n  assert.equal(failure,null);\n  let contents='';for await(const chunk of await file.createReadStream())contents+=chunk.toString();\n  assert.equal(contents,'{\"probe\":\"owned sample\"}');\n  const receipt={observedAt:new Date().toISOString(),artifactsDir,windowsPath,failure,filename:file.suggestedFilename(),contents};\n  writeFileSync('.artifacts/architecture-round-4/download-session-probe.json',JSON.stringify(receipt,null,2)+'\\n');\n  console.log(JSON.stringify(receipt,null,2));\n }finally{await context.close();}\n}finally{await browser.close();}\n"
+        },
+        "originalResultSha256": "830e0531876858730c663a6843e8836ddae47d49029d6f6d8377604ebb3a69e8",
+        "configuration": {
+          "browserOwnerRecordSha256": "581b4261058621673aa809c6e34733e3c510eb45a733b1ee9a96c7254be8e300",
+          "browser": "Chrome/153.0.8010.36",
+          "mode": "owned headless Windows Chrome over loopback CDP",
+          "port": 9461,
+          "wslDistribution": "nixos",
+          "acceptDownloads": true,
+          "fixture": "{\"probe\":\"owned sample\"}",
+          "filename": "console-fx-probe.json",
+          "contentType": "application/json"
+        },
+        "result": {
+          "filename": "console-fx-probe.json",
+          "failure": null,
+          "contents": "{\"probe\":\"owned sample\"}"
+        },
+        "limits": "One synthetic Blob download; does not independently establish full application behavior. Temporary paths and browser session identifiers are omitted from the sanitized result."
+      }
+    ]
+  },
+  "artifacts": {
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.1.1",
+        "sha256": "f9957ef78ae1647f3437e00e28ebb883349ee970d133b232638026967c35ed0e"
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.1.1",
+        "sha256": "f0bcd68d78886a11b013826a5f6394058cca33ebed0baac71a3f81b57b779aed"
+      }
+    ],
+    "bundles": [
+      {
+        "fixture": "css",
+        "gzipBytes": 9754,
+        "budget": 10240
+      },
+      {
+        "fixture": "complete-css",
+        "gzipBytes": 25578,
+        "budget": 25600
+      },
+      {
+        "fixture": "svg",
+        "gzipBytes": 25578,
+        "budget": 25600
+      }
+    ],
+    "preparedStudio": {
+      "files": 50,
+      "fileInventorySha256": "7e460946b189fbe2041b5021f4f2ec919944511a0860d0cc680809af1e20f392",
+      "configSha256": "f28c163361d7e5245d78e14b7883e4c0aaf67c37dc317d64950d835da591dae6",
+      "globalCspBytes": 480,
+      "inlineScriptHashes": 5
+    }
+  },
+  "sourceReviews": [
+    {
+      "stage": "source/static",
+      "status": "verified",
+      "owner": "Standards independent reviewer",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "command": "git diff 0799750...4a2ec30; review native-adapter addendum 4a2ec30...7e1e8ba and fixture repairs 7e1e8ba...5bf1628",
+      "observedAt": "2026-09-13T23:56:07.827334+00:00",
+      "result": "Zero actionable findings.",
+      "timing": "Parent recorded completed independent review results; not a new review execution time."
+    },
+    {
+      "stage": "source/static",
+      "status": "verified",
+      "owner": "Spec independent reviewer",
+      "subject": "5bf16285251ca451b437d0b05820df1dbdf5c5b1",
+      "command": "git diff 0799750...4a2ec30; review native-adapter addendum 4a2ec30...7e1e8ba and fixture repairs 7e1e8ba...5bf1628",
+      "observedAt": "2026-09-13T23:56:07.827334+00:00",
+      "result": "Zero actionable findings.",
+      "timing": "Parent recorded completed independent review results; not a new review execution time."
+    }
+  ],
+  "coveredContracts": [
+    "Rejected structural edits preserve document, selection and history; empty lines remain removable and undoable.",
+    "Oversized sharing and storage failure recommend backups retaining render intent; downloads contain complete scene or recipe bytes.",
+    "Standalone system-motion branches match direct compiler arguments and diagnostics for animation and authorized static fallback.",
+    "Card diagnostics use rendered geometry and the layout plan confidence without changing approved SVG output.",
+    "Existing validation, literal text, fitting, React lifecycle, recovery, prepared CSP, package and consumer contracts retain their proof owners."
+  ],
+  "reconciliation": "Application/package runtime inputs are unchanged after 4a2ec30, so the package bytes and studio build remain applicable. Later commits repair the native browser fixture, copy a readonly test matcher array, type a browser fixture tuple and document the framework-required empty dependency pattern. Formatting, lint, types, all 353 Vitest cases, all 94 studio cases and all three packed consumer journeys were checked again at 5bf1628. A final evidence-only correction repeats the 33-output comparison with retained fixture/result fingerprints. Later ledger/receipt and audit-pointer changes are documentation only.",
+  "failedAttempts": [
+    {
+      "stage": "local",
+      "obligation": "milestone-2",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "9ce225859b9ffcbeadc1901a64114a7582353b40",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "bash -e -c 'pnpm run build:packages; pnpm exec vitest run --project unit packages/console-fx/test/compact.test.ts packages/console-fx/test/card-presets.test.ts; pnpm run check:packages; pnpm run check:bundle-size'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:08:50.217984+00:00",
+      "observedAt": "2026-09-13T23:08:52.655421+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/milestone-2.log",
+      "logSha256": "3abb72f16735c8031aa78a7504f1209987149aa2b64f827222501412e290bd41"
+    },
+    {
+      "stage": "local",
+      "obligation": "estimated-card-fixture",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "9ce225859b9ffcbeadc1901a64114a7582353b40",
+      "workingDiffSha256": "70c559c3ab70588ea3c42baa986dca64d43ad84a6ea01ebe6f1b7f7ef6686eee",
+      "workingInputs": {
+        "packages/console-fx/test/compact.test.ts": "3af326b1a967c8d0fa6bb11d797da08b997376fe5c4790276b13c3b8505e36da"
+      },
+      "command": "pnpm exec vitest run --project unit packages/console-fx/test/compact.test.ts -t 'reports estimated fitting confidence'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:11:22.260478+00:00",
+      "observedAt": "2026-09-13T23:11:23.182515+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/estimated-card-fixture.log",
+      "logSha256": "243638a2e05596acecb34ba18547a1afea88e3eb52cc35e3a504ae144b25de17"
+    },
+    {
+      "stage": "local",
+      "obligation": "estimated-card-fixture-recheck",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "9ce225859b9ffcbeadc1901a64114a7582353b40",
+      "workingDiffSha256": "7de80282054b5fca540fdd9b394ebb6cb5aa5f87fcfc55527b4330b88e62a97f",
+      "workingInputs": {
+        "apps/studio/src/features/persistence/draft.ts": "e0232651e2eb86377d52efe1f4d5b00696a719bc2856a0999abb92a0d97d8586",
+        "apps/studio/src/features/persistence/persistence.test.ts": "55e7603d57e99dba32aa2aa37c8d5c586307c76c140c3ddf7ddf04ebcd04276d",
+        "packages/console-fx/test/compact.test.ts": "9532fe212e676580cd9a8f702d2bff9763710d6a2a9fa29c5cb829b3a8143318"
+      },
+      "command": "pnpm exec vitest run --project unit packages/console-fx/test/compact.test.ts -t 'reports estimated fitting confidence'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:12:32.585455+00:00",
+      "observedAt": "2026-09-13T23:12:33.366909+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/estimated-card-fixture-recheck.log",
+      "logSha256": "3b6f9ab8b9db2a0cf5c621c3067b1f88a6a96ab8a28ccfb0b8bc42edb793219b"
+    },
+    {
+      "stage": "source/static",
+      "obligation": "final-source",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "bash -e -c 'pnpm run format:check; pnpm run lint; pnpm run typecheck'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:18:55.483845+00:00",
+      "observedAt": "2026-09-13T23:18:57.089168+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/final-source.log",
+      "logSha256": "d4287607d4210a6f300969c69c79fc77fc24eea1357b42653862734e58d82d7c"
+    },
+    {
+      "stage": "source/static",
+      "obligation": "final-source-recheck",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "7e1e8baf160f835a49780ebd7bf0465afdd6fbfd",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "bash -e -c 'pnpm run format:check; pnpm run lint; pnpm run typecheck'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:33:46.413256+00:00",
+      "observedAt": "2026-09-13T23:33:51.795757+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/final-source-recheck.log",
+      "logSha256": "89698aeffa3c12997a06d790005a32175fac1f9dd7943f0fe93acc5722cb2025"
+    },
+    {
+      "stage": "source/static",
+      "obligation": "final-source-complete",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "cb84542e54c71d8502d8f5244daed36d912d4525",
+      "workingDiffSha256": "dd46734180fa628e464c786357fe00136f4aba82bbcea656813fe6e3d31c49ea",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c"
+      },
+      "command": "bash -e -c 'pnpm run format:check; pnpm run lint; pnpm run typecheck'",
+      "configuration": {},
+      "startedAt": "2026-09-13T23:38:40.892684+00:00",
+      "observedAt": "2026-09-13T23:38:49.703469+00:00",
+      "status": "failed",
+      "exitCode": 2,
+      "localLog": ".artifacts/architecture-round-4/final-source-complete.log",
+      "logSha256": "5ccf0d3cd98a02c0944bdb2525c4dbf96d0fda00e3ec7b6f3d59ce23f0f9d535"
+    },
+    {
+      "stage": "local",
+      "obligation": "final-studio",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "pnpm run test:studio",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "46837"
+      },
+      "startedAt": "2026-09-13T23:18:46.576507+00:00",
+      "observedAt": "2026-09-13T23:21:44.730873+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/final-studio.log",
+      "logSha256": "d65c2166076e1a549596a10122b807fd6994643dfee3374adad4860115203655"
+    },
+    {
+      "stage": "local",
+      "obligation": "download-recheck",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "50d9c31085d0388d6d9f1bb0357bb5d6afb46a53f3298badaace3dbb3cf4b663",
+      "workingInputs": {
+        "tests/studio/editor.spec.ts": "09f1c7c9d59b516480f15b694cbd7bd2d18ef6de2521396cbbec791ae302756f",
+        "tests/studio/fitting.spec.ts": "11ad039fa7c7458e89583afe6245ca07707cb064bec910cf707d7744f112cfd0",
+        "tests/studio/fixtures.ts": "0049e8dd559df4bf14c6811ba84768a2973f583936233555d1057e501fee63a8"
+      },
+      "command": "pnpm run test:studio --project=desktop -g 'oversized recipe sharing|imports validate before replacement'",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "45969"
+      },
+      "startedAt": "2026-09-13T23:26:21.352685+00:00",
+      "observedAt": "2026-09-13T23:26:24.430335+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/download-recheck.log",
+      "logSha256": "c362430faae8aca548abd5e27f8229452fb8c9f1eb7c5a7741f8909d2647dfc8"
+    },
+    {
+      "stage": "local",
+      "obligation": "download-default-recheck",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "6f9a005420b6a49a3a760264988aa55a90c89e4bdbc1e9868d344d297ca1b434",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c",
+        "tests/studio/editor.spec.ts": "09f1c7c9d59b516480f15b694cbd7bd2d18ef6de2521396cbbec791ae302756f",
+        "tests/studio/fitting.spec.ts": "11ad039fa7c7458e89583afe6245ca07707cb064bec910cf707d7744f112cfd0",
+        "tests/studio/fixtures.ts": "a2d6f1a18253025826a3390ebaf9f61f6fe1531d26b6f66a515f2e07d4d562f6"
+      },
+      "command": "pnpm run test:studio --project=desktop -g 'oversized recipe sharing|imports validate before replacement'",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "48571"
+      },
+      "startedAt": "2026-09-13T23:28:39.624525+00:00",
+      "observedAt": "2026-09-13T23:28:42.624428+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/download-default-recheck.log",
+      "logSha256": "4077b5ab954ee8dc1bb50402014a78b3ca8e25faeaef5e568cd1d4c74248f5b1"
+    },
+    {
+      "stage": "local",
+      "obligation": "download-protocol",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "4a2ec302cb496c492828d4bc8dd7076bec04004e",
+      "workingDiffSha256": "6f9a005420b6a49a3a760264988aa55a90c89e4bdbc1e9868d344d297ca1b434",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "92d1253a22a6fd073169bfe8ba4805e7a8073665cf83039917e1ab0bb0e84f8c",
+        "tests/studio/editor.spec.ts": "09f1c7c9d59b516480f15b694cbd7bd2d18ef6de2521396cbbec791ae302756f",
+        "tests/studio/fitting.spec.ts": "11ad039fa7c7458e89583afe6245ca07707cb064bec910cf707d7744f112cfd0",
+        "tests/studio/fixtures.ts": "a2d6f1a18253025826a3390ebaf9f61f6fe1531d26b6f66a515f2e07d4d562f6"
+      },
+      "command": "env DEBUG=pw:protocol pnpm run test:studio --project=desktop -g 'oversized recipe sharing'",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9461",
+        "CONSOLE_FX_STUDIO_PORT": "45795"
+      },
+      "startedAt": "2026-09-13T23:30:30.932733+00:00",
+      "observedAt": "2026-09-13T23:30:32.594754+00:00",
+      "status": "failed",
+      "exitCode": 1,
+      "localLog": ".artifacts/architecture-round-4/download-protocol.log",
+      "logSha256": "1698d1ecd5e012baeb567507b1ba6e4ae1a957f5a85204905f1adb2c861de933"
+    }
+  ],
+  "diagnosis": {
+    "confidenceFixture": "Fully estimated card fixtures violated bounded bearing/type conditions. A valid partial-measurement fixture verifies estimated confidence without changing production limits.",
+    "nativeDownloads": "The first full suite passed92/94; both recipe byte checks canceled. Four controls isolate destination from URL lifetime: both revocation choices fail on a Linux destination and pass on a valid Windows destination. Shared-directory and browser-session probes verify downloaded bytes. Page-owned settings were lost when the setup page closed; a browser-owned session persists through the test.",
+    "sourceChecks": "Formatted one browser fixture and documented the narrow no-empty-pattern exception required by Playwright fixture dependency parsing. Type checking then identified a readonly matcher array, an inferred tuple and an optional browser context ID; the final repair retains assertions and fails explicitly if the owned context ID is absent."
+  },
+  "limitations": [
+    "No new GitHub CI, npm publication/registry consumer, deployment or hosted-runtime observation.",
+    "Headless browser checks and deterministic SVG parity do not establish real DevTools, physical-device performance, Safari or participant findings.",
+    "Screen-reader review remains nonblocking under ADR-0013. Proposed ADR-0016/0017 remain pending.",
+    "Prepared static headers do not emulate Vercel routing, aliases, CDN or deployment protection.",
+    "Raw logs, download probes and failed traces stay local; this sanitized receipt contains their hashes and bounded conclusions."
+  ],
+  "invalidators": [
+    "Changed contract/source/tests/harness/configuration/lock/toolchain or artifact bytes invalidate affected evidence.",
+    "A new contradictory result invalidates the affected pass; browser/OS changes require reconciliation.",
+    "Publication, CI and hosted states require their own exact-candidate observations and cannot inherit local success."
+  ],
+  "recovery": {
+    "findingCommits": {
+      "R4-01": "c45b1f0",
+      "R4-02": "5400b75",
+      "R4-03": "6044f1b",
+      "R4-04": "3708f67",
+      "R4-05": "8f0fbda",
+      "R4-06": "525b734",
+      "R4-07": "9ce2258",
+      "R4-08": "33516f7",
+      "R4-09": "7e1e8ba"
+    },
+    "protectedWorktrees": 16,
+    "protectedRootFiles": 205,
+    "ownedBrowserProcessesRemaining": 0,
+    "ownedBrowserListenersRemaining": 0,
+    "browserProfileRetained": true,
+    "temporaryReports": 7
+  }
+}

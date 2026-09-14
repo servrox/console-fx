@@ -330,17 +330,22 @@ export function Studio({
     });
   }
   const setRenderer = (renderer: Renderer) =>
-    updateSettings({ ...settings, renderer });
+    updateSettings({
+      ...settings,
+      renderer,
+      ...(renderer === "text" ? {} : { target: "chromium" }),
+    });
   const setSystemMotion = (enabled: boolean) =>
     updateSettings({ ...settings, motion: enabled ? "system" : "reduce" });
 
-  function commit(candidate: unknown) {
+  function commit(candidate: unknown, nextSelection?: typeof selection) {
     const result = parseScene(candidate);
     if (!result.ok) {
       setNotice({ kind: "error", message: result.diagnostics[0]!.message });
       return;
     }
     dispatch({ type: "replace", scene: result.value });
+    if (nextSelection) setSelection(nextSelection);
     setNotice(null);
   }
   function patchRun(patch: Record<string, unknown>) {
@@ -387,26 +392,30 @@ export function Studio({
   }
   function addLine() {
     if (scene.lines.length >= LIMITS.lines || runCount >= LIMITS.runs) return;
-    commit({
-      ...scene,
-      lines: [...scene.lines, { runs: [{ text: "Another line" }] }],
-    });
-    setSelection({ line: scene.lines.length, run: 0 });
+    commit(
+      {
+        ...scene,
+        lines: [...scene.lines, { runs: [{ text: "Another line" }] }],
+      },
+      { line: scene.lines.length, run: 0 },
+    );
   }
   function addRun() {
     if (!line) {
       addLine();
       return;
     }
-    commit({
-      ...scene,
-      lines: scene.lines.map((item, index) =>
-        index === lineIndex
-          ? { ...item, runs: [...item.runs, { text: " New text" }] }
-          : item,
-      ),
-    });
-    setSelection({ line: lineIndex, run: line.runs.length });
+    commit(
+      {
+        ...scene,
+        lines: scene.lines.map((item, index) =>
+          index === lineIndex
+            ? { ...item, runs: [...item.runs, { text: " New text" }] }
+            : item,
+        ),
+      },
+      { line: lineIndex, run: line.runs.length },
+    );
   }
 
   return (
@@ -628,18 +637,20 @@ export function Studio({
                     </button>
                   </div>
                   {run && (
-                    <>
-                      <label>
-                        Message text
-                        <textarea
-                          rows={4}
-                          value={run.text}
-                          onChange={(event) =>
-                            patchRun({ text: event.target.value })
-                          }
-                        />
-                      </label>
-                      <div className="button-row compact">
+                    <label>
+                      Message text
+                      <textarea
+                        rows={4}
+                        value={run.text}
+                        onChange={(event) =>
+                          patchRun({ text: event.target.value })
+                        }
+                      />
+                    </label>
+                  )}
+                  {line && (
+                    <div className="button-row compact">
+                      {run && (
                         <button
                           type="button"
                           onClick={() =>
@@ -660,21 +671,21 @@ export function Studio({
                         >
                           Remove run
                         </button>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            commit({
-                              ...scene,
-                              lines: scene.lines.filter(
-                                (_, index) => index !== lineIndex,
-                              ),
-                            })
-                          }
-                        >
-                          Remove line
-                        </button>
-                      </div>
-                    </>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          commit({
+                            ...scene,
+                            lines: scene.lines.filter(
+                              (_, index) => index !== lineIndex,
+                            ),
+                          })
+                        }
+                      >
+                        Remove line
+                      </button>
+                    </div>
                   )}
                 </>
               )}
@@ -1278,7 +1289,7 @@ export function Studio({
                     setNotice({
                       kind: "error",
                       message:
-                        "Download failed. Choose Editable JSON above and copy it.",
+                        "Download failed. Choose Scene JSON (content only) above and copy it.",
                     });
                   }
                 }}
@@ -1333,7 +1344,7 @@ export function Studio({
                     if (!result.ok)
                       setNotice({
                         kind: "error",
-                        message: `${result.diagnostics[0]!.message} Export Recipe JSON and import it in the full studio instead.`,
+                        message: `${result.diagnostics[0]!.message} Import the downloaded file in the full studio.`,
                       });
                     else router.push(`/studio/${result.value}`);
                   }}
