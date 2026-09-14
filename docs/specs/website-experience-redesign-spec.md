@@ -14,6 +14,8 @@ implementation_authorized: true
 
 # Tactile discovery, precise editing
 
+> **Accepted successor (2026-09-14):** [ADR-0016](../adrs/0016-organize-discovery-around-an-example-catalogue.md) moves full discovery/editing to Studio and integration/video to Docs. [ADR-0017](../adrs/0017-default-new-workbench-examples-to-automatic-svg-sizing.md) enables explicit fitting and experimental automatic SVG sizing for new catalogue examples only. These narrow changes supersede conflicting integrated-landing/opt-in creation wording below; saved/imported work, core defaults and all other obligations remain binding.
+
 ## 1. Objective and authorization
 
 Redesign the landing page and integrated workbench so ConsoleFX feels memorable, responsive and useful without becoming a generic GPU-effects showroom. Preserve professional minimalism, harmonious dark neumorphic surfaces, small cyan accents and the genuine browser-console output as the hero.

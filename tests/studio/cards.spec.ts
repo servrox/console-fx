@@ -2,6 +2,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { getPresentationDescriptors } from "../../packages/console-fx/dist/index.js";
 import { compileConsole } from "../../packages/console-fx/dist/browser/index.js";
 import { createPresetExample } from "../../packages/console-fx/dist/presets/index.js";
+import { resolveExample } from "../../apps/studio/src/features/examples/catalogue";
 import { test, expect } from "./fixtures";
 
 test("named-field cards share gallery/editor output and stay silent until Test", async ({
@@ -12,28 +13,19 @@ test("named-field cards share gallery/editor output and stay silent until Test",
   page.on("console", (event) => {
     if (event.type() === "log") calls.push(event.text());
   });
-  await page.goto("/#playground");
-  await page.locator(".full-preset-gallery > summary").click();
+  await page.goto("/studio/?example=preset%3AbuildReceipt");
   const editor = page.locator("#editor-workspace");
-  // All profiles are covered by core contracts; this card exercises text and enum slots.
   const descriptor = getPresentationDescriptors().find(
     ({ id }) => id === "buildReceipt",
   )!;
-  const scene = createPresetExample(descriptor.id);
+  const result = resolveExample({ exampleId: "preset:buildReceipt" });
+  if (!result.ok) throw Error(result.message);
+  const scene = result.recipe.scene;
   const output = compileConsole(scene, {
-    renderer: "svg",
-    target: "chromium",
+    ...result.recipe.options,
+    motion: "reduce",
   });
   if (output.preview.kind !== "svg") throw Error("SVG expected");
-  const card = page.getByRole("button", {
-    name: `Load ${descriptor.name} preset`,
-    exact: true,
-  });
-  await expect(card.locator("img")).toHaveAttribute(
-    "src",
-    output.preview.imageUri,
-  );
-  await card.click();
   await expect(editor.getByLabel("Scene label", { exact: true })).toHaveValue(
     scene.label,
   );
@@ -48,7 +40,6 @@ test("named-field cards share gallery/editor output and stay silent until Test",
         exact: true,
       }),
     ).toHaveValue(scene.lines[slot.line]!.runs[slot.run]!.text);
-  await page.locator(".full-preset-gallery > summary").click();
   await editor
     .getByRole("textbox", { name: "Project", exact: true })
     .fill("My %s build");
@@ -98,7 +89,8 @@ test("card tone, valid drafts and imports survive errors, undo and reload", asyn
   const editor = page.locator("#playground");
   await editor
     .getByRole("combobox", { name: "Start from a preset", exact: true })
-    .selectOption("requestTrace");
+    .selectOption("preset:requestTrace");
+  await page.getByRole("button", { name: "Load example", exact: true }).click();
   await editor
     .getByRole("combobox", { name: "Tone", exact: true })
     .selectOption("error");
@@ -110,7 +102,7 @@ test("card tone, valid drafts and imports survive errors, undo and reload", asyn
   expect(JSON.parse(saved).presentation.tone).toBe("error");
   await expect
     .poll(() =>
-      page.evaluate(() => localStorage.getItem("console-fx:scene:v1")),
+      page.evaluate(() => localStorage.getItem("console-fx:recipe:v1")),
     )
     .toContain("requestTrace/v1");
   await page.reload();
@@ -148,7 +140,8 @@ test("long card content stays available for JSON and explicit text output", asyn
   const editor = page.locator("#playground");
   await editor
     .getByRole("combobox", { name: "Start from a preset", exact: true })
-    .selectOption("letterpress");
+    .selectOption("preset:letterpress");
+  await page.getByRole("button", { name: "Load example", exact: true }).click();
   await editor
     .getByRole("textbox", { name: "Title", exact: true })
     .fill("W".repeat(90));
@@ -169,6 +162,9 @@ test("long card content stays available for JSON and explicit text output", asyn
   await editor
     .getByRole("combobox", { name: "Output renderer", exact: true })
     .selectOption("text");
+  await page
+    .getByRole("button", { name: "Change renderer", exact: true })
+    .click();
   await expect(
     editor.getByRole("button", { name: "Test in console", exact: true }),
   ).toBeEnabled();

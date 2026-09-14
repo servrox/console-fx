@@ -2,7 +2,7 @@
 
 **Use jobs for navigation. Keep visual treatments as searchable variants.**
 
-Status: Proposed. Companion to the [workbench proposal](workbench-proposal.md).
+Status: Approved for implementation, 2026-09-14. Companion to the [workbench proposal](workbench-proposal.md).
 Inventory: main `4f93269`, inspected 2026-09-13.
 
 ## Category boundaries
@@ -29,7 +29,7 @@ Inventory: main `4f93269`, inspected 2026-09-13.
 Namespaced IDs avoid collisions between today's three inventories. These IDs
 are discovery references; saved documents contain complete recipes.
 
-| Proposed example ID | Primary category | Discovery grouping |
+| Stable example ID | Primary category | Discovery grouping |
 | --- | --- | --- |
 | `preset:badge` | brand | Badge greeting |
 | `preset:neon` | brand | Styled signature |

@@ -1,0 +1,1443 @@
+{
+  "observedAt": "2026-09-14T09:04:26.810Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/152.0.4191.77",
+    "revision": "@965cd5c35bb944fae3ccc98351690ac5ed0c08ee",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+    "jsVersion": "15.2.23.10"
+  },
+  "os": "Windows 25H2 build 26220.9223",
+  "compiler": {
+    "createdAt": "2026-09-14T09:03:08.685Z",
+    "compilerSha256": "95a87feaebe762f968def75b7c62faefb61a3d2c537ce6d8e87577197aa5b2f0",
+    "cases": [
+      "workbench-preset-badge",
+      "workbench-preset-neon",
+      "workbench-preset-rgbSplit",
+      "workbench-preset-extruded",
+      "workbench-preset-holographic",
+      "workbench-preset-gold",
+      "workbench-preset-chrome",
+      "workbench-preset-crt",
+      "workbench-preset-rainbow",
+      "workbench-preset-lightningMetal",
+      "workbench-preset-iceCathedral",
+      "workbench-preset-liquidChrome",
+      "workbench-preset-moltenGold",
+      "workbench-preset-buildReceipt",
+      "workbench-preset-requestTrace",
+      "workbench-preset-serviceReady",
+      "workbench-preset-commandCard",
+      "workbench-preset-releaseBulletin",
+      "workbench-preset-blueprint",
+      "workbench-preset-contourMap",
+      "workbench-preset-letterpress",
+      "workbench-preset-signalHalftone",
+      "workbench-preset-orbital",
+      "workbench-featured-signature",
+      "workbench-featured-sdkWelcome",
+      "workbench-featured-devContext",
+      "workbench-featured-milestone",
+      "workbench-featured-chromeTitle",
+      "workbench-featured-quietEditorial",
+      "workbench-reference-neonText",
+      "workbench-reference-asciiSignature",
+      "workbench-reference-gradientText",
+      "workbench-reference-boxedMessage",
+      "workbench-reference-successMessage",
+      "workbench-reference-warningMessage",
+      "workbench-reference-errorMessage",
+      "workbench-reference-animatedSvg",
+      "workbench-reference-multilineLayout",
+      "workbench-reference-tabularLayout",
+      "workbench-reference-badgesAndLabels",
+      "workbench-reference-customBrand",
+      "workbench-reference-asciiLogo",
+      "workbench-reference-animatedDolphin"
+    ]
+  },
+  "note": "Actual native Console geometry. Container text readability remains unknown; complete captions are verified separately.",
+  "cases": [
+    {
+      "id": "workbench-preset-badge",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 60.5,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-badge",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 114.84375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-neon",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 68.53125,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-neon",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 130.0625,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-rgbSplit",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 60.5,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-rgbSplit",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 114.84375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-extruded",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 63.09375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-extruded",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 119.75,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-holographic",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 60.9375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-holographic",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 115.65625,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-gold",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 61.375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-gold",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 116.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-chrome",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 61.375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-chrome",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 116.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-crt",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 60.5,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-crt",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 114.84375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-rainbow",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 60.5,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-rainbow",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 114.84375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-lightningMetal",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 101.625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nCONSOLE FX",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-lightningMetal",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 840,
+        "height": 183.4375,
+        "right": 868,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nCONSOLE FX",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-iceCathedral",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 164.03125,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nSTARK AI",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-iceCathedral",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 840,
+        "height": 296,
+        "right": 868,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nSTARK AI",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-liquidChrome",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 140.71875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nOverdrive",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-liquidChrome",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 840,
+        "height": 253.96875,
+        "right": 868,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nOverdrive",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-moltenGold",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 101.1875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHOT RELOAD",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-moltenGold",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 840,
+        "height": 182.625,
+        "right": 868,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHOT RELOAD",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-buildReceipt",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nBUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-buildReceipt",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nBUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-requestTrace",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nREQUEST / SNAPSHOT\nGET  /api/orders  200 OK  148 ms\nAUTH  QUERY  SERIALIZE\n12 ms  106 ms  30 ms\nID  req_demo_0042\nONE REQUEST / NO LIVE CONNECTION",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-requestTrace",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nREQUEST / SNAPSHOT\nGET  /api/orders  200 OK  148 ms\nAUTH  QUERY  SERIALIZE\n12 ms  106 ms  30 ms\nID  req_demo_0042\nONE REQUEST / NO LIVE CONNECTION",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-serviceReady",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nSERVICE / PASSPORT\nAtlas API  READY\nhttp://localhost:3000\nENVIRONMENT  RUNTIME  REGION\ndevelopment  Node 24  local\nSTARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-serviceReady",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nSERVICE / PASSPORT\nAtlas API  READY\nhttp://localhost:3000\nENVIRONMENT  RUNTIME  REGION\ndevelopment  Node 24  local\nSTARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-commandCard",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nNEXT / ACTION\n01  Run the test suite\nRun from the project root.\npnpm test\nCommand shown, never executed.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-commandCard",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nNEXT / ACTION\n01  Run the test suite\nRun from the project root.\npnpm test\nCommand shown, never executed.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-releaseBulletin",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nATLAS / RELEASE NOTES  v2.4.0\nA quieter kind of fast.\nSmaller payloads.\nClearer diagnostics.\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-releaseBulletin",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nATLAS / RELEASE NOTES  v2.4.0\nA quieter kind of fast.\nSmaller payloads.\nClearer diagnostics.\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-blueprint",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nENGINEERING / EDITION 01\nBUILT TO LAST\nAn interface worth understanding.\nPRECISION OVER NOISE",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-blueprint",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nENGINEERING / EDITION 01\nBUILT TO LAST\nAn interface worth understanding.\nPRECISION OVER NOISE",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-contourMap",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nFIELD NOTES / 007\nFIND YOUR SIGNAL\nLess noise. More direction.\nCONTOUR STUDY",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-contourMap",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nFIELD NOTES / 007\nFIND YOUR SIGNAL\nLess noise. More direction.\nCONTOUR STUDY",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-letterpress",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nSTUDIO / CONSOLE EDITION\nMake it matter.\nThoughtful tools. Everyday work.\nLESS, BUT CONSIDERED.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-letterpress",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nSTUDIO / CONSOLE EDITION\nMake it matter.\nThoughtful tools. Everyday work.\nLESS, BUT CONSIDERED.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-signalHalftone",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nTWO INKS / ONE IDEA\nMAKE SOME\nSIGNAL\nSmall tools. Clear intent.\nPRINT STUDY 04",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-signalHalftone",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nTWO INKS / ONE IDEA\nMAKE SOME\nSIGNAL\nSmall tools. Clear intent.\nPRINT STUDY 04",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-orbital",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nMISSION / CONSOLE 01\nSTAY CURIOUS\nBuild something worth discovering.\nIDEAS IN ORBIT",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-preset-orbital",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nMISSION / CONSOLE 01\nSTAY CURIOUS\nBuild something worth discovering.\nIDEAS IN ORBIT",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-signature",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 52.8125,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-signature",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 100.28125,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nHello, developer.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-sdkWelcome",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nNEXT / ACTION\n01  Atlas SDK\nSandbox mode \u00b7 See the SDK guide\nawait atlas.connect()\nCommand shown, never executed.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-sdkWelcome",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nNEXT / ACTION\n01  Atlas SDK\nSandbox mode \u00b7 See the SDK guide\nawait atlas.connect()\nCommand shown, never executed.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-devContext",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nBUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-devContext",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nBUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-milestone",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 155.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nATLAS / RELEASE NOTES  v2.4.0\nBuild complete\n48 checks passed\nReady for review\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-milestone",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 294.46875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nATLAS / RELEASE NOTES  v2.4.0\nBuild complete\n48 checks passed\nReady for review\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-chromeTitle",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 45.6875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nKeep building.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-chromeTitle",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 86.6875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nKeep building.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-quietEditorial",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 52.28125,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nMade with care.\nA small detail for developers.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-featured-quietEditorial",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 99.21875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nMade with care.\nA small detail for developers.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-neonText",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 83.875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nconsole-fx\nMake your logs unforgettable.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-neonText",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 159.1875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nconsole-fx\nMake your logs unforgettable.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-asciiSignature",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 69.46875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n[ console-fx ]\n> CODE / CREATE / ENJOY",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-asciiSignature",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 131.84375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n[ console-fx ]\n> CODE / CREATE / ENJOY",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-gradientText",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 79.71875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nconsole-fx\nBeautiful by design.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-gradientText",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 151.34375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nconsole-fx\nBeautiful by design.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-boxedMessage",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 80.5,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 \u24d8 console-fx                        \u2502\n\u2502                                     \u2502\n\u2502 Small details. Big developer joy.   \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-boxedMessage",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 152.8125,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 \u24d8 console-fx                        \u2502\n\u2502                                     \u2502\n\u2502 Small details. Big developer joy.   \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-successMessage",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 93.59375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n\u2713   Build complete\nYour changes are ready.\nAll checks passed \u00b7 Example build\nIllustrative message \u00b7 Sample data",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-successMessage",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 177.65625,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n\u2713   Build complete\nYour changes are ready.\nAll checks passed \u00b7 Example build\nIllustrative message \u00b7 Sample data",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-warningMessage",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 93.59375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n!   Deprecation notice\noldMethod() changes in the next release.\nUse newMethod() instead.\nIllustrative message \u00b7 Sample data",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-warningMessage",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 177.65625,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n!   Deprecation notice\noldMethod() changes in the next release.\nUse newMethod() instead.\nIllustrative message \u00b7 Sample data",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-errorMessage",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 93.59375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n\u00d7   Request failed\nUnable to reach the example API.\nHTTP 500 \u00b7 Try the request again.\nIllustrative message \u00b7 Sample data",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-errorMessage",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 177.65625,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n\u00d7   Request failed\nUnable to reach the example API.\nHTTP 500 \u00b7 Try the request again.\nIllustrative message \u00b7 Sample data",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-animatedSvg",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 91.15625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nconsole-fx\nFINITE MOTION / STATIC FALLBACK\nDecorative motion \u00b7 4.8 seconds",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-animatedSvg",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 173,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nconsole-fx\nFINITE MOTION / STATIC FALLBACK\nDecorative motion \u00b7 4.8 seconds",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-multilineLayout",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 113.71875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nconsole-fx\nOne expressive console message.\nTyped configuration \u00b7 visual presets\nExport as standalone JavaScript.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-multilineLayout",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 215.875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nconsole-fx\nOne expressive console message.\nTyped configuration \u00b7 visual presets\nExport as standalone JavaScript.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-tabularLayout",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 99,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nDESIGN           \u2502 RENDERER\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nNeon glow        \u2502 CSS text\nAurora wave      \u2502 SVG concept\nPlain message    \u2502 Text fallback\nIllustrative rows \u00b7 One console.log",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-tabularLayout",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 187.90625,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nDESIGN           \u2502 RENDERER\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nNeon glow        \u2502 CSS text\nAurora wave      \u2502 SVG concept\nPlain message    \u2502 Text fallback\nIllustrative rows \u00b7 One console.log",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-badgesAndLabels",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 76.4375,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nDEV BUILD    LOCAL SCENE    CSS PREVIEW\n \nMADE WITH CARE / BY SERVROX",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-badgesAndLabels",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 145.09375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nDEV BUILD    LOCAL SCENE    CSS PREVIEW\n \nMADE WITH CARE / BY SERVROX",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-customBrand",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 79.71875,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \nS E R V R O X\nBUILD / IMPROVE / CREATE",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-customBrand",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 151.34375,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \nS E R V R O X\nBUILD / IMPROVE / CREATE",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-asciiLogo",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 112.0625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n  ___ ___  _  _ ___  ___  _    ___     _____  __\n / __/ _ \\| \\| / __|/ _ \\| |  | __|___| __\\ \\/ /\n| (_| (_) | .` \\__ \\ (_) | |__| _|___| _| >  < \n \\___\\___/|_|\\_|___/\\___/|____|___|   |_| /_/\\_\\\nMake your logs unforgettable.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-asciiLogo",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 212.6875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n  ___ ___  _  _ ___  ___  _    ___     _____  __\n / __/ _ \\| \\| / __|/ _ \\| |  | __|___| __\\ \\/ /\n| (_| (_) | .` \\__ \\ (_) | |__| _|___| _| >  < \n \\___\\___/|_|\\_|___/\\___/|____|___|   |_| /_/\\_\\\nMake your logs unforgettable.",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-animatedDolphin",
+      "requestedWindowWidth": 560,
+      "geometry": {
+        "x": 28,
+        "width": 465.5,
+        "height": 141.65625,
+        "right": 493.5,
+        "consoleWidth": 544,
+        "consoleRight": 544,
+        "viewport": 544
+      },
+      "caption": " \n                  __                \n              _.-'  '-._            \n          _.-'   .-._   '-.__       \n      _.-'      /    '-.     '-._   \n  _.-'     __.-'        '-.  o   '-.\n /__..---''                '---..___>\n     \\_\\  /_ /                      \nKeep building \u2665",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    },
+    {
+      "id": "workbench-reference-animatedDolphin",
+      "requestedWindowWidth": 1000,
+      "geometry": {
+        "x": 28,
+        "width": 883.5,
+        "height": 268.875,
+        "right": 911.5,
+        "consoleWidth": 984,
+        "consoleRight": 984,
+        "viewport": 984
+      },
+      "caption": " \n                  __                \n              _.-'  '-._            \n          _.-'   .-._   '-.__       \n      _.-'      /    '-.     '-._   \n  _.-'     __.-'        '-.  o   '-.\n /__..---''                '---..___>\n     \\_\\  /_ /                      \nKeep building \u2665",
+      "consoleCalls": 1,
+      "resizedExistingEntry": true
+    }
+  ],
+  "rawDirectory": ".artifacts/devtools/edge-workbench-sizing-2026-09-14T09-04-26.488Z",
+  "rawSha256": "c33df053d78b165314419312bff5a488b39bdad45b17be90dcb314e27530c9eb",
+  "stage": "external/third-party",
+  "status": "verified"
+}

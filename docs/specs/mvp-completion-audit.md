@@ -87,30 +87,29 @@ the archived comparison verifies 411 identical output/export/preflight results
 across 187 fixtures. This is bounded behavioral parity, not byte identity or a
 claim that the newer core tarball was published. The subsequent three compiler
 corrections are outside that historical parity comparison and are recorded in
-the [0.1.1 changelog](../../packages/console-fx/CHANGELOG.md#011). Source and
+the [0.2.0 changelog](../../packages/console-fx/CHANGELOG.md#020). Source and
 published consumers have separate evidence. OIDC configuration/execution remains future automation;
 the approved first publication used npm's interactive bootstrap.
 
-## Later workbench request: implementation pending
+## Workbench and 0.2.0 implementation — 2026-09-14
 
-- The [proposal](workbench-proposal.md) defines six developer-job categories,
-  a short cinematic landing, a persistent sidebar workbench, output/code
-  interactions and automatic sizing for new examples. Its contract has twelve
-  acceptance criteria; the existing page does not implement them.
-- ADR-0016 and ADR-0017 remain **Proposed**. The requested review precedes
-  product implementation. The automatic creation default needs the narrow
-  successor to ADR-0015's existing sizing intent before it can change.
-- The [test strategy](testing-strategy.md) and maintenance are merged in
-  PR #22; its dated CI results remain in that strategy. The [preparation receipt](workbench-preparation-evidence.md)
-  preserves the earlier local checks and separate documentation integration.
-- [amicro adaptations](workbench-interactions.md) are selected and documented;
-  they are not installed or shipped. The separate
-  [technology section](../technology/README.md) documents the current stack and
-  complete dependency-version inventory.
-
-The matrices below retain evidence for the previously implemented specification.
-They do not count proposed workbench behavior as complete or qualify newly
-requested layouts/default combinations through older screenshots.
+- ADR-0016, ADR-0017 and ADR-0018 are **Accepted** by explicit maintainer approval.
+- The short cinematic landing, six categories, persistent 43-example workbench,
+  capability-driven controls and Docs walkthrough are implemented. All newly
+  loaded examples use explicit `fit/v2` and experimental automatic SVG sizing.
+  Existing raw/imported/saved work preserves its choices.
+- `fit/v1` remains compatible. The 0.2.0 release includes the previously prepared
+  0.1.1 fixes; there is no separate intermediate publication.
+- [Implementation and verification](workbench-implementation-evidence.md) maps
+  WB-01–12 and the fitting proof to source, local, native, CI and release evidence.
+  Its publication and hosting checkpoints supersede prior candidate claims only
+  when separately recorded as verified.
+- [amicro adaptations](../technology/amicro.md) now ship keyboard tabs and
+  clipboard-success feedback, with their MIT notice. No Motion or Tailwind
+  dependency was introduced. The [technology section](../technology/README.md)
+  retains the complete dependency inventory.
+- Participant, physical-device and real Safari observations remain open. The
+  screen-reader review is a nonblocking follow-up under ADR-0013.
 
 ## Base specification: all 24 acceptance criteria
 

@@ -1,0 +1,14 @@
+$ node scripts/check-consumers.mjs
+Installing exact tarballs into /tmp/console-fx-consumer-MFNDsM
+Packed JavaScript consumer passed
+Packed React SSR, first-enabled, Strict Mode and remount consumer passed
+Displayed website recipes passed against the packed packages; caller guards, SSR, click and first-enabled checks passed
+Installed TypeScript declarations and React example passed
+Installed Next production build and static server rendering passed
+Running 3 tests using 1 worker
+
+  ✓  1 tests/consumers/next.spec.ts:14:1 › all packed card previews preserve the exact compiler URI and explicit hook output (662ms)
+  ✓  2 tests/consumers/next.spec.ts:49:1 › packed Next startup, first-enabled root-layout banner, edits and true remount (357ms)
+  ✓  3 tests/consumers/next.spec.ts:96:1 › packed fitting options update the exact preview silently and emit once on request (214ms)
+
+  3 passed (1.7s)

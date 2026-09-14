@@ -13,12 +13,10 @@ license: "MIT; asset and dependency rights checks pending"
 requested_scope: "save only the approved specification and implementation handover revisions"
 ---
 
-> **Pending product proposal (2026-09-13):** the
-> [workbench proposal](workbench-proposal.md) covers a separate short landing,
-> category sidebar, shared capability model and new-example sizing defaults.
-> Its ADR-0016/0017 remain Proposed. Existing accepted requirements apply until
-> review; product UI implementation has not started. The
-> [testing strategy](testing-strategy.md) is separately authorized maintenance.
+> **Accepted workbench successor (2026-09-14):** ADR-0016/0017 and the
+> [workbench contract](workbench-contract.md) now govern page ownership,
+> catalogue capabilities and new-example sizing. Existing rendering,
+> accessibility, import/draft and publication requirements remain binding.
 
 # ConsoleFX
 ## Approved implementation specification
@@ -452,13 +450,13 @@ Display snippet byte size and renderer support status before copying. The byte c
 
 Choose a preset or blank message; edit text and styling; choose a target renderer; inspect the preview and diagnostics; test one entry in the real console; copy the self-contained log statement or export another integration format.
 
-The landing page includes the hero, required output gallery, and working studio in one continuous flow. Selecting a gallery item loads its materialized configuration into that editor without printing. A focused studio route may reuse the same editor, but does not replace the integrated landing-page experience.
+Accepted ADR-0016 separates a short cinematic landing page, a persistent category workbench at `/studio/`, and integration guidance/video at `/docs/`. Selecting an example requests one undoable materialized recipe load without printing; conflicts preserve current work until confirmed. Old playground links remain useful.
 
 ### 7.2 Screen layout
 
 Use a desktop three-area editor with a stacked narrow-screen arrangement. The left area contains presets, lines, and run selection. The center contains the bounded preview and preview background selection. The right area contains typography, color, effects, dimensions, and motion controls. An export panel below shows the current code, byte size, compatibility status, and primary copy action.
 
-Follow the [current visual direction](../mockups/README.md#current-design-direction): a restrained dark interface with softly raised/inset surfaces, readable control boundaries, and small cyan accents. The example outputs can be expressive. Preserve the integrated page hierarchy and the primary export action on mobile. Mockup version numbers, popularity counts, timings, and abbreviated snippets remain illustrative; do not copy them as product claims.
+Follow the [current visual direction](../mockups/README.md#current-design-direction): a restrained dark interface with softly raised/inset surfaces, readable control boundaries, and small cyan accents. The example outputs can be expressive. Follow the accepted page ownership and preserve the primary export action on mobile. Mockup version numbers, popularity counts, timings, and abbreviated snippets remain illustrative; do not copy them as product claims.
 
 Primary actions: **Copy console.log**, **Test in console**, and **Export JSON**. Secondary actions include import, undo/redo, reset, and copy a shareable configuration link when it fits the size budget.
 

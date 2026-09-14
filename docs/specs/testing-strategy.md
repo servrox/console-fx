@@ -13,7 +13,7 @@ approve the proposed workbench or change release qualification requirements.
 | What can break? | Proof owner | Scope |
 | --- | --- | --- |
 | Parsing, literal text, compilation, fitting, export, public APIs | Vitest 4: core contracts | Table-driven valid/invalid behavior; include every supported profile where its data differs. |
-| Example recipes and capability resolution | Vitest 4: catalogue contracts | Every registered recipe; shared validation, round-trip and output/export agreement. Capability resolution will be added with the approved feature. |
+| Example recipes and capability resolution | Vitest 4: catalogue contracts | Every registered recipe; shared validation, round-trip and output/export agreement. Capability resolution shares the catalogue matrix. |
 | History, draft recovery, import failures, clipboard preparation | Vitest 4: session/persistence contracts | Observable transitions and preserved data, including asynchronous races. |
 | Artifact integrity, provenance, path safety, recovery | Vitest 4: release integration project | Real temporary files and existing trust-boundary regressions. No registry writes or deployment. |
 | Browser wiring, navigation, focus, clipboard, animation controls, CSP | Playwright | One representative per distinct interaction, plus desktop/narrow layouts where behavior differs. |
@@ -47,8 +47,8 @@ change.
 The resulting main checkpoint is `e2fdc128a13b3ac0c2965edbfd73868ed3f112ba`.
 Its [CI run](https://github.com/servrox/console-fx/actions/runs/34778964221)
 passed 342 Vitest cases, 82 studio browser cases and three packed-consumer
-journeys. These results cover the merged maintenance; proposed catalogue and
-page behavior still requires implementation and its own milestone checks.
+journeys. These results cover the merged maintenance; this was the maintenance checkpoint. The implemented catalogue and
+page behavior have separate [milestone evidence](workbench-implementation-evidence.md).
 
 | Repetition removed | Remaining proof |
 | --- | --- |
@@ -123,3 +123,15 @@ inherit shared configuration with `extends: true`.
 
 Local, CI, native, package and live-site results stay distinct. This test-only
 maintenance does not create a new package release or change the deployed UI.
+
+## Workbench integration proof ownership — 2026-09-14
+
+- The fast catalogue matrix owns all 43 examples: defaults, content, floors, paint bounds, non-overlap, complete exports and recipe round trips. A separate v1 fixture matrix covers 93 unchanged outputs/failures/fallbacks, including measured standard lettering.
+- Navigation hooks own Back/Forward, unknown URLs, share priority, stale replacement decisions and Undo/Redo reconciliation. Browser journeys own the visible dialogs and focus.
+- Replace obsolete landing quick-demo/gallery tours with hero tabs/reveal, full code/copy recovery, six category links and the page split. Recipe factory contracts retain their existing coverage.
+- Desktop retains layout-independent import/storage/clipboard races, raw-scene recovery, fitting, named-field and cinematic controls. Those legacy raw-scene cases explicitly seed a saved document; they do not assert the new-entry default.
+- Mobile runs the distinct drawer, mounted Edit/Output/Code panels, copy, import/Reset, accessibility and draft-return journeys, plus responsive landing and video checks. Identical desktop regression repetitions are removed from the mobile project.
+
+No data-loss or renderer/adapter regression is removed. Aggregate browser results belong in the new implementation receipt; earlier UI counts are historical.
+
+The retired quick-demo reveal test is removed with that UI. Public compiler/fitting failure tests still own retained plain output; the new hero copy-recovery journey and workbench invalid-render/JSON recovery retain the visible recovery obligations. The retired landing session, galleries, viewport activation and reveal helpers are removed; the catalogue and document session now own the single editor path. Packed Next browser oracles resolve the installed candidate's public entrypoints.

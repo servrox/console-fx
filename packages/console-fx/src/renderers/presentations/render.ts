@@ -233,7 +233,9 @@ export function renderPresentation(
       return (
         (descriptor.id === "letterpress" && slot.id === "title"
           ? text(
-              plan?.cardLayout?.compact ? slot.x - 0.2 : 35.8,
+              plan?.report.algorithm === "fit/v2" || plan?.cardLayout?.compact
+                ? slot.x - 0.2
+                : 35.8,
               baseline + 1.3,
               "#faf9ef",
               true,

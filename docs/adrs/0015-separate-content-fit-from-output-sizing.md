@@ -5,7 +5,7 @@ Date: 2026-09-12
 Owner: ConsoleFX maintainer
 Applies when: Layout planning, text measurements, console sizing, render recipes, fit previews or their compatibility changes.
 Supersedes: None
-Superseded by: None
+Superseded by: ADR-0017 for new workbench example creation defaults only; ADR-0018 adds separately versioned fit/v2. All v1 rules remain Accepted.
 Approval: On 2026-09-12 the maintainer explicitly answered “Approve ADR-0015” for this reviewed fitting, sizing, measurement and render-recipe contract. The active request to review/merge all PRs and fully implement all specifications supplies implementation authority. Compact visual variants still need their own review.
 
 Subsequent visual approval: On 2026-09-12 the maintainer explicitly answered “Approve all ten compact designs” for the [360 px references](../mockups/preset-compact-v1/README.md) and captured overview. This satisfies the separate compact appearance gate without changing this decision's accepted intent or claiming runtime qualification.
@@ -43,3 +43,9 @@ Accepted ADR-0013 owns the accessibility successor and Accepted ADR-0014 owns th
 ## Validation
 
 Use the [responsive fitting specification](../specs/responsive-fitting-spec.md) for old/new option/recipe fixtures, text/paint bounds, confidence, explicit fallback, multi-width compact comparisons, silent preview/SSR, single-call exports, package consumers and the actual-DevTools matrix. The [research probe](../research/console-fit/README.md) is exploratory evidence only. This ADR reports no implemented fitting API or browser qualification.
+
+## Narrow successor — 2026-09-14
+
+Accepted [ADR-0017](0017-default-new-workbench-examples-to-automatic-svg-sizing.md) enables automatic SVG sizing when the workbench materializes a new catalogue example. The public compiler, imported/raw scenes, saved recipes, experimental status and all other fitting requirements retain this decision.
+
+Accepted [ADR-0018](0018-add-versioned-floor-preserving-fitting.md) adds floor-preserving `fit/v2`; it preserves the existing `fit/v1` contract and outputs.

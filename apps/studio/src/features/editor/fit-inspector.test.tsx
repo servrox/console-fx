@@ -53,6 +53,8 @@ it("keeps fitting controls usable when an optional SVG reference exceeds its res
   const props = {
     scene,
     options,
+    fitting: { status: "available" } as const,
+    sizing: { status: "available" } as const,
     onApply,
     measurement: { pending: false },
     onMeasure: vi.fn(),
@@ -86,5 +88,65 @@ it("keeps fitting controls usable when an optional SVG reference exceeds its res
   expect(
     within(reference).getByRole("img", { hidden: true }).getAttribute("alt"),
   ).toBe("LIGHTNING");
+  onApply.mockClear();
+  const retained = {
+    target: "chromium",
+    renderer: "svg",
+    layout: {
+      algorithm: "fit/v1",
+      width: 720,
+      maxHeight: 400,
+      variant: "standard",
+      overflow: "shrink",
+      minFontSize: 12,
+    },
+    sizing: { mode: "fixed", width: 720 },
+  } as const;
+  const unavailable = {
+    status: "unavailable",
+    reason: "Disabled by policy; saved settings stay intact.",
+  } as const;
+  view.rerender(
+    <FitInspector
+      {...props}
+      scene={valid}
+      options={retained}
+      fitting={unavailable}
+    />,
+  );
+  act(() => {
+    resize(360);
+    vi.runOnlyPendingTimers();
+  });
+  expect(
+    (view.getByLabelText("Layout variant") as HTMLSelectElement).closest(
+      "fieldset",
+    )?.disabled,
+  ).toBe(true);
+  fireEvent.change(view.getByLabelText("Export display width (px)"), {
+    target: { value: "480" },
+  });
+  fireEvent.click(
+    view.getByRole("button", { name: "Use this width for export" }),
+  );
+  expect(onApply.mock.lastCall?.[0]).toEqual({
+    ...retained,
+    sizing: { mode: "fixed", width: 480 },
+  });
+  view.rerender(
+    <FitInspector
+      {...props}
+      scene={valid}
+      options={retained}
+      sizing={unavailable}
+    />,
+  );
+  fireEvent.click(
+    view.getByRole("button", { name: "Use this width for export" }),
+  );
+  expect(onApply.mock.lastCall?.[0]).toMatchObject({
+    layout: { width: 360 },
+    sizing: retained.sizing,
+  });
   expect(log).not.toHaveBeenCalled();
 });

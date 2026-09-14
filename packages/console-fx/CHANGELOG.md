@@ -1,6 +1,13 @@
 # @servrox/console-fx
 
-## 0.1.1
+## 0.2.0
+
+### Minor Changes
+
+- Add explicit `fit/v2` with per-field readable floors and paint-aware fitting inside approved card cells. Preserve `fit/v1` output, failure and fallback behavior. Optional measurement batches retain their input limits and separate algorithm identities.
+- Require matching core 0.2.x in the React adapter; no new runtime dependencies.
+
+Includes the previously prepared, unpublished 0.1.1 corrections below.
 
 ### Patch Changes
 

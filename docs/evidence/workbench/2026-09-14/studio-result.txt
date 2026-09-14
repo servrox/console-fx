@@ -1,0 +1,2 @@
+Local prepared-CSP Playwright run: 51 passed (38.1s).
+Raw report: .artifacts/workbench/studio-final.log

@@ -64,10 +64,10 @@ results and native DevTools rendering observations remain separate evidence.
 | Manifest                                                      | Current version / kind                              | Declared dependency boundary                                                                             |
 | ------------------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [Workspace root](../../package.json)                          | `console-fx-workspace` 0.1.0; private               | The 22 development packages above; pnpm 12.3.4 is the package manager                                    |
-| [Core](../../packages/console-fx/package.json)                | `@servrox/console-fx` 0.1.1                         | **No dependencies or peers**; public ESM entrypoints                                                     |
-| [React adapter](../../packages/console-fx-react/package.json) | `@servrox/console-fx-react` 0.1.1                   | Core `workspace:^`; React peer `^19.0.0`                                                                 |
+| [Core](../../packages/console-fx/package.json)                | `@servrox/console-fx` 0.2.0                         | **No dependencies or peers**; public ESM entrypoints                                                     |
+| [React adapter](../../packages/console-fx-react/package.json) | `@servrox/console-fx-react` 0.2.0                   | Core `workspace:^`; React peer `^19.0.0`                                                                 |
 | [Studio](../../apps/studio/package.json)                      | `@servrox/console-fx-studio` 0.1.0; private         | Core and adapter `workspace:*`; Next.js 16.3.4; React/React DOM 19.3.0                                   |
-| [Next.js example](../../examples/next-app/package.json)       | `console-fx-next-example`; private consumer fixture | Core/adapter 0.1.1; Next.js/React/React DOM pins above; TypeScript and Node/React declaration pins above |
+| [Next.js example](../../examples/next-app/package.json)       | `console-fx-next-example`; private consumer fixture | Core/adapter 0.2.0; Next.js/React/React DOM pins above; TypeScript and Node/React declaration pins above |
 
 `workspace:*` and `workspace:^` are local package relationships. Published
 tarball manifests resolve them to package versions; verify the tarball rather

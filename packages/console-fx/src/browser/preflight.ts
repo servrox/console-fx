@@ -15,6 +15,7 @@ import { normalizeRenderOptions } from "../validation/render-options.js";
 import { planSvgLayout } from "../layout/planner.js";
 import { MetricResolver } from "../layout/metrics.js";
 import { diagnoseRichScene } from "./compiler.js";
+import { wrappingAlternatives, type FlowRun } from "../layout/wrap.js";
 
 class PreflightMetricResolver extends MetricResolver {
   private readonly alternatives: {
@@ -22,10 +23,10 @@ class PreflightMetricResolver extends MetricResolver {
     profile: string;
   }[] = [];
   override readonly suggest = (
-    alternatives: Iterable<TextRun>,
+    tokens: readonly (readonly FlowRun[])[],
     profile = "flow/v1",
   ): void => {
-    this.alternatives.push({ runs: alternatives, profile });
+    this.alternatives.push({ runs: wrappingAlternatives(tokens), profile });
   };
   /** Fill spare preflight capacity after required shaping work, retaining headroom
    * for different fragments on the measured pass. Speculation never exhausts it.
@@ -72,6 +73,7 @@ export function prepareTextMeasurements(
     const resolver = new PreflightMetricResolver(
       config.measurementEnvironment,
       config.measurements,
+      config.layout.algorithm,
     );
     try {
       planSvgLayout(scene, config.layout, config, resolver);
@@ -87,7 +89,7 @@ export function prepareTextMeasurements(
         resolver.completePreflight();
         return {
           ok: true,
-          value: deepFreeze([...resolver.requests.values()]),
+          value: deepFreeze(resolver.measurementBatch(true)),
           diagnostics: error.diagnostics,
         };
       }
@@ -96,7 +98,7 @@ export function prepareTextMeasurements(
     resolver.completePreflight();
     return {
       ok: true,
-      value: deepFreeze([...resolver.requests.values()]),
+      value: deepFreeze(resolver.measurementBatch(true)),
       diagnostics: [],
     };
   } catch (error) {

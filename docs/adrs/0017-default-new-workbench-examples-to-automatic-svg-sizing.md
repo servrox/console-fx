@@ -1,12 +1,12 @@
 # ADR-0017: Default new workbench examples to automatic SVG sizing
 
-Status: Proposed
+Status: Accepted
 Date: 2026-09-13
 Owner: ConsoleFX maintainer
 Applies when: Creation defaults for workbench examples and conversion of existing work change.
-Supersedes: ADR-0015 only for new workbench example sizing defaults, if accepted; all other ADR-0015 rules remain binding.
-Superseded by: None
-Approval: Pending review of this concrete narrow successor. The maintainer requested responsiveness enabled for all examples by default and a design review before implementation.
+Supersedes: ADR-0015 only for new workbench example sizing defaults, all other ADR-0015 rules remain binding.
+Superseded by: ADR-0018 for the algorithm used by new examples only.
+Approval: The maintainer explicitly approved ADR-0016/0017 on 2026-09-14 and instructed: "finish 1. and 2. now!" This accepts the linked workbench contract and authorizes its implementation and updated package publication.
 
 ## Context
 
@@ -15,7 +15,7 @@ ADR-0015 intentionally separates content fitting from output-carrier sizing
 and currently makes the experimental carrier opt-in. Merely scaling the
 website preview would not meet the requested console-output default.
 
-## Proposed decision
+## Decision
 
 - Every newly materialized catalogue example in the workbench starts as a
   Chromium SVG recipe with an explicit bounded `fit/v1` request and
@@ -39,14 +39,14 @@ website preview would not meet the requested console-output default.
 ## Scope of succession
 
 This record changes **only the app creation default** from opt-in to enabled
-for newly opened catalogue examples. On acceptance, add a reciprocal narrow
+for newly opened catalogue examples. On acceptance (recorded 2026-09-14), add a reciprocal narrow
 successor note to ADR-0015 and update the fitting specification's opt-in and
 studio-default wording. Its technical contract remains authoritative.
 
 It does not graduate experimental carrier sizing, change `SceneV1` or
 `RenderRecipeV1`, alter core factory defaults, add live console resizing, enable
 static-profile motion or replace an explicit saved preference with new policy.
-The workbench catalogue structure is separately proposed in
+The workbench catalogue structure is separately accepted in
 [ADR-0016](0016-organize-discovery-around-an-example-catalogue.md).
 
 ## Alternatives considered
@@ -68,5 +68,9 @@ page screenshots do not establish that evidence. Impossible or unreadable
 requests retain diagnostics and recoverable data.
 
 See [workbench contract §4](../specs/workbench-contract.md#4-make-automatic-sizing-explicit)
-and the [testing strategy](../specs/testing-strategy.md). This Proposed record
+and the [testing strategy](../specs/testing-strategy.md). This decision record
 reports no new runtime support or qualification.
+
+## Versioned algorithm successor
+
+Accepted [ADR-0018](0018-add-versioned-floor-preserving-fitting.md) selects `fit/v2` for new examples after the all-example matrix exposed v1 limitations. All other defaults, import preservation and experimental-status requirements remain binding.

@@ -12,7 +12,9 @@ owns navigation to the dated merged source and package checkpoints. The
 [first 0.1.1 preparation](specs/patch-release-preparation.md) records an earlier
 core archive; the second architecture round changes those bytes. Source/CI,
 exact release authority and registry verification remain separate steps. The
-pending workbench redesign is also outside the shipped MVP.
+workbench and approved 0.2.0 successor now have their own
+[implementation/release receipt](specs/workbench-implementation-evidence.md).
+Earlier 0.1.1 packets are historical; 0.2.0 includes those fixes.
 
 That audit retains promoted-artifact observations and the remaining requirements.
 Full-spec completion is still pending

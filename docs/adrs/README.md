@@ -2,7 +2,7 @@
 
 This is the canonical index for repository decisions. Each decision is one `NNNN-kebab-title.md` file, following [specification section 13](../specs/console-fx-spec.md#13-architectural-decisions-proposed-for-implementation). The directory and single-file convention come from that specification; this setup adds the index, provenance mapping, and receipt alongside the decisions.
 
-ADR-0001 through ADR-0010 and ADR-0012 through ADR-0015 are **Accepted**. ADR-0011 is **Superseded** by ADR-0013. The maintainer explicitly approved ADR-0001 through ADR-0011 as written in the setup conversation on 2026-09-11. Their accepted status makes them binding architecture intent; it does not grant source implementation authority. The revised specification carries the approved product contract; accepted local ADRs govern the covered architecture. The setup receipt preserves the original governance-stage observations. On 2026-09-12 the maintainer requested implementation of commit `3c42e12`, removed screen-reader review as a launch blocker, and explicitly answered “Approve ADR-0012 and ADR-0013” for the prepared records. The earlier specification save alone did not authorize implementation.
+ADR-0001 through ADR-0010 and ADR-0012 through ADR-0018 are **Accepted**. ADR-0011 is **Superseded** by ADR-0013. The maintainer explicitly approved ADR-0001 through ADR-0011 as written in the setup conversation on 2026-09-11. Their accepted status makes them binding architecture intent; it does not grant source implementation authority. The revised specification carries the approved product contract; accepted local ADRs govern the covered architecture. The setup receipt preserves the original governance-stage observations. On 2026-09-12 the maintainer requested implementation of commit `3c42e12`, removed screen-reader review as a launch blocker, and explicitly answered “Approve ADR-0012 and ADR-0013” for the prepared records. The earlier specification save alone did not authorize implementation.
 
 On 2026-09-12 the maintainer also explicitly answered “Approve ADR-0014 and all ten designs” for the prepared card-presentation contract, ordinary scene slots, visual references and Windows font fallbacks. The later all-spec implementation request supplies execution authority; accepted status alone remains separate from runtime and release evidence.
 
@@ -26,14 +26,18 @@ The maintainer also explicitly answered “Approve ADR-0015” on 2026-09-12 for
 | ADR-0012 | [Use bounded cinematic lettering profiles](0012-use-bounded-cinematic-lettering-profiles.md) | Accepted | Cinematic presets, composite effect/profile contract, original glyphs, and compatibility | None |
 | ADR-0013 | [Keep screen-reader review as nonblocking follow-up](0013-keep-screen-reader-review-as-nonblocking-follow-up.md) | Accepted | Accessibility and release readiness; supersedes ADR-0011 | None |
 | ADR-0014 | [Use closed preset presentations](0014-use-closed-preset-presentations.md) | Accepted | Useful/artful cards, shared presentation data, slot schemas and comparison baselines | None |
-| ADR-0015 | [Separate content fit from output sizing](0015-separate-content-fit-from-output-sizing.md) | Accepted | Fitting, measurements, sizing, recipes and compact layout qualification | None |
-| ADR-0016 | [Organize discovery around an example catalogue](0016-organize-discovery-around-an-example-catalogue.md) | Proposed | Separate landing/workbench, category navigation, capability resolution | None |
-| ADR-0017 | [Default new workbench examples to automatic SVG sizing](0017-default-new-workbench-examples-to-automatic-svg-sizing.md) | Proposed | New-example defaults; proposed narrow successor to ADR-0015 | None |
+| ADR-0015 | [Separate content fit from output sizing](0015-separate-content-fit-from-output-sizing.md) | Accepted | Fitting, measurements, sizing, recipes and compact layout qualification | ADR-0017 (creation defaults only), ADR-0018 (additive fit/v2) |
+| ADR-0016 | [Organize discovery around an example catalogue](0016-organize-discovery-around-an-example-catalogue.md) | Accepted | Separate landing/workbench, category navigation, capability resolution | None |
+| ADR-0017 | [Default new workbench examples to automatic SVG sizing](0017-default-new-workbench-examples-to-automatic-svg-sizing.md) | Accepted | New-example defaults; narrow successor to ADR-0015 | ADR-0018 (default algorithm only) |
+| ADR-0018 | [Add versioned fitting that preserves readable floors](0018-add-versioned-floor-preserving-fitting.md) | Accepted | Unmeasured all-example fitting, preserved v1 compatibility | None |
 
-ADR-0016 and ADR-0017 are pending maintainer review. ADR-0015 remains binding;
-its proposed narrow successor does not take effect before acceptance. See the
+The maintainer explicitly approved ADR-0016 and ADR-0017 on 2026-09-14 and
+authorized the workbench implementation and updated package publication. ADR-0015
+remains binding outside the new-example creation default. See the
 [workbench proposal](../specs/workbench-proposal.md) for the category map and
 explicit specification conflicts.
+
+On 2026-09-14 the maintainer explicitly approved ADR-0018 and release 0.2.0 under `next`. It adds `fit/v2` without changing `fit/v1`, and narrowly succeeds ADR-0017 for the algorithm used by new examples.
 
 ## Status and acceptance
 

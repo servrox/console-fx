@@ -106,12 +106,11 @@ for (const width of [1440, 390]) {
   for (let i = 0; i < 10; i++) {
     const control = page
       .getByRole("button", {
-        name: i % 2 ? "Styled" : "Plain",
+        name: i % 2 ? "Show output" : "Show code",
         exact: true,
       })
       .first();
-    if (await control.count()) await control.click();
-    else await page.mouse.move(850 + i * 10, 360);
+    await control.click();
     await page.waitForTimeout(1000);
   }
   const state = await page.evaluate(
@@ -178,9 +177,7 @@ for (const width of [1440, 390]) {
       ),
     },
     active: {
-      task: name.startsWith("before")
-        ? "pointer movement"
-        : "plain/styled selection",
+      task: "complete output/code panel selection",
       longTasks: state.longTasks.filter((t) => t.start >= activeStart),
       frameSamples: state.frames.length,
       frameP95: state.frames[Math.floor(state.frames.length * 0.95)] ?? null,

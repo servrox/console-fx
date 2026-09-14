@@ -11,6 +11,7 @@ import type {
   PaintBounds,
   MeasurementQuality,
 } from "../model/layout.js";
+import { standardCellEdges } from "../presentations/safe-cells.js";
 import { deepFreeze, LIMITS } from "../model/limits.js";
 import { fail } from "../validation/index.js";
 import { presentationDescriptor } from "../presentations/catalog.js";
@@ -28,12 +29,7 @@ import { PROFILES } from "../renderers/cinematic/profiles.js";
 import { GLYPHS } from "../renderers/cinematic/glyphs.js";
 import { MetricResolver } from "./metrics.js";
 import { expand, runBounds, translate, union } from "./bounds.js";
-import {
-  wrapTokens,
-  wrapTokensToRows,
-  wrappingAlternatives,
-  type FlowRun,
-} from "./wrap.js";
+import { wrapTokens, wrapTokensToRows, type FlowRun } from "./wrap.js";
 
 export interface PlannedRun {
   readonly run: TextRun & { readonly sourceRun: number };
@@ -98,6 +94,7 @@ export function planSvgLayout(
     new MetricResolver(
       environment,
       options.measurementEnvironment ? options.measurements : undefined,
+      request.algorithm,
     );
   const diagnostics: Diagnostic[] = [];
   if (
@@ -154,16 +151,17 @@ export function planSvgLayout(
         style: slot.style,
       }))
     : scene.lines.flatMap((line) => line.runs);
-  const minimumScale = Math.max(
-    0,
-    ...visibleRuns
-      .filter((run) => run.text.length)
-      .map(
-        (run) =>
-          slotFloor(run.style.fontSize) /
-          (run.style.fontSize * frameScale * floorScale),
-      ),
-  );
+  const floorPreserving = request.algorithm === "fit/v2";
+  const floorRatios = visibleRuns
+    .filter((run) => run.text.length)
+    .map(
+      (run) =>
+        slotFloor(run.style.fontSize) /
+        (run.style.fontSize * frameScale * floorScale),
+    );
+  const minimumScale = floorPreserving
+    ? Math.min(1, ...floorRatios)
+    : Math.max(0, ...floorRatios);
   // fit/v1: 16 uniform candidates, descending, including the exact readability floor.
   const scales =
     !shrink || minimumScale >= 1
@@ -231,6 +229,7 @@ export function planSvgLayout(
   let candidates = 0;
   for (const scale of scales) {
     candidates++;
+    resolver.beginCandidate();
     const scaled: SceneV1 = {
       ...scene,
       surface: {
@@ -244,11 +243,22 @@ export function planSvgLayout(
           ...r,
           style: {
             ...r.style,
-            fontSize:
-              (cardLayout?.compact
+            fontSize: (() => {
+              const base = cardLayout?.compact
                 ? (cardLayout.slots.find((s) => s.line === li && s.run === ri)
                     ?.style.fontSize ?? r.style.fontSize)
-                : r.style.fontSize) * scale,
+                : r.style.fontSize;
+              // V1 is deliberately uniform. V2 leaves small fields at their floor.
+              return floorPreserving
+                ? Math.min(
+                    base,
+                    Math.max(
+                      base * scale,
+                      slotFloor(base) / (frameScale * floorScale),
+                    ),
+                  )
+                : base * scale;
+            })(),
             letterSpacing: cardLayout?.compact
               ? 0
               : r.style.letterSpacing * scale,
@@ -263,7 +273,7 @@ export function planSvgLayout(
       const cardTexts: NonNullable<SvgLayoutPlan["cardTexts"]>[number][] = [];
       let visualRows = cardLayout.rows;
       let fits = true;
-      for (const slot of cardLayout.slots) {
+      for (const [slotIndex, slot] of cardLayout.slots.entries()) {
         const run = scaled.lines[slot.line]!.runs[slot.run]!;
         if (
           /[\n\t\u2028\u2029]/u.test(run.text) ||
@@ -285,7 +295,7 @@ export function planSvgLayout(
         const wrapping = wrap && (footer || command);
         const lineHeight = footer ? 18 : slot.id === "command" ? 24 : 18;
         const tokens = wrapTokens([{ ...run, sourceRun: slot.run }]);
-        if (wrapping) resolver.suggest?.(wrappingAlternatives(tokens), profile);
+        if (wrapping) resolver.suggest?.(tokens, profile);
         const texts = wrapping
           ? wrapTokensToRows(tokens, footer ? 190 : slot.safeWidth, (runs) => {
               if (!runs.length) return 0;
@@ -312,45 +322,78 @@ export function planSvgLayout(
         });
         for (const [row, text] of texts.entries()) {
           const metrics = resolver.resolve({ ...run, text }, profile);
-          const left = slot.x - metrics.advance * anchorFactor;
-          const baseline =
+          let left = slot.x - metrics.advance * anchorFactor;
+          let baseline =
             slot.y + lineHeight * (footer ? row : row - (texts.length - 1) / 2);
-          const ink = {
+          let ink = {
             x: left - metrics.inkLeft,
             y: baseline - metrics.ascent,
             width: metrics.inkLeft + metrics.inkRight,
             height: metrics.ascent + metrics.descent,
           };
-          const local = expand(
+          let local = expand(
             ink,
             card.id === "letterpress" && slot.id === "title" ? 1.5 : 0.5,
           );
           // Fixed vertical cells reserve surrounding labels and original artwork.
-          const top = command
-            ? slot.id === "command"
-              ? 164
-              : 110
-            : Math.max(
-                slot.safeTop ?? 0,
-                slot.y - slot.style.fontSize * 1.4 - 2,
-              );
-          const bottom = command
-            ? slot.id === "command"
-              ? 215
-              : 148
-            : Math.min(
-                cardLayout.height,
-                baseline + slot.style.fontSize * 0.5 + 2,
-              );
+          const [artLeft, artRight, artTop, artBottom] =
+            floorPreserving && !cardLayout.compact
+              ? standardCellEdges(card.id, slotIndex)
+              : [];
+          const cellLeft = Math.max(slotStart - 3, artLeft ?? -Infinity);
+          const cellRight = Math.min(
+            slotStart + slot.safeWidth + 3,
+            artRight ?? Infinity,
+          );
+          const top = Math.max(
+            artTop ?? -Infinity,
+            command
+              ? slot.id === "command"
+                ? 164
+                : 110
+              : Math.max(
+                  slot.safeTop ?? 0,
+                  slot.y - slot.style.fontSize * 1.4 - 2,
+                ),
+          );
+          const bottom = Math.min(
+            artBottom ?? Infinity,
+            command
+              ? slot.id === "command"
+                ? 215
+                : 148
+              : Math.min(
+                  cardLayout.height,
+                  baseline + slot.style.fontSize * 0.5 + 2,
+                ),
+          );
+          // V2 moves the complete paint box only inside the original cell.
+          // An oversized box still fails; no artwork or cell bounds are changed.
+          let shiftedSlot = slot;
+          if (floorPreserving) {
+            const dx = Math.max(
+              cellLeft - local.x,
+              Math.min(0, cellRight - local.x - local.width),
+            );
+            const dy = Math.max(
+              top - local.y,
+              Math.min(0, bottom - local.y - local.height),
+            );
+            left += dx;
+            baseline += dy;
+            ink = translate(ink, dx, dy);
+            local = translate(local, dx, dy);
+            shiftedSlot = { ...slot, x: slot.x + dx };
+          }
           // Authored 3px bearing tolerance never permits crossing another slot.
           if (
-            local.x < slotStart - 3 ||
-            local.x + local.width > slotStart + slot.safeWidth + 3 ||
+            local.x < cellLeft ||
+            local.x + local.width > cellRight ||
             local.y < top ||
             local.y + local.height > bottom
           )
             fits = false;
-          cardTexts.push({ slot, text, baseline });
+          cardTexts.push({ slot: shiftedSlot, text, baseline });
           fragments.push({
             sourceLine: slot.line,
             sourceRun: slot.run,
@@ -415,7 +458,7 @@ export function planSvgLayout(
       }
       for (const paragraph of paragraphs) {
         const tokens = wrapTokens(paragraph);
-        if (wrap) resolver.suggest?.(wrappingAlternatives(tokens));
+        if (wrap) resolver.suggest?.(tokens);
         const fragments = wrap
           ? wrapTokensToRows(tokens, request.width - 2 * padding, (runs) => {
               const rowSize = Math.max(
@@ -549,9 +592,17 @@ export function planSvgLayout(
         "Recipient fonts may differ from these local measurements.",
       ),
     );
-  const requests = [...resolver.requests.values()].filter(
-    (r) => !resolver.available.has(r.key),
-  );
+  const requests = resolver.measurementBatch();
+  if (
+    floorPreserving &&
+    requests.length < resolver.requests.size - resolver.available.size
+  )
+    diagnostics.push(
+      issue(
+        "measurement-batch-limited",
+        "Font batch capped; remaining text stays estimated.",
+      ),
+    );
   if (options.measurements && requests.length)
     diagnostics.push(
       issue(
@@ -564,7 +615,7 @@ export function planSvgLayout(
   // Output sizing owns the hard display-height limit. Preflight must still
   // collect font data that can replace these estimated content bounds.
   const report: LayoutReport = {
-    algorithm: "fit/v1",
+    algorithm: request.algorithm,
     profile,
     variant: cardLayout?.compact ? "compact" : "standard",
     artboard: { width: request.width, height: selected.height },

@@ -1,0 +1,8 @@
+{
+  "at": "2026-09-14T09:03:08.748Z",
+  "from": "3eb300cb587cf63964774b2bdc77df7f1e8a50f93acf95effd8ede95b14bbb16",
+  "to": "95a87feaebe762f968def75b7c62faefb61a3d2c537ce6d8e87577197aa5b2f0",
+  "cases": 43,
+  "pass": true,
+  "scope": "Exact native arguments, preview data and standalone JavaScript unchanged by size refactor."
+}

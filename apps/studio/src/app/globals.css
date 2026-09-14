@@ -1,5 +1,6 @@
 @import "../styles/studio.css";
 @import "../styles/experience.css";
+@import "../styles/workbench.css";
 
 :root {
   color-scheme: dark;

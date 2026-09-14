@@ -33,6 +33,7 @@ export default defineConfig({
   projects: [
     {
       name: "desktop",
+      testIgnore: "**/workbench-mobile.spec.ts",
       use: {
         ...devices[
           browserName === "firefox"
@@ -46,6 +47,13 @@ export default defineConfig({
     },
     {
       name: "mobile",
+      // Layout-independent recovery/fitting regressions run once on desktop.
+      // Mobile owns actual drawer, mounted-panel, copy/import and focus journeys.
+      testMatch: [
+        "**/website.spec.ts",
+        "**/workbench-mobile.spec.ts",
+        "**/usage-video.spec.ts",
+      ],
       use:
         browserName === "firefox"
           ? { viewport: { width: 390, height: 844 }, hasTouch: true }

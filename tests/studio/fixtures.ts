@@ -6,9 +6,35 @@ import { join } from "node:path";
 // Local NixOS runs may connect to an explicitly isolated Windows Chromium
 // instance. Other runs launch the selected engine. Every test owns its context.
 export const test = base.extend<
-  { clipboard: { readText: () => Promise<string> } },
+  {
+    clipboard: { readText: () => Promise<string> };
+    legacyDraft: boolean;
+    seedLegacyDraft: void;
+  },
   { nativeArtifactsDir: string | undefined }
 >({
+  legacyDraft: [false, { option: true }],
+  // Legacy scene/renderer regressions explicitly start from a raw saved document.
+  // New-entry behavior has its own workbench journeys with this option off.
+  seedLegacyDraft: [
+    async ({ page, legacyDraft }, use) => {
+      if (legacyDraft) {
+        const { neon } =
+          await import("../../packages/console-fx/dist/presets/index.js");
+        await page.addInitScript((scene) => {
+          if (sessionStorage.getItem("console-fx:test-legacy-start")) return;
+          sessionStorage.setItem("console-fx:test-legacy-start", "1");
+          if (
+            localStorage.getItem("console-fx:scene:v1") === null &&
+            localStorage.getItem("console-fx:recipe:v1") === null
+          )
+            localStorage.setItem("console-fx:scene:v1", JSON.stringify(scene));
+        }, neon());
+      }
+      await use();
+    },
+    { auto: true },
+  ],
   nativeArtifactsDir: [
     // Playwright parses destructured fixture dependencies; this worker has none.
     // eslint-disable-next-line no-empty-pattern

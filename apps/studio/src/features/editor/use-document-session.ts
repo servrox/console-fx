@@ -8,7 +8,6 @@ import {
   useState,
 } from "react";
 import { LIMITS } from "@servrox/console-fx";
-import type { SceneV1 } from "@servrox/console-fx";
 import {
   decodeDocument,
   decodeShare,
@@ -28,21 +27,13 @@ type Notice = {
   readonly message: string;
 };
 export interface DocumentSessionOptions {
-  readonly transfer?: SavedDocument | null;
-  readonly onTransferDone?: ((restoreFocus?: boolean) => void) | undefined;
-  readonly onSharedDecisionChange?: ((pending: boolean) => void) | undefined;
   readonly onTransition?: ((resetSelection: boolean) => void) | undefined;
 }
 
 /** Browser-local document ordering; the view never coordinates storage or read generations. */
 export function useDocumentSession(
-  initialScene: SceneV1,
-  {
-    transfer = null,
-    onTransferDone,
-    onSharedDecisionChange,
-    onTransition,
-  }: DocumentSessionOptions = {},
+  initialScene: SavedDocument,
+  { onTransition }: DocumentSessionOptions = {},
 ) {
   const importSequence = useRef(0);
   const [document, dispatchDocument] = useReducer(
@@ -63,6 +54,7 @@ export function useDocumentSession(
     [onTransition],
   );
   const [ready, setReady] = useState(false);
+  const [recoveredWork, setRecoveredWork] = useState(false);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [draftStatus, setDraftStatus] = useState<DraftStatus | null>(null);
   const [storageIssue, setStorageIssue] = useState(false);
@@ -83,15 +75,12 @@ export function useDocumentSession(
   const initialized = useRef(false);
   const releaseShared = useRef<(() => void) | null>(null);
   const persisted = useMemo(() => savedDocument(document), [document]);
-  const pendingExample =
-    ready && !pendingShared && transfer && !sameDocument(persisted, transfer)
-      ? transfer
-      : null;
   useEffect(() => {
     if (initialized.current) return;
     initialized.current = true;
     const draft = store.read();
     setStorageIssue(draft.kind === "error");
+    setRecoveredWork(draft.kind === "valid");
     let baseline = draft.kind === "valid" ? draft.document : initialScene;
     let shared: SavedDocument | null = null;
     let startupNotice: Notice | null =
@@ -137,9 +126,17 @@ export function useDocumentSession(
   useEffect(() => {
     if (!ready) return;
     const receiveShare = () => {
-      if (!window.location.hash.startsWith("#scene=")) return;
+      if (!window.location.hash.startsWith("#scene=")) {
+        releaseShared.current?.();
+        releaseShared.current = null;
+        setPendingShared(null);
+        return;
+      }
       const result = decodeShare(window.location.hash);
       if (!result.ok) {
+        releaseShared.current?.();
+        releaseShared.current = null;
+        setPendingShared(null);
         setNotice({ kind: "error", message: result.diagnostics[0]!.message });
       } else if (!sameDocument(persisted, result.value)) {
         importSequence.current++;
@@ -149,6 +146,10 @@ export function useDocumentSession(
         }
         setPendingShared(result.value);
         onTransition?.(false);
+      } else {
+        releaseShared.current?.();
+        releaseShared.current = null;
+        setPendingShared(null);
       }
     };
     window.addEventListener("hashchange", receiveShare);
@@ -170,20 +171,6 @@ export function useDocumentSession(
       flush();
     };
   }, [store]);
-  useEffect(() => {
-    onSharedDecisionChange?.(!!pendingShared);
-    return () => onSharedDecisionChange?.(false);
-  }, [pendingShared, onSharedDecisionChange]);
-  useEffect(() => {
-    if (!transfer || !ready) return;
-    importSequence.current++;
-    if (pendingShared) {
-      onTransferDone?.();
-      return;
-    }
-    if (sameDocument(persisted, transfer)) onTransferDone?.();
-  }, [transfer, ready, pendingShared, persisted, onTransferDone]);
-
   async function importFile(file?: Pick<File, "size" | "text">) {
     if (!file) return;
     const sequence = ++importSequence.current;
@@ -264,24 +251,15 @@ export function useDocumentSession(
         : { kind: "info", message: "Kept your current scene." },
     );
   }
-  function settleExample(accept: boolean) {
-    if (!pendingExample) return;
-    if (accept) dispatch({ type: "load", document: pendingExample });
-    onTransferDone?.(accept ? undefined : true);
-    setNotice(
-      accept
-        ? {
-            kind: "success",
-            message:
-              "Example loaded with its render settings. Undo restores your previous work.",
-          }
-        : { kind: "info", message: "Kept your current scene." },
-    );
-  }
   return {
     document,
     persisted,
     ready,
+    recoveredWork,
+    beginReplacement: () => {
+      importSequence.current++;
+      onTransition?.(false);
+    },
     dispatch,
     notice,
     setNotice,
@@ -291,11 +269,9 @@ export function useDocumentSession(
     retryStorage,
     clearDraft: () => store.clear(document.revision),
     pendingShared,
-    pendingExample,
     confirmReset,
     requestReset,
     settleReset,
     settleShared,
-    settleExample,
   };
 }

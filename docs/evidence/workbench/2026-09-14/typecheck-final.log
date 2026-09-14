@@ -1,0 +1,5 @@
+$ pnpm -r run typecheck && tsc -p tsconfig.tests.json
+Scope: 3 of 4 workspace projects
+$ tsc -p tsconfig.json --noEmit
+$ tsc -p tsconfig.json --noEmit
+$ tsc --noEmit

@@ -1,0 +1,1196 @@
+{
+  "observedAt": "2026-09-14T09:03:22.468Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.36",
+    "revision": "@507c6ee3e2f3b2ca0e660547e5b9ea4820c67f4c",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.10"
+  },
+  "compiler": {
+    "createdAt": "2026-09-14T09:03:08.685Z",
+    "compilerSha256": "95a87feaebe762f968def75b7c62faefb61a3d2c537ce6d8e87577197aa5b2f0",
+    "cases": [
+      "workbench-preset-badge",
+      "workbench-preset-neon",
+      "workbench-preset-rgbSplit",
+      "workbench-preset-extruded",
+      "workbench-preset-holographic",
+      "workbench-preset-gold",
+      "workbench-preset-chrome",
+      "workbench-preset-crt",
+      "workbench-preset-rainbow",
+      "workbench-preset-lightningMetal",
+      "workbench-preset-iceCathedral",
+      "workbench-preset-liquidChrome",
+      "workbench-preset-moltenGold",
+      "workbench-preset-buildReceipt",
+      "workbench-preset-requestTrace",
+      "workbench-preset-serviceReady",
+      "workbench-preset-commandCard",
+      "workbench-preset-releaseBulletin",
+      "workbench-preset-blueprint",
+      "workbench-preset-contourMap",
+      "workbench-preset-letterpress",
+      "workbench-preset-signalHalftone",
+      "workbench-preset-orbital",
+      "workbench-featured-signature",
+      "workbench-featured-sdkWelcome",
+      "workbench-featured-devContext",
+      "workbench-featured-milestone",
+      "workbench-featured-chromeTitle",
+      "workbench-featured-quietEditorial",
+      "workbench-reference-neonText",
+      "workbench-reference-asciiSignature",
+      "workbench-reference-gradientText",
+      "workbench-reference-boxedMessage",
+      "workbench-reference-successMessage",
+      "workbench-reference-warningMessage",
+      "workbench-reference-errorMessage",
+      "workbench-reference-animatedSvg",
+      "workbench-reference-multilineLayout",
+      "workbench-reference-tabularLayout",
+      "workbench-reference-badgesAndLabels",
+      "workbench-reference-customBrand",
+      "workbench-reference-asciiLogo",
+      "workbench-reference-animatedDolphin"
+    ]
+  },
+  "environment": {
+    "viewport": [
+      1384,
+      855
+    ],
+    "devicePixelRatio": 1,
+    "themeClasses": "platform-windows baseline-default",
+    "background": "rgb(255, 255, 255)",
+    "zoom": "Reset with native Ctrl+0 before observation",
+    "consoleWidth": 1384
+  },
+  "os": "Windows 25H2 build 26220.9223",
+  "stage": "external/third-party",
+  "kind": "actual native Windows DevTools Console",
+  "status": "verified",
+  "rawDirectory": ".artifacts/devtools/chrome-2026-09-14T09-03-22.466Z",
+  "rawSha256": "05c792f71f837b222bac22effedc044b2b4edfdd9b6b326068b0f148a43032d0",
+  "cases": [
+    {
+      "id": "workbench-preset-badge",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-neon",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-rgbSplit",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-extruded",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-holographic",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-gold",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-chrome",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-crt",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-rainbow",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-preset-lightningMetal",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 840,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 840,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "CONSOLE FX",
+      "visibleText": " \nCONSOLE FX"
+    },
+    {
+      "id": "workbench-preset-iceCathedral",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 840,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 840,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "STARK AI",
+      "visibleText": " \nSTARK AI"
+    },
+    {
+      "id": "workbench-preset-liquidChrome",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 840,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 840,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Overdrive",
+      "visibleText": " \nOverdrive"
+    },
+    {
+      "id": "workbench-preset-moltenGold",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 840,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 840,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "HOT RELOAD",
+      "visibleText": " \nHOT RELOAD"
+    },
+    {
+      "id": "workbench-preset-buildReceipt",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "BUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "visibleText": " \nBUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT"
+    },
+    {
+      "id": "workbench-preset-requestTrace",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "REQUEST / SNAPSHOT\nGET  /api/orders  200 OK  148 ms\nAUTH  QUERY  SERIALIZE\n12 ms  106 ms  30 ms\nID  req_demo_0042\nONE REQUEST / NO LIVE CONNECTION",
+      "visibleText": " \nREQUEST / SNAPSHOT\nGET  /api/orders  200 OK  148 ms\nAUTH  QUERY  SERIALIZE\n12 ms  106 ms  30 ms\nID  req_demo_0042\nONE REQUEST / NO LIVE CONNECTION"
+    },
+    {
+      "id": "workbench-preset-serviceReady",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "SERVICE / PASSPORT\nAtlas API  READY\nhttp://localhost:3000\nENVIRONMENT  RUNTIME  REGION\ndevelopment  Node 24  local\nSTARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP",
+      "visibleText": " \nSERVICE / PASSPORT\nAtlas API  READY\nhttp://localhost:3000\nENVIRONMENT  RUNTIME  REGION\ndevelopment  Node 24  local\nSTARTUP SNAPSHOT / VALUES PROVIDED BY YOUR APP"
+    },
+    {
+      "id": "workbench-preset-commandCard",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "NEXT / ACTION\n01  Run the test suite\nRun from the project root.\npnpm test\nCommand shown, never executed.",
+      "visibleText": " \nNEXT / ACTION\n01  Run the test suite\nRun from the project root.\npnpm test\nCommand shown, never executed."
+    },
+    {
+      "id": "workbench-preset-releaseBulletin",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "ATLAS / RELEASE NOTES  v2.4.0\nA quieter kind of fast.\nSmaller payloads.\nClearer diagnostics.\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "visibleText": " \nATLAS / RELEASE NOTES  v2.4.0\nA quieter kind of fast.\nSmaller payloads.\nClearer diagnostics.\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE."
+    },
+    {
+      "id": "workbench-preset-blueprint",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "ENGINEERING / EDITION 01\nBUILT TO LAST\nAn interface worth understanding.\nPRECISION OVER NOISE",
+      "visibleText": " \nENGINEERING / EDITION 01\nBUILT TO LAST\nAn interface worth understanding.\nPRECISION OVER NOISE"
+    },
+    {
+      "id": "workbench-preset-contourMap",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "FIELD NOTES / 007\nFIND YOUR SIGNAL\nLess noise. More direction.\nCONTOUR STUDY",
+      "visibleText": " \nFIELD NOTES / 007\nFIND YOUR SIGNAL\nLess noise. More direction.\nCONTOUR STUDY"
+    },
+    {
+      "id": "workbench-preset-letterpress",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "STUDIO / CONSOLE EDITION\nMake it matter.\nThoughtful tools. Everyday work.\nLESS, BUT CONSIDERED.",
+      "visibleText": " \nSTUDIO / CONSOLE EDITION\nMake it matter.\nThoughtful tools. Everyday work.\nLESS, BUT CONSIDERED."
+    },
+    {
+      "id": "workbench-preset-signalHalftone",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "TWO INKS / ONE IDEA\nMAKE SOME\nSIGNAL\nSmall tools. Clear intent.\nPRINT STUDY 04",
+      "visibleText": " \nTWO INKS / ONE IDEA\nMAKE SOME\nSIGNAL\nSmall tools. Clear intent.\nPRINT STUDY 04"
+    },
+    {
+      "id": "workbench-preset-orbital",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "MISSION / CONSOLE 01\nSTAY CURIOUS\nBuild something worth discovering.\nIDEAS IN ORBIT",
+      "visibleText": " \nMISSION / CONSOLE 01\nSTAY CURIOUS\nBuild something worth discovering.\nIDEAS IN ORBIT"
+    },
+    {
+      "id": "workbench-featured-signature",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Hello, developer.",
+      "visibleText": " \nHello, developer."
+    },
+    {
+      "id": "workbench-featured-sdkWelcome",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "NEXT / ACTION\n01  Atlas SDK\nSandbox mode \u00b7 See the SDK guide\nawait atlas.connect()\nCommand shown, never executed.",
+      "visibleText": " \nNEXT / ACTION\n01  Atlas SDK\nSandbox mode \u00b7 See the SDK guide\nawait atlas.connect()\nCommand shown, never executed."
+    },
+    {
+      "id": "workbench-featured-devContext",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "BUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT",
+      "visibleText": " \nBUILD / RECEIPT\natlas-web  PASSED\nREVISION  DURATION  CHECKS\na1b2c3d  2.34 s  48 / 48\nENVIRONMENT  preview\nCOMPLETED SNAPSHOT"
+    },
+    {
+      "id": "workbench-featured-milestone",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 960,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "wrap-then-shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 960,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "ATLAS / RELEASE NOTES  v2.4.0\nBuild complete\n48 checks passed\nReady for review\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE.",
+      "visibleText": " \nATLAS / RELEASE NOTES  v2.4.0\nBuild complete\n48 checks passed\nReady for review\nPreview channel  TWO CHANGES. ONE CLEAR MESSAGE."
+    },
+    {
+      "id": "workbench-featured-chromeTitle",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Keep building.",
+      "visibleText": " \nKeep building."
+    },
+    {
+      "id": "workbench-featured-quietEditorial",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "Made with care.\nA small detail for developers.",
+      "visibleText": " \nMade with care.\nA small detail for developers."
+    },
+    {
+      "id": "workbench-reference-neonText",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "console-fx\nMake your logs unforgettable.",
+      "visibleText": " \nconsole-fx\nMake your logs unforgettable."
+    },
+    {
+      "id": "workbench-reference-asciiSignature",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "[ console-fx ]\n> CODE / CREATE / ENJOY",
+      "visibleText": " \n[ console-fx ]\n> CODE / CREATE / ENJOY"
+    },
+    {
+      "id": "workbench-reference-gradientText",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "console-fx\nBeautiful by design.",
+      "visibleText": " \nconsole-fx\nBeautiful by design."
+    },
+    {
+      "id": "workbench-reference-boxedMessage",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 \u24d8 console-fx                        \u2502\n\u2502                                     \u2502\n\u2502 Small details. Big developer joy.   \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f",
+      "visibleText": " \n\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e\n\u2502 \u24d8 console-fx                        \u2502\n\u2502                                     \u2502\n\u2502 Small details. Big developer joy.   \u2502\n\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+    },
+    {
+      "id": "workbench-reference-successMessage",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "\u2713   Build complete\nYour changes are ready.\nAll checks passed \u00b7 Example build\nIllustrative message \u00b7 Sample data",
+      "visibleText": " \n\u2713   Build complete\nYour changes are ready.\nAll checks passed \u00b7 Example build\nIllustrative message \u00b7 Sample data"
+    },
+    {
+      "id": "workbench-reference-warningMessage",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "!   Deprecation notice\noldMethod() changes in the next release.\nUse newMethod() instead.\nIllustrative message \u00b7 Sample data",
+      "visibleText": " \n!   Deprecation notice\noldMethod() changes in the next release.\nUse newMethod() instead.\nIllustrative message \u00b7 Sample data"
+    },
+    {
+      "id": "workbench-reference-errorMessage",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "\u00d7   Request failed\nUnable to reach the example API.\nHTTP 500 \u00b7 Try the request again.\nIllustrative message \u00b7 Sample data",
+      "visibleText": " \n\u00d7   Request failed\nUnable to reach the example API.\nHTTP 500 \u00b7 Try the request again.\nIllustrative message \u00b7 Sample data"
+    },
+    {
+      "id": "workbench-reference-animatedSvg",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "console-fx\nFINITE MOTION / STATIC FALLBACK\nDecorative motion \u00b7 4.8 seconds",
+      "visibleText": " \nconsole-fx\nFINITE MOTION / STATIC FALLBACK\nDecorative motion \u00b7 4.8 seconds"
+    },
+    {
+      "id": "workbench-reference-multilineLayout",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "console-fx\nOne expressive console message.\nTyped configuration \u00b7 visual presets\nExport as standalone JavaScript.",
+      "visibleText": " \nconsole-fx\nOne expressive console message.\nTyped configuration \u00b7 visual presets\nExport as standalone JavaScript."
+    },
+    {
+      "id": "workbench-reference-tabularLayout",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "DESIGN           \u2502 RENDERER\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nNeon glow        \u2502 CSS text\nAurora wave      \u2502 SVG concept\nPlain message    \u2502 Text fallback\nIllustrative rows \u00b7 One console.log",
+      "visibleText": " \nDESIGN           \u2502 RENDERER\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nNeon glow        \u2502 CSS text\nAurora wave      \u2502 SVG concept\nPlain message    \u2502 Text fallback\nIllustrative rows \u00b7 One console.log"
+    },
+    {
+      "id": "workbench-reference-badgesAndLabels",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "DEV BUILD    LOCAL SCENE    CSS PREVIEW\n \nMADE WITH CARE / BY SERVROX",
+      "visibleText": " \nDEV BUILD    LOCAL SCENE    CSS PREVIEW\n \nMADE WITH CARE / BY SERVROX"
+    },
+    {
+      "id": "workbench-reference-customBrand",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "S E R V R O X\nBUILD / IMPROVE / CREATE",
+      "visibleText": " \nS E R V R O X\nBUILD / IMPROVE / CREATE"
+    },
+    {
+      "id": "workbench-reference-asciiLogo",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "  ___ ___  _  _ ___  ___  _    ___     _____  __\n / __/ _ \\| \\| / __|/ _ \\| |  | __|___| __\\ \\/ /\n| (_| (_) | .` \\__ \\ (_) | |__| _|___| _| >  < \n \\___\\___/|_|\\_|___/\\___/|____|___|   |_| /_/\\_\\\nMake your logs unforgettable.",
+      "visibleText": " \n  ___ ___  _  _ ___  ___  _    ___     _____  __\n / __/ _ \\| \\| / __|/ _ \\| |  | __|___| __\\ \\/ /\n| (_| (_) | .` \\__ \\ (_) | |__| _|___| _| >  < \n \\___\\___/|_|\\_|___/\\___/|____|___|   |_| /_/\\_\\\nMake your logs unforgettable."
+    },
+    {
+      "id": "workbench-reference-animatedDolphin",
+      "options": {
+        "target": "chromium",
+        "renderer": "svg",
+        "motion": "reduce",
+        "unsupported": "error",
+        "layout": {
+          "algorithm": "fit/v2",
+          "width": 1080,
+          "maxHeight": 400,
+          "variant": "auto",
+          "overflow": "shrink",
+          "minFontSize": 12
+        },
+        "sizing": {
+          "mode": "container-experimental",
+          "maxWidth": 1080,
+          "fillFraction": 0.95
+        }
+      },
+      "consoleCalls": 1,
+      "argumentsEqual": true,
+      "expectedText": "                  __                \n              _.-'  '-._            \n          _.-'   .-._   '-.__       \n      _.-'      /    '-.     '-._   \n  _.-'     __.-'        '-.  o   '-.\n /__..---''                '---..___>\n     \\_\\  /_ /                      \nKeep building \u2665",
+      "visibleText": " \n                  __                \n              _.-'  '-._            \n          _.-'   .-._   '-.__       \n      _.-'      /    '-.     '-._   \n  _.-'     __.-'        '-.  o   '-.\n /__..---''                '---..___>\n     \\_\\  /_ /                      \nKeep building \u2665"
+    }
+  ]
+}

@@ -13,6 +13,17 @@ implementation_authorized: true
 
 # Responsive sizing and reliable content fitting
 
+> **Accepted successor (2026-09-14):** [ADR-0016](../adrs/0016-organize-discovery-around-an-example-catalogue.md) moves full discovery/editing to Studio and integration/video to Docs. [ADR-0017](../adrs/0017-default-new-workbench-examples-to-automatic-svg-sizing.md) enables explicit fitting and experimental automatic SVG sizing for new catalogue examples only. These narrow changes supersede conflicting integrated-landing/opt-in creation wording below; saved/imported work, core defaults and all other obligations remain binding.
+
+The original `fit/v1` contract below remains binding for v1. Accepted
+[ADR-0018](../adrs/0018-add-versioned-floor-preserving-fitting.md) adds explicit
+`fit/v2`: at most 16 candidates, individual readable floors, paint placement
+inside existing safe cells, at most 512 shaping requests, a 512 KiB cache and
+64 KiB serialized measurement batches. Algorithm identity separates saved
+measurements. The [workbench receipt](workbench-implementation-evidence.md)
+records compatibility and all-example qualification; container sizing remains
+experimental with unknown-width readability diagnostics.
+
 ## 1. Outcome and authorization
 
 Make ConsoleFX fit **content inside a chosen frame**, fit **that frame into a console where possible**, and preserve **readability at small sizes**. These are three distinct contracts, not a single `responsive: true` promise.

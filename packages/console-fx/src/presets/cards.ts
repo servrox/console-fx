@@ -1,6 +1,6 @@
 import { array, defineScene, fail, record, text } from "../validation/index.js";
 import {
-  presentationDescriptor,
+  getPresentationDescriptors,
   SEPARATOR_STYLE,
 } from "../presentations/catalog.js";
 import type {
@@ -74,7 +74,9 @@ function makeCard(
   content: readonly string[],
   input: Record<string, unknown>,
 ): SceneV1 {
-  const descriptor = presentationDescriptor(`${id}/v1`)!;
+  const descriptor = getPresentationDescriptors().find(
+    (descriptor) => descriptor.id === id,
+  )!;
   const lines: {
     align: "left";
     runs: { text: string; style: typeof SEPARATOR_STYLE; effects: [] }[];

@@ -18,7 +18,7 @@ Use **cyan/neon only for small accents**, such as a primary action, selected sta
 
 The console examples may be more expressive than the surrounding UI. The dominant editor action is **Copy console.log**. **Test in console** remains explicit and separate from editing, even when it is not depicted in the raster. Selecting an example should load its configuration into the playground; it must not silently emit a log.
 
-Keep the combined page hierarchy: hero and primary action, output-example gallery, then the integrated playground. The reference groups presets and customization beside preview/export. Preserve distinct content, style, preview, and export concerns when implementing the responsive layout. On mobile, stack the workflow and retain the export action. CSS previews must be marked approximate; SVG motion must be marked experimental and provide finite duration, static output, and reduced-motion handling.
+Accepted ADR-0016 now separates a short cinematic landing, category workbench and Docs. The combined mockup retains authority for its restrained visual treatment and output examples; its earlier integrated page hierarchy is superseded. The reference groups presets and customization beside preview/export. Preserve distinct content, style, preview, and export concerns when implementing the responsive layout. On mobile, stack the workflow and retain the export action. CSS previews must be marked approximate; SVG motion must be marked experimental and provide finite duration, static output, and reduced-motion handling.
 
 ## Assets
 

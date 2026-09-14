@@ -18,6 +18,10 @@ function add(path, label) {
   notices.set(text, names);
 }
 add(resolve(root, "LICENSE"), "ConsoleFX");
+add(
+  resolve(root, "docs/technology/amicro-license.txt"),
+  "amicro interaction adaptations · revision 86b55340bfb939b8e93bb53aa46ba017c3449f1c",
+);
 for (const name of ["next", "react", "react-dom"]) {
   const directory = dirname(require.resolve(`${name}/package.json`));
   const manifest = JSON.parse(
