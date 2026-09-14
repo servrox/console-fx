@@ -36,6 +36,11 @@ Its source checkpoint `5bf1628` produces core 0.1.1 `f9957ef7…`; React 0.1.1
 remains `f0bcd68d…`. Its receipt identifies the complete hashes and local verification;
 neither round is claimed as merged or deployed by this audit.
 
+The [September 14 follow-up review](review-20260914.md) corrects mixed-font
+confidence diagnostics in source `8ff0d6a`. Core 0.1.1 is now `f23cf219…`;
+React remains `f0bcd68d…`. Its exact-candidate verification and public integration
+status are separate from the preceding candidates.
+
 The earlier [reference-example integration and source audit](reference-examples-integration.md)
 adds all fourteen concepts from the two original mockups and corrects three
 compiler findings (hard fitting limits, container caption placement and

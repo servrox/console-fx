@@ -1,0 +1,385 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-14T00:24:18.113142+00:00",
+  "baseCommit": "b35bc3f811aeab4860d1f4704a40551cb4af72de",
+  "reviewComparisonBase": "77c6e3d830702089a2039a6132eaff717585c1a2",
+  "sourceCommit": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+  "sourceTree": "e3f90b3f07b4e313ff0dbee484fc19948c97a6c3",
+  "runtimeCommit": "aadb488447a640d3285fef1d51dc5bf3eddb8440",
+  "risk": "high",
+  "cadence": "One confirmed public-diagnostic correction; extend its existing fixture, freeze the candidate and execute the final source/package/studio/consumer batch. No repeated broad test run.",
+  "governingAdrs": [
+    "ADR-0002",
+    "ADR-0004",
+    "ADR-0005",
+    "ADR-0009",
+    "ADR-0015"
+  ],
+  "findings": [
+    {
+      "id": "RV-01",
+      "axis": "Spec",
+      "severity": "P2",
+      "status": "fixed",
+      "commit": "aadb488447a640d3285fef1d51dc5bf3eddb8440",
+      "trigger": "A fitted letterpress card has selected measured large text and estimated small slots. Aggregate estimated quality suppressed the recipient-font warning.",
+      "resolution": "Keep aggregate estimated confidence and emit platform-font-variation whenever any selected fragment is measured.",
+      "proofOwner": "Existing compact.test.ts mixed-measurement case; checks both qualities and both warning codes in compiled and standalone diagnostics."
+    },
+    {
+      "id": "RV-02",
+      "axis": "Spec fixture follow-up",
+      "severity": "P3",
+      "status": "fixed",
+      "commit": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "trigger": "The expanded regression passed CompileOptions to exportConsoleLog, whose motion domain is narrower.",
+      "resolution": "Set motion:reduce explicitly for the static export assertion before final validation.",
+      "proofOwner": "Final TypeScript check and unchanged diagnostic assertions."
+    },
+    {
+      "id": "RV-03",
+      "axis": "Standards and Spec evidence review",
+      "severity": "P3",
+      "status": "fixed",
+      "trigger": "The executed offline install was classified as source/static.",
+      "resolution": "Record local as the evidence stage, preserve the original receipt and record the classification correction without rerunning installation.",
+      "proofOwner": "Reconciled bootstrap observation and its original receipt fingerprint."
+    },
+    {
+      "id": "RV-04",
+      "axis": "Spec evidence review",
+      "severity": "P2",
+      "status": "fixed",
+      "trigger": "Recovery totals omitted their owning observation and baseline/harness fingerprints.",
+      "resolution": "Record the explicit preservation check and the separate native-browser cleanup observation with their time, scenario, harness and baseline fingerprints.",
+      "proofOwner": "Preservation observation and native-browser cleanup receipt; no application changes or broad test rerun."
+    }
+  ],
+  "environment": {
+    "development": "NixOS WSL2, Linux, distribution nixos; isolated native Linux worktree",
+    "node": "v24.20.0",
+    "pnpm": "12.3.4",
+    "python": "3.14.7",
+    "vitest": "4.1.11",
+    "playwright": "1.63.0",
+    "next": "16.3.4",
+    "react": "19.3.0",
+    "browser": "Chrome/153.0.8010.36",
+    "os": {
+      "caption": "Microsoft Windows 11 Pro Insider Preview",
+      "build": "26220",
+      "version": "10.0.26220"
+    },
+    "browserMode": "Owned headless Chrome for Testing over loopback CDP; worker-owned temporary downloads shared through WSL. Not actual DevTools/current-stable qualification."
+  },
+  "inputs": {
+    ".changeset/accurate-card-diagnostics.md": "f75833c9dbb1b32d76cdf935052523da8c178031ec6a94fbf9be1d08c13d993f",
+    "apps/studio/next.config.ts": "00727b7ce755d4e7c243fdb829016d4dbefdf7b42018f48ded349b9f99a05c7d",
+    "apps/studio/package.json": "0295bb05b6ac181ab16a3837a2716efbc15b16e351c4a583e73c1175b95e5f34",
+    "docs/specs/mvp-completion-audit.md": "dd311643d881ba40a6f241536edd94e48160d46df3874751e326fd109b288e13",
+    "docs/specs/responsive-fitting-spec.md": "70962b4bd449d47f178621ce73c2dda6b3de0b2acc6cbd370e99856a42fbc1b4",
+    "docs/specs/review-20260914.md": "49d8f7a7e0f13b8e2364f726f51d47350150541f7cc8f971459b664ed0686026",
+    "docs/specs/testing-strategy.md": "f4323ad13d6268e9c872d417643daf31cf8bf8312c042543a2f619323420dfa6",
+    "package.json": "c2e0865e33653fa9ad3ccb3d054641a7dbb0cdc769b5994becbfc820566b57db",
+    "packages/console-fx-react/package.json": "4a5dee51769be67fc696439ec66878b4953ee39d36379fe568171fbcf67bd542",
+    "packages/console-fx/package.json": "40176eaa3492cb9c3122a3492cca31f519fef8deff899bacf64d54532e0e0a2d",
+    "packages/console-fx/src/browser/compiler.ts": "d725a041185b532b946186532972b8fe89ef4cd2b55b6ac214b20ddbe619cb00",
+    "packages/console-fx/src/codegen/index.ts": "93cd2907e1044a8a5db61ade9aad040b13be208e81e779138d31c4e6cfacc50e",
+    "packages/console-fx/src/layout/metrics.ts": "a11aaa72483f58e34d28cbb9daa0e00dcbdc87645c7aa11b390a618e1e6e3292",
+    "packages/console-fx/src/layout/planner.ts": "49b89364a923d8ac5bb33d9a7767b66ffebd7fcc7dce8de702d700624bfffbe8",
+    "packages/console-fx/src/layout/render.ts": "459020ff5fef73b370ccb58b7079758cd32a8c7ef48381dd15f16c0dba736bfd",
+    "packages/console-fx/src/model/layout.ts": "3f17000dea5fd24e98d4310e77c4c6b7f9888742d9ba7afaef57a1a7beaaa4ef",
+    "packages/console-fx/src/renderers/svg.ts": "6824c84def58982009d9e40891c049faf9f7ee34a74f8087e2448a584ffb2e1c",
+    "packages/console-fx/test/compact.test.ts": "50ea32d08239a8be0f6bbe8e62f12b354f11e85c2dc97f49858e1e79ced7bd60",
+    "playwright.config.ts": "df01bd297223476df5de3b45fc7b6ffcac57f82a8b875efe96401025e5bc6187",
+    "playwright.consumers.config.ts": "ebba28c580d446cecb9339c63f5867d114ddd07835762be3edfc3be7633598e1",
+    "pnpm-lock.yaml": "32406f94aa7538deeb34f7d84e309fd9b11ac530f89c005781729bc4423327c4",
+    "pnpm-workspace.yaml": "eec1b3a64ecde9ee93e0c02c62d3d13904b30223295b29d5c9ea21d7e162e16c",
+    "scripts/check-bundle-size.mjs": "968fa82a3ce26ee8541f13c1a5cd13597b7606c3cf971592444b6783608c8c66",
+    "scripts/check-consumers.mjs": "b3bdd89bb18097fbc8b62ba99846990195c03921ee2a5c3e14e7ecf0b119f978",
+    "scripts/check-packages.mjs": "cf9725366874400e4b46d2ca8935f3fbfcc846a59eef7c17f909ad96aae375a0",
+    "scripts/package-candidate.mjs": "12fc69e4db1b2a0c94a4aec6bdde899353f4612ff9bdbeae9f5bb4e50f29a73b",
+    "scripts/prepare-vercel.mjs": "bf305602a2b0e6c62dd48ce0792ac0f196bb90d0ed347ce71d539d9c4c50e5d0",
+    "scripts/serve-studio.py": "4ec4ae3c9842550442ca6c3941b9070793a631f96bd6ea23310dfd426e59cbfa",
+    "tests/consumers/next.spec.ts": "f1437845b4e3962790a4c46cff951b263ebf46b85739e6b64cac19bfd2a2f578",
+    "tests/native-browser-diagnostics.ts": "4b9be2128b722395915952a99b5b3925d151f6a5fb6b4fb04cdc3fc4b42c3bad",
+    "tests/studio/cards.spec.ts": "9ba4077fb9828c4140ee8460121198775666871cb88422d5cbc5face9bb14c74",
+    "tests/studio/cinematic.spec.ts": "7f73e1a69d1c513b3182957dd3393a67642e939c0b5a5674ae93a2debbf2f2b5",
+    "tests/studio/editor.spec.ts": "0a07a81ca34e7e8a6246349436245ea885686d97435e943de4cb1bff1eea17c8",
+    "tests/studio/fitting.spec.ts": "11ad039fa7c7458e89583afe6245ca07707cb064bec910cf707d7744f112cfd0",
+    "tests/studio/fixtures.ts": "bf962031fe970bc5b295aa1f474096fc595c427fab0546682a7fb2146a9e93cd",
+    "tests/studio/improvements.spec.ts": "9d0b5aaf060cf4dc29311ebe217cfe8273cc62d4ec15629f61ef64379f1c0ac4",
+    "tests/studio/reference-examples.spec.ts": "5ede883ca596c7b23c40be4bd2fa8d1918f2bb4c08e7e1e4a8be529b60e5b981",
+    "tests/studio/usage-video.spec.ts": "bf5373b25a91586bcd70f3b063f3dfc99c9dbfbb627db1f4af7d750d5a3d89ee",
+    "tests/studio/website.spec.ts": "632f1529277d62109d32945c7761a39ddba83c022d4bc549e0b2e056131d2df9",
+    "tsconfig.tests.json": "737ff73c2f2d6ca04a46c7f875057f753925c09819917f13a3e66a7e3d01436c",
+    "vitest.config.ts": "cab7550b62bb892ee4cbe85f78e5075068c3779cbbe2e56907e56b56af944163"
+  },
+  "receiptRunner": {
+    "localPath": ".artifacts/review-20260914/run-check.py",
+    "sha256": "2776fd41d0652173644233162392aeb37cfbbae8a634bf585ed93023545a68c6",
+    "source": "import datetime\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\nimport shlex\nimport subprocess\nimport sys\n\nroot = Path.cwd()\nfolder = root / \".artifacts/review-20260914\"\nname, stage, *command = sys.argv[1:]\nif command and command[0] == \"--\":\n    command = command[1:]\nassert stage in {\"source/static\", \"local\", \"CI\", \"publication/install\", \"deployed/production\"}\nstarted = datetime.datetime.now(datetime.timezone.utc).isoformat()\nsource = subprocess.check_output([\"git\", \"rev-parse\", \"HEAD\"], text=True).strip()\ndiff = subprocess.check_output([\"git\", \"diff\", \"HEAD\", \"--binary\"])\ninputs = {path: hashlib.sha256((root / path).read_bytes()).hexdigest() for path in subprocess.check_output([\"git\", \"diff\", \"HEAD\", \"--name-only\"], text=True).splitlines() if (root / path).is_file()}\nlog = folder / (name + \".log\")\nwith log.open(\"wb\") as output:\n    result = subprocess.run(command, stdout=output, stderr=subprocess.STDOUT)\nreceipt = {\n    \"stage\": stage, \"obligation\": name,\n    \"owner\": \"ConsoleFX maintainer; executed by the primary repository agent\",\n    \"subject\": source, \"workingDiffSha256\": hashlib.sha256(diff).hexdigest(), \"workingInputs\": inputs, \"command\": shlex.join(command),\n    \"configuration\": {key: os.environ[key] for key in [\"CONSOLE_FX_CDP_PORT\", \"CONSOLE_FX_STUDIO_PORT\", \"CONSOLE_FX_TEST_BROWSER\"] if key in os.environ},\n    \"startedAt\": started, \"observedAt\": datetime.datetime.now(datetime.timezone.utc).isoformat(),\n    \"status\": \"verified\" if result.returncode == 0 else \"failed\", \"exitCode\": result.returncode,\n    \"localLog\": str(log.relative_to(root)), \"logSha256\": hashlib.sha256(log.read_bytes()).hexdigest(),\n}\n(folder / (name + \".json\")).write_text(json.dumps(receipt, indent=2) + \"\\n\")\nprint(json.dumps(receipt, indent=2))\nraise SystemExit(result.returncode)\n"
+  },
+  "observations": [
+    {
+      "stage": "local",
+      "obligation": "bootstrap",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "b35bc3f811aeab4860d1f4704a40551cb4af72de",
+      "workingDiffSha256": "5551354a9c0a050dcce57c36fd8d9273b67773e4c827a2b2884fc2dd8960d028",
+      "workingInputs": {
+        ".changeset/accurate-card-diagnostics.md": "f75833c9dbb1b32d76cdf935052523da8c178031ec6a94fbf9be1d08c13d993f",
+        "packages/console-fx/src/layout/planner.ts": "49b89364a923d8ac5bb33d9a7767b66ffebd7fcc7dce8de702d700624bfffbe8",
+        "packages/console-fx/test/compact.test.ts": "68760b7f4ee0b7d56ffd93d5fdba33c4b734fbed689651d8621d263940df0f67"
+      },
+      "command": "pnpm install --offline --frozen-lockfile",
+      "configuration": {},
+      "startedAt": "2026-09-14T00:08:34.464591+00:00",
+      "observedAt": "2026-09-14T00:08:35.478287+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/review-20260914/bootstrap.log",
+      "logSha256": "0f804d3fa41fbffa3e4d63e071ac50ec7b4ebe690484835d98df818e6e5329e8",
+      "classificationCorrection": {
+        "recordedAt": "2026-09-14T00:23:09.789144+00:00",
+        "originalStage": "source/static",
+        "originalReceiptSha256": "0069efbb5ccaa93da388d02638f6b96c4ad5cad9b51c2b995f5bae9d915f2691",
+        "reason": "Dependency installation is an executed local observation. Command, timestamps, exit status, input and log fingerprints are unchanged; no rerun."
+      },
+      "result": "Existing lockfile dependencies installed offline in the isolated Linux worktree."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-build",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "aadb488447a640d3285fef1d51dc5bf3eddb8440",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "pnpm run build:vercel",
+      "configuration": {},
+      "startedAt": "2026-09-14T00:09:37.551010+00:00",
+      "observedAt": "2026-09-14T00:09:44.952114+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/review-20260914/final-build.log",
+      "logSha256": "a648ad419acb04dfc14089da79908636e91383ca482c33a786b11b4fc2c1d2d5",
+      "result": "Packages and production studio built and Vercel static artifact prepared."
+    },
+    {
+      "stage": "source/static",
+      "obligation": "final-source",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "bash -e -c 'pnpm run format:check; pnpm run lint; pnpm run typecheck'",
+      "configuration": {},
+      "startedAt": "2026-09-14T00:11:21.189044+00:00",
+      "observedAt": "2026-09-14T00:11:31.471209+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/review-20260914/final-source.log",
+      "logSha256": "36e9a4d207bc634b8467db004858e21432337bdfbe0fe846b683a448b9fb0187",
+      "result": "Formatting, lint and TypeScript checks passed."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-contracts",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "bash -e -c 'pnpm test; pnpm run check:packages; pnpm run check:bundle-size'",
+      "configuration": {},
+      "startedAt": "2026-09-14T00:11:25.354312+00:00",
+      "observedAt": "2026-09-14T00:11:27.359093+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/review-20260914/final-contracts.log",
+      "logSha256": "b8f6179787f0ab129c540d5a882892c2a042625ee3ccae7f9c52d5bd4702ae8c",
+      "result": "353 Vitest 4 cases across 24 files, package contents and bundle budgets passed."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-studio",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "workingDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workingInputs": {},
+      "command": "pnpm run test:studio",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9462",
+        "CONSOLE_FX_STUDIO_PORT": "47325"
+      },
+      "startedAt": "2026-09-14T00:12:39.740247+00:00",
+      "observedAt": "2026-09-14T00:15:49.653121+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/review-20260914/final-studio.log",
+      "logSha256": "b05f8dc3cfa2b36a28bed752e664189b8b7e211056ccd398de98e30dfa25ccfc",
+      "result": "All 94 desktop/narrow studio browser cases passed against the prepared static artifact."
+    },
+    {
+      "stage": "local",
+      "obligation": "final-consumers",
+      "owner": "ConsoleFX maintainer; executed by the primary repository agent",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "workingDiffSha256": "ac3a8e28822adf582823698204be45de0117baec30858bb416b85f52cc2ce5c7",
+      "workingInputs": {
+        "docs/specs/mvp-completion-audit.md": "dd311643d881ba40a6f241536edd94e48160d46df3874751e326fd109b288e13"
+      },
+      "command": "pnpm run test:consumers",
+      "configuration": {
+        "CONSOLE_FX_CDP_PORT": "9462"
+      },
+      "startedAt": "2026-09-14T00:15:57.095900+00:00",
+      "observedAt": "2026-09-14T00:16:08.531683+00:00",
+      "status": "verified",
+      "exitCode": 0,
+      "localLog": ".artifacts/review-20260914/final-consumers.log",
+      "logSha256": "b43ceb2c5573c5551fd6918e66028f7b90e11931c81706bb17b4788167f664ce",
+      "result": "Isolated packed JS/TS/React checks, Next production build and three packed browser journeys passed."
+    }
+  ],
+  "recoveryObservations": [
+    {
+      "stage": "source/static",
+      "status": "verified",
+      "owner": "Primary repository agent",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "command": "python3 .artifacts/review-20260914/verify-recovery.py",
+      "scenario": "Read each protected worktree HEAD and exact index bytes, then compare all protected original-root file hashes against the captured baselines. No worktree/index mutation.",
+      "observedAt": "2026-09-14T00:24:18.018309+00:00",
+      "harness": {
+        "localPath": ".artifacts/review-20260914/verify-recovery.py",
+        "sha256": "463c35eb1ab09a968f62c434f1056932c842bb6d49760a7758c87a81f3a0ac84",
+        "source": "import datetime\nimport hashlib\nimport json\nfrom pathlib import Path\nimport subprocess\n\nroot = Path.cwd()\nfolder = root / '.artifacts/review-20260914'\ndigest = lambda path: hashlib.sha256(Path(path).read_bytes()).hexdigest()\ngit = lambda *args: subprocess.check_output(['git',*args],text=True).strip()\nbaseline_path = folder/'input.json'\nbaseline = json.loads(baseline_path.read_text())\nfor path,expected in baseline['worktrees'].items():\n    assert git('-C',path,'rev-parse','HEAD') == expected['head'],path\n    index = git('-C',path,'rev-parse','--path-format=absolute','--git-path','index')\n    assert digest(index) == expected['indexSha256'],path\noriginal = Path('/home/servrox/dev/console-fx')\nroot_baseline = original/'.artifacts/cinematic/protected-state.json'\nprotected = json.loads(root_baseline.read_text())['rootFiles']\nfor path,expected in protected.items():\n    assert digest(original/path) == expected,path\nharness = folder/'verify-recovery.py'\nobservation = {\n    'stage':'source/static','status':'verified','owner':'Primary repository agent',\n    'subject':git('rev-parse','HEAD'),\n    'command':'python3 .artifacts/review-20260914/verify-recovery.py',\n    'scenario':'Read each protected worktree HEAD and exact index bytes, then compare all protected original-root file hashes against the captured baselines. No worktree/index mutation.',\n    'observedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),\n    'harness':{'localPath':str(harness.relative_to(root)),'sha256':digest(harness),'source':harness.read_text()},\n    'baselines':{'worktreeBaselineSha256':digest(baseline_path),'rootFileBaselineSha256':digest(root_baseline)},\n    'result':{'protectedWorktreeHeadIndexPairs':len(baseline['worktrees']),'protectedRootFiles':len(protected)},\n    'limits':'Exact captured files and Git HEAD/index state only; not a claim about uncaptured ignored runtime files. Private baseline paths/content are retained locally.',\n}\n(folder/'recovery-observation.json').write_text(json.dumps(observation,indent=2)+'\\n')\nprint('Verified',len(baseline['worktrees']),'worktree HEAD/index pairs and',len(protected),'root files.')\n"
+      },
+      "baselines": {
+        "worktreeBaselineSha256": "050d139cccd678d3d8fc389fa2dedc44c2ae4e7aaf62f29e121659fcde42b320",
+        "rootFileBaselineSha256": "7aa3af0f47ac4e4fac5a96bc7db788de919fef691d58783c50e2c943acd10e2a"
+      },
+      "result": {
+        "protectedWorktreeHeadIndexPairs": 17,
+        "protectedRootFiles": 205
+      },
+      "limits": "Exact captured files and Git HEAD/index state only; not a claim about uncaptured ignored runtime files. Private baseline paths/content are retained locally."
+    },
+    {
+      "stage": "local",
+      "status": "verified",
+      "owner": "Primary repository agent",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "command": "python3 .artifacts/review-20260914/native-browser.py cleanup",
+      "scenario": "Stop only processes matching the recorded owned Chrome binary and unique profile, then confirm no matching processes or listener on the owned CDP port; retain the profile.",
+      "observedAt": "2026-09-14T00:16:43.303940+00:00",
+      "harnesses": {
+        ".artifacts/review-20260914/native-browser.py": "1f1fd9cafdcf085cc422a931722707e5ec607deeb4f9f65219eb057c5445a39f",
+        ".artifacts/review-20260914/cleanup-browser.ps1": "f85696cdcf35dfe03ff6e5408c978f33a3f2d8737a04b7bb347a19e5bf7ffa28",
+        "../console-fx-architecture-round-3/.artifacts/architecture-round-3/cleanup-browser.ps1": "b728cba573dcd062af25be6d8e0ca1baef2d2b1679877420939e91ef415a81c8"
+      },
+      "configuration": {
+        "browserOwnerRecordSha256": "3fc201d76e0059fdf7d82717677ed93d875770f7626bf29f054ad56ffc932814",
+        "port": 9462,
+        "browser": "Chrome/153.0.8010.36",
+        "os": {
+          "caption": "Microsoft Windows 11 Pro Insider Preview",
+          "build": "26220",
+          "version": "10.0.26220"
+        }
+      },
+      "originalResultSha256": "690460888e0e31c7aa467eab631974219897edc6b3cd2bda54067f9e7fa8c9db",
+      "result": {
+        "remaining": 0,
+        "listeners": 0,
+        "profileRetained": true
+      },
+      "limits": "Historical result for this owned browser only. Raw profile paths, process IDs and generated-script owner data remain local; fingerprints identify them without publishing those values."
+    }
+  ],
+  "artifacts": {
+    "packages": [
+      {
+        "name": "@servrox/console-fx",
+        "version": "0.1.1",
+        "sha256": "f23cf219097fe96f52ccb68310e30209c8bde0b85203d3e2ba14228a106bb747"
+      },
+      {
+        "name": "@servrox/console-fx-react",
+        "version": "0.1.1",
+        "sha256": "f0bcd68d78886a11b013826a5f6394058cca33ebed0baac71a3f81b57b779aed"
+      }
+    ],
+    "bundles": [
+      {
+        "fixture": "css",
+        "gzipBytes": 9754,
+        "budget": 10240
+      },
+      {
+        "fixture": "complete-css",
+        "gzipBytes": 25586,
+        "budget": 25600
+      },
+      {
+        "fixture": "svg",
+        "gzipBytes": 25586,
+        "budget": 25600
+      }
+    ],
+    "preparedStudio": {
+      "files": 50,
+      "fileInventorySha256": "2f75aa378ca786896591bcd2a573c6a5c68d8d658e405adec86d0fecd054e4d0",
+      "configSha256": "da5fe2d5249457e356b654e9a6386ce52d6003d32aabcee0700274ca2fd73174",
+      "globalCspBytes": 480,
+      "inlineScriptHashes": 5
+    }
+  },
+  "sourceReviews": [
+    {
+      "stage": "source/static",
+      "status": "verified",
+      "owner": "Standards independent reviewer",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "command": "Review git diff 77c6e3d...b35bc3f, then b35bc3f...aadb488 and the explicit reduced-motion test correction in 8ff0d6a.",
+      "observedAt": "2026-09-14T00:24:18.113142+00:00",
+      "result": "Zero remaining actionable findings.",
+      "timing": "Parent recorded completed review results; not a new runtime observation."
+    },
+    {
+      "stage": "source/static",
+      "status": "verified",
+      "owner": "Spec independent reviewer",
+      "subject": "8ff0d6a894d465b91a0d7e48b3617c118dd127cd",
+      "command": "Review git diff 77c6e3d...b35bc3f, then b35bc3f...aadb488 and the explicit reduced-motion test correction in 8ff0d6a.",
+      "observedAt": "2026-09-14T00:24:18.113142+00:00",
+      "result": "Zero remaining actionable findings.",
+      "timing": "Parent recorded completed review results; not a new runtime observation."
+    }
+  ],
+  "coveredContracts": [
+    "Aggregate confidence remains estimated when any selected fragment lacks metrics; local measurement use retains the recipient-font warning independently.",
+    "Compiler and standalone exports retain both diagnostic codes; rendering geometry, saved schemas, measurements and motion defaults are unchanged.",
+    "Existing literal-text, exactly-one emission, fitting, recipe recovery, React lifecycle and installed-consumer behavior passed final regression checks."
+  ],
+  "reconciliation": "The production build at aadb488 remains applicable: 8ff0d6a changes one test argument only. All source, contract, browser and consumer gates ran at 8ff0d6a. Later review/receipt/audit edits are documentation only. Earlier candidates remain historical and their package/publication approval does not transfer to changed core bytes.",
+  "limitations": [
+    "No GitHub CI, package publication, registry-consumer, deployment or hosted-runtime check was executed for this candidate.",
+    "Headless browser checks do not establish actual Chrome/Edge DevTools, physical-device performance, Safari or participant results.",
+    "Prepared local headers do not emulate Vercel routing, aliases, CDN or deployment protection.",
+    "Proposed ADR-0016/0017 and workbench implementation remain pending; screen-reader review remains nonblocking under ADR-0013.",
+    "Raw logs and the owned native browser profile remain local; the receipt retains log hashes and bounded results."
+  ],
+  "invalidators": [
+    "Changed source/tests/configuration/lock/toolchain or artifact bytes invalidate affected evidence.",
+    "A contradictory result or browser/OS change requires reconciliation of affected obligations.",
+    "CI, publication and hosted states require separate exact-candidate observations."
+  ],
+  "recovery": {
+    "protectedWorktreeHeadIndexPairs": 17,
+    "protectedRootFiles": 205,
+    "ownedBrowserProcessesRemaining": 0,
+    "ownedBrowserListenersRemaining": 0,
+    "browserProfileRetained": true
+  }
+}
