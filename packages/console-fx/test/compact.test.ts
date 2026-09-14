@@ -307,7 +307,7 @@ describe("accepted compact card layouts", () => {
     );
     for (const diagnostics of [
       output.diagnostics,
-      exportConsoleLog(scene, partial).diagnostics,
+      exportConsoleLog(scene, { ...partial, motion: "reduce" }).diagnostics,
     ])
       expect(diagnostics.map(({ code }) => code)).toEqual(
         expect.arrayContaining([
