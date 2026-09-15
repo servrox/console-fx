@@ -17,8 +17,8 @@
     "lint": "eslint packages apps tests scripts",
     "format:check": "prettier --check package.json vercel.json pnpm-workspace.yaml 'tsconfig*.json' '*config.{mjs,ts}' 'packages/**/*.{ts,tsx,json,md}' 'apps/**/*.{ts,tsx,json,css}' 'scripts/**/*.mjs' 'tests/**/*.{ts,js,html}' 'examples/{next-app,react,vanilla,website}/**/*.{ts,tsx,mjs,json}' '.changeset/*.{json,md}' '.github/workflows/*.yml'",
     "test": "vitest run",
-    "test:release": "node --test tests/release-artifacts.test.js tests/studio-artifact.test.js",
-    "test:codegen": "vitest run packages/console-fx/test/codegen.test.ts",
+    "test:release": "vitest run --project release",
+    "test:codegen": "vitest run --project unit packages/console-fx/test/codegen.test.ts",
     "test:studio": "playwright test",
     "test:consumers": "node scripts/check-consumers.mjs",
     "test:registry-consumers": "node scripts/check-consumers.mjs --registry",
@@ -26,7 +26,8 @@
     "check:bundle-size": "node scripts/check-bundle-size.mjs",
     "fixtures:devtools": "node scripts/devtools-fixtures.mjs",
     "changeset": "changeset",
-    "prepare:vercel": "node scripts/prepare-vercel.mjs"
+    "prepare:vercel": "node scripts/prepare-vercel.mjs",
+    "test:unit": "vitest run --project unit"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
@@ -50,6 +51,6 @@
     "react-dom": "19.3.0",
     "typescript": "6.0.3",
     "typescript-eslint": "8.70.0",
-    "vitest": "5.0.0"
+    "vitest": "4.1.11"
   }
 }

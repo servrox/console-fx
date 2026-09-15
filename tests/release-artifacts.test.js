@@ -12,7 +12,7 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import test from "node:test";
+import { onTestFinished, test } from "vitest";
 import {
   verifyReleaseArtifacts,
   verifyRegistryConsumerLock,
@@ -124,9 +124,9 @@ test("missing, expired, ambiguous and foreign artifacts cannot publish", () => {
   );
 });
 
-function fixture(t) {
+function fixture() {
   const sourceRoot = mkdtempSync(join(tmpdir(), "console-fx-release-test-"));
-  t.after(() => rmSync(sourceRoot, { recursive: true, force: true }));
+  onTestFinished(() => rmSync(sourceRoot, { recursive: true, force: true }));
   const artifactsDirectory = join(sourceRoot, "artifacts");
   mkdirSync(artifactsDirectory);
   const hash = (path) =>
@@ -178,8 +178,8 @@ function fixture(t) {
   };
 }
 
-test("registry consumers bind exact names, versions, bytes and the public registry", (t) => {
-  const { candidate } = fixture(t);
+test("registry consumers bind exact names, versions, bytes and the public registry", () => {
+  const { candidate } = fixture();
   const item = candidate.packages[0];
   const integrity = `sha512-${createHash("sha512").update(readFileSync(item.tarball)).digest("base64")}`;
   const metadata = {
@@ -224,8 +224,8 @@ test("registry consumers bind exact names, versions, bytes and the public regist
   );
 });
 
-test("reviewed tarballs are resolved from the download directory", (t) => {
-  const f = fixture(t);
+test("reviewed tarballs are resolved from the download directory", () => {
+  const f = fixture();
   for (const item of f.candidate.packages)
     item.tarball = `/original-runner/${item.tarball.split("/").at(-1)}`;
   f.save();
@@ -253,21 +253,21 @@ test("reviewed tarballs are resolved from the download directory", (t) => {
   );
 });
 
-test("an approved receipt cannot hide modified tarball bytes", (t) => {
-  const f = fixture(t);
+test("an approved receipt cannot hide modified tarball bytes", () => {
+  const f = fixture();
   writeFileSync(f.candidate.packages[0].tarball, "modified artifact");
   assert.throws(() => verifyReleaseArtifacts(f.options), /Tarball differs/);
 });
 
-test("a forged receipt hash cannot substitute a different approved candidate", (t) => {
-  const f = fixture(t);
+test("a forged receipt hash cannot substitute a different approved candidate", () => {
+  const f = fixture();
   f.candidate.packages[0].sha256 = "0".repeat(64);
   f.save();
   assert.throws(() => verifyReleaseArtifacts(f.options), /Tarball differs/);
 });
 
-test("source, version and filename drift stop publication", (t) => {
-  const f = fixture(t);
+test("source, version and filename drift stop publication", () => {
+  const f = fixture();
   f.candidate.packages[0].version = "0.2.0";
   f.save();
   assert.throws(() => verifyReleaseArtifacts(f.options), /version differs/);
@@ -282,8 +282,8 @@ test("source, version and filename drift stop publication", (t) => {
   assert.throws(() => verifyReleaseArtifacts(f.options), /lockfile differs/);
 });
 
-test("publication requires explicit valid hashes and a supported tag", (t) => {
-  const f = fixture(t);
+test("publication requires explicit valid hashes and a supported tag", () => {
+  const f = fixture();
   assert.throws(() =>
     verifyReleaseArtifacts({
       ...f.options,
@@ -296,8 +296,8 @@ test("publication requires explicit valid hashes and a supported tag", (t) => {
   );
 });
 
-test("candidate readers reject duplicate, missing or foreign packages before consumption", (t) => {
-  const f = fixture(t);
+test("candidate readers reject duplicate, missing or foreign packages before consumption", () => {
+  const f = fixture();
   const original = [...f.candidate.packages];
   for (const packages of [
     [],
@@ -311,16 +311,16 @@ test("candidate readers reject duplicate, missing or foreign packages before con
   }
 });
 
-test("candidate readers reject symlinked tarballs even when bytes match", (t) => {
-  const f = fixture(t);
+test("candidate readers reject symlinked tarballs even when bytes match", () => {
+  const f = fixture();
   const tarball = f.candidate.packages[0].tarball;
   renameSync(tarball, tarball + ".original");
   symlinkSync(tarball + ".original", tarball);
   assert.throws(() => readCandidate(f.options), /regular file/);
 });
 
-test("packed identity is verified independently of a receipt hash", (t) => {
-  const f = fixture(t);
+test("packed identity is verified independently of a receipt hash", () => {
+  const f = fixture();
   const item = f.candidate.packages[0];
   const directory = join(f.options.sourceRoot, "packages", item.directory);
   const manifest = JSON.parse(
@@ -338,8 +338,8 @@ test("packed identity is verified independently of a receipt hash", (t) => {
   assert.throws(() => readCandidate(f.options), /@someone\/substitute/);
 });
 
-test("valid candidate bytes still require their separately reviewed release hash", (t) => {
-  const f = fixture(t);
+test("valid candidate bytes still require their separately reviewed release hash", () => {
+  const f = fixture();
   assert.doesNotThrow(() => readCandidate(f.options));
   assert.throws(
     () =>

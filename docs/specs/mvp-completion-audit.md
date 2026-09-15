@@ -1,9 +1,12 @@
 # MVP implementation and release completion audit
 
-Audited September 13, 2026. **Implementation and the authorized public release
-are delivered. Full-spec completion remains pending three external validation
-items:** five-developer formative sessions, performance recordings on an actual
-integrated-GPU laptop and physical phone, and Safari website observations. The
+Audited September 13, 2026. **The existing MVP release is delivered; the full
+active goal is not complete.** The later workbench/page-split request awaits
+review and implementation. The three subsequent compiler corrections are on main,
+with a patch changeset, but are outside the published 0.1.0 package evidence.
+Three external validation items also remain: five-developer formative sessions,
+performance recordings on an actual integrated-GPU laptop and physical phone,
+and Safari website observations. The
 [prepared packet](../validation/mvp-external-review.md) provides tasks, fixtures,
 measurement conditions and result templates. No participant/device result or
 waiver is inferred from publication approval. The active goal remains open.
@@ -16,6 +19,13 @@ compiler findings (hard fitting limits, container caption placement and
 SVG-unrepresentable text). Its source/local, CI, native and hosted evidence must
 be read separately from the earlier release checkpoint below. The published npm
 0.1.0 bytes are not changed by a source or website update.
+
+GitHub readback on September 13 after the technology-documentation update found
+no open pull requests. Main is `4f9326934e86f0d2bd7dedc378c2baecce377c6d`, which
+merged [PR #21](https://github.com/servrox/console-fx/pull/21); its
+[validation run](https://github.com/servrox/console-fx/actions/runs/34772158302)
+completed successfully. This readback confirms source/CI state only. It does not
+recheck production or make the uncommitted workbench preparation part of main.
 
 The implementation baseline is `50e63c11f48912bfe2e66686c43fbba8eb12f2c3`.
 The September 13 application checkpoint includes the Git deployment repair in
@@ -54,10 +64,34 @@ is the approved PR #10 candidate; the later architecture core is `1eb78826…`.
 They are distinct package bytes. The later source extracts motion ownership;
 the archived comparison verifies 411 identical output/export/preflight results
 across 187 fixtures. This is bounded behavioral parity, not byte identity or a
-claim that the newer core tarball was published. Current package source is
-unchanged since that comparison; both source and published consumers have their
-own passing evidence. OIDC configuration/execution remains future automation;
+claim that the newer core tarball was published. The subsequent compiler
+corrections are outside that historical parity comparison. Source and published
+consumers have their own evidence; the
+[patch changeset](../../.changeset/fitting-failures-svg-text.md) records the
+unpublished corrections. OIDC configuration/execution remains future automation;
 the approved first publication used npm's interactive bootstrap.
+
+## Later workbench request: implementation pending
+
+- The [proposal](workbench-proposal.md) defines six developer-job categories,
+  a short cinematic landing, a persistent sidebar workbench, output/code
+  interactions and automatic sizing for new examples. Its contract has twelve
+  acceptance criteria; these are not implemented by the existing page.
+- ADR-0016 and ADR-0017 remain **Proposed**. The requested review precedes
+  product implementation. In particular, the automatic creation default needs
+  the recorded narrow successor to ADR-0015's existing sizing intent.
+- [Test preparation](workbench-preparation-evidence.md) is implemented locally:
+  Vitest 4.1.11, consolidated repeated browser tours, 342 Vitest passes and
+  32 changed-suite browser passes. These uncommitted changes have no new CI
+  or deployment result.
+- [amicro adaptations](workbench-interactions.md) are selected and documented;
+  they are not installed or shipped. The separate
+  [technology section](../technology/README.md) documents the current stack and
+  complete dependency-version inventory.
+
+The matrices below retain evidence for the previously implemented specification.
+They do not count the proposed workbench behavior as complete or imply that old
+screenshots qualify newly requested layouts/default combinations.
 
 ## Base specification: all 24 acceptance criteria
 

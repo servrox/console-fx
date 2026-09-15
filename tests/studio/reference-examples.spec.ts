@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test("all reference examples are editable, export exact data and undo as one step", async ({
+test("a reference selection exports exact data and undoes as one step", async ({
   page,
 }) => {
   await page.goto("/studio/");
@@ -27,24 +27,24 @@ test("all reference examples are editable, export exact data and undo as one ste
     name: "Start from a preset",
     exact: true,
   });
-  for (const { id } of REFERENCE_EXAMPLES) {
-    await picker.selectOption(`example:${id}`);
-    const recipe = referenceRecipe(id);
-    const output = compileConsole(recipe.scene, recipe.options);
-    if (output.preview.kind !== "svg") throw new Error("SVG expected");
-    await expect(page.locator(".preview-content img")).toHaveAttribute(
-      "src",
-      output.preview.imageUri,
-    );
-    const calls: unknown[][] = [];
-    new Function(
-      "console",
-      await page.getByLabel("Generated code", { exact: true }).inputValue(),
-    )({ log: (...args: unknown[]) => calls.push(args) });
-    expect(calls).toEqual([output.args]);
-    await page.getByRole("button", { name: "Undo", exact: true }).click();
-    await expect(message).toHaveValue("Keep this draft %s");
-  }
+  // Every recipe is checked in Vitest; one ordinary scene proves this UI path.
+  const id = "multilineLayout";
+  await picker.selectOption(`example:${id}`);
+  const recipe = referenceRecipe(id);
+  const output = compileConsole(recipe.scene, recipe.options);
+  if (output.preview.kind !== "svg") throw new Error("SVG expected");
+  await expect(page.locator(".preview-content img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  const calls: unknown[][] = [];
+  new Function(
+    "console",
+    await page.getByLabel("Generated code", { exact: true }).inputValue(),
+  )({ log: (...args: unknown[]) => calls.push(args) });
+  expect(calls).toEqual([output.args]);
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  await expect(message).toHaveValue("Keep this draft %s");
   expect(
     await page.evaluate(
       () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
@@ -63,26 +63,15 @@ test("the complete gallery transfers the exact dolphin, keeps it static and copi
   await expect(gallery.locator(".example-card")).toHaveCount(
     REFERENCE_EXAMPLES.length,
   );
+  await expect(gallery.locator("img")).toHaveCount(REFERENCE_EXAMPLES.length);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth + 1,
     ),
   ).toBe(true);
-  for (const { id, name } of REFERENCE_EXAMPLES) {
-    const output = compileConsole(
-      referenceRecipe(id).scene,
-      referenceRecipe(id).options,
-    );
-    if (output.preview.kind !== "svg") throw new Error("SVG expected");
-    const card = gallery.getByRole("button", {
-      name: `Edit ${name} example`,
-      exact: true,
-    });
-    await expect(card.locator("img")).toHaveAttribute(
-      "src",
-      output.preview.imageUri,
-    );
-  }
+  await expect(
+    gallery.getByRole("button", { name: /^Edit .+ example$/ }),
+  ).toHaveText(REFERENCE_EXAMPLES.map(({ name }) => new RegExp(name)));
   await expect
     .poll(() =>
       gallery
@@ -100,16 +89,24 @@ test("the complete gallery transfers the exact dolphin, keeps it static and copi
   await gallery.screenshot({
     path: `.artifacts/reference-examples/gallery-${test.info().project.name}.png`,
   });
-  await gallery
-    .getByRole("button", { name: "Edit Animated dolphin example", exact: true })
-    .click();
+  const dolphin = gallery.getByRole("button", {
+    name: "Edit Animated dolphin example",
+    exact: true,
+  });
+  const recipe = referenceRecipe("animatedDolphin");
+  const output = compileConsole(recipe.scene, recipe.options);
+  if (output.preview.kind !== "svg") throw new Error("SVG expected");
+  await expect(dolphin.locator("img")).toHaveAttribute(
+    "src",
+    output.preview.imageUri,
+  );
+  await dolphin.click();
   const confirm = page.getByRole("button", {
     name: "Load example",
     exact: true,
   });
   await confirm.click();
   const editor = page.locator("#editor-workspace");
-  const recipe = referenceRecipe("animatedDolphin");
   await expect(
     editor.getByRole("textbox", { name: "Message text", exact: true }),
   ).toHaveValue(recipe.scene.lines[0]!.runs[0]!.text);
@@ -132,7 +129,7 @@ test("the complete gallery transfers the exact dolphin, keeps it static and copi
     await page.evaluate(
       () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,
     ),
-  ).toEqual([compileConsole(recipe.scene, recipe.options).args]);
+  ).toEqual([output.args]);
   await expect
     .poll(() =>
       page.evaluate(() =>
@@ -152,37 +149,36 @@ test("motion previews play and return to the exact static image without changing
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/studio/");
-  for (const id of ["animatedSvg", "animatedDolphin"] as const) {
-    await page
-      .getByRole("combobox", { name: "Start from a preset", exact: true })
-      .selectOption(`example:${id}`);
-    const recipe = referenceRecipe(id);
-    const still = compileConsole(recipe.scene, recipe.options);
-    const moving = compileConsole(recipe.scene, {
-      ...recipe.options,
-      motion: "allow",
-    });
-    if (still.preview.kind !== "svg" || moving.preview.kind !== "svg")
-      throw new Error("SVG expected");
-    const code = await page
-      .getByLabel("Generated code", { exact: true })
-      .inputValue();
-    await page.getByRole("button", { name: "Play", exact: true }).click();
-    await expect(page.locator(".preview-content img")).toHaveAttribute(
-      "src",
-      moving.preview.imageUri,
-    );
-    await page
-      .getByRole("button", { name: "Show static", exact: true })
-      .click();
-    await expect(page.locator(".preview-content img")).toHaveAttribute(
-      "src",
-      still.preview.imageUri,
-    );
-    await expect(
-      page.getByLabel("Generated code", { exact: true }),
-    ).toHaveValue(code);
-  }
+  const id = REFERENCE_EXAMPLES.find(
+    (example) => "motion" in example && example.motion,
+  )!.id;
+  await page
+    .getByRole("combobox", { name: "Start from a preset", exact: true })
+    .selectOption(`example:${id}`);
+  const recipe = referenceRecipe(id);
+  const still = compileConsole(recipe.scene, recipe.options);
+  const moving = compileConsole(recipe.scene, {
+    ...recipe.options,
+    motion: "allow",
+  });
+  if (still.preview.kind !== "svg" || moving.preview.kind !== "svg")
+    throw new Error("SVG expected");
+  const code = await page
+    .getByLabel("Generated code", { exact: true })
+    .inputValue();
+  await page.getByRole("button", { name: "Play", exact: true }).click();
+  await expect(page.locator(".preview-content img")).toHaveAttribute(
+    "src",
+    moving.preview.imageUri,
+  );
+  await page.getByRole("button", { name: "Show static", exact: true }).click();
+  await expect(page.locator(".preview-content img")).toHaveAttribute(
+    "src",
+    still.preview.imageUri,
+  );
+  await expect(page.getByLabel("Generated code", { exact: true })).toHaveValue(
+    code,
+  );
   expect(
     await page.evaluate(
       () => (window as unknown as { referenceCalls: unknown[] }).referenceCalls,

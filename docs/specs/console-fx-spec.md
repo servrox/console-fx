@@ -13,6 +13,13 @@ license: "MIT; asset and dependency rights checks pending"
 requested_scope: "save only the approved specification and implementation handover revisions"
 ---
 
+> **Pending product proposal (2026-09-13):** the
+> [workbench proposal](workbench-proposal.md) covers a separate short landing,
+> category sidebar, shared capability model and new-example sizing defaults.
+> Its ADR-0016/0017 remain Proposed. Existing accepted requirements apply until
+> review; product UI implementation has not started. The
+> [testing strategy](testing-strategy.md) is separately authorized maintenance.
+
 # ConsoleFX
 ## Approved implementation specification
 

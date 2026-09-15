@@ -109,3 +109,14 @@ The maintainer explicitly answered “Approve ADR-0014 and all ten designs” fo
 ## Accepted fitting contract — 2026-09-12
 
 The maintainer explicitly answered “Approve ADR-0015” for [ADR-0015](0015-separate-content-fit-from-output-sizing.md), covering deterministic layout, separate output sizing, optional explicit font measurements and a validated recipe wrapper. This local extension preserves ADR-0014 standard card profiles and the ADR-0013 nonblocking screen-reader follow-up. The subsequent explicit answer “Approve all ten compact designs” accepts the separately captured [360 px references](../mockups/preset-compact-v1/README.md); runtime and release evidence remain separate. Source/probe validation is not runtime or native qualification; later implementation follows the [fitting specification](../specs/responsive-fitting-spec.md). No provider record or accepted history was replaced.
+
+## Proposed workbench follow-up — 2026-09-13
+
+[ADR-0016](0016-organize-discovery-around-an-example-catalogue.md) proposes an
+app-owned example catalogue and separate landing/workbench pages.
+[ADR-0017](0017-default-new-workbench-examples-to-automatic-svg-sizing.md)
+proposes a narrow ADR-0015 successor for new workbench example defaults.
+Both remain **Proposed** pending review of the concrete records. No provider
+adoption or accepted historical decision changed. Test maintenance is separately
+authorized under ADR-0008/0009; later observations belong in the
+[workbench preparation receipt](../specs/workbench-preparation-evidence.md).

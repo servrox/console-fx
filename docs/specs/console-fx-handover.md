@@ -1,5 +1,12 @@
 # ConsoleFX — implementation handover for servrox/console-fx
 
+> **Pending product proposal (2026-09-13):** the
+> [workbench proposal](workbench-proposal.md) covers a separate short landing,
+> category sidebar, shared capability model and new-example sizing defaults.
+> Its ADR-0016/0017 remain Proposed. Existing accepted requirements apply until
+> review; product UI implementation has not started. The
+> [testing strategy](testing-strategy.md) is separately authorized maintenance.
+
 **Persistence status: saved.** This handover and the [approved implementation specification](console-fx-spec.md) record the approved review checkpoint and save-only revisions. That original save changed documentation only. Later authorized implementation is recorded in the [base evidence](console-fx-implementation-evidence.md) and [cinematic feature evidence](cinematic-metal-presets-evidence.md); this historical execution prompt does not replace the current task or its evidence. Commit, npm publication and studio deployment remain separately authorized actions.
 
 Target repository: `servrox/console-fx`. Core package: `@servrox/console-fx`. Required React adapter: `@servrox/console-fx-react`. The product includes an integrated Next.js landing page/studio and tested Next.js recipes. MIT is approved; asset/dependency rights, npm access, hosting, and publication remain later gates. A separate `@servrox/console-fx-next` package remains deferred.

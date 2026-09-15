@@ -47,34 +47,35 @@ describe("editable reference examples", () => {
       expect(calls).toEqual([output.args]);
     },
   );
-  it.each(["animatedSvg", "animatedDolphin"] as const)(
-    "%s has finite opt-in motion and a useful static image",
-    (id) => {
-      const recipe = referenceRecipe(id);
-      const moving = compileConsole(recipe.scene, {
-        ...recipe.options,
-        motion: "allow",
-      });
-      expect(moving.animated).toBe(true);
-      if (moving.preview.kind !== "svg") throw new Error("SVG expected");
-      const xml = decodeURIComponent(moving.preview.imageUri.split(",")[1]!);
-      const document = new JSDOM(xml, { contentType: "image/svg+xml" }).window
-        .document;
-      const animations = [
-        ...document.querySelectorAll("animate,animateTransform"),
-      ];
-      expect(animations.length).toBeGreaterThan(0);
-      expect(
-        animations.every(
-          (node) =>
-            node.getAttribute("repeatDur") === "4800ms" &&
-            node.getAttribute("fill") === "freeze",
-        ),
-      ).toBe(true);
-      expect(xml).not.toContain('repeatCount="indefinite"');
-      const still = compileConsole(recipe.scene, recipe.options);
-      expect(moving.text).toBe(still.text);
-      expect(moving.preview).not.toEqual(still.preview);
-    },
-  );
+  it.each(
+    REFERENCE_EXAMPLES.filter(
+      (example) => "motion" in example && example.motion,
+    ),
+  )("$name has finite opt-in motion and a useful static image", ({ id }) => {
+    const recipe = referenceRecipe(id);
+    const moving = compileConsole(recipe.scene, {
+      ...recipe.options,
+      motion: "allow",
+    });
+    expect(moving.animated).toBe(true);
+    if (moving.preview.kind !== "svg") throw new Error("SVG expected");
+    const xml = decodeURIComponent(moving.preview.imageUri.split(",")[1]!);
+    const document = new JSDOM(xml, { contentType: "image/svg+xml" }).window
+      .document;
+    const animations = [
+      ...document.querySelectorAll("animate,animateTransform"),
+    ];
+    expect(animations.length).toBeGreaterThan(0);
+    expect(
+      animations.every(
+        (node) =>
+          node.getAttribute("repeatDur") === "4800ms" &&
+          node.getAttribute("fill") === "freeze",
+      ),
+    ).toBe(true);
+    expect(xml).not.toContain('repeatCount="indefinite"');
+    const still = compileConsole(recipe.scene, recipe.options);
+    expect(moving.text).toBe(still.text);
+    expect(moving.preview).not.toEqual(still.preview);
+  });
 });
