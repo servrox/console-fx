@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { describe, it, expect, vi } from "vitest";
 import {
   compileConsole,
+  ConsoleCompileError,
   prepareTextMeasurements,
 } from "../src/browser/index.js";
 import { exportConsoleLog } from "../src/codegen/index.js";
@@ -113,6 +114,60 @@ describe("versioned fitting compatibility", () => {
       log.mockRestore();
     }
   });
+  it.each(["\u0301", "\ufe0f", "\u200d"])(
+    "preserves graphemes spanning styled runs during wrapping: %s",
+    (continuation) => {
+      const text = `A ${continuation}B`;
+      for (const texts of [
+        [text],
+        ["A ", `${continuation}B`],
+        ["A ", "", continuation, "B"],
+      ]) {
+        const scene = defineScene({
+          schemaVersion: 1,
+          label: "Styled grapheme",
+          surface: { padding: 0 },
+          lines: [
+            { runs: texts.map((text) => ({ text, style: { fontSize: 20 } })) },
+          ],
+        });
+        const original = JSON.stringify(scene);
+        const settings = {
+          ...options,
+          layout: { ...layout, width: 70, overflow: "wrap" as const },
+        };
+        const fallback = compileConsole(scene, {
+          ...settings,
+          unsupported: "fallback",
+        });
+        if (fallback.renderer === "text") {
+          expect(() => compileConsole(scene, settings)).toThrow(
+            ConsoleCompileError,
+          );
+        } else expect(fallback.layout!.visualRows).toBe(1);
+        expect(fallback.text).toBe(text);
+        const calls: unknown[][] = [];
+        new Function(
+          "console",
+          exportConsoleLog(scene, {
+            ...settings,
+            motion: "reduce",
+            unsupported: "fallback",
+          }).code,
+        )({ log: (...args: unknown[]) => calls.push(args) });
+        expect(calls).toEqual([fallback.args]);
+        const wide = compileConsole(scene, {
+          ...settings,
+          layout: { ...settings.layout, width: 720 },
+        });
+        expect(wide.layout!.visualRows).toBe(1);
+        expect(
+          wide.layout!.fragments.map((fragment) => fragment.text).join(""),
+        ).toBe(text);
+        expect(JSON.stringify(scene)).toBe(original);
+      }
+    },
+  );
   it("keeps algorithm identities isolated and validates optional font data", () => {
     const scene = defineScene({
       schemaVersion: 1,

@@ -19,7 +19,6 @@ import {
   utf8ByteLength,
 } from "@servrox/console-fx";
 import type {
-  EffectKind,
   ParameterDescriptor,
   Renderer,
   RenderRecipeV1,
@@ -271,8 +270,7 @@ export function Studio() {
   );
   const hasMotion = capabilities.hasMotion;
   const motionAvailable = capabilities.controls.motion.status !== "unavailable";
-  const runMotionAvailable =
-    capabilities.motionRuns[lineIndex]?.[runIndex] ?? false;
+  const effectOptions = capabilities.effectOptions[lineIndex]?.[runIndex] ?? [];
   const contentEditable =
     capabilities.controls.content.status !== "unavailable";
   const svgCapabilities = resolveCapabilities({
@@ -515,12 +513,9 @@ export function Studio() {
           )}
           <fieldset
             className="studio-fields"
-            disabled={
-              !ready ||
-              !!pendingShared ||
-              !!navigation.pending ||
-              !!rendererChange
-            }
+            // Native modal dialogs make outside controls inert while preserving
+            // their focus origin. Disabling this fieldset would blur it first.
+            disabled={!ready}
           >
             <legend className="sr-only">Scene editor</legend>
             <div className="editor-grid">
@@ -961,42 +956,39 @@ export function Studio() {
                               "unavailable" ||
                             run.effects.length >= LIMITS.effectsPerRun
                           }
-                          onChange={(event) =>
+                          onChange={(event) => {
+                            const addition = effectOptions.find(
+                              ({ descriptor }) =>
+                                descriptor.kind === event.target.value,
+                            );
+                            if (
+                              !addition ||
+                              addition.state.status === "unavailable"
+                            )
+                              return;
                             patchRun({
                               effects: [
                                 ...run.effects,
-                                { kind: event.target.value as EffectKind },
+                                { kind: addition.descriptor.kind },
                               ],
-                            })
-                          }
+                            });
+                          }}
                         >
                           <option value="">Choose an effect</option>
-                          {descriptors
-                            .filter(
-                              (descriptor) =>
-                                !run.effects.some(
-                                  (effect) =>
-                                    descriptors.find(
-                                      (item) => item.kind === effect.kind,
-                                    )?.motion === descriptor.motion,
-                                ),
-                            )
-                            .map((descriptor) => (
-                              <option
-                                value={descriptor.kind}
-                                key={descriptor.kind}
-                                disabled={
-                                  !descriptor.renderers.includes(renderer) ||
-                                  (!runMotionAvailable &&
-                                    descriptor.motion === "decorative")
-                                }
-                              >
-                                {descriptor.displayName}
-                                {descriptor.motion === "decorative"
+                          {effectOptions.map(({ descriptor, state }) => (
+                            <option
+                              value={descriptor.kind}
+                              key={descriptor.kind}
+                              disabled={state.status === "unavailable"}
+                            >
+                              {descriptor.displayName}
+                              {state.status === "unavailable"
+                                ? ` · ${state.reason}`
+                                : descriptor.motion === "decorative"
                                   ? " · SVG motion"
                                   : ""}
-                              </option>
-                            ))}
+                            </option>
+                          ))}
                         </select>
                       </label>
                       <p className="fine-print">

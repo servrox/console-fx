@@ -72,8 +72,7 @@ export default function Documentation() {
         <p>
           Use the core package when values change or a design is shared across
           your codebase. These examples use public imports only. Install the
-          verified 0.1.0 preview release from npm under the <code>next</code>{" "}
-          tag:
+          preview release from npm under the <code>next</code> tag:
         </p>
         <pre tabIndex={0}>
           <code>pnpm add @servrox/console-fx@next</code>
@@ -331,8 +330,8 @@ export default function Documentation() {
         <h2>Project status and license</h2>
         <p>
           The core, React adapter and studio use MIT. Both packages are
-          published at 0.1.0 under <code>next</code>. Standalone exports work
-          without a package dependency. See the{" "}
+          published under <code>next</code>. Standalone exports work without a
+          package dependency. See the{" "}
           <a href="https://github.com/servrox/console-fx">
             source and release evidence
           </a>{" "}

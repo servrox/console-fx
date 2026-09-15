@@ -152,6 +152,44 @@ export function resolveCapabilities(
         ),
       ),
     ),
+    effectOptions: Object.freeze(
+      scene.lines.map((line, lineIndex) =>
+        Object.freeze(
+          line.runs.map((run, runIndex) => {
+            const occupied = new Set(
+              run.effects.map(
+                (effect) =>
+                  descriptors.find((item) => item.kind === effect.kind)!.motion,
+              ),
+            );
+            return Object.freeze(
+              descriptors
+                .filter((descriptor) => !occupied.has(descriptor.motion))
+                .map((descriptor) => {
+                  const state =
+                    controls.effects.status === "unavailable"
+                      ? controls.effects
+                      : !descriptor.renderers.includes(
+                            options.renderer ?? "text",
+                          ) || options.target !== "chromium"
+                        ? unavailable("Choose a supported Chromium renderer.")
+                        : descriptor.kind === "cinematicMetal" &&
+                            occupied.has("decorative")
+                          ? unavailable(
+                              "Remove motion before choosing a static cinematic profile.",
+                            )
+                          : descriptor.motion === "decorative"
+                            ? motionRuns[lineIndex]![runIndex]
+                              ? controls.motion
+                              : unavailable("Cinematic profiles are static.")
+                            : available;
+                  return Object.freeze({ descriptor, state });
+                }),
+            );
+          }),
+        ),
+      ),
+    ),
     presentationParameters:
       presentation && policy.effects !== false
         ? available

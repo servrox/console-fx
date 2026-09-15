@@ -20,13 +20,20 @@ function append(
   return result;
 }
 
-/** fit/v1 breaks only at complete graphemes, ASCII spaces and CJK letter boundaries.
+/** Break at graphemes, ASCII spaces and CJK letter boundaries.
  * Tokens may cross style/run boundaries: styling cannot make an ID breakable.
  */
-export function wrapTokens(runs: readonly FlowRun[]): readonly Token[] {
+export function wrapTokens(
+  runs: readonly FlowRun[],
+  paragraphGraphemes = false,
+): readonly Token[] {
   // Without grapheme boundaries, retain the complete styled paragraph.
   if (typeof Intl.Segmenter !== "function") return [runs];
   const segmenter = new Intl.Segmenter("und", { granularity: "grapheme" });
+  // V2 also protects clusters spanning styled runs. V1 retains its recorded layout.
+  const paragraph = paragraphGraphemes
+    ? segmenter.segment(runs.map((run) => run.text).join(""))
+    : null;
   const pieces = runs.flatMap((run) =>
     (cinematicEffect(run)
       ? [run.text]
@@ -35,10 +42,13 @@ export function wrapTokens(runs: readonly FlowRun[]): readonly Token[] {
   );
   const tokens: FlowRun[][] = [];
   let token: FlowRun[] = [];
+  let offset = 0;
   for (const [i, piece] of pieces.entries()) {
     token = append(token, [piece]);
+    offset += piece.text.length;
     const next = pieces[i + 1]?.text ?? "";
     if (
+      (!paragraph || paragraph.containing(offset)?.index === offset) &&
       !/^[\u2060\ufeff]/u.test(next) &&
       (piece.text.endsWith(" ") || (cjk(piece.text) && cjk(next)))
     ) {
