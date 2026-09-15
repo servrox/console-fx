@@ -11,7 +11,7 @@ CI within the dated scopes below; publication and public promotion remain pendin
 requires all 24 acceptance criteria before the full launch; local checks alone do
 not authorize publication or establish CI or production success.
 
-## Current architecture candidate — 2026-09-12
+## Current architecture candidate — 2026-09-12–13
 
 The [architecture improvement receipt](specs/architecture-improvements-evidence.md)
 is the current status pointer for six review/fix passes starting at merged PR #10
@@ -23,10 +23,12 @@ for `0bea5491…` remains limited to that historical protected preview. The subs
 The maintainer later explicitly approved the PR #10 core `61672e00…`, React
 `eefa4f0b…`, and studio `298aaa32…` packet for npm `next` and an authenticated
 preview. That approval selects those preserved bytes, not a replacement build.
-The studio upload is READY; hosted verification and npm's additional interactive
-authentication are tracked in the current receipt. Public production promotion
-remains separate. Optional Vercel preview Toolbar injection was disabled for this
-project after a served-runtime hash/CSP conflict; authentication stays on all URLs.
+The studio upload is READY and its [hosted verification passed](evidence/hosting/2026-09-13/README.md).
+Both npm names remain absent after authentication/publication failures; the same
+receipt records recovery without changing the approved tarballs. Public production
+promotion remains separate. Optional Vercel preview Toolbar injection was disabled
+for this project after a served-runtime hash/CSP conflict; authentication stays on
+all URLs.
 
 The [prior improvement receipt](specs/launch-improvements.md) records completed
 Firefox observations. Missing physical mobile, integrated-GPU laptop, Safari and
