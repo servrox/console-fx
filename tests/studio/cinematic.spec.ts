@@ -47,6 +47,29 @@ test("cinematic gallery uses exact static previews, editable controls and one ex
   await expect(
     editor.getByRole("slider", { name: "Letter spacing", exact: true }),
   ).toBeEnabled();
+  const additions = editor.getByRole("combobox", {
+    name: "Add an effect",
+    exact: true,
+  });
+  await expect(additions.locator('option[value="wave"]')).toHaveAttribute(
+    "disabled",
+    "",
+  );
+  await editor
+    .getByRole("button", { name: "Remove Cinematic Metal", exact: true })
+    .click();
+  await additions.selectOption("wave");
+  const cinematicOption = additions.locator('option[value="cinematicMetal"]');
+  await expect(cinematicOption).toHaveAttribute("disabled", "");
+  await expect(cinematicOption).toContainText("Remove motion");
+  await expect(
+    editor.getByRole("button", { name: "Copy console.log", exact: true }),
+  ).toBeEnabled();
+  await editor
+    .getByRole("button", { name: "Remove Gentle wave", exact: true })
+    .click();
+  await expect(cinematicOption).not.toHaveAttribute("disabled");
+  await additions.selectOption("cinematicMetal");
   await editor
     .getByRole("checkbox", { name: "Ornaments", exact: true })
     .uncheck();

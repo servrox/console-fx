@@ -112,19 +112,16 @@ export function renderWithLayout(
     height: displayHeight,
     diagnostics,
     ...(plan ? { layout: plan.report } : {}),
-    ...(sizing || plan
-      ? {
-          sizing: {
-            mode: "fixed" as const,
-            artboard: { width, height },
-            resolvedDisplayWidth: displayWidth,
-            resolvedDisplayHeight: displayHeight,
-            displayScale: displayWidth / width,
-            displayReadability: plan
-              ? ("meets-requested-floor" as const)
-              : ("meets-default-floor" as const),
-          },
-        }
-      : {}),
+    // The early return already handled calls without sizing or a layout plan.
+    sizing: {
+      mode: "fixed",
+      artboard: { width, height },
+      resolvedDisplayWidth: displayWidth,
+      resolvedDisplayHeight: displayHeight,
+      displayScale: displayWidth / width,
+      displayReadability: plan
+        ? "meets-requested-floor"
+        : "meets-default-floor",
+    },
   };
 }

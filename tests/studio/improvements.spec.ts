@@ -5,6 +5,76 @@ test.use({ legacyDraft: true });
 
 const textName = { name: "Message text", exact: true };
 
+test.describe("confirmation focus recovery", () => {
+  test.use({ legacyDraft: false });
+  test("modal cancellation restores editor focus and preserves the recipe", async ({
+    page,
+  }) => {
+    const logs: string[] = [];
+    page.on("console", (entry) => {
+      if (entry.type() === "log") logs.push(entry.text());
+    });
+    await page.goto("/studio/");
+    await page
+      .getByRole("combobox", { name: "Format", exact: true })
+      .selectOption("recipe");
+    const code = page.getByLabel("Generated code", { exact: true });
+    const before = await code.inputValue();
+    const shared = encodeShare(neon({ text: "Incoming shared message" }));
+    if (!shared.ok) throw Error("Expected a valid shared scene");
+    const renderer = page.getByRole("combobox", {
+      name: "Output renderer",
+      exact: true,
+      includeHidden: true,
+    });
+    const preset = page.getByRole("combobox", {
+      name: "Start from a preset",
+      exact: true,
+      includeHidden: true,
+    });
+    const actions = [
+      {
+        trigger: renderer,
+        open: () => renderer.selectOption("css"),
+      },
+      {
+        trigger: preset,
+        open: () => preset.selectOption("preset:neon"),
+      },
+      {
+        trigger: page.getByRole("textbox", {
+          ...textName,
+          includeHidden: true,
+        }),
+        open: () =>
+          page.evaluate((hash) => {
+            window.location.hash = hash;
+          }, shared.value),
+      },
+    ];
+    for (const { trigger, open } of actions) {
+      await trigger.focus();
+      await open();
+      const dialog = page.getByRole("dialog");
+      await expect(dialog).toBeVisible();
+      await expect(
+        dialog.getByRole("button", { name: "Keep current scene" }),
+      ).toBeFocused();
+      expect(
+        await trigger.evaluate((element) => {
+          element.focus();
+          return document.activeElement === element;
+        }),
+      ).toBe(false);
+      await page.keyboard.press("Escape");
+      await expect(dialog).toBeHidden();
+      await expect(trigger).toBeFocused();
+      await expect(code).toHaveValue(before);
+    }
+    expect(logs).toEqual([]);
+  });
+});
+
 test("fitting applies without replacing focus and undo synchronizes numeric controls", async ({
   page,
 }) => {

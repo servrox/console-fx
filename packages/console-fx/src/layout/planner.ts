@@ -457,7 +457,7 @@ export function planSvgLayout(
         }
       }
       for (const paragraph of paragraphs) {
-        const tokens = wrapTokens(paragraph);
+        const tokens = wrapTokens(paragraph, floorPreserving);
         if (wrap) resolver.suggest?.(tokens);
         const fragments = wrap
           ? wrapTokensToRows(tokens, request.width - 2 * padding, (runs) => {

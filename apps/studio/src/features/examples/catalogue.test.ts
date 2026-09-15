@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { compileConsole } from "@servrox/console-fx/browser";
 import { exportConsoleLog } from "@servrox/console-fx/codegen";
-import { defineScene } from "@servrox/console-fx";
+import { defineScene, getEffectDescriptors } from "@servrox/console-fx";
 import { neon, lightningMetal } from "@servrox/console-fx/presets";
 import {
   listCatalogue,
@@ -204,6 +204,68 @@ describe("one catalogue and current-recipe capabilities", () => {
     expect(
       compileConsole(scene, { ...recipe.options, motion: "allow" }),
     ).toEqual(compiled);
+  });
+  it("offers only compatible effect additions and retains policy-disabled choices", () => {
+    for (const initial of [undefined, ...getEffectDescriptors()]) {
+      const scene = defineScene({
+        schemaVersion: 1,
+        label: "Effect combinations",
+        lines: [
+          {
+            runs: [
+              { text: "A", effects: initial ? [{ kind: initial.kind }] : [] },
+            ],
+          },
+        ],
+      });
+      const recipe = recipeOf(initialDocument(scene));
+      const settings = {
+        renderer: "svg",
+        target: "chromium",
+        motion: "reduce",
+      } as const;
+      const current = { ...recipe, options: settings };
+      const before = JSON.stringify(current);
+      const additions = resolveCapabilities(current).effectOptions[0]![0]!;
+      if (initial?.motion === "decorative") {
+        expect(
+          additions.find(
+            ({ descriptor }) => descriptor.kind === "cinematicMetal",
+          )?.state,
+        ).toMatchObject({
+          status: "unavailable",
+          reason: expect.stringMatching(/Remove motion/),
+        });
+      }
+      for (const { descriptor, state } of additions) {
+        if (state.status === "unavailable") continue;
+        const candidate = defineScene({
+          ...scene,
+          lines: [
+            {
+              runs: [
+                {
+                  ...scene.lines[0]!.runs[0]!,
+                  effects: [
+                    ...scene.lines[0]!.runs[0]!.effects,
+                    { kind: descriptor.kind },
+                  ],
+                },
+              ],
+            },
+          ],
+        });
+        expect(
+          compileConsole(candidate, { ...settings, motion: "allow" }).renderer,
+        ).toBe("svg");
+      }
+      const blocked = resolveCapabilities(current, { effects: false })
+        .effectOptions[0]![0]!;
+      expect(blocked.every(({ state }) => state.status === "unavailable")).toBe(
+        true,
+      );
+      expect(JSON.stringify(current)).toBe(before);
+    }
   });
   it("converts existing work in one undoable load without changing raw-scene defaults", () => {
     const original = initialDocument(neon({ text: "saved" }));
