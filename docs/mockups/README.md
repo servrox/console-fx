@@ -1,6 +1,6 @@
 # ConsoleFX visual direction
 
-Design mockups for `servrox/console-fx`, using the planned `@servrox/console-fx` and `@servrox/console-fx-react` package names. These assets supplement, but do not replace, the [implementation specification](../specs/console-fx-spec.md).
+Design mockups for `servrox/console-fx`, using the `@servrox/console-fx` and `@servrox/console-fx-react` package names. The implementation now exists as a release candidate; see the [implementation receipt](../specs/console-fx-implementation-evidence.md) for its validation and publication status. These assets supplement, but do not replace, the [implementation specification](../specs/console-fx-spec.md).
 
 ## Current reference: landing page, examples, and playground
 
@@ -32,7 +32,7 @@ Keep the combined page hierarchy: hero and primary action, output-example galler
 | [playground-desktop.svg](playground-desktop.svg) | 1440 × 1024 | Earlier expanded editing workspace |
 | [landing-mobile.svg](landing-mobile.svg) | 390 × 1740 | Earlier stacked mobile landing page and playground |
 
-The AVIF is a lossy, resized preview of the supplied 1448 × 1086 PNG, preserving its composition. The full-resolution PNG is not part of this repository update. Each SVG is its own editable source and can be opened in a browser or an SVG-capable design editor. Relative references in the root README point to these committed assets. Controls in every mockup are drawn, not interactive. The separate [console prototype](../../examples/animated-console.js) remains runnable without the future npm package.
+The AVIF is a lossy, resized preview of the supplied 1448 × 1086 PNG, preserving its composition. The full-resolution PNG is not part of this repository update. Each SVG is its own editable source and can be opened in a browser or an SVG-capable design editor. Relative references in the root README point to these committed assets. Controls in every mockup are drawn, not interactive. The separate [console prototype](../../examples/animated-console.js) remains runnable without installing a package.
 
 ## Concept placeholders and scope boundaries
 

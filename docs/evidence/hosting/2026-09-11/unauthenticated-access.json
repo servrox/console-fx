@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-09-11T16:54:43.671513+00:00",
+  "credentialsUsed": false,
+  "requests": [
+    {
+      "host": "console-h1txxfsea-servroxs-projects.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    },
+    {
+      "host": "console-fx.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    },
+    {
+      "host": "console-fx-servroxs-projects.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    }
+  ]
+}

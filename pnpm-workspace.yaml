@@ -1,0 +1,15 @@
+packages:
+  - packages/*
+  - apps/*
+
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+verifyDepsBeforeRun: error
+engineStrict: true
+strictPeerDependencies: true
+saveExact: true
+blockExoticSubdeps: true
+allowBuilds:
+  esbuild: false
+  sharp: false
+  unrs-resolver: false

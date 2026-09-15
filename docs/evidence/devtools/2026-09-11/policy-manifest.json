@@ -1,0 +1,57 @@
+{
+  "archive": "policy-observations.tar.gz",
+  "sha256": "0a040ad992dd27119d083d2f49174a6cdc6822c5999372ce806c30306eba8eae",
+  "files": [
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-53-47.570Z/generated-default-early.png",
+      "sha256": "5b4c35c992c7dbae4f95ed359734a31e9609abfddd2ed6f2ce464d6553d666f4",
+      "bytes": 21512
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-53-47.570Z/generated-default-later.png",
+      "sha256": "5b4c35c992c7dbae4f95ed359734a31e9609abfddd2ed6f2ce464d6553d666f4",
+      "bytes": 21512
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-53-47.570Z/generated-system-reduce-early.png",
+      "sha256": "5b4c35c992c7dbae4f95ed359734a31e9609abfddd2ed6f2ce464d6553d666f4",
+      "bytes": 21512
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-53-47.570Z/generated-system-reduce-later.png",
+      "sha256": "5b4c35c992c7dbae4f95ed359734a31e9609abfddd2ed6f2ce464d6553d666f4",
+      "bytes": 21512
+    },
+    {
+      "path": "reports/chrome-lifecycle-2026-09-11T15-53-47.570Z/observations.json",
+      "sha256": "be2e2832b94361f4649e6487a60d267c813a1f9db18004604e233e4e830c83c5",
+      "bytes": 10278
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-54-30.520Z/generated-default-early.png",
+      "sha256": "ab60ea4cb856fbb4c1c0c47efb0041a76f9e774e972cf4feeca58a2513dc4755",
+      "bytes": 19902
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-54-30.520Z/generated-default-later.png",
+      "sha256": "ab60ea4cb856fbb4c1c0c47efb0041a76f9e774e972cf4feeca58a2513dc4755",
+      "bytes": 19902
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-54-30.520Z/generated-system-reduce-early.png",
+      "sha256": "ab60ea4cb856fbb4c1c0c47efb0041a76f9e774e972cf4feeca58a2513dc4755",
+      "bytes": 19902
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-54-30.520Z/generated-system-reduce-later.png",
+      "sha256": "ab60ea4cb856fbb4c1c0c47efb0041a76f9e774e972cf4feeca58a2513dc4755",
+      "bytes": 19902
+    },
+    {
+      "path": "reports/edge-lifecycle-2026-09-11T15-54-30.520Z/observations.json",
+      "sha256": "19ce34ca76ae543c30cd8ad23c76452adc478aa976cb8841b4be3bdf5181daea",
+      "bytes": 10502
+    }
+  ],
+  "result": "Four actual native Console cases: one call, exact static args and identical pixels after one second for default and system-reduce output, on both browsers."
+}

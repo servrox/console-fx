@@ -1,0 +1,127 @@
+name: Publish reviewed packages
+
+# Enable trusted publishers and the npm-publish environment only after the
+# separately approved first-publication bootstrap. This never runs on push/PR.
+on:
+  workflow_dispatch:
+    inputs:
+      validation_run_id:
+        description: Successful Validate candidate run for this main commit
+        required: true
+        type: string
+      core_sha256:
+        description: Reviewed core tarball SHA-256
+        required: true
+        type: string
+      react_sha256:
+        description: Reviewed React adapter tarball SHA-256
+        required: true
+        type: string
+      dist_tag:
+        description: Approved npm distribution tag
+        required: true
+        type: choice
+        default: next
+        options: [next, latest]
+      packages:
+        description: Approved package scope (single-package choices support recovery)
+        required: true
+        type: choice
+        default: both
+        options: [both, core, react]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.repository == 'servrox/console-fx' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.validation.outputs.artifact_id }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.20.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - name: Verify successful validation for this source commit
+        id: validation
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CONSOLE_FX_VALIDATION_RUN_ID: ${{ inputs.validation_run_id }}
+        run: node scripts/verify-release.mjs run
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          artifact-ids: ${{ steps.validation.outputs.artifact_id }}
+          run-id: ${{ inputs.validation_run_id }}
+          github-token: ${{ github.token }}
+          path: .artifacts/release
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Verify the reviewed tarballs without rebuilding
+        id: candidate
+        env:
+          CONSOLE_FX_RELEASE_ARTIFACTS: .artifacts/release/.artifacts/packages
+          CONSOLE_FX_CORE_SHA256: ${{ inputs.core_sha256 }}
+          CONSOLE_FX_REACT_SHA256: ${{ inputs.react_sha256 }}
+          CONSOLE_FX_DIST_TAG: ${{ inputs.dist_tag }}
+        run: node scripts/verify-release.mjs artifacts
+
+  publish:
+    needs: verify
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment: npm-publish
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.20.0
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          artifact-ids: ${{ needs.verify.outputs.artifact_id }}
+          run-id: ${{ inputs.validation_run_id }}
+          github-token: ${{ github.token }}
+          path: .artifacts/release
+          merge-multiple: true
+          digest-mismatch: error
+      - name: Recheck approved bytes after environment approval
+        id: candidate
+        env:
+          CONSOLE_FX_RELEASE_ARTIFACTS: .artifacts/release/.artifacts/packages
+          CONSOLE_FX_CORE_SHA256: ${{ inputs.core_sha256 }}
+          CONSOLE_FX_REACT_SHA256: ${{ inputs.react_sha256 }}
+          CONSOLE_FX_DIST_TAG: ${{ inputs.dist_tag }}
+        run: node scripts/verify-release.mjs artifacts
+      - name: Publish the approved core artifact through npm OIDC
+        if: inputs.packages == 'both' || inputs.packages == 'core'
+        env:
+          CONSOLE_FX_TARBALL: ${{ steps.candidate.outputs.core_tarball }}
+          CONSOLE_FX_DIST_TAG: ${{ steps.candidate.outputs.dist_tag }}
+        run: npm publish "$CONSOLE_FX_TARBALL" --access public --tag "$CONSOLE_FX_DIST_TAG" --provenance --ignore-scripts
+      - name: Publish the approved React adapter artifact through npm OIDC
+        if: inputs.packages == 'both' || inputs.packages == 'react'
+        env:
+          CONSOLE_FX_TARBALL: ${{ steps.candidate.outputs.react_tarball }}
+          CONSOLE_FX_DIST_TAG: ${{ steps.candidate.outputs.dist_tag }}
+        run: npm publish "$CONSOLE_FX_TARBALL" --access public --tag "$CONSOLE_FX_DIST_TAG" --provenance --ignore-scripts

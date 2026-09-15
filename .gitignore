@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.next/
+out/
+.pnpm-store/
+.artifacts/
+.playwright-mcp/
+playwright-report/
+test-results/
+coverage/
+*.tsbuildinfo
+.env*
+!.env.example
+.vercel/
+/.worktrees/

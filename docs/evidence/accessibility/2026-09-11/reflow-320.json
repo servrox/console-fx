@@ -1,0 +1,20 @@
+{
+  "method": "320 CSS-pixel viewport; not a native zoom claim",
+  "cases": [
+    {
+      "path": "/studio/",
+      "innerWidth": 320,
+      "scrollWidth": 305
+    },
+    {
+      "path": "/",
+      "innerWidth": 320,
+      "scrollWidth": 305
+    },
+    {
+      "path": "/docs/",
+      "innerWidth": 320,
+      "scrollWidth": 305
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@servrox/console-fx-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "node ../../scripts/third-party-notices.mjs && next build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@servrox/console-fx": "workspace:*",
+    "@servrox/console-fx-react": "workspace:*",
+    "next": "16.3.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

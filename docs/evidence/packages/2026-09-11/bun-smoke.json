@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-09-11T17:08:27.306238+00:00",
+  "runtime": "Bun 1.4.2",
+  "environment": "NixOS WSL2 nixos",
+  "executable": "/nix/store/gdr416qvx5vf3rynyfa19qplfpxjxbxq-bun-1.4.2/bin/bun",
+  "candidatePackages": [
+    {
+      "name": "@servrox/console-fx",
+      "version": "0.1.0",
+      "sha256": "5740c25432bf5e88abf6c0b65560383a6daeeb27694a59c85432b680c20350e1"
+    },
+    {
+      "name": "@servrox/console-fx-react",
+      "version": "0.1.0",
+      "sha256": "51a2f2dd752718e8905a1955db7a83486125c469a6247ac2b29b1a7a04f2017a"
+    }
+  ],
+  "consumerDirectory": "/tmp/console-fx-consumer-vpIXTn",
+  "command": "bun checks/vanilla/check.mjs",
+  "fixtureSha256": "b6aa84059ebe00ab5e8240085cc97a9e4fd088e656a67780776210f79d3a4c81",
+  "result": "pass",
+  "scope": "Isolated packed core package public imports, validation, descriptors, compilation, one emission, code generation and rejection of private subpath imports. Does not qualify terminal CSS/SVG rendering or make Bun the build toolchain.",
+  "runtimeDifference": "Bun 1.4.2 rejects a private package subpath with ERR_MODULE_NOT_FOUND; Node 24.20.0 uses ERR_PACKAGE_PATH_NOT_EXPORTED. The shared fixture checks the appropriate runtime code; both passed.",
+  "initialAttempt": "The Node-specific error-code assertion initially failed under Bun. Positive package checks had passed; the private import was rejected. No package implementation changed."
+}

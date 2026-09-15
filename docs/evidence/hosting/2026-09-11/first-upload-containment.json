@@ -1,0 +1,63 @@
+{
+  "recordedAt": "2026-09-11T16:33:27.111943+00:00",
+  "requestedTarget": "preview",
+  "actualTarget": "production",
+  "deploymentId": "dpl_2mNWEVNx8QrGYS9jtYDahKh7yphu",
+  "artifactFingerprint": "0bea5491f11323f4234d065d6d1207fcdba6e14841a1872efb0a4584dabfa3f1",
+  "unexpectedPublicHost": "console-fx.vercel.app",
+  "observedBeforePause": "HTTP 200 ConsoleFX application without authentication",
+  "containment": "project paused via Vercel API",
+  "afterPause": [
+    {
+      "host": "console-hhlwz34lm-servroxs-projects.vercel.app",
+      "status": 503,
+      "location": null,
+      "bodyPrefix": "The deployment is currently unavailable\n\nDEPLOYMENT_PAUSED\n\nfra1::47jh6-1789144407167-599a9e3bd974\n"
+    },
+    {
+      "host": "console-fx.vercel.app",
+      "status": 503,
+      "location": null,
+      "bodyPrefix": "The deployment is currently unavailable\n\nDEPLOYMENT_PAUSED\n\nfra1::74ws2-1789144407349-1ed217d86c4a\n"
+    },
+    {
+      "host": "console-fx-servroxs-projects.vercel.app",
+      "status": 503,
+      "location": null,
+      "bodyPrefix": "The deployment is currently unavailable\n\nDEPLOYMENT_PAUSED\n\nfra1::hlfq2-1789144407419-1b8dc72aa19b\n"
+    }
+  ],
+  "allUrlProtectionVerifiedAt": "2026-09-11T16:40:35.142644+00:00",
+  "ssoProtection": "all",
+  "paused": false,
+  "afterResume": [
+    {
+      "host": "console-9eykbydc0-servroxs-projects.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    },
+    {
+      "host": "console-hhlwz34lm-servroxs-projects.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    },
+    {
+      "host": "console-fx.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    },
+    {
+      "host": "console-fx-servroxs-projects.vercel.app",
+      "status": 302,
+      "locationHost": "vercel.com"
+    }
+  ],
+  "firstUploadCreatedAt": "2026-09-11T16:25:51.887Z",
+  "requestedCommandTarget": "--target preview",
+  "recoveryPreviewId": "dpl_4g7hUC5pNBh7bnGbTGNrTrRThmGB",
+  "recoveryPreviewUrl": "https://console-h1txxfsea-servroxs-projects.vercel.app",
+  "recoveryPreviewState": "READY",
+  "finalProtection": "Vercel Authentication on all assigned and deployment URLs",
+  "thirdPartyAccess": "Not investigated; no claim that the brief public interval had no visitors.",
+  "upstreamContext": "Similar behavior is reported at https://github.com/vercel/vercel/issues/17069; the underlying cause of this occurrence has not been confirmed."
+}
