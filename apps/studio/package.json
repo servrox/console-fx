@@ -12,7 +12,7 @@
   "dependencies": {
     "@servrox/console-fx": "workspace:*",
     "@servrox/console-fx-react": "workspace:*",
-    "next": "16.3.4",
+    "next": "16.3.8",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   }
